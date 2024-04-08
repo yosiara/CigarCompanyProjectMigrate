@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ========================================================================================================
+        Security incidents
+        model: security_incident
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="security_incidents_form_view" model="ir.ui.view">
+            <field name="name">security_incidents_form_view</field>
+            <field name="model">computers_inventory.security_incident</field>
+            <field name="arch" type="xml">
+                <form create="true" edit="true" delete="true">
+                    <sheet>
+                        <group>
+                            <group col="2">
+                                <separator colspan="2" string="About Incident"/>
+                                <field name="detection_date"/>
+                                <field name="datetime_start"/>
+                                <field name="datetime_end"/>
+                                <field name="id_code"/>
+                                <field name="detector"/>
+                                <field name="incident"/>
+                                <field name="observations"/>
+                                <field name="provisions_applied"/>
+                            </group>
+                            <group col="2">
+                                <separator colspan="2" string="About computer"/>
+                                <field name="equipment_id" options="{'no_quick_create': True, 'no_create_edit': True}"/>
+                                <field name="employee_id"/>
+                                <field name="department_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="security_incidents_tree_view" model="ir.ui.view">
+            <field name="name">security_incidents_tree_view</field>
+            <field name="model">computers_inventory.security_incident</field>
+            <field name="arch" type="xml">
+                <tree edit="true" create="true" delete="true">
+                    <field name="id_code"/>
+                    <field name="detection_date"/>
+                    <field name="detector"/>
+                    <field name="equipment_id"/>
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                    <field name="incident"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- ACTION -->
+        <record id="security_incidents_action" model="ir.actions.act_window">
+            <field name="name">Security incidents</field>
+            <field name="res_model">computers_inventory.security_incident</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="security_incidents_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new security incident.
+                </p>
+            </field>
+        </record>
+
+
+        <!-- MENU ITEM -->
+        <menuitem name="Security incidents"
+                  id="menu_item_security_incidents"
+                  parent="menu_records"
+                  action="security_incidents_action"
+                  groups="computers_inventory_manager"
+                  sequence="2"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+
+import report_inventory
+import report_security_incident
+import report_inspection
+import report_control_applications
+import report_saves
+import report_audit_plan
+import report_inventory_docx
+import report_inspection_docx
+import report_security_incident_docx
+import report_control_applications_docx
+import report_saves_docx
+import report_authorized_software_docx
+import report_system_service_application_docx

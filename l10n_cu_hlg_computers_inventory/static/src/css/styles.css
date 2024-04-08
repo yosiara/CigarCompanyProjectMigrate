@@ -1,0 +1,18 @@
+
+.notification_area {
+    padding: 8px;
+    background-color: rgba(240, 238, 238, 0.7);
+    border: 1px solid #150f1b1a;
+    display: flex;
+}
+
+.tr_report {
+    border-top: 1px double #000000;
+    border-bottom: 1px double #000000;
+    border-left: 1px double #000000;
+    border-right: 1px double #000000;
+    padding-top: 0cm;
+    padding-bottom: 0cm;
+    padding-left: 0cm;
+    padding-right: 0cm
+}

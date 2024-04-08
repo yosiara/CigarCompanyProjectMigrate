@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <report string="Inventory"
+                id="action_report_inventory"
+                model="maintenance.equipment"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_computers_inventory.report_inventory"
+                file="l10n_cu_hlg_computers_inventory.report_inventory"
+                paperformat="l10n_cu_hlg_computers_inventory.paper_format_inventory"
+                menu="True"/>
+
+        <report string="Security Incident"
+                id="action_report_security_incident"
+                model="l10n_cu_hlg_computers_inventory.security_incident"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_computers_inventory.report_security_incident"
+                file="l10n_cu_hlg_computers_inventory.report_security_incident"
+                paperformat="l10n_cu_hlg_computers_inventory.paperformat_horizontal"
+                menu="False"/>
+
+        <report string="Inspection"
+                id="action_report_inspection"
+                model="inspection"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_computers_inventory.report_inspection"
+                file="l10n_cu_hlg_computers_inventory.report_inspection"
+                paperformat="l10n_cu_hlg_computers_inventory.paperformat_horizontal"
+                menu="False"/>
+
+        <report string="Audit Plan"
+                id="action_report_audit_plan"
+                model="audit_plan"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_computers_inventory.report_audit_plan"
+                file="l10n_cu_hlg_computers_inventory.report_audit_plan"
+                paperformat="l10n_cu_hlg_computers_inventory.paperformat_vertical"
+                menu="False"/>
+
+        <report string="Equipment Label"
+                id="action_report_equipment_label"
+                model="maintenance.equipment"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_computers_inventory.report_equipment_label"
+                file="l10n_cu_hlg_computers_inventory.report_equipment_label"
+                paperformat="l10n_cu_hlg_computers_inventory.paperformat_vertical"
+                menu="True"/>
+
+        <report string="Software authorization request"
+                id="action_report_authorized_software"
+                model="computers_inventory.authorized_software"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_computers_inventory.report_authorized_software"
+                file="l10n_cu_hlg_computers_inventory.report_authorized_software"
+                paperformat="l10n_cu_hlg_computers_inventory.paperformat_vertical"
+                menu="True"/>
+
+        <report string="System/Service Application"
+                id="action_report_system_service_application"
+                model="computers_inventory.system_service_application"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_computers_inventory.report_system_service_application"
+                file="l10n_cu_hlg_computers_inventory.report_system_service_application"
+                paperformat="l10n_cu_hlg_computers_inventory.paperformat_vertical"
+                menu="True"/>
+
+        <record id="action_report_inventory_docx" model="ir.actions.report.xml">
+            <field name="name">Inventory(DOCX)</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="report_name">l10n_cu_hlg_computers_inventory.report_inventory_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">l10n_cu_hlg_computers_inventory</field>
+            <field name="docxtpl_template_fallback">reports/docx/report_inventory.docx</field>
+        </record>
+        <!-- Add entry in "Print" drop-down list -->
+        <record id="button_action_report_inventory_docx" model="ir.values">
+            <field name="key2">client_print_multi</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="name">Inventory(DOCX)</field>
+            <field name="value" eval="'ir.actions.report.xml,%d'%action_report_inventory_docx"/>
+        </record>
+
+        <record id="action_report_authorized_software_docx" model="ir.actions.report.xml">
+            <field name="name">Software authorization request(DOCX)</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">computers_inventory.authorized_software</field>
+            <field name="report_name">l10n_cu_hlg_computers_inventory.report_auth_soft_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">l10n_cu_hlg_computers_inventory</field>
+            <field name="docxtpl_template_fallback">reports/docx/report_authorized_software.docx</field>
+        </record>
+        <!-- Add entry in "Print" drop-down list -->
+        <record id="button_action_report_authorized_software_docx" model="ir.values">
+            <field name="key2">client_print_multi</field>
+            <field name="model">computers_inventory.authorized_software</field>
+            <field name="name">Software authorization request(DOCX)</field>
+            <field name="value" eval="'ir.actions.report.xml,%d'%action_report_authorized_software_docx"/>
+        </record>
+
+        <record id="action_report_inspection_docx" model="ir.actions.report.xml">
+            <field name="name">Inspection(DOCX)</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">computers_inventory.inspection</field>
+            <field name="report_name">l10n_cu_hlg_computers_inventory.report_inspection_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">l10n_cu_hlg_computers_inventory</field>
+            <field name="docxtpl_template_fallback">reports/docx/report_inspection.docx</field>
+        </record>
+
+        <record id="action_report_security_incident_docx" model="ir.actions.report.xml">
+            <field name="name">Security Incidents(DOCX)</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">computers_inventory.security_incident</field>
+            <field name="report_name">l10n_cu_hlg_computers_inventory.report_sec_incident_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">l10n_cu_hlg_computers_inventory</field>
+            <field name="docxtpl_template_fallback">reports/docx/report_security_incident.docx</field>
+        </record>
+
+        <record id="action_report_control_docx" model="ir.actions.report.xml">
+            <field name="name">Applications Control(DOCX)</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">computers_inventory.authorized_software</field>
+            <field name="report_name">l10n_cu_hlg_computers_inventory.report_control_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">l10n_cu_hlg_computers_inventory</field>
+            <field name="docxtpl_template_fallback">reports/docx/report_control.docx</field>
+        </record>
+
+        <record id="action_report_saves_docx" model="ir.actions.report.xml">
+            <field name="name">Record of save planning(DOCX)</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">computers_inventory.planning_saves</field>
+            <field name="report_name">l10n_cu_hlg_computers_inventory.report_saves_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">l10n_cu_hlg_computers_inventory</field>
+            <field name="docxtpl_template_fallback">reports/docx/report_saves.docx</field>
+        </record>
+
+        <record id="action_report_system_service_application_docx" model="ir.actions.report.xml">
+            <field name="name">System/Service Application(DOCX)</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">computers_inventory.system_service_application</field>
+            <field name="report_name">l10n_cu_hlg_computers_inventory.report_sys_ser_app_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">l10n_cu_hlg_computers_inventory</field>
+            <field name="docxtpl_template_fallback">reports/docx/report_system_service_application.docx</field>
+        </record>
+
+        <!-- Add entry in "Print" drop-down list -->
+        <record id="button_action_report_system_service_application_docx" model="ir.values">
+            <field name="key2">client_print_multi</field>
+            <field name="model">computers_inventory.system_service_application</field>
+            <field name="name">System/Service Application(DOCX)</field>
+            <field name="value" eval="'ir.actions.report.xml,%d'%action_report_system_service_application_docx"/>
+        </record>
+
+    </data>
+</odoo>

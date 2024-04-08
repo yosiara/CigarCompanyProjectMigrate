@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="df_locals_import_wzd_view_form"	model="ir.ui.view">
+			<field name="name">df_locals_import_wzd.form</field>
+			<field name="model">df_locals.import_wzd</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Importar Locales">					
+                    <separator string="Asistente para importar locales."/>
+                    <group colspan="4">
+                        <label string="Este asistente para importar los locales desde el versat." colspan="4"/>
+                        <p>Click en <b>Importar</b> para iniciar el proceso...</p>
+                    </group>                    
+                    <footer>                        
+                        <div>
+                            <button name="do_import_area" string="Importar" type="object" class="oe_highlight"/> o
+                            <button special="cancel" string="Cerrar" class="oe_link"/>
+                        </div>
+                    </footer>					 
+				</form>
+			</field>
+		</record>
+
+		<record id="action_df_locals_import_wzd_view_form" model="ir.actions.act_window">
+			<field name="name">Importar Locales</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">df_locals.import_wzd</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+		
+		<menuitem id="df_locals_import_wzd_menu" action="action_df_locals_import_wzd_view_form" groups="base.group_structure_manager" 
+		parent="df_fisical_structure_menu_item" />
+
+	</data>
+</openerp>

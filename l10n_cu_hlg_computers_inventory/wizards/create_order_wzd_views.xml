@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="computers_inventory_create_order_wzd_form" model="ir.ui.view">
+            <field name="name">computers_inventory.create_order_wzd.form</field>
+            <field name="model">computers_inventory.create_order_wzd</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Create Work Order">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="number"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <div>
+                            <button name="create_order" string="Create" type="object"
+                                    class="oe_highlight"/>
+                            <button special="cancel" string="Cancel" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

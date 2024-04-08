@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="approve_movements_wzd_form" model="ir.ui.view">
+            <field name="name">approve_movements_wzd_form</field>
+            <field name="model">computers_inventory.approve_movements_wzd</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <separator
+                                string="De click en Aprobar para aprobar todos los movimientos del equipamiento seleccionado."/>
+                    </sheet>
+
+                    <footer>
+                        <div>
+                            <button name="approve_all" string="Aprobar" type="object"
+                                    class="oe_highlight"/>
+                            o
+                            <button special="cancel" string="Cancelar" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Aprobar movimientos"
+                res_model="computers_inventory.approve_movements_wzd"
+                src_model="maintenance.equipment"
+                view_mode="form"
+                multi="True"
+                target="new"
+                key2="client_action_multi"
+                id="action_approve_movements_wzd"/>
+    </data>
+</openerp>

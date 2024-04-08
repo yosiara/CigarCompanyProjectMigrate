@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_model_df_locals.employee,model_df_locals.employee,model_l10n_cu_locals_local,base.group_user,1,0,0,0
+access_model_df_locals.manager,model_df_locals.manager,model_l10n_cu_locals_local,base.group_structure_manager,1,1,1,1
+

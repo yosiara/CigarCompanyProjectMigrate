@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ========================================================================================================
+        Equipment Component
+        model: equipment.component
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="equipment_component_equipment_form_view" model="ir.ui.view">
+            <field name="name">equipment_component_equipment_form_view</field>
+            <field name="model">equipment.component</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="ocs_external_id" invisible="1"/>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="name" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            </h2>
+                        </div>
+
+                        <field name="id" invisible="1"/>
+                        <group col="4">
+                            <field name="component_type" attrs="{'readonly': [('id', '!=', False)]}"/>
+                            <field name="inventory_number"
+                                   attrs="{'invisible': [('component_type', 'not in', ('monitor','input_device','printer','ups','fax','scanner','speaker'))]}"/>
+                            <field name="type" attrs="{'readonly': [('id', '!=', False)]}"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="manufacturer" readonly="1"/>
+                                <field name="model" readonly="1"/>
+                                <field name="serial_no" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="manufacturer_custom"/>
+                                <field name="model_custom"/>
+                                <field name="serial_no_custom"/>
+                            </group>
+                        </group>
+                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'motherboard')]}">
+                            <field name="version" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        </group>
+                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'monitor')]}">
+                            <field name="manufactured_date"/>
+                        </group>
+                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'microprocessor')]}">
+                            <field name="frequency" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="socket_type" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="architecture" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="cores_number" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        </group>
+                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'memory')]}">
+                            <field name="speed" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="capacity" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="slot_used" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="slot_description" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        </group>
+                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'storage')]}">
+                            <field name="firmware" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="disk_size" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        </group>
+                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'video_card')]}">
+                            <field name="memory" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="chipset" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="resolution" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        </group>
+                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'network')]}">
+                            <field name="ip" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="mac" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="status" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="speed" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        </group>
+                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'input_device')]}">
+                            <field name="interface" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        </group>
+                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'printer')]}">
+                            <field name="port" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                            <field name="driver" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        </group>
+                        <group col="1">
+                            <label for="description"/>
+                            <field name="description" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"
+                                   nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="equipment_component_view_tree" model="ir.ui.view">
+            <field name="name">equipment_component_view_tree</field>
+            <field name="model">equipment.component</field>
+            <field name="arch" type="xml">
+                <tree string="Equipment Component Tree">
+                    <field name="equipment_id"/>
+                    <field name="component_type"/>
+                    <field name="manufacturer"/>
+                    <field name="manufacturer_custom"/>
+                    <field name="model"/>
+                    <field name="model_custom"/>
+                    <field name="serial_no"/>
+                    <field name="serial_no_custom"/>
+                    <field name="specific_properties_str"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="equipment_component_search_view" model="ir.ui.view">
+            <field name="name">Equipment's Components Search</field>
+            <field name="model">equipment.component</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <filter string="Motherboard" domain="[('component_type', '=', 'motherboard')]"/>
+                    <filter string="Microprocessor" domain="[('component_type', '=', 'microprocessor')]"/>
+                    <filter string="RAM" domain="[('component_type', '=', 'memory')]"/>
+                    <filter string="Monitor" domain="[('component_type', '=', 'monitor')]"/>
+                    <filter string="Network" domain="[('component_type', '=', 'network')]"/>
+                    <filter string="Storage" domain="[('component_type', '=', 'storage')]"/>
+                    <filter string="Video Card" domain="[('component_type', '=', 'video_card')]"/>
+                    <filter string="Sound Card" domain="[('component_type', '=', 'sound_card')]"/>
+                    <filter string="Input Device" domain="[('component_type', '=', 'input_device')]"/>
+                    <filter string="Modem" domain="[('component_type', '=', 'modem')]"/>
+                    <filter string="Printer" domain="[('component_type', '=', 'printer')]"/>
+                    <filter string="UPS" domain="[('component_type', '=', 'ups')]"/>
+                    <filter string="Fax" domain="[('component_type', '=', 'fax')]"/>
+                    <filter string="Scanner" domain="[('component_type', '=', 'scanner')]"/>
+                    <filter string="Power Source" domain="[('component_type', '=', 'power_source')]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_equipment_type" string="Equipment > Component type" domain="[]"
+                                context="{'group_by': ['equipment_id', 'component_type']}"/>
+                        <filter name="group_by_equipment" string="Equipment" domain="[]"
+                                context="{'group_by':'equipment_id'}"/>
+                        <filter name="group_by_type" string="Component Type" domain="[]"
+                                context="{'group_by':'component_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="equipment_component_view_action" model="ir.actions.act_window">
+            <field name="name">Components</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">equipment.component</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{"search_default_group_by_equipment_type":1}</field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="equipment_component_view_menu" name="Components" parent="computers_inventory_equipment_menu_item"
+                  action="equipment_component_view_action"
+                  groups="computers_inventory_executor,computers_inventory_manager"
+                  sequence="111"/>
+    </data>
+</odoo>

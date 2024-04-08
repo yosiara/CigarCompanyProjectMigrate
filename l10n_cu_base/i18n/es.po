@@ -1,0 +1,470 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_cu_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-03 13:55+0000\n"
+"PO-Revision-Date: 2018-12-03 13:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.view_partner_form_inherit
+msgid "11111111111"
+msgstr "11111111111"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.view_partner_form_inherit
+msgid "24486666"
+msgstr "24486666"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.view_partner_form_inherit
+msgid "53152654"
+msgstr "53152654"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "<b>Dirección:</b>"
+msgstr "<b>Dirección:</b>"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "<b>Email:</b>"
+msgstr "<b>Email:</b>"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "<b>FICHA DE CLIENTE</b>"
+msgstr "<b>FICHA DE CLIENTE</b>"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "<b>No. de identificación tributaria (NIT):</b>"
+msgstr "<b>No. de identificación tributaria (NIT):</b>"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "<b>No. de inscripción en el registro comercial (REEUP):</b>"
+msgstr "<b>No. de inscripción en el registro comercial (REEUP):</b>"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "<b>No. de inscripción en el registro mercantil:</b>"
+msgstr "<b>No. de inscripción en el registro mercantil:</b>"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "<b>Nombre:</b>"
+msgstr "<b>Nombre:</b>"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "<b>Teléfono:</b>"
+msgstr "<b>Teléfono:</b>"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "<strong>Firma del Director y Cuño de la Entidad</strong>"
+msgstr "<strong>Firma del Director y Cuño de la Entidad</strong>"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.view_partner_form_inherit
+msgid "Accreditation"
+msgstr "Acreditación"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_approve_charge
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_approve_charge_invoice
+msgid "Approve Charge"
+msgstr "Cargo Aprobado"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_archive_nro
+msgid "Archive Nro"
+msgstr "Nro Archivo"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_authorized_signature_employee_ids
+msgid "Authorized"
+msgstr "Autorizado"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_authorized_by
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_authorized_by_invoice
+msgid "Authorized By"
+msgstr "Autorizado por"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_authorized
+msgid "Authorized to firm contract"
+msgstr "Autorizado a firmar contrato"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_authorized_invoice
+msgid "Authorized to firm invoice"
+msgstr "Autorizado para firmar factura"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "Banco"
+msgstr "Banco"
+
+#. module: l10n_cu_base
+#: model:ir.model,name:l10n_cu_base.model_res_partner_bank
+msgid "Bank Accounts"
+msgstr "Cuentas bancarias"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_branch_id
+msgid "Branch"
+msgstr "Sucursal"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_ci
+msgid "CI"
+msgstr "CI"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "CUENTAS BANCARIAS"
+msgstr "CUENTAS BANCARIAS"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "Cargo"
+msgstr "Cargo"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "Carne de Identidad"
+msgstr "Carne de Identidad"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_district_code
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_municipality_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_authorized_signature_company_id
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_reg_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_authorized_signature_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_district_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_municipality_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_reg_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_branch_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_hlg_partner_location_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_ministry_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_authorized_signature_create_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_district_create_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_municipality_create_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_reg_create_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_branch_create_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_hlg_partner_location_create_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_ministry_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "Cuenta Bancaria"
+msgstr "Cuenta Bancaria"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "Direccion"
+msgstr "Direccion"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_authorized_signature_display_name
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_district_display_name
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_municipality_display_name
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_reg_display_name
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_branch_display_name
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_hlg_partner_location_display_name
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_ministry_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_district_name
+msgid "District name"
+msgstr "District name"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_acc_res_emitted
+msgid "Emitted by"
+msgstr "Emitido por"
+
+#. module: l10n_cu_base
+#: code:addons/l10n_cu_base/models/res_partner.py:71
+#, python-format
+msgid "Error! Resolution date must be less than the current date."
+msgstr "Error! La fecha de resolución debe ser menor que la fecha actual."
+
+#. module: l10n_cu_base
+#: model:ir.actions.report.xml,name:l10n_cu_base.l10n_cu_base_report_customer_template
+msgid "Ficha de cliente"
+msgstr "Ficha de cliente"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "Firma"
+msgstr "Firma"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "Firmar Contrato"
+msgstr "Firmar Contrato"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "Firmar Factura"
+msgstr "Firmar Factura"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.view_partner_form_inherit
+msgid "Here goes the enterprise accreditation."
+msgstr "Acreditación de la empresa."
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_authorized_signature_id
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_district_id
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_municipality_id
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_reg_id
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_branch_id
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_hlg_partner_location_id
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_ministry_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_authorized_signature___last_update
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_district___last_update
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_municipality___last_update
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_reg___last_update
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_branch___last_update
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_hlg_partner_location___last_update
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_ministry___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_authorized_signature_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_district_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_municipality_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_reg_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_branch_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_hlg_partner_location_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_ministry_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_authorized_signature_write_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_district_write_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_municipality_write_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_reg_write_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_branch_write_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_hlg_partner_location_write_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_ministry_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.view_partner_form_inherit
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_ministry_id
+msgid "Ministry"
+msgstr "Ministerio"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_authorized_signature_model
+msgid "Model"
+msgstr "Modelo"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_district_municipality_id
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_municipality_id
+#: model:ir.ui.view,arch_db:l10n_cu_base.view_partner_form_inherit
+msgid "Municipality"
+msgstr "Municipio"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_nae_code
+msgid "NAE Code"
+msgstr "Código NAE"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_nit_code
+msgid "NIT Code"
+msgstr "Código NIT"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_municipality_name
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_reg_name
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_branch_name
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_hlg_partner_location_name
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_ministry_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "Nombres y Apellidos"
+msgstr "Nombres y Apellidos"
+
+#. module: l10n_cu_base
+#: model:ir.model,name:l10n_cu_base.model_res_partner
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_hlg_partner_location_partner_id
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_partner_location_ids
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_users_partner_location_ids
+msgid "Partner Location"
+msgstr "Ubicación del cliente"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_reeup_code
+msgid "REEUP Code"
+msgstr "Código REEUP"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_acc_res_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_approve_res_date
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_approve_res_date_invoice
+msgid "Resolution Date"
+msgstr "Fecha Resolución"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_acc_res_no
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_approve_res_no
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_approve_res_no_invoice
+msgid "Resolution Nro"
+msgstr "Nro Resolución"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_short_name
+msgid "Short Name"
+msgstr "Nombre corto"
+
+#. module: l10n_cu_base
+#: code:addons/l10n_cu_base/models/res_base.py:133
+#, python-format
+msgid "Some error occurs during key validation. Please contact the suport center for a new one."
+msgstr "Se produjo algún error durante la validación de la clave. Póngase en contacto con el centro de asistencia para obtener uno nuevo."
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_municipality_state_id
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_hlg_partner_location_street
+msgid "Street"
+msgstr "Calle"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "Sucursal"
+msgstr "Sucursal"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,help:l10n_cu_base.field_l10n_cu_base_district_code
+msgid "The District code in three chars"
+msgstr "El código del distrito en tres caracteres."
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,help:l10n_cu_base.field_l10n_cu_base_municipality_code
+msgid "The municipality code in three chars"
+msgstr "El código del municipio debe ser de tres caracteres"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_res_partner_bank_name
+msgid "Titular Name"
+msgstr "Nombre del Titular"
+
+#. module: l10n_cu_base
+#: code:addons/l10n_cu_base/models/res_base.py:123
+#, python-format
+msgid "You are using a expired key. Please contact the suport center for a new one."
+msgstr "Está utilizando una clave caducada. Póngase en contacto con el centro de asistencia para obtener uno nuevo."
+
+#. module: l10n_cu_base
+#: code:addons/l10n_cu_base/models/res_base.py:114
+#: code:addons/l10n_cu_base/models/res_base.py:117
+#, python-format
+msgid "You are using a invalid key. Please contact the suport center for a new one."
+msgstr "Está utilizando una clave no válida. Póngase en contacto con el centro de asistencia para obtener uno nuevo."
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.report_customer_template
+msgid "_____________"
+msgstr "_____________"
+
+#. module: l10n_cu_base
+#: model:ir.model.fields,field_description:l10n_cu_base.field_l10n_cu_base_reg_code
+msgid "key"
+msgstr "clave"
+
+#. module: l10n_cu_base
+#: model:ir.model,name:l10n_cu_base.model_l10n_cu_branch
+msgid "l10n_cu.branch"
+msgstr "l10n_cu.branch"
+
+#. module: l10n_cu_base
+#: model:ir.model,name:l10n_cu_base.model_l10n_cu_ministry
+msgid "l10n_cu.ministry"
+msgstr "l10n_cu.ministry"
+
+#. module: l10n_cu_base
+#: model:ir.model,name:l10n_cu_base.model_l10n_cu_base_authorized_signature
+msgid "l10n_cu_base.authorized_signature"
+msgstr "l10n_cu_base.authorized_signature"
+
+#. module: l10n_cu_base
+#: model:ir.model,name:l10n_cu_base.model_l10n_cu_base_district
+msgid "l10n_cu_base.district"
+msgstr "l10n_cu_base.district"
+
+#. module: l10n_cu_base
+#: model:ir.model,name:l10n_cu_base.model_l10n_cu_base_municipality
+msgid "l10n_cu_base.municipality"
+msgstr "l10n_cu_base.municipality"
+
+#. module: l10n_cu_base
+#: model:ir.model,name:l10n_cu_base.model_l10n_cu_base_reg
+msgid "l10n_cu_base.reg"
+msgstr "l10n_cu_base.reg"
+
+#. module: l10n_cu_base
+#: model:ir.model,name:l10n_cu_base.model_l10n_cu_hlg_partner_location
+msgid "l10n_cu_hlg.partner_location"
+msgstr "l10n_cu_hlg.partner_location"
+
+#. module: l10n_cu_base
+#: model:ir.ui.view,arch_db:l10n_cu_base.view_partner_form_inherit
+msgid "test@gmail.com"
+msgstr "test@gmail.com"
+

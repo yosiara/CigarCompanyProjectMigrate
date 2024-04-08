@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="wzd_report_inspection_form" model="ir.ui.view">
+            <field name="name">wzd.report_inspection</field>
+            <field name="model">computers_inventory.report_inspection_wzd</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <separator
+                                string="Select the period's dates and click Print button to obtain the report of Inspections."/>
+                        <group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                            <group>
+                                <field name="format"/>
+                                <field name="elaborates_id"/>
+                                <field name="approved_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <div>
+                            <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                            o
+                            <button special="cancel" string="Close" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wzd_report_inspection" model="ir.actions.act_window">
+            <field name="name">Inspections</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">computers_inventory.report_inspection_wzd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wzd_report_inspection_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_wzd_report_inspection"
+                  id="menu_wzd_report_inspection_form"
+                  parent="menu_reports"
+                  sequence="3"/>
+
+
+    </data>
+</openerp>

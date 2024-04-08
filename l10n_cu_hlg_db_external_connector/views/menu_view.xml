@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <menuitem name="External Database Connections"
+                  id="db_external_connector_left_menu"
+                  parent="base.menu_administration"/>
+    </data>
+</odoo>

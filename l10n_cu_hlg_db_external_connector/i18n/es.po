@@ -1,0 +1,184 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_cu_hlg_db_external_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-05 18:43+0000\n"
+"PO-Revision-Date: 2017-09-05 18:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: selection:db_external_connector.template,system:0
+msgid "Assets"
+msgstr "Assets"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:72
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:84
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:97
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:104
+#, python-format
+msgid "Connection established successfully!!."
+msgstr "Conexión establecida con éxito !!."
+
+#. module: l10n_cu_hlg_db_external_connector
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:75
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:87
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:100
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:108
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:132
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:166
+#: code:addons/l10n_cu_hlg_db_external_connector/models/db_external_connector.py:174
+#, python-format
+msgid "Connection failed!!. Check your data connection."
+msgstr "Conexión fallida!!. Compruebe sus credenciales de conexión."
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_connector
+msgid "Connector"
+msgstr "Conector"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_dbname
+msgid "Database Name"
+msgstr "Base de datos"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_name
+msgid "Datasource Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.actions.act_window,name:l10n_cu_hlg_db_external_connector.db_external_connector_action
+#: model:ir.ui.menu,name:l10n_cu_hlg_db_external_connector.db_external_connector_menu_item
+msgid "External Connections"
+msgstr "Conexiones externas"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.ui.menu,name:l10n_cu_hlg_db_external_connector.db_external_connector_left_menu
+msgid "External Database Connections"
+msgstr "Conexiones externas"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: selection:db_external_connector.template,system:0
+msgid "Fastos"
+msgstr "Fastos"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: selection:db_external_connector.template,connector:0
+msgid "Microsoft SQL Server"
+msgstr "Microsoft SQL Server"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: selection:db_external_connector.template,connector:0
+msgid "MySQL"
+msgstr "MySQL"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_pwd
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_port
+msgid "Port"
+msgstr "Puerto"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: selection:db_external_connector.template,connector:0
+msgid "PostgreSQL"
+msgstr "PostgreSQL"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: selection:db_external_connector.template,system:0
+msgid "Rodas"
+msgstr "Rodas"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_server
+msgid "Server"
+msgstr "Servidor"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_system
+msgid "Application"
+msgstr "Aplicación"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,help:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_system
+msgid "System to create conection. This field can be used in order to identify the connection..."
+msgstr "Este campo puede ser usado como forma de identificar el sistema al cual se realizará la conexión..."
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_db_external_connector.db_external_connector_form_view
+msgid "Test Connection"
+msgstr "Probar conexión"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model.fields,field_description:l10n_cu_hlg_db_external_connector.field_db_external_connector_template_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: selection:db_external_connector.template,system:0
+msgid "Versat"
+msgstr "Versat"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.model,name:l10n_cu_hlg_db_external_connector.model_db_external_connector_template
+msgid "db_external_connector.template"
+msgstr "db_external_connector.template"
+
+#. module: l10n_cu_hlg_db_external_connector
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_db_external_connector.db_external_connector_form_view
+msgid "name"
+msgstr "Nombre"
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="report_equipment_label">
+        <t t-call="report.html_container">
+            <div class="page">
+                <t t-set="flag" t-value="False"/>
+                <t t-foreach="docs" t-as="o">
+                    <div style="page-break-inside: avoid;">
+                        <p style="" class="text-center">
+                            <b t-esc="o.name"></b>
+                        </p>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <table height="60">
+                                    <tr style=" border: 1px solid black;">
+                                        <td style="width: 99%; vertical-align: middle; height: 55px; padding: 4px; text-align: center;">
+                                            <span style="font-weight: bold; font-size: 14pt;"
+                                                  t-field="o.inventory_number"></span>
+                                        </td>
+                                        <td style="vertical-align: middle; padding: 2px;">
+                                            <img style="width: 50px; height: 50px;"
+                                                 t-att-src="'data:image/png;base64,%s' % o.qrcode_image"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <t t-if="o.component_ids">
+                            <p style="border-bottom: 1px dotted black" class="text-center">
+                                Periféricos
+                            </p>
+                            <div class="row">
+                                <t t-foreach="o.component_ids" t-as="component">
+                                    <t t-if="component.inventory_number and component.component_type in ('input_device','printer','ups','fax','scanner','speaker')">
+                                        <div class="col-xs-3" style="padding-bottom: 8px;">
+                                            <table height="60" style="">
+                                                <tr style=" border: 1px solid black;">
+                                                    <td style="width: 99%; vertical-align: middle; height: 55px; padding: 4px; text-align: center;">
+                                                        <span style="font-weight: bold; font-size: 14pt;"
+                                                              t-field="component.inventory_number"></span>
+                                                    </td>
+                                                    <td style="vertical-align: middle; padding: 2px;">
+                                                        <img style="width: 50px; height: 50px;"
+                                                             t-att-src="'data:image/png;base64,%s' % component.qrcode_image"/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </t>
+                                </t>
+                            </div>
+                        </t>
+                        <p style="border-top: 2px solid black"/>
+                        <br/>
+                        <br/>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

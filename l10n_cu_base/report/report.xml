@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <report id="l10n_cu_base_report_customer_template"
+            name="l10n_cu_base.report_customer_template"
+            file="l10n_cu_base.report_customer_template"
+            model="res.partner"
+            string="Ficha de cliente"
+            report_type="qweb-pdf"
+            paperformat="l10n_cu_base.paperformat_base_letter"
+            menu="True"
+        />
+    </data>
+</odoo>

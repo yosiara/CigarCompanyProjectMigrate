@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <menuitem name="Records"
+                  id="menu_records"
+                  parent="menu_computers_inventory_root"
+                  sequence="140"/>
+
+
+    </data>
+</odoo>

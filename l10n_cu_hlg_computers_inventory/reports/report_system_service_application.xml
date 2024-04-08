@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="report_system_service_application">
+        <t t-call="report.html_container">
+            <t t-call="l10n_cu_hlg_computers_inventory.external_layout">
+                <div class="page">
+                    <t t-set="flag" t-value="False"/>
+                    <t t-foreach="docs" t-as="o">
+                        <t t-if="flag">
+                            <p style="page-break-before: always;"></p>
+                        </t>
+                        <h3 align="center">System/Service Application</h3>
+                        <div class="row mt16 mb16"/>
+                        <p>
+                            <b>Date:</b>
+                            <span t-field="o.date"/>
+                        </p>
+                        <p>
+                            <b>Applicant:</b>
+                            <span t-field="o.applicant_id.name"/>
+                        </p>
+                        <p>
+                            <b>Benefited:</b>
+                            <span t-field="o.benefited_id.name"/>
+                        </p>
+                        <h5 class="mt32"><b>Access to systems</b></h5>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr class="tr_report">
+                                    <th style="text-align: center">
+                                        Software name
+                                    </th>
+                                    <th style="text-align: center">
+                                        Module
+                                    </th>
+                                    <th style="text-align: center">
+                                        Permissions
+                                    </th>
+                                    <th style="text-align: center">
+                                        Justification
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.system_line_ids" t-as="s">
+                                    <tr>
+                                        <td>
+                                            <span t-field="s.software_id"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="s.module_id"/>
+                                        </td>
+                                        <td>
+                                            <t t-set="separator" t-value="False"/>
+                                            <t t-foreach="s.permissions_ids" t-as="p">
+                                                <t t-if="separator">
+                                                    <span>,</span>
+                                                </t>
+                                                <span t-field="p.name"/>
+                                                <t t-set="separator" t-value="True"/>
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <span t-field="s.justification"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <h5 class="mt32"><b>Access to telematics services</b></h5>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr class="tr_report">
+                                    <th style="text-align: center">
+                                        Service name
+                                    </th>
+                                    <th style="text-align: center">
+                                        Justification
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.service_line_ids" t-as="s">
+                                    <tr>
+                                        <td>
+                                            <span t-field="s.service_id"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="s.justification"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <div class="row mt64 text-center">
+                            <div class="col-xs-6">
+                                <p>_____________________</p>
+                                <p>
+                                    <span t-field="o.applicant_id"/>
+                                </p>
+                                <p>
+                                    <span t-field="o.applicant_id.job_id"/>
+                                </p>
+                                <p>
+                                    <b>Applicant</b>
+                                </p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p>_____________________</p>
+                                <p>
+                                    <span t-field="o.approve_by_id"/>
+                                </p>
+                                <p>
+                                    <span t-field="o.approve_by_id.job_id"/>
+                                </p>
+                                <p>
+                                    <b>Approve</b>
+                                </p>
+                            </div>
+                        </div>
+                        <t t-set="flag" t-value="True"/>
+                    </t>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

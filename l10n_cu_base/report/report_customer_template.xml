@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="l10n_cu_base.report_customer_template">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <p align="center"><b>FICHA DE CLIENTE</b></p>
+
+                            <table width="100%" style="page-break-inside: avoid">
+                                <tr valign="top">
+                                    <td width="100%">
+                                        <p><font size="2" style="font-size: 10pt"><b>Nombre:</b> <span  t-esc="o.name"/></font></p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="100%">
+                                        <p><font size="2" style="font-size: 10pt"><b>Dirección:</b> <span  t-esc="o.street"/></font></p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="100%">
+                                        <p><font size="2" style="font-size: 10pt"><b>Teléfono:</b> <span  t-esc="o.phone"/></font></p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="100%">
+                                        <p><font size="2" style="font-size: 10pt"><b>Email:</b> <span  t-esc="o.email"/></font></p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="100%">
+                                        <p><font size="2" style="font-size: 10pt"><b>No. de identificación tributaria (NIT):</b> <span  t-esc="o.nit_code"/></font></p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="100%">
+                                        <p><font size="2" style="font-size: 10pt"><b>No. de inscripción en el registro comercial (REEUP):</b> <span  t-esc="o.reeup_code"/></font></p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="100%">
+                                        <p><font size="2" style="font-size: 10pt"><b>No. de inscripción en el registro mercantil:</b> <span  t-esc="o.nae_code"/></font></p>
+                                    </td>
+                                </tr>
+				            </table>
+
+                            <br></br>
+                            <br></br>
+                            <br></br>
+
+                            <table class="table table-hover table-condensed table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th>Nombres y Apellidos</th>
+                                        <th>Cargo</th>
+                                        <th>Carne de Identidad</th>
+                                        <th class="text-center" t-att-style="'text-align:center'">Firmar Contrato</th>
+                                        <th class="text-center" t-att-style="'text-align:center'">Firmar Factura</th>
+                                        <th>Firma</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.child_ids" t-as="child_ids">
+                                        <tr class="border-table-transparent ">
+                                            <td class="">
+                                                <t t-esc="child_ids.name"/>
+                                            </td>
+                                            <td width="190px" class="">
+                                                <t t-esc="child_ids.function"/>
+                                            </td>
+                                            <td width="100px" class="">
+                                                <t t-esc="child_ids.ci"/>
+                                            </td>
+                                            <td class="text-center" t-att-style="'text-align:center'">
+                                                <t t-if="child_ids.authorized == 1">
+                                                    x
+                                                </t>
+                                                <t t-if="child_ids.authorized == 0">
+                                                    -
+                                                </t>
+                                            </td>
+                                            <td class="text-center" t-att-style="'text-align:center'">
+                                                <t t-if="child_ids.authorized_invoice == 1">
+                                                    x
+                                                </t>
+                                                <t t-if="child_ids.authorized_invoice == 0">
+                                                    -
+                                                </t>
+                                            </td>
+                                            <td class="">
+                                                _____________
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                            <br></br>
+                            <br></br>
+                            <br></br>
+
+                            <table class="table table-hover table-condensed table-responsive">
+                                <tr class="border-table-transparent ">
+                                    <th>CUENTAS BANCARIAS</th>
+                                </tr>
+                            </table>
+                            <table class="table table-hover table-condensed table-responsive" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th t-att-style="'text-align:left'">Cuenta Bancaria</th>
+                                        <th t-att-style="'text-align:left'">Banco</th>
+                                        <th t-att-style="'text-align:left'">Direccion</th>
+                                        <th t-att-style="'text-align:left'">Sucursal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.bank_ids" t-as="bank_ids">
+                                        <tr class="border-table-transparent ">
+                                            <!--Cuenta Bancaria-->
+                                            <td t-att-style="'text-align:left'">
+                                                <t t-esc="bank_ids.acc_number"/>
+                                            </td>
+                                            <!--Banco-->
+                                            <td t-att-style="'text-align:left'">
+                                                <t t-esc="bank_ids.bank_id.name"/>
+                                            </td>
+                                            <!--Direccion-->
+                                            <td t-att-style="'text-align:left'">
+                                                <t t-esc="bank_ids.bank_id.street"/>
+                                                <t t-esc="bank_ids.bank_id.street2"/>
+                                                <t t-esc="bank_ids.bank_id.city"/>
+                                            </td>
+                                            <!--Sucursal del cliente-->
+                                            <td t-att-style="'text-align:left'">
+                                                <t t-esc="bank_ids.bank_bic"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                            <br></br>
+                            <br></br>
+                            <br></br>
+
+                            <table class="table border-table-transparent">
+                                <tr>
+                                    <td>
+                                        <strong>Firma del Director y Cuño de la Entidad</strong>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

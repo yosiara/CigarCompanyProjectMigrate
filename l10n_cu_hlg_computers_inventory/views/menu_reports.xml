@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <menuitem name="Reports"
+                  id="menu_reports"
+                  parent="menu_computers_inventory_root"
+                  groups="computers_inventory_manager"
+                  sequence="150"/>
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+    	<template id="l10n_cu_hlg_computers_inventory_assets_backend" inherit_id="web.assets_backend">
+	        <xpath expr="." position="inside">
+	            <link href="/l10n_cu_hlg_computers_inventory/static/src/css/styles.css"
+					  rel="stylesheet" type="text/css"/>
+	        </xpath>
+	    </template>
+    </data>
+</odoo>

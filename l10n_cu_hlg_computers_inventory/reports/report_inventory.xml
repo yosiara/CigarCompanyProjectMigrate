@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="report_inventory">
+        <t t-call="report.html_container">
+            <t t-call="l10n_cu_hlg_computers_inventory.external_layout">
+                <div class="page">
+                    <link href="/l10n_cu_hlg_computers_inventory/static/src/css/styles.css"
+                          rel="stylesheet" type="text/css"/>
+
+                    <h2 align="center">Technical File</h2>
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="2" style="border-right:1px solid black; text-align: center">
+                                    General Data
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="2" style="border-right:1px solid black">Name:
+                                    <t t-esc="docs.name"/>
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black">Responsible:
+                                    <span t-field="docs.employee_id"/>
+                                </th>
+                                <th colspan="1" style="border-right:1px solid black">Sign:</th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black">Location:
+                                    <span t-field="docs.local_id"/>
+                                </th>
+                                <th colspan="1" style="border-right:1px solid black"></th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="8" style="border-right:1px solid black; text-align: center">
+                                    Technical Characteristics
+                                </th>
+                            </tr>
+
+                            <t t-foreach="mother" t-as="motherboard">
+                                <tr class="tr_report">
+                                    <th style="border-right:1px solid black">
+                                        Model:
+                                        <t t-esc="motherboard.name"/>
+                                    </th>
+                                </tr>
+                                <tr class="tr_report">
+                                    <th style="border-right:1px solid black">
+                                        Serial Number:
+                                        <t t-if="motherboard.serial_no_custom">
+                                            <t t-esc="motherboard.serial_no_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-esc="motherboard.serial_no"/>
+                                        </t>
+                                    </th>
+                                </tr>
+                            </t>
+                        </thead>
+                    </table>
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="7" style="border-right:1px solid black; text-align: center">
+                                    Microprocessor
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Type</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Manufacturer
+                                </th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Architecture
+                                </th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Cores</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Frequency</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Socket Type
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr t-foreach="micros" t-as="micro"
+                                class="tr_report">
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="micro.type"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-if="micro.manufacturer_custom">
+                                        <t t-esc="micro.manufacturer_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="micro.manufacturer"/>
+                                    </t>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="micro.architecture"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="micro.cores_number"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="micro.frequency"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="micro.socket_type"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="6" style="border-right:1px solid black; text-align: center">
+                                    Memoria RAM
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Name</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Serial Number
+                                </th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Capacity</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Trademark</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Speed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="rams" t-as="ram"
+                                class="tr_report">
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="ram.name"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-if="ram.serial_no_custom">
+                                        <t t-esc="ram.serial_no_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="ram.serial_no"/>
+                                    </t>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="ram.capacity"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="ram.type"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="ram.speed"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="5" style="border-right:1px solid black; text-align: center">
+                                    Storage Devices
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Name</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Serial Number
+                                </th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Capacity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="storages" t-as="storage"
+                                class="tr_report">
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="storage.name"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-if="storage.serial_no_custom">
+                                        <t t-esc="storage.serial_no_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="storage.serial_no"/>
+                                    </t>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="storage.disk_size"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="6" style="border-right:1px solid black; text-align: center">
+                                    Monitors
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">
+                                    Name
+                                </th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">
+                                    Serial Number
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="monitors" t-as="monitor"
+                                class="tr_report">
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="monitor.name"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-if="monitor.serial_no_custom">
+                                        <t t-esc="monitor.serial_no_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="monitor.serial_no"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="6" style="border-right:1px solid black; text-align: center">
+                                    Input Devices
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Name</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Description
+                                </th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="inputs" t-as="input"
+                                class="tr_report">
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="input.name"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="input.description"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <span t-if="input.type == 'Keyboard'">Keyboard</span>
+                                    <span t-if="input.type == 'Pointing'">Mouse</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="6" style="border-right:1px solid black; text-align: center">
+                                    Video Cards
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Name</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Chipset</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Memory</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Resolution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="videos" t-as="video" class="tr_report">
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="video.name"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="video.chipset"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="video.memory"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="video.resolution"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="6" style="border-right:1px solid black; text-align: center">
+                                    Sound Cards
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Name</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Manufacturer
+                                </th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Description
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="sounds" t-as="sound" class="tr_report">
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="sound.name"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-if="sound.manufacturer_custom">
+                                        <t t-esc="sound.manufacturer_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="sound.manufacturer"/>
+                                    </t>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="sound.description"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="5" style="border-right:1px solid black; text-align: center">
+                                    Network Cards
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Name</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Type</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Velocity</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">MAC</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">IP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="networks" t-as="network" class="tr_report">
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="network.name"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="network.type"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="network.speed"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="network.mac"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="network.ip"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th colspan="4" style="border-right:1px solid black; text-align: center">
+                                    Modems
+                                </th>
+                            </tr>
+                            <tr class="tr_report">
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Name</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Description
+                                </th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Type</th>
+                                <th colspan="1" style="border-right:1px solid black; text-align: center">Model</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="modems" t-as="modem" class="tr_report">
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="modem.name"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="modem.description"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-esc="modem.type"/>
+                                </td>
+                                <td align="center" style="border-right: 1px double #000000">
+                                    <t t-if="modem.model_custom">
+                                        <t t-esc="modem.model_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="modem.model"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ========================================================================================================
+        Equipment
+        model: maintenance.equipment
+        ========================================================================================================= -->
+
+        <!-- KANBAN VIEW INHERIT -->
+        <record id="maintenance_equipment_view_kanban_inherit_hr_inherit" model="ir.ui.view">
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_kanban"/>
+            <field name="model">maintenance.equipment</field>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//kanban" position="inside">
+                        <field name="has_movements_for_approval"/>
+                        <field name="quantity_movements_for_approval"/>
+                    </xpath>
+
+                    <xpath expr="//ul[@class='dropdown-menu']" position="inside">
+                        <t t-if="record.has_movements_for_approval.raw_value">
+                            <button type="object" class="btn btn-default pull-right btn-sm"
+                                    name="approve_all_movements">
+                                Approve movements
+                            </button>
+                        </t>
+                    </xpath>
+
+                    <xpath expr="//div[@class='oe_kanban_content']" position="inside">
+                        <div class="oe_kanban_bottom_left">
+                            <t t-if="record.has_movements_for_approval.raw_value">
+                                <button type="object" name="show_movements" class="ml4 btn btn-sm btn-circle btn-danger fa fa-lg fa-exclamation-circle">
+                                </button>
+                            </t>
+                        </div>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="maintenance_equipment_view_form_inherit_hr_maintenance" model="ir.ui.view">
+            <field name="model">maintenance.equipment</field>
+            <field name="inherit_id" ref="hr_maintenance.maintenance_equipment_view_form_inherit_hr"/>
+            <field name="arch" type="xml">
+                <field name="employee_id" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', '|',('equipment_assign_to', '=', 'department'),
+                        ('equipment_assign_to', '=', 'employees'), ('equipment_assign_to', '=', False)]}
+                    </attribute>
+                </field>
+                <field name="equipment_assign_to" position="attributes">
+                    <attribute name="widget">selection</attribute>
+                </field>
+                <field name="department_id" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', '|',('equipment_assign_to', '=', 'employee'),
+                        ('equipment_assign_to', '=', 'employees'), ('equipment_assign_to', '=', False)]}
+                    </attribute>
+                </field>
+                <xpath expr="//field[@name='employee_id']" position="after">
+                    <field name="employee_ids" string="Employees" widget="many2many_tags"
+                           attrs="{'invisible': ['|', '|',('equipment_assign_to', '=', 'employee'), ('equipment_assign_to', '=', 'department'), ('equipment_assign_to', '=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- FORM VIEW INHERIT -->
+        <record id="maintenance_equipment_view_form_inherit_hr_inherit" model="ir.ui.view">
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+            <field name="model">maintenance.equipment</field>
+            <field name="arch" type="xml">
+
+                <field name="category_id" position="after">
+                    <field name="inventory_number"/>
+                    <field name="seal" attrs="{'invisible': [('is_a_computer', '=', False)]}"/>
+                    <field name="is_a_computer"/>
+                </field>
+
+                <field name="location" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                <field name="location" position="before">
+                    <field name="local_id"/>
+                </field>
+
+                <xpath expr="//field[@name='note']" position="before">
+                    <group attrs="{'invisible': [('is_a_computer', '=', False)]}">
+                        <group>
+                            <field name="user_name"/>
+                            <field name="operative_system"/>
+                            <field name="os_version"/>
+                            <field name="uuid"/>
+                        </group>
+
+                        <group>
+                            <field name="domain"/>
+                            <field name="ip_address"/>
+                            <field name="architecture"/>
+                            <field name="information_updated_date"/>
+                        </group>
+                    </group>
+                </xpath>
+
+                <xpath expr="//div[@class='oe_button_box']" position="inside">
+                    <button name="%(equipment_component_movement_action2)d"
+                            attrs="{'invisible': [('is_a_computer', '=', False)]}"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-ticket">
+                        <field string="Movements" name="quantity_movements" widget="statinfo"/>
+                    </button>
+                </xpath>
+
+                <notebook position="inside">
+                    <page string="Hardware" attrs="{'invisible': [('is_a_computer', '=', False)]}">
+                        <field name="component_ids">
+                            <tree>
+                                <field name="component_type" readonly="1"/>
+
+                                <field name="manufacturer" readonly="1"/>
+                                <field name="manufacturer_custom" readonly="1"/>
+                                <field name="model" readonly="1"/>
+                                <field name="model_custom" readonly="1"/>
+                                <field name="serial_no" readonly="1"/>
+                                <field name="serial_no_custom" readonly="1"/>
+                                <field name="specific_properties_str" readonly="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Software" attrs="{'invisible': [('is_a_computer', '=', False)]}">
+                        <button name="confirm_all" type="object" string="Confirm All" icon="fa-star text-success"
+                                class="oe_link"/>
+                        <button name="del_not_confirmed" type="object" string="Delete not Confirmed"
+                                icon="fa-remove text-danger" class="oe_link"/>
+                        <button name="update_from_ocs" type="object" string="Update from ocs" icon="fa-refresh"
+                                class="oe_link"/>
+                        <field name="software_ids">
+                            <tree editable="bottom">
+                                <field name="ocs_external_id" invisible="1"/>
+                                <field name="name"/>
+                                <field name="publisher"/>
+                                <field name="version"/>
+                                <button name="confirm" type="object"
+                                        string="Confirm"
+                                        icon="fa-check-circle text-success"
+                                        attrs="{'invisible': ['|',('ocs_external_id', '=', False),('ocs_external_id', '=', 0)]}"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Qr Code" attrs="{'invisible': [('is_a_computer', '=', False)]}">
+                        <field nolabel="1" name='qrcode_image' widget="image"/>
+                    </page>
+                </notebook>
+
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="has_movements_for_approval" invisible="1"/>
+                </xpath>
+
+                <notebook position="inside">
+                    <page string="Movements" attrs="{'invisible': [('is_a_computer', '=', False)]}">
+                        <br/>
+                        <field name="movement_ids"/>
+                    </page>
+
+                    <page string="Movements for approval..."
+                          attrs="{'invisible': [('has_movements_for_approval', '=', False)]}">
+
+                        <br/>
+                        <div class="oe_right">
+                            <button name="approve_all_movements" type="object" class="oe_stat_button"
+                                    string="Approve..." icon="fa-archive"/>
+                        </div>
+
+                        <field name="movement_for_approval_ids"/>
+                    </page>
+                </notebook>
+
+                <xpath expr="//field[@name='serial_no']" position="replace">
+                    <field name="serial_no" attrs="{'readonly': [('is_a_computer', '=', True)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- TREE VIEW INHERIT -->
+        <record id="maintenance_hr_equipment_tree_view_inherit" model="ir.ui.view">
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_tree"/>
+            <field name="model">maintenance.equipment</field>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="inventory_number"/>
+                </field>
+                <field name="partner_id" position="after">
+                    <field name="quantity_movements_for_approval" invisible="0"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- SEARCH VIEW INHERIT -->
+        <record id="maintenance_hr_equipment_search_view_inherit" model="ir.ui.view">
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_search"/>
+            <field name="model">maintenance.equipment</field>
+            <field name="arch" type="xml">
+                <filter name="assigned" position="before">
+                    <filter string="Has movements for approval"
+                            name="assigned" domain="[('quantity_movements_for_approval', '!=', 0)]"/>
+                </filter>
+            </field>
+        </record>
+
+        <record id="maintenance_request_view_kanban_inherit_computer_inventory" model="ir.ui.view">
+            <field name="name">maintenance.request.view.kanban.inherit.computer.inventory</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_kanban"/>
+            <field name="arch" type="xml">
+                <field name="stage_id" position="after">
+                    <field name="is_a_tic_request"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="network_equipment_action" model="ir.actions.act_window">
+            <field name="name">Equipment</field>
+            <field name="res_model">maintenance.equipment</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="maintenance.hr_equipment_view_kanban"/>
+            <field name="domain">[('is_a_computer', '=', True)]</field>
+            <field name="context">{'default_ti': True, 'is_a_computer': True}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new computer.
+                </p>
+                <p>
+                    This application helps you to track computers and its components used by employees...
+                </p>
+            </field>
+        </record>
+
+        <record id="equipment_maintenance_request_action" model="ir.actions.act_window">
+            <field name="name">Maintenance Requests</field>
+            <field name="res_model">maintenance.request</field>
+            <field name="view_mode">kanban,tree,form,pivot,graph,calendar</field>
+            <field name="view_id" ref="maintenance.hr_equipment_request_view_kanban"/>
+            <field name="context">{'default_technician_user_id': uid, 'default_is_a_tic_request': True,
+                'is_a_tic_request_action': '1'}
+            </field>
+            <field name="domain">[('equipment_id.is_a_computer', '=', True)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new maintenance request.
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem
+                id="computers_inventory_menu_m_request_form"
+                name="Maintenance Requests"
+                parent="menu_computers_inventory_root"
+                action="equipment_maintenance_request_action"
+                sequence="120"/>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Equipment"
+                  id="menu_network_equipment_form"
+                  parent="computers_inventory_equipment_menu_item"
+                  action="network_equipment_action"
+                  groups="computers_inventory_applicant,computers_inventory_executor,computers_inventory_manager"
+                  sequence="110"/>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="hr_equipment_request_view_form" model="ir.ui.view">
+            <field name="name">hr_equipment_request_view_form_inherit</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="arch" type="xml">
+                <field name="description" position="before">
+                    <field name="ict_maintenance_order_ids" invisible="1"/>
+                </field>
+                <field name="stage_id" position="before">
+                    <button name="create_order" string="Create order" type="object"
+                            attrs="{'invisible': ['|', ('id', '=', False), ('is_a_tic_request','=', False)]}"
+                            groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                </field>
+                <field name="equipment_id" position="before">
+                    <field name="is_a_tic_request" groups="base.group_no_one"/>
+                    <field name="id" invisible="1"/>
+                </field>
+
+                <xpath expr="//field[@name='maintenance_team_id']" position="before">
+                    <field name="maintenance_team_type"/>
+                </xpath>
+                <xpath expr="//field[@name='maintenance_team_id']" position="after">
+                    <field name="external_maintenance_team"
+                           attrs="{'invisible': [('maintenance_team_type', '=', False)], 'required': [('maintenance_team_type', '=', True)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='maintenance_team_id']" position="replace">
+                    <field name="maintenance_team_id"
+                           attrs="{'invisible': [('maintenance_team_type', '=', True)], 'required': [('maintenance_team_type', '=', False)]}"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

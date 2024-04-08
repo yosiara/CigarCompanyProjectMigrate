@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="saves_wzd_form" model="ir.ui.view">
+            <field name="name">saves_wzd.form</field>
+            <field name="model">computers_inventory.saves_wzd</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <separator
+                                string="De click en Imprimir para tener el reporte del Registro de planificación de salvas"/>
+                        <group>
+                            <group>
+                                <field name="elaborates_id"/>
+                                <field name="approved_id"/>
+                            </group>
+                            <group>
+                                <field name="format"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <div>
+                            <button name="print_report" string="Imprimir" type="object"
+                                    class="oe_highlight"/>
+                            o
+                            <button special="cancel" string="Cancelar" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_saves_wzd" model="ir.actions.act_window">
+            <field name="name">Planning saves</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">computers_inventory.saves_wzd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_saves_wzd" id="menu_saves_wzd"
+                  parent="menu_reports"
+                  sequence="5"/>
+    </data>
+</openerp>
