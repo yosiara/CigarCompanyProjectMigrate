@@ -76,7 +76,7 @@ class EquipmentComponent(models.Model):
             return {'value': {'name': '%s / %s' % (self.manufacturer_custom, self.model_custom)}}
 
 
-    @api.one
+    #@api.one
     @api.depends('name', 'equipment_id', 'inventory_number')
     def get_qrimage(self):
         options = {'width': 100 * mm, 'height': 100 * mm}
@@ -89,7 +89,7 @@ class EquipmentComponent(models.Model):
         ret_val = createBarcodeDrawing('QR', value=tools.ustr(qr_code), **options)
         self.qrcode_image = base64.encodestring(ret_val.asString('jpg'))
 
-    @api.multi
+    #@api.multi
     def _compute_specific_properties(self):
         for record in self:
             if record.component_type == 'motherboard':

@@ -30,7 +30,7 @@ class ControlApplications(models.TransientModel):
     approved_id = fields.Many2one('hr.employee', 'Approved', required=True)
     format = fields.Selection([('pdf', 'PDF'), ('docx', 'DOCX')], 'Format', default='pdf', required=True)
 
-    @api.multi
+    #@api.multi
     def print_report(self):
         data = {}
         data['elaborates_id'] = self.elaborates_id.id

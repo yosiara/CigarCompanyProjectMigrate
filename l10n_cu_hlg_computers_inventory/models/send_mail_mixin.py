@@ -23,7 +23,7 @@ class SendMailMixin(models.AbstractModel):
                 emails.append(user.email)
         return emails
 
-    @api.multi
+    ##@api.multi
     def send_mail(self, template_xmlid, recipients, force_send=False):
 
         template = self.env.ref(template_xmlid)

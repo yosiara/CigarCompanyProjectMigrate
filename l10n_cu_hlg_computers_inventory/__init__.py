@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import models
-import wizards
-import reports
+from . import models
+from . import wizards
+from . import reports
 from odoo import api, SUPERUSER_ID
 
 

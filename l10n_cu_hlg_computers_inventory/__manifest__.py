@@ -22,11 +22,11 @@ Computers Inventory using OCS Inventory Server...
     # Any module necessary for this one to work correctly.
     'depends': [
         'l10n_cu_hlg_db_external_connector',
-        'l10n_cu_report_docxtpl',
+        #'l10n_cu_report_docxtpl',
         'hr_maintenance',
         'maintenance',
-        'l10n_cu_base',
-        'l10n_cu_locals',
+        #'l10n_cu_base',
+        #'l10n_cu_locals',
     ],
 
     # Always loaded.

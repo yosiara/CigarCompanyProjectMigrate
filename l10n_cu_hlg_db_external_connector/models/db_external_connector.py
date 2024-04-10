@@ -32,10 +32,10 @@ except (ImportError, AssertionError):
     _logger.info('MySQL not available. Please install "mysqldb" python package.')
 
 
-class DBExternalConnector(models.Model):
+class DBExternalConnectorTemplate(models.Model):
     _name = "db_external_connector.template"
     _description = "db_external_connector.template"
-    _inherit = ['mail.thread', 'ir.needaction_mixin']
+    _inherit = ['mail.thread']
 
     _connection = False
 
@@ -54,7 +54,7 @@ class DBExternalConnector(models.Model):
         string='Application',
     )
 
-    @api.one
+    #@api.one
     def action_test_connection(self):
         data = {
             'Driver': '{SQL Server}',

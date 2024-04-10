@@ -26,7 +26,7 @@ from odoo import models, fields, api
 class ApproveMovementsWzd(models.TransientModel):
     _name = "computers_inventory.approve_movements_wzd"
 
-    @api.multi
+    #@api.multi
     def approve_all(self):
         context = self._context or {}
         movements = self.env['equipment.component_movement'].search([('equipment_id', 'in', context.get('active_ids', [])), ('state', '=', 'waiting_approval')])

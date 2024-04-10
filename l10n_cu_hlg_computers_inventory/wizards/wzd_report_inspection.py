@@ -23,7 +23,7 @@ class WzdReportInspection(models.TransientModel):
                 raise ValidationError(_('The start date can not be greater that end date.'))
         return True
 
-    @api.multi
+    #@api.multi
     def print_report(self):
         data = {}
         data['start_date'] = self.start_date

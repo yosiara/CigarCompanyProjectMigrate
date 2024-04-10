@@ -59,7 +59,7 @@ class MaintenanceEquipment(models.Model):
             self.department_id = False
         self.assign_date = fields.Date.context_today(self)
 
-    @api.one
+    ##@api.one
     @api.depends('employee_id', 'department_id', 'equipment_assign_to')
     def _compute_owner(self):
         self.owner_user_id = self.env.user.id
@@ -82,7 +82,7 @@ class MaintenanceEquipment(models.Model):
             equipment.message_subscribe_users(user_ids=user_ids)
         return equipment
 
-    @api.multi
+    ##@api.multi
     def write(self, vals):
         res = super(MaintenanceEquipment, self).write(vals)
         user_ids = []
@@ -95,14 +95,14 @@ class MaintenanceEquipment(models.Model):
             self.message_subscribe_users(user_ids=user_ids)
         return res
 
-    @api.multi
+    ##@api.multi
     def _track_subtype(self, init_values):
         self.ensure_one()
         if 'employee_ids' in init_values and self.employee_ids:
             return 'maintenance.mt_mat_assign'
         return super(MaintenanceEquipment, self)._track_subtype(init_values)
 
-    @api.one
+    ##@api.one
     @api.depends('name', 'equipment_assign_to', 'employee_id', 'department_id', 'local_id', 'inventory_number')
     def get_qrimage(self):
         options = {'width': 100 * mm, 'height': 100 * mm}
@@ -116,18 +116,18 @@ class MaintenanceEquipment(models.Model):
         ret_val = createBarcodeDrawing('QR', value=tools.ustr(qr_code), **options)
         self.qrcode_image = base64.encodestring(ret_val.asString('jpg'))
 
-    @api.one
+    ##@api.one
     def confirm_all(self):
         self.software_ids.write({'ocs_external_id': False})
         return True
 
-    @api.one
+    ##@api.one
     def del_not_confirmed(self):
         self.env['equipment.software'].search([('equipment_id', '=', self.id), ('ocs_external_id', '!=', False),
                                                ('ocs_external_id', '!=', 0)]).unlink()
         return True
 
-    @api.one
+    ##@api.one
     def update_from_ocs(self):
         connector = self.env['db_external_connector.template'].search([('application', '=', 'ocs_inventory')], limit=1)
         if connector:

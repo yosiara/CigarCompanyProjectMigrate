@@ -44,15 +44,15 @@ class Software(models.Model):
                               ('obsolete', 'Obsolete')],
                              'Status', track_visibility='onchange', default='draft')
 
-    @api.one
+    #@api.one
     def action_requested(self):
         self.state = 'requested'
 
-    @api.one
+    #@api.one
     def action_approved(self):
         self.state = 'approved'
 
-    @api.one
+    #@api.one
     def action_obsolete(self):
         self.state = 'obsolete'
 
@@ -89,7 +89,7 @@ class AuthorizedSoftware(models.Model):
     _name = 'computers_inventory.authorized_software'
     _description = 'authorized_software'
 
-    @api.one
+    #@api.one
     def _compute_name(self):
         if self.id:
             self.name = _('Software solicitude #%s') % self.id
@@ -108,22 +108,22 @@ class AuthorizedSoftware(models.Model):
     state = fields.Selection([('new', 'New'), ('requested', 'Requested'), ('approved', 'Approved'),
                               ('rejected', 'Rejected'), ('executed', 'Executed')], 'Status', default='new')
 
-    @api.one
+    #@api.one
     def action_requested(self):
         self.state = 'requested'
 
-    @api.one
+    #@api.one
     def action_approved(self):
         self.state = 'approved'
         approve = self.env['hr.employee'].search([('user_id', '=', self.env.user.id)], limit=1)
         if approve:
             self.approve_by_id = approve.id
 
-    @api.one
+    #@api.one
     def action_rejected(self):
         self.state = 'rejected'
 
-    @api.one
+    #@api.one
     def action_executed(self):
         self.state = 'executed'
 
@@ -160,7 +160,7 @@ class SecureDeletion(models.Model):
                               ('executed', 'Executed')],
                              'Status', track_visibility='onchange', default='new')
 
-    @api.one
+    #@api.one
     def action_requested(self):
         self.state = 'requested'
         recipients = self.get_computer_inventory_responsible()
@@ -170,11 +170,11 @@ class SecureDeletion(models.Model):
         self.send_mail('l10n_cu_hlg_computers_inventory.computer_inventory_template_secure_deletion', force_send=False,
                        recipients=recipients)
 
-    @api.one
+    #@api.one
     def action_approved(self):
         self.state = 'approved'
 
-    @api.one
+    #@api.one
     def action_executed(self):
         self.state = 'executed'
         recipients = self.get_computer_inventory_responsible()
@@ -199,7 +199,7 @@ class PlanningSaves(models.Model):
     support = fields.Char('Support')
     information = fields.Char('Information')
 
-    @api.one
+    #@api.one
     @api.depends('department_id', 'planned_date')
     def _compute_name(self):
         if self.planned_date and self.department_id:
@@ -219,7 +219,7 @@ class NetworkLicense(models.Model):
                                        'network_license_id',
                                        'employee_id', 'Responsible', required=True)
 
-    @api.one
+    #@api.one
     @api.depends('date', 'validity')
     def _compute_days_left(self):
         if self.date:
@@ -317,7 +317,7 @@ class SystemServiceApplication(models.Model):
             result += system.service_id.name
         return result
 
-    @api.one
+    #@api.one
     def action_requested(self):
         self.state = 'requested'
         recipients = self.get_computer_inventory_responsible()
@@ -325,13 +325,13 @@ class SystemServiceApplication(models.Model):
         self.send_mail('l10n_cu_hlg_computers_inventory.computer_inventory_template_system_service_request',
                        force_send=False, recipients=recipients)
 
-    @api.one
+    #@api.one
     def action_approved(self):
         self.state = 'approved'
         approve = self.env['hr.employee'].search([('user_id', '=', self.env.user.id)], limit=1)
         if approve:
             self.approve_by_id = approve.id
 
-    @api.one
+    #@api.one
     def action_executed(self):
         self.state = 'executed'

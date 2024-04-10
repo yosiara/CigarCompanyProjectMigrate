@@ -28,7 +28,7 @@ class CreateOrderWZD(models.TransientModel):
 
     number = fields.Char('Number', required=True)
 
-    @api.multi
+    #@api.multi
     def create_order(self):
         mr = self.env['maintenance.request'].search([('id', '=', self._context.get('active_id'))], limit=1)
         if mr:

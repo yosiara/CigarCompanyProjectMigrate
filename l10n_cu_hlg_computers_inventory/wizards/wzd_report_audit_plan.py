@@ -28,7 +28,7 @@ class AuditPlanWzd(models.TransientModel):
     elaborates_id = fields.Many2one('hr.employee', 'Elaborates', required=True)
     approved_id = fields.Many2one('hr.employee', 'Approved', required=True)
 
-    @api.multi
+    #@api.multi
     def print_report(self):
         data = {}
         data['year'] = self.year

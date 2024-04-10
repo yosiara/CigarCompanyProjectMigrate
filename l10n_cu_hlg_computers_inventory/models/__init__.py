@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 
 
-import ir_rule
-import send_mail_mixin
-import equipment
-import equipment_component
-import equipment_software
+from . import ir_rule
+from . import send_mail_mixin
+from . import equipment
+from . import equipment_component
+from . import equipment_software
 
 # import specifics_equipment_component
-import equipment_component_movement
-import configuration
-import audit_plan
-import security_incident
-import inspection
-import permissions
-import work_order
+from . import equipment_component_movement
+from . import configuration
+from . import audit_plan
+from . import security_incident
+from . import inspection
+from . import permissions
+from . import work_order
 

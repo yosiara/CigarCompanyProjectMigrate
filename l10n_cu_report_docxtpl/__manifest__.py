@@ -4,7 +4,7 @@
     'name': 'Docx Report Engine',
     'summary': 'Reporting engine based on Libreoffice (DOCX -> DOCX, '
                'DOCX -> PDF, DOCX -> DOC, DOCX -> ODT, DOCX -> ODS, etc.)',
-    'version': '10.0.2.0.0',
+    'version': '17.0.2.0.0',
     'category': 'Reporting',
     'license': 'AGPL-3',
     'author': 'Desoft, Holguin',

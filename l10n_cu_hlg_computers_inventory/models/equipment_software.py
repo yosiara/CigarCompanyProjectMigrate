@@ -15,13 +15,13 @@ class EquipmentSoftware(models.Model):
     ocs_external_id = fields.Integer()
     notes = fields.Text()
 
-    @api.multi
+    #@api.multi
     def write(self, vals):
         vals['ocs_external_id'] = False
         res = super(EquipmentSoftware, self).write(vals)
         return res
 
-    @api.one
+    #@api.one
     def confirm(self):
         self.ocs_external_id = False
         return True

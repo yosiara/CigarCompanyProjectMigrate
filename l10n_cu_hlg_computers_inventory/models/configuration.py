@@ -36,7 +36,7 @@ class NetworkInventoryConfiguration(models.Model):
     import_modem = fields.Boolean("Import Modem", default=True)
     import_printer = fields.Boolean("Import Printer", default=False)
 
-    @api.one
+    #@api.one
     def action_save(self):
         return True
 
