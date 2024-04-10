@@ -610,9 +610,9 @@ class ImportComputersAndComponentsWizard(models.TransientModel):
     def _execute_query(self, cursor, query):
         try:
             cursor.execute(query)
-        except Exception, e:
+        except Exception:
             cursor.close()
-            _logger.info(e)
+            _logger.info(Exception)
             raise UserError(
                 _("""The operation has not been completed. Please, check the connection of the Database
                      and make sure to select the correct one...""")
