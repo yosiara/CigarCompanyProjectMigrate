@@ -10,7 +10,7 @@ class ComponentMovement(models.Model):
     _order = 'datetime desc'
 
     datetime = fields.Datetime('Date')
-    equipment_id = fields.Many2one('maintenance.equipment', string='Equipment', ondelete='cascade')
+    equipment_id = fields.Many2one(comodel_name='maintenance.equipment', string='Equipment', ondelete='cascade')
     component_id = fields.Many2one('equipment.component', string='Component', ondelete='cascade')
     component_type = fields.Char(string='Component type', compute='_compute_component_type', store=True)
     type = fields.Selection([('down', 'Down'), ('up', 'Up')])
