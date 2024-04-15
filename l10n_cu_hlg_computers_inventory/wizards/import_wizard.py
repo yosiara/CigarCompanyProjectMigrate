@@ -30,7 +30,7 @@ class ImportComputersAndComponentsWizard(models.TransientModel):
 
     #@api.multi
     def action_import(self):
-        self.action_import_function()
+        self._action_import_function()
         return {
             'type': 'ir.actions.client',
             'tag': 'reload',
@@ -38,7 +38,7 @@ class ImportComputersAndComponentsWizard(models.TransientModel):
         }
 
     @api.model
-    def action_import_function(self):
+    def _action_import_function(self):
         obj = self
         connector_obj = self.env['db_external_connector.template']
         args = [('application', '=', 'ocs_inventory')]
