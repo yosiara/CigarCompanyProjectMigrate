@@ -12,7 +12,7 @@ class MaintenanceEquipment(models.Model):
     _inherit = 'maintenance.equipment'
 
     employee_ids = fields.Many2many('hr.employee', 'maintenance_equipment_resp_employees_rel', 'equipment_id', 'employee_id', 'Employees')
-    equipment_assign_to = fields.Selection(selection_add=[('employees', 'Employees')])
+    equipment_assign_to = fields.Selection(selection_add=[('employees', 'Employees')], ondelete= {'employees': 'set default'})
     inventory_number = fields.Char('Inventory Number')
     seal = fields.Char('Seal')
     ocs_external_id = fields.Integer(index=True)
