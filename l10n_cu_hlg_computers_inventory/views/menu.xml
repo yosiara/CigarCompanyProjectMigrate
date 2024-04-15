@@ -4,7 +4,7 @@
     <data>
         <menuitem name="Informatics"
                   id="menu_computers_inventory_root"
-                  web_icon="l10n_cu_hlg_computers_inventory,static/description/logo.jpg"
+                  web_icon="l10n_cu_hlg_computers_inventory/static/description/logo.jpg"
                   sequence="100"/>
 
         <menuitem name="Configuration"
