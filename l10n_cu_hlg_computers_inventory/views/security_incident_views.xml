@@ -60,7 +60,7 @@
         <record id="security_incidents_action" model="ir.actions.act_window">
             <field name="name">Security incidents</field>
             <field name="res_model">computers_inventory.security_incident</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="security_incidents_tree_view"/>
             <field name="help" type="html">

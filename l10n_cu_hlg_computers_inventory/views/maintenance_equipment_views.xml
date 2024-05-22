@@ -18,14 +18,14 @@
                         <field name="quantity_movements_for_approval"/>
                     </xpath>
 
-                    <xpath expr="//ul[@class='dropdown-menu']" position="inside">
+                    <!-- <xpath expr="//ul[@class='dropdown-menu']" position="inside">
                         <t t-if="record.has_movements_for_approval.raw_value">
                             <button type="object" class="btn btn-default pull-right btn-sm"
                                     name="approve_all_movements">
                                 Approve movements
                             </button>
                         </t>
-                    </xpath>
+                    </xpath> -->
 
                     <xpath expr="//div[@class='oe_kanban_content']" position="inside">
                         <div class="oe_kanban_bottom_left">
@@ -44,21 +44,17 @@
             <field name="inherit_id" ref="hr_maintenance.maintenance_equipment_view_form_inherit_hr"/>
             <field name="arch" type="xml">
                 <field name="employee_id" position="attributes">
-                    <attribute name="attrs">{'invisible': ['|', '|',('equipment_assign_to', '=', 'department'),
-                        ('equipment_assign_to', '=', 'employees'), ('equipment_assign_to', '=', False)]}
-                    </attribute>
+                    <attribute name="invisible">equipment_assign_to == 'department' or equipment_assign_to == 'employees' or equipment_assign_to == False</attribute>
                 </field>
                 <field name="equipment_assign_to" position="attributes">
                     <attribute name="widget">selection</attribute>
                 </field>
                 <field name="department_id" position="attributes">
-                    <attribute name="attrs">{'invisible': ['|', '|',('equipment_assign_to', '=', 'employee'),
-                        ('equipment_assign_to', '=', 'employees'), ('equipment_assign_to', '=', False)]}
-                    </attribute>
+                    <attribute name="invisible">equipment_assign_to == 'employee' or equipment_assign_to == 'employees' or equipment_assign_to == False</attribute>
                 </field>
                 <xpath expr="//field[@name='employee_id']" position="after">
                     <field name="employee_ids" string="Employees" widget="many2many_tags"
-                           attrs="{'invisible': ['|', '|',('equipment_assign_to', '=', 'employee'), ('equipment_assign_to', '=', 'department'), ('equipment_assign_to', '=', False)]}"/>
+                           invisible="equipment_assign_to == 'employee' or equipment_assign_to == 'department' or equipment_assign_to == False"/>
                 </xpath>
             </field>
         </record>
@@ -71,7 +67,7 @@
 
                 <field name="category_id" position="after">
                     <field name="inventory_number"/>
-                    <field name="seal" attrs="{'invisible': [('is_a_computer', '=', False)]}"/>
+                    <field name="seal" invisible="is_a_computer == False"/>
                     <field name="is_a_computer"/>
                 </field>
 
@@ -84,7 +80,7 @@
                 </field>
 
                 <xpath expr="//field[@name='note']" position="before">
-                    <group attrs="{'invisible': [('is_a_computer', '=', False)]}">
+                    <group invisible="is_a_computer == False">
                         <group>
                             <field name="user_name"/>
                             <field name="operative_system"/>
@@ -103,7 +99,7 @@
 
                 <xpath expr="//div[@class='oe_button_box']" position="inside">
                     <button name="%(equipment_component_movement_action2)d"
-                            attrs="{'invisible': [('is_a_computer', '=', False)]}"
+                            invisible="is_a_computer == False"
                             type="action"
                             class="oe_stat_button"
                             icon="fa-ticket">
@@ -112,7 +108,7 @@
                 </xpath>
 
                 <notebook position="inside">
-                    <page string="Hardware" attrs="{'invisible': [('is_a_computer', '=', False)]}">
+                    <page string="Hardware" invisible="is_a_computer == False">
                         <field name="component_ids">
                             <tree>
                                 <field name="component_type" readonly="1"/>
@@ -127,7 +123,7 @@
                             </tree>
                         </field>
                     </page>
-                    <page string="Software" attrs="{'invisible': [('is_a_computer', '=', False)]}">
+                    <page string="Software" invisible="is_a_computer == False">
                         <button name="confirm_all" type="object" string="Confirm All" icon="fa-star text-success"
                                 class="oe_link"/>
                         <button name="del_not_confirmed" type="object" string="Delete not Confirmed"
@@ -143,11 +139,11 @@
                                 <button name="confirm" type="object"
                                         string="Confirm"
                                         icon="fa-check-circle text-success"
-                                        attrs="{'invisible': ['|',('ocs_external_id', '=', False),('ocs_external_id', '=', 0)]}"/>
+                                        invisible="ocs_external_id == False or ocs_external_id == 0"/>
                             </tree>
                         </field>
                     </page>
-                    <page string="Qr Code" attrs="{'invisible': [('is_a_computer', '=', False)]}">
+                    <page string="Qr Code" invisible="is_a_computer == False">
                         <field nolabel="1" name='qrcode_image' widget="image"/>
                     </page>
                 </notebook>
@@ -157,13 +153,13 @@
                 </xpath>
 
                 <notebook position="inside">
-                    <page string="Movements" attrs="{'invisible': [('is_a_computer', '=', False)]}">
+                    <page string="Movements" invisible="is_a_computer == False">
                         <br/>
                         <field name="movement_ids"/>
                     </page>
 
                     <page string="Movements for approval..."
-                          attrs="{'invisible': [('has_movements_for_approval', '=', False)]}">
+                          invisible="has_movements_for_approval == False">
 
                         <br/>
                         <div class="oe_right">
@@ -176,7 +172,7 @@
                 </notebook>
 
                 <xpath expr="//field[@name='serial_no']" position="replace">
-                    <field name="serial_no" attrs="{'readonly': [('is_a_computer', '=', True)]}"/>
+                    <field name="serial_no" readonly="is_a_computer == True"/>
                 </xpath>
             </field>
         </record>
@@ -279,7 +275,7 @@
                 </field>
                 <field name="stage_id" position="before">
                     <button name="create_order" string="Create order" type="object"
-                            attrs="{'invisible': ['|', ('id', '=', False), ('is_a_tic_request','=', False)]}"
+                            invisible="id == False"
                             groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
                 </field>
                 <field name="equipment_id" position="before">
@@ -292,11 +288,11 @@
                 </xpath>
                 <xpath expr="//field[@name='maintenance_team_id']" position="after">
                     <field name="external_maintenance_team"
-                           attrs="{'invisible': [('maintenance_team_type', '=', False)], 'required': [('maintenance_team_type', '=', True)]}"/>
+                           invisible="maintenance_team_type == False" required="maintenance_team_type == True"/>
                 </xpath>
                 <xpath expr="//field[@name='maintenance_team_id']" position="replace">
                     <field name="maintenance_team_id"
-                           attrs="{'invisible': [('maintenance_team_type', '=', True)], 'required': [('maintenance_team_type', '=', False)]}"/>
+                           invisible="maintenance_team_type == True" required="maintenance_team_type == False"/>
                 </xpath>
 
             </field>

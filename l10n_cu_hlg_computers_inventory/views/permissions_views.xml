@@ -38,7 +38,7 @@
         <record id="permissions_software_module_action" model="ir.actions.act_window">
             <field name="name">Permissions software module</field>
             <field name="res_model">computers_inventory.permissions_software_module</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="permissions_software_module_tree_view"/>
             <field name="help" type="html">
@@ -96,7 +96,7 @@
         <record id="software_module_action" model="ir.actions.act_window">
             <field name="name">Software module</field>
             <field name="res_model">computers_inventory.software_module</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="software_module_tree_view"/>
             <field name="help" type="html">
@@ -128,11 +128,11 @@
                 <form string="Software" create="true" edit="true" delete="true">
                     <header>
                         <button class="oe_highlight" name="action_requested" string="Requested" type="object"
-                                states="draft"/>
+                                invisible="state != 'draft'"/>
                         <button class="oe_highlight" name="action_approved" string="Approved" type="object"
-                                states="requested"/>
+                                invisible="state != 'requested'"/>
                         <button class="oe_highlight" name="action_obsolete" string="Obsolete"
-                                type="object" states="approved"/>
+                                type="object" invisible="state != 'approved'"/>
 
                         <field name="state" widget="statusbar"/>
                     </header>
@@ -147,7 +147,7 @@
                             <field name="is_modular"/>
                         </group>
                         <group col="1">
-                            <field name="module_ids" attrs="{'invisible':[('is_modular','==',False)]}">
+                            <field name="module_ids" invisible="is_modular == False">
                                 <tree>
                                     <field name="name"/>
                                     <field name="permissions_module_ids" widget="many2many_tags"/>
@@ -188,7 +188,7 @@
         <record id="software_action" model="ir.actions.act_window">
             <field name="name">Software</field>
             <field name="res_model">computers_inventory.software</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="software_tree_view"/>
             <field name="help" type="html">
@@ -220,15 +220,15 @@
                 <form string="Authorized software" create="true" edit="true" delete="true">
                     <header>
                         <button class="oe_highlight" name="action_requested" string="Requested" type="object"
-                                states="new" groups="l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                                invisible="state != 'new'" groups="l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
                         <button class="oe_highlight" name="action_approved" string="Approved" type="object"
-                                states="requested"
+                                invisible="state != 'requested'"
                                 groups="l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
                         <button class="oe_highlight" name="action_rejected" string="Rejected"
-                                type="object" states="requested"
+                                type="object" invisible="state != 'requested'"
                                 groups="l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
                         <button class="oe_highlight" name="action_executed" string="Executed"
-                                type="object" states="approved,rejected"
+                                type="object" invisible="state not in ['approved','rejected']"
                                 groups="l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
 
                         <field name="state" widget="statusbar"/>
@@ -237,7 +237,7 @@
                         <group col="4">
                             <field name="everyone"/>
                             <field name="date"/>
-                            <field name="resource_ids" colspan="4" attrs="{'invisible':[('everyone','==',True)]}" widget="many2many_tags"></field>
+                            <field name="resource_ids" colspan="4" invisible="everyone == True" widget="many2many_tags"></field>
                             <field name="applicant_id"/>
                             <field name="department_id"/>
                             <field name="objective"/>
@@ -276,7 +276,7 @@
         <record id="authorized_software_action" model="ir.actions.act_window">
             <field name="name">Authorized software</field>
             <field name="res_model">computers_inventory.authorized_software</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="authorized_software_tree_view"/>
             <field name="help" type="html">
@@ -329,7 +329,7 @@
         <record id="nomenclator_orientation_action" model="ir.actions.act_window">
             <field name="name">Orientation</field>
             <field name="res_model">computers_inventory.nomenclator_orientation</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="nomenclator_orientation_tree_view"/>
             <field name="help" type="html">
@@ -361,13 +361,13 @@
                 <form string="Secure deletion" create="true" edit="true" delete="true">
                     <header>
                         <button class="oe_highlight" name="action_requested" string="Requested" type="object"
-                                states="new"
+                                invisible="state != 'new'"
                                 groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
                         <button class="oe_highlight" name="action_approved" string="Approved" type="object"
-                                states="requested"
+                                invisible="state != 'requested'"
                                 groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
                         <button class="oe_highlight" name="action_executed" string="Executed"
-                                type="object" states="approved"
+                                type="object" invisible="state != 'approved'"
                                 groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
 
                         <field name="state" widget="statusbar"/>
@@ -407,7 +407,7 @@
         <record id="secure_deletion_action" model="ir.actions.act_window">
             <field name="name">Secure deletion</field>
             <field name="res_model">computers_inventory.secure_deletion</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="secure_deletion_tree_view"/>
             <field name="help" type="html">
@@ -476,7 +476,7 @@
         <record id="planning_saves_action" model="ir.actions.act_window">
             <field name="name">Planning saves</field>
             <field name="res_model">computers_inventory.planning_saves</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="planning_saves_tree_view"/>
             <field name="help" type="html">
@@ -539,7 +539,7 @@
         <record id="network_license_action" model="ir.actions.act_window">
             <field name="name">Network license</field>
             <field name="res_model">computers_inventory.network_license</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="network_license_tree_view"/>
             <field name="help" type="html">
@@ -564,13 +564,13 @@
                 <form>
                     <header>
                         <button class="oe_highlight" name="action_requested" string="Requested" type="object"
-                                states="new"
+                                invisible="state != 'new'"
                                 groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
                         <button class="oe_highlight" name="action_approved" string="Approved" type="object"
-                                states="requested"
+                                invisible="state != 'requested'"
                                 groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
                         <button class="oe_highlight" name="action_executed" string="Executed"
-                                type="object" states="approved"
+                                type="object" invisible="state != 'approved'"
                                 groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
                         <field name="state" widget="statusbar"/>
                     </header>
@@ -633,7 +633,7 @@
         <record id="telematics_service_action" model="ir.actions.act_window">
             <field name="name">Telematics Service</field>
             <field name="res_model">computers_inventory.telematics_service</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">

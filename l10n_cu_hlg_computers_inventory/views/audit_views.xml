@@ -14,10 +14,10 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                            <button name="button_planned"    type="object" states='approved' string="Planned" class="oe_highlight" />
-                            <button name="button_approved"   type="object" states='planned,done,unrealized'  string="Approved" />
-                            <button name="button_done"       type="object" states='approved' string="Done"  />
-                            <button name="button_unrealized" type="object" states='approved' string="Unrealized"  />
+                            <button name="button_planned"    type="object" invisible="state != 'approved'" string="Planned" class="oe_highlight" />
+                            <button name="button_approved"   type="object" invisible="state not in ['planned','done','unrealized']"  string="Approved" />
+                            <button name="button_done"       type="object" invisible="state != 'approved'" string="Done"  />
+                            <button name="button_unrealized" type="object" invisible="state != 'approved'" string="Unrealized"  />
                             <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
@@ -57,7 +57,7 @@
         <record id="audit_action" model="ir.actions.act_window">
             <field name="name">Audit plan</field>
             <field name="res_model">computers_inventory.audit_plan</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="audit_plan_tree_view"/>
             <field name="help" type="html">

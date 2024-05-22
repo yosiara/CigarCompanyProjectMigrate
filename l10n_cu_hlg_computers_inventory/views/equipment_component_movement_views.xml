@@ -46,14 +46,14 @@
                     <field name="type"/>
                     <field name="state"/>
                     <button name="action_approve" string="Approved" type="object"
-                            attrs="{'invisible': [('state', '=', 'approved')]}"
+                            invisible="state == 'approved'"
                             icon="fa-close"/>
                 </tree>
             </field>
         </record>
 
         <!-- SEARCH VIEW -->
-        <record id="equipment_component_movement_search_view" model="ir.ui.view">
+        <!-- <record id="equipment_component_movement_search_view" model="ir.ui.view">
             <field name="name">equipment_component_movement_search_view</field>
             <field name="model">equipment.component_movement</field>
             <field name="arch" type="xml">
@@ -93,13 +93,13 @@
                     </group>
                 </search>
             </field>
-        </record>
+        </record> -->
 
         <!-- ACTION -->
         <record id="equipment_component_movement_action" model="ir.actions.act_window">
             <field name="name">Component Movement</field>
             <field name="res_model">equipment.component_movement</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="target">current</field>
             <field name="help" type="html">
@@ -112,7 +112,7 @@
         <record id="equipment_component_movement_action2" model="ir.actions.act_window">
             <field name="name">Component Movement</field>
             <field name="res_model">equipment.component_movement</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('equipment_id', '=', active_id)]</field>
             <field name="context">

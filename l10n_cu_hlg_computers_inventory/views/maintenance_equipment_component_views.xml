@@ -17,16 +17,16 @@
                         <field name="ocs_external_id" invisible="1"/>
                         <div class="oe_title">
                             <h2>
-                                <field name="name" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                                <field name="name" readonly="ocs_external_id != False"/>
                             </h2>
                         </div>
 
                         <field name="id" invisible="1"/>
                         <group col="4">
-                            <field name="component_type" attrs="{'readonly': [('id', '!=', False)]}"/>
+                            <field name="component_type" readonly="id != False"/>
                             <field name="inventory_number"
-                                   attrs="{'invisible': [('component_type', 'not in', ('monitor','input_device','printer','ups','fax','scanner','speaker'))]}"/>
-                            <field name="type" attrs="{'readonly': [('id', '!=', False)]}"/>
+                                   invisible="component_type not in ['monitor','input_device','printer','ups','fax','scanner','speaker']"/>
+                            <field name="type" readonly="id != False"/>
                         </group>
                         <group>
                             <group>
@@ -40,49 +40,49 @@
                                 <field name="serial_no_custom"/>
                             </group>
                         </group>
-                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'motherboard')]}">
-                            <field name="version" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        <group col="4" invisible="component_type != 'motherboard'">
+                            <field name="version" readonly="ocs_external_id != False"/>
                         </group>
-                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'monitor')]}">
+                        <group col="4" invisible="component_type != 'monitor'">
                             <field name="manufactured_date"/>
                         </group>
-                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'microprocessor')]}">
-                            <field name="frequency" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="socket_type" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="architecture" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="cores_number" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        <group col="4" invisible="component_type != 'microprocessor'">
+                            <field name="frequency" readonly="ocs_external_id != False"/>
+                            <field name="socket_type" readonly="ocs_external_id != False"/>
+                            <field name="architecture" readonly="ocs_external_id != False"/>
+                            <field name="cores_number" readonly="ocs_external_id != False"/>
                         </group>
-                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'memory')]}">
-                            <field name="speed" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="capacity" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="slot_used" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="slot_description" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        <group col="4" invisible="component_type != 'memory'">
+                            <field name="speed" readonly="ocs_external_id != False"/>
+                            <field name="capacity" readonly="ocs_external_id != False"/>
+                            <field name="slot_used" readonly="ocs_external_id != False"/>
+                            <field name="slot_description" readonly="ocs_external_id != False"/>
                         </group>
-                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'storage')]}">
-                            <field name="firmware" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="disk_size" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        <group col="4" invisible="component_type != 'storage'">
+                            <field name="firmware" readonly="ocs_external_id != False"/>
+                            <field name="disk_size" readonly="ocs_external_id != False"/>
                         </group>
-                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'video_card')]}">
-                            <field name="memory" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="chipset" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="resolution" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        <group col="4" invisible="component_type != 'video_card'">
+                            <field name="memory" readonly="ocs_external_id != False"/>
+                            <field name="chipset" readonly="ocs_external_id != False"/>
+                            <field name="resolution" readonly="ocs_external_id != False"/>
                         </group>
-                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'network')]}">
-                            <field name="ip" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="mac" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="status" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="speed" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        <group col="4" invisible="component_type != 'network'">
+                            <field name="ip" readonly="ocs_external_id != False"/>
+                            <field name="mac" readonly="ocs_external_id != False"/>
+                            <field name="status" readonly="ocs_external_id != False"/>
+                            <field name="speed" readonly="ocs_external_id != False"/>
                         </group>
-                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'input_device')]}">
-                            <field name="interface" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        <group col="4" invisible="component_type != 'input_device'">
+                            <field name="interface" readonly="ocs_external_id != False"/>
                         </group>
-                        <group col="4" attrs="{'invisible': [('component_type', '!=', 'printer')]}">
-                            <field name="port" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
-                            <field name="driver" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"/>
+                        <group col="4" invisible="component_type != 'printer'">
+                            <field name="port" readonly="ocs_external_id != False"/>
+                            <field name="driver" readonly="ocs_external_id != False"/>
                         </group>
                         <group col="1">
                             <label for="description"/>
-                            <field name="description" attrs="{'readonly': [('ocs_external_id', '!=', False)]}"
+                            <field name="description" readonly="ocs_external_id != False"
                                    nolabel="1"/>
                         </group>
                     </sheet>
@@ -108,11 +108,11 @@
             </field>
         </record>
 
-        <record id="equipment_component_search_view" model="ir.ui.view">
+        <!-- <record id="equipment_component_search_view" model="ir.ui.view">
             <field name="name">Equipment's Components Search</field>
             <field name="model">equipment.component</field>
             <field name="arch" type="xml">
-                <search string="">
+                <search string="Equipment's Components Search">
                     <filter string="Motherboard" domain="[('component_type', '=', 'motherboard')]"/>
                     <filter string="Microprocessor" domain="[('component_type', '=', 'microprocessor')]"/>
                     <filter string="RAM" domain="[('component_type', '=', 'memory')]"/>
@@ -130,7 +130,7 @@
                     <filter string="Power Source" domain="[('component_type', '=', 'power_source')]"/>
                     <group expand="0" string="Group By">
                         <filter name="group_by_equipment_type" string="Equipment > Component type" domain="[]"
-                                context="{'group_by': ['equipment_id', 'component_type']}"/>
+                                context="{'group_by': 'equipment_id', 'group_by': 'component_type'}"/>
                         <filter name="group_by_equipment" string="Equipment" domain="[]"
                                 context="{'group_by':'equipment_id'}"/>
                         <filter name="group_by_type" string="Component Type" domain="[]"
@@ -138,20 +138,20 @@
                     </group>
                 </search>
             </field>
-        </record>
+        </record> -->
 
         <record id="equipment_component_view_action" model="ir.actions.act_window">
             <field name="name">Components</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">equipment.component</field>
             <field name="view_mode">tree,form</field>
-            <field name="context">{"search_default_group_by_equipment_type":1}</field>
+            <!-- <field name="context">{"search_default_group_by_equipment":1}</field> -->
         </record>
 
         <!-- This Menu Item must have a parent and an action -->
         <menuitem id="equipment_component_view_menu" name="Components" parent="computers_inventory_equipment_menu_item"
                   action="equipment_component_view_action"
-                  groups="computers_inventory_executor,computers_inventory_manager"
+                  groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"
                   sequence="111"/>
     </data>
 </odoo>
