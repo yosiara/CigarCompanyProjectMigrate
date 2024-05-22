@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
 		<record id="inventory_registry_information_wzd_view_form"	model="ir.ui.view">
 			<field name="name">l10n_cu_hlg_computers_inventory.registry_information</field>
@@ -17,20 +17,20 @@
 						<field name="days_left"/>
 					</group>
                     <field name="state" invisible="1"/>
-                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','sinclave')]}">
+                    <group class="oe_edit_only" invisible="state != 'sinclave'">
                         <p class='alert alert-warning'>Debe solicitar la clave de registro.</p>
                     </group>
-                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','reg')]}">
+                    <group class="oe_edit_only" invisible="state != 'reg'">
                         <p class='alert alert-success'>Su clave de registro es correcta o está en el período de pruebas.</p>
                     </group>
                     <group class="oe_edit_only"
-                           attrs="{'invisible': ['|',('days_left','&gt;=',30),('days_left','=',0)]}">
+                           invisible="days_left &gt;= 30 or days_left == 0">
                         <p class='alert alert-warning'>Su clave de registro está próxima a vencerse.</p>
                     </group>
-                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','unreg')]}">
+                    <group class="oe_edit_only" invisible="state != 'unreg'">
                         <p class='alert alert-danger'>Su clave de registro es incorrecta.</p>
                     </group>
-                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','exp')]}">
+                    <group class="oe_edit_only" invisible="state != 'exp'">
                         <p class='alert alert-danger'>Su clave de registro está vencida.</p>
                     </group>
 				     <footer>
@@ -48,7 +48,7 @@
 		<field name="name">PC-Inside Registry Information</field>
 		<field name="type">ir.actions.act_window</field>
 		<field name="res_model">l10n_cu_hlg_computers_inventory.registry_information</field>
-		<field name="view_type">form</field>
+		<field name="binding_view_types">form</field>
 		<field name="view_mode">form</field>
 		<field name="target">new</field>
 	</record>
@@ -61,4 +61,4 @@
 
 
 	</data>
-</openerp>
+</odoo>

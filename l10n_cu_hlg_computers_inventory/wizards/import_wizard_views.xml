@@ -48,7 +48,7 @@
             <field name="name">Wizard to import computers...</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">computers_inventory.import_computers_wizard</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>

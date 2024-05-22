@@ -6,7 +6,7 @@
             <t t-call="l10n_cu_hlg_computers_inventory.external_layout">
                 <div class="page">
                     <link href="/l10n_cu_hlg_computers_inventory/static/src/css/styles.css"
-                          rel="stylesheet" type="text/css"/>
+                          rel="stylesheet" type="text/css"></link>
 
                     <h2 align="center">Technical File</h2>
                     <div class="row mt16 mb16"/>

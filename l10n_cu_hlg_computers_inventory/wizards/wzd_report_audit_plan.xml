@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         <record id="audit_plan_wzd_form" model="ir.ui.view">
             <field name="name">audit_plan_wzd</field>
@@ -30,7 +30,7 @@
             <field name="name">Audit Plan</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">computers_inventory.audit_plan_wzd</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
@@ -40,4 +40,4 @@
                   parent="menu_reports"
                   sequence="1"/>
     </data>
-</openerp>
+</odoo>

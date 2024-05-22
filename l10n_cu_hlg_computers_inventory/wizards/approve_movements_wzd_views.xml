@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         <record id="approve_movements_wzd_form" model="ir.ui.view">
             <field name="name">approve_movements_wzd_form</field>
@@ -7,15 +7,10 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form>
-                    <sheet>
-                        <separator
-                                string="De click en Aprobar para aprobar todos los movimientos del equipamiento seleccionado."/>
-                    </sheet>
-
                     <footer>
                         <div>
                             <button name="approve_all" string="Aprobar" type="object"
-                                    class="oe_highlight"/>
+                                    class="oe_highlight" help="De click en Aprobar para aprobar todos los movimientos del equipamiento seleccionado."/>
                             o
                             <button special="cancel" string="Cancelar" class="oe_link"/>
                         </div>
@@ -24,13 +19,14 @@
             </field>
         </record>
 
-        <act_window name="Aprobar movimientos"
-                res_model="computers_inventory.approve_movements_wzd"
-                src_model="maintenance.equipment"
-                view_mode="form"
-                multi="True"
-                target="new"
-                key2="client_action_multi"
-                id="action_approve_movements_wzd"/>
+        <record id="action_approve_movements_wzd" model="ir.actions.act_window">
+            <field name="name">"Aprobar movimientos</field>
+            <field name="res_model">computers_inventory.approve_movements_wzd</field>
+            <!-- <field name="view_id" ref="maintenance.equipment"/> -->
+            <field name="view_mode">form</field>
+            <!-- multi="True" -->
+            <field name="target">new</field>
+            <!-- key2="client_action_multi</field> -->
+        </record>
     </data>
-</openerp>
+</odoo>
