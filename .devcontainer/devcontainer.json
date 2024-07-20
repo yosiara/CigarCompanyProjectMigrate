@@ -1,0 +1,41 @@
+{
+    "name": "Odoo Dev Container",
+    // Use a Dockerfile, image or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    "dockerComposeFile": "docker-compose.yml",
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    // "features": {},
+    "service": "odoo",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    "remoteUser": "root",
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+        8069
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "git config --global --add safe.directory /workspaces/${localWorkspaceFolderBasename}",
+    "shutdownAction": "stopCompose",
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.defaultFormatter": "ms-python.black-formatter",
+                "editor.formatOnSave": true,
+                //"terminal.integrated.shell.linux": "/bin/bash"
+                "python.autoComplete.extraPaths": [
+                    //"/usr/bin/odoo",
+                    "/mnt/extra-addons",
+                    "/usr/lib/python3/dist-packages/odoo/addons"
+                ]
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.debugpy",
+                "trinhanhngoc.vscode-odoo",
+                "Odoo.odoo",
+                "jeffery9.odoo-snippets"
+            ]
+        }
+    }
+}
