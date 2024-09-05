@@ -1,0 +1,1552 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_turei
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20200610\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-13 04:36+0000\n"
+"PO-Revision-Date: 2020-10-13 00:41-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.7.3\n"
+
+#. module: hr_turei
+#: code:addons/hr_turei/models/hr_turei_external_template.py:110
+#, python-format
+msgid "%s Attendance Registry from %s to %s"
+msgstr "%s Registro asistencia desde %s hasta %s"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_additional_incidences_id
+msgid "Additional Incidences"
+msgstr "Incidencias Adicionales"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_additional_incidences_line_tree
+msgid "Additional Incidences Lines"
+msgstr "Líneas de incidencias adicionales"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_approval
+msgid "Approval"
+msgstr "Visto Bueno"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pickup_wzd_approved_by
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd_approved_by
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_approved_by
+msgid "Approved By"
+msgstr "Aprobado por"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:278
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:944
+#, python-format
+msgid "April"
+msgstr "Abril"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_external_staff_filter
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_area
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_external_area_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_area_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_external_area_id
+msgid "Area"
+msgstr "Área"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_external_staff_ids
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line_ids
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_external_area_form
+msgid "Associated"
+msgstr "Asociados"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line_attendance_id
+#: model:ir.ui.menu,name:hr_turei.hr_turei_attendance_menu
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_external_staff_attendance_form
+msgid "Attendance"
+msgstr "Asistencia"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:286
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:952
+#, python-format
+msgid "August"
+msgstr "Agosto"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_incidence_search
+msgid "Before Month"
+msgstr "Mes Anterior"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_te_overcompliance_wzd_form_view
+msgid "Calculate"
+msgstr "Calcular"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_create_employee_movements_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_daily_smoking_delivery_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_daily_smoking_pickup_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_daily_smoking_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_set_employee_turn_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_smoking_additional_incidences_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_smoking_resume_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_te_overcompliance_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_weekly_smoking_delivery_wzd_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_carries_daily_smoking
+msgid "Carries Daily Smoking"
+msgstr "Recibe fuma diaria"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_employee_carries_daily_smoking
+msgid "Carries Daily smoking"
+msgstr "Recibe fuma diaria"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_employee_incentive
+msgid "Carries Productivity Incentive"
+msgstr "Recibe incentivo por productividad"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_cause
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_cause_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_cause
+msgid "Cause"
+msgstr "Causa"
+
+#. module: hr_turei
+#: code:addons/hr_turei/models/hr_smoking.py:72
+#, python-format
+msgid "Cigarette list from %s to %s."
+msgstr "Listado de cigarrillos desde %s hasta %s."
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_cigarette_concept_form
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_cigarette_concept_search
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_cigarette_concept_tree
+msgid "Cigarettes Concept"
+msgstr "Conceptos de venta de cigarrillos"
+
+#. module: hr_turei
+#: model:ir.ui.menu,name:hr_turei.configuration_cigarettes_list_menu_item
+msgid "Cigarettes List"
+msgstr "Listado de Cigarrillos"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,help:hr_turei.action_hr_turei_attendance_reason
+msgid "Click to add a new reason."
+msgstr "Click para adicionar una nueva razón."
+
+#. module: hr_turei
+#: selection:hr_turei.smoke_period,state:0
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_code
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_employee_code
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_reason_code
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_code
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_type_code
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_employee_code
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_code
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_search
+msgid "Code"
+msgstr "Código"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_delivery_wzd_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pickup_wzd_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_company_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_company_ids
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_company_retired
+msgid "Company Retired"
+msgstr "Retirado Empresa"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_concept_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_concept_id
+msgid "Concept"
+msgstr "Concepto"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_turei_cigarette_concept
+#: model:ir.ui.menu,name:hr_turei.menu_hr_turei_cigarette_concept_view
+msgid "Concepts"
+msgstr "Conceptos"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_resume_wzd_connection_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_connection_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_connection_id
+msgid "Connection SGP"
+msgstr "Conexión a SGP"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_type_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_create_employee_movements_wzd_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_delivery_wzd_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pickup_wzd_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_cause_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_services_provided_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_set_employee_turn_wzd_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_resume_wzd_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_type_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_create_employee_movements_wzd_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_delivery_wzd_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pickup_wzd_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_cause_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_services_provided_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_set_employee_turn_wzd_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_resume_wzd_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: hr_turei
+#: selection:hr_turei.external_area,weekly_list_delivery_type:0
+msgid "Daily"
+msgstr "Diaria"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_daily_smoking
+#: model:ir.ui.menu,name:hr_turei.menu_daily_smoking_view
+msgid "Daily Smoking"
+msgstr "Fuma diaria"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.hr_turei_daily_smoking_delivery_list_action
+#: model:ir.ui.menu,name:hr_turei.hr_turei_daily_smoking_delivery_list_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_daily_smoking_delivery_wzd_form_view
+msgid "Daily Smoking Delivery List"
+msgstr "Registro de entrega de fuma diaria"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.hr_turei_daily_smoking_list_action
+#: model:ir.ui.menu,name:hr_turei.hr_turei_daily_smoking_list_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_daily_smoking_wzd_form_view
+msgid "Daily Smoking List"
+msgstr "Relación de trabajadores que reciben fuma diaria"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.hr_turei_daily_smoking_pickup_list_action
+#: model:ir.ui.menu,name:hr_turei.hr_turei_daily_smoking_pickup_list_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_daily_smoking_pickup_wzd_form_view
+msgid "Daily Smoking PickUp List"
+msgstr "Relación de trabajadores que recogen fuma diaria"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_daily_smoking_form
+#: model:ir.ui.view,arch_db:hr_turei.view_daily_smoking_search
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_daily_smoking_tree
+msgid "Daily Smoking configuration"
+msgstr "Configuración de fuma diaria"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_external_area_form
+msgid "Daily smoking list"
+msgstr "Listado fuma diaria"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_delivery_wzd_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_resume_wzd_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_date
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_incidence_search
+msgid "Date"
+msgstr "Fecha"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_days
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line_days
+msgid "Days"
+msgstr "Días"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:294
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:960
+#, python-format
+msgid "December"
+msgstr "Diciembre"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_external_staff_calendar_id
+msgid "Define the schedule of resource"
+msgstr "Define la planificación del recurso."
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_turei_smoke_period
+#: model:ir.ui.menu,name:hr_turei.menu_hr_period_smoke_list_view
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_smoke_period_form
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_smoke_period_search
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_smoke_period_tree
+msgid "Deliver Period"
+msgstr "Período de entrega"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_delivery_frequency
+msgid "Delivery Frequency"
+msgstr "Frecuencia de entrega"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_weekly_list_delivery_type
+msgid "Delivery type"
+msgstr "Tipo entrega"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_department_id
+msgid "Department"
+msgstr "Departamento"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_department_ids
+msgid "Departments"
+msgstr "Departamentos"
+
+#. module: hr_turei
+#: selection:hr_turei.employee_movement,movement_type:0
+msgid "Discharge (Don't select)"
+msgstr "Baja (No Seleccionar)"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_type_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_create_employee_movements_wzd_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_delivery_wzd_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pickup_wzd_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_cause_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_services_provided_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_set_employee_turn_wzd_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_resume_wzd_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_time_efficiency
+msgid "Efficiency Factor"
+msgstr "Factor de eficiciencia"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pickup_wzd_elaborated_by
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd_elaborated_by
+msgid "Elaborated By"
+msgstr "Elaborado Por"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_elaborated_by
+msgid "Elaborated by"
+msgstr "Elaborado Por"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_employee
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_employee_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_employee_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_employee_id
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_search
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_turei_employee_movements
+#: model:ir.ui.menu,name:hr_turei.hr_turei_employee_movement_menu
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_search
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_tree
+msgid "Employee Movements"
+msgstr "Movimientos de empleados"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_employee_turn
+msgid "Employee shift"
+msgstr "Turno Empleado"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_attendance_incidence_employee_turn
+msgid "Employee shift in fastos."
+msgstr "Turno Empleado en el fastos."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_employee_turn_order
+msgid "Employee shift order"
+msgstr "Orden del turno del empleado"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_attendance_incidence_employee_turn_order
+msgid "Employee shift order in fastos."
+msgstr "Orden del turno del empleado en el fastos."
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_attendance_incidence
+msgid "Employee work time Incidences"
+msgstr "Incidencias en tiempo de trabajo de empleados"
+
+#. module: hr_turei
+#: model:ir.ui.menu,name:hr_turei.hr_turei_employee_movement_configuration_menu
+msgid "Employee's movements"
+msgstr "Movimientos de empleados"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_turei_employee_movement_cause
+#: model:ir.ui.menu,name:hr_turei.hr_turei_employee_movement_cause_menu
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_cause_form
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_cause_search
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_cause_tree
+msgid "Employee's movements cause"
+msgstr "Causas de movimientos de empleados"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_set_employee_turn_wzd_employee_ids
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_employee_ids
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_incidence_search
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_end_date
+msgid "End Date"
+msgstr "Fecha finalización"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_end_date
+msgid "End Date Labor Journeys"
+msgstr "Fecha fin jornadas laborales"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_end_date_production
+msgid "End Date Production"
+msgstr "Fecha Fin Producción"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_services_provided_entity
+msgid "Entity"
+msgstr "Entidad"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_entry_date
+msgid "Entry Date"
+msgstr "Fecha de entrada"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_create_employee_movements_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_set_employee_turn_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_smoking_additional_incidences_wzd_form_view
+msgid "Execute"
+msgstr "Ejecuta"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_exit_date
+msgid "Exit Date"
+msgstr "Fecha de Salida"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_resume_wzd_expedition_date
+msgid "Expedition Date"
+msgstr "Fecha de expedición"
+
+#. module: hr_turei
+#: selection:hr.department,smoking_type:0
+#: selection:hr_turei.external_area,smoking_type:0
+msgid "External"
+msgstr "Externa"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_external_area_form
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_external_area_tree
+msgid "External Area"
+msgstr "Área externa"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_turei_external_area
+#: model:ir.ui.menu,name:hr_turei.menu_hr_turei_external_area_view
+msgid "External Areas"
+msgstr "Áreas Externas"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_turei_external_staff
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_external_staff_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_external_staff
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_external_staff_ids
+#: model:ir.ui.menu,name:hr_turei.menu_employee_external_staff_view
+#: model:ir.ui.view,arch_db:hr_turei.view_external_staff_filter
+#: model:ir.ui.view,arch_db:hr_turei.view_external_staff_form
+#: model:ir.ui.view,arch_db:hr_turei.view_external_staff_tree
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_external_area_form
+msgid "External Staff"
+msgstr "Personal Externo"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_turei_external_staff_attendance
+#: model:ir.ui.menu,name:hr_turei.menu_hr_turei_external_staff_attendance_view
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_external_staff_attendance_form
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_external_staff_attendance_tree
+msgid "External Staff Attendance"
+msgstr "Asistencia Personal Externo"
+
+#. module: hr_turei
+#: model:ir.ui.menu,name:hr_turei.menu_hr_external_staff_view
+msgid "External Template"
+msgstr "Plantilla Externa"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:274
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:940
+#, python-format
+msgid "February"
+msgstr "Febrero"
+
+#. module: hr_turei
+#: selection:hr_turei.external_staff,gender:0
+msgid "Female"
+msgstr "Femenino"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:930
+#, python-format
+msgid "Friday"
+msgstr "Viernes"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_external_staff_form
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_external_area_form
+msgid "Full Name"
+msgstr "Nombre Completo"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_gender
+msgid "Gender"
+msgstr "Sexo"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_incidence_search
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_hours_amount
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_hours_amount
+msgid "Hours Amount"
+msgstr "Cantidad de horas"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_hours_perday
+msgid "Hours per labor journey"
+msgstr "Horas por jornada laboral"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_department
+msgid "Hr Department"
+msgstr "Departamento de Recursos Humanos"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_type_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_create_employee_movements_wzd_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_delivery_wzd_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pickup_wzd_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_cause_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_services_provided_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_set_employee_turn_wzd_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_resume_wzd_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_name
+msgid "Identifier"
+msgstr "Identificador"
+
+#. module: hr_turei
+#: selection:hr_turei.cigarette_concept,type:0
+msgid "Incentive by accomplish"
+msgstr "Incentivo por sobrecumplimeinto"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_incidence_form
+msgid "Incidence"
+msgstr "Incidencia"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_incidence_search
+msgid "Incidence search"
+msgstr "Incidence search"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_turei_attendance_incidence
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_ids
+#: model:ir.ui.menu,name:hr_turei.hr_turei_attendance_incidence_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_additional_incidences_form
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_incidence_tree
+msgid "Incidences"
+msgstr "Incidencias"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_turei_additional_incidences
+#: model:ir.ui.menu,name:hr_turei.menu_action_hr_turei_additional_incidences_view
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_additional_incidences_form
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_additional_incidences_search
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_additional_incidences_tree
+msgid "Incidences/Extra Hours"
+msgstr "Incidencias/Horas Extras"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_attendance_reason
+#: model:ir.model,name:hr_turei.model_hr_turei_attendance_reason_type
+msgid "Incidence´s Reason"
+msgstr "Razón de la incidencia"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_include_monthly_areas
+msgid "Include Monthly Areas"
+msgstr "Incluir Áreas Mensuales"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_include_monthly_concepts
+msgid "Include Monthly Concepts"
+msgstr "Incluir Conceptos Mensuales"
+
+#. module: hr_turei
+#: selection:hr.department,smoking_type:0
+#: selection:hr_turei.external_area,smoking_type:0
+msgid "Internal"
+msgstr "Interna"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_employee
+msgid "Is an Employee"
+msgstr "Es un Empleado?"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:272
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:938
+#, python-format
+msgid "January"
+msgstr "Enero"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:284
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:950
+#, python-format
+msgid "July"
+msgstr "Julio"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:282
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:948
+#, python-format
+msgid "June"
+msgstr "Junio"
+
+#. module: hr_turei
+#: sql_constraint:hr_turei.additional_incidences:0
+msgid "La persona que intenta añadir ya tiene un registro de incidencias adicionales en este periodo."
+msgstr "La persona que intenta añadir ya tiene un registro de incidencias adicionales en este periodo."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_type___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_create_employee_movements_wzd___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_delivery_wzd___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pickup_wzd___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_cause___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_services_provided___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_set_employee_turn_wzd___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_resume_wzd___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd___last_update
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_type_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_create_employee_movements_wzd_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_delivery_wzd_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pickup_wzd_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_cause_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_services_provided_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_set_employee_turn_wzd_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_resume_wzd_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_type_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_create_employee_movements_wzd_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_delivery_wzd_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pickup_wzd_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_wzd_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_cause_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_services_provided_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_set_employee_turn_wzd_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_resume_wzd_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_carries_daily_smoking
+msgid "Lleva asignación de fuma"
+msgstr "Lleva asignación de fuma"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_lower_limit
+msgid "Lower overcompliance percent limit"
+msgstr "Límite de sobrecumplimiento inferior"
+
+#. module: hr_turei
+#: selection:hr_turei.external_staff,gender:0
+msgid "Male"
+msgstr "Masculino"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:276
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:942
+#, python-format
+msgid "March"
+msgstr "Marzo"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:280
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:946
+#, python-format
+msgid "May"
+msgstr "Mayo"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_image_medium
+msgid "Medium-sized photo"
+msgstr "Foto de tamaño medio"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_external_staff_image_medium
+msgid "Medium-sized photo of the employee. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+msgstr "Foto de medio tamaño del empleado. Se redimensionará automáticamente a 128x128px, manteniendo el ratio de aspecto. Utilice este campo en vistas de formulario o vistas kanban."
+
+#. module: hr_turei
+#: selection:hr.employee,smoking_prod_incentive_context:0
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_module_id
+msgid "Module"
+msgstr "Módulo"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:922
+#, python-format
+msgid "Monday"
+msgstr "Lunes"
+
+#. module: hr_turei
+#: selection:hr_turei.cigarette_concept,delivery_frequency:0
+#: selection:hr_turei.external_area,weekly_list_delivery_type:0
+msgid "Monthly"
+msgstr "Mensual"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_form
+msgid "Movement"
+msgstr "Movimiento"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_movement_end_date
+msgid "Movement End Date"
+msgstr "Fecha fin movimiento"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_movement_start_date
+msgid "Movement Start Date"
+msgstr "Fecha inicio movimiento"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_movement_type
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_search
+msgid "Movement Type"
+msgstr "Tipo de movimiento"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_movement_cause
+msgid "Movement cause"
+msgstr "Causa del movimiento"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_new_job_position_id
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_search
+msgid "New Job Position"
+msgstr "Nuevo puesto de trabajo"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_name_related
+msgid "Nombre"
+msgstr "Nombre"
+
+#. module: hr_turei
+#: selection:hr_turei.cigarette_concept,type:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_not_working_time
+msgid "Not working time"
+msgstr "Tiempo no trabjado"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:292
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:958
+#, python-format
+msgid "November"
+msgstr "Noviembre"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:290
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:956
+#, python-format
+msgid "October"
+msgstr "Octubre"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_employee_movement_old_job_position_id
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_employee_movement_search
+msgid "Old Job Position"
+msgstr "Antiguo puesto de trabajo"
+
+#. module: hr_turei
+#: selection:hr_turei.smoke_period,state:0
+msgid "Open"
+msgstr "Abierto"
+
+#. module: hr_turei
+#: selection:hr_turei.external_staff,gender:0
+msgid "Other"
+msgstr "Otros"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.hr_turei_te_overcompliance_wzd_action
+#: model:ir.ui.menu,name:hr_turei.hr_turei_te_overcompliance_wzd_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_te_overcompliance_wzd_form_view
+msgid "Overcompliance plan te"
+msgstr "Sobrecumplimiento plan TE"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_employee_smoking_prod_incentive_plan_type
+msgid "Overcompliance plan type"
+msgstr "Tipo de plan a sobrecumplir"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_line_packs
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_packs_amount
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_packs
+msgid "Packs"
+msgstr "Cajetillas"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_employee_packs_amount
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_packs_amount
+msgid "Packs Amount"
+msgstr "Cantidad de cajetillas"
+
+#. module: hr_turei
+#: selection:hr_turei.cigarette_concept,delivery_frequency:0
+msgid "Per Day"
+msgstr "Por Día"
+
+#. module: hr_turei
+#: selection:hr_turei.cigarette_concept,delivery_frequency:0
+msgid "Per Hour"
+msgstr "Por Hora"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_percent
+msgid "Percent"
+msgstr "Porcentaje"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_additional_incidences_period_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_period_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoking_additional_incidences_wzd_period_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_weekly_smoking_delivery_wzd_period_id
+msgid "Period"
+msgstr "Período"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_permanent_disability
+msgid "Permanent Disability"
+msgstr "Invalidez Permanente"
+
+#. module: hr_turei
+#: selection:hr_turei.employee_movement,movement_type:0
+msgid "Permanent Reallocation"
+msgstr "Reubicación Permanente"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_attendance_line_external_staff_id
+msgid "Person"
+msgstr "Persona"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_image
+msgid "Photo"
+msgstr "Foto"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_external_area_pick_up
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pick_up
+msgid "Pick up cigarettes"
+msgstr "Recoge cigarrillos"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_external_area_pick_up_sub
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_daily_smoking_pick_up_sub
+msgid "Pick up cigarettes(Substitute)"
+msgstr "Recoge cigarrillos(Sustituto)"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_plan
+msgid "Plan"
+msgstr "Plan"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_daily_smoking_delivery_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_daily_smoking_pickup_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_daily_smoking_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_smoking_resume_wzd_form_view
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_weekly_smoking_delivery_wzd_form_view
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_employee_smoking_prod_incentive_context
+msgid "Productive Icentive Evaluation Context"
+msgstr "Contexto de Evaluación del incentivo por productividad"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_real
+msgid "Real"
+msgstr "Real"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_reason_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_type_name
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_reason_form
+msgid "Reason"
+msgstr "Motivo"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_reason_search
+msgid "Reason search"
+msgstr "Reason search"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_turei_attendance_reason
+#: model:ir.ui.menu,name:hr_turei.hr_turei_attendance_reason_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_reason_tree
+msgid "Reasons"
+msgstr "Razones"
+
+#. module: hr_turei
+#: selection:hr_turei.employee_movement,movement_type:0
+msgid "Register (Don't select)"
+msgstr "Alta (No Seleccionar)"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_external_staff_user_id
+msgid "Related user name for the resource to manage its access."
+msgstr "Usuario relacionado con el recurso para gestionar su acceso."
+
+#. module: hr_turei
+#: model:ir.ui.menu,name:hr_turei.menu_hr_turei_cigarettes_list_report
+msgid "Reports"
+msgstr "Informes"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_resource_id
+msgid "Resource"
+msgstr "Recurso"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_resource_type
+msgid "Resource Type"
+msgstr "Tipo de recurso"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:932
+#, python-format
+msgid "Saturday"
+msgstr "Sábado"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:288
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:954
+#, python-format
+msgid "September"
+msgstr "Septiembre"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_services_provided_name
+msgid "Service"
+msgstr "Servicio"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_services_provided_tree
+msgid "Services"
+msgstr "Servicios"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_service_ids
+msgid "Services Provided"
+msgstr "Servicios prestados"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_image_small
+msgid "Small-sized photo"
+msgstr "Foto pequeña"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_external_staff_image_small
+msgid "Small-sized photo of the employee. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr "Foto de tamaño medio del empleado. Automáticamente se redimensionará a 64x64px manteniendo el ratio de aspecto. Use este campo cuando necesite una imagen pequeña."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_employee_smoker
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_smoker
+msgid "Smoker"
+msgstr "Fumador"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_employee_form_inherit
+msgid "Smoking List"
+msgstr "Listado de Cigarrillos"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_department_smoking_type
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_smoking_type
+msgid "Smoking Type"
+msgstr "Tipo de fuma"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_employee_brand_smoke_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_brand_smoke_id
+msgid "Smoking brand"
+msgstr "Marca que fuma"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.hr_turei_smoking_resume_wzd_action
+#: model:ir.ui.menu,name:hr_turei.hr_turei_smoking_resume_wzd_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_smoking_resume_wzd_form_view
+msgid "Smoking resume report"
+msgstr "Reporte resumen de fuma"
+
+#. module: hr_turei
+#: selection:hr.employee,smoking_prod_incentive_plan_type:0
+msgid "Sobre cumplimiento PTRC"
+msgstr "Sobre cumplimiento PTRC"
+
+#. module: hr_turei
+#: selection:hr.employee,smoking_prod_incentive_plan_type:0
+msgid "Sobre cumplimiento plan RRHH"
+msgstr "Sobre cumplimiento plan RRHH"
+
+#. module: hr_turei
+#: selection:hr.employee,smoking_prod_incentive_plan_type:0
+msgid "Sobre cumplimiento producción HEBRA"
+msgstr "Sobre cumplimiento producción HEBRA"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_attendance_incidence_reason_code
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_attendance_reason_code
+msgid "Specifies the code for Signing In/Signing Out."
+msgstr "Specifies the code for Signing In/Signing Out."
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_attendance_reason_name
+msgid "Specifies the reason for Signing In/Signing Out."
+msgstr "Specifies the reason for Signing In/Signing Out."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_start_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_start_date
+msgid "Start Date Labor Journeys"
+msgstr "Fecha inicio jornadas laborales"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_start_date_production
+msgid "Start Date Production"
+msgstr "Fecha de inicio producción"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_state
+msgid "State"
+msgstr "Estado"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:934
+#, python-format
+msgid "Sunday"
+msgstr "Domingo"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_employee_smoking_prod_incentive_reject
+msgid "Take into account rejection"
+msgstr "Tener en cuenta rechazos"
+
+#. module: hr_turei
+#: selection:hr_turei.employee_movement,movement_type:0
+msgid "Temporary Reallocation"
+msgstr "Reubicación Temporal"
+
+#. module: hr_turei
+#: code:addons/hr_turei/models/hr_turei_employee_movement.py:50
+#, python-format
+msgid "The field \"New Job Position\" can not be empty for permanent reallocation movements"
+msgstr "The field \"New Job Position\" can not be empty for permanent reallocation movements"
+
+#. module: hr_turei
+#: code:addons/hr_turei/models/hr_turei_employee_movement.py:48
+#, python-format
+msgid "The field \"New Job Position\" can not be empty for register movements"
+msgstr "The field \"New Job Position\" can not be empty for register movements"
+
+#. module: hr_turei
+#: code:addons/hr_turei/models/hr_turei_employee_movement.py:46
+#, python-format
+msgid "The field \"New Job Position\" can not be empty for transitory movements"
+msgstr "The field \"New Job Position\" can not be empty for transitory movements"
+
+#. module: hr_turei
+#: code:addons/hr_turei/models/hr_turei_employee_movement.py:43
+#, python-format
+msgid "The fields \"Old Job Position\" and \"New Job Position\" can not be empty at the same time."
+msgstr "The fields \"Old Job Position\" and \"New Job Position\" can not be empty at the same time."
+
+#. module: hr_turei
+#: sql_constraint:hr_turei.external_area:0
+msgid "The name of the area must be unique per company!"
+msgstr "El nombre del área debe ser único por compañía!"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_smoking_resume.py:267
+#, python-format
+msgid ""
+"The operation has not been completed. Please, check the connection of \n"
+"                                 the Database and make sure to select the correct one..."
+msgstr ""
+"The operation has not been completed. Please, check the connection of \n"
+"                                 the Database and make sure to select the correct one..."
+
+#. module: hr_turei
+#: sql_constraint:hr_turei.external_staff_attendance.line:0
+msgid "There is already a line with the attendance for this person!"
+msgstr "Ya existe un registro con la asistencia para esta persona!"
+
+#. module: hr_turei
+#: sql_constraint:hr_turei.external_staff_attendance:0
+msgid "There is already an attendance registry for this area in the selected period!"
+msgstr "Ya existe un registro de asistencia para esta área en el período seleccionado!"
+
+#. module: hr_turei
+#: code:addons/hr_turei/models/hr_turei_employee_movement.py:62
+#, python-format
+msgid "These employee have not registered movements."
+msgstr "Este empleado no tiene movimientos registrados."
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_attendance_incidence_search
+msgid "This Month"
+msgstr "Mes Actual"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_external_staff_time_efficiency
+msgid "This field depict the efficiency of the resource to complete tasks. e.g  resource put alone on a phase of 5 days with 5 tasks assigned to him, will show a load of 100% for this phase by default, but if we put a efficiency of 200%, then his load will only be 50%."
+msgstr "Este campo representa la eficiencia de los recursos para completar tareas, por ejemplo, un recurso puesto solo en una fase de 5 días con 5 tareas asignadas a él, mostrará una carga de 100% para esta fase por defecto, pero si ponemos una eficiencia de un 200%, entonces su carga sólo será del 50%."
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_turei_external_staff_image
+msgid "This field holds the image used as photo for the employee, limited to 1024x1024px."
+msgstr "Este campo contendrá la imagen usada como foto del empleado, acotada a 1024x1024px."
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:928
+#, python-format
+msgid "Thursday"
+msgstr "Jueves"
+
+#. module: hr_turei
+#: selection:hr_turei.cigarette_concept,type:0
+msgid "To Insert"
+msgstr "A pasar"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:924
+#, python-format
+msgid "Tuesday"
+msgstr "Martes"
+
+#. module: hr_turei
+#: selection:hr.employee,smoking_prod_incentive_context:0
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_set_employee_turn_wzd_calendar_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_te_overcompliance_wzd_turn_id
+msgid "Turn"
+msgstr "Turno"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_smoke_period_resource_calendar_ids
+msgid "Turns"
+msgstr "Turns"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_reason_type
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: hr_turei
+#: selection:hr.employee,smoking_prod_incentive_context:0
+msgid "UEB"
+msgstr "UEB"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_cigarette_concept_upper_limit
+msgid "Upper overcompliance percent limit"
+msgstr "Límite de sobrecumplimiento superior"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_user_id
+msgid "User"
+msgstr "Usuario"
+
+#. module: hr_turei
+#: code:addons/hr_turei/report/hr_turei_weekly_smoking_delivery_list.py:926
+#, python-format
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#. module: hr_turei
+#: selection:hr_turei.cigarette_concept,delivery_frequency:0
+#: selection:hr_turei.external_area,weekly_list_delivery_type:0
+msgid "Weekly"
+msgstr "Semanal"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.hr_turei_weekly_smoking_delivery_list_action
+#: model:ir.ui.menu,name:hr_turei.hr_turei_weekly_smoking_delivery_list_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_weekly_smoking_delivery_wzd_form_view
+msgid "Weekly Smoking Delivery List"
+msgstr "Listado de cigarrillos semanal"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_area_weekly_list_delivery_concept
+msgid "Weekly list delivery concept"
+msgstr "Concepto listado de cigarrillos semanal"
+
+#. module: hr_turei
+#: model:ir.ui.view,arch_db:hr_turei.view_hr_turei_external_area_form
+msgid "Weekly smoking list"
+msgstr "Listado semanal de cigarrillos"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,help:hr_turei.action_hr_turei_attendance_reason
+msgid ""
+"With just a quick glance, you can easily find all the information\n"
+"                    you need for each Reason; code, name and parent."
+msgstr ""
+"With just a quick glance, you can easily find all the information\n"
+"                    you need for each Reason; code, name and parent."
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.hr_turei_create_employee_movements_wzd_action
+#: model:ir.ui.menu,name:hr_turei.hr_turei_create_employee_movements_wzd_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_create_employee_movements_wzd_form_view
+msgid "Wizard to create register movements for new imported employees"
+msgstr "Asistente para crear movimientos para nuevos empleados importados"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.hr_turei_smoking_additional_incidences_wzd_action
+#: model:ir.ui.menu,name:hr_turei.hr_turei_smoking_additional_incidences_wzd_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_smoking_additional_incidences_wzd_form_view
+msgid "Wizard to insert smoking additional incidences"
+msgstr "Asistente para insertar incidencias adicionales de la fuma"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.hr_turei_set_employee_turn_wzd_action
+#: model:ir.ui.menu,name:hr_turei.hr_turei_set_employee_turn_wzd_menu_item
+#: model:ir.ui.view,arch_db:hr_turei.hr_turei_set_employee_turn_wzd_form_view
+msgid "Wizard to set turn to employees"
+msgstr "Wizard to set turn to employees"
+
+#. module: hr_turei
+#: model:ir.ui.menu,name:hr_turei.hr_turei_smoking_wizards_menu_item
+msgid "Wizards"
+msgstr "Asistentes"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_external_staff_calendar_id
+msgid "Working Time"
+msgstr "Horario de trabajo"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_turei_attendance_incidence_working_time
+msgid "Working time"
+msgstr "Tiempo tabajado"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_additional_incidences
+msgid "hr_turei.additional_incidences"
+msgstr "hr_turei.additional_incidences"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_additional_incidences_line
+msgid "hr_turei.additional_incidences.line"
+msgstr "hr_turei.additional_incidences.line"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_cigarette_concept
+msgid "hr_turei.cigarette_concept"
+msgstr "hr_turei.cigarette_concept"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_create_employee_movements_wzd
+msgid "hr_turei.create_employee_movements_wzd"
+msgstr "hr_turei.create_employee_movements_wzd"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_daily_smoking
+msgid "hr_turei.daily_smoking"
+msgstr "hr_turei.daily_smoking"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_daily_smoking_delivery_wzd
+msgid "hr_turei.daily_smoking_delivery_wzd"
+msgstr "hr_turei.daily_smoking_delivery_wzd"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_daily_smoking_pickup_wzd
+msgid "hr_turei.daily_smoking_pickup_wzd"
+msgstr "hr_turei.daily_smoking_pickup_wzd"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_daily_smoking_wzd
+msgid "hr_turei.daily_smoking_wzd"
+msgstr "hr_turei.daily_smoking_wzd"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_employee_movement
+msgid "hr_turei.employee_movement"
+msgstr "hr_turei.employee_movement"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_employee_movement_cause
+msgid "hr_turei.employee_movement_cause"
+msgstr "hr_turei.employee_movement_cause"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_external_area
+msgid "hr_turei.external_area"
+msgstr "hr_turei.external_area"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_external_staff
+msgid "hr_turei.external_staff"
+msgstr "hr_turei.external_staff"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_external_staff_attendance
+msgid "hr_turei.external_staff_attendance"
+msgstr "hr_turei.external_staff_attendance"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_external_staff_attendance_line
+msgid "hr_turei.external_staff_attendance.line"
+msgstr "hr_turei.external_staff_attendance.line"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_services_provided
+msgid "hr_turei.services_provided"
+msgstr "hr_turei.services_provided"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_set_employee_turn_wzd
+msgid "hr_turei.set_employee_turn_wzd"
+msgstr "hr_turei.set_employee_turn_wzd"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_smoke_period
+msgid "hr_turei.smoke_period"
+msgstr "hr_turei.smoke_period"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_smoking_additional_incidences_wzd
+msgid "hr_turei.smoking_additional_incidences_wzd"
+msgstr "hr_turei.smoking_additional_incidences_wzd"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_smoking_resume_wzd
+msgid "hr_turei.smoking_resume_wzd"
+msgstr "hr_turei.smoking_resume_wzd"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_te_overcompliance_wzd
+msgid "hr_turei.te_overcompliance_wzd"
+msgstr "hr_turei.te_overcompliance_wzd"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_turei_weekly_smoking_delivery_wzd
+msgid "hr_turei.weekly_smoking_delivery_wzd"
+msgstr "hr_turei.weekly_smoking_delivery_wzd"

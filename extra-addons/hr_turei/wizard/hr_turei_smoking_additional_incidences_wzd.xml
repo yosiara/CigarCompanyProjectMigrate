@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_turei_smoking_additional_incidences_wzd_form_view" model="ir.ui.view">
+            <field name="name">hr.turei.smoking.additional.incidences.wzd.form</field>
+            <field name="model">hr_turei.smoking_additional_incidences_wzd</field>
+            <field name="arch" type="xml">
+                <form string="Wizard to insert smoking additional incidences">
+                    <sheet>
+                        <style>
+                            td.o_td_label
+                            {
+                            min-width:88px !important;
+                            }
+                        </style>
+                        <group col="4">
+                            <field name="concept_id"/>
+                            <field name="hours_amount"/>
+                            <field name="packs"/>
+                            <field name="period_id"/>
+                            <field name="cause"/>
+                            <field name="company_id"/>
+                        </group>
+                        <group>
+                            <field name="employee_ids"/>
+                            <field name="external_staff_ids"/>
+                        </group>
+
+                        <footer>
+                            <div>
+                                <button name="execute" icon="fa-file-excel-o" string="Execute" type="object"
+                                        class="oe_highlight"/>
+                                o
+                                <button special="cancel" string="Cancel" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_turei_smoking_additional_incidences_wzd_action" model="ir.actions.act_window">
+            <field name="name">Wizard to insert smoking additional incidences</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.smoking_additional_incidences_wzd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="hr_turei_smoking_wizards_menu_item" name="Wizards"
+                  parent="configuration_cigarettes_list_menu_item" sequence="99"/>
+
+        <menuitem action="hr_turei_smoking_additional_incidences_wzd_action"
+                  id="hr_turei_smoking_additional_incidences_wzd_menu_item"
+                  parent="hr_turei_smoking_wizards_menu_item" sequence="3"/>
+    </data>
+</odoo>

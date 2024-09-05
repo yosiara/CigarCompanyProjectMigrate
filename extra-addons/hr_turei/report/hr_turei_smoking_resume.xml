@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.hr_turei_smoking_resume"
+                model="hr_turei.smoking_resume_wzd"
+                string="Resumen Fuma"
+                report_type="xlsx"
+                name="hr_turei.smoking_resume"
+                file="hr_turei.smoking_resume"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

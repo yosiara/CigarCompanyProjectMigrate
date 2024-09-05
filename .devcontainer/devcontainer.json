@@ -34,7 +34,8 @@
                 "ms-python.debugpy",
                 "trinhanhngoc.vscode-odoo",
                 "Odoo.odoo",
-                "jeffery9.odoo-snippets"
+                "jeffery9.odoo-snippets",
+                "redhat.vscode-xml"
             ]
         }
     }

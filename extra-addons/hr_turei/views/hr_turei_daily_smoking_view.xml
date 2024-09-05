@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_hr_turei_daily_smoking_tree" model="ir.ui.view">
+            <field name="name">hr.turei.daily.smoking.tree</field>
+            <field name="model">hr_turei.daily_smoking</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Daily Smoking configuration">
+                    <field name="area"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_daily_smoking_form" model="ir.ui.view">
+            <field name="name">hr.turei.daily.smoking.form</field>
+            <field name="model">hr_turei.daily_smoking</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Daily Smoking configuration">
+                    <sheet>
+                        <group>
+                            <field name="area" invisible="1"/>
+                            <field name="external_staff"/>
+                            <field name="department_id" attrs="{'invisible':[('external_staff','=', True)], 'required':[('external_staff','=', False)]}"/>
+                            <field name="external_area_id" attrs="{'invisible':[('external_staff','=', False)], 'required':[('external_staff','=', True)]}"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="pick_up" attrs="{'invisible':[('external_staff','=', True)], 'required':[('external_staff','!=', True)]}"/>
+                            <field name="pick_up_sub" attrs="{'invisible':[('external_staff','=', True)], 'required':[('external_staff','!=', True)]}"/>
+                            <field name="external_area_pick_up" attrs="{'invisible':[('external_staff','=', False)], 'required':[('external_staff','=', True)]}"/>
+                            <field name="external_area_pick_up_sub" attrs="{'invisible':[('external_staff','=', False)], 'required':[('external_staff','=', True)]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_daily_smoking_search" model="ir.ui.view">
+            <field name="name">hr.turei.daily.smoking.search</field>
+            <field name="model">hr_turei.daily_smoking</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Daily Smoking configuration">
+                    <field name="department_id"/>
+                    <field name="pick_up"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="pick_up_sub"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_daily_smoking" model="ir.actions.act_window">
+            <field name="name">Daily Smoking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.daily_smoking</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_hr_turei_daily_smoking_tree"/>
+        </record>
+
+        <menuitem action="action_daily_smoking" id="menu_daily_smoking_view"
+                  parent="configuration_cigarettes_list_menu_item"/>
+    </data>
+</odoo>

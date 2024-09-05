@@ -1,57 +1,95 @@
 import mysql.connector
 from mysql.connector import errorcode
+import pymssql
+import re
+
+# from mysql.connector import connection
 
 
 def action_test_connection():
     config = {
         "db": "ocsweb",
         "host": "10.0.0.51",
-        "port": 3306,
+        "port": "3306",
         "user": "desoftocs",
         "passwd": "desarrollo",
     }
-
+    config2 = {
+        "database": "versat2",
+        "host": "10.0.0.23\\versat",
+        "port": "1433",
+        "user": "consultor2",
+        "password": "Turei.101",
+    }
     try:
-        conn = mysql.connector.connect(
-            user="desoftocs",
-            passwd="desarrollo",
-            host="10.0.0.51",
-            db="ocsweb",
-            port=3306,
-        )
-        # conn.close()
-        print("Connection established successfully!!.")
-
-    except mysql.connector.Error as err:
+        return pymssql.connect(**config2)
+    except pymssql.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
             print("Something is wrong with your user name or password")
         elif err.errno == errorcode.ER_BAD_DB_ERROR:
             print("Database does not exist")
         else:
             print(err)
-    else:
-        conn.close()
-    # elif platform == 'linux' and self.connector == 'mssql':
-    #     try:
-    #         conn = Mssql.connect(
-    #             host=data['Server'], user=data['uid'], passwd=data['pwd'],
-    #             db=data['database'], port=int(data['port'])
-    #         )
-
-    #         conn.close()
-    #         self.message_post(body=_('Connection established successfully!!.'))
-
-    #     except Exception:
-    #         self.message_post(body=_('Connection failed!!. Check your data connection in Linux System.'))
-
-    # elif platform == 'win32' and self.connector == 'mssql':
-    #     try:
-    #         conn = Mssql.connect(**data)
-    #         self.message_post(body=_('Connection established successfully!!.'))
-    #         conn.close()
-
-    #     except Exception:
-    #         self.message_post(body=_('Connection failed!!. Check your data connection.'))
+    return None
 
 
-# action_test_connection()
+def getDatasSmoke(start_date, end_date):
+
+    datas = {
+        "total": 0.0,
+        "salidas": [],
+        "devoluciones": [],
+        "farol": 0.0,
+        "cajetillas": 0.0,
+        "conceptosArray": [],
+        "sumaCantidadArray": [],
+    }
+
+    cnx = action_test_connection()
+    cursor = cnx.cursor()
+
+    cursor.execute(
+        f"""
+            SELECT fecha, sum(sumacantidad) as sumacantidad, descripcion, iddocumento
+            FROM dbo.inv_documento
+            WHERE idconcepto = '64' AND fecha BETWEEN '{start_date}' AND '{end_date}'
+            GROUP BY fecha, descripcion, iddocumento
+        """
+    )
+
+    salidas = cursor.fetchall()
+    for rec in salidas:
+        print("Rec: ---------> ", rec)
+
+    # datas["devoluciones"] = cursor.execute(
+    #     f"""
+    #                         SELECT fecha, sum(sumacantidad) as sumacantidad, descripcion, iddocumento
+    #                             FROM dbo.inv_documento
+    #                             WHERE idconcepto = '53' AND fecha BETWEEN {start_date} AND {end_date}
+    #                             GROUP BY fecha, descripcion, iddocumento
+    #     """
+    # )
+    # cursor.close()
+
+    # print("\ndevoluciones: ---------> ", datas["devoluciones"])
+
+    # for i in range(datas["salidas"]):
+    #     datas["total"] += i.sumacantidad
+    #     if "farol" in i.description.lower():
+    #         datas["farol"] += i.sumacantidad
+    #     else:
+    #         datas["cajetillas"] += i.sumacantidad
+
+    #     substring = re.sub(r"\s*IP\d+$", "", i.description)
+    #     if substring not in datas["conceptosArray"]:
+    #         datas["conceptosArray"].push(substring)
+    #         it += 1
+    #         j = i
+    #         for j in range(datas["salidas"]):
+    #             if substring == re.sub(r"\s*IP\d+$", "", j.description):
+    #                 datas["sumaCantidadArray"][it] += j.sumacantidad
+
+    return datas
+
+
+getDatasSmoke("2024-05-01", "2024-05-31")

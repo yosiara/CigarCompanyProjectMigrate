@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.hr_turei_daily_smoking_pickup_list"
+                model="hr_turei.daily_smoking_pickup_wzd"
+                string="Trabajadores que recogen fuma diaria"
+                report_type="xlsx"
+                name="hr_turei.daily_smoking_pickup_list"
+                file="hr_turei.daily_smoking_pickup_list"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

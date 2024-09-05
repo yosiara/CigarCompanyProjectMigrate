@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_smoke">
+        
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <header>
+                            <img alt="Template" src="/smoke/static/src/img/logo.png"/>
+                        </header>
+                        <h3 class="mb32">Reporte de la Fuma</h3>
+                        <table border="1" class="table table-bordered" style="table-layout:auto">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Conceptos</th> <th class="text-center">Cigarros</th> <th class="text-center">Devoluciones</th> <th class="text-center">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="len(concepArray)" t-as="it">
+                                    <tr>
+                                        <td>
+                                            <t t-out="concepArray[it].title()"/>
+                                        </td>
+                                        <td>
+                                            <t t-out="cantSalidas[it]"/>
+                                        </td>
+                                        <td>
+                                            <t t-out="cantDevoluciones[it]"/>
+                                        </td>
+                                        <td>
+                                            <t t-out="cantSalidas[it] - cantDevoluciones[it]"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <h3 class="mb32">Cartas de Solicitud detalladas</h3>
+                        <table border="1" class="table table-bordered" style="table-layout:auto">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Fecha</th> <th class="text-center">Descripción</th> <th class="text-center">Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="CSDesglose" t-as="t">
+                                    <tr>
+                                        <td>
+                                            <t t-out="t[0]"/>
+                                        </td>
+                                        <td>
+                                            <t t-out="t[1].title()"/>
+                                        </td>
+                                        <td>
+                                            <t t-out="t[2]"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </t>
+            </t>
+        
+    </template>
+
+</odoo>

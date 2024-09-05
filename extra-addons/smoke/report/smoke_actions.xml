@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="action_report_smoke" model="ir.actions.report">
+        <field name="name">Report Fuma</field>
+        <field name="model">smoke</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">smoke.report_smoke</field>
+        <field name="report_file">smoke.report_smoke</field>
+        <!-- <field name="binding_model_id" ref="smoke.model_smoke"/> -->
+        <field name="binding_type">report</field>
+        <!-- <field name="paperformat_id" ref="fuma.paperformat_hrsummary"/> -->
+    </record>
+
+</odoo>

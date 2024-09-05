@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="smoke_form_wzd" model="ir.ui.view">
+            <field name="name">smoke.form.wzd</field>
+            <field name="model">smoke.wzd</field>
+            <field name="arch" type="xml">
+                <form string="Report Smoke">
+                    <group col="4" colspan="6">
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <!-- <newline/> -->
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="btn-primary" data-hotkey="q"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="smoke_report_act_window_wzd" model="ir.actions.act_window">
+            <field name="name">Smoke Report Wzd</field>
+            <field name="res_model">smoke.wzd</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="smoke.model_smoke" />
+            <field name="binding_type">report</field>
+        </record>
+
+</odoo>

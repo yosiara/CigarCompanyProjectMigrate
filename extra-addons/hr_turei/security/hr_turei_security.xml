@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="hr_turei_daily_smoking_comp_rule" model="ir.rule">
+            <field name="name">Daily Smoking multi-company</field>
+            <field name="model_id" ref="model_hr_turei_daily_smoking"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+        <record id="hr_turei_additional_incidences_comp_rule" model="ir.rule">
+            <field name="name">Smoking List Additional Incidences multi-company</field>
+            <field name="model_id" ref="model_hr_turei_additional_incidences"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+        <record id="hr_turei_attendance_incidence_comp_rule" model="ir.rule">
+            <field name="name">Attendance Incidences multi-company</field>
+            <field name="model_id" ref="model_hr_turei_attendance_incidence"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+        <record id="hr_turei_employee_movement_comp_rule" model="ir.rule">
+            <field name="name">Employee Movement multi-company</field>
+            <field name="model_id" ref="model_hr_turei_employee_movement"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+        <record id="hr_turei_external_area_comp_rule" model="ir.rule">
+            <field name="name">External Area multi-company</field>
+            <field name="model_id" ref="model_hr_turei_external_area"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+        <record id="hr_turei_external_staff_comp_rule" model="ir.rule">
+            <field name="name">External Staff multi-company</field>
+            <field name="model_id" ref="model_hr_turei_external_staff"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+        <record id="hr_turei_external_staff_attendance_comp_rule" model="ir.rule">
+            <field name="name">External Staff Attendance multi-company</field>
+            <field name="model_id" ref="model_hr_turei_external_staff_attendance"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+    </data>
+</odoo>

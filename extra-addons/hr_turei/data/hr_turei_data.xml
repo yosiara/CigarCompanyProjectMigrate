@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="0">
+        <record id="hr_turei_cigarette_concept_1" model="hr_turei.cigarette_concept">
+            <field name="name">Días Trabajados</field>
+            <field name="packs_amount">2</field>
+            <field name="delivery_frequency">per_day</field>
+            <field name="type">normal</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_2" model="hr_turei.cigarette_concept">
+            <field name="name">Días Habilitados</field>
+            <field name="packs_amount">2</field>
+            <field name="delivery_frequency">per_month</field>
+            <field name="type">to_insert</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_3" model="hr_turei.cigarette_concept">
+            <field name="name">Invalidez parcial sin reubicación</field>
+            <field name="packs_amount">20</field>
+            <field name="delivery_frequency">per_month</field>
+            <field name="type">to_insert</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_4" model="hr_turei.cigarette_concept">
+            <field name="name">Certificado Médico hasta 7 días</field>
+            <field name="packs_amount">3</field>
+            <field name="delivery_frequency">per_month</field>
+            <field name="type">to_insert</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_5" model="hr_turei.cigarette_concept">
+            <field name="name">Certificado Médico por 10 días</field>
+            <field name="packs_amount">4</field>
+            <field name="delivery_frequency">per_month</field>
+            <field name="type">to_insert</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_6" model="hr_turei.cigarette_concept">
+            <field name="name">Certificado Médico por 14 días</field>
+            <field name="packs_amount">6</field>
+            <field name="delivery_frequency">per_month</field>
+            <field name="type">to_insert</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_7" model="hr_turei.cigarette_concept">
+            <field name="name">Certificado Médico por 21 días</field>
+            <field name="packs_amount">9</field>
+            <field name="delivery_frequency">per_month</field>
+            <field name="type">to_insert</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_8" model="hr_turei.cigarette_concept">
+            <field name="name">Certificado Médico por 30 días</field>
+            <field name="packs_amount">12</field>
+            <field name="delivery_frequency">per_month</field>
+            <field name="type">to_insert</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_9" model="hr_turei.cigarette_concept">
+            <field name="name">Disponibles con garantía salarial</field>
+            <field name="packs_amount">20</field>
+            <field name="delivery_frequency">per_month</field>
+            <field name="type">to_insert</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_10" model="hr_turei.cigarette_concept">
+            <field name="name">Horas Extras</field>
+            <field name="packs_amount">2</field>
+            <field name="delivery_frequency">per_month</field>
+            <field name="type">to_insert</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_11" model="hr_turei.cigarette_concept">
+            <field name="name">Cumplimiento plan(103-105% 8 horas)</field>
+            <field name="packs_amount">1</field>
+            <field name="delivery_frequency">per_day</field>
+            <field name="type">incentive</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_12" model="hr_turei.cigarette_concept">
+            <field name="name">Cumplimiento plan(106-111% 8 horas)</field>
+            <field name="packs_amount">2</field>
+            <field name="delivery_frequency">per_day</field>
+            <field name="type">incentive</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_13" model="hr_turei.cigarette_concept">
+            <field name="name">Cumplimiento plan(112% 8 horas)</field>
+            <field name="packs_amount">3</field>
+            <field name="delivery_frequency">per_day</field>
+            <field name="type">incentive</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_14" model="hr_turei.cigarette_concept">
+            <field name="name">Cumplimiento plan(103-105% 12 horas)</field>
+            <field name="packs_amount">1</field>
+            <field name="delivery_frequency">per_day</field>
+            <field name="type">incentive</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_15" model="hr_turei.cigarette_concept">
+            <field name="name">Cumplimiento plan(106-111% 12 horas)</field>
+            <field name="packs_amount">2</field>
+            <field name="delivery_frequency">per_day</field>
+            <field name="type">incentive</field>
+        </record>
+        <record id="hr_turei_cigarette_concept_16" model="hr_turei.cigarette_concept">
+            <field name="name">Cumplimiento plan(112% 12 horas)</field>
+            <field name="packs_amount">3</field>
+            <field name="delivery_frequency">per_day</field>
+            <field name="type">incentive</field>
+        </record>
+    </data>
+</odoo>
