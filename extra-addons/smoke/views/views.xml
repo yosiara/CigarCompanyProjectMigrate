@@ -2,7 +2,7 @@
   <data>
     <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="smoke.list">
+    <!-- <record model="ir.ui.view" id="smoke.list">
       <field name="name">fuma list</field>
       <field name="model">smoke</field>
       <field name="arch" type="xml">
@@ -21,13 +21,12 @@
         </form>
       </field>
     </record>
-
-    <!-- actions opening views on models -->
+z
     <record model="ir.actions.act_window" id="smoke.action_window">
       <field name="name">Smoke</field>
       <field name="res_model">smoke</field>
       <field name="view_mode">tree,form</field>
-    </record>
+    </record> -->
 
     <!-- server action to the one above -->
 <!--
@@ -47,12 +46,12 @@
 
     <!-- Top menu item -->
     <!-- <menuitem name="Smoke" id="smoke.menu_root"/> -->
-    <menuitem name="Smoke" id="smoke.menu_action_root" action="smoke.action_window"/>
+    <!-- <menuitem name="Smoke" id="smoke.menu_action_root" action="smoke.action_window"/> -->
 
     <!-- menu categories -->
-    <menuitem name="Reports" id="smoke.menu_category" parent="smoke.menu_action_root"/>
-    <menuitem name="Smoke Report" id="smoke.menu_action" parent="smoke.menu_category"
-      action="smoke_report_act_window_wzd"/>
+    <!-- <menuitem name="Reports" id="smoke.menu_category" parent="smoke.menu_action_root"/> -->
+    <menuitem name="Smoke Report" id="smoke.menu_action" parent="hr.hr_menu_hr_reports"
+      action="report_act_window_wzd"/>
 
 <!--  
     <menuitem name="Server to list" id="fuma" parent="fuma.menu_2"

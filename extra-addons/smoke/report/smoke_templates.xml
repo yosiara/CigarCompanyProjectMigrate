@@ -6,9 +6,6 @@
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <header>
-                            <img alt="Template" src="/smoke/static/src/img/logo.png"/>
-                        </header>
                         <h3 class="mb32">Reporte de la Fuma</h3>
                         <table border="1" class="table table-bordered" style="table-layout:auto">
                             <thead>

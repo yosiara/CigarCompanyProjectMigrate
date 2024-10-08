@@ -58,7 +58,7 @@ class ReportSmoke(models.TransientModel):
                     data["cajetillas"] += float(i[2])
                 patron = r"(IPV|VALE|ORDEN).*$"
             else:
-                patron = r"(DEVOLUCION|IPV|VALE|ORDEN).*$"
+                patron = r"(DEV[A-Z]*ON|IPV|VALE|ORDEN).*$"
 
             concept = " ".join(re.sub(patron, "", i[1], flags=re.IGNORECASE).split())
 
@@ -91,7 +91,13 @@ class ReportSmoke(models.TransientModel):
         obj = self
 
         if not self.connector_id:
-            obj = self.create({"connector_id": self._get_default_connector()})
+            try:
+                obj = self.create({"connector_id": self._get_default_connector()})
+            except Exception:
+                _logger.info(Exception)
+                raise UserError(
+                    _("""Debe crear la conexion a la base de datos en configuracion""")
+                )
         cnx = obj.connector_id.connect()
 
         # Salidas del almacen
@@ -103,7 +109,7 @@ class ReportSmoke(models.TransientModel):
             """
         salidas = self._execute_query(cursor=cnx.cursor(), query=query)
         for i in salidas:
-            print("Salidas----------> ", i[1])
+            print("SalidasConcept----------> ", i[1])
 
         datas = {
             "farol": 0.0,
@@ -124,7 +130,7 @@ class ReportSmoke(models.TransientModel):
             """
         devoluciones = self._execute_query(cursor=cnx.cursor(), query=query)
         for i in devoluciones:
-            print("devoluciones----------> ", i[1])
+            print("devolucionesConcept----------> ", i[1])
 
         datas = {
             "conceptArray": [],
