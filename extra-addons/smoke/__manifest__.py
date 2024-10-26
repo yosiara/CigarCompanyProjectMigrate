@@ -19,7 +19,11 @@ Long description of module's purpose
     ],
     # always loaded
     "data": [
+        # data
+        "data/cron.xml",
+        # security
         "security/ir.model.access.csv",
+        # views
         "views/views.xml",
         "views/templates.xml",
         # reports
