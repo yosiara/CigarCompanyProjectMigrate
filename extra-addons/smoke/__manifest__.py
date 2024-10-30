@@ -24,7 +24,8 @@ Long description of module's purpose
         # security
         "security/ir.model.access.csv",
         # views
-        "views/views.xml",
+        "views/smoke.xml",
+        "views/concept.xml",
         "views/templates.xml",
         # reports
         "report/smoke_actions.xml",

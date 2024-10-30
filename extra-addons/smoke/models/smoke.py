@@ -31,10 +31,25 @@ class SmokeSmoke(models.Model):
     # )
 
     concept_id = fields.Many2one(
-        string="Concepts",
-        comodel_name="smoke.concepts",
+        string="Concept",
+        comodel_name="smoke.concept",
         ondelete="restrict",
+        required=True,
     )
+
+    # external_id = fields.Integer(
+    #     string="Integration with iddocumento in Versat db", required=True
+    # )
+
+    date = fields.Date(string="date", required=True)
+
+    amount = fields.Float(string="amount", required=True)
+
+    external_concept_id = fields.Integer(
+        string="Integration with idconcepto in Versat db", required=True
+    )
+
+    order = fields.Char(string="Order", default="")
 
     def _execute_query(self, cursor, query):
         try:
@@ -66,76 +81,89 @@ class SmokeSmoke(models.Model):
 
         return start_date, end_date
 
+    @api.model
     def _cron_import_data_smoke(self):
         inst = self.env["db_external_connector.template"].search(
             [("application", "=", "versat")], limit=1
         )
-        cnx = inst.connect()
-        if not cnx:
+        if not inst:
             raise UserError(
                 _(
                     """The operation has not been completed. Please, check the connection of the Database..."""
                 )
             )
+        cnx = inst.connect()
 
-        # Get Date Range
+        # Clear db in range date
         start_date, end_date = self._get_date_range()
+        self.search([("create_date", ">", end_date)]).unlink()
+        self.concept_id.search([("create_date", ">", end_date)]).unlink()
+
+        concept_recs = self.concept_id.search([])
+        conceptArray = []
+        if concept_recs:
+            for it in concept_recs:
+                conceptArray.append(it.name)
 
         # Get Data Smoke
         query = f"""
-                SELECT iddocumento, fecha, sumacantidad, descripcion, idconcepto
+                SELECT fecha, sumacantidad, descripcion, idconcepto
                     FROM dbo.inv_documento
                         WHERE (idconcepto='64' or idconcepto='53') AND fecha BETWEEN '{start_date}' AND '{end_date}'
                 """
         dataSmoke = sorted(
             self._execute_query(cursor=cnx.cursor(), query=query),
-            key=lambda x: x[4],
+            key=lambda x: x[3],
             reverse=True,
         )
 
         # Process and Insert Data
-        conceptArray = []
         for i in dataSmoke:
-            # patron = r"(?:IPV|VALE|ORDEN.*$"
-            order = re.findall(r"(IPV|VALE|ORDEN).*$", i[3])
-            # order = match[-1] if match else ""
+            math = re.findall(r"(?:IPV|VALE|ORDEN).+$", i[2], flags=re.IGNORECASE)
+            order_tmp = ""
+            if math:
+                order_tmp = "".join(math[0].split()).upper()
             concept = (
                 " ".join(
                     re.sub(
                         r"(DEV[A-Z]*ON|IPV|VALE|ORDEN).*$",
                         "",
-                        i[3],
+                        i[2],
                         flags=re.IGNORECASE,
                     ).split()
                 )
             ).upper()
 
-            # if i[4] == 53:
-            #     inst = self.search([('order', '=', order), ('external_concept_id', '=', 64)], limit=1)
-            #         if inst:
-            #             concept = inst.concept
+            if i[3] == 53:
+                inst = self.search(
+                    [("order", "=", order_tmp), ("external_concept_id", "=", 64)],
+                    limit=1,
+                )
+                print("****Inst: ", inst)
+                if inst:
+                    concept = inst.concept_id.name
+
+            concept_inst = self.concept_id
             if concept not in conceptArray:
                 conceptArray.append(concept)
-                # self.concept_id = self.env("smoke.concepts").create({"date": i[1].date(), "concept": concept, "external_concept_id": i[4]})
+                data = {
+                    "name": concept,
+                }
+                concept_inst = self.concept_id.create(data)
+                print("Data Concept", data)
 
-            print("Data Select", i)
-            print(
-                "Data a Insertar",
-                i[0],
-                " Type: ",
-                type(i[0]),
-                i[1].date(),
-                round(i[2], 2),
-                concept,
-                " Order: ",
-                order,
+            concept_id_tmp = (
+                concept_inst.id
+                if concept_inst
+                else self.concept_id.search([("name", "=", concept)], limit=1).id
             )
-            # self.create(
-            #     {
-            #         "external_id": i[0],
-            #         "date": i[1],
-            #         "amount": i[2],
-            #         "order": order,
-            #         "external_concept_id": i[4],
-            #     }
-            # )
+            data = {
+                "date": i[0].date(),
+                "concept_id": concept_id_tmp,
+                "amount": round(i[1], 2),
+                "order": order_tmp,
+                "external_concept_id": i[3],
+            }
+            self.create(data)
+
+            print("Data All", data)

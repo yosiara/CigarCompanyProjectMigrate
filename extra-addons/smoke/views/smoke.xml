@@ -1,0 +1,67 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="smoke.list">
+      <field name="name">Smoke List</field>
+      <field name="model">smoke.smoke</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="date"/>
+          <field name="concept_id"/>
+          <field name="amount"/>
+          <field name="order"/>
+          <field name="external_concept_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <!--<record model="ir.ui.view" id="smoke.list2">
+      <field name="name">fuma list</field>
+      <field name="model">smoke</field>
+      <field name="arch" type="xml">
+        <form>
+          <field name="name"/>
+        </form>
+      </field>
+    </record> -->
+
+    <record id="smoke_action_window" model="ir.actions.act_window">
+      <field name="name">Smoke</field>
+      <field name="res_model">smoke.smoke</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+<!--
+    <record model="ir.actions.server" id="fuma.action_server">
+      <field name="name">fuma server</field>
+      <field name="model_id" ref="model_fuma_fuma"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+    <menuitem name="Smoke" id="smoke_menu_root"/>
+    <menuitem name="Listado de Cigarrillos" id="smoke_menu_act_root" action="smoke_action_window" parent="smoke_menu_root"/>
+
+    <!-- List Smoke -->
+    <!-- <menuitem name="Listado de Cigarrillos" id="smoke.menu_category" parent="smoke.menu_action_root"/> -->
+
+    <!-- Reports -->
+    <menuitem name="Reports" id="smoke_menu_category2" parent="smoke_menu_act_root"/>
+    <menuitem name="Smoke Report" id="smoke_menu_act_category2" parent="smoke_menu_category2"
+      action="report_act_window_wzd"/>
+
+<!--  
+    <menuitem name="Server to list" id="fuma" parent="fuma.menu_2"
+              action="fuma.action_server"/>
+-->
+  </data>
+</odoo>

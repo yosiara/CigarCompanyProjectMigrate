@@ -2,16 +2,16 @@
   <data>
     <!-- explicit list view definition -->
 
-    <!-- <record model="ir.ui.view" id="smoke.list">
-      <field name="name">fuma list</field>
-      <field name="model">smoke</field>
+    <record model="ir.ui.view" id="smoke.concepts_list">
+      <field name="name">Concepts</field>
+      <field name="model">smoke.concept</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
         </tree>
       </field>
     </record>
-
+<!-- 
     <record model="ir.ui.view" id="smoke.list2">
       <field name="name">fuma list</field>
       <field name="model">smoke</field>
@@ -21,16 +21,16 @@
         </form>
       </field>
     </record>
-z
-    <record model="ir.actions.act_window" id="smoke.action_window">
-      <field name="name">Smoke</field>
-      <field name="res_model">smoke</field>
-      <field name="view_mode">tree,form</field>
-    </record> -->
+-->
+    <record id="concept_action_window" model="ir.actions.act_window">
+      <field name="name">Concepts</field>
+      <field name="res_model">smoke.concept</field>
+      <field name="view_mode">tree</field>
+    </record>
 
     <!-- server action to the one above -->
 <!--
-    <record model="ir.actions.server" id="fuma.action_server">
+    <record model="ir.actions.server" id="smoke.action_server">
       <field name="name">fuma server</field>
       <field name="model_id" ref="model_fuma_fuma"/>
       <field name="state">code</field>
@@ -46,12 +46,12 @@ z
 
     <!-- Top menu item -->
     <!-- <menuitem name="Smoke" id="smoke.menu_root"/> -->
-    <!-- <menuitem name="Smoke" id="smoke.menu_action_root" action="smoke.action_window"/> -->
+    <menuitem name="Concepts" id="concept_action_root" action="concept_action_window" parent="smoke_menu_root"/>
 
     <!-- menu categories -->
     <!-- <menuitem name="Reports" id="smoke.menu_category" parent="smoke.menu_action_root"/> -->
-    <menuitem name="Smoke Report" id="smoke.menu_action" parent="hr.hr_menu_hr_reports"
-      action="report_act_window_wzd"/>
+    <!-- <menuitem name="Smoke Report" id="smoke.menu_action" parent="smoke.concepts_action_root"
+      action="report_act_window_wzd"/> -->
 
 <!--  
     <menuitem name="Server to list" id="fuma" parent="fuma.menu_2"
