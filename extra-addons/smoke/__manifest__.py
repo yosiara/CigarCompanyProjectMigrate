@@ -14,7 +14,6 @@ Long description of module's purpose
     # any module necessary for this one to work correctly
     "depends": [
         "base",
-        "hr",
         "db_external_connector",
     ],
     # always loaded
@@ -26,7 +25,6 @@ Long description of module's purpose
         # views
         "views/smoke.xml",
         "views/concept.xml",
-        "views/templates.xml",
         # reports
         "report/smoke_actions.xml",
         "report/smoke_templates.xml",

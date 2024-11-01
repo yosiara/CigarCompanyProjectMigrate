@@ -15,6 +15,8 @@ class SmokeSmoke(models.Model):
 
     _description = "Smoke Model Main"
 
+    _order = "date"
+
     # def _get_default_connector(self):
     #     return (
     #         self.env["db_external_connector.template"]
@@ -41,13 +43,11 @@ class SmokeSmoke(models.Model):
     #     string="Integration with iddocumento in Versat db", required=True
     # )
 
-    date = fields.Date(string="date", required=True)
+    date = fields.Date(string="Date", required=True)
 
-    amount = fields.Float(string="amount", required=True)
+    amount = fields.Float(string="Amount", required=True)
 
-    external_concept_id = fields.Integer(
-        string="Integration with idconcepto in Versat db", required=True
-    )
+    external_concept_id = fields.Integer(string="Concept ID", required=True)
 
     order = fields.Char(string="Order", default="")
 
@@ -69,7 +69,7 @@ class SmokeSmoke(models.Model):
 
         return records
 
-    def _get_date_range(self):
+    def get_date_range(self):
         hoy = datetime.now()
         month_prev = hoy.month - 1 if hoy.month > 1 else 12
         year_month_prev = hoy.year if hoy.month > 1 else hoy.year - 1
@@ -95,7 +95,7 @@ class SmokeSmoke(models.Model):
         cnx = inst.connect()
 
         # Clear db in range date
-        start_date, end_date = self._get_date_range()
+        start_date, end_date = self.get_date_range()
         self.search([("create_date", ">", end_date)]).unlink()
         self.concept_id.search([("create_date", ">", end_date)]).unlink()
 

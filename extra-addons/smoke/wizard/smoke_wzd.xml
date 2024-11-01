@@ -5,11 +5,11 @@
             <field name="name">smoke.form.wzd</field>
             <field name="model">smoke.wzd</field>
             <field name="arch" type="xml">
-                <form string="Report Smoke">
+                <form string="Smoke Report">
                     <group col="4" colspan="6">
                         <field name="start_date"/>
                         <field name="end_date"/>
-                        <!-- <newline/> -->
+                        <field name="concept_id"/>
                     </group>
                     <footer>
                         <button name="print_report" string="Print" type="object" class="btn-primary" data-hotkey="q"/>
