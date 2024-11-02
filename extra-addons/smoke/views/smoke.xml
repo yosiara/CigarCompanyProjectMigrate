@@ -76,9 +76,7 @@
     <!-- <menuitem name="Listado de Cigarrillos" id="smoke.menu_category" parent="smoke.menu_action_root"/> -->
 
     <!-- Reports -->
-    <menuitem name="Reports" id="smoke_menu_category2" parent="smoke_menu_act_root"/>
-    <menuitem name="Smoke Report" id="smoke_menu_act_category2" parent="smoke_menu_category2"
-      action="report_act_window_wzd"/>
+    <menuitem name="Reports" id="smoke_menu_category" parent="smoke.smoke_menu_act_root"/>
 
 <!--  
     <menuitem name="Server to list" id="fuma" parent="fuma.menu_2"

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    "name": "smoke",
+    "name": "Smoke",
     "summary": "Short (1 phrase/line) summary of the module's purpose",
     "description": """
 Long description of module's purpose
@@ -35,4 +35,11 @@ Long description of module's purpose
     "demo": [
         "demo/demo.xml",
     ],
+    "sequence": 1,
+    "application": True,
+    "web": {
+        "images": {
+            "logo": "/smoke/static/src/img/fumar-seeklogo.eps",
+        }
+    },
 }

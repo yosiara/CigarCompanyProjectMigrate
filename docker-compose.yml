@@ -2,9 +2,9 @@ version: '3.1'
 services:
   odoo:
     image: odoo_cigarros:17.1
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     container_name: ${ODOO_CONTAINER_NAME}
     depends_on:
       - postgres
@@ -18,12 +18,12 @@ services:
     volumes:
       - odoo17_6-web-data:/var/lib/odoo
       #- ./../config:/etc/odoo
-      - ./../extra-addons:/mnt/extra-addons
-      - ./../:/workspaces/CigarCompanyProyectMigrate
-    restart: always
-    tty: true
+      - ./extra-addons:/mnt/extra-addons
+#      - ./../:/workspaces/CigarCompanyProyectMigrate
+#    restart: always
+#    tty: true
     #entrypoint: /usr/bin/python3 -m debugpy --listen 5678 /usr/bin/odoo -c /etc/odoo/odoo.conf
-    command: --update=l10n_cu_hlg_computers_inventory --dev=all
+#    command: --update=l10n_cu_hlg_computers_inventory --dev=all
 
   postgres:
     image: postgres:latest
@@ -39,18 +39,18 @@ services:
       - odoo17_6-db-data:/var/lib/postgresql/data
     #restart: always
 
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: ${PG_CONTAINER_NAME}
-    depends_on:
-      - postgres
-    ports:
-      - "5050:80"
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-      - PGADMIN_DEFAULT_PASSWORD=${PASSWORD_CONTAINER}
-    volumes:
-      - pgadmin-odoo17_6-data:/var/lib/pgadmin
+#  pgadmin:
+#    image: dpage/pgadmin4:latest
+#    container_name: ${PG_CONTAINER_NAME}
+#    depends_on:
+#      - postgres
+#    ports:
+#      - "5050:80"
+#    environment:
+#      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+#      - PGADMIN_DEFAULT_PASSWORD=${PASSWORD_CONTAINER}
+#    volumes:
+#      - pgadmin-odoo17_6-data:/var/lib/pgadmin
     #restart: always
 
 volumes:
@@ -60,6 +60,6 @@ volumes:
   odoo17_6-db-data:
     name: odoo17_6-db-data
     # external: True
-  pgadmin-odoo17_6-data:
-    name: pgadmin-odoo17_6-data
+#  pgadmin-odoo17_6-data:
+#    name: pgadmin-odoo17_6-data
     # external: True

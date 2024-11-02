@@ -65,8 +65,8 @@
         <record id="db_external_connector_action" model="ir.actions.act_window">
             <field name="name">External Connections</field>
             <field name="res_model">db_external_connector.template</field>
-            <field name="binding_view_types">form</field>
-            <field name="view_mode">tree,form</field>
+            <!-- <field name="binding_view_types">form</field> -->
+            <field name="view_mode">form,tree</field>
         </record>
 
         <!-- MENU ITEM -->

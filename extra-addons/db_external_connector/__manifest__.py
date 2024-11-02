@@ -22,9 +22,9 @@ Used to make connections to external databases...
     # Always loaded.
     "data": [
         # Data files to load...
-        "views/menu_view.xml",
+        #"views/menu_view.xml",
         "views/external_db_source_view.xml",
-        "security/db_external_connector_security.xml",
+        #"security/db_external_connector_security.xml",
         "security/ir.model.access.csv",
     ],
     # Only loaded in demonstration mode.

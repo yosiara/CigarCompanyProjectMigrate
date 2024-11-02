@@ -155,33 +155,49 @@ class ReportSmoke(models.TransientModel):
             dataConcept = objConcept.browse(ids)
 
         # Suma cantidad
-        cantSal = [0.00] * len(dataConcept)
-        cantDev = [0.00] * len(dataConcept)
+        cantSal = []
+        cantDev = []
         totalSal = 0.00
         totalDev = 0.00
-        index = 0
+        totalSalCS = 0.00
+        totalDevCS = 0.00
         desgloseCS = []
+        concepts = []
+        flag = False
+
         for i in dataConcept:
+            sumcantSal = 0.00
+            sumcantDev = 0.00
             for it in dataSmoke:
                 if i.id == it.concept_id.id:
-                    # if re.search(r"^(CS)\s+.*$", i.name.upper()):
-                    #     desgloseCS.append(dataConcept.pop(index))
-                    #     concept = "CARTA DE SOLICITUD"
+                    if re.search(r"^(CS).*$", i.name):
+                        desgloseCS.append(it)
+                        if it.external_concept_id == 64:
+                            totalSalCS += it.amount
+                        else:
+                            totalDevCS += it.amount
+                        flag = True
+                        continue
                     if it.external_concept_id == 64:
-                        cantSal[index] += it.amount
+                        sumcantSal += it.amount
                         totalSal += it.amount
                     else:
-                        cantDev[index] += it.amount
+                        sumcantDev += it.amount
                         totalDev += it.amount
-            index += 1
+            if not flag:
+                concepts.append(i.name)
+                cantSal.append(sumcantSal)
+                cantDev.append(sumcantDev)
 
         return {
             # "farol": dataSalidas["farol"],
             # "cajetillas": dataSalidas["cajetillas"],
             "totalSal": totalSal,
             "totalDev": totalDev,
-            "concepts": dataConcept,
+            "totalSalCS": totalSalCS,
+            "totalDevCS": totalDevCS,
+            "concepts": concepts,
             "cantSal": cantSal,
             "cantDev": cantDev,
-            # "CSDesglose": dataSalidas["CSDesglose"],
+            "desgloseCS": desgloseCS,
         }
