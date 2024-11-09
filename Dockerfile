@@ -1,21 +1,15 @@
-FROM odoo:17.0
+FROM odoo:17.1
 
 USER root
 
-# Image odoo:17.0 build
-#RUN apt update && \
-#    apt install -y git && \
-#    apt install nano && \
-#    apt install -y python3-mysql.connector && \
-#    apt install -y python3-mysqldb && \
-#    apt install -y python3-pymssql && \
-#    apt install -y python3-pymysql
-RUN python3 -m pip install --upgrade debugpy pymssql mysql.connector pymysql
-    
+#base->odoo:17.0
+#RUN python3 -m pip install --upgrade debugpy pymssql mysql.connector pymysql
 
-# Put odoo modules inside container for production deploy
-#RUN mkdir /workspaces
-#RUN mkdir /workspaces/CigarCompanyProyectMigrate
-#COPY ./ /workspaces/CigarCompanyProyectMigrate
+#base->odoo:17.1
+COPY ./entrypoint.sh /
+RUN chown odoo /entrypoint.sh
 
 USER odoo
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["--update=all --dev=all"]
