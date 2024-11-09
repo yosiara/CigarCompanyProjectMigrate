@@ -37,7 +37,7 @@
         'security/ir.model.access.csv',
 
         'views/base_menu.xml',
-        'views/db_production_connector.xml',
+#        'views/db_production_connector.xml',
         'views/turn.xml',
         'views/machine_type.xml',
         'views/machine.xml',
