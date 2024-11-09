@@ -2,12 +2,12 @@
 <odoo>
     <data>
         <report
-                id="report.turei_process_control_resume_time_frecuency"
+                id="report.process_control_resume_time_frecuency"
                 model="wzd.resume.time.frequency.excel"
                 string="Rep. Resumen de tiempo y frecuencia"
                 report_type="xlsx"
-                name="turei_process_control.resume_time_frequency_report"
-                file="turei_process_control.resume_time_frequency_report"
+                name="process_control.resume_time_frequency_report"
+                file="process_control.resume_time_frequency_report"
                 attachment_use="False"
         />
 
@@ -16,8 +16,8 @@
                 model="wzd.resume.time.frequency.excel"
                 string="Rep. Resumen de tiempo y frecuencia por línea"
                 report_type="xlsx"
-                name="turei_process_control.resume_time_frequency_by_line_report"
-                file="turei_process_control.resume_time_frequency_report"
+                name="process_control.resume_time_frequency_by_line_report"
+                file="process_control.resume_time_frequency_report"
                 attachment_use="False"
         />
     </data>

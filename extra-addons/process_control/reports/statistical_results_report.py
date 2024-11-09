@@ -10,7 +10,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
 
-        productive_sections = self.env['turei_process_control.productive_section'].search([('active', '=', True)], order="name")
+        productive_sections = self.env['process_control.productive_section'].search([('active', '=', True)], order="name")
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vdistributed', 'font': {'size': 11}})
         normal_format = workbook.add_format({'bold': 0, 'border': 1, 'align': 'left', 'valign': 'vcenter', 'font': {'size': 11}})
         normal_format1 = workbook.add_format({'bold': 0, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 11}})
@@ -22,7 +22,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
         ttp_turn_acum, trp_turn_acum, ttig_turn_acum, tnj_turn_acum, trp_turn_p_acum, ttig_turn_p_acum = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
         prc_acum, er_turn_acum, eo_turn_acum, cdt_turn_acum, cturnmt, cturntt, cturnmt1, cturntt1 = 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0
         day_values_turn2, day_values_turn1, tf_turn, tf_turn_acum, acum_values_turn, acum1_values_turn, acum_values_turn1, acum1_values_turn1 = {}, {}, 0, 0, {}, {}, {}, {}
-        for gi in self.env['turei_process_control.interruption.type'].search([]):
+        for gi in self.env['process_control.interruption.type'].search([]):
             day_values_turn1[gi.code] = {'time': 0.0, 'frequency': 0.0}
             day_values_turn2[gi.code] = {'time': 0.0, 'frequency': 0.0}
         for i in xrange(1,9):
@@ -135,8 +135,8 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             worksheet.merge_range('R30:S31', tools.ustr('Promedio'), merge_format)
 
             date_start =  datetime.date(int(lines.date_start.split('-')[0]), int(lines.date_start.split('-')[1]), 1)
-            tecnolog_control = self.env['turei_process_control.tecnolog_control_model'].search([('date','=',lines.date_start),('productive_section','=',ps.id),('turn', '=', lines.turn.id)])
-            acum_tec_control = self.env['turei_process_control.tecnolog_control_model'].search([('date','>=',date_start),('date','<',lines.date_start),('productive_section','=',ps.id),('turn', '=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','=',lines.date_start),('productive_section','=',ps.id),('turn', '=', lines.turn.id)])
+            acum_tec_control = self.env['process_control.tecnolog_control'].search([('date','>=',date_start),('date','<',lines.date_start),('productive_section','=',ps.id),('turn', '=', lines.turn.id)])
             ttp, trp, ttig, prc, er, sum_time_exog, eo, cdt, ppc, pc, tf, cturnm, cturnt, tt  = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0.0
             quantity_line = ps.get_efficiency_plan().quantity_line
             h, j, ind_rech, acum_ind_rech = 7, 14, 0.0, 0.0
@@ -145,7 +145,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
                 worksheet.write(24,j, tools.ustr('Ln # ' + pd.name[-2:]), normal_format1)
                 p_cajones, r_caje = 0.0, 0
                 for tecn in tecnolog_control:
-                    amf = self.env['turei_process_control.rechazo_amf'].search([('tecnolog_control_id', '=', tecn.id),('productive_line_id', '=', pd.id)],limit = 1)
+                    amf = self.env['process_control.rechazo_amf'].search([('tecnolog_control_id', '=', tecn.id),('productive_line_id', '=', pd.id)],limit = 1)
                     p_cajones += amf.produccion_en_cajones
                     r_caje += amf.rechazo_en_cajetijas
                 worksheet.write(25,h, p_cajones, normal_format1)
@@ -157,7 +157,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
                 h += 1
 
                 for acum in acum_tec_control:
-                    amf = self.env['turei_process_control.rechazo_amf'].search([('tecnolog_control_id', '=', acum.id),('productive_line_id', '=', pd.id)],limit = 1)
+                    amf = self.env['process_control.rechazo_amf'].search([('tecnolog_control_id', '=', acum.id),('productive_line_id', '=', pd.id)],limit = 1)
                     p_cajones += amf.produccion_en_cajones
                     r_caje += amf.rechazo_en_cajetijas
                 worksheet.write(25,j, p_cajones, normal_format1)
@@ -171,7 +171,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             ind_rech_turn += round(ind_rech/quantity_line if quantity_line != 0.0 else 0.0,2)
             worksheet.merge_range('O29:P29', round(acum_ind_rech/quantity_line if quantity_line != 0.0 else 0.0,2), normal_format1)
             acum_ind_rech_turn += round(acum_ind_rech/quantity_line if quantity_line != 0.0 else 0.0,2)
-            general_int, day_values, acum_values, acum1_values = self.env['turei_process_control.interruption.type'].search([]), {}, {}, {}
+            general_int, day_values, acum_values, acum1_values = self.env['process_control.interruption.type'].search([]), {}, {}, {}
 
             for i in xrange(1,9):
                 acum_values[i] = 0.0
@@ -671,4 +671,4 @@ class StatisticalResultsToExcelReport(ReportXlsx):
         elif cturnmt1 == 0 or cturntt1 == 0:
             worksheet.merge_range('R32:S32', round(prom_acum / 8, 2), normal_format1)
 
-StatisticalResultsToExcelReport('report.turei_process_control.statistical_results_report', 'wzd.statistical.results.to.excel')
+StatisticalResultsToExcelReport('report.process_control.statistical_results_report', 'wzd.statistical.results.to.excel')

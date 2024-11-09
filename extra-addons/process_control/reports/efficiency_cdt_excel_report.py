@@ -15,7 +15,7 @@ class EfficiencyCdtExcelReport(ReportXlsx):
                     productive_section,
                     turn,
                     cause,
-                    "public".turei_process_control_interruption.productive_line_id as productive_line,
+                    "public".process_control_interruption.productive_line_id as productive_line,
                     frequency AS total_frequency,
                     "time" AS total_time,
                     interruption_type,
@@ -23,9 +23,9 @@ class EfficiencyCdtExcelReport(ReportXlsx):
                     plan_time AS plan_time,
                     production_in_proccess_control AS production_done
                 FROM
-                    "public".turei_process_control_interruption
-                INNER JOIN "public".turei_process_control_tecnolog_control_model ON "public".turei_process_control_interruption.tec_control_model = "public".turei_process_control_tecnolog_control_model."id"
-                INNER JOIN "public".turei_process_control_interruption_type ON "public".turei_process_control_interruption.interruption_type = "public".turei_process_control_interruption_type."id"
+                    "public".process_control_interruption
+                INNER JOIN "public".process_control_tecnolog_control ON "public".process_control_interruption.tec_control_model = "public".process_control_tecnolog_control."id"
+                INNER JOIN "public".process_control_interruption_type ON "public".process_control_interruption.interruption_type = "public".process_control_interruption_type."id"
                 WHERE
                     "date" BETWEEN '%s'
                 AND '%s'
@@ -55,7 +55,7 @@ class EfficiencyCdtExcelReport(ReportXlsx):
                                                          'productividad_operativa': 0.00,
                                                          'count': count,
                                                          'count_lines': len(
-                                                             self.env['turei_process_control.productive_section'].search([('id', '=', records_query[i]['productive_section'])]).productive_line_ids)
+                                                             self.env['process_control.productive_section'].search([('id', '=', records_query[i]['productive_section'])]).productive_line_ids)
                                                          })
                 if not records_query[i]['productive_line']:
                     records[records_query[i]['key']]['total_time'] = records[records_query[i]['key']]['total_time'] * records[records_query[i]['key']]['count_lines']
@@ -127,7 +127,7 @@ class EfficiencyCdtExcelReport(ReportXlsx):
             worksheet.write_number('C' + str(aux_row), date.month, fecha_data_format)
             worksheet.write_number('D' + str(aux_row), date.day, fecha_data_format)
             worksheet.write('E' + str(aux_row), self.env['resource.calendar'].search([('id', '=', c_model[1].get('turn'))], limit=1).name, data_format)
-            worksheet.write('F' + str(aux_row), self.env['turei_process_control.productive_section'].search([('id', '=', c_model[1].get('productive_section'))], limit=1).name, data_format)
+            worksheet.write('F' + str(aux_row), self.env['process_control.productive_section'].search([('id', '=', c_model[1].get('productive_section'))], limit=1).name, data_format)
 
             # Producción realizada*10000 / (Tiempo Total Planificado) * Capacidad productiva) * 100
             real_efficiency = round((c_model[1].get('production_done') * 10000.0 / c_model[1].get('productividad_real')) * 100.00, 2)
@@ -147,4 +147,4 @@ class EfficiencyCdtExcelReport(ReportXlsx):
             worksheet.write('J' + str(aux_row), cdt_o, data_format)
 
 
-EfficiencyCdtExcelReport('report.turei_process_control.efficiency_cdt_excel_report', 'wzd.efficiency.cdt.excel')
+EfficiencyCdtExcelReport('report.process_control.efficiency_cdt_excel_report', 'wzd.efficiency.cdt.excel')

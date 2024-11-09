@@ -2,12 +2,12 @@
 <odoo>
     <data>
         <report
-                id="report.turei_process_control_time_use_to_excel"
-                model="turei_process_control.interruption"
+                id="report.process_control_time_use_to_excel"
+                model="process_control.interruption"
                 string="Rep. Utilización del tiempo"
                 report_type="xlsx"
-                name="turei_process_control.time_use_to_excel_report"
-                file="turei_process_control.time_use_to_excel_report"
+                name="process_control.time_use_to_excel_report"
+                file="process_control.time_use_to_excel_report"
                 attachment_use="False"
         />
     </data>

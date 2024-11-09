@@ -50,6 +50,6 @@
         </record>
 
         <menuitem action="wzd_prod_reg_amf_report_act_window"
-                  id="menu_wzd_prod_reg_amf_report" parent="turei_process_control_informes" sequence="7"/>
+                  id="menu_wzd_prod_reg_amf_report" parent="process_control_informes" sequence="7"/>
     </data>
 </odoo>

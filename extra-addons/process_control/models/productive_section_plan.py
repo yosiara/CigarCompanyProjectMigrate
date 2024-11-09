@@ -5,7 +5,7 @@ from datetime import datetime
 from odoo import models, fields, api
 
 class ProductiveSectionPlan(models.Model):
-    _name = 'turei_process_control.productive_section_plan'
+    _name = 'process_control.productive_section_plan'
 
     indice_planif_efici_real = fields.Float(string="Ind Eficiencia (%)", required=True, default=0.00)
     indice_planif_rechazo = fields.Float(string="Ind Rechazo (%)", required=True, default=0.00)
@@ -19,7 +19,7 @@ class ProductiveSectionPlan(models.Model):
     year = fields.Char(string="Año", required=True, default=_default_year)
     active = fields.Boolean(string="Activo", default=True)
 
-    productive_section_ids = fields.Many2many(comodel_name="turei_process_control.productive_section", relation="turei_process_control_productive_section_plan_relation", column1="plan_id",
+    productive_section_ids = fields.Many2many(comodel_name="process_control.productive_section", relation="process_control_productive_section_plan_relation", column1="plan_id",
                                              column2="productive_section_plan_id", string="Secciones productivas",
                                              required=False, )
     name = fields.Char(string='Nombre', required=True)

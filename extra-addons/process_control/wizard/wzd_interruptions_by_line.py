@@ -9,12 +9,12 @@ class WzdInterruptionsByLine(models.TransientModel):
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)
-    interruption_type = fields.Many2one('turei_process_control.interruption.type', 'Tipo')
-    productive_line = fields.Many2one(comodel_name="turei_process_control.productive_line",
+    interruption_type = fields.Many2one('process_control.interruption.type', 'Tipo')
+    productive_line = fields.Many2one(comodel_name="process_control.productive_line",
                                          string="Línea productiva", ondelete='cascade')
 
     def print_report(self):
-        return self.env['report'].get_action(self, 'turei_process_control.interruptions_by_line_report', data={
+        return self.env['report'].get_action(self, 'process_control.interruptions_by_line_report', data={
             'date_start': self.date_start,
             'date_end': self.date_end,
             'productive_line': self.productive_line.id,

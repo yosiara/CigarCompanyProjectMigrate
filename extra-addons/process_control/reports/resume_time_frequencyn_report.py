@@ -9,7 +9,7 @@ from odoo.addons.report_xlsx.report.report_xlsx import ReportXlsx
 class ResumenTimeFrequencynToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
-        productive_sections = self.env['turei_process_control.productive_section'].search([('active', '=', True)], order="name")
+        productive_sections = self.env['process_control.productive_section'].search([('active', '=', True)], order="name")
 
         worksheet = workbook.add_worksheet(tools.ustr("Tiempo"))
         worksheet.insert_textbox('A1:K1', tools.ustr('EMPRESA DE CIGARRO LAZARO PEÑA'), options={'font': {'color': 'black',
@@ -26,7 +26,7 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
                                  options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                                    'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                           'line': {'none': True}})
-        worksheet.insert_image('K1', addons_manifest['turei_process_control']['addons_path'] + '/turei_process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
+        worksheet.insert_image('K1', addons_manifest['process_control']['addons_path'] + '/process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
 
         worksheet.set_column('A4:A4', 40)
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}})
@@ -41,9 +41,9 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            tecnolog_control = self.env['turei_process_control.tecnolog_control_model'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn', '=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn', '=', lines.turn.id)])
         else:
-            tecnolog_control = self.env['turei_process_control.tecnolog_control_model'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
 
         dic_int, dic_int_fr = {}, {}
         for tc in tecnolog_control:
@@ -149,7 +149,7 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
-        worksheet.insert_image('K1', addons_manifest['turei_process_control']['addons_path'] + '/turei_process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
+        worksheet.insert_image('K1', addons_manifest['process_control']['addons_path'] + '/process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
         worksheet.set_column('A4:A4', 40)
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}})
         worksheet.write('A4', tools.ustr('Interrupción'), workbook.add_format({'bold': 1, 'border': 1, 'align': 'left', 'valign': 'vcenter', 'font': {'size': 12}}))
@@ -173,13 +173,13 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
 
 
 
-ResumenTimeFrequencynToExcelReport('report.turei_process_control.resume_time_frequencyn_report', 'wzd.resume.time.frequencyn.excel')
+ResumenTimeFrequencynToExcelReport('report.process_control.resume_time_frequencyn_report', 'wzd.resume.time.frequencyn.excel')
 
 
 class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
-        productive_lines = self.env['turei_process_control.productive_section_lines'].search([], order="productive_line")
+        productive_lines = self.env['process_control.productive_section_lines'].search([], order="productive_line")
         normal_format = workbook.add_format({'bold': 0, 'border': 1, 'align': 'left', 'valign': 'vcenter', 'font': {'size': 11}})
         normal_format1 = workbook.add_format({'bold': 0, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 11}})
 
@@ -197,7 +197,7 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
-        worksheet.insert_image('K1', addons_manifest['turei_process_control']['addons_path'] + '/turei_process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
+        worksheet.insert_image('K1', addons_manifest['process_control']['addons_path'] + '/process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
         worksheet.set_column('A4:A4', 40)
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}})
         worksheet.write('A4', tools.ustr('Interrupción'), workbook.add_format({'bold': 1, 'border': 1, 'align': 'left', 'valign': 'vcenter', 'font': {'size': 12}}))
@@ -209,9 +209,9 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            tecnolog_control = self.env['turei_process_control.tecnolog_control_model'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn', '=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn', '=', lines.turn.id)])
         else:
-            tecnolog_control = self.env['turei_process_control.tecnolog_control_model'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
 
         dic_int, dic_int_fr = {}, {}
         for tc in tecnolog_control:
@@ -336,7 +336,7 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
-        worksheet.insert_image('K1', addons_manifest['turei_process_control']['addons_path'] + '/turei_process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
+        worksheet.insert_image('K1', addons_manifest['process_control']['addons_path'] + '/process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
         worksheet.set_column('A4:A4', 40)
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'left', 'valign': 'vcenter', 'font': {'size': 12}})
         worksheet.write('A4', tools.ustr('Interrupción'), merge_format)
@@ -357,4 +357,4 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                 column_index += 1
             fila_index += 1
 
-ResumenTimeFrequencynbyLinesToExcelReport('report.turei_process_control.resume_time_frequencyn_by_line_report', 'wzd.resume.time.frequencyn.excel')
+ResumenTimeFrequencynbyLinesToExcelReport('report.process_control.resume_time_frequencyn_by_line_report', 'wzd.resume.time.frequencyn.excel')

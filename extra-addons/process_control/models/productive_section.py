@@ -4,7 +4,7 @@ from odoo.exceptions import ValidationError
 
 
 class ProductiveSection(models.Model):
-    _name = "turei_process_control.productive_section"
+    _name = "process_control.productive_section"
     _rec_name = 'name'
     _description = tools.ustr("Modulo")
     _order = 'name'
@@ -33,11 +33,11 @@ class ProductiveSection(models.Model):
     tec_model_type = fields.Selection(string="Documento/control",
                                       selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1'), ], required=False,
                                       default='mod')
-    productive_line_ids = fields.One2many('turei_process_control.productive_section_lines',
+    productive_line_ids = fields.One2many('process_control.productive_section_lines',
                                           inverse_name='productive_section_id',
                                           string='Líneas Productivas')
 
-    productive_section_plan = fields.Many2one('turei_process_control.productive_section_plan', string='Norma plan')
+    productive_section_plan = fields.Many2one('process_control.productive_section_plan', string='Norma plan')
     active = fields.Boolean(string="Activa", default=True)
 
     _sql_constraints = [
@@ -48,7 +48,7 @@ class ProductiveSection(models.Model):
     @api.constrains('productive_line_ids')
     def check_productive_line_just_in_one_section(self):
         for productive_section_lines in self.productive_line_ids:
-            lines_in_system = self.env['turei_process_control.productive_section_lines'].search(
+            lines_in_system = self.env['process_control.productive_section_lines'].search(
                 [('productive_line.id', '=', productive_section_lines.productive_line.id)], limit=2)
             if len(lines_in_system) > 1:
                 raise ValidationError(
@@ -70,7 +70,7 @@ class ProductiveSection(models.Model):
             domain.append(('turn', '=', turn))
 
         count_lines = len(self.productive_line_ids)
-        control_models = self.env['turei_process_control.tecnolog_control_model'].search(domain)
+        control_models = self.env['process_control.tecnolog_control'].search(domain)
 
         cdt, sum_plan_time, sum_time_interruption, time_n_j = 0.00, 0.00, 0.00, 0.00
 
@@ -103,7 +103,7 @@ class ProductiveSection(models.Model):
         if turn:
             domain.append(('turn', '=', turn))
 
-        control_models = self.env['turei_process_control.tecnolog_control_model'].search(domain)
+        control_models = self.env['process_control.tecnolog_control'].search(domain)
 
         production_done, efficiency, time_planned, productive_capacity, productividad_real = (0.00, 0.00, 0.00, 0.00, 0.00)
 
@@ -120,7 +120,7 @@ class ProductiveSection(models.Model):
     @api.model_create_multi
     def get_efficiency_plan(self):
         self.ensure_one()
-        return self.env['turei_process_control.productive_section_plan'].search([('productive_section_ids', 'in', self.id), ('active', '=', True)])
+        return self.env['process_control.productive_section_plan'].search([('productive_section_ids', 'in', self.id), ('active', '=', True)])
 
     def get_ind_rechazo(self, date_start, date_end, turn=False):
         suma_ind = 0.00
@@ -131,14 +131,14 @@ class ProductiveSection(models.Model):
 
 
 class ProductiveSectionLines(models.Model):
-    _name = 'turei_process_control.productive_section_lines'
+    _name = 'process_control.productive_section_lines'
     _rec_name = 'productive_line'
 
 
-    productive_section_id = fields.Many2one(comodel_name="turei_process_control.productive_section",
+    productive_section_id = fields.Many2one(comodel_name="process_control.productive_section",
                                             string="Modulo", required=False, )
 
-    productive_line = fields.Many2one(comodel_name="turei_process_control.productive_line", string="Línea Produtiva",
+    productive_line = fields.Many2one(comodel_name="process_control.productive_line", string="Línea Produtiva",
                                       required=False)
     name = fields.Char(string="nombre", required=False, related='productive_line.name')
     productive_section_name = fields.Char(string="nombre", required=True, compute='get_section_name', store=True)
@@ -155,7 +155,7 @@ class ProductiveSectionLines(models.Model):
                   ('productive_section', '=', self.productive_section_id.id)]
         if turn:
             domain.append(('turn', '=', turn))
-        control_mods = self.env['turei_process_control.tecnolog_control_model'].search(domain)
+        control_mods = self.env['process_control.tecnolog_control'].search(domain)
         res = {}
         for cm in control_mods:
             for line in cm.rechazo_amf:
@@ -170,7 +170,7 @@ class ProductiveSectionLines(models.Model):
                   ('productive_section', '=', self.productive_section_id.id)]
         if turn:
             domain.append(('turn', '=', turn))
-        control_mods = self.env['turei_process_control.tecnolog_control_model'].search(domain)
+        control_mods = self.env['process_control.tecnolog_control'].search(domain)
         res = {}
         for cm in control_mods:
             for line in cm.rechazo_amf:

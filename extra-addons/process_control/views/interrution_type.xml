@@ -3,7 +3,7 @@
     <data>
         <record id="control_proc_interruption_type_view_form" model="ir.ui.view">
             <field name="name">control_proc_interruption_type_view_form</field>
-            <field name="model">turei_process_control.interruption.type</field>
+            <field name="model">process_control.interruption.type</field>
             <field name="arch" type="xml">
                 <form string="Tipos de Interrupciones">
                     <sheet>
@@ -49,7 +49,7 @@
 
         <record id="control_proc_interruption_type_view_tree" model="ir.ui.view">
             <field name="name">control_proc_interruption_type_view_tree</field>
-            <field name="model">turei_process_control.interruption.type</field>
+            <field name="model">process_control.interruption.type</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
@@ -63,7 +63,7 @@
 
         <record id="control_proc_interruption_type_action" model="ir.actions.act_window">
             <field name="name">Tipo de interrupción</field>
-            <field name="res_model">turei_process_control.interruption.type</field>
+            <field name="res_model">process_control.interruption.type</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="control_proc_interruption_type_view_tree"/>
@@ -71,7 +71,7 @@
 
         <menuitem id="control_proc_interruption_type_menu"
                   name="Tipo de interrupción"
-                  parent="turei_process_control_settings_menu"
+                  parent="process_control_settings_menu"
                   action="control_proc_interruption_type_action"
                   sequence="40"
         />

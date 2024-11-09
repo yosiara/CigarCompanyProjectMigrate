@@ -9,7 +9,7 @@ from odoo.addons.report_xlsx.report.report_xlsx import ReportXlsx
 class CompliancePannedEfficiencyToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
-        productive_sections = self.env['turei_process_control.productive_section'].search([('active', '=', True)], order="name ASC")
+        productive_sections = self.env['process_control.productive_section'].search([('active', '=', True)], order="name ASC")
         turns = self.env['resource.calendar'].search([('turn_process_control', '=', True)])
         if not productive_sections:
             self.env.user.notify_info(tools.ustr('No existen datos que mostrar.'))
@@ -24,7 +24,7 @@ class CompliancePannedEfficiencyToExcelReport(ReportXlsx):
                                  options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                                   'size': 10}, 'width': 730, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                           'line': {'none': True}})
-        worksheet.insert_image('K1', addons_manifest['turei_process_control']['addons_path'] + '/turei_process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
+        worksheet.insert_image('K1', addons_manifest['process_control']['addons_path'] + '/process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
         worksheet.set_column('A4:I4', 10)
         worksheet.set_column('B4:C4', 20)
         worksheet.set_column('E4:E4', 20)
@@ -87,4 +87,4 @@ class CompliancePannedEfficiencyToExcelReport(ReportXlsx):
             row += 1
 
 
-CompliancePannedEfficiencyToExcelReport('report.turei_process_control.compliance_planned_efficiency', 'wzd.compliance.planned.efficiency.excel')
+CompliancePannedEfficiencyToExcelReport('report.process_control.compliance_planned_efficiency', 'wzd.compliance.planned.efficiency.excel')

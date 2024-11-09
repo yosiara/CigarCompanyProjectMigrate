@@ -5,7 +5,7 @@
                 string="Rep. Cumplimiento de eficiencia planificada"
                 model="wzd.compliance.planned.efficiency.excel"
                 report_type="xlsx"
-                file="turei_process_control.compliance_planned_efficiency"
-                name="turei_process_control.compliance_planned_efficiency"/>
+                file="process_control.compliance_planned_efficiency"
+                name="process_control.compliance_planned_efficiency"/>
     </data>
 </odoo>

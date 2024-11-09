@@ -53,6 +53,6 @@
         </record>
 
         <menuitem action="wzd_production_hours_act_window"
-                  id="menu_production_hours_report" parent="turei_process_control_informes" sequence="0"/>
+                  id="menu_production_hours_report" parent="process_control_informes" sequence="0"/>
     </data>
 </odoo>

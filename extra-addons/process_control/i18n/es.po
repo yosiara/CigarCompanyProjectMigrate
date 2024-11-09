@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* turei_process_control
+# 	* process_control
 # 	* turei_web_login
 # 	* turei_backend_theme
 #
@@ -153,8 +153,8 @@ msgstr "Error en el cliente"
 msgid "Comparta con los amigos"
 msgstr "Comparta con los amigos"
 
-#. module: turei_process_control
-#: model:ir.ui.menu,name:turei_process_control.turei_process_control_settings_menu
+#. module: process_control
+#: model:ir.ui.menu,name:process_control.process_control_settings_menu
 msgid "Configuración"
 msgstr "Configuración"
 
@@ -165,8 +165,8 @@ msgstr "Configuración"
 msgid "Confirmation"
 msgstr "Confirmación"
 
-#. module: turei_process_control
-#: model:ir.model,name:turei_process_control.model_turei_process_control_machine_set_of_peaces
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_machine_set_of_peaces
 msgid "Conjunto de piezas"
 msgstr "Conjunto de piezas"
 
@@ -184,8 +184,8 @@ msgstr "Conexión Perdida"
 msgid "Connection restored"
 msgstr "Conexión restablecida"
 
-#. module: turei_process_control
-#: model:ir.ui.menu,name:turei_process_control.menu_proccess_control
+#. module: process_control
+#: model:ir.ui.menu,name:process_control.menu_proccess_control
 msgid "Control de proceso"
 msgstr "Control de proceso"
 
@@ -196,25 +196,25 @@ msgstr "Control de proceso"
 msgid "Copyright © 2004-2017"
 msgstr "Copyright © 2004-2017"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_create_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_create_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_nomenclature_create_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_type_create_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_line_create_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_create_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_lines_create_uid
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_nomenclature_create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type_create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line_create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_lines_create_uid
 msgid "Created by"
 msgstr "Creado por"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_create_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_create_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_nomenclature_create_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_type_create_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_line_create_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_create_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_lines_create_date
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_nomenclature_create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type_create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line_create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_lines_create_date
 msgid "Created on"
 msgstr "Creado el"
 
@@ -225,8 +225,8 @@ msgstr "Creado el"
 msgid "Deactivate the developer mode"
 msgstr "Desactivar el modo desarrollador"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_resource_calendar_description
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_resource_calendar_description
 msgid "Descripción"
 msgstr "Descripción"
 
@@ -238,14 +238,14 @@ msgstr "Descripción"
 msgid "Desoft."
 msgstr "Desoft."
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_display_name
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_display_name
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_nomenclature_display_name
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_type_display_name
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_line_display_name
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_display_name
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_lines_display_name
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_nomenclature_display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type_display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line_display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_lines_display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
@@ -256,17 +256,17 @@ msgstr "Nombre a mostrar"
 msgid "El grupo turei S.A también puede ser útil para sus amigos!"
 msgstr "El grupo turei S.A también puede ser útil para sus amigos!"
 
-#. module: turei_process_control
-#: sql_constraint:turei_process_control.productive_line:0
+#. module: process_control
+#: sql_constraint:process_control.productive_line:0
 msgid "El nombre de la línea productiva debe ser único."
 msgstr "El nombre de la línea productiva debe ser único."
 
-#. module: turei_process_control
-#: sql_constraint:turei_process_control.productive_section:0
+#. module: process_control
+#: sql_constraint:process_control.productive_section:0
 msgid "El nombre de la sección productiva debe ser único."
 msgstr "El nombre de la sección productiva debe ser único."
 
-#. module: turei_process_control
+#. module: process_control
 #: sql_constraint:resource.calendar:0
 msgid "El turno de trabajo ya existe."
 msgstr "El turno de trabajo ya existe."
@@ -299,14 +299,14 @@ msgstr "Get more features with the Enterprise Edition!"
 msgid "Global Business Error"
 msgstr "Global Business Error"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_id
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_id
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_nomenclature_id
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_type_id
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_line_id
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_id
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_lines_id
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_nomenclature_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_lines_id
 msgid "ID"
 msgstr "ID"
 
@@ -338,36 +338,36 @@ msgstr "Invite"
 msgid "Invite new users:"
 msgstr "Invite new users:"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine___last_update
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces___last_update
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_nomenclature___last_update
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_type___last_update
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_line___last_update
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section___last_update
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_lines___last_update
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine___last_update
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces___last_update
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_nomenclature___last_update
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type___last_update
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line___last_update
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section___last_update
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_lines___last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_nomenclature_write_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_write_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_type_write_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_write_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_line_write_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_lines_write_uid
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_write_uid
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_nomenclature_write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type_write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line_write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_lines_write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_nomenclature_write_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_write_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_type_write_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_write_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_line_write_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_lines_write_date
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_write_date
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_nomenclature_write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type_write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line_write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_lines_write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
 
@@ -376,24 +376,24 @@ msgstr "Última actualización el"
 msgid "Log in"
 msgstr "Iniciar Sesión"
 
-#. module: turei_process_control
-#: model:ir.model,name:turei_process_control.model_turei_process_control_productive_line
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_productive_line
 msgid "Línea Productiva"
 msgstr "Línea Productiva"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_lines_productive_line
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_lines_productive_line
 msgid "Línea Produtiva"
 msgstr "Línea Produtiva"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_productive_line_id
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_productive_line_id
 msgid "Línea productiva"
 msgstr "Línea productiva"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_productive_line_ids
-#: model:ir.ui.menu,name:turei_process_control.control_proc_productive_line_menu
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_productive_line_ids
+#: model:ir.ui.menu,name:process_control.control_proc_productive_line_menu
 msgid "Líneas Productivas"
 msgstr "Líneas Productivas"
 
@@ -429,16 +429,16 @@ msgstr ""
 "More\n"
 "                                <b class=\"caret\"/>"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_machine_id
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_machine_id
 msgid "Máquina"
 msgstr "Máquina"
 
-#. module: turei_process_control
-#: model:ir.actions.act_window,name:turei_process_control.control_proc_machine_action
-#: model:ir.model,name:turei_process_control.model_turei_process_control_machine
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_line_machine_ids
-#: model:ir.ui.menu,name:turei_process_control.control_proc_machine_menu
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.control_proc_machine_action
+#: model:ir.model,name:process_control.model_process_control_machine
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line_machine_ids
+#: model:ir.ui.menu,name:process_control.control_proc_machine_menu
 msgid "Máquinas"
 msgstr "Máquinas"
 
@@ -456,21 +456,21 @@ msgstr "Need more help?"
 msgid "No app installed"
 msgstr "No app installed"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_name
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_name_id
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_line_name
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_name
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_name_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_name
 msgid "Nombre"
 msgstr "Nombre"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces_nomenclature_name
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces_nomenclature_name
 msgid "Nombre del conjunto"
 msgstr "Nombre del conjunto"
 
-#. module: turei_process_control
-#: model:ir.model,name:turei_process_control.model_turei_process_control_machine_set_of_peaces_nomenclature
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_machine_set_of_peaces_nomenclature
 msgid "Nombres de conjunto de piezas"
 msgstr "Nombres de conjunto de piezas"
 
@@ -509,35 +509,35 @@ msgstr "Pending invitations:"
 msgid "Please provide valid email addresses"
 msgstr "Please provide valid email addresses"
 
-#. module: turei_process_control
-#: model:ir.actions.act_window,name:turei_process_control.control_proc_productive_line_action
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.control_proc_productive_line_action
 msgid "Productive Line"
 msgstr "Productive Line"
 
-#. module: turei_process_control
-#: model:ir.model,name:turei_process_control.model_resource_calendar
+#. module: process_control
+#: model:ir.model,name:process_control.model_resource_calendar
 msgid "Resource Calendar"
 msgstr "Calendario recurso"
 
-#. module: turei_process_control
-#: model:ir.ui.view,arch_db:turei_process_control.resource_calendar_form
+#. module: process_control
+#: model:ir.ui.view,arch_db:process_control.resource_calendar_form
 msgid "Responsible"
 msgstr "Responsible"
 
-#. module: turei_process_control
-#: model:ir.ui.view,arch_db:turei_process_control.resource_calendar_search
+#. module: process_control
+#: model:ir.ui.view,arch_db:process_control.resource_calendar_search
 msgid "Search Working Time"
 msgstr "Buscar horario de trabajo"
 
-#. module: turei_process_control
-#: model:ir.model,name:turei_process_control.model_turei_process_control_productive_section
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_productive_section
 msgid "Sección Productiva"
 msgstr "Sección Productiva"
 
-#. module: turei_process_control
-#: model:ir.actions.act_window,name:turei_process_control.turei_process_control_productive_section_action
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_productive_section_lines_productive_section_id
-#: model:ir.ui.menu,name:turei_process_control.turei_process_control_productive_section_menu
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.process_control_productive_section_action
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_lines_productive_section_id
+#: model:ir.ui.menu,name:process_control.process_control_productive_section_menu
 msgid "Sección productiva"
 msgstr "Sección productiva"
 
@@ -557,8 +557,8 @@ msgstr ""
 msgid "Showing locally available modules"
 msgstr "Showing locally available modules"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_set_of_peaces
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces
 msgid "Subconjuntos de piezas"
 msgstr "Subconjuntos de piezas"
 
@@ -569,14 +569,14 @@ msgstr "Subconjuntos de piezas"
 msgid "Theme store"
 msgstr "Tienda de temas."
 
-#. module: turei_process_control
-#: model:ir.model,name:turei_process_control.model_turei_process_control_machine_type
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_type_name
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_machine_type
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type_name
 msgid "Tipo de Máquina"
 msgstr "Tipo de Máquina"
 
-#. module: turei_process_control
-#: model:ir.model.fields,field_description:turei_process_control.field_turei_process_control_machine_machine_type_id
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_machine_type_id
 msgid "Tipo de máquina"
 msgstr "Tipo de máquina"
 
@@ -594,8 +594,8 @@ msgstr "Traceback:"
 msgid "Trying to reconnect..."
 msgstr "Intentando reconectar..."
 
-#. module: turei_process_control
-#: model:ir.ui.view,arch_db:turei_process_control.resource_calendar_search
+#. module: process_control
+#: model:ir.ui.view,arch_db:process_control.resource_calendar_search
 msgid "Turno de trabajo"
 msgstr "Turno de trabajo"
 
@@ -622,8 +622,8 @@ msgstr "Error de Validación"
 msgid "Warning"
 msgstr "Alerta"
 
-#. module: turei_process_control
-#: model:ir.ui.menu,name:turei_process_control.menu_turei_resource_calendar
+#. module: process_control
+#: model:ir.ui.menu,name:process_control.menu_turei_resource_calendar
 msgid "Working Time"
 msgstr "Horario de trabajo"
 
@@ -662,7 +662,7 @@ msgstr "mas"
 msgid "turei"
 msgstr "turei"
 
-#. module: turei_process_control
-#: model:ir.model,name:turei_process_control.model_turei_process_control_productive_section_lines
-msgid "turei_process_control.productive_section_lines"
-msgstr "turei_process_control.productive_section_lines"
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_productive_section_lines
+msgid "process_control.productive_section_lines"
+msgstr "process_control.productive_section_lines"

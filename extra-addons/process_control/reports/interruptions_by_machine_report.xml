@@ -6,7 +6,7 @@
                 <div class="header">
                     <div class="row">
                         <div class="col-xs-2 text-left" style="margin:0 0 0 0; padding:0 0 0 15px">
-                            <img src="/turei_process_control/static/src/img/logo_hoja.png"/>
+                            <img src="/process_control/static/src/img/logo_hoja.png"/>
                         </div>
                         <div class="col-xs-10 text-center" style="padding:35px">
                             <h4>
@@ -112,10 +112,10 @@
 
         <report id="interruptions_by_machine_report_action"
                 string="Rep. Interrupciones por Máquinas"
-                model="turei_process_control.interruptions_by_machine_report"
+                model="process_control.interruptions_by_machine_report"
                 report_type="qweb-pdf"
-                file="turei_process_control.interruptions_by_machine_report"
-                name="turei_process_control.interruptions_by_machine_report"/>
+                file="process_control.interruptions_by_machine_report"
+                name="process_control.interruptions_by_machine_report"/>
 
         <record id="paperformat_interruptions_by_machine_report" model="report.paperformat">
             <field name="name">Interrupciones por máquinas A4 Portrait</field>

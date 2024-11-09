@@ -3,7 +3,7 @@
     <data>
         <record id="control_proc_machine_view_form" model="ir.ui.view">
             <field name="name">control_proc_machine_view_form</field>
-            <field name="model">turei_process_control.machine</field>
+            <field name="model">process_control.machine</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -28,7 +28,7 @@
 
         <record id="control_proc_machine_view_tree" model="ir.ui.view">
             <field name="name">control_proc_machine_view_tree</field>
-            <field name="model">turei_process_control.machine</field>
+            <field name="model">process_control.machine</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
@@ -40,12 +40,12 @@
 
         <act_window id="control_proc_machine_action"
                     name="Máquinas"
-                    res_model="turei_process_control.machine"
+                    res_model="process_control.machine"
                     view_mode="tree,form"/>
 
         <menuitem id="control_proc_machine_menu"
                   name="Máquinas"
-                  parent="turei_process_control_settings_menu"
+                  parent="process_control_settings_menu"
                   action="control_proc_machine_action" sequence="35"/>
     </data>
 </odoo>

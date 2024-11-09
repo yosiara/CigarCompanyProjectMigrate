@@ -5,7 +5,7 @@
                 string="Rep. Cumplimiento del CDT planificado"
                 model="wzd.compliance.planned.cdt.excel"
                 report_type="xlsx"
-                file="turei_process_control.compliance_planned_cdt"
-                name="turei_process_control.compliance_planned_cdt"/>
+                file="process_control.compliance_planned_cdt"
+                name="process_control.compliance_planned_cdt"/>
     </data>
 </odoo>

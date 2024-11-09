@@ -3,17 +3,17 @@
     <data>
         <act_window id="control_proc_set_of_peaces_action"
                     name="Subconjuntos de piezas"
-                    res_model="turei_process_control.machine_set_of_peaces_nomenclature"
+                    res_model="process_control.machine_set_of_peaces_nomenclature"
                     view_mode="tree,form"/>
 
         <menuitem id="control_proc_set_of_peaces_menu"
                   name="Subconjuntos de piezas"
-                  parent="turei_process_control_settings_menu"
+                  parent="process_control_settings_menu"
                   action="control_proc_set_of_peaces_action" sequence="37"/>
 
         <record id="control_proc_set_of_peaces_view_form" model="ir.ui.view">
             <field name="name">control_proc_set_of_peaces_view_form</field>
-            <field name="model">turei_process_control.machine_set_of_peaces_nomenclature</field>
+            <field name="model">process_control.machine_set_of_peaces_nomenclature</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -28,7 +28,7 @@
 
         <record id="control_proc_set_of_peaces_view_tree" model="ir.ui.view">
             <field name="name">control_proc_set_of_peaces_view_tree</field>
-            <field name="model">turei_process_control.machine_set_of_peaces_nomenclature</field>
+            <field name="model">process_control.machine_set_of_peaces_nomenclature</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>

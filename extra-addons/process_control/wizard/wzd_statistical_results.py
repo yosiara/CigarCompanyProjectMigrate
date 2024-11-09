@@ -12,7 +12,7 @@ class WzdStatisticalResultsToExcel(models.TransientModel):
 
 
     def export_to_xls(self):
-        return self.env['report'].get_action(self, 'turei_process_control.statistical_results_report', data={
+        return self.env['report'].get_action(self, 'process_control.statistical_results_report', data={
             'date_start': self.date_start,
             'turn': self.turn.id,
 

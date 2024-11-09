@@ -6,5 +6,5 @@ from . import productive_line
 from . import productive_section
 from . import interrution_type
 from . import interruption
-from . import tec_control_model
+from . import tecnolog_control
 from . import productive_section_plan

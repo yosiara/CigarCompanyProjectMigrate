@@ -14,13 +14,13 @@ class WzdResumeTimeFrequencyToExcel(models.TransientModel):
 
     def export_to_xls(self):
         if self.group_by == 'seccion':
-            return self.env['report'].get_action(self, 'turei_process_control.resume_time_frequency_report', data={
+            return self.env['report'].get_action(self, 'process_control.resume_time_frequency_report', data={
                 'date_start': self.date_start,
                 'date_end': self.date_end,
                 'group_by': self.group_by,
                 'turn': self.turn.id,
             })
-        return self.env['report'].get_action(self, 'turei_process_control.resume_time_frequency_by_line_report', data={
+        return self.env['report'].get_action(self, 'process_control.resume_time_frequency_by_line_report', data={
                 'date_start': self.date_start,
                 'date_end': self.date_end,
                 'group_by': self.group_by,

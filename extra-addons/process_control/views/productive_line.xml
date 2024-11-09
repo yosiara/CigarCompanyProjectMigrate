@@ -3,19 +3,19 @@
     <data>
         <act_window id="control_proc_productive_line_action"
                     name="Productive Line"
-                    res_model="turei_process_control.productive_line"
+                    res_model="process_control.productive_line"
                     view_mode="tree,form"/>
 
         <menuitem id="control_proc_productive_line_menu"
                   name="Líneas Productivas"
-                  parent="turei_process_control_settings_menu"
+                  parent="process_control_settings_menu"
                   action="control_proc_productive_line_action"
                   sequence="30"
         />
 
         <record id="control_proc_productive_line_view_form" model="ir.ui.view">
-            <field name="name">turei_process_control_productive_line_view_form</field>
-            <field name="model">turei_process_control.productive_line</field>
+            <field name="name">process_control_productive_line_view_form</field>
+            <field name="model">process_control.productive_line</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -34,8 +34,8 @@
 
         <!-- To-Do Task List view -->
         <record id="control_proc_productive_line_view_tree" model="ir.ui.view">
-            <field name="name">turei_process_control_productive_line_view_tree</field>
-            <field name="model">turei_process_control.productive_line</field>
+            <field name="name">process_control_productive_line_view_tree</field>
+            <field name="model">process_control.productive_line</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>

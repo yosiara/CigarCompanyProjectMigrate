@@ -6,8 +6,8 @@ from odoo.exceptions import ValidationError
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 
-class tecnolog_control_model(models.Model):
-    _name = 'turei_process_control.tecnolog_control_model'
+class TecnologControl(models.Model):
+    _name = 'process_control.tecnolog_control'
     _translate = False
 
     date = fields.Date(string="Fecha", required=True, copy=True, default=fields.Date.today)
@@ -17,7 +17,7 @@ class tecnolog_control_model(models.Model):
 
     attendance_id = fields.Many2one('resource.calendar.attendance', string='Sesión', copy=True, default=0)
 
-    productive_section = fields.Many2one(comodel_name="turei_process_control.productive_section",
+    productive_section = fields.Many2one(comodel_name="process_control.productive_section",
                                          string="Modulo",
                                          required=True, ondelete='cascade')
     productive_capacity = fields.Integer('Capacidad Productiva', required=True)
@@ -30,10 +30,10 @@ class tecnolog_control_model(models.Model):
     tec_model_type = fields.Selection(string="Documento/control", default=_get_default_tec_model_type,
                                       selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1')])
 
-    interruptions = fields.One2many(comodel_name="turei_process_control.interruption", inverse_name="tec_control_model",
+    interruptions = fields.One2many(comodel_name="process_control.interruption", inverse_name="tec_control_model",
                                     string="Interrupciones", required=False, ondelete='cascade')
 
-    production_by_hours_ids = fields.One2many(comodel_name="turei_process_control.production_by_hours",
+    production_by_hours_ids = fields.One2many(comodel_name="process_control.production_by_hours",
                                               inverse_name="tecnolog_control_id",
                                               string="Produccion Horaria", required=False)
 
@@ -44,11 +44,11 @@ class tecnolog_control_model(models.Model):
     production_in_proccess_control = fields.Float(string="Prod calculada en el sistema.", readonly=True, store=True,
                                                   compute='_compute_total_prod')
 
-    rechazo_amf = fields.One2many(comodel_name="turei_process_control.rechazo_amf",
+    rechazo_amf = fields.One2many(comodel_name="process_control.rechazo_amf",
                                   inverse_name="tecnolog_control_id",
                                   string="Rechazo de las AMF", required=False)
 
-    rechazo_nano_sbo_src = fields.One2many(comodel_name="turei_process_control.rechazo_mod1",
+    rechazo_nano_sbo_src = fields.One2many(comodel_name="process_control.rechazo_mod1",
                                            inverse_name="tecnolog_control_id",
                                            string="Rechazo 'NANO', 'SBO', 'SRC'", required=False)
 
@@ -61,7 +61,7 @@ class tecnolog_control_model(models.Model):
 
     @api.model
     def default_get(self, fields):
-        res = super(tecnolog_control_model, self).default_get(fields)
+        res = super(tecnolog_control, self).default_get(fields)
         rec_last = self.search([], order='id desc', limit=1)
         if rec_last:
             res["date"] = rec_last.date
@@ -185,7 +185,7 @@ class tecnolog_control_model(models.Model):
             list_lines = []
             for line in self.productive_section.productive_line_ids:
                 if self.productive_section.tec_model_type == 'mod':
-                    machine_type_id = self.env['turei_process_control.machine_type'].search([('name', '=', 'AMF')])
+                    machine_type_id = self.env['process_control.machine_type'].search([('name', '=', 'AMF')])
                     machine_ids = line.productive_line.machine_ids.search([('machine_type_id', '=', machine_type_id.id),
                                                                        ('id', 'in',
                                                                         line.productive_line.machine_ids.ids)], limit=1)
@@ -219,7 +219,7 @@ class tecnolog_control_model(models.Model):
                 if ph[2]['hour_production'] == 'Hora extra ':
                     ph[2]['hour_production'] += str(no_extra_hr)
                     no_extra_hr += 1
-        return super(tecnolog_control_model, self).create(vals)
+        return super(tecnolog_control, self).create(vals)
 
     @api.model_create_multi
     def write(self, vals):
@@ -230,13 +230,13 @@ class tecnolog_control_model(models.Model):
                     if ph[2]['hour_production'] == 'Hora extra ':
                         ph[2]['hour_production'] += str(no_extra_hr)
                         no_extra_hr += 1
-        return super(tecnolog_control_model, self).write(vals)
+        return super(tecnolog_control, self).write(vals)
 
 
 class production_by_hours(models.Model):
-    _name = 'turei_process_control.production_by_hours'
+    _name = 'process_control.production_by_hours'
 
-    tecnolog_control_id = fields.Many2one(comodel_name="turei_process_control.tecnolog_control_model",
+    tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control",
                                           string="Modelo Control", ondelete='cascade',
                                           required=True, )
 
@@ -257,18 +257,18 @@ class production_by_hours(models.Model):
 
 
 class rezacho_amf(models.Model):
-    _name = 'turei_process_control.rechazo_amf'
+    _name = 'process_control.rechazo_amf'
 
-    productive_line_id = fields.Many2one('turei_process_control.productive_section_lines', string='Líneas Productivas')
-    machine_id = fields.Many2one('turei_process_control.machine', 'Máquina',
+    productive_line_id = fields.Many2one('process_control.productive_section_lines', string='Líneas Productivas')
+    machine_id = fields.Many2one('process_control.machine', 'Máquina',
                                  # dominio vacio hasta que se escoja una seccion productiva
                                  domain=[('id', 'in', [])])
-    machine_type_id = fields.Many2one('turei_process_control.machine_type', string='Tipo de máquina',
+    machine_type_id = fields.Many2one('process_control.machine_type', string='Tipo de máquina',
                                       related='machine_id.machine_type_id')
 
     rechazo_en_cajetijas = fields.Integer('Rechazo en cajetillas')
     produccion_en_cajones = fields.Float('Produción en cajones')
-    tecnolog_control_id = fields.Many2one(comodel_name="turei_process_control.tecnolog_control_model",
+    tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control",
                                           string="Modelo Control", ondelete='cascade',
                                           required=True, )
     tec_model_type = fields.Selection(string="Documento/control",
@@ -290,13 +290,13 @@ class rezacho_amf(models.Model):
 
 
 class rechazo_modulo1(rezacho_amf):
-    _name = 'turei_process_control.rechazo_mod1'
+    _name = 'process_control.rechazo_mod1'
 
-    productive_line_id = fields.Many2one('turei_process_control.productive_section_lines', string='Líneas Productivas')
-    machine_id = fields.Many2one('turei_process_control.machine', 'Máquina',
+    productive_line_id = fields.Many2one('process_control.productive_section_lines', string='Líneas Productivas')
+    machine_id = fields.Many2one('process_control.machine', 'Máquina',
                                  # dominio vacio hasta que se escoja una seccion productiva
                                  domain=[('id', 'in', [])])
-    machine_type_id = fields.Many2one('turei_process_control.machine_type', string='Tipo de máquina',
+    machine_type_id = fields.Many2one('process_control.machine_type', string='Tipo de máquina',
                                       related='machine_id.machine_type_id')
 
     machine_type_name = fields.Char("Machine Type name", related='machine_type_id.name')
@@ -305,7 +305,7 @@ class rechazo_modulo1(rezacho_amf):
     rechazo_en_cigarrillos = fields.Integer('Rechazo en cigarrillos')
     produccion_en_cajones = fields.Float('Produción en cajetillas')
     produccion_en_cigarrillos = fields.Integer('Produción en cigarrillos')
-    tecnolog_control_id = fields.Many2one(comodel_name="turei_process_control.tecnolog_control_model",
+    tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control",
                                           string="Modelo Control", ondelete='cascade',
                                           required=True, )
 

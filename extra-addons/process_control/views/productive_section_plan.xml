@@ -3,7 +3,7 @@
     <data>
         <record id="control_proc_control_proc_productive_section_plan_form" model="ir.ui.view">
             <field name="name">control_proc_control_proc_productive_section_plan_view_form</field>
-            <field name="model">turei_process_control.productive_section_plan</field>
+            <field name="model">process_control.productive_section_plan</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -34,7 +34,7 @@
 
         <record id="control_proc_productive_section_plan_view_tree" model="ir.ui.view">
             <field name="name">control_proc_productive_section_plan_view_tree</field>
-            <field name="model">turei_process_control.productive_section_plan</field>
+            <field name="model">process_control.productive_section_plan</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="year"/>
@@ -52,12 +52,12 @@
 
         <act_window id="control_proc_productive_section_plan"
                     name="Planificación de norma e indices"
-                    res_model="turei_process_control.productive_section_plan"
+                    res_model="process_control.productive_section_plan"
                     view_mode="tree,form"/>
 
         <menuitem id="control_proc_productive_section_plan_menu"
                   name="Planificación de norma e indicadores"
-                  parent="turei_process_control_settings_menu"
+                  parent="process_control_settings_menu"
                   action="control_proc_productive_section_plan" sequence="38"/>
     </data>
 </odoo>

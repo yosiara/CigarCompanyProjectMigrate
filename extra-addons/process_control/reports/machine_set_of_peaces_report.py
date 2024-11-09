@@ -9,8 +9,8 @@ from odoo.addons.report_xlsx.report.report_xlsx import ReportXlsx
 class MachineSetOfPeacesToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
-        productive_sections = self.env['turei_process_control.productive_section'].search([('active', '=', True)], order="name")
-        machine = self.env['turei_process_control.machine_set_of_peaces_nomenclature'].search([], order="machine_type_id")
+        productive_sections = self.env['process_control.productive_section'].search([('active', '=', True)], order="name")
+        machine = self.env['process_control.machine_set_of_peaces_nomenclature'].search([], order="machine_type_id")
 
         worksheet = workbook.add_worksheet(tools.ustr("Tiempo"))
         worksheet1 = workbook.add_worksheet(tools.ustr("Frecuencia"))
@@ -39,8 +39,8 @@ class MachineSetOfPeacesToExcelReport(ReportXlsx):
                                                                    'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                           'line': {'none': True}})
 
-        worksheet.insert_image('L1', addons_manifest['turei_process_control']['addons_path'] + '/turei_process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
-        worksheet1.insert_image('L1', addons_manifest['turei_process_control']['addons_path'] + '/turei_process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
+        worksheet.insert_image('L1', addons_manifest['process_control']['addons_path'] + '/process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
+        worksheet1.insert_image('L1', addons_manifest['process_control']['addons_path'] + '/process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
         worksheet.set_column('A4:A4', 20)
         worksheet1.set_column('A4:A4', 20)
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}})
@@ -72,9 +72,9 @@ class MachineSetOfPeacesToExcelReport(ReportXlsx):
                 column_index = 3
                 for ps in productive_sections:
                     if lines.turn:
-                        lis = self.env["turei_process_control.tecnolog_control_model"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.id),('turn','=',lines.turn.id)])
+                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.id),('turn','=',lines.turn.id)])
                     else:
-                        lis = self.env["turei_process_control.tecnolog_control_model"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.id)])
+                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.id)])
                     valor = 0.0
                     frecuencia = 0
                     for a in lis:
@@ -88,13 +88,13 @@ class MachineSetOfPeacesToExcelReport(ReportXlsx):
                     column_index += 1
                 x += 1
 
-MachineSetOfPeacesToExcelReport('report.turei_process_control.machine_set_of_peaces_report', 'wzd.machine.set.of.peaces.to.excel')
+MachineSetOfPeacesToExcelReport('report.process_control.machine_set_of_peaces_report', 'wzd.machine.set.of.peaces.to.excel')
 
 class MachineSetOfPeacesByLineToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
-        productive_lines = self.env['turei_process_control.productive_section_lines'].search([], order="productive_line")
-        machine = self.env['turei_process_control.machine_set_of_peaces_nomenclature'].search([], order="machine_type_id")
+        productive_lines = self.env['process_control.productive_section_lines'].search([], order="productive_line")
+        machine = self.env['process_control.machine_set_of_peaces_nomenclature'].search([], order="machine_type_id")
 
         worksheet = workbook.add_worksheet(tools.ustr("Tiempo"))
         worksheet1 = workbook.add_worksheet(tools.ustr("Frecuencia"))
@@ -123,8 +123,8 @@ class MachineSetOfPeacesByLineToExcelReport(ReportXlsx):
                                                                    'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                           'line': {'none': True}})
 
-        worksheet.insert_image('L1', addons_manifest['turei_process_control']['addons_path'] + '/turei_process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
-        worksheet1.insert_image('L1', addons_manifest['turei_process_control']['addons_path'] + '/turei_process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
+        worksheet.insert_image('L1', addons_manifest['process_control']['addons_path'] + '/process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
+        worksheet1.insert_image('L1', addons_manifest['process_control']['addons_path'] + '/process_control/static/src/img/logo_hoja.png', {'x_offset': 15, 'x_scale': 1.8, 'y_scale': 1.8})
         worksheet.set_column('A4:A4', 20)
         worksheet1.set_column('A4:A4', 20)
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}})
@@ -156,9 +156,9 @@ class MachineSetOfPeacesByLineToExcelReport(ReportXlsx):
                 column_index = 3
                 for ps in productive_lines:
                     if lines.turn:
-                        lis = self.env["turei_process_control.tecnolog_control_model"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.productive_section_id.id),('turn','=',lines.turn.id)])
+                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.productive_section_id.id),('turn','=',lines.turn.id)])
                     else:
-                        lis = self.env["turei_process_control.tecnolog_control_model"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.productive_section_id.id)])
+                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.productive_section_id.id)])
 
                     valor = 0.0
                     frecuencia = 0
@@ -174,5 +174,5 @@ class MachineSetOfPeacesByLineToExcelReport(ReportXlsx):
                     column_index += 1
                 x += 1
 
-MachineSetOfPeacesByLineToExcelReport('report.turei_process_control.machine_set_of_peaces_by_line_report', 'wzd.machine.set.of.peaces.to.excel')
+MachineSetOfPeacesByLineToExcelReport('report.process_control.machine_set_of_peaces_by_line_report', 'wzd.machine.set.of.peaces.to.excel')
 

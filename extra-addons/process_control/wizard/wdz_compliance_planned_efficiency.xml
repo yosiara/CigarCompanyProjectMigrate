@@ -44,6 +44,6 @@
         </record>
 
         <menuitem action="wzd_compliance_planned_efficiency_excel_act_window"
-                  id="menu_wzd_compliance_planned_efficiency_excel_report" parent="turei_process_control_informes_xls" sequence="5"/>
+                  id="menu_wzd_compliance_planned_efficiency_excel_report" parent="process_control_informes_xls" sequence="5"/>
     </data>
 </odoo>

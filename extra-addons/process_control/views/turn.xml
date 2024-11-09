@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <menuitem action="resource.action_resource_calendar_form" id="menu_turei_resource_calendar"
-                  parent="turei_process_control_settings_menu" sequence="1"/>
+                  parent="process_control_settings_menu" sequence="1"/>
 
         <record id="resource_calendar_form" model="ir.ui.view">
             <field name="name">resource.calendar.form</field>

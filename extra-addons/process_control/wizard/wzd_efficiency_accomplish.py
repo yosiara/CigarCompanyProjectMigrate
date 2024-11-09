@@ -13,7 +13,7 @@ class WzdEfficiencyAccomplish(models.TransientModel):
     percent = fields.Float('Porciento Efic.', required=True)
 
     def print_report(self):
-        return self.env['report'].get_action(self, 'turei_process_control.efficiency_accomplish_report', data={
+        return self.env['report'].get_action(self, 'process_control.efficiency_accomplish_report', data={
             'date_start': self.date_start,
             'date_end': self.date_end,
             'percent': self.percent,

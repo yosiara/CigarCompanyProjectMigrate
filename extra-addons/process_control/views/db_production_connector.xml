@@ -58,6 +58,6 @@
         </record>
 
         <!-- MENU ITEM -->
-        <menuitem  id="db_production_connector_menu_item" sequence="99" action="db_production_connector_action1" parent="turei_process_control_settings_menu"/>
+        <menuitem  id="db_production_connector_menu_item" sequence="99" action="db_production_connector_action1" parent="process_control_settings_menu"/>
     </data>
 </odoo>

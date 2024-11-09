@@ -42,6 +42,6 @@
         </record>
 
         <menuitem action="wzd_statistical_results_to_excel_report_act_window"
-                  id="wzd_statistical_results_to_excel_report_report" parent="turei_process_control_informes_xls" sequence="9"/>
+                  id="wzd_statistical_results_to_excel_report_report" parent="process_control_informes_xls" sequence="9"/>
     </data>
 </odoo>

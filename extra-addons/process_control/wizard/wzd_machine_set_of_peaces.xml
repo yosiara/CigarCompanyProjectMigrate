@@ -47,6 +47,6 @@
         </record>
 
         <menuitem action="wzd_machine_set_of_peaces_to_excel_report_act_window"
-                  id="wzd_machine_set_of_peaces_to_excel_report_report" parent="turei_process_control_informes_xls" sequence="7"/>
+                  id="wzd_machine_set_of_peaces_to_excel_report_report" parent="process_control_informes_xls" sequence="7"/>
     </data>
 </odoo>

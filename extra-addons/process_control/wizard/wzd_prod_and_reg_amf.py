@@ -12,7 +12,7 @@ class WzdProdRegAmf(models.TransientModel):
     turn = fields.Many2one(comodel_name="resource.calendar", string="Turno", domain=[('turn_process_control', '=', True)], required=False)
 
     def print_report(self):
-        return self.env['report'].get_action(self, 'turei_process_control.prod_and_reg_amf_report', data={
+        return self.env['report'].get_action(self, 'process_control.prod_and_reg_amf_report', data={
             'date_start': self.date_start,
             'date_end': self.date_end,
             'turn': self.turn.id,

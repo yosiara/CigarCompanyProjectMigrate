@@ -50,6 +50,6 @@
         </record>
 
          <!--<menuitem action="wzd_efficiency_accomplish_report_act_window"-->
-                  <!--id="menu_wzd_efficiency_accomplish_report" parent="turei_process_control_informes" sequence="1"/>-->
+                  <!--id="menu_wzd_efficiency_accomplish_report" parent="process_control_informes" sequence="1"/>-->
     </data>
 </odoo>

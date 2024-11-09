@@ -5,21 +5,21 @@ from odoo import models, api
 
 
 class ReportProductionByHours(models.AbstractModel):
-    _name = 'report.turei_process_control.production_by_hours_report'
+    _name = 'report.process_control.production_by_hours_report'
 
     def process_query(self, data):
         query = """SELECT
                 attendance_id,
                 hour_production,
-                (SELECT "name" from turei_process_control_productive_section where "id" = productive_section),
+                (SELECT "name" from process_control_productive_section where "id" = productive_section),
                 productive_section,
                 AVG(production_count)
             FROM
-                turei_process_control_production_by_hours
-            INNER JOIN turei_process_control_tecnolog_control_model ON (
-                tecnolog_control_id = turei_process_control_tecnolog_control_model."id"
+                process_control_production_by_hours
+            INNER JOIN process_control_tecnolog_control ON (
+                tecnolog_control_id = process_control_tecnolog_control."id"
             )
-            WHERE turei_process_control_tecnolog_control_model."date" BETWEEN '%s' and '%s'
+            WHERE process_control_tecnolog_control."date" BETWEEN '%s' and '%s'
         """ % (data['date_start'], data['date_end'])
 
         conditions = []
@@ -76,7 +76,7 @@ class ReportProductionByHours(models.AbstractModel):
     @api.model
     def render_html(self, docids, data=None):
         report_obj = self.env['report']
-        report = report_obj._get_report_from_name('turei_process_control.production_by_hours_report')
+        report = report_obj._get_report_from_name('process_control.production_by_hours_report')
         records = self.process_query(data)
         docargs = {
             'doc_model': report.model,
@@ -87,4 +87,4 @@ class ReportProductionByHours(models.AbstractModel):
             'max_len': len(records['productive_sections']),
             'productive_sections': records['productive_sections']
         }
-        return report_obj.render('turei_process_control.production_by_hours_report', docargs)
+        return report_obj.render('process_control.production_by_hours_report', docargs)

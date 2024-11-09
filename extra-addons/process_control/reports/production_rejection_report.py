@@ -10,9 +10,9 @@ class ProductionRejectionToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
         if lines.turn:
-            tecnolog_control = self.env['turei_process_control.tecnolog_control_model'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn','=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn','=', lines.turn.id)])
         else:
-            tecnolog_control = self.env['turei_process_control.tecnolog_control_model'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
         worksheet = workbook.add_worksheet(tools.ustr("Control de Producción y Rechazo"))
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vdistributed', 'font': {'size': 11}})
         normal_format = workbook.add_format({'bold': 0, 'border': 1, 'align': 'left', 'valign': 'vcenter', 'font': {'size': 11}})
@@ -77,4 +77,4 @@ class ProductionRejectionToExcelReport(ReportXlsx):
         worksheet.write('F8', round(total_rech,2), normal_format)
         worksheet.write('F9', round(total_ind,2), normal_format)
 
-ProductionRejectionToExcelReport('report.turei_process_control.production_rejection_report', 'wzd.production.rejection.to.excel')
+ProductionRejectionToExcelReport('report.process_control.production_rejection_report', 'wzd.production.rejection.to.excel')

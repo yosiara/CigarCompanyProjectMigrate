@@ -6,7 +6,7 @@
                 <div class="header">
                     <div class="row">
                         <div class="col-xs-2 text-left" style="margin:0 0 0 0; padding:0 0 0 15px">
-                            <img src="/turei_process_control/static/src/img/logo_hoja.png"/>
+                            <img src="/process_control/static/src/img/logo_hoja.png"/>
                         </div>
                         <div class="col-xs-10 text-center" style="padding:35px">
                             <h4>
@@ -194,8 +194,8 @@
                 string="Rep. de Prod. Rechazo de las AMF"
                 model="wzd.prod_reg_amf.report"
                 report_type="qweb-pdf"
-                file="turei_process_control.prod_and_reg_amf_report"
-                name="turei_process_control.prod_and_reg_amf_report"/>
+                file="process_control.prod_and_reg_amf_report"
+                name="process_control.prod_and_reg_amf_report"/>
 
         <record id="turei_paperformat__report_prod_reg_amf_euro_a4_portrait" model="report.paperformat">
             <field name="name">Turei European A4 production and reg amf portrait</field>

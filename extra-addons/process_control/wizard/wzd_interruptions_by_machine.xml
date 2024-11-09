@@ -44,6 +44,6 @@
         </record>
 
         <menuitem action="wzd_interruptions_machine_act_window"
-                  id="menu_interruptions_machine_report" parent="turei_process_control_informes" sequence="4"/>
+                  id="menu_interruptions_machine_report" parent="process_control_informes" sequence="4"/>
     </data>
 </odoo>

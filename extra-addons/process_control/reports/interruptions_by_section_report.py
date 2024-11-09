@@ -5,12 +5,12 @@ from odoo import models, api
 
 
 class ReportInterruptionsBySection(models.AbstractModel):
-    _name = 'report.turei_process_control.interruptions_by_section_report'
+    _name = 'report.process_control.interruptions_by_section_report'
 
     @api.model
     def render_html(self, docids, data=None):
         report_obj = self.env['report']
-        report = report_obj._get_report_from_name('turei_process_control.interruptions_by_section_report')
+        report = report_obj._get_report_from_name('process_control.interruptions_by_section_report')
 
         records = {}
         domain = [('date', '>=', data['date_start']), ('date', '<=', data['date_end'])]
@@ -18,7 +18,7 @@ class ReportInterruptionsBySection(models.AbstractModel):
         if data['productive_section']:
             domain.append(('productive_section', '=', data['productive_section']))
 
-        controles = self.env['turei_process_control.tecnolog_control_model'].search(domain)
+        controles = self.env['process_control.tecnolog_control'].search(domain)
 
         for control in controles:
             if data['interruption_type']:
@@ -45,4 +45,4 @@ class ReportInterruptionsBySection(models.AbstractModel):
             'date_start': data['date_start'],
             'date_end': data['date_end'],
         }
-        return report_obj.render('turei_process_control.interruptions_by_section_report', docargs)
+        return report_obj.render('process_control.interruptions_by_section_report', docargs)

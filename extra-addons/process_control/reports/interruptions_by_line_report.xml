@@ -6,7 +6,7 @@
                 <div class="header">
                     <div class="row">
                         <div class="col-xs-2 text-left" style="margin:0 0 0 0; padding:0 0 0 15px">
-                            <img src="/turei_process_control/static/src/img/logo_hoja.png"/>
+                            <img src="/process_control/static/src/img/logo_hoja.png"/>
                         </div>
                         <div class="col-xs-10 text-center" style="padding:35px">
                             <h4>
@@ -98,10 +98,10 @@
 
         <report id="interruptions_by_line_report_action"
                 string="Rep. Interrupciones por líneas productivas"
-                model="turei_process_control.interruptions_by_line_report"
+                model="process_control.interruptions_by_line_report"
                 report_type="qweb-pdf"
-                file="turei_process_control.interruptions_by_line_report"
-                name="turei_process_control.interruptions_by_line_report"/>
+                file="process_control.interruptions_by_line_report"
+                name="process_control.interruptions_by_line_report"/>
 
         <record id="paperformat_interruptions_by_line_report" model="report.paperformat">
             <field name="name">Interrupciones por líneas productivas A4 Portrait</field>

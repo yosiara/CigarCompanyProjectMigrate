@@ -6,7 +6,7 @@
                 <div class="header">
                     <div class="row">
                         <div class="col-xs-2 text-left" style="margin:0 0 0 0; padding:0 0 0 15px">
-                            <img src="/turei_process_control/static/src/img/logo_hoja.png"/>
+                            <img src="/process_control/static/src/img/logo_hoja.png"/>
                         </div>
                         <div class="col-xs-10 text-center" style="padding:35px">
                             <h4>
@@ -115,7 +115,7 @@
                                             <t t-esc="round(line['time']/60.00,2)"/>
                                         </t>
                                         <t t-else="">
-                                            <t t-set="count_lines_tmp" t-value="len(model.env['turei_process_control.productive_section'].search([('id', '=', line['productive_section'])]).productive_line_ids)"/>
+                                            <t t-set="count_lines_tmp" t-value="len(model.env['process_control.productive_section'].search([('id', '=', line['productive_section'])]).productive_line_ids)"/>
                                             <t t-esc="round(line['time']/60.00,2)"/>
                                         </t>
                                     </td>
@@ -200,7 +200,7 @@
                                             <t t-esc="round(line['time']/60.00,2)"/>
                                         </t>
                                         <t t-else="">
-                                            <t t-set="count_lines_tmp" t-value="len(model.env['turei_process_control.productive_section'].search([('id', '=', line['productive_section'])]).productive_line_ids)"/>
+                                            <t t-set="count_lines_tmp" t-value="len(model.env['process_control.productive_section'].search([('id', '=', line['productive_section'])]).productive_line_ids)"/>
                                             <t t-esc="round(line['time']/60.00,2)"/>
                                         </t>
                                     </td>
@@ -347,8 +347,8 @@
                 string="Reporte de Eficiencia"
                 model="wzd.efficient.report"
                 report_type="qweb-pdf"
-                file="turei_process_control.efficient_report"
-                name="turei_process_control.efficient_report"/>
+                file="process_control.efficient_report"
+                name="process_control.efficient_report"/>
 
         <record id="turei_paperformat_euro_a4_portrait" model="report.paperformat">
             <field name="name">Turei European A4 portrait</field>

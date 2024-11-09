@@ -9,7 +9,7 @@ from odoo.addons.report_xlsx.report.report_xlsx import ReportXlsx
 class InterruptionsToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
-        control_models = self.env['turei_process_control.tecnolog_control_model'].search([('date', '>=', lines.date_start), ('date', '<=', lines.date_end)])
+        control_models = self.env['process_control.tecnolog_control'].search([('date', '>=', lines.date_start), ('date', '<=', lines.date_end)])
         if not control_models:
             self.env.user.notify_info(tools.ustr('No existen datos que mostrar.'))
             return
@@ -98,4 +98,4 @@ class InterruptionsToExcelReport(ReportXlsx):
                 aux_row += 1
 
 
-InterruptionsToExcelReport('report.turei_process_control.interruptions_to_excel_report', 'wzd.interruptions.to.excel')
+InterruptionsToExcelReport('report.process_control.interruptions_to_excel_report', 'wzd.interruptions.to.excel')

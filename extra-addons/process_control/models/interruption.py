@@ -4,31 +4,31 @@ from odoo.exceptions import ValidationError
 
 
 class Interruption(models.Model):
-    _name = "turei_process_control.interruption"
+    _name = "process_control.interruption"
     _description = "Interruption"
     _rec_name = 'name'
 
     name = fields.Char(string="Nombre", required=False, compute='_calc_name')
-    interruption_type = fields.Many2one('turei_process_control.interruption.type', 'Tipo', required=True)
-    machine_id = fields.Many2one('turei_process_control.machine', 'Máquina',
+    interruption_type = fields.Many2one('process_control.interruption.type', 'Tipo', required=True)
+    machine_id = fields.Many2one('process_control.machine', 'Máquina',
                                  # dominio vacio hasta que se escoja una seccion productiva
                                  domain=[('id', 'in', [])])
-    set_of_peaces_id = fields.Many2one(comodel_name="turei_process_control.machine_set_of_peaces_nomenclature",
+    set_of_peaces_id = fields.Many2one(comodel_name="process_control.machine_set_of_peaces_nomenclature",
                                        string="Subconjunto", domain=[('id', 'in', [])],
                                        required=False, )
     time = fields.Integer('Tiempo en minutos', required=True)
     frequency = fields.Integer('Frecuencia', required=True)
     # modelo del control del proceso, recoge todas las interrupciones de un turno en un dia X
-    tec_control_model = fields.Many2one(comodel_name="turei_process_control.tecnolog_control_model", string="Documento",
+    tec_control_model = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Documento",
                                         required=False, )
-    productive_line_id = fields.Many2one('turei_process_control.productive_section_lines', string='Líneas Productivas')
+    productive_line_id = fields.Many2one('process_control.productive_section_lines', string='Líneas Productivas')
 
     @api.onchange('productive_line_id')
     def _onchange_productive_line(self):
         self.machine_id = False
         if self.productive_line_id:
             return {'domain': {'machine_id': [('id', 'in', self.productive_line_id.productive_line.machine_ids.ids)]}}
-        self._cr.execute("SELECT machine_id FROM turei_process_control_produc_line_machine_asoc")
+        self._cr.execute("SELECT machine_id FROM process_control_produc_line_machine_asoc")
         machines_in_line = self._cr.fetchall()
         return {'domain': {'machine_id': [('id', 'not in', machines_in_line),('productive_section_id', '=',  self.tec_control_model.productive_section.id)]}}
 
@@ -36,7 +36,7 @@ class Interruption(models.Model):
     def _onchange_machine_id(self):
         domain_interruption = self.get_domain_interruption_type()
         if self.machine_id:
-            machine_types = self.env['turei_process_control.machine_set_of_peaces_nomenclature'].search(
+            machine_types = self.env['process_control.machine_set_of_peaces_nomenclature'].search(
                 [('machine_type_id', '=', self.machine_id.machine_type_id.id)])
             return {'domain': {'set_of_peaces_id': [('id', 'in', machine_types.ids)],
                                'interruption_type': domain_interruption}}
@@ -52,12 +52,12 @@ class Interruption(models.Model):
 
     def get_domain_interruption_type(self):
         if not self.machine_id:
-            interruption_types = self.env['turei_process_control.interruption.type'].search(
+            interruption_types = self.env['process_control.interruption.type'].search(
                 [('is_linked_to_machine', '=', False)])
             return [('id', 'in', interruption_types.ids)]
         else:
             interruption_types_ids = []
-            interruption_types = self.env['turei_process_control.interruption.type'].search([
+            interruption_types = self.env['process_control.interruption.type'].search([
                 '|', ('is_linked_to_machine', '=', True), ('use_in_any_machine', '=', True)
             ])
             for interruption_type in interruption_types:
