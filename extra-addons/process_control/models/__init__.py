@@ -1,10 +1,10 @@
-import turn
-import machine_type
-import machine
-import db_production_connector
-import productive_line
-import productive_section
-import interrution_type
-import interruption
-import tec_control_model
-import productive_section_plan
+from . import turn
+from . import machine_type
+from . import machine
+from . import db_production_connector
+from . import productive_line
+from . import productive_section
+from . import interrution_type
+from . import interruption
+from . import tec_control_model
+from . import productive_section_plan
