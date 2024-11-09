@@ -20,17 +20,15 @@
 ##############################################################################
 
 {
-    'name': 'Turei ControlPros',
-    'version': '0.9',
-    'author': 'Desoft. Holguín. Cuba.',
+    'name': 'Process Control',
+    'version': '17.0',
+    'author': 'Yosiel Arango Arencibia',
     'category': 'Turei',
-    # 'sequence': 20,
-
-    'summary': 'Módulo de control de las interrupciones  en el proceso productivo de la Fábrica de Cigarros Lázaro Peña.',
-    'description': "Módulo de control de las interrupciones  en el proceso productivo de la Fábrica de Cigarros Lázaro Peña.",
-    'website': 'http://www.desoft.cu',
+    'sequence': 2,
+    'summary': 'Módulo de control de las interrupciones en el proceso productivo de la Fábrica de Cigarros Lázaro Peña.',
+    'description': "Módulo de control de las interrupciones en el proceso productivo de la Fábrica de Cigarros Lázaro Peña.",
     'images': [],
-    'depends': ['resource', 'report', 'tree_formula_parser', 'auditlog', 'web_notify', 'report_xlsx'],
+    'depends': ['resource'],
     'data': [
         'data/machine_types.xml',
         'data/interruption_type.xml',
