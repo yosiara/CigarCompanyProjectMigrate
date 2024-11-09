@@ -8,7 +8,7 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
 class TecnologControl(models.Model):
     _name = 'process_control.tecnolog_control'
-    _translate = False
+    #_translate = False
 
     date = fields.Date(string="Fecha", required=True, copy=True, default=fields.Date.today)
     year_char = fields.Char(string=u"Año", required=False, compute="_compute_year_char", store=True)
@@ -121,7 +121,7 @@ class TecnologControl(models.Model):
                     cursor.execute(query)
                     for row in cursor:
                         self.production_in_production_system = row[0]
-                except Exception, e:
+                except Exception:
                     pass
 
     @api.model_create_multi
