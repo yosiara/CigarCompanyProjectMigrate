@@ -37,9 +37,4 @@ Long description of module's purpose
     ],
     "sequence": 1,
     "application": True,
-    "web": {
-        "images": {
-            "logo": "/smoke/static/src/img/fumar-seeklogo.eps",
-        }
-    },
 }
