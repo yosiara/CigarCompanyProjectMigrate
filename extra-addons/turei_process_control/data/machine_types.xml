@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mac_type_1" model="turei_process_control.machine_type">
+            <field name="name">MK8</field>
+        </record>
+        <record id="mac_type_2" model="turei_process_control.machine_type">
+            <field name="name">MFE</field>
+        </record>
+        <record id="mac_type_3" model="turei_process_control.machine_type">
+            <field name="name">OSCAR</field>
+        </record>
+        <record id="mac_type_4" model="turei_process_control.machine_type">
+            <field name="name">AMF</field>
+        </record>
+        <record id="mac_type_5" model="turei_process_control.machine_type">
+            <field name="name">TAC</field>
+        </record>
+        <record id="mac_type_6" model="turei_process_control.machine_type">
+            <field name="name">CP1</field>
+        </record>
+        <record id="mac_type_7" model="turei_process_control.machine_type">
+            <field name="name">MINIPAR</field>
+        </record>
+        <record id="mac_type_8" model="turei_process_control.machine_type">
+            <field name="name">TFP</field>
+        </record>
+        <record id="mac_type_9" model="turei_process_control.machine_type">
+            <field name="name">NANO</field>
+        </record>
+        <record id="mac_type_10" model="turei_process_control.machine_type">
+            <field name="name">RESY</field>
+        </record>
+        <record id="mac_type_11" model="turei_process_control.machine_type">
+            <field name="name">SBO</field>
+        </record>
+        <record id="mac_type_12" model="turei_process_control.machine_type">
+            <field name="name">SRC</field>
+        </record>
+        <record id="mac_type_13" model="turei_process_control.machine_type">
+            <field name="name">ME</field>
+        </record>
+    </data>
+</odoo>

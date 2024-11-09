@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="wzd_production_hours_form" model="ir.ui.view">
+            <field name="name">wzd.production.hours.form</field>
+            <field name="model">wzd.production.hours</field>
+            <field name="arch" type="xml">
+                <form string="Rep. Control de producción horaria">
+                    <sheet>
+                        <style>
+                            td.o_td_label
+                            {
+                            min-width:88px !important;
+                            }
+                        </style>
+                        <group col="4">
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                        <group col="4">
+                            <group colspan="2">
+                                <field name="productive_section"/>
+                            </group>
+                            <group colspan="2">
+                                <field name="turn" options="{'no_create_edit': True}"/>
+                            </group>
+                        </group>
+                        <div class="alert alert-info">
+                            <strong>Información:</strong>
+                            El campo Sec. Prod. se usa como filtro en el reporte
+                            para mostrar la información sin filtrar, dejarlo en blanco.
+                        </div>
+                        <footer>
+                            <div>
+                                <button name="print_report" icon="fa-print" string="Imprimir" type="object"
+                                        class="oe_highlight"/>
+                                o
+                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_production_hours_act_window" model="ir.actions.act_window">
+            <field name="name">Rep. Control de producción horaria</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wzd.production.hours</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_production_hours_act_window"
+                  id="menu_production_hours_report" parent="turei_process_control_informes" sequence="0"/>
+    </data>
+</odoo>

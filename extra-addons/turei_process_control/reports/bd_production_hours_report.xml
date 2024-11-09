@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_process_control_bd_production_hours_to_excel"
+                model="wzd.bd.production.hours.to.excel"
+                string="Rep. BD Control produccion horaria"
+                report_type="xlsx"
+                name="turei_process_control.bd_production_hours_report"
+                file="turei_process_control.bd_production_hours_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

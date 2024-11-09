@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="turei_process_control.interruptions_to_excel"
+                model="turei_process_control.interruption"
+                string="Listado interrupciones"
+                report_type="xlsx"
+                name="turei_process_control.interruptions_to_excel_report"
+                file="turei_process_control.interruptions_to_excel_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="control_proc_interruption_type_view_form" model="ir.ui.view">
+            <field name="name">control_proc_interruption_type_view_form</field>
+            <field name="model">turei_process_control.interruption.type</field>
+            <field name="arch" type="xml">
+                <form string="Tipos de Interrupciones">
+                    <sheet>
+                        <style>
+                            .separator_group{
+                            padding: 0;
+                            margin: -20px 0 !important;
+                            }
+                            .separator_group_15
+                            {
+                            margin: -7px 0 !important;
+                            }
+                        </style>
+                        <group col="8">
+                            <group colspan="3">
+                                <group colspan="5">
+                                    <field name="name"/>
+                                </group>
+                                <group colspan="5">
+                                    <field name="code"/>
+                                </group>
+                                <group colspan="5">
+                                    <field name="use_in_any_machine"/>
+                                </group>
+                                <group colspan="5">
+                                    <field name="is_linked_to_machine"/>
+                                </group>
+                                <group colspan="5">
+                                    <field name="cause"/>
+                                </group>
+                            </group>
+                            <group colspan="5">
+                                <group colspan="3" class="separator_group">
+                                    <separator string="Máquinas Asociadas"/>
+                                </group>
+                                <field name="machines_related" nolabel="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="control_proc_interruption_type_view_tree" model="ir.ui.view">
+            <field name="name">control_proc_interruption_type_view_tree</field>
+            <field name="model">turei_process_control.interruption.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="use_in_any_machine"/>
+                    <field name="is_linked_to_machine"/>
+                    <field name="machines_related"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="control_proc_interruption_type_action" model="ir.actions.act_window">
+            <field name="name">Tipo de interrupción</field>
+            <field name="res_model">turei_process_control.interruption.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="control_proc_interruption_type_view_tree"/>
+        </record>
+
+        <menuitem id="control_proc_interruption_type_menu"
+                  name="Tipo de interrupción"
+                  parent="turei_process_control_settings_menu"
+                  action="control_proc_interruption_type_action"
+                  sequence="40"
+        />
+    </data>
+</odoo>

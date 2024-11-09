@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_process_control_machine_set_of_peaces_to_excel"
+                model="wzd.machine.set.of.peaces.to.excel"
+                string="Rep. Resumen Subconjuntos de Timepo y Frecuencia"
+                report_type="xlsx"
+                name="turei_process_control.machine_set_of_peaces_report"
+                file="turei_process_control.machine_set_of_peaces_report"
+                attachment_use="False"
+        />
+         <report
+                id="report.turei_process_control_machine_set_of_peaces_by_line_to_excel"
+                model="wzd.machine.set.of.peaces.to.excel"
+                string="Rep. Resumen Subconjuntos de Timepo y Frecuencia"
+                report_type="xlsx"
+                name="turei_process_control.machine_set_of_peaces_by_line_report"
+                file="turei_process_control.machine_set_of_peaces_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+# -*- encoding: utf-8 -*-
+import efficient_report
+import production_by_hours_report
+import interruptions_by_section_report
+import interruptions_by_line_report
+import interruptions_by_machine_report
+import efficiency_accomplish_report
+import prod_and_reg_amf_report
+import interruptions_to_excel_report
+import time_use_to_excel_report
+import efficiency_cdt_excel_report
+#import resume_time_frequency_report
+import compliance_planned_efficiency
+import compliance_planned_cdt
+import machine_set_of_peaces_report
+import bd_production_hours_report
+import statistical_results_report
+import production_rejection_report
+import resume_time_frequencyn_report

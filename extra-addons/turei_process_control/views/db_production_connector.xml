@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- FORM VIEW -->
+        <record id="db_external_connector_form_view" model="ir.ui.view">
+            <field name="name">db_external_connector_form_view</field>
+            <field name="model">db_production_connector.template</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Probar Conexión" name="action_test_connection" type="object" class="oe_highlight">
+                            <span class="fa fa-fw fa-television o_button_icon"> </span>
+                        </button>
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" placeholder="name"/>
+                                <field name="connector"/>
+                                <field name="server"/>
+                                <field name="port"/>
+                            </group>
+
+                            <group>
+                                <field name="dbname"/>
+                                <field name="user"/>
+                                <field name="pwd" password="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="db_production_connector_tree_view" model="ir.ui.view">
+            <field name="name">db_production_connector_tree_view</field>
+            <field name="model">db_production_connector.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="server"/>
+                    <field name="port"/>
+                    <field name="user"/>
+                    <field name="dbname"/>
+                    <field name="connector"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="db_production_connector_action1" model="ir.actions.act_window">
+            <field name="name">Conexión a Sistema de producción </field>
+            <field name="res_model">db_production_connector.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem  id="db_production_connector_menu_item" sequence="99" action="db_production_connector_action1" parent="turei_process_control_settings_menu"/>
+    </data>
+</odoo>

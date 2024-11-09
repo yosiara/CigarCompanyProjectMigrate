@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="wzd_efficiency_accomplish_report_form" model="ir.ui.view">
+            <field name="name">wzd.efficiency.accomplish.form</field>
+            <field name="model">wzd.efficiency.accomplish</field>
+            <field name="arch" type="xml">
+                <form string="Reporte secciones productivas que no cumplen con parámetro de eficiencia">
+                    <sheet>
+                        <style>
+                            td.o_td_label
+                            {
+                                min-width:88px !important;
+                            }
+                        </style>
+                        <group col="4">
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                        </group>
+                        <group col="4">
+                            <group colspan="2">
+                                <field name="percent"/>
+                            </group>
+                        </group>
+                        <div class="alert alert-info">
+                            <strong>Información:</strong>
+                            El reporte brinda las secciones productivas
+                            que no cumplen con el valor de eficiencia dado en el campo porciento.
+                        </div>
+                        <footer>
+                            <div>
+                                <button name="print_report" icon="fa-print" string="Imprimir" type="object"
+                                        class="oe_highlight"/>
+                                o
+                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_efficiency_accomplish_report_act_window" model="ir.actions.act_window">
+            <field name="name">Sec.Prod incumplen parámet. de eficiencia</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wzd.efficiency.accomplish</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+         <!--<menuitem action="wzd_efficiency_accomplish_report_act_window"-->
+                  <!--id="menu_wzd_efficiency_accomplish_report" parent="turei_process_control_informes" sequence="1"/>-->
+    </data>
+</odoo>
