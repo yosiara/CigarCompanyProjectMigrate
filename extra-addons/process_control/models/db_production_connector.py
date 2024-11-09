@@ -21,7 +21,7 @@ class DBProductionConnector(models.Model):
     dbname = fields.Char(string="Database Name", required=True)
     connector = fields.Selection(CONNECTORS, 'Connector', required=True, default='postgresql')
 
-    @api.one
+    
     def action_test_connection(self):
         if self.connector == 'postgresql':
             try:

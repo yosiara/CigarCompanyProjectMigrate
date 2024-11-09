@@ -26,7 +26,7 @@ class ProductiveSectionPlan(models.Model):
     productive_capacity = fields.Integer('Capacidad Productiva', required=True)
     quantity_line = fields.Integer('Cantidad Líneas Trabajando', required=True)
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('year')
     def get_name(self):
         for plan in self:
@@ -42,7 +42,7 @@ class ProductiveSectionPlan(models.Model):
             self.search([('id', '!=', plan_id.id), ('year', '!=', plan_id.year)]).write({'active': False})
         return plan_id
 
-    @api.multi
+    @api.model_create_multi
     def write(self, vals):
         if vals.get('active'):
             self.search([]).write({'active': False})

@@ -69,14 +69,14 @@ class tecnolog_control_model(models.Model):
             res["attendance_id"] = int(rec_last.attendance_id)
         return res
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('date')
     def _compute_year_char(self):
         for c_model in self:
             date = fields.datetime.strptime(c_model.date, DEFAULT_SERVER_DATE_FORMAT)
             c_model.year_char = str(date.year)
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('date')
     def _compute_day_char(self):
         for c_model in self:
@@ -124,7 +124,7 @@ class tecnolog_control_model(models.Model):
                 except Exception, e:
                     pass
 
-    @api.multi
+    @api.model_create_multi
     def _calc_name(self):
         for doc in self:
             doc.name = "Documento de control"
@@ -162,7 +162,7 @@ class tecnolog_control_model(models.Model):
                 self.production_by_hours_ids = list_hours
             self._compute_plan_time()
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('attendance_id')
     def _compute_plan_time(self):
         for att in self:
@@ -201,7 +201,7 @@ class tecnolog_control_model(models.Model):
                 #     self.rechazo_nano_sbo_src = list_lines
 
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('production_by_hours_ids.production_count')
     def _compute_total_prod(self):
         for mod in self:
@@ -221,7 +221,7 @@ class tecnolog_control_model(models.Model):
                     no_extra_hr += 1
         return super(tecnolog_control_model, self).create(vals)
 
-    @api.multi
+    @api.model_create_multi
     def write(self, vals):
         if 'production_by_hours_ids' in vals:
             no_extra_hr = 1
@@ -274,7 +274,7 @@ class rezacho_amf(models.Model):
     tec_model_type = fields.Selection(string="Documento/control",
                                       selection=[('mod', 'Módulo')], readonly=True, default='mod')
 
-    @api.multi
+    @api.model_create_multi
     @api.onchange('productive_line_id')
     def _onchange_productive_line(self):
         for psc in self.productive_line_id:
@@ -312,7 +312,7 @@ class rechazo_modulo1(rezacho_amf):
     tec_model_type = fields.Selection(string="Documento/control",
                                       selection=[('mod1', 'Módulo')], required=True, readonly=True, default='mod1')
 
-    @api.multi
+    @api.model_create_multi
     @api.onchange('productive_line_id')
     def _onchange_productive_line(self):
         for psc in self.productive_line_id:

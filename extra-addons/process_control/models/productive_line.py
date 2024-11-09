@@ -22,7 +22,7 @@ class ProductiveLine(models.Model):
          'El nombre de la línea productiva debe ser único.'),
     ]
 
-    @api.multi
+    @api.model_create_multi
     def name_get(self):
         if 'productive_section' in self._context:
             resp_list = []
@@ -52,7 +52,7 @@ class ProductiveLine(models.Model):
             return self.browse(valid_ids).name_get()
         return super(ProductiveLine, self).name_search(name, args, operator, limit)
 
-    @api.multi
+    @api.model_create_multi
     def is_in_productive_section_check(self):
         for line in self:
             inserted = self.env['turei_process_control.productive_section_lines'].search(

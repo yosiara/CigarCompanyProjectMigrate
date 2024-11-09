@@ -117,7 +117,7 @@ class ProductiveSection(models.Model):
 
         return efficiency
 
-    @api.multi
+    @api.model_create_multi
     def get_efficiency_plan(self):
         self.ensure_one()
         return self.env['turei_process_control.productive_section_plan'].search([('productive_section_ids', 'in', self.id), ('active', '=', True)])
@@ -143,7 +143,7 @@ class ProductiveSectionLines(models.Model):
     name = fields.Char(string="nombre", required=False, related='productive_line.name')
     productive_section_name = fields.Char(string="nombre", required=True, compute='get_section_name', store=True)
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('productive_section_id.name')
     def get_section_name(self):
         for ps in self:

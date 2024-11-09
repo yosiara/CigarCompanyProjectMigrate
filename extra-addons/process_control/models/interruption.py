@@ -68,7 +68,7 @@ class Interruption(models.Model):
 
             return [('id', 'in', interruption_types_ids)]
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('interruption_type', 'machine_id')
     def _calc_name(self):
         for intp in self:
@@ -79,7 +79,7 @@ class Interruption(models.Model):
             elif not intp.interruption_type.name and intp.machine_id.name:
                 intp.name = tools.ustr(intp.machine_id.name)
 
-    @api.multi
+    @api.model_create_multi
     @api.constrains('time')
     def check_time(self):
         for inter in self:
