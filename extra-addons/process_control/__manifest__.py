@@ -25,7 +25,7 @@
     'author': 'Yosiel Arango Arencibia',
     'category': 'Turei',
     'sequence': 2,
-    'summary': 'Módulo de control de las interrupciones en el proceso productivo de la Fábrica de Cigarros Lázaro Peña.',
+    'summary': 'Control del proceso productivo de la Fábrica de Cigarros Lázaro Peña.',
     'description': "Módulo de control de las interrupciones en el proceso productivo de la Fábrica de Cigarros Lázaro Peña.",
     'images': [],
     'depends': ['resource'],
