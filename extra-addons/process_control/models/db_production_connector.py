@@ -9,7 +9,7 @@ CONNECTORS = [('postgresql', 'PostgreSQL')]
 
 
 class DBProductionConnector(models.Model):
-    _name = "db_production_connector.template"
+    _name = "process_control.db_production_connector"
 
     _connection = False
 

@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="wzd_interruptions_section_form" model="ir.ui.view">
-            <field name="name">wzd.interruptions.section.form</field>
-            <field name="model">wzd.interruptions.section</field>
+            <field name="name">process_control.interruptions_section_wzd.form</field>
+            <field name="model">process_control.interruptions_section_wzd</field>
             <field name="arch" type="xml">
                 <form string="Rep. Interrupciones por secciones productivas">
                     <sheet>
@@ -35,7 +35,7 @@
         <record id="wzd_interruptions_section_act_window" model="ir.actions.act_window">
             <field name="name">Rep. Interrupciones por secciones productivas</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">wzd.interruptions.section</field>
+            <field name="res_model">process_control.interruptions_section_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

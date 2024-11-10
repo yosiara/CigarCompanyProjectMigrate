@@ -21,7 +21,7 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
 				process_control_machine.machine_type_id
             FROM
                 process_control_tecnolog_control INNER JOIN
-                process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tec_control_model
+                process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
             INNER JOIN process_control_interruption_type 
             ON process_control_interruption_type.ID = process_control_interruption.interruption_type
             LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
@@ -81,7 +81,7 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
                     SUM(process_control_interruption."time")
                 FROM
                     process_control_tecnolog_control INNER JOIN
-                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tec_control_model
+                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
                 INNER JOIN process_control_interruption_type 
                 ON process_control_interruption_type.ID = process_control_interruption.interruption_type
                 LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
@@ -168,7 +168,7 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
                     SUM(process_control_interruption."frequency")
                 FROM
                     process_control_tecnolog_control INNER JOIN
-                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tec_control_model
+                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
                 INNER JOIN process_control_interruption_type 
                 ON process_control_interruption_type.ID = process_control_interruption.interruption_type
                 LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
@@ -209,7 +209,7 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
             row_index += 1
 
 
-ResumenTimeFrequencyToExcelReport('report.process_control.resume_time_frequency_report', 'wzd.resume.time.frequency.excel')
+ResumenTimeFrequencyToExcelReport('report.process_control.resume_time_frequency_report', 'process_control.time_frequency_excel_wzd')
 
 
 class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
@@ -226,7 +226,7 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
 				process_control_machine.machine_type_id
             FROM
                 process_control_tecnolog_control INNER JOIN
-                process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tec_control_model
+                process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
             INNER JOIN process_control_interruption_type 
             ON process_control_interruption_type.ID = process_control_interruption.interruption_type
             LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
@@ -283,7 +283,7 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
                     SUM(process_control_interruption."time")
                 FROM
                     process_control_tecnolog_control INNER JOIN
-                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tec_control_model
+                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
                 INNER JOIN process_control_interruption_type 
                 ON process_control_interruption_type.ID = process_control_interruption.interruption_type
                 LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
@@ -363,7 +363,7 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
                     SUM(process_control_interruption."frequency")
                 FROM
                     process_control_tecnolog_control INNER JOIN
-                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tec_control_model
+                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
                 INNER JOIN process_control_interruption_type 
                 ON process_control_interruption_type.ID = process_control_interruption.interruption_type
                 LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
@@ -401,4 +401,4 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
             row_index += 1
 
 
-ResumenTimeFrequencybyLinesToExcelReport('report.process_control.resume_time_frequency_by_line_report', 'wzd.resume.time.frequency.excel')
+ResumenTimeFrequencybyLinesToExcelReport('report.process_control.resume_time_frequency_by_line_report', 'process_control.time_frequency_excel_wzd')

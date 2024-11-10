@@ -89,4 +89,4 @@ class CompliancePannedCdtToExcelReport(ReportXlsx):
             row += 1
 
 
-CompliancePannedCdtToExcelReport('report.process_control.compliance_planned_cdt', 'wzd.compliance.planned.cdt.excel')
+CompliancePannedCdtToExcelReport('report.process_control.compliance_planned_cdt', 'process_control.compliance_planned_cdt_excel_wzd')

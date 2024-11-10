@@ -5,7 +5,7 @@ from odoo import models, fields, tools
 
 
 class WzdBDProductionHoursToExcel(models.TransientModel):
-    _name = 'wzd.bd.production.hours.to.excel'
+    _name = 'process_control.bd_production_hours_excel_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

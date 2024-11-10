@@ -9,7 +9,7 @@ class Interruption(models.Model):
     _rec_name = 'name'
 
     name = fields.Char(string="Nombre", required=False, compute='_calc_name')
-    interruption_type = fields.Many2one('process_control.interruption.type', 'Tipo', required=True)
+    interruption_type = fields.Many2one('process_control.interruption_type', 'Tipo', required=True)
     machine_id = fields.Many2one('process_control.machine', 'Máquina',
                                  # dominio vacio hasta que se escoja una seccion productiva
                                  domain=[('id', 'in', [])])
@@ -19,7 +19,7 @@ class Interruption(models.Model):
     time = fields.Integer('Tiempo en minutos', required=True)
     frequency = fields.Integer('Frecuencia', required=True)
     # modelo del control del proceso, recoge todas las interrupciones de un turno en un dia X
-    tec_control_model = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Documento",
+    tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Documento",
                                         required=False, )
     productive_line_id = fields.Many2one('process_control.productive_section_lines', string='Líneas Productivas')
 
@@ -30,7 +30,7 @@ class Interruption(models.Model):
             return {'domain': {'machine_id': [('id', 'in', self.productive_line_id.productive_line.machine_ids.ids)]}}
         self._cr.execute("SELECT machine_id FROM process_control_produc_line_machine_asoc")
         machines_in_line = self._cr.fetchall()
-        return {'domain': {'machine_id': [('id', 'not in', machines_in_line),('productive_section_id', '=',  self.tec_control_model.productive_section.id)]}}
+        return {'domain': {'machine_id': [('id', 'not in', machines_in_line),('productive_section_id', '=',  self.tecnolog_control_id.productive_section.id)]}}
 
     @api.onchange('machine_id')
     def _onchange_machine_id(self):
@@ -52,12 +52,12 @@ class Interruption(models.Model):
 
     def get_domain_interruption_type(self):
         if not self.machine_id:
-            interruption_types = self.env['process_control.interruption.type'].search(
+            interruption_types = self.env['process_control.interruption_type'].search(
                 [('is_linked_to_machine', '=', False)])
             return [('id', 'in', interruption_types.ids)]
         else:
             interruption_types_ids = []
-            interruption_types = self.env['process_control.interruption.type'].search([
+            interruption_types = self.env['process_control.interruption_type'].search([
                 '|', ('is_linked_to_machine', '=', True), ('use_in_any_machine', '=', True)
             ])
             for interruption_type in interruption_types:

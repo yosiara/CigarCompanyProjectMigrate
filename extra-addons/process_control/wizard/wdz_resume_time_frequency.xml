@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="wzd_resume_time_frequency_excel_report_form" model="ir.ui.view">
-            <field name="name">wzd.resume.time.frequency.excel.report.form</field>
-            <field name="model">wzd.resume.time.frequency.excel</field>
+            <field name="name">process_control.time_frequency_excel_wzd.report.form</field>
+            <field name="model">process_control.time_frequency_excel_wzd</field>
             <field name="arch" type="xml">
                 <form string="Rep. Resumen de tiempo y frecuencia">
                     <sheet>
@@ -38,7 +38,7 @@
         <record id="wzd_resume_time_frequency_excel_report_act_window" model="ir.actions.act_window">
             <field name="name">Rep. Resumen de tiempo y frecuencia</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">wzd.resume.time.frequency.excel</field>
+            <field name="res_model">process_control.time_frequency_excel_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

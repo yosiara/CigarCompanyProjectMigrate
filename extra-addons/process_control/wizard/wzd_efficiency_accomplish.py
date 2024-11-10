@@ -5,7 +5,7 @@ from odoo import models, fields, api
 
 
 class WzdEfficiencyAccomplish(models.TransientModel):
-    _name = 'wzd.efficiency.accomplish'
+    _name = 'process_control.efficiency_accomplish_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

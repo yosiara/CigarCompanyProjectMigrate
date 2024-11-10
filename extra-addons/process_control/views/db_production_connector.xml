@@ -4,7 +4,7 @@
         <!-- FORM VIEW -->
         <record id="db_external_connector_form_view" model="ir.ui.view">
             <field name="name">db_external_connector_form_view</field>
-            <field name="model">db_production_connector.template</field>
+            <field name="model">process_control.db_production_connector</field>
             <field name="arch" type="xml">
                 <form>
                     <header>
@@ -36,7 +36,7 @@
         <!-- TREE VIEW -->
         <record id="db_production_connector_tree_view" model="ir.ui.view">
             <field name="name">db_production_connector_tree_view</field>
-            <field name="model">db_production_connector.template</field>
+            <field name="model">process_control.db_production_connector</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
@@ -52,7 +52,7 @@
         <!-- ACTION -->
         <record id="db_production_connector_action1" model="ir.actions.act_window">
             <field name="name">Conexión a Sistema de producción </field>
-            <field name="res_model">db_production_connector.template</field>
+            <field name="res_model">process_control.db_production_connector</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
         </record>

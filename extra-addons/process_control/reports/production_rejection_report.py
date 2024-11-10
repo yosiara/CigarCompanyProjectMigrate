@@ -77,4 +77,4 @@ class ProductionRejectionToExcelReport(ReportXlsx):
         worksheet.write('F8', round(total_rech,2), normal_format)
         worksheet.write('F9', round(total_ind,2), normal_format)
 
-ProductionRejectionToExcelReport('report.process_control.production_rejection_report', 'wzd.production.rejection.to.excel')
+ProductionRejectionToExcelReport('report.process_control.production_rejection_report', 'process_control.production_rejection_to_excel_wzd')

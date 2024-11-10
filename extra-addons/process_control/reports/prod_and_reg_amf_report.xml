@@ -192,7 +192,7 @@
 
         <report id="prod_and_reg_amf_report_action"
                 string="Rep. de Prod. Rechazo de las AMF"
-                model="wzd.prod_reg_amf.report"
+                model="process_control.prod_reg_amf_report_wzd"
                 report_type="qweb-pdf"
                 file="process_control.prod_and_reg_amf_report"
                 name="process_control.prod_and_reg_amf_report"/>

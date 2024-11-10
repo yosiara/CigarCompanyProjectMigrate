@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="wzd_efficient_report_form" model="ir.ui.view">
-            <field name="name">wzd.efficient.report.form</field>
-            <field name="model">wzd.efficient.report</field>
+            <field name="name">process_control.efficient_report_wzd.form</field>
+            <field name="model">process_control.efficient_report_wzd</field>
             <field name="arch" type="xml">
                 <form string="Reporte de eficiencia">
                     <sheet>
@@ -46,7 +46,7 @@
         <record id="wzd_efficient_report_act_window" model="ir.actions.act_window">
             <field name="name">Reporte de eficiencia</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">wzd.efficient.report</field>
+            <field name="res_model">process_control.efficient_report_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

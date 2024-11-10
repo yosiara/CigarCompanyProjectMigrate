@@ -98,4 +98,4 @@ class InterruptionsToExcelReport(ReportXlsx):
                 aux_row += 1
 
 
-InterruptionsToExcelReport('report.process_control.interruptions_to_excel_report', 'wzd.interruptions.to.excel')
+InterruptionsToExcelReport('report.process_control.interruptions_to_excel_report', 'process_control.interruptions_to_excel_wzd')

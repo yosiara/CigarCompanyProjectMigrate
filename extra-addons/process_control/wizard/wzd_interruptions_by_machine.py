@@ -5,7 +5,7 @@ from odoo import models, fields, api
 
 
 class WzdInterruptionsByMachine(models.TransientModel):
-    _name = 'wzd.interruptions.machine'
+    _name = 'process_control.interruptions_machine_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)
@@ -14,7 +14,7 @@ class WzdInterruptionsByMachine(models.TransientModel):
                                       related='machine.machine_type_id')
     subset = fields.Many2one(comodel_name="process_control.machine_set_of_peaces_nomenclature",
                              string="Subconjunto", required=False, domain="[('machine_type_id', '=', machine)]")
-    interruption_type = fields.Many2one('process_control.interruption.type', 'Tipo')
+    interruption_type = fields.Many2one('process_control.interruption_type', 'Tipo')
 
     def print_report(self):
         return self.env['report'].get_action(self, 'process_control.interruptions_by_machine_report', data={

@@ -2,9 +2,9 @@
 <odoo>
     <data>
         <menuitem action="resource.action_resource_calendar_form" id="menu_turei_resource_calendar"
-                  parent="process_control_settings_menu" sequence="1"/>
+                  parent="process_control.process_control_settings_menu" sequence="1"/>
 
-        <record id="resource_calendar_form" model="ir.ui.view">
+        <record id="resource_calendar_form_inherit" model="ir.ui.view">
             <field name="name">resource.calendar.form</field>
             <field name="model">resource.calendar</field>
             <field name="inherit_id" ref="resource.resource_calendar_form"/>

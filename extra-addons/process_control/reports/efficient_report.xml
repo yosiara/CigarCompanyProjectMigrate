@@ -345,7 +345,7 @@
         </template>
         <report id="efficient_report_action"
                 string="Reporte de Eficiencia"
-                model="wzd.efficient.report"
+                model="process_control.efficient_report_wzd"
                 report_type="qweb-pdf"
                 file="process_control.efficient_report"
                 name="process_control.efficient_report"/>

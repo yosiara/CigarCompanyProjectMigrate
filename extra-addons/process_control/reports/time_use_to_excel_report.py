@@ -24,7 +24,7 @@ class TimeUseToExcelReport(ReportXlsx):
                     production_in_proccess_control AS production_done
                 FROM
                     "public".process_control_interruption
-                INNER JOIN "public".process_control_tecnolog_control ON "public".process_control_interruption.tec_control_model = "public".process_control_tecnolog_control."id"
+                INNER JOIN "public".process_control_tecnolog_control ON "public".process_control_interruption.tecnolog_control_id = "public".process_control_tecnolog_control."id"
                 INNER JOIN "public".process_control_interruption_type ON "public".process_control_interruption.interruption_type = "public".process_control_interruption_type."id"
                 WHERE
                     "date" BETWEEN '%s'
@@ -151,4 +151,4 @@ class TimeUseToExcelReport(ReportXlsx):
             worksheet.write('I' + str(aux_row), round(total_time,2), data_format)
 
 
-TimeUseToExcelReport('report.process_control.time_use_to_excel_report', 'wzd.time.use.to.excel')
+TimeUseToExcelReport('report.process_control.time_use_to_excel_report', 'process_control.time_use_to_excel_wzd')

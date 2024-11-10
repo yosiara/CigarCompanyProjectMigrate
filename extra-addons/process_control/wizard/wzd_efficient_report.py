@@ -5,7 +5,7 @@ from odoo import models, fields
 
 
 class WzdEfficientReport(models.TransientModel):
-    _name = 'wzd.efficient.report'
+    _name = 'process_control.efficient_report_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

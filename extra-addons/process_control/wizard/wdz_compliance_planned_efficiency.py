@@ -5,7 +5,7 @@ from odoo import models, fields, tools
 
 
 class WzdCompliancePlannedEfficiencyToExcel(models.TransientModel):
-    _name = 'wzd.compliance.planned.efficiency.excel'
+    _name = 'process_control.compliance_planned_efficiency_excel_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

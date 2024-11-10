@@ -47,7 +47,7 @@
                   sequence="10"
         />
 
-        <record id="process_control_interrupciones_view_tree" model="ir.ui.view">
+        <record id="tecnolog_control_view_tree" model="ir.ui.view">
             <field name="name">control_proc_interruption_type_view_tree</field>
             <field name="model">process_control.tecnolog_control</field>
             <field name="arch" type="xml">

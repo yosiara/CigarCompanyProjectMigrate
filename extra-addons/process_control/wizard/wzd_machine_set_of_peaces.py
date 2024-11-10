@@ -5,7 +5,7 @@ from odoo import models, fields, tools
 
 
 class WzdMachineSetOfPeacesToExcel(models.TransientModel):
-    _name = 'wzd.machine.set.of.peaces.to.excel'
+    _name = 'process_control.machine_set_of_peaces_to_excel_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

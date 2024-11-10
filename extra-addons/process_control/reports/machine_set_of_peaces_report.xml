@@ -3,7 +3,7 @@
     <data>
         <report
                 id="report.process_control_machine_set_of_peaces_to_excel"
-                model="wzd.machine.set.of.peaces.to.excel"
+                model="process_control.machine_set_of_peaces_to_excel_wzd"
                 string="Rep. Resumen Subconjuntos de Timepo y Frecuencia"
                 report_type="xlsx"
                 name="process_control.machine_set_of_peaces_report"
@@ -12,7 +12,7 @@
         />
          <report
                 id="report.process_control_machine_set_of_peaces_by_line_to_excel"
-                model="wzd.machine.set.of.peaces.to.excel"
+                model="process_control.machine_set_of_peaces_to_excel_wzd"
                 string="Rep. Resumen Subconjuntos de Timepo y Frecuencia"
                 report_type="xlsx"
                 name="process_control.machine_set_of_peaces_by_line_report"

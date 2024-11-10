@@ -5,7 +5,7 @@ from odoo import models, fields, tools
 
 
 class WzdResumeTimeFrequencynToExcel(models.TransientModel):
-    _name = 'wzd.resume.time.frequencyn.excel'
+    _name = 'process_control.time_frequencyn_excel_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

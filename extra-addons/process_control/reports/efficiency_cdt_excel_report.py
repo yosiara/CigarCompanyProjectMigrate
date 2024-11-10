@@ -24,7 +24,7 @@ class EfficiencyCdtExcelReport(ReportXlsx):
                     production_in_proccess_control AS production_done
                 FROM
                     "public".process_control_interruption
-                INNER JOIN "public".process_control_tecnolog_control ON "public".process_control_interruption.tec_control_model = "public".process_control_tecnolog_control."id"
+                INNER JOIN "public".process_control_tecnolog_control ON "public".process_control_interruption.tecnolog_control_id = "public".process_control_tecnolog_control."id"
                 INNER JOIN "public".process_control_interruption_type ON "public".process_control_interruption.interruption_type = "public".process_control_interruption_type."id"
                 WHERE
                     "date" BETWEEN '%s'
@@ -147,4 +147,4 @@ class EfficiencyCdtExcelReport(ReportXlsx):
             worksheet.write('J' + str(aux_row), cdt_o, data_format)
 
 
-EfficiencyCdtExcelReport('report.process_control.efficiency_cdt_excel_report', 'wzd.efficiency.cdt.excel')
+EfficiencyCdtExcelReport('report.process_control.efficiency_cdt_excel_report', 'process_control.efficiency_cdt_excel_wzd')

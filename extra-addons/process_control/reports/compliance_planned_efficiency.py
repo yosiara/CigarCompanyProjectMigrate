@@ -87,4 +87,4 @@ class CompliancePannedEfficiencyToExcelReport(ReportXlsx):
             row += 1
 
 
-CompliancePannedEfficiencyToExcelReport('report.process_control.compliance_planned_efficiency', 'wzd.compliance.planned.efficiency.excel')
+CompliancePannedEfficiencyToExcelReport('report.process_control.compliance_planned_efficiency', 'process_control.compliance_planned_efficiency_excel_wzd')

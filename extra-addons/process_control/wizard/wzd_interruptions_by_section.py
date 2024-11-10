@@ -5,11 +5,11 @@ from odoo import models, fields, api
 
 
 class WzdInterruptionsBySection(models.TransientModel):
-    _name = 'wzd.interruptions.section'
+    _name = 'process_control.interruptions_section_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)
-    interruption_type = fields.Many2one('process_control.interruption.type', 'Tipo')
+    interruption_type = fields.Many2one('process_control.interruption_type', 'Tipo')
     productive_section = fields.Many2one(comodel_name="process_control.productive_section",
                                          string="Modulo", ondelete='cascade')
 

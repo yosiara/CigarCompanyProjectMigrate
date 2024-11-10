@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="wzd_production_rejection_to_excel_report_form" model="ir.ui.view">
-            <field name="name">wzd.production.rejection.to.excel.report.form</field>
-            <field name="model">wzd.production.rejection.to.excel</field>
+            <field name="name">process_control.production_rejection_to_excel_wzd.report.form</field>
+            <field name="model">process_control.production_rejection_to_excel_wzd</field>
             <field name="arch" type="xml">
                 <form string="Rep. Control de Producción y Rechazo">
                     <sheet>
@@ -40,7 +40,7 @@
         <record id="wzd_production_rejection_to_excel_report_act_window" model="ir.actions.act_window">
             <field name="name">Rep. Control de Producción y Rechazo</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">wzd.production.rejection.to.excel</field>
+            <field name="res_model">process_control.production_rejection_to_excel_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

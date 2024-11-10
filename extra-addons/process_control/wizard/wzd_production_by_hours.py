@@ -5,7 +5,7 @@ from odoo import models, fields, api
 
 
 class WzdProductionByHours(models.TransientModel):
-    _name = 'wzd.production.hours'
+    _name = 'process_control.production_hours_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

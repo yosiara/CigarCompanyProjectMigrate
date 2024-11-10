@@ -49,7 +49,7 @@
 
         <report id="efficiency_accomplish_action"
                 string="Reporte secciones productivas que incumplen con parámetro de eficiencia"
-                model="wzd.efficiency.accomplisht"
+                model="process_control.efficiency_accomplish_wzdt"
                 report_type="qweb-pdf"
                 file="process_control.efficiency_accomplish_report"
                 name="process_control.efficiency_accomplish_report"/>

@@ -88,7 +88,7 @@ class MachineSetOfPeacesToExcelReport(ReportXlsx):
                     column_index += 1
                 x += 1
 
-MachineSetOfPeacesToExcelReport('report.process_control.machine_set_of_peaces_report', 'wzd.machine.set.of.peaces.to.excel')
+MachineSetOfPeacesToExcelReport('report.process_control.machine_set_of_peaces_report', 'process_control.machine_set_of_peaces_to_excel_wzd')
 
 class MachineSetOfPeacesByLineToExcelReport(ReportXlsx):
     @api.model
@@ -174,5 +174,5 @@ class MachineSetOfPeacesByLineToExcelReport(ReportXlsx):
                     column_index += 1
                 x += 1
 
-MachineSetOfPeacesByLineToExcelReport('report.process_control.machine_set_of_peaces_by_line_report', 'wzd.machine.set.of.peaces.to.excel')
+MachineSetOfPeacesByLineToExcelReport('report.process_control.machine_set_of_peaces_by_line_report', 'process_control.machine_set_of_peaces_to_excel_wzd')
 

@@ -5,7 +5,7 @@ from odoo import models, fields, tools
 
 
 class WzdStatisticalResultsToExcel(models.TransientModel):
-    _name = 'wzd.statistical.results.to.excel'
+    _name = 'process_control.statistical_results_to_excel_wzd'
 
     date_start = fields.Date('Fecha', required=True)
     turn = fields.Many2one(comodel_name="resource.calendar", domain=[('turn_process_control', '=', True)], string="Turno", required=True)

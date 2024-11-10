@@ -5,7 +5,7 @@ from odoo import models, fields
 
 
 class WzdInterruptionsToExcel(models.TransientModel):
-    _name = 'wzd.interruptions.to.excel'
+    _name = 'process_control.interruptions_to_excel_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

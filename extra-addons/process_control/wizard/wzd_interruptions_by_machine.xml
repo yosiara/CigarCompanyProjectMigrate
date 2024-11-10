@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="wzd_interruptions_machine_form" model="ir.ui.view">
-            <field name="name">wzd.interruptions.machine.form</field>
-            <field name="model">wzd.interruptions.machine</field>
+            <field name="name">process_control.interruptions_machine_wzd.form</field>
+            <field name="model">process_control.interruptions_machine_wzd</field>
             <field name="arch" type="xml">
                 <form string="Rep. Interrupciones por máquina">
                     <sheet>
@@ -37,7 +37,7 @@
         <record id="wzd_interruptions_machine_act_window" model="ir.actions.act_window">
             <field name="name">Rep. Interrupciones por máquinas</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">wzd.interruptions.machine</field>
+            <field name="res_model">process_control.interruptions_machine_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

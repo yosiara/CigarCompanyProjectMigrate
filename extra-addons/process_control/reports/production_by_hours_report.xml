@@ -89,7 +89,7 @@
 
         <report id="production_by_hours_report_action"
                 string="Rep. Control de producción horaria"
-                model="wzd.production.hours"
+                model="process_control.production_hours_wzd"
                 report_type="qweb-pdf"
                 file="process_control.production_by_hours_report"
                 name="process_control.production_by_hours_report"/>

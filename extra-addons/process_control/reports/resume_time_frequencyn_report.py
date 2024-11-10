@@ -173,7 +173,7 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
 
 
 
-ResumenTimeFrequencynToExcelReport('report.process_control.resume_time_frequencyn_report', 'wzd.resume.time.frequencyn.excel')
+ResumenTimeFrequencynToExcelReport('report.process_control.resume_time_frequencyn_report', 'process_control.time_frequencyn_excel_wzd')
 
 
 class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
@@ -357,4 +357,4 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                 column_index += 1
             fila_index += 1
 
-ResumenTimeFrequencynbyLinesToExcelReport('report.process_control.resume_time_frequencyn_by_line_report', 'wzd.resume.time.frequencyn.excel')
+ResumenTimeFrequencynbyLinesToExcelReport('report.process_control.resume_time_frequencyn_by_line_report', 'process_control.time_frequencyn_excel_wzd')

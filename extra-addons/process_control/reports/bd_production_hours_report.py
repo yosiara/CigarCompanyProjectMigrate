@@ -79,4 +79,4 @@ class BdProductionHoursToExcelReport(ReportXlsx):
                 z += 1
 
 
-BdProductionHoursToExcelReport('report.process_control.bd_production_hours_report', 'wzd.bd.production.hours.to.excel')
+BdProductionHoursToExcelReport('report.process_control.bd_production_hours_report', 'process_control.bd_production_hours_excel_wzd')

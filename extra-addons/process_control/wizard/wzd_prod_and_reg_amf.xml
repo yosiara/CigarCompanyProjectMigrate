@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="wzd_prod_reg_amf_report_form" model="ir.ui.view">
-            <field name="name">wzd.prod_reg_amf.report.form</field>
-            <field name="model">wzd.prod_reg_amf.report</field>
+            <field name="name">process_control.prod_reg_amf_report_wzd.form</field>
+            <field name="model">process_control.prod_reg_amf_report_wzd</field>
             <field name="arch" type="xml">
                 <form string="Rep. de Prod. Rechazo de las AMF">
                     <sheet>
@@ -42,14 +42,14 @@
 
         <record id="wzd_prod_reg_amf_report_act_window" model="ir.actions.act_window">
             <field name="name">Rep. de Prod. Rechazo de las AMF</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">wzd.prod_reg_amf.report</field>
+            <!-- <field name="type">ir.actions.act_window</field> -->
+            <field name="res_model">process_control.prod_reg_amf_report_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
 
         <menuitem action="wzd_prod_reg_amf_report_act_window"
-                  id="menu_wzd_prod_reg_amf_report" parent="process_control_informes" sequence="7"/>
+                  id="menu_wzd_prod_reg_amf_report" parent="process_control.process_control_informes" sequence="7"/>
     </data>
 </odoo>

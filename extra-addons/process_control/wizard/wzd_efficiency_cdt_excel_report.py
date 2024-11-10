@@ -5,7 +5,7 @@ from odoo import models, fields
 
 
 class WzdEfficiencyCdtExcel(models.TransientModel):
-    _name = 'wzd.efficiency.cdt.excel'
+    _name = 'process_control.efficiency_cdt_excel_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

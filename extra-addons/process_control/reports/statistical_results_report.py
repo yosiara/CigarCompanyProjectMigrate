@@ -22,7 +22,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
         ttp_turn_acum, trp_turn_acum, ttig_turn_acum, tnj_turn_acum, trp_turn_p_acum, ttig_turn_p_acum = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
         prc_acum, er_turn_acum, eo_turn_acum, cdt_turn_acum, cturnmt, cturntt, cturnmt1, cturntt1 = 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0
         day_values_turn2, day_values_turn1, tf_turn, tf_turn_acum, acum_values_turn, acum1_values_turn, acum_values_turn1, acum1_values_turn1 = {}, {}, 0, 0, {}, {}, {}, {}
-        for gi in self.env['process_control.interruption.type'].search([]):
+        for gi in self.env['process_control.interruption_type'].search([]):
             day_values_turn1[gi.code] = {'time': 0.0, 'frequency': 0.0}
             day_values_turn2[gi.code] = {'time': 0.0, 'frequency': 0.0}
         for i in xrange(1,9):
@@ -171,7 +171,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             ind_rech_turn += round(ind_rech/quantity_line if quantity_line != 0.0 else 0.0,2)
             worksheet.merge_range('O29:P29', round(acum_ind_rech/quantity_line if quantity_line != 0.0 else 0.0,2), normal_format1)
             acum_ind_rech_turn += round(acum_ind_rech/quantity_line if quantity_line != 0.0 else 0.0,2)
-            general_int, day_values, acum_values, acum1_values = self.env['process_control.interruption.type'].search([]), {}, {}, {}
+            general_int, day_values, acum_values, acum1_values = self.env['process_control.interruption_type'].search([]), {}, {}, {}
 
             for i in xrange(1,9):
                 acum_values[i] = 0.0
@@ -671,4 +671,4 @@ class StatisticalResultsToExcelReport(ReportXlsx):
         elif cturnmt1 == 0 or cturntt1 == 0:
             worksheet.merge_range('R32:S32', round(prom_acum / 8, 2), normal_format1)
 
-StatisticalResultsToExcelReport('report.process_control.statistical_results_report', 'wzd.statistical.results.to.excel')
+StatisticalResultsToExcelReport('report.process_control.statistical_results_report', 'process_control.statistical_results_to_excel_wzd')

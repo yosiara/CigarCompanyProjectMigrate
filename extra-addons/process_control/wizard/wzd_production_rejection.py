@@ -5,7 +5,7 @@ from odoo import models, fields, tools
 
 
 class WzdProductionRejectionToExcel(models.TransientModel):
-    _name = 'wzd.production.rejection.to.excel'
+    _name = 'process_control.production_rejection_to_excel_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

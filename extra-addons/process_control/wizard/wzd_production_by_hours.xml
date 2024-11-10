@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="wzd_production_hours_form" model="ir.ui.view">
-            <field name="name">wzd.production.hours.form</field>
-            <field name="model">wzd.production.hours</field>
+            <field name="name">process_control.production_hours_wzd.form</field>
+            <field name="model">process_control.production_hours_wzd</field>
             <field name="arch" type="xml">
                 <form string="Rep. Control de producción horaria">
                     <sheet>
@@ -46,7 +46,7 @@
         <record id="wzd_production_hours_act_window" model="ir.actions.act_window">
             <field name="name">Rep. Control de producción horaria</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">wzd.production.hours</field>
+            <field name="res_model">process_control.production_hours_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <record id="wzd_efficiency_cdt_excel_form" model="ir.ui.view">
-            <field name="name">wzd.efficiency.cdt.excel.form</field>
-            <field name="model">wzd.efficiency.cdt.excel</field>
+            <field name="name">process_control.efficiency_cdt_excel_wzd.form</field>
+            <field name="model">process_control.efficiency_cdt_excel_wzd</field>
             <field name="arch" type="xml">
                 <form string="Eficiencia y CDT">
                     <sheet>
@@ -34,7 +34,7 @@
         <record id="wzd_efficiency_cdt_excel_act_window" model="ir.actions.act_window">
             <field name="name">Rep. Eficiencia y CDT</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">wzd.efficiency.cdt.excel</field>
+            <field name="res_model">process_control.efficiency_cdt_excel_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>

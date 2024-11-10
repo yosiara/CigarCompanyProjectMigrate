@@ -13,7 +13,7 @@ class TecnologControl(models.Model):
     date = fields.Date(string="Fecha", required=True, copy=True, default=fields.Date.today)
     year_char = fields.Char(string=u"Año", required=False, compute="_compute_year_char", store=True)
     day_char = fields.Char(string=u"Día", required=False, compute="_compute_day_char", store=True)
-    turn = fields.Many2one(comodel_name="resource.calendar", domain=[('turn_process_control', '=', True)], string="Turno", required=True, copy=True, default=0)
+    #turn = fields.Many2one(comodel_name="resource.calendar", domain=[('turn_process_control', '=', True)], string="Turno", required=True, copy=True, default=0)
 
     attendance_id = fields.Many2one('resource.calendar.attendance', string='Sesión', copy=True, default=0)
 
@@ -30,7 +30,7 @@ class TecnologControl(models.Model):
     tec_model_type = fields.Selection(string="Documento/control", default=_get_default_tec_model_type,
                                       selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1')])
 
-    interruptions = fields.One2many(comodel_name="process_control.interruption", inverse_name="tec_control_model",
+    interruptions = fields.One2many(comodel_name="process_control.interruption", inverse_name="tecnolog_control_id",
                                     string="Interrupciones", required=False, ondelete='cascade')
 
     production_by_hours_ids = fields.One2many(comodel_name="process_control.production_by_hours",

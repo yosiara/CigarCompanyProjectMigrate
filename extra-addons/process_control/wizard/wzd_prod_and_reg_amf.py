@@ -5,7 +5,7 @@ from odoo import models, fields
 
 
 class WzdProdRegAmf(models.TransientModel):
-    _name = 'wzd.prod_reg_amf.report'
+    _name = 'process_control.prod_reg_amf_report_wzd'
 
     date_start = fields.Date('Desde', required=True)
     date_end = fields.Date('Hasta', required=True)

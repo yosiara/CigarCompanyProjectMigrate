@@ -13,7 +13,7 @@ class ProductiveSection(models.Model):
         return 'Modulo '
 
     def _get_productions_code(self):
-        connexion = self.env['db_production_connector.template'].search([], limit=1)
+        connexion = self.env['process_control.db_production_connector'].search([], limit=1)
         #connexion.ensure_one()
         res = []
         if connexion:
