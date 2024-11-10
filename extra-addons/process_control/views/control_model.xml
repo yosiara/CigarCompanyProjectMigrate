@@ -110,7 +110,7 @@
                                         <field name="production_in_proccess_control"/>
                                     </group>
                                     <field name="production_by_hours_ids"
-                                           attrs="{'readonly': [('attendance_id','=', False)]}">
+                                           readonly="attendance_id == False">
                                         <tree editable="bottom">
                                             <field name="hour_production"/>
                                             <field name="production_count" widget="xls_formula"/>
@@ -119,7 +119,7 @@
                                 </page>
                                 <page string="Producción y rechazo">
                                     <field name="rechazo_nano_sbo_src"
-                                           attrs="{'invisible': ['|', ('tec_model_type', '=', 'mod'),  ('productive_section', '=', False)]}">
+                                           invisible="tec_model_type == 'mod' | productive_section ==  False">
                                         <div class="alert alert-info">
                                             <strong>Información:</strong>
                                             Se capta la producción y rechazo de las máquinas 'NANO', 'SBO', 'SRC'
@@ -132,13 +132,13 @@
                                             <field name="machine_type_id" invisible="1"/>
                                             <field name="machine_type_name" invisible="1"/>
                                             <field name="produccion_en_cigarrillos"
-                                                   attrs="{'invisible': ['|', ('machine_type_name', '!=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                   invisible="machine_type_name != 'NANO' | machine_type_name == False" widget="xls_formula"/>
                                             <field name="rechazo_en_cigarrillos"
-                                                   attrs="{'invisible': ['|',('machine_type_name', '!=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                   invisible="machine_type_name != 'NANO' | machine_type_name == False" widget="xls_formula"/>
                                             <field name="produccion_en_cajones"
-                                                   attrs="{'invisible': ['|',('machine_type_name', '=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                   invisible="machine_type_name != 'NANO' | machine_type_name == False" widget="xls_formula"/>
                                             <field name="rechazo_en_cajetillas"
-                                                   attrs="{'invisible': ['|',('machine_type_name', '=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                   invisible="machine_type_name != 'NANO' | machine_type_name == False" widget="xls_formula"/>
                                         </tree>
 
                                         <form>
@@ -156,21 +156,21 @@
                                             <group col="8">
                                                 <group colspan="4">
                                                     <field name="produccion_en_cigarrillos"
-                                                           attrs="{'readonly': ['|', ('machine_type_name', '!=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                           invisible="machine_type_name != 'NANO' | machine_type_name == False" widget="xls_formula"/>
                                                     <field name="rechazo_en_cigarrillos"
-                                                           attrs="{'readonly': ['|',('machine_type_name', '!=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                           invisible="machine_type_name != 'NANO' | machine_type_name == False" widget="xls_formula"/>
                                                 </group>
                                                 <group colspan="4">
                                                     <field name="produccion_en_cajones"
-                                                           attrs="{'readonly': ['|',('machine_type_name', '=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                           invisible="machine_type_name != 'NANO' | machine_type_name == False" widget="xls_formula"/>
                                                     <field name="rechazo_en_cajetillas"
-                                                           attrs="{'readonly': ['|',('machine_type_name', '=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                           invisible="machine_type_name != 'NANO' | machine_type_name == False" widget="xls_formula"/>
                                                 </group>
                                             </group>
                                         </form>
                                     </field>
                                     <field name="rechazo_amf"
-                                           attrs="{'invisible': ['|', ('tec_model_type', '=', 'mod1'), ('productive_section', '=', False)]}">
+                                           invisible="tec_model_type == 'mod1' | productive_section == False">
                                         <div class="alert alert-info">
                                             <strong>Información:</strong>
                                             Se capta la producción y rechazo de las AMF
