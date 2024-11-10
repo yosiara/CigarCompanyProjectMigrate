@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <act_window id="control_proc_machine_type_action"
+        <!-- <act_window id="control_proc_machine_type_action"
                     name="Tipo de máquinas"
                     res_model="process_control.machine_type"
-                    view_mode="tree,form"/>
+                    view_mode="tree,form"/> -->
+
+        <record id="control_proc_machine_type_action" model="ir.actions.act_window">
+            <field name="name">Tipo de máquinas</field>
+            <field name="res_model">process_control.machine_type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
         <menuitem id="control_proc_machine_type_menu"
                   name="Tipo de máquinas"

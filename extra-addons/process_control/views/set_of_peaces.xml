@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <act_window id="control_proc_set_of_peaces_action"
+        <!-- <act_window id="control_proc_set_of_peaces_action"
                     name="Subconjuntos de piezas"
                     res_model="process_control.machine_set_of_peaces_nomenclature"
-                    view_mode="tree,form"/>
+                    view_mode="tree,form"/> -->
+
+        <record id="control_proc_set_of_peaces_action" model="ir.actions.act_window">
+            <field name="name">Subconjuntos de piezas</field>
+            <field name="res_model">process_control.machine_set_of_peaces_nomenclature</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
         <menuitem id="control_proc_set_of_peaces_menu"
                   name="Subconjuntos de piezas"

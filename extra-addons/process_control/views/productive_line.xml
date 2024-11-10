@@ -1,10 +1,16 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-        <act_window id="control_proc_productive_line_action"
+        <!-- <act_window id="control_proc_productive_line_action"
                     name="Productive Line"
                     res_model="process_control.productive_line"
-                    view_mode="tree,form"/>
+                    view_mode="tree,form"/> -->
+
+        <record id="control_proc_productive_line_action" model="ir.actions.act_window">
+            <field name="name">Productive Line</field>
+            <field name="res_model">process_control.productive_line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
         <menuitem id="control_proc_productive_line_menu"
                   name="Líneas Productivas"

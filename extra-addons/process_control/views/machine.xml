@@ -38,10 +38,16 @@
             </field>
         </record>
 
-        <act_window id="control_proc_machine_action"
+        <!-- <act_window id="control_proc_machine_action"
                     name="Máquinas"
                     res_model="process_control.machine"
-                    view_mode="tree,form"/>
+                    view_mode="tree,form"/> -->
+
+        <record id="control_proc_machine_action" model="ir.actions.act_window">
+            <field name="name">Máquinas</field>
+            <field name="res_model">process_control.machine</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
         <menuitem id="control_proc_machine_menu"
                   name="Máquinas"

@@ -1,10 +1,16 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-        <act_window id="process_control_productive_section_action"
+        <!-- <act_window id="process_control_productive_section_action"
                     name="Modulo"
                     res_model="process_control.productive_section"
-                    view_mode="tree,form"/>
+                    view_mode="tree,form"/> -->
+
+        <record id="process_control_productive_section_action" model="ir.actions.act_window">
+            <field name="name">Modulo</field>
+            <field name="res_model">process_control.productive_section</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
         <menuitem id="process_control_productive_section_menu"
                   name="Modulo"

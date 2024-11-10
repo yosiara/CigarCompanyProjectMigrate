@@ -26,12 +26,19 @@
             </field>
         </record>
 
-        <act_window id="process_control_interruptiones_action"
+        <!-- <act_window id="process_control_interruptiones_action"
                     name="Control tecnológico"
                     res_model="process_control.tecnolog_control"
                     view_mode="tree,form"
                     context="{'search_default_group_year': 1, 'search_default_group_date1': 1, 'search_default_group_day': 1}"
-        />
+        /> -->
+
+        <record id="process_control_interruptiones_action" model="ir.actions.act_window">
+            <field name="name">Control tecnológico</field>
+            <field name="res_model">process_control.tecnolog_control</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_group_year': 1, 'search_default_group_date1': 1, 'search_default_group_day': 1}</field>
+        </record>
 
         <menuitem id="process_control_interruptiones_menu"
                   name="Ingreso Inter/producción"

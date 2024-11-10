@@ -50,10 +50,16 @@
             </field>
         </record>
 
-        <act_window id="control_proc_productive_section_plan"
+        <!-- <act_window id="control_proc_productive_section_plan"
                     name="Planificación de norma e indices"
                     res_model="process_control.productive_section_plan"
-                    view_mode="tree,form"/>
+                    view_mode="tree,form"/> -->
+
+        <record id="control_proc_productive_section_plan" model="ir.actions.act_window">
+            <field name="name">Planificación de norma e indices</field>
+            <field name="res_model">process_control.productive_section_plan</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
         <menuitem id="control_proc_productive_section_plan_menu"
                   name="Planificación de norma e indicadores"

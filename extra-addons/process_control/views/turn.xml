@@ -18,12 +18,12 @@
                 <field name="name" position="after">
                     <field name="description"/>
                 </field>
-                <field name="manager" position="attributes">
+                <!-- <field name="manager" position="attributes">
                     <attribute name="string">Responsible</attribute>
                 </field>
                 <field name="leave_ids" position="attributes">
                     <attribute name="invisible">True</attribute>
-                </field>
+                </field> -->
             </field>
         </record>
 
@@ -36,9 +36,9 @@
                     <field name="name"/>
                     <field name="description"/>
                 </field>
-                <field name="manager" position="attributes">
+                <!-- <field name="manager" position="attributes">
                     <attribute name="invisible">True</attribute>
-                </field>
+                </field> -->
             </field>
         </record>
 
