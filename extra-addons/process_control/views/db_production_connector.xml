@@ -53,7 +53,7 @@
         <record id="db_production_connector_action1" model="ir.actions.act_window">
             <field name="name">Conexión a Sistema de producción </field>
             <field name="res_model">db_production_connector.template</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 

@@ -41,7 +41,7 @@
             <field name="name">Rep. Resumen Subconjuntos de tiempo y frecuencia</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">wzd.machine.set.of.peaces.to.excel</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>

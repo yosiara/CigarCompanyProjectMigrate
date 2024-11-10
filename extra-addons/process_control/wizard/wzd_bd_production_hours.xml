@@ -36,7 +36,7 @@
             <field name="name">Rep. BD control produccion horaria</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">wzd.bd.production.hours.to.excel</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>

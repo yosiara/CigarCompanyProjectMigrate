@@ -47,7 +47,7 @@
             <field name="name">Reporte de eficiencia</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">wzd.efficient.report</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>

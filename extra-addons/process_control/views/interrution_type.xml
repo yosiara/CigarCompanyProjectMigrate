@@ -64,7 +64,7 @@
         <record id="control_proc_interruption_type_action" model="ir.actions.act_window">
             <field name="name">Tipo de interrupción</field>
             <field name="res_model">process_control.interruption.type</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="control_proc_interruption_type_view_tree"/>
         </record>
