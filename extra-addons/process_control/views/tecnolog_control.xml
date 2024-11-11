@@ -118,7 +118,7 @@
                                     </field>
                                 </page>
                                 <page string="Producción y rechazo">
-                                    <field name="rechazo_nano_sbo_src"
+                                    <field name="rechazo_mod1_ids"
                                            invisible="tec_model_type == 'mod' | productive_section ==  False">
                                         <div class="alert alert-info">
                                             <strong>Información:</strong>
@@ -169,7 +169,7 @@
                                             </group>
                                         </form>
                                     </field>
-                                    <field name="rechazo_amf"
+                                    <field name="rechazo_amf_ids"
                                            invisible="tec_model_type == 'mod1' | productive_section == False">
                                         <div class="alert alert-info">
                                             <strong>Información:</strong>

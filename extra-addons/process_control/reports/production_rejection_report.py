@@ -45,7 +45,7 @@ class ProductionRejectionToExcelReport(ReportXlsx):
         dic_type= {'NANO':{'produccion':0.00,'rechazo':0.00},'SBO':{'produccion':0.00,'rechazo':0.00},'SRC':{'produccion':0.00,'rechazo':0.00}}
 
         for tc in tecnolog_control:
-            for i in tc.rechazo_nano_sbo_src:
+            for i in tc.rechazo_mod1_ids:
                 if i.machine_id.name:
                     if i.machine_id.name.split('-')[0] == 'NANO':
                         dic_type[i.machine_id.name.split('-')[0]]['produccion'] = float(i.produccion_en_cigarrillos)/10000 + dic_type[i.machine_id.name.split('-')[0]]['produccion']

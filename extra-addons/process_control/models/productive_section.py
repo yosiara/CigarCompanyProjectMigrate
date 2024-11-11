@@ -158,7 +158,7 @@ class ProductiveSectionLines(models.Model):
         control_mods = self.env['process_control.tecnolog_control'].search(domain)
         res = {}
         for cm in control_mods:
-            for line in cm.rechazo_amf:
+            for line in cm.rechazo_amf_ids:
                 if line.productive_line_id.productive_line.id not in res:
                     res.update({line.productive_line_id.productive_line.id: 0.00})
                 res[line.productive_line_id.productive_line.id] += line.produccion_en_cajones
@@ -173,7 +173,7 @@ class ProductiveSectionLines(models.Model):
         control_mods = self.env['process_control.tecnolog_control'].search(domain)
         res = {}
         for cm in control_mods:
-            for line in cm.rechazo_amf:
+            for line in cm.rechazo_amf_ids:
                 if line.productive_line_id.productive_line.id not in res:
                     res.update({line.productive_line_id.productive_line.id: 0.00})
                 res[line.productive_line_id.productive_line.id] += round(line.rechazo_en_cajetijas / 500.00, 3)

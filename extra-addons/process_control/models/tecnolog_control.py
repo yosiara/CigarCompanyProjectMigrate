@@ -44,11 +44,11 @@ class TecnologControl(models.Model):
     production_in_proccess_control = fields.Float(string="Prod calculada en el sistema.", readonly=True, store=True,
                                                   compute='_compute_total_prod')
 
-    rechazo_amf = fields.One2many(comodel_name="process_control.rechazo_amf",
+    rechazo_amf_ids = fields.One2many(comodel_name="process_control.rechazo_amf",
                                   inverse_name="tecnolog_control_id",
                                   string="Rechazo de las AMF", required=False)
 
-    rechazo_nano_sbo_src = fields.One2many(comodel_name="process_control.rechazo_mod1",
+    rechazo_mod1_ids = fields.One2many(comodel_name="process_control.rechazo_mod1",
                                            inverse_name="tecnolog_control_id",
                                            string="Rechazo 'NANO', 'SBO', 'SRC'", required=False)
 
@@ -176,8 +176,8 @@ class TecnologControl(models.Model):
         if self.productive_section:
             self.production_by_hours_ids = False
             self.interruption_ids = False
-            self.rechazo_amf = False
-            self.rechazo_nano_sbo_src = False
+            self.rechazo_amf_ids = False
+            self.rechazo_mod1_ids = False
             self.tec_model_type = self.productive_section.tec_model_type
             self.productive_capacity = self.productive_section.get_efficiency_plan().productive_capacity
             self._onchange_attendance_id()
@@ -193,12 +193,12 @@ class TecnologControl(models.Model):
                         'productive_line_id': line.id,
                         'machine_id': machine_ids.id
                     }])
-                    self.rechazo_amf = list_lines
+                    self.rechazo_amf_ids = list_lines
                 # else:
                 #     list_lines.append([0, 0, {
                 #         'productive_line_id': line.id,
                 #     }])
-                #     self.rechazo_nano_sbo_src = list_lines
+                #     self.rechazo_mod1_ids = list_lines
 
 
     @api.model_create_multi
