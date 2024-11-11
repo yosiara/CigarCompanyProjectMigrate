@@ -59,7 +59,7 @@ class ProductiveSection(models.Model):
 
     def calculate_cdt(self, date_start=None, date_end=None, turn=None):
         self.ensure_one()
-        domain = [('productive_section', '=', self.id)]
+        domain = [('productive_section_id', '=', self.id)]
         if date_start and date_end:
             domain.append(('date', '<=', date_end))
             domain.append(('date', '>=', date_start))
@@ -67,7 +67,7 @@ class ProductiveSection(models.Model):
             raise ValidationError('El CDT debe calcularse en un rango de fechas.')
 
         if turn:
-            domain.append(('turn', '=', turn))
+            domain.append(('turn_calendar_id', '=', turn))
 
         count_lines = len(self.productive_line_ids)
         control_models = self.env['process_control.tecnolog_control'].search(domain)
@@ -93,7 +93,7 @@ class ProductiveSection(models.Model):
 
     def calculate_efficiency(self, date_start=None, date_end=None, turn=None):
         self.ensure_one()
-        domain = [('productive_section', '=', self.id)]
+        domain = [('productive_section_id', '=', self.id)]
         if date_start and date_end:
             domain.append(('date', '<=', date_end))
             domain.append(('date', '>=', date_start))
@@ -101,7 +101,7 @@ class ProductiveSection(models.Model):
             raise ValidationError('La eficiencia productiva debe calcularse en un rango de fechas.')
 
         if turn:
-            domain.append(('turn', '=', turn))
+            domain.append(('turn_calendar_id', '=', turn))
 
         control_models = self.env['process_control.tecnolog_control'].search(domain)
 
@@ -152,9 +152,9 @@ class ProductiveSectionLines(models.Model):
     def get_product_amf_productive_line(self, date_start, date_end, turn=False):
         self.ensure_one()
         domain = [('date', '>=', date_start), ('date', '<=', date_end),
-                  ('productive_section', '=', self.productive_section_id.id)]
+                  ('productive_section_id', '=', self.productive_section_id.id)]
         if turn:
-            domain.append(('turn', '=', turn))
+            domain.append(('turn_calendar_id', '=', turn))
         control_mods = self.env['process_control.tecnolog_control'].search(domain)
         res = {}
         for cm in control_mods:
@@ -167,9 +167,9 @@ class ProductiveSectionLines(models.Model):
     def get_reg_amf_by_productive_line(self, date_start, date_end, turn=False):
         self.ensure_one()
         domain = [('date', '>=', date_start), ('date', '<=', date_end),
-                  ('productive_section', '=', self.productive_section_id.id)]
+                  ('productive_section_id', '=', self.productive_section_id.id)]
         if turn:
-            domain.append(('turn', '=', turn))
+            domain.append(('turn_calendar_id', '=', turn))
         control_mods = self.env['process_control.tecnolog_control'].search(domain)
         res = {}
         for cm in control_mods:

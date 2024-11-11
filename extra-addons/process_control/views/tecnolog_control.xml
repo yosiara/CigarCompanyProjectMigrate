@@ -20,7 +20,7 @@
                             context="{'group_by': 'day_char'}"
                     />
                     <filter name="group_seccion" string="Por Modulo"
-                        context="{'group_by': 'productive_section'}"
+                        context="{'group_by': 'productive_section_id'}"
                     />
                 </search>
             </field>
@@ -95,7 +95,7 @@
                                     <field name="interruption_ids">
                                         <tree editable="bottom">
                                             <field name="productive_line_id"
-                                                   domain="[('productive_section_id', '=', parent.productive_section)]"/>
+                                                   domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
                                             <field name="machine_id"/>
                                             <field name="interruption_type"/>
                                             <field name="set_of_peaces_id"/>
@@ -119,7 +119,7 @@
                                 </page>
                                 <page string="Producción y rechazo">
                                     <field name="rechazo_mod1_ids"
-                                           invisible="tec_model_type == 'mod' | productive_section ==  False">
+                                           invisible="tec_model_type == 'mod' | productive_section_id ==  False">
                                         <div class="alert alert-info">
                                             <strong>Información:</strong>
                                             Se capta la producción y rechazo de las máquinas 'NANO', 'SBO', 'SRC'
@@ -127,7 +127,7 @@
 
                                         <tree editable="bottom">
                                             <field name="productive_line_id"
-                                                   domain="[('productive_section_id', '=', parent.productive_section)]"/>
+                                                   domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
                                             <field name="machine_id"/>
                                             <field name="machine_type_id" invisible="1"/>
                                             <field name="machine_type_name" invisible="1"/>
@@ -145,7 +145,7 @@
                                             <group col="8">
                                                 <group colspan="4">
                                                     <field name="productive_line_id"
-                                                           domain="[('productive_section_id', '=', parent.productive_section)]"/>
+                                                           domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
                                                 </group>
                                                 <group colspan="4">
                                                     <field name="machine_id"/>
@@ -170,14 +170,14 @@
                                         </form>
                                     </field>
                                     <field name="rechazo_amf_ids"
-                                           invisible="tec_model_type == 'mod1' | productive_section == False">
+                                           invisible="tec_model_type == 'mod1' | productive_section_id == False">
                                         <div class="alert alert-info">
                                             <strong>Información:</strong>
                                             Se capta la producción y rechazo de las AMF
                                         </div>
                                         <tree editable="bottom">
                                             <field name="productive_line_id"
-                                                   domain="[('productive_section_id', '=', parent.productive_section)]"/>
+                                                   domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
                                             <field name="machine_id"/>
                                             <field name="machine_type_id" invisible="1"/>
                                             <field name="produccion_en_cajones" widget="xls_formula"/>

@@ -105,7 +105,7 @@ class TecnologControl(models.Model):
                 'Producción registrada no coincide con la registrada en el sistema de producción.')
             # raise ValidationError('Producción registrada no coincide con la registrada en el sistema de producción.')
 
-    @api.depends('turn_calendar_id', 'productive_section', 'date')
+    @api.depends('turn_calendar_id', 'productive_section_id', 'date')
     def get_production_in_production_system(self):
         if self.turn_calendar_id and self.productive_section and self.date:
             connexion = self.env['db_external_connector.template'].search([('application', '=', 'sgp')], limit=1)
