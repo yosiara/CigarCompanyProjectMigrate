@@ -72,9 +72,9 @@ class MachineSetOfPeacesToExcelReport(ReportXlsx):
                 column_index = 3
                 for ps in productive_sections:
                     if lines.turn:
-                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.id),('turn','=',lines.turn.id)])
+                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section_id','=',ps.id),('turn','=',lines.turn.id)])
                     else:
-                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.id)])
+                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section_id','=',ps.id)])
                     valor = 0.0
                     frecuencia = 0
                     for a in lis:
@@ -156,9 +156,9 @@ class MachineSetOfPeacesByLineToExcelReport(ReportXlsx):
                 column_index = 3
                 for ps in productive_lines:
                     if lines.turn:
-                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.productive_section_id.id),('turn','=',lines.turn.id)])
+                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section_id','=',ps.productive_section_id.id),('turn','=',lines.turn.id)])
                     else:
-                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section','=',ps.productive_section_id.id)])
+                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section_id','=',ps.productive_section_id.id)])
 
                     valor = 0.0
                     frecuencia = 0

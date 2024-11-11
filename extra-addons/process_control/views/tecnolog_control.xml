@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <search string="Modelo de control">
                     <field name="date"/>
-                    <field name="productive_section"/>
+                    <field name="productive_section_id"/>
                     <field name="turn"/>
                     <filter name="group_year" string="Por año"
                             context="{'group_by': 'year_char'}"
@@ -55,7 +55,7 @@
                     <field name="year_char" invisible="1"/>
                     <field name="day_char" invisible="1"/>
                     <field name="date"/>
-                    <field name="productive_section"/>
+                    <field name="productive_section_id"/>
                     <field name="turn"/>
                 </tree>
             </field>
@@ -72,7 +72,7 @@
                                 <field name="date"/>
                             </group>
                             <group>
-                                <field name="productive_section"/>
+                                <field name="productive_section_id"/>
                             </group>
                             <group>
                                 <field name="turn" options="{'no_create_edit': True}"/>

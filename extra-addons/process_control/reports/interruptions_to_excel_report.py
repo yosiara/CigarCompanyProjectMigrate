@@ -54,7 +54,7 @@ class InterruptionsToExcelReport(ReportXlsx):
                 worksheet.write_number('C'+str(aux_row), date.month, fecha_data_format)
                 worksheet.write_number('D'+str(aux_row), date.day, fecha_data_format)
                 worksheet.write('E'+str(aux_row), c_model.turn.name, data_format)
-                worksheet.write('F'+str(aux_row), c_model.productive_section.name, data_format)
+                worksheet.write('F'+str(aux_row), c_model.productive_section_id.name, data_format)
                 if interruption.productive_line_id.productive_line.name:
                     worksheet.write('G'+str(aux_row), interruption.productive_line_id.productive_line.name, data_format)
                 else:

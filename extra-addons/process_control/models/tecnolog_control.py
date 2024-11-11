@@ -13,19 +13,19 @@ class TecnologControl(models.Model):
     date = fields.Date(string="Fecha", required=True, copy=True, default=fields.Date.today)
     year_char = fields.Char(string=u"Año", required=False, compute="_compute_year_char", store=True)
     day_char = fields.Char(string=u"Día", required=False, compute="_compute_day_char", store=True)
-    #turn = fields.Many2one(comodel_name="resource.calendar", domain=[('turn_process_control', '=', True)], string="Turno", required=True, copy=True, default=0)
+    turn = fields.Many2one(comodel_name="resource.calendar", domain=[('turn_process_control', '=', True)], string="Turno", required=True, copy=True, default=0)
 
     attendance_id = fields.Many2one('resource.calendar.attendance', string='Sesión', copy=True, default=0)
 
-    productive_section = fields.Many2one(comodel_name="process_control.productive_section",
+    productive_section_id = fields.Many2one(comodel_name="process_control.productive_section",
                                          string="Modulo",
                                          required=True, ondelete='cascade')
     productive_capacity = fields.Integer('Capacidad Productiva', required=True)
     plan_time = fields.Integer('Tmpo. Plan(Horas)', required=True)
 
     def _get_default_tec_model_type(self):
-        if self.productive_section:
-            self.tec_model_type = self.productive_section.tec_model_type
+        if self.productive_section_id:
+            self.tec_model_type = self.productive_section_id.tec_model_type
 
     tec_model_type = fields.Selection(string="Documento/control", default=_get_default_tec_model_type,
                                       selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1')])
@@ -54,9 +54,9 @@ class TecnologControl(models.Model):
 
     name = fields.Char(string="Nombre", required=False, compute='_calc_name')
 
-    _sql_constraints = [('turn_in_date_uniq', 'unique(turn,date,productive_section,attendance_id)',
+    _sql_constraints = [('turn_in_date_uniq', 'unique(turn,date,productive_section_id,attendance_id)',
                          "Ya existe un modelo registrado para el turno (Sesión) en la fecha seleccionada."),
-                        ('attendance_in_productive_uniq', 'unique(date,productive_section,attendance_id)',
+                        ('attendance_in_productive_uniq', 'unique(date,productive_section_id,attendance_id)',
                          "Ya existe un modelo registrado para esa Sesión en la fecha seleccionada.")]
 
     @api.model

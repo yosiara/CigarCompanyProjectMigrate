@@ -136,7 +136,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
 
             date_start =  datetime.date(int(lines.date_start.split('-')[0]), int(lines.date_start.split('-')[1]), 1)
             tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','=',lines.date_start),('productive_section','=',ps.id),('turn', '=', lines.turn.id)])
-            acum_tec_control = self.env['process_control.tecnolog_control'].search([('date','>=',date_start),('date','<',lines.date_start),('productive_section','=',ps.id),('turn', '=', lines.turn.id)])
+            acum_tec_control = self.env['process_control.tecnolog_control'].search([('date','>=',date_start),('date','<',lines.date_start),('productive_section_id','=',ps.id),('turn', '=', lines.turn.id)])
             ttp, trp, ttig, prc, er, sum_time_exog, eo, cdt, ppc, pc, tf, cturnm, cturnt, tt  = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0.0
             quantity_line = ps.get_efficiency_plan().quantity_line
             h, j, ind_rech, acum_ind_rech = 7, 14, 0.0, 0.0
@@ -183,7 +183,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             for tc in tecnolog_control:
                 ttp += tc.plan_time
                 # trp += ((tc.production_in_proccess_control * 10000) /tc.productive_capacity) / 60
-                pc = tc.productive_section.get_efficiency_plan().productive_capacity
+                pc = tc.productive_section_id.get_efficiency_plan().productive_capacity
                 trp += ((tc.production_in_proccess_control * 10000) / pc) / 60
                 prc += tc.production_in_proccess_control
                 er += ((tc.production_in_proccess_control * 10000) / (tc.plan_time * 60 * pc) ) * 100

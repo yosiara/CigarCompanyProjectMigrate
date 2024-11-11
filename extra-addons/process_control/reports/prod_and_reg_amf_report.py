@@ -12,7 +12,7 @@ class WzdProdAndRegAmf(models.AbstractModel):
         if turn:
             domain.append(('turn', '=', turn))
         control_mods = self.env['process_control.tecnolog_control'].search(domain).mapped(
-            'productive_section')
+            'productive_section_id')
         return control_mods
 
     @api.model

@@ -54,9 +54,9 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
                         for d in productive_sections:
                             dic_fr2.setdefault(int(d.name[-2:]), 0)
                         dic_int_fr.setdefault(it.interruption_type.code, dic_fr2)
-                        dic_int_fr[it.interruption_type.code][int(tc.productive_section.name[-2:])] = it.frequency
+                        dic_int_fr[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = it.frequency
                     else:
-                        dic_int_fr[it.interruption_type.code][int(tc.productive_section.name[-2:])] = it.frequency  + dic_int_fr[it.interruption_type.code][int(tc.productive_section.name[-2:])]
+                        dic_int_fr[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = it.frequency  + dic_int_fr[it.interruption_type.code][int(tc.productive_section.name[-2:])]
 
                     if not it.interruption_type.code in dic_int:
                         dic_sp2 = {}
@@ -64,14 +64,14 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
                             dic_sp2.setdefault(int(d.name[-2:]), 0.0)
                         dic_int.setdefault(it.interruption_type.code, dic_sp2)
                         if not it.productive_line_id:
-                            dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])] = it.time * len(tc.productive_section.productive_line_ids)
+                            dic_int[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = it.time * len(tc.productive_section.productive_line_ids)
                         else:
-                            dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])] = it.time
+                            dic_int[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = it.time
                     else:
                         if not it.productive_line_id:
-                            dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])] = (it.time * len(tc.productive_section.productive_line_ids)) + dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])]
+                            dic_int[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = (it.time * len(tc.productive_section.productive_line_ids)) + dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])]
                         else:
-                            dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])] = (it.time ) + dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])]
+                            dic_int[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = (it.time ) + dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])]
                 else:
                     if it.interruption_type.code in ['PM','PE','PC']:
                         valor = str(it.interruption_type.code) + " " + str(it.machine_id.machine_type_id.name)
@@ -81,9 +81,9 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
                             for d in productive_sections:
                                 dic_fr.setdefault(int(d.name[-2:]),0.0)
                             dic_int_fr.setdefault(valor,dic_fr)
-                            dic_int_fr[valor][int(tc.productive_section.name[-2:])] = it.frequency
+                            dic_int_fr[valor][int(tc.productive_section_id.name[-2:])] = it.frequency
                         else:
-                            dic_int_fr[valor][int(tc.productive_section.name[-2:])] = it.frequency + dic_int_fr[valor][int(tc.productive_section.name[-2:])]
+                            dic_int_fr[valor][int(tc.productive_section_id.name[-2:])] = it.frequency + dic_int_fr[valor][int(tc.productive_section.name[-2:])]
 
                         if not valor in dic_int:
                             dic_sp = {}
@@ -91,14 +91,14 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
                                 dic_sp.setdefault(int(d.name[-2:]),0)
                             dic_int.setdefault(valor,dic_sp)
                             if not it.productive_line_id:
-                                dic_int[valor][int(tc.productive_section.name[-2:])] = it.time * len(tc.productive_section.productive_line_ids)
+                                dic_int[valor][int(tc.productive_section_id.name[-2:])] = it.time * len(tc.productive_section.productive_line_ids)
                             else:
-                                dic_int[valor][int(tc.productive_section.name[-2:])] = it.time
+                                dic_int[valor][int(tc.productive_section_id.name[-2:])] = it.time
                         else:
                             if not it.productive_line_id:
-                                dic_int[valor][int(tc.productive_section.name[-2:])] = (it.time * len(tc.productive_section.productive_line_ids)) + dic_int[valor][int(tc.productive_section.name[-2:])]
+                                dic_int[valor][int(tc.productive_section_id.name[-2:])] = (it.time * len(tc.productive_section.productive_line_ids)) + dic_int[valor][int(tc.productive_section.name[-2:])]
                             else:
-                                dic_int[valor][int(tc.productive_section.name[-2:])] = it.time + dic_int[valor][int(tc.productive_section.name[-2:])]
+                                dic_int[valor][int(tc.productive_section_id.name[-2:])] = it.time + dic_int[valor][int(tc.productive_section.name[-2:])]
 
                     else:
                         if not it.interruption_type.code in dic_int_fr:
@@ -106,9 +106,9 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
                             for d in productive_sections:
                                 dic_fr1.setdefault(int(d.name[-2:]),0)
                             dic_int_fr.setdefault(it.interruption_type.code,dic_fr1)
-                            dic_int_fr[it.interruption_type.code][int(tc.productive_section.name[-2:])] = it.frequency
+                            dic_int_fr[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = it.frequency
                         else:
-                            dic_int_fr[it.interruption_type.code][int(tc.productive_section.name[-2:])] = it.frequency + dic_int_fr[it.interruption_type.code][int(tc.productive_section.name[-2:])]
+                            dic_int_fr[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = it.frequency + dic_int_fr[it.interruption_type.code][int(tc.productive_section.name[-2:])]
 
                         if not it.interruption_type.code in dic_int:
                             dic_sp1 = {}
@@ -116,14 +116,14 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
                                 dic_sp1.setdefault(int(d.name[-2:]),0.0)
                             dic_int.setdefault(it.interruption_type.code,dic_sp1)
                             if not it.productive_line_id:
-                                dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])] = it.time * len(tc.productive_section.productive_line_ids)
+                                dic_int[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = it.time * len(tc.productive_section.productive_line_ids)
                             else:
-                                dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])] = it.time
+                                dic_int[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = it.time
                         else:
                             if not it.productive_line_id:
-                                dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])] = (it.time * len(tc.productive_section.productive_line_ids)) + dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])]
+                                dic_int[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = (it.time * len(tc.productive_section.productive_line_ids)) + dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])]
                             else:
-                                dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])] = it.time + dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])]
+                                dic_int[it.interruption_type.code][int(tc.productive_section_id.name[-2:])] = it.time + dic_int[it.interruption_type.code][int(tc.productive_section.name[-2:])]
 
         fila_index = 4
         for i in dic_int.items():
@@ -223,10 +223,10 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                         for d in productive_lines:
                             dic_fr2.setdefault(int(d.productive_line.name[-2:]), 0)
                         dic_int_fr.setdefault(it.interruption_type.code, dic_fr2)
-                        for ln in tc.productive_section.productive_line_ids:
+                        for ln in tc.productive_section_id.productive_line_ids:
                             dic_int_fr[it.interruption_type.code][int(ln.productive_line.name[-2:])] = it.frequency
                     else:
-                        for ln in tc.productive_section.productive_line_ids:
+                        for ln in tc.productive_section_id.productive_line_ids:
                             dic_int_fr[it.interruption_type.code][int(ln.productive_line.name[-2:])] = it.frequency  + dic_int_fr[it.interruption_type.code][int(ln.productive_line.name[-2:])]
 
                     if not it.interruption_type.code in dic_int:
@@ -234,10 +234,10 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                         for d in productive_lines:
                             dic_sp2.setdefault(int(d.productive_line.name[-2:]), 0.00)
                         dic_int.setdefault(it.interruption_type.code, dic_sp2)
-                        for ln in tc.productive_section.productive_line_ids:
+                        for ln in tc.productive_section_id.productive_line_ids:
                             dic_int[it.interruption_type.code][int(ln.productive_line.name[-2:])] = it.time
                     else:
-                        for ln in tc.productive_section.productive_line_ids:
+                        for ln in tc.productive_section_id.productive_line_ids:
                             dic_int[it.interruption_type.code][int(ln.productive_line.name[-2:])] = it.time + dic_int[it.interruption_type.code][int(ln.productive_line.name[-2:])]
                 else:
                     if it.interruption_type.code in ['PM','PE','PC']:
@@ -251,13 +251,13 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                             if it.productive_line_id.productive_line:
                                 dic_int_fr[valor][int(it.productive_line_id.productive_line.name[-2:])] = it.frequency
                             else:
-                                for ln in tc.productive_section.productive_line_ids:
+                                for ln in tc.productive_section_id.productive_line_ids:
                                     dic_int_fr[valor][int(ln.productive_line.name[-2:])] = it.frequency
                         else:
                             if it.productive_line_id.productive_line:
                                 dic_int_fr[valor][int(it.productive_line_id.productive_line.name[-2:])] = it.frequency + dic_int_fr[valor][int(it.productive_line_id.productive_line.name[-2:])]
                             else:
-                                for ln in tc.productive_section.productive_line_ids:
+                                for ln in tc.productive_section_id.productive_line_ids:
                                     dic_int_fr[valor][int(ln.productive_line.name[-2:])] = it.frequency + dic_int_fr[valor][int(ln.productive_line.name[-2:])]
 
                         if not valor in dic_int:
@@ -268,13 +268,13 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                             if it.productive_line_id.productive_line:
                                 dic_int[valor][int(it.productive_line_id.productive_line.name[-2:])] = it.time
                             else:
-                                for ln in tc.productive_section.productive_line_ids:
+                                for ln in tc.productive_section_id.productive_line_ids:
                                     dic_int[valor][int(ln.productive_line.name[-2:])] = it.time
                         else:
                             if it.productive_line_id.productive_line:
                                 dic_int[valor][int(it.productive_line_id.productive_line.name[-2:])] = it.time + dic_int[valor][int(it.productive_line_id.productive_line.name[-2:])]
                             else:
-                                for ln in tc.productive_section.productive_line_ids:
+                                for ln in tc.productive_section_id.productive_line_ids:
                                     dic_int[valor][int(ln.productive_line.name[-2:])] = it.time + dic_int[valor][int(ln.productive_line.name[-2:])]
 
                     else:
@@ -286,13 +286,13 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                             if it.productive_line_id.productive_line:
                                 dic_int_fr[it.interruption_type.code][int(it.productive_line_id.productive_line.name[-2:])] = it.frequency
                             else:
-                                for ln in tc.productive_section.productive_line_ids:
+                                for ln in tc.productive_section_id.productive_line_ids:
                                     dic_int_fr[it.interruption_type.code][int(ln.productive_line.name[-2:])] = it.frequency
                         else:
                             if it.productive_line_id.productive_line:
                                 dic_int_fr[it.interruption_type.code][int(it.productive_line_id.productive_line.name[-2:])] = it.frequency + dic_int_fr[it.interruption_type.code][int(it.productive_line_id.productive_line.name[-2:])]
                             else:
-                                for ln in tc.productive_section.productive_line_ids:
+                                for ln in tc.productive_section_id.productive_line_ids:
                                     dic_int_fr[it.interruption_type.code][int(ln.productive_line.name[-2:])] = it.frequency + dic_int_fr[it.interruption_type.code][int(ln.productive_line.name[-2:])]
 
                         if not it.interruption_type.code in dic_int:
@@ -303,13 +303,13 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                             if it.productive_line_id.productive_line:
                                 dic_int[it.interruption_type.code][int(it.productive_line_id.productive_line.name[-2:])] = it.time
                             else:
-                                for ln in tc.productive_section.productive_line_ids:
+                                for ln in tc.productive_section_id.productive_line_ids:
                                     dic_int[it.interruption_type.code][int(ln.productive_line.name[-2:])] = it.time
                         else:
                             if it.productive_line_id.productive_line:
                                 dic_int[it.interruption_type.code][int(it.productive_line_id.productive_line.name[-2:])] = it.time + dic_int[it.interruption_type.code][int(it.productive_line_id.productive_line.name[-2:])]
                             else:
-                                for ln in tc.productive_section.productive_line_ids:
+                                for ln in tc.productive_section_id.productive_line_ids:
                                     dic_int[it.interruption_type.code][int(ln.productive_line.name[-2:])] = it.time + dic_int[it.interruption_type.code][int(ln.productive_line.name[-2:])]
 
         fila_index = 4

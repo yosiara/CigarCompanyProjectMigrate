@@ -28,7 +28,7 @@ class ReportInterruptionsBySection(models.AbstractModel):
                 interrupciones = control.interruptions
 
             if len(interrupciones) > 0:
-                seccion = control.productive_section.name
+                seccion = control.productive_section_id.name
                 if seccion not in records:
                     records[seccion] = {}
 

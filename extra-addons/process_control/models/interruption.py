@@ -30,7 +30,7 @@ class Interruption(models.Model):
             return {'domain': {'machine_id': [('id', 'in', self.productive_line_id.productive_line.machine_ids.ids)]}}
         self._cr.execute("SELECT machine_id FROM process_control_produc_line_machine_asoc")
         machines_in_line = self._cr.fetchall()
-        return {'domain': {'machine_id': [('id', 'not in', machines_in_line),('productive_section_id', '=',  self.tecnolog_control_id.productive_section.id)]}}
+        return {'domain': {'machine_id': [('id', 'not in', machines_in_line),('productive_section_id', '=',  self.tecnolog_control_id.productive_section_id.id)]}}
 
     @api.onchange('machine_id')
     def _onchange_machine_id(self):

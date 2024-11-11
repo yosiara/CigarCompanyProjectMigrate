@@ -9,7 +9,7 @@ from odoo.addons.report_xlsx.report.report_xlsx import ReportXlsx
 class BdProductionHoursToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
-        production_hours = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)], order="date, productive_section")
+        production_hours = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)], order="date, productive_section_id")
 
         worksheet = workbook.add_worksheet(tools.ustr("Seccion Mañana"))
         worksheet1 = workbook.add_worksheet(tools.ustr("Seccion Tarde"))
@@ -57,7 +57,7 @@ class BdProductionHoursToExcelReport(ReportXlsx):
                 worksheet.write(x, 0, ph.date.split('-')[0], normal_format)
                 worksheet.write(x, 1, ph.date.split('-')[1], normal_format)
                 worksheet.write(x, 2, ph.date.split('-')[2], normal_format)
-                worksheet.write(x, 3, 'Sp.' + ph.productive_section.name[-2:], normal_format)
+                worksheet.write(x, 3, 'Sp.' + ph.productive_section_id.name[-2:], normal_format)
                 worksheet.write(x, 4, ph.turn.name[-1:], normal_format)
 
                 y = 5
@@ -69,7 +69,7 @@ class BdProductionHoursToExcelReport(ReportXlsx):
                 worksheet1.write(z, 0, ph.date.split('-')[0], normal_format)
                 worksheet1.write(z, 1, ph.date.split('-')[1], normal_format)
                 worksheet1.write(z, 2, ph.date.split('-')[2], normal_format)
-                worksheet1.write(z, 3, 'Sp.' + ph.productive_section.name[-2:], normal_format)
+                worksheet1.write(z, 3, 'Sp.' + ph.productive_section_id.name[-2:], normal_format)
                 worksheet1.write(z, 4, ph.turn.name[-1:], normal_format)
 
                 g = 5
