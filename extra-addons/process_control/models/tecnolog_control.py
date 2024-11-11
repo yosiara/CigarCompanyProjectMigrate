@@ -13,7 +13,7 @@ class TecnologControl(models.Model):
     date = fields.Date(string="Fecha", required=True, copy=True, default=fields.Date.today)
     year_char = fields.Char(string=u"Año", required=False, compute="_compute_year_char", store=True)
     day_char = fields.Char(string=u"Día", required=False, compute="_compute_day_char", store=True)
-    turn = fields.Many2one(comodel_name="resource.calendar", domain=[('turn_process_control', '=', True)], string="Turno", required=True, copy=True, default=0)
+    turn_calendar_id = fields.Many2one(comodel_name="resource.calendar", domain=[('turn_process_control', '=', True)], string="Turno", required=True, copy=True, default=0)
 
     attendance_id = fields.Many2one('resource.calendar.attendance', string='Sesión', copy=True, default=0)
 
@@ -30,7 +30,7 @@ class TecnologControl(models.Model):
     tec_model_type = fields.Selection(string="Documento/control", default=_get_default_tec_model_type,
                                       selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1')])
 
-    interruptions = fields.One2many(comodel_name="process_control.interruption", inverse_name="tecnolog_control_id",
+    interruption_ids = fields.One2many(comodel_name="process_control.interruption", inverse_name="tecnolog_control_id",
                                     string="Interrupciones", required=False, ondelete='cascade')
 
     production_by_hours_ids = fields.One2many(comodel_name="process_control.production_by_hours",
@@ -54,7 +54,7 @@ class TecnologControl(models.Model):
 
     name = fields.Char(string="Nombre", required=False, compute='_calc_name')
 
-    _sql_constraints = [('turn_in_date_uniq', 'unique(turn,date,productive_section_id,attendance_id)',
+    _sql_constraints = [('turn_calendar_id_in_date_uniq', 'unique(turn_calendar_id,date,productive_section_id,attendance_id)',
                          "Ya existe un modelo registrado para el turno (Sesión) en la fecha seleccionada."),
                         ('attendance_in_productive_uniq', 'unique(date,productive_section_id,attendance_id)',
                          "Ya existe un modelo registrado para esa Sesión en la fecha seleccionada.")]
@@ -65,7 +65,7 @@ class TecnologControl(models.Model):
         rec_last = self.search([], order='id desc', limit=1)
         if rec_last:
             res["date"] = rec_last.date
-            res["turn"] = int(rec_last.turn)
+            res["turn_calendar_id"] = int(rec_last.turn_calendar_id)
             res["attendance_id"] = int(rec_last.attendance_id)
         return res
 
@@ -105,9 +105,9 @@ class TecnologControl(models.Model):
                 'Producción registrada no coincide con la registrada en el sistema de producción.')
             # raise ValidationError('Producción registrada no coincide con la registrada en el sistema de producción.')
 
-    @api.depends('turn', 'productive_section', 'date')
+    @api.depends('turn_calendar_id', 'productive_section', 'date')
     def get_production_in_production_system(self):
-        if self.turn and self.productive_section and self.date:
+        if self.turn_calendar_id and self.productive_section and self.date:
             connexion = self.env['db_external_connector.template'].search([('application', '=', 'sgp')], limit=1)
             connexion.ensure_one()
             res = []
@@ -117,7 +117,7 @@ class TecnologControl(models.Model):
                     cursor = connexion.connect().cursor()
                     query = """SELECT SUM(cantidad_producida) FROM pt_produccion_terminada
     WHERE id_modulo = %d AND id_turno = %d and fecha = '%s'""" % (
-                        int(self.productive_section.production_id), self.turn.sgp_turn_id, self.date)
+                        int(self.productive_section.production_id), self.turn_calendar_id.sgp_turn_id, self.date)
                     cursor.execute(query)
                     for row in cursor:
                         self.production_in_production_system = row[0]
@@ -129,9 +129,9 @@ class TecnologControl(models.Model):
         for doc in self:
             doc.name = "Documento de control"
 
-    @api.onchange('turn')
+    @api.onchange('turn_calendar_id')
     def get_attendance_ids(self):
-        if self.turn:
+        if self.turn_calendar_id:
             attendace_ids = self.env['resource.calendar.attendance'].search([('calendar_id.id', '=', self.turn.id)])
             print(len(attendace_ids))
             # self.attendance_id = False
@@ -175,7 +175,7 @@ class TecnologControl(models.Model):
     def _onchange_productive_section(self):
         if self.productive_section:
             self.production_by_hours_ids = False
-            self.interruptions = False
+            self.interruption_ids = False
             self.rechazo_amf = False
             self.rechazo_nano_sbo_src = False
             self.tec_model_type = self.productive_section.tec_model_type

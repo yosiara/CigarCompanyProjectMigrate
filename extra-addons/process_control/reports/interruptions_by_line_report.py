@@ -17,16 +17,16 @@ class ReportInterruptionsByLine(models.AbstractModel):
         if data['productive_line']:
             productive_line = self.env['process_control.productive_section_lines'].search(
                 [('productive_line', '=', data['productive_line'])], limit=1)
-            domain.append(('productive_section', '=', productive_line.productive_section_id.id))
+            domain.append(('productive_section_id', '=', productive_line.productive_section_id.id))
 
         controles = self.env['process_control.tecnolog_control'].search(domain)
 
         for control in controles:
             if data['interruption_type']:
-                interrupciones = control.interruptions.filtered(
+                interrupciones = control.interruption_ids.filtered(
                     lambda i: i.interruption_type.id == data['interruption_type'])
             else:
-                interrupciones = control.interruptions
+                interrupciones = control.interruption_ids
 
             if len(interrupciones) > 0:
                 for interrupcion in interrupciones:

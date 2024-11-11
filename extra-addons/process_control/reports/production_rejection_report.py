@@ -10,7 +10,7 @@ class ProductionRejectionToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
         if lines.turn:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn','=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn_calendar_id','=', lines.turn.id)])
         else:
             tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
         worksheet = workbook.add_worksheet(tools.ustr("Control de Producción y Rechazo"))

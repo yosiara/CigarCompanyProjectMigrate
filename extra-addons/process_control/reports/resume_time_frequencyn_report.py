@@ -41,7 +41,7 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn', '=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn_calendar_id', '=', lines.turn.id)])
         else:
             tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
 
@@ -209,7 +209,7 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn', '=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn_calendar_id', '=', lines.turn.id)])
         else:
             tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
 

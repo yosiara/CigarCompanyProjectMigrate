@@ -22,10 +22,10 @@ class ReportInterruptionsBySection(models.AbstractModel):
 
         for control in controles:
             if data['interruption_type']:
-                interrupciones = control.interruptions.filtered(
+                interrupciones = control.interruption_ids.filtered(
                     lambda i: i.interruption_type.id == data['interruption_type'])
             else:
-                interrupciones = control.interruptions
+                interrupciones = control.interruption_ids
 
             if len(interrupciones) > 0:
                 seccion = control.productive_section_id.name

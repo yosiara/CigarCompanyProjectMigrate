@@ -76,7 +76,7 @@ class ProductiveSection(models.Model):
 
         for control_model in control_models:
             sum_plan_time += control_model.plan_time * 60
-            for interruption in control_model.interruptions:
+            for interruption in control_model.interruption_ids:
                 if not interruption.productive_line_id:
                     sum_time_interruption += interruption.time * count_lines
                 else:

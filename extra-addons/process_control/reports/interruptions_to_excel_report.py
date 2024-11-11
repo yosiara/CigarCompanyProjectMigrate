@@ -49,11 +49,11 @@ class InterruptionsToExcelReport(ReportXlsx):
         for c_model in control_models:
             date = fields.datetime.strptime(c_model.date, DEFAULT_SERVER_DATE_FORMAT)
 
-            for interruption in c_model.interruptions:
+            for interruption in c_model.interruption_ids:
                 worksheet.write_number('B'+str(aux_row), date.year, fecha_data_format)
                 worksheet.write_number('C'+str(aux_row), date.month, fecha_data_format)
                 worksheet.write_number('D'+str(aux_row), date.day, fecha_data_format)
-                worksheet.write('E'+str(aux_row), c_model.turn.name, data_format)
+                worksheet.write('E'+str(aux_row), c_model.turn_calendar_id.name, data_format)
                 worksheet.write('F'+str(aux_row), c_model.productive_section_id.name, data_format)
                 if interruption.productive_line_id.productive_line.name:
                     worksheet.write('G'+str(aux_row), interruption.productive_line_id.productive_line.name, data_format)

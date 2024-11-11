@@ -135,8 +135,8 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             worksheet.merge_range('R30:S31', tools.ustr('Promedio'), merge_format)
 
             date_start =  datetime.date(int(lines.date_start.split('-')[0]), int(lines.date_start.split('-')[1]), 1)
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','=',lines.date_start),('productive_section','=',ps.id),('turn', '=', lines.turn.id)])
-            acum_tec_control = self.env['process_control.tecnolog_control'].search([('date','>=',date_start),('date','<',lines.date_start),('productive_section_id','=',ps.id),('turn', '=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','=',lines.date_start),('productive_section_id','=',ps.id),('turn_calendar_id', '=', lines.turn.id)])
+            acum_tec_control = self.env['process_control.tecnolog_control'].search([('date','>=',date_start),('date','<',lines.date_start),('productive_section_id','=',ps.id),('turn_calendar_id', '=', lines.turn.id)])
             ttp, trp, ttig, prc, er, sum_time_exog, eo, cdt, ppc, pc, tf, cturnm, cturnt, tt  = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0.0
             quantity_line = ps.get_efficiency_plan().quantity_line
             h, j, ind_rech, acum_ind_rech = 7, 14, 0.0, 0.0

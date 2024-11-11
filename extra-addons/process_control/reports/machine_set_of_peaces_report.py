@@ -72,13 +72,13 @@ class MachineSetOfPeacesToExcelReport(ReportXlsx):
                 column_index = 3
                 for ps in productive_sections:
                     if lines.turn:
-                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section_id','=',ps.id),('turn','=',lines.turn.id)])
+                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section_id','=',ps.id),('turn_calendar_id','=',lines.turn.id)])
                     else:
                         lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section_id','=',ps.id)])
                     valor = 0.0
                     frecuencia = 0
                     for a in lis:
-                        for b in a.interruptions:
+                        for b in a.interruption_ids:
                            if b.set_of_peaces_id.name and b.set_of_peaces_id.name == m.name and b.machine_id.machine_type_id.name == m.machine_type_id.name:
                                valor += b.time
                                frecuencia += b.frequency
@@ -156,14 +156,14 @@ class MachineSetOfPeacesByLineToExcelReport(ReportXlsx):
                 column_index = 3
                 for ps in productive_lines:
                     if lines.turn:
-                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section_id','=',ps.productive_section_id.id),('turn','=',lines.turn.id)])
+                        lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section_id','=',ps.productive_section_id.id),('turn_calendar_id','=',lines.turn.id)])
                     else:
                         lis = self.env["process_control.tecnolog_control"].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('productive_section_id','=',ps.productive_section_id.id)])
 
                     valor = 0.0
                     frecuencia = 0
                     for a in lis:
-                        for b in a.interruptions:
+                        for b in a.interruption_ids:
                             if ps.productive_line.name == b.productive_line_id.productive_line.name:
                                if b.set_of_peaces_id.name and b.set_of_peaces_id.name == m.name and b.machine_id.machine_type_id.name == m.machine_type_id.name:
                                    valor += b.time

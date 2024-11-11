@@ -58,7 +58,7 @@ class BdProductionHoursToExcelReport(ReportXlsx):
                 worksheet.write(x, 1, ph.date.split('-')[1], normal_format)
                 worksheet.write(x, 2, ph.date.split('-')[2], normal_format)
                 worksheet.write(x, 3, 'Sp.' + ph.productive_section_id.name[-2:], normal_format)
-                worksheet.write(x, 4, ph.turn.name[-1:], normal_format)
+                worksheet.write(x, 4, ph.turn_calendar_id.name[-1:], normal_format)
 
                 y = 5
                 for h in ph.production_by_hours_ids:
@@ -70,7 +70,7 @@ class BdProductionHoursToExcelReport(ReportXlsx):
                 worksheet1.write(z, 1, ph.date.split('-')[1], normal_format)
                 worksheet1.write(z, 2, ph.date.split('-')[2], normal_format)
                 worksheet1.write(z, 3, 'Sp.' + ph.productive_section_id.name[-2:], normal_format)
-                worksheet1.write(z, 4, ph.turn.name[-1:], normal_format)
+                worksheet1.write(z, 4, ph.turn_calendar_id.name[-1:], normal_format)
 
                 g = 5
                 for h in ph.production_by_hours_ids:
