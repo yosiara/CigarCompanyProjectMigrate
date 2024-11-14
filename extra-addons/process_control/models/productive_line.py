@@ -4,18 +4,18 @@ from odoo import api, fields, models, tools
 
 class ProductiveLine(models.Model):
     _name = "process_control.productive_line"
-    _description = tools.ustr("Línea Productiva")
+    _description = "Línea Productiva"
     _order = 'name'
 
     def _get_default_name(self):
-        return 'Línea #'
+        return 'Línea # '
 
     name = fields.Char('Nombre', size=40, required=True, copy=False, default=_get_default_name)
     machine_ids = fields.Many2many('process_control.machine',
                                    relation="process_control_produc_line_machine_asoc",
                                    column1="prod_line_id", copy=False,
                                    column2="machine_id", string='Máquinas')
-    is_in_productive_section = fields.Boolean('Añadido a Modulo', compute='is_in_productive_section_check')
+    is_in_productive_section = fields.Boolean('Añadido a Módulo', compute='is_in_productive_section_check')
 
     _sql_constraints = [
         ('name_uniq', 'unique(name)',

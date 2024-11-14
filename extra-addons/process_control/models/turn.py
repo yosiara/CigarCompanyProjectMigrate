@@ -5,8 +5,6 @@ from odoo import api, fields, models
 class Turn(models.Model):
     _inherit = 'resource.calendar'
 
-
-
     name = fields.Char(required=False, copy=False)
     description = fields.Text(string="Descripción", required=False, )
     attendance_ids = fields.One2many(

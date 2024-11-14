@@ -2,6 +2,7 @@
 from odoo import api, fields, models, tools
 from odoo.exceptions import ValidationError
 
+from datetime import time
 
 class Interruption(models.Model):
     _name = "process_control.interruption"
@@ -16,12 +17,17 @@ class Interruption(models.Model):
     set_of_peaces_id = fields.Many2one(comodel_name="process_control.machine_set_of_peaces_nomenclature",
                                        string="Subconjunto", domain=[('id', 'in', [])],
                                        required=False, )
-    time = fields.Integer('Tiempo en minutos', required=True)
-    frequency = fields.Integer('Frecuencia', required=True)
+
+    start_date = fields.Datetime(string="Inicio de la interrupcion", required=True)
+    end_date = fields.Datetime(string="Fin de la interrupcion", required=True)
+    
+    #time = fields.Integer('Tiempo en minutos', required=True)
+    #frequency = fields.Integer('Frecuencia', required=True)
     # modelo del control del proceso, recoge todas las interrupciones de un turno en un dia X
     tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Documento",
                                         required=False, )
     productive_line_id = fields.Many2one('process_control.productive_section_lines', string='Líneas Productivas')
+    productive_line_mia_id = fields.Many2one('process_control.productive_line', string='Líneas Productivas')
 
     @api.onchange('productive_line_id')
     def _onchange_productive_line(self):

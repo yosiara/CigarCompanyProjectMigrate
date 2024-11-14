@@ -6,30 +6,30 @@ from odoo.exceptions import ValidationError
 class ProductiveSection(models.Model):
     _name = "process_control.productive_section"
     _rec_name = 'name'
-    _description = tools.ustr("Modulo")
+    _description = "Módulo"
     _order = 'name'
 
     def _get_default_name(self):
-        return 'Modulo '
+        return 'Módulo '
 
-    def _get_productions_code(self):
-        connexion = self.env['process_control.db_production_connector'].search([], limit=1)
-        #connexion.ensure_one()
-        res = []
-        if connexion:
-            try:
-                conn = connexion.connect()
-                cursor = conn.cursor()
-                cursor.execute("""SELECT "id", descripcion FROM cd_modulo WHERE id > 0 ORDER BY id""")
-                for row in cursor:
-                    res.append((str(row[0]), str(row[1])))
-            except Exception:
-                pass
-        return res
+    # def _get_productions_code(self):
+    #     connexion = self.env['process_control.db_production_connector'].search([], limit=1)
+    #     #connexion.ensure_one()
+    #     res = []
+    #     if connexion:
+    #         try:
+    #             conn = connexion.connect()
+    #             cursor = conn.cursor()
+    #             cursor.execute("""SELECT "id", descripcion FROM cd_modulo WHERE id > 0 ORDER BY id""")
+    #             for row in cursor:
+    #                 res.append((str(row[0]), str(row[1])))
+    #         except Exception:
+    #             pass
+    #     return res
 
     name = fields.Char('Nombre', size=40, required=True, copy=False, default=_get_default_name)
-    production_id = fields.Selection(string="Id producción", selection=_get_productions_code, required=False,
-                                     help='Id en el sistema de producción.')
+    # production_id = fields.Selection(string="Id producción", selection=_get_productions_code, required=False,
+    #                                  help='Id en el sistema de producción.')
     tec_model_type = fields.Selection(string="Documento/control",
                                       selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1'), ], required=False,
                                       default='mod')
@@ -42,7 +42,7 @@ class ProductiveSection(models.Model):
 
     _sql_constraints = [
         ('name_uniq', 'unique(name)',
-         'El nombre de la Modulo debe ser único.'),
+         'El nombre del Módulo debe ser único.'),
     ]
 
     @api.constrains('productive_line_ids')
@@ -117,7 +117,7 @@ class ProductiveSection(models.Model):
 
         return efficiency
 
-    @api.model_create_multi
+    #@api.model_create_multi
     def get_efficiency_plan(self):
         self.ensure_one()
         return self.env['process_control.productive_section_plan'].search([('productive_section_ids', 'in', self.id), ('active', '=', True)])
@@ -128,71 +128,3 @@ class ProductiveSection(models.Model):
             suma_ind += line.get_reg_ind(date_start, date_end, turn, line.productive_line.id)
         # return round(suma_ind/len(self.productive_line_ids), 3)
         return round(suma_ind / self.get_efficiency_plan().quantity_line, 3)
-
-
-class ProductiveSectionLines(models.Model):
-    _name = 'process_control.productive_section_lines'
-    _rec_name = 'productive_line'
-
-
-    productive_section_id = fields.Many2one(comodel_name="process_control.productive_section",
-                                            string="Modulo", required=False, )
-
-    productive_line = fields.Many2one(comodel_name="process_control.productive_line", string="Línea Produtiva",
-                                      required=False)
-    name = fields.Char(string="nombre", required=False, related='productive_line.name')
-    productive_section_name = fields.Char(string="nombre", required=True, compute='get_section_name', store=True)
-
-    @api.model_create_multi
-    @api.depends('productive_section_id.name')
-    def get_section_name(self):
-        for ps in self:
-            ps.productive_section_name = ps.productive_section_id.name
-
-    def get_product_amf_productive_line(self, date_start, date_end, turn=False):
-        self.ensure_one()
-        domain = [('date', '>=', date_start), ('date', '<=', date_end),
-                  ('productive_section_id', '=', self.productive_section_id.id)]
-        if turn:
-            domain.append(('turn_calendar_id', '=', turn))
-        control_mods = self.env['process_control.tecnolog_control'].search(domain)
-        res = {}
-        for cm in control_mods:
-            for line in cm.rechazo_amf_ids:
-                if line.productive_line_id.productive_line.id not in res:
-                    res.update({line.productive_line_id.productive_line.id: 0.00})
-                res[line.productive_line_id.productive_line.id] += line.produccion_en_cajones
-        return res
-
-    def get_reg_amf_by_productive_line(self, date_start, date_end, turn=False):
-        self.ensure_one()
-        domain = [('date', '>=', date_start), ('date', '<=', date_end),
-                  ('productive_section_id', '=', self.productive_section_id.id)]
-        if turn:
-            domain.append(('turn_calendar_id', '=', turn))
-        control_mods = self.env['process_control.tecnolog_control'].search(domain)
-        res = {}
-        for cm in control_mods:
-            for line in cm.rechazo_amf_ids:
-                if line.productive_line_id.productive_line.id not in res:
-                    res.update({line.productive_line_id.productive_line.id: 0.00})
-                res[line.productive_line_id.productive_line.id] += round(line.rechazo_en_cajetijas / 500.00, 3)
-        return res
-
-    def get_reg_ind(self, date_start, date_end, turn=False, line_id=False):
-        # calcular indice de rechazo de la linea
-        self.ensure_one()
-        prod = self.get_product_amf_productive_line(date_start, date_end, turn)
-        reg = self.get_reg_amf_by_productive_line(date_start, date_end, turn)
-        if line_id in prod:
-            prod = prod[line_id]
-        else:
-            prod = 1
-        if line_id in reg:
-            reg = reg[line_id]
-        else:
-            reg = 0
-
-        if prod+reg > 0:
-            return round((reg / (prod+reg)) * 100.00, 3)
-        return 0

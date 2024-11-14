@@ -7,13 +7,13 @@
                     view_mode="tree,form"/> -->
 
         <record id="process_control_productive_section_action" model="ir.actions.act_window">
-            <field name="name">Modulo</field>
+            <field name="name">Módulo</field>
             <field name="res_model">process_control.productive_section</field>
             <field name="view_mode">tree,form</field>
         </record>
 
         <menuitem id="process_control_productive_section_menu"
-                  name="Modulo"
+                  name="Módulo"
                   parent="process_control_settings_menu"
                   action="process_control_productive_section_action"
                   sequence="20"
@@ -28,7 +28,7 @@
                         <group name="group_top">
                             <group name="group_left">
                                 <field name="name"/>
-                                <field name="production_id"/>
+                                <!-- <field name="production_id"/> -->
                             </group>
                             <group>
                                 <field name="tec_model_type"/>

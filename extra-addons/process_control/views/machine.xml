@@ -9,7 +9,7 @@
                     <sheet>
                         <group name="group_top">
                             <group name="group_left">
-                                <field name="name"/>
+                                <field name="name" placeholder="Tipo-Mod-línea"/>
                             </group>
                             <group>
                                 <field name="machine_type_id"/>

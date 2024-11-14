@@ -25,10 +25,11 @@
     'author': 'Yosiel Arango Arencibia',
     'category': 'Turei',
     'sequence': 2,
-    'summary': 'Control del proceso productivo de la Fábrica de Cigarros Lázaro Peña.',
-    'description': "Módulo de control de las interrupciones en el proceso productivo de la Fábrica de Cigarros Lázaro Peña.",
+    'summary': 'Control of the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba',
+    'description': """Control module for interruptions in the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba.
+    """,
     'images': [],
-    'depends': ['resource'],
+    'depends': ['resource', 'mail'],
     'data': [
         'data/machine_types.xml',
         'data/interruption_type.xml',
@@ -38,7 +39,7 @@
 
         'views/base_menu.xml',
 #        'views/db_production_connector.xml',
-        'views/turn.xml',
+        #'views/turn.xml',
         'views/machine_type.xml',
         'views/machine.xml',
         'views/interrution_type.xml',

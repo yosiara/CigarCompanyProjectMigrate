@@ -29,7 +29,7 @@
                     <field name="interruption_type"/>
                     <field name="machine_id"/>
                     <field name="set_of_peaces_id"/>
-                    <field name="time"/>
+                    <!-- <field name="time"/> -->
                 </tree>
             </field>
         </record>
