@@ -4,16 +4,15 @@
     "name": "External Database Connector",
     "summary": "Used to make connections to external databases...",
     "description": """
-External Database Connector.
-============================
-
-Used to make connections to external databases...
-""",
-    "author": "Yosiel Arango Arencibia, Holguín. Cuba.",
+        External Database Connector.
+        ============================
+        Used to make connections to external databases...
+    """,
+    "author": "Yosiel Arango Arencibia",
     # Categories can be used to filter modules in modules listing.
     # Check /odoo/addons/base/module/module_data.xml for the full list.
     "category": "Database Connector",
-    "version": "1.0",
+    "version": "17.0",
     # Any module necessary for this one to work correctly.
     "depends": [
         "base",
@@ -22,7 +21,7 @@ Used to make connections to external databases...
     # Always loaded.
     "data": [
         # Data files to load...
-        #"views/menu_view.xml",
+        "views/base_menu.xml",
         "views/external_db_source_view.xml",
         #"security/db_external_connector_security.xml",
         "security/ir.model.access.csv",

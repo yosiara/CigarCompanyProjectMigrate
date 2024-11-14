@@ -28,7 +28,7 @@
             <field name="binding_type">report</field>
         </record>
 
-        <menuitem name="Smoke Report" id="smoke_menu_act_category" parent="smoke.smoke_menu_category"
+        <menuitem name="Smoke Report" id="smoke_menu_act_category" parent="smoke_menu_category"
         action="report_act_window_wzd"/>
 
 </odoo>

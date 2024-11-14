@@ -47,7 +47,7 @@
 
     <!-- Top menu item -->
     <!-- <menuitem name="Smoke" id="smoke.menu_root"/> -->
-    <menuitem name="Concepts" id="concept_action_root" action="concept_action_window" parent="smoke_menu_act_root"/>
+    <menuitem name="Concepts" id="concept_action_root" action="concept_action_window" parent="smoke_menu_root" sequence="1"/>
 
     <!-- menu categories -->
     <!-- <menuitem name="Reports" id="smoke.menu_category" parent="smoke.menu_action_root"/> -->

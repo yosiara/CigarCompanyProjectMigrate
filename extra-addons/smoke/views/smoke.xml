@@ -70,13 +70,10 @@
 
     <!-- Top menu item -->
     <!-- <menuitem name="Smoke" id="smoke_menu_root"/> -->
-    <menuitem name="Smoke" id="smoke_menu_act_root" action="smoke_action_window"/>
+    <menuitem name="Smoke" id="smoke_menu_act_root" action="smoke_action_window" parent="smoke_menu_root" sequence="-1" />
 
     <!-- List Smoke -->
     <!-- <menuitem name="Listado de Cigarrillos" id="smoke.menu_category" parent="smoke.menu_action_root"/> -->
-
-    <!-- Reports -->
-    <menuitem name="Reports" id="smoke_menu_category" parent="smoke.smoke_menu_act_root"/>
 
 <!--  
     <menuitem name="Server to list" id="fuma" parent="fuma.menu_2"
