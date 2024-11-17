@@ -9,6 +9,5 @@ class MachineType(models.Model):
     name = fields.Char('Tipo de Máquina', size=40, required=True)
 
     _sql_constraints = [
-        ('name_uniq', 'unique(name)',
-         'EL tipo de máquina ya existe.'),
+        ('name_uniq', 'unique(name)', 'EL tipo de máquina ya existe.'),
     ]

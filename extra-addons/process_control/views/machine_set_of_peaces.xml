@@ -3,12 +3,12 @@
     <data>
         <!-- <act_window id="control_proc_set_of_peaces_action"
                     name="Subconjuntos de piezas"
-                    res_model="process_control.machine_set_of_peaces_nomenclature"
+                    res_model="process_control.machine_set_of_peaces"
                     view_mode="tree,form"/> -->
 
         <record id="control_proc_set_of_peaces_action" model="ir.actions.act_window">
             <field name="name">Subconjuntos de piezas</field>
-            <field name="res_model">process_control.machine_set_of_peaces_nomenclature</field>
+            <field name="res_model">process_control.machine_set_of_peaces</field>
             <field name="view_mode">tree,form</field>
         </record>
 
@@ -19,13 +19,18 @@
 
         <record id="control_proc_set_of_peaces_view_form" model="ir.ui.view">
             <field name="name">control_proc_set_of_peaces_view_form</field>
-            <field name="model">process_control.machine_set_of_peaces_nomenclature</field>
+            <field name="model">process_control.machine_set_of_peaces</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <group name="group_top">
-                            <field name="name"/>
-                            <field name="machine_type_id"/>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="machine_type_ids" widget="many2many_tags"/>
+                            </group>
+                            <!-- <field name="quantity" invisible="1"/> -->
                         </group>
                     </sheet>
                 </form>
@@ -34,11 +39,12 @@
 
         <record id="control_proc_set_of_peaces_view_tree" model="ir.ui.view">
             <field name="name">control_proc_set_of_peaces_view_tree</field>
-            <field name="model">process_control.machine_set_of_peaces_nomenclature</field>
+            <field name="model">process_control.machine_set_of_peaces</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="machine_type_id"/>
+                    <field name="machine_type_ids" widget="many2many_tags"/>
+                    <!-- <field name="quantity" invisible="1"/> -->
                 </tree>
             </field>
         </record>

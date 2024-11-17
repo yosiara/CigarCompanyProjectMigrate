@@ -141,7 +141,7 @@
                                                 <t t-set="total_ind_rech"
                                                    t-value="total_ind_rech + reg_ind"/>
                                                 <td t-if="reg_ind > 0" align="center">
-                                                    <t t-if="reg_ind > line.productive_section_id.productive_section_plan.indice_planif_rechazo">
+                                                    <t t-if="reg_ind > line.productive_section_id.productive_section_plan_id.indice_planif_rechazo">
                                                         <t t-raw="reg_ind"/>
                                                     </t>
                                                     <t t-else="">

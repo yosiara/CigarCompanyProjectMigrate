@@ -17,30 +17,24 @@
                             margin: -7px 0 !important;
                             }
                         </style>
-                        <group col="8">
-                            <group colspan="3">
-                                <group colspan="5">
-                                    <field name="name"/>
-                                </group>
-                                <group colspan="5">
-                                    <field name="code"/>
-                                </group>
-                                <group colspan="5">
-                                    <field name="use_in_any_machine"/>
-                                </group>
-                                <group colspan="5">
-                                    <field name="is_linked_to_machine"/>
-                                </group>
-                                <group colspan="5">
-                                    <field name="cause"/>
-                                </group>
+                        <group col="4">
+                            <group colspan="2">
+                                <field name="name"/>
+                                <field name="code"/>
                             </group>
-                            <group colspan="5">
-                                <group colspan="3" class="separator_group">
-                                    <separator string="Máquinas Asociadas"/>
-                                </group>
-                                <field name="machines_related" nolabel="1"/>
+                            <group>
+                                <field name="use_in_any_machine"/>
+                                <field name="is_linked_to_machine"/>
                             </group>
+                            <group>
+                                <field name="cause"/>
+                            </group>
+                            <!-- <group class="separator_group">
+                                <separator string="Máquinas Asociadas"/>
+                            </group> -->
+                            <group colspan="4">
+                                <field name="machines_related" widget="many2many_tags"/>
+                            </group>                       
                         </group>
                     </sheet>
                 </form>

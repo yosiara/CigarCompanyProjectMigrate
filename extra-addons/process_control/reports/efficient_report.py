@@ -26,7 +26,7 @@ class EfficientReport(models.AbstractModel):
                     "public".process_control_interruption_type.name as interruption_name,
                     "public".process_control_interruption.productive_line_id as productive_line,
                     "public".process_control_machine.name as machine_name,
-                    "public".process_control_machine_set_of_peaces_nomenclature."name" as set_of_peace,
+                    "public".process_control_machine_set_of_peaces."name" as set_of_peace,
                     frequency AS frequency,
                     "time" AS time,
                     interruption_type,
@@ -39,7 +39,7 @@ class EfficientReport(models.AbstractModel):
                 INNER JOIN "public".process_control_tecnolog_control ON "public".process_control_interruption.tec_control_model = "public".process_control_tecnolog_control."id"
                 INNER JOIN "public".process_control_interruption_type ON "public".process_control_interruption.interruption_type = "public".process_control_interruption_type."id"
                 LEFT JOIN "public".process_control_machine ON "public".process_control_interruption.machine_id = "public".process_control_machine."id"
-                LEFT JOIN "public".process_control_machine_set_of_peaces_nomenclature ON "public".process_control_interruption.set_of_peaces_id = "public".process_control_machine_set_of_peaces_nomenclature.id
+                LEFT JOIN "public".process_control_machine_set_of_peaces ON "public".process_control_interruption.set_of_peaces_id = "public".process_control_machine_set_of_peaces.id
                 """
 
         turns_domain = [('date', '<=', data['date_end']), ('date', '>=', data['date_start'])]

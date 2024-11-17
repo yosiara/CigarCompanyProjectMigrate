@@ -7,7 +7,7 @@ class ProductiveSectionLines(models.Model):
 
 
     productive_section_id = fields.Many2one(comodel_name="process_control.productive_section",
-                                            string="Módulo", required=False, )
+                                            string="Módulo", required=False)
 
     productive_line = fields.Many2one(comodel_name="process_control.productive_line", string="Línea Productiva",
                                       required=False)

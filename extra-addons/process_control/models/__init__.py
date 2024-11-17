@@ -8,7 +8,7 @@ from . import interrution_type
 from . import interruption
 from . import tecnolog_control
 from . import productive_section_plan
-from . import machine_set_of_peaces_nomenclature
+from . import machine_set_of_peaces
 from . import production_by_hours
 from . import productive_section_lines
 from . import rechazo_amf

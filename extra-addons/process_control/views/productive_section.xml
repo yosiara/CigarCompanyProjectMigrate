@@ -7,7 +7,7 @@
                     view_mode="tree,form"/> -->
 
         <record id="process_control_productive_section_action" model="ir.actions.act_window">
-            <field name="name">Módulo</field>
+            <field name="name">Módulos List</field>
             <field name="res_model">process_control.productive_section</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -31,8 +31,8 @@
                                 <!-- <field name="production_id"/> -->
                             </group>
                             <group>
-                                <field name="tec_model_type"/>
-                                <field name="productive_section_plan"/>
+                                <!-- <field name="tec_model_type"/> -->
+                                <field name="productive_section_plan_id"/>
                             </group>
                             <field name="productive_line_ids" widget="many2many_tags">
                                 <tree editable="bottom">
@@ -54,6 +54,7 @@
                     <field name="name"/>
                     <field name="tec_model_type"/>
                     <field name="productive_line_ids"/>
+                    <field name="productive_section_plan_id"/>
                 </tree>
             </field>
         </record>

@@ -25,13 +25,13 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <group name="group_top">
-                            <group name="group_left">
+                        <group col="4">
+                            <group>
                                 <field name="name"/>
                             </group>
-                        </group>
-                        <group>
-                            <field name="machine_ids"/>
+                            <group colspan="3">
+                                <field name="machine_ids" widget="many2many_tags"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>

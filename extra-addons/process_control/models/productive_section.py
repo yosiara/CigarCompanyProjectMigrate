@@ -10,7 +10,7 @@ class ProductiveSection(models.Model):
     _order = 'name'
 
     def _get_default_name(self):
-        return 'Módulo '
+        return 'Módulo # '
 
     # def _get_productions_code(self):
     #     connexion = self.env['process_control.db_production_connector'].search([], limit=1)
@@ -30,19 +30,18 @@ class ProductiveSection(models.Model):
     name = fields.Char('Nombre', size=40, required=True, copy=False, default=_get_default_name)
     # production_id = fields.Selection(string="Id producción", selection=_get_productions_code, required=False,
     #                                  help='Id en el sistema de producción.')
-    tec_model_type = fields.Selection(string="Documento/control",
-                                      selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1'), ], required=False,
-                                      default='mod')
+    # tec_model_type = fields.Selection(string="Documento/control",
+    #                                   selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1'), ], required=False,
+    #                                   default='mod')
     productive_line_ids = fields.One2many('process_control.productive_section_lines',
                                           inverse_name='productive_section_id',
                                           string='Líneas Productivas')
 
-    productive_section_plan = fields.Many2one('process_control.productive_section_plan', string='Norma plan')
+    productive_section_plan_id = fields.Many2one('process_control.productive_section_plan', string='Plan', required=True)
     active = fields.Boolean(string="Activa", default=True)
 
     _sql_constraints = [
-        ('name_uniq', 'unique(name)',
-         'El nombre del Módulo debe ser único.'),
+        ('name_uniq', 'unique(name)', 'El nombre del Módulo debe ser único.'),
     ]
 
     @api.constrains('productive_line_ids')

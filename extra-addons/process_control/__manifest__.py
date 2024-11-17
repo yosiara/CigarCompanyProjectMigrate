@@ -33,9 +33,9 @@
     'data': [
         'data/machine_types.xml',
         'data/interruption_type.xml',
-        'data/set_of_peaces.xml',
-        #'security/turei_security.xml',
-        #'security/ir.model.access.csv',
+        'data/machine_set_of_peaces.xml',
+        'security/turei_security.xml',
+        'security/ir.model.access.csv',
 
         'views/base_menu.xml',
 #        'views/db_production_connector.xml',
@@ -46,7 +46,7 @@
         'views/interruptions.xml',
         'views/productive_line.xml',
         'views/productive_section.xml',
-        'views/set_of_peaces.xml',
+        'views/machine_set_of_peaces.xml',
         'views/tecnolog_control.xml',
         'views/productive_section_plan.xml',
         'views/dashboard.xml',

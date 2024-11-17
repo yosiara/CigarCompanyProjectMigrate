@@ -7,24 +7,22 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <group name="group_top" col="8">
-                            <group colspan="4">
+                        <group col="3">
+                            <group>
                                 <field name="year"/>
-                                <field string="Sec.Productivas" name="productive_section_ids" widget="many2many_tags"/>
+                                <!-- <field name="productive_section_ids"/> -->
                                 <field name="name"/>
                                 <field name="active"/>
+                            </group>
+                            <group>
                                 <field name="productive_capacity"/>
                                 <field name="quantity_line"/>
+                                <field name="indice_planif_norma"/>
                             </group>
-                            <group colspan="4">
-                                <group colspan="4">
-                                    <field name="indice_planif_efici_real"/>
-                                    <field name="indice_planif_rechazo"/>
-                                </group>
-                                <group colspan="4">
-                                    <field name="indice_planif_disp_tec"/>
-                                    <field name="indice_planif_norma"/>
-                                </group>
+                            <group>
+                                <field name="indice_planif_efici_real"/>
+                                <field name="indice_planif_rechazo"/>
+                                <field name="indice_planif_disp_tec"/>
                             </group>
                         </group>
                     </sheet>
@@ -56,13 +54,13 @@
                     view_mode="tree,form"/> -->
 
         <record id="control_proc_productive_section_plan" model="ir.actions.act_window">
-            <field name="name">Planificación de norma e indices</field>
+            <field name="name">Planificación de norma e indicadores</field>
             <field name="res_model">process_control.productive_section_plan</field>
             <field name="view_mode">tree,form</field>
         </record>
 
         <menuitem id="control_proc_productive_section_plan_menu"
-                  name="Planificación de norma e indicadores"
+                  name="Planes"
                   parent="process_control_settings_menu"
                   action="control_proc_productive_section_plan" sequence="38"/>
     </data>

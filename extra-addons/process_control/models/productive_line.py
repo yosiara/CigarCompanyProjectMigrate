@@ -13,13 +13,12 @@ class ProductiveLine(models.Model):
     name = fields.Char('Nombre', size=40, required=True, copy=False, default=_get_default_name)
     machine_ids = fields.Many2many('process_control.machine',
                                    relation="process_control_produc_line_machine_asoc",
-                                   column1="prod_line_id", copy=False,
+                                   column1="prod_line_id", copy=False, ondelete='restrict',
                                    column2="machine_id", string='Máquinas')
     is_in_productive_section = fields.Boolean('Añadido a Módulo', compute='is_in_productive_section_check')
 
     _sql_constraints = [
-        ('name_uniq', 'unique(name)',
-         'El nombre de la línea productiva debe ser único.'),
+        ('name_uniq', 'unique(name)', 'El nombre de la línea productiva debe ser único.'),
     ]
 
     @api.model_create_multi

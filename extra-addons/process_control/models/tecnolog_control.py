@@ -21,7 +21,7 @@ class TecnologControl(models.Model):
     productive_section_id = fields.Many2one(comodel_name="process_control.productive_section",
                                          string="Módulo",
                                          required=True, ondelete='cascade')
-    productive_capacity = fields.Integer('Capacidad Productiva', required=True)
+    productive_capacity = fields.Integer('Capacidad Prod.', required=True)
     plan_time = fields.Integer('Tmpo. Plan(Horas)', required=True)
 
     def _get_default_tec_model_type(self):

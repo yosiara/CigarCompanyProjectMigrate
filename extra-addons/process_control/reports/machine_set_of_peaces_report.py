@@ -10,7 +10,7 @@ class MachineSetOfPeacesToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
         productive_sections = self.env['process_control.productive_section'].search([('active', '=', True)], order="name")
-        machine = self.env['process_control.machine_set_of_peaces_nomenclature'].search([], order="machine_type_id")
+        machine = self.env['process_control.machine_set_of_peaces'].search([], order="machine_type_id")
 
         worksheet = workbook.add_worksheet(tools.ustr("Tiempo"))
         worksheet1 = workbook.add_worksheet(tools.ustr("Frecuencia"))
@@ -94,7 +94,7 @@ class MachineSetOfPeacesByLineToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
         productive_lines = self.env['process_control.productive_section_lines'].search([], order="productive_line")
-        machine = self.env['process_control.machine_set_of_peaces_nomenclature'].search([], order="machine_type_id")
+        machine = self.env['process_control.machine_set_of_peaces'].search([], order="machine_type_id")
 
         worksheet = workbook.add_worksheet(tools.ustr("Tiempo"))
         worksheet1 = workbook.add_worksheet(tools.ustr("Frecuencia"))

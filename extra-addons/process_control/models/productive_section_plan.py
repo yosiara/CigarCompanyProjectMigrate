@@ -19,11 +19,10 @@ class ProductiveSectionPlan(models.Model):
     year = fields.Char(string="Año", required=True, default=_default_year)
     active = fields.Boolean(string="Activo", default=True)
 
-    productive_section_ids = fields.Many2many(comodel_name="process_control.productive_section", relation="process_control_productive_section_plan_relation", column1="plan_id",
-                                             column2="productive_section_plan_id", string="Secciones productivas",
-                                             required=False, )
+    productive_section_ids = fields.One2many(comodel_name="process_control.productive_section", string="Módulos",
+                                            inverse_name='productive_section_plan_id', required=False)
     name = fields.Char(string='Nombre', required=True)
-    productive_capacity = fields.Integer('Capacidad Productiva', required=True)
+    productive_capacity = fields.Integer('Capacidad Prod.', required=True)
     quantity_line = fields.Integer('Cantidad Líneas Trabajando', required=True)
 
     @api.model_create_multi
@@ -35,15 +34,15 @@ class ProductiveSectionPlan(models.Model):
             else:
                 plan.name = ' # '
 
-    @api.model
-    def create(self, vals):
-        plan_id = super(ProductiveSectionPlan, self).create(vals)
-        if plan_id.active:
-            self.search([('id', '!=', plan_id.id), ('year', '!=', plan_id.year)]).write({'active': False})
-        return plan_id
+    # @api.model
+    # def create(self, vals):
+    #     plan_id = super(ProductiveSectionPlan, self).create(vals)
+    #     if plan_id.active:
+    #         self.search([('id', '!=', plan_id.id), ('year', '!=', plan_id.year)]).write({'active': False})
+    #     return plan_id
 
-    @api.model_create_multi
-    def write(self, vals):
-        if vals.get('active'):
-            self.search([]).write({'active': False})
-        return super(ProductiveSectionPlan, self).write(vals)
+    # @api.model_create_multi
+    # def write(self, vals):
+    #     if vals.get('active'):
+    #         self.search([]).write({'active': False})
+    #     return super(ProductiveSectionPlan, self).write(vals)

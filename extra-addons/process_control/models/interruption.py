@@ -11,21 +11,17 @@ class Interruption(models.Model):
 
     name = fields.Char(string="Nombre", required=False, compute='_calc_name')
     interruption_type = fields.Many2one('process_control.interruption_type', 'Tipo', required=True)
-    machine_id = fields.Many2one('process_control.machine', 'Máquina',
-                                 # dominio vacio hasta que se escoja una seccion productiva
-                                 domain=[('id', 'in', [])])
-    set_of_peaces_id = fields.Many2one(comodel_name="process_control.machine_set_of_peaces_nomenclature",
-                                       string="Subconjunto", domain=[('id', 'in', [])],
-                                       required=False, )
+    machine_id = fields.Many2one('process_control.machine', 'Máquina', domain=[('id', 'in', [])])
+    set_of_peaces_id = fields.Many2one("process_control.machine_set_of_peaces",
+                            string="Subconjunto", domain=[('id', 'in', [])], required=False)
 
-    start_date = fields.Datetime(string="Inicio de la interrupcion", required=True)
-    end_date = fields.Datetime(string="Fin de la interrupcion", required=True)
+    start_date = fields.Float(string="Inicio", required=True)
+    end_date = fields.Float(string="Fin", required=True)
     
     #time = fields.Integer('Tiempo en minutos', required=True)
     #frequency = fields.Integer('Frecuencia', required=True)
     # modelo del control del proceso, recoge todas las interrupciones de un turno en un dia X
-    tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Documento",
-                                        required=False, )
+    tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Documento", required=False)
     productive_line_id = fields.Many2one('process_control.productive_section_lines', string='Líneas Productivas')
     productive_line_mia_id = fields.Many2one('process_control.productive_line', string='Líneas Productivas')
 
@@ -42,7 +38,7 @@ class Interruption(models.Model):
     def _onchange_machine_id(self):
         domain_interruption = self.get_domain_interruption_type()
         if self.machine_id:
-            machine_types = self.env['process_control.machine_set_of_peaces_nomenclature'].search(
+            machine_types = self.env['process_control.machine_set_of_peaces'].search(
                 [('machine_type_id', '=', self.machine_id.machine_type_id.id)])
             return {'domain': {'set_of_peaces_id': [('id', 'in', machine_types.ids)],
                                'interruption_type': domain_interruption}}
@@ -58,8 +54,7 @@ class Interruption(models.Model):
 
     def get_domain_interruption_type(self):
         if not self.machine_id:
-            interruption_types = self.env['process_control.interruption_type'].search(
-                [('is_linked_to_machine', '=', False)])
+            interruption_types = self.env['process_control.interruption_type'].search([('is_linked_to_machine', '=', False)])
             return [('id', 'in', interruption_types.ids)]
         else:
             interruption_types_ids = []
