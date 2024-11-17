@@ -25,8 +25,8 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <group name="group_top">
-                            <group name="group_left">
+                        <group col="4">
+                            <group>
                                 <field name="name"/>
                                 <!-- <field name="production_id"/> -->
                             </group>
@@ -34,11 +34,13 @@
                                 <!-- <field name="tec_model_type"/> -->
                                 <field name="productive_section_plan_id"/>
                             </group>
-                            <field name="productive_line_ids" widget="many2many_tags">
-                                <tree editable="bottom">
+                            <group colspan="2">
+                                <field name="productive_line_ids" widget="many2many_tags"/>
+                            </group>
+                                <!-- <tree editable="bottom">
                                     <field name="productive_line" context="{'productive_section':'1'}"/>
-                                </tree>
-                            </field>
+                                </tree> -->
+                            <!-- </field> -->
                         </group>
                     </sheet>
                 </form>
@@ -52,7 +54,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="tec_model_type"/>
+                    <!-- <field name="tec_model_type"/> -->
                     <field name="productive_line_ids"/>
                     <field name="productive_section_plan_id"/>
                 </tree>

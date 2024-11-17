@@ -2,14 +2,12 @@
 from odoo import api, fields, models, tools
 from odoo.exceptions import ValidationError
 
-from datetime import time
-
 class Interruption(models.Model):
     _name = "process_control.interruption"
     _description = "Interruption"
     _rec_name = 'name'
 
-    name = fields.Char(string="Nombre", required=False, compute='_calc_name')
+    name = fields.Char(string="Nombre", required=False)
     interruption_type = fields.Many2one('process_control.interruption_type', 'Tipo', required=True)
     machine_id = fields.Many2one('process_control.machine', 'Máquina', domain=[('id', 'in', [])])
     set_of_peaces_id = fields.Many2one("process_control.machine_set_of_peaces",
@@ -22,9 +20,9 @@ class Interruption(models.Model):
     #frequency = fields.Integer('Frecuencia', required=True)
     # modelo del control del proceso, recoge todas las interrupciones de un turno en un dia X
     tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Documento", required=False)
-    productive_line_id = fields.Many2one('process_control.productive_section_lines', string='Líneas Productivas')
-    productive_line_mia_id = fields.Many2one('process_control.productive_line', string='Líneas Productivas')
-
+    productive_line_id = fields.Many2one('process_control.productive_section_lines', string='Líneas Prod.')
+    productive_line_mia_id = fields.Many2one('process_control.productive_line', string='Líneas Prod.')
+    
     @api.onchange('productive_line_id')
     def _onchange_productive_line(self):
         self.machine_id = False
@@ -69,16 +67,16 @@ class Interruption(models.Model):
 
             return [('id', 'in', interruption_types_ids)]
 
-    @api.model_create_multi
-    @api.depends('interruption_type', 'machine_id')
-    def _calc_name(self):
-        for intp in self:
-            if intp.interruption_type.name and intp.machine_id.name:
-                intp.name = tools.ustr(intp.interruption_type.name) + '-' + tools.ustr(intp.machine_id.name)
-            elif intp.interruption_type.name and not intp.machine_id.name:
-                intp.name = tools.ustr(intp.interruption_type.name)
-            elif not intp.interruption_type.name and intp.machine_id.name:
-                intp.name = tools.ustr(intp.machine_id.name)
+    # @api.model_create_multi
+    # @api.depends('interruption_type', 'machine_id')
+    # def _calc_name(self):
+    #     for intp in self:
+    #         if intp.interruption_type.name and intp.machine_id.name:
+    #             intp.name = tools.ustr(intp.interruption_type.name) + '-' + tools.ustr(intp.machine_id.name)
+    #         elif intp.interruption_type.name and not intp.machine_id.name:
+    #             intp.name = tools.ustr(intp.interruption_type.name)
+    #         elif not intp.interruption_type.name and intp.machine_id.name:
+    #             intp.name = tools.ustr(intp.machine_id.name)
 
     @api.model_create_multi
     @api.constrains('time')

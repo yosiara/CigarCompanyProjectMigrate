@@ -34,8 +34,8 @@
         'data/machine_types.xml',
         'data/interruption_type.xml',
         'data/machine_set_of_peaces.xml',
-        'security/turei_security.xml',
-        'security/ir.model.access.csv',
+        # 'security/turei_security.xml',
+        # 'security/ir.model.access.csv',
 
         'views/base_menu.xml',
 #        'views/db_production_connector.xml',
