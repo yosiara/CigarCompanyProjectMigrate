@@ -12,11 +12,11 @@
 # from . import wzd_efficiency_cdt_excel_report
 # #from . import wdz_resume_time_frequency
 # from . import wdz_compliance_planned_efficiency
-# from . import wdz_compliance_planned_cdt
+from . import wdz_compliance_planned_cdt
 # from . import wzd_machine_set_of_peaces
 # from . import wzd_bd_production_hours
 # from . import wzd_statistical_results
 # from . import wzd_production_rejection
 # from . import wdz_resume_time_frequency_n
-
+#from . import test_report
 

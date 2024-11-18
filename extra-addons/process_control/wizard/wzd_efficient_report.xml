@@ -45,10 +45,10 @@
 
         <record id="wzd_efficient_report_act_window" model="ir.actions.act_window">
             <field name="name">Reporte de eficiencia</field>
-            <field name="type">ir.actions.act_window</field>
             <field name="res_model">process_control.efficient_report_wzd</field>
-            <field name="binding_view_types">form</field>
+            <field name="binding_type">report</field>
             <field name="view_mode">form</field>
+            <field name="binding_model_id" ref="model_process_control_efficient_report_wzd" />
             <field name="target">new</field>
         </record>
 

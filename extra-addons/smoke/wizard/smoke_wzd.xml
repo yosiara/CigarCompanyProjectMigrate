@@ -24,7 +24,7 @@
             <field name="res_model">smoke.wzd</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
-            <field name="binding_model_id" ref="smoke.model_smoke_wzd" />
+            <field name="binding_model_id" ref="model_smoke_wzd" />
             <field name="binding_type">report</field>
         </record>
 

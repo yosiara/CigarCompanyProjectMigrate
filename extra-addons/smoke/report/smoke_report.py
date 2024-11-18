@@ -11,7 +11,7 @@ import re
 _logger = logging.getLogger(__name__)
 
 
-class ReportSmoke(models.TransientModel):
+class ReportSmoke(models.AbstractModel):
     _name = "report.smoke.report_smoke"
     _description = "Smoke Report"
 

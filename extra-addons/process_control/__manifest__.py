@@ -63,12 +63,13 @@
         # 'wizard/wzd_efficiency_cdt_excel_report.xml',
         # #'wizard/wdz_resume_time_frequency.xml',
         # 'wizard/wdz_compliance_planned_efficiency.xml',
-        # 'wizard/wdz_compliance_planned_cdt.xml',
+        'wizard/wdz_compliance_planned_cdt.xml',
         # 'wizard/wzd_machine_set_of_peaces.xml',
         # 'wizard/wzd_bd_production_hours.xml',
         # 'wizard/wzd_statistical_results.xml',
         # 'wizard/wzd_production_rejection.xml',
         # 'wizard/wdz_resume_time_frequency_n.xml',
+        #'wizard/test_report.xml',
 
 
         # 'reports/efficient_report.xml',
@@ -83,7 +84,7 @@
         # 'reports/efficiency_cdt_excel_report.xml',
         # 'reports/resume_time_frequency_report.xml',
         # 'reports/compliance_planned_efficiency.xml',
-        # 'reports/compliance_planned_cdt.xml',
+        'reports/xlsx/compliance_planned_cdt.xml',
         # 'reports/machine_set_of_peaces_report.xml',
         # 'reports/bd_production_hours_report.xml',
         # 'reports/statistical_results_report.xml',
@@ -96,4 +97,9 @@
     'application': True,
     'auto_install': False,
     'css': [],
+    'assets': {
+        'web.assets_backend': [
+            'process_control/static/src/js/report_handler.js',
+        ],
+    },
 }
