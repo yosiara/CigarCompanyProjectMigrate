@@ -23,8 +23,8 @@
                                 <field name="code"/>
                             </group>
                             <group>
-                                <field name="use_in_any_machine"/>
-                                <field name="is_linked_to_machine"/>
+                                <field name="use_in_any_machine" widget="boolean_toggle"/>
+                                <field name="is_linked_to_machine" widget="boolean_toggle"/>
                             </group>
                             <group>
                                 <field name="cause"/>
@@ -48,9 +48,9 @@
                 <tree>
                     <field name="name"/>
                     <field name="code"/>
-                    <field name="use_in_any_machine"/>
-                    <field name="is_linked_to_machine"/>
-                    <field name="machines_related"/>
+                    <field name="use_in_any_machine" widget="boolean_toggle"/>
+                    <field name="is_linked_to_machine" widget="boolean_toggle"/>
+                    <field name="machines_related" widget="many2many_tags"/>
                 </tree>
             </field>
         </record>

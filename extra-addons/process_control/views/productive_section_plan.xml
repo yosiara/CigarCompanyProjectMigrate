@@ -12,7 +12,7 @@
                                 <field name="year"/>
                                 <!-- <field name="productive_section_ids"/> -->
                                 <field name="name"/>
-                                <field name="active"/>
+                                <field name="active" widget="boolean_toggle"/>
                             </group>
                             <group>
                                 <field name="productive_capacity"/>
@@ -37,7 +37,7 @@
                 <tree>
                     <field name="year"/>
                     <field name="name"/>
-                    <field name="active"/>
+                    <field name="active" widget="boolean_toggle"/>
                     <field name="productive_capacity"/>
                     <field name="quantity_line"/>
                     <field name="indice_planif_efici_real"/>

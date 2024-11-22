@@ -15,12 +15,12 @@ class Machine(models.Model):
     machine_type_id = fields.Many2one('process_control.machine_type', string='Tipo de máquina', required=True)
     productive_section_id = fields.Many2one('process_control.productive_section', string='Módulo', required=True)
     set_of_peaces = fields.Many2many('process_control.machine_set_of_peaces',
-                            relation="machine_machine_set_of_peaces", copy=True, required=True, ondelete='restrict',
+                            relation="process_control_machine_machine_set_of_peaces_asoc", copy=True, required=True, ondelete='restrict',
                             column1='machine_id', column2='machine_set_of_peaces_id', string='Subconjuntos de piezas')
 
     _sql_constraints = [
         ('name_uniq', 'unique(name)',
-        'Este tipo de máquina ya existe en este módulo.'),
+        'Este tipo de máquina ya existe en esta línea y/o módulo.'),
     ]
 
     # @api.constrains('name')

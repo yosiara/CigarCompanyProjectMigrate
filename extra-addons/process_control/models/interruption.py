@@ -28,7 +28,7 @@ class Interruption(models.Model):
         self.machine_id = False
         if self.productive_line_id:
             return {'domain': {'machine_id': [('id', 'in', self.productive_line_id.productive_line.machine_ids.ids)]}}
-        self._cr.execute("SELECT machine_id FROM process_control_produc_line_machine_asoc")
+        self._cr.execute("SELECT machine_id FROM process_control_productive_line_machine_asoc")
         machines_in_line = self._cr.fetchall()
         return {'domain': {'machine_id': [('id', 'not in', machines_in_line),('productive_section_id', '=',  self.tecnolog_control_id.productive_section_id.id)]}}
 

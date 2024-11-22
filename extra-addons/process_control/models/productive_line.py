@@ -12,8 +12,8 @@ class ProductiveLine(models.Model):
 
     name = fields.Char('Nombre', size=40, required=True, copy=False, default=_get_default_name)
     machine_ids = fields.Many2many('process_control.machine',
-                                   relation="process_control_produc_line_machine_asoc",
-                                   column1="prod_line_id", copy=False, ondelete='restrict',
+                                   relation="process_control_productive_line_machine_asoc",
+                                   column1="productive_line_id", copy=False,
                                    column2="machine_id", string='Máquinas')
     is_in_productive_section = fields.Boolean('Añadido a Módulo', compute='is_in_productive_section_check')
 

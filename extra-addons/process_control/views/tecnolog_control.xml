@@ -132,7 +132,7 @@
                                             Se capta la producción y rechazo de las máquinas 'NANO', 'SBO', 'SRC'
                                         </div> -->
 
-                                        <tree editable="bottom">
+                                        <tree>
                                             <field name="productive_line_id"/>
                                                    <!-- domain="[('productive_section_id', '=', parent.productive_section_id)]"/> -->
                                             <field name="machine_id"/>
@@ -149,30 +149,29 @@
                                         </tree>
 
                                         <form>
-                                            <group col="8">
-                                                <group colspan="4">
+                                            <group>
+                                                <group>
                                                     <field name="productive_line_id"
                                                            domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
-                                                </group>
-                                                <group colspan="4">
                                                     <field name="machine_id"/>
-                                                    <!-- <field name="machine_type_id" invisible="1"/> -->
-                                                    <!-- <field name="machine_type_name" invisible="1"/> -->
-                                                </group>
-                                            </group>
-                                            <group col="8">
-                                                <group colspan="4">
                                                     <field name="produccion_en_cigarrillos"/>
+                                                </group>
+                                                <!-- <group colspan="4">
+                                                    <field name="machine_type_id" invisible="1"/>
+                                                    <field name="machine_type_name" invisible="1"/>
+                                                </group> -->
+                                                <!-- <group> -->
+                                                <group>
                                                            <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
                                                     <field name="rechazo_en_cigarrillos"/>
                                                            <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
-                                                </group>
-                                                <group colspan="4">
                                                     <field name="produccion_en_cajones"/>
-                                                           <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
                                                     <field name="rechazo_en_cajetillas"/>
-                                                           <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
                                                 </group>
+                                                <!-- <group colspan="4">
+                                                           invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
+                                                           <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
+                                                </group> -->
                                             </group>
                                         </form>
                                     </field>
