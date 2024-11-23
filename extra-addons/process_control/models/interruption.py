@@ -8,13 +8,13 @@ class Interruption(models.Model):
     _rec_name = 'name'
 
     name = fields.Char(string="Nombre", required=False)
-    interruption_type = fields.Many2one('process_control.interruption_type', 'Tipo', required=True)
+    interruption_type = fields.Many2one('process_control.interruption_type', 'Tipo *', required=True)
     machine_id = fields.Many2one('process_control.machine', 'Máquina', domain=[('id', 'in', [])])
     set_of_peaces_id = fields.Many2one("process_control.machine_set_of_peaces",
                             string="Subconjunto", domain=[('id', 'in', [])], required=False)
 
-    start_date = fields.Float(string="Inicio", required=True)
-    end_date = fields.Float(string="Fin", required=True)
+    start_date = fields.Float(string="Inicio *", required=True)
+    end_date = fields.Float(string="Fin *", required=True)
     
     #time = fields.Integer('Tiempo en minutos', required=True)
     #frequency = fields.Integer('Frecuencia', required=True)

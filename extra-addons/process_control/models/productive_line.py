@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, tools
+from odoo.exceptions import ValidationError
 
 
 class ProductiveLine(models.Model):
@@ -10,11 +11,9 @@ class ProductiveLine(models.Model):
     def _get_default_name(self):
         return 'Línea # '
 
-    name = fields.Char('Nombre', size=40, required=True, copy=False, default=_get_default_name)
-    machine_ids = fields.Many2many('process_control.machine',
-                                   relation="process_control_productive_line_machine_asoc",
-                                   column1="productive_line_id", copy=False,
-                                   column2="machine_id", string='Máquinas')
+    name = fields.Char('Nombre *', size=40, required=True, copy=False, default=_get_default_name)
+    machine_ids = fields.One2many('process_control.machine', string='Máquinas', inverse_name="productive_line_id")
+    # productive_section_id = fields.Many2one('process_control.productive_section', string='Módulo')
     is_in_productive_section = fields.Boolean('Añadido a Módulo', compute='is_in_productive_section_check')
 
     _sql_constraints = [

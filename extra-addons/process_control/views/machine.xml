@@ -10,6 +10,7 @@
                     <field name="name"/>
                     <field name="machine_type_id"/>
                     <field name="productive_section_id"/>
+                    <field name="productive_line_id"></field>
                     <templates>
                         <t t-name="kanban-box">
                             <div t-attf-class="oe_kanban_global_click">
@@ -21,8 +22,13 @@
                                         <span class="badge rounded-pill"><t t-out="record.productive_section_id.value"/></span>
                                     </div>
                                 </div>
-                                <div>
-                                    <strong>Type: </strong><t t-out="record.machine_type_id.value"/>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <strong>Type: </strong><t t-out="record.machine_type_id.value"/>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        <span class="badge rounded-pill"> <t t-out="record.productive_line_id.value"/></span>
+                                    </div>
                                 </div>
                             </div>
                         </t>
@@ -37,15 +43,18 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <group col="3">
+                        <group col="4">
                             <group>
-                                <field name="name" readonly="1"/>
+                                <field name="name" placeholder="Type-Module-Line"/>
                             </group>
                             <group>
                                 <field name="machine_type_id"/>
                             </group>
                             <group>
                                 <field name="productive_section_id"/>
+                            </group>
+                            <group>
+                                <field name="productive_line_id"/>
                             </group>
                         </group>
                         <group>
@@ -85,6 +94,7 @@
                     <field name="name"/>
                     <field name="machine_type_id"/>
                     <field name="productive_section_id"/>
+                    <field name="productive_line_id"/>
                 </tree>
             </field>
         </record>

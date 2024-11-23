@@ -27,34 +27,34 @@ class ProductiveSection(models.Model):
     #             pass
     #     return res
 
-    name = fields.Char('Nombre', size=40, required=True, copy=False, default=_get_default_name)
+    name = fields.Char('Nombre *', size=40, required=True, copy=False, default=_get_default_name)
     # production_id = fields.Selection(string="Id producción", selection=_get_productions_code, required=False,
     #                                  help='Id en el sistema de producción.')
     # tec_model_type = fields.Selection(string="Documento/control",
     #                                   selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1'), ], required=False,
     #                                   default='mod')
-    productive_line_ids = fields.One2many('process_control.productive_section_lines',
-                                          inverse_name='productive_section_id',
-                                          string='Líneas Productivas')
+    # productive_line_ids = fields.One2many('process_control.productive_line',
+    #                                       inverse_name='productive_section_id',
+    #                                       string='Líneas Productivas')
 
-    productive_section_plan_id = fields.Many2one('process_control.productive_section_plan', string='Plan', required=True)
+    productive_section_plan_id = fields.Many2one('process_control.productive_section_plan', string='Plan *', required=True)
     active = fields.Boolean(string="Activa", default=True)
 
     _sql_constraints = [
         ('name_uniq', 'unique(name)', 'El nombre del Módulo debe ser único.'),
     ]
 
-    @api.constrains('productive_line_ids')
-    def check_productive_line_just_in_one_section(self):
-        for productive_section_lines in self.productive_line_ids:
-            lines_in_system = self.env['process_control.productive_section_lines'].search(
-                [('productive_line.id', '=', productive_section_lines.productive_line.id)], limit=2)
-            if len(lines_in_system) > 1:
-                raise ValidationError(
-                    u'La línea productiva: "' + tools.ustr(
-                        productive_section_lines.productive_line.name)
-                    + u'" ya ha sido añadida en la Modulo: "' +
-                    tools.ustr(lines_in_system[0].productive_section_id.name) + '"')
+    # @api.constrains('productive_line_ids')
+    # def check_productive_line_just_in_one_section(self):
+    #     for productive_section_lines in self.productive_line_ids:
+    #         lines_in_system = self.env['process_control.productive_section_lines'].search(
+    #             [('productive_line.id', '=', productive_section_lines.productive_line.id)], limit=2)
+    #         if len(lines_in_system) > 1:
+    #             raise ValidationError(
+    #                 u'La línea productiva: "' + tools.ustr(
+    #                     productive_section_lines.productive_line.name)
+    #                 + u'" ya ha sido añadida en la Modulo: "' +
+    #                 tools.ustr(lines_in_system[0].productive_section_id.name) + '"')
 
     def calculate_cdt(self, date_start=None, date_end=None, turn=None):
         self.ensure_one()
