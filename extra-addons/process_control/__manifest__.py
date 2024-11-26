@@ -39,7 +39,7 @@
 
         'views/base_menu.xml',
 #        'views/db_production_connector.xml',
-        #'views/turn.xml',
+        'views/turn.xml',
         'views/machine_type.xml',
         'views/machine.xml',
         'views/interrution_type.xml',

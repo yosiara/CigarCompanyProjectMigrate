@@ -45,9 +45,9 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${CONTAINER_PASSWORD}
-  #   volumes:
-  #     - pgadmin-odoo-data:/var/lib/pgadmin
-  #   restart: always
+    # volumes:
+    #   - pgadmin-odoo-data:/var/lib/pgadmin
+    restart: always
 
 # volumes:
 #   odoo-data:

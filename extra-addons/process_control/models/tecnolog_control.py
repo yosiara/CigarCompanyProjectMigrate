@@ -14,13 +14,12 @@ class TecnologControl(models.Model):
     date = fields.Date(string="Fecha", required=True, copy=True, default=fields.Date.today)
     year_char = fields.Char(string=u"Año", required=False)
     day_char = fields.Char(string=u"Día", required=False)
-    turn_calendar_id = fields.Many2one(comodel_name="resource.calendar", string="Turno", required=True, copy=True)
+    turn_id = fields.Many2one(comodel_name="process_control.turn", string="Turno", required=True, copy=True)
 
-    attendance_id = fields.Many2one('resource.calendar.attendance', string='Sesión', copy=True)
+    turn_attendance_id = fields.Many2one('process_control.turn_attendance', string='Sesión', copy=True)
+    turn_attendance_domain = fields.Binary(default=[])
 
-    productive_section_id = fields.Many2one(comodel_name="process_control.productive_section",
-                                         string="Módulo",
-                                         required=True, ondelete='cascade')
+    productive_section_id = fields.Many2one(comodel_name="process_control.productive_section", string="Módulo", required=True, ondelete='cascade')
     productive_capacity = fields.Integer('Capacidad Prod.', required=True)
     plan_time = fields.Integer('Tmpo. Plan(Horas)', required=True)
 
@@ -28,30 +27,23 @@ class TecnologControl(models.Model):
         if self.productive_section_id:
             self.tec_model_type = self.productive_section_id.tec_model_type
 
-    tec_model_type = fields.Selection(string="Documento/control", default=_get_default_tec_model_type,
-                                      selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1')])
+    tec_model_type = fields.Selection(string="Documento/control", selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1')], default=_get_default_tec_model_type)
 
-    interruption_ids = fields.One2many(comodel_name="process_control.interruption", inverse_name="tecnolog_control_id",
-                                    string="Interrupciones", required=False, ondelete='cascade')
+    interruption_ids = fields.One2many(comodel_name="process_control.interruption", inverse_name="tecnolog_control_id", string="Interrupciones", required=False, ondelete='cascade')
 
-    production_by_hours_ids = fields.One2many(comodel_name="process_control.production_by_hours",
-                                              inverse_name="tecnolog_control_id",
-                                              string="Produccion Horaria", required=False)
+    production_by_hours_ids = fields.One2many(comodel_name="process_control.production_by_hours", inverse_name="tecnolog_control_id", string="Produccion Horaria", required=False)
 
     # production_in_production_system = fields.Float(string="Prod. Sistema prod.", readonly=True,
     #                                                compute="get_production_in_production_system",
     #                                                help="Muestra producción registraba en el sistema de producción.")
 
-    production_in_proccess_control = fields.Float(string="Prod calculada en el sistema.", readonly=True, store=True,
-                                                  compute='_compute_total_prod')
+    production_in_proccess_control = fields.Float(string="Prod. calculada en el sistema.", readonly=True, store=True, compute='_compute_total_prod')
 
     # rechazo_amf_ids = fields.One2many(comodel_name="process_control.rechazo_amf",
     #                              inverse_name="tecnolog_control_id",
     #                              string="Rechazo de las AMF", required=False)
 
-    rechazo_mod1_ids = fields.One2many(comodel_name="process_control.rechazo_mod1",
-                                          inverse_name="tecnolog_control_id",
-                                          string="Rechazo 'NANO', 'SBO', 'SRC'", required=False)
+    rechazo_mod1_ids = fields.One2many(comodel_name="process_control.rechazo_mod1", inverse_name="tecnolog_control_id", string="Rechazo 'NANO', 'SBO', 'SRC'", required=False)
 
     name = fields.Char(string="Nombre", required=False, compute='_calc_name')
 
@@ -60,15 +52,15 @@ class TecnologControl(models.Model):
     #                     ('attendance_in_productive_uniq', 'unique(date,productive_section_id,attendance_id)',
     #                      "Ya existe un modelo registrado para esa Sesión en la fecha seleccionada.")]
 
-    @api.model
-    def default_get(self, fields):
-        res = super(TecnologControl, self).default_get(fields)
-        rec_last = self.search([], order='id desc', limit=1)
-        if rec_last:
-            res["date"] = rec_last.date
-            res["turn_calendar_id"] = rec_last.turn_calendar_id.id
-            res["attendance_id"] = rec_last.attendance_id.id
-        return res
+    # @api.model
+    # def default_get(self, fields):
+    #     res = super(TecnologControl, self).default_get(fields)
+    #     rec_last = self.search([], order='id desc', limit=1)
+    #     if rec_last:
+    #         res["date"] = rec_last.date
+    #         res["turn_calendar_id"] = rec_last.turn_calendar_id.id
+    #         res["attendance_id"] = rec_last.attendance_id.id
+    #     return res
 
     # @api.depends('date')
     # def _compute_year_char(self):
@@ -104,38 +96,50 @@ class TecnologControl(models.Model):
     #             'Producción registrada no coincide con la registrada en el sistema de producción.')
     #         # raise ValidationError('Producción registrada no coincide con la registrada en el sistema de producción.')
 
-    @api.depends('turn_calendar_id', 'productive_section_id', 'date')
-    def get_production_in_production_system(self):
-        if self.turn_calendar_id and self.productive_section_id and self.date:
-            connexion = self.env['db_external_connector'].search([('application', '=', 'sgp')], limit=1)
-            connexion.ensure_one()
-            res = []
-            self.production_in_production_system = 0
-            if connexion:
-                try:
-                    cursor = connexion.connect().cursor()
-                    query = """SELECT SUM(cantidad_producida) FROM pt_produccion_terminada
-    WHERE id_modulo = %d AND id_turno = %d and fecha = '%s'""" % (
-                        int(self.productive_section_id.production_id), self.turn_calendar_id.sgp_turn_id, self.date)
-                    cursor.execute(query)
-                    for row in cursor:
-                        self.production_in_production_system = row[0]
-                except Exception:
-                    pass
+    # @api.depends('turn_calendar_id', 'productive_section_id', 'date')
+    # def get_production_in_production_system(self):
+    #     if self.turn_calendar_id and self.productive_section_id and self.date:
+    #         connexion = self.env['db_external_connector'].search([('application', '=', 'sgp')], limit=1)
+    #         connexion.ensure_one()
+    #         res = []
+    #         self.production_in_production_system = 0
+    #         if connexion:
+    #             try:
+    #                 cursor = connexion.connect().cursor()
+    #                 query = """SELECT SUM(cantidad_producida) FROM pt_produccion_terminada
+    # WHERE id_modulo = %d AND id_turno = %d and fecha = '%s'""" % (
+    #                     int(self.productive_section_id.production_id), self.turn_calendar_id.sgp_turn_id, self.date)
+    #                 cursor.execute(query)
+    #                 for row in cursor:
+    #                     self.production_in_production_system = row[0]
+    #             except Exception:
+    #                 pass
 
     def _calc_name(self):
         for doc in self:
             doc.name = "Documento de control"
 
-    # @api.onchange('turn_calendar_id')
-    # def get_attendance_ids(self):
-    #     if self.turn_calendar_id.id:
-    #         attendace_ids = self.env['resource.calendar.attendance'].search([('calendar_id.id', '=', self.turn_calendar_id.id)])
-    #         print(len(attendace_ids))
-    #         # self.attendance_id = False
-    #         return {'domain': {'attendance_id': [('id', 'in', attendace_ids.ids)]}}
-    #     return {'domain': {'attendance_id': [('calendar_id', 'in', [])]}}
+    @api.onchange("turn_id")
+    def _onchange_turn_id(self):
+        if self.turn_id:
+            self.turn_attendance_domain = [('turn_id', '=', self.turn_id.id)]
+        #return {'domain': {'attendance_id': [('calendar_id', '=', 4)]}}
 
+    # def _create_domain(self, fname, value):
+    #     if not fname == 'account_prefix':
+    #         return super()._create_domain(fname, value)
+
+    # @api.onchange('turn_calendar_id')
+    # def _onchange_turn_calendar_id(self):
+    #     if self.turn_calendar_id:
+    #         #attendace_ids = self.env['resource.calendar.attendance'].search([('calendar_id', '=', self.turn_calendar_id.id)])
+    #         #print(len(attendace_ids))
+    #         # self.attendance_id = False
+    #         #domains = {'domain': {'attendance_id': [('calendar_id', '=', self.turn_calendar_id.id)]}}
+            
+    #         #print(domains)
+    #         return super(TecnologControl, self.attendance_id).filtered_domain(domain=[('calendar_id', '=', self.turn_calendar_id.id)])
+    #     return {'domain': {'attendance_id': [('calendar_id', 'in', [])]}}
 
     # @api.model_create_multi
     # @api.onchange('attendance_id')

@@ -1,10 +1,72 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <menuitem action="resource.action_resource_calendar_form" id="menu_turei_resource_calendar"
-                  parent="process_control.process_control_settings_menu" sequence="1"/>
 
-        <record id="resource_calendar_form_inherit" model="ir.ui.view">
+        <record id="turn_view_form" model="ir.ui.view">
+                <field name="name">turn.form</field>
+                <field name="model">process_control.turn</field>
+                <field name="arch" type="xml">
+                    <form string="Working Time">
+                        <sheet string="Working Time">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                            <separator/>
+                            <notebook>
+                                <page string="Working Hours" name="working_hours">
+                                    <field name="turn_attendance_ids" widget="section_one2many">
+                                        <tree string="Working Time" editable="bottom" multi_edit="1">
+                                            <field name="name"/>
+                                            <field name="hour_from" widget="float_time"/>
+                                            <field name="hour_to" widget="float_time"/>
+                                        </tree>
+                                        <!-- <form string="Working Time">
+                                            <sheet>
+                                                <group>
+                                                    <group>
+                                                        <field name="name"/>
+                                                        <field name="turn_id"/>
+                                                    </group>
+                                                    <label for="hour_from" string="Hours"/>
+                                                    <group>
+                                                        <field name="hour_from" widget="float_time"/>
+                                                        <field name="hour_to" widget="float_time"/>
+                                                    </group>
+                                                </group>
+                                            </sheet>
+                                        </form> -->
+                                    </field>
+                                </page>
+                            </notebook>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+
+            <record id="view_turn_tree" model="ir.ui.view">
+                <field name="name">turn.tree</field>
+                <field name="model">process_control.turn</field>
+                <field name="arch" type="xml">
+                    <tree string="Working Time">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record id="action_turn_form" model="ir.actions.act_window">
+                <field name="name">Working Turns</field>
+                <field name="res_model">process_control.turn</field>
+                <field name="view_mode">tree,form</field>
+                <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Define working hours and time table that could be scheduled to your project members
+                </p>
+                </field>
+            </record>
+            
+            <menuitem action="action_turn_form" id="menu_turn" parent="process_control_settings_menu" sequence="1"/>
+
+        <!-- <record id="resource_calendar_form_inherit" model="ir.ui.view">
             <field name="name">resource.calendar.form</field>
             <field name="model">resource.calendar</field>
             <field name="inherit_id" ref="resource.resource_calendar_form"/>
@@ -18,16 +80,10 @@
                 <field name="name" position="after">
                     <field name="description"/>
                 </field>
-                <!-- <field name="manager" position="attributes">
-                    <attribute name="string">Responsible</attribute>
-                </field>
-                <field name="leave_ids" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </field> -->
             </field>
-        </record>
+        </record> -->
 
-        <record id="resource_calendar_tree" model="ir.ui.view">
+        <!-- <record id="resource_calendar_tree" model="ir.ui.view">
             <field name="name">resource.calendar.tree</field>
             <field name="model">resource.calendar</field>
             <field name="inherit_id" ref="resource.view_resource_calendar_tree"/>
@@ -36,13 +92,10 @@
                     <field name="name"/>
                     <field name="description"/>
                 </field>
-                <!-- <field name="manager" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </field> -->
             </field>
-        </record>
+        </record> -->
 
-        <record model="ir.ui.view" id="resource_calendar_search">
+        <!-- <record model="ir.ui.view" id="resource_calendar_search">
             <field name="name">resource.view_resource_calendar_search_modificado</field>
             <field name="inherit_id" ref="resource.view_resource_calendar_search"/>
             <field name="model">resource.calendar</field>
@@ -76,6 +129,6 @@
                     <attribute name="invisible">True</attribute>
                 </field>
             </field>
-        </record>
+        </record> -->
     </data>
 </odoo>

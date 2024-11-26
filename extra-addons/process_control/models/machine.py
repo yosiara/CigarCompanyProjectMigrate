@@ -30,15 +30,16 @@ class Machine(models.Model):
             match = self.search([("productive_line_id", "=", self.productive_line_id.id), ("productive_section_id", "!=", self.productive_section_id.id)], limit=1)
             if match:
                 raise ValidationError(_(f"La línea {self.productive_line_id.name} ha sido asociada al módulo {match.productive_section_id.name}, por lo tanto solo puede contener máquinas de dicho módulo"))
-            #m_line_type = self.search([("productive_line_id", "=", self.productive_line_id.id)], limit=1)
-            match = self.search([("productive_line_id", "=", self.productive_line_id.id), ("machine_type_id", "=", self.machine_type_id.id), ("productive_section_id", "=", self.productive_section_id.id)], limit=1)
+
+            match = self.search([("id", "!=", self.id),("productive_line_id", "=", self.productive_line_id.id), ("machine_type_id", "=", self.machine_type_id.id), ("productive_section_id", "=", self.productive_section_id.id)], limit=1)
             if match:
                 raise ValidationError(_(f"La línea {self.productive_line_id.name} ya tiene asociada una máquina del tipo {match.machine_type_id.name}"))
 
     @api.onchange('machine_type_id')
     def _onchange_machine_type_id(self):
         if self.machine_type_id:
-            self.set_of_peaces = self.set_of_peaces.search([('machine_type_ids.id', '=', self.machine_type_id.id)])
+            self.set_of_peaces = self.set_of_peaces.search([('machine_type_ids', '=', self.machine_type_id.id)])
+
 
     # @api.model_create_multi
     # def create(self, vals_list):
