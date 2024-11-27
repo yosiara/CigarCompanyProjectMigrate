@@ -11,23 +11,23 @@ class TecnologControl(models.Model):
     _inherit = ["mail.activity.mixin", "mail.thread"]
     #_translate = False
 
-    date = fields.Date(string="Fecha", required=True, copy=True, default=fields.Date.today)
-    year_char = fields.Char(string=u"Año", required=False)
-    day_char = fields.Char(string=u"Día", required=False)
-    turn_id = fields.Many2one(comodel_name="process_control.turn", string="Turno", required=True, copy=True)
+    date = fields.Date(string="Fecha *", required=True, copy=True, default=fields.Date.today)
+    # year_char = fields.Char(string=u"Año", required=False)
+    # day_char = fields.Char(string=u"Día", required=False)
+    turn_id = fields.Many2one(comodel_name="process_control.turn", string="Turno *", required=True, copy=True)
 
-    turn_attendance_id = fields.Many2one('process_control.turn_attendance', string='Sesión', copy=True)
-    turn_attendance_domain = fields.Binary(default=[])
+    turn_attendance_id = fields.Many2one('process_control.turn_attendance', string='Sesión *', copy=True, required=True)
+    turn_attendance_domain = fields.Binary(compute="_compute_turn_attendance_domain", exportable=False)
 
-    productive_section_id = fields.Many2one(comodel_name="process_control.productive_section", string="Módulo", required=True, ondelete='cascade')
-    productive_capacity = fields.Integer('Capacidad Prod.', required=True)
-    plan_time = fields.Integer('Tmpo. Plan(Horas)', required=True)
+    productive_section_id = fields.Many2one(comodel_name="process_control.productive_section", string="Módulo *", required=True, ondelete='cascade')
+    productive_capacity = fields.Integer('Capacidad Prod. *', required=True)
+    plan_time = fields.Integer('Tmpo. Plan(Horas) *', required=True)
 
-    def _get_default_tec_model_type(self):
-        if self.productive_section_id:
-            self.tec_model_type = self.productive_section_id.tec_model_type
+    # def _get_default_tec_model_type(self):
+    #     if self.productive_section_id:
+    #         self.tec_model_type = self.productive_section_id.tec_model_type
 
-    tec_model_type = fields.Selection(string="Documento/control", selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1')], default=_get_default_tec_model_type)
+    # tec_model_type = fields.Selection(string="Documento/control", selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1')], default=_get_default_tec_model_type)
 
     interruption_ids = fields.One2many(comodel_name="process_control.interruption", inverse_name="tecnolog_control_id", string="Interrupciones", required=False, ondelete='cascade')
 
@@ -119,11 +119,12 @@ class TecnologControl(models.Model):
         for doc in self:
             doc.name = "Documento de control"
 
-    @api.onchange("turn_id")
-    def _onchange_turn_id(self):
+    @api.depends("turn_id")
+    def _compute_turn_attendance_domain(self):
         if self.turn_id:
             self.turn_attendance_domain = [('turn_id', '=', self.turn_id.id)]
-        #return {'domain': {'attendance_id': [('calendar_id', '=', 4)]}}
+        else:
+            self.turn_attendance_domain = [('turn_id', '=', False)]
 
     # def _create_domain(self, fname, value):
     #     if not fname == 'account_prefix':
@@ -213,24 +214,24 @@ class TecnologControl(models.Model):
                     total += prod.production_count
                 mod.production_in_proccess_control = total
 
-    # @api.model
-    # def create(self, vals):
-    #     if 'production_by_hours_ids' in vals:
-    #         no_extra_hr = 1
-    #         for ph in vals['production_by_hours_ids']:
-    #             if ph[2]['hour_production'] == 'Hora extra ':
-    #                 ph[2]['hour_production'] += str(no_extra_hr)
-    #                 no_extra_hr += 1
-    #     return super(TecnologControl, self).create(vals)
+    # @api.model_create_multi
+    # def create(self, vals_list):
+        # if 'production_by_hours_ids' in vals:
+        #     no_extra_hr = 1
+        #     for ph in vals['production_by_hours_ids']:
+        #         if ph[2]['hour_production'] == 'Hora extra ':
+        #             ph[2]['hour_production'] += str(no_extra_hr)
+        #             no_extra_hr += 1
+        # return super(TecnologControl, self).create(vals)
 
     # @api.model
     # def write(self, vals):
-    #     if 'production_by_hours_ids' in vals:
-    #         no_extra_hr = 1
-    #         for ph in vals['production_by_hours_ids']:
-    #             if ph[2] and 'hour_production' in ph[2]:
-    #                 if ph[2]['hour_production'] == 'Hora extra ':
-    #                     ph[2]['hour_production'] += str(no_extra_hr)
-    #                     no_extra_hr += 1
-    #     return super(TecnologControl, self).write(vals)
+        # if 'production_by_hours_ids' in vals:
+        #     no_extra_hr = 1
+        #     for ph in vals['production_by_hours_ids']:
+        #         if ph[2] and 'hour_production' in ph[2]:
+        #             if ph[2]['hour_production'] == 'Hora extra ':
+        #                 ph[2]['hour_production'] += str(no_extra_hr)
+        #                 no_extra_hr += 1
+        # return super(TecnologControl, self).write(vals)
 

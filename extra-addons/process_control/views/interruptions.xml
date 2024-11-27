@@ -24,11 +24,11 @@
             <field name="model">process_control.interruption</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="name"/>
+                    <!-- <field name="name"/> -->
                     <field name="start_date"/>
                     <field name="end_date"/>
-                    <field name="productive_line_id"/>
                     <field name="interruption_type"/>
+                    <field name="productive_line_id"/>
                     <field name="machine_id"/>
                     <field name="set_of_peaces_id"/>
                     <!-- <field name="time"/> -->
@@ -42,6 +42,9 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
+                        <field name="line_domain" invisible="1"/>
+                        <field name="machine_domain" invisible="1"/>
+                        <field name="peaces_domain" invisible="1"/>
                         <group col="3">
                             <group>
                                 <field name="start_date" widget="float_time"/>
@@ -49,9 +52,9 @@
                                 <field name="interruption_type"/>
                             </group>
                             <group colspan="2">
-                                <field name="productive_line_id"/>
-                                <field name="machine_id"/>
-                                <field name="set_of_peaces_id"/>
+                                <field name="productive_line_id" domain="line_domain"/>
+                                <field name="machine_id" domain="machine_domain"/>
+                                <field name="set_of_peaces_id" domain="peaces_domain"/>
                             </group>
                             <!-- <field name="time"/> -->
                         </group>

@@ -10,18 +10,15 @@
                     <field name="date"/>
                     <field name="productive_section_id"/>
                     <field name="turn_id"/>
-                    <filter name="group_year" string="Por año"
-                            context="{'group_by': 'year_char'}"
-                    />
-                    <filter name="group_date1" string="Por fecha"
-                            context="{'group_by': 'date'}"
-                    />
-                    <filter name="group_day" string="Por día"
+                    <!-- <filter name="group_year" string="Por año"
+                            context="{'group_by': 'year_char'}" -->
+                    <!-- /> -->
+                    <filter name="group_date" string="Fecha" context="{'group_by': 'date'}"/>
+                    <!-- <filter name="group_day" string="Por día"
                             context="{'group_by': 'day_char'}"
-                    />
-                    <filter name="group_seccion" string="Por Modulo"
-                        context="{'group_by': 'productive_section_id'}"
-                    />
+                    /> -->
+                    <filter name="group_section" string="Módulo" context="{'group_by': 'productive_section_id'}"/>
+                    <filter name="group_turn" string="Turno" context="{'group_by': 'turn_id'}"/>
                 </search>
             </field>
         </record>
@@ -37,7 +34,7 @@
             <field name="name">Control tecnológico</field>
             <field name="res_model">process_control.tecnolog_control</field>
             <field name="view_mode">tree,form</field>
-            <field name="context">{'search_default_group_year': 1, 'search_default_group_date1': 1, 'search_default_group_day': 1}</field>
+            <!-- <field name="context">{'search_default_group_date': 1}</field> -->
         </record>
 
         <menuitem id="process_control_interruptiones_menu"
@@ -52,11 +49,11 @@
             <field name="model">process_control.tecnolog_control</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="year_char" invisible="1"/>
-                    <field name="day_char" invisible="1"/>
                     <field name="date"/>
                     <field name="productive_section_id"/>
                     <field name="turn_id"/>
+                    <field name="plan_time"/>
+                    <field name="productive_capacity"/>
                 </tree>
             </field>
         </record>
@@ -79,7 +76,7 @@
                             </group>
                             <group>
                                 <field name="plan_time"/>
-                                <field name="productive_capacity" readonly="1"/>
+                                <field name="productive_capacity" readonly="0"/>
                             </group>
                             <!-- <group>
                                 <field name="tec_model_type" invisible="1"/>

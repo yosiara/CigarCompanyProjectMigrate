@@ -29,7 +29,7 @@
     'description': """Control module for interruptions in the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba.
     """,
     'images': [],
-    'depends': ['resource', 'mail'],
+    'depends': ['mail'],
     'data': [
         'data/machine_types.xml',
         'data/interruption_type.xml',
