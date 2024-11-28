@@ -8,9 +8,13 @@ class Interruption(models.Model):
     _rec_name = 'name'
 
     name = fields.Char(string="Nombre", required=False)
+    
     interruption_type = fields.Many2one('process_control.interruption_type', 'Tipo *', required=True)
+    interruption_type_domain = fields.Binary(compute="_get_interruption_type_domain", exportable=False)
+    
     machine_id = fields.Many2one('process_control.machine', 'Máquina')
     machine_domain = fields.Binary(compute="_get_machine_domain", exportable=False)
+    
     set_of_peaces_id = fields.Many2one("process_control.machine_set_of_peaces", string="Subconjunto", required=False)
     peaces_domain = fields.Binary(compute="_get_peaces_domain", exportable=False)
 
@@ -116,3 +120,13 @@ class Interruption(models.Model):
             self.line_domain = [("id", "in", [rec.productive_line_id.id for rec in machine_in_section])]
         else:
             self.line_domain = [("id", "in", False)]
+
+    @api.depends("machine_id")
+    def _get_interruption_type_domain(self):
+        self.interruption_type = False
+        if self.machine_id:
+            self._cr.execute(f"SELECT interruption_type_id FROM process_control_interruption_type_machine_type_asoc WHERE machine_type_id='{self.machine_id.machine_type_id.id}'")
+            ids_asoc = [rec[0] for rec in self._cr.fetchall()]
+            self.interruption_type_domain = [("id", "in", self.interruption_type.search(['|', ('machine_type_related', '=', False), ('id', 'in', ids_asoc), ('activate', '=', True)]).ids)]
+        else:
+            self.interruption_type_domain = [("id", "in", False)]

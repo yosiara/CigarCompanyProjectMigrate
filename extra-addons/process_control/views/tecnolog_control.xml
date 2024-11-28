@@ -53,7 +53,7 @@
                     <field name="productive_section_id"/>
                     <field name="turn_id"/>
                     <field name="plan_time"/>
-                    <field name="productive_capacity"/>
+                    <field name="productive_capacity" string="Capacidad Productiva *"/>
                 </tree>
             </field>
         </record>

@@ -15,13 +15,11 @@ class Machine(models.Model):
     machine_type_id = fields.Many2one('process_control.machine_type', string='Tipo de máquina *', required=True)
     productive_section_id = fields.Many2one('process_control.productive_section', string='Módulo *', required=True)
     productive_line_id = fields.Many2one('process_control.productive_line', string='Productive Line')
-    set_of_peaces = fields.Many2many('process_control.machine_set_of_peaces',
-                            relation="process_control_machine_machine_set_of_peaces_asoc", copy=True, required=True, ondelete='restrict',
-                            column1='machine_id', column2='machine_set_of_peaces_id', string='Subconjuntos de piezas *')
+    set_of_peaces = fields.Many2many('process_control.machine_set_of_peaces', string='Tipo de Piezas *', copy=True, required=True, ondelete='restrict',
+                            relation="process_control_machine_machine_set_of_peaces_asoc", column1='machine_id', column2='machine_set_of_peaces_id')
 
     _sql_constraints = [
-        ('name_uniq', 'unique(name)',
-        'El nombre de la máquina debe ser único.'),
+        ('name_uniq', 'unique(name)', 'El nombre de la máquina debe ser único.'),
     ]
 
     @api.constrains("productive_line_id","productive_section_id","machine_type_id")

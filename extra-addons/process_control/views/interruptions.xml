@@ -45,16 +45,17 @@
                         <field name="line_domain" invisible="1"/>
                         <field name="machine_domain" invisible="1"/>
                         <field name="peaces_domain" invisible="1"/>
+                        <field name="interruption_type_domain" invisible="1"/>
                         <group col="3">
                             <group>
                                 <field name="start_date" widget="float_time"/>
                                 <field name="end_date" widget="float_time"/>
-                                <field name="interruption_type"/>
+                                <field name="productive_line_id" domain="line_domain"/>
                             </group>
                             <group colspan="2">
-                                <field name="productive_line_id" domain="line_domain"/>
                                 <field name="machine_id" domain="machine_domain"/>
                                 <field name="set_of_peaces_id" domain="peaces_domain"/>
+                                <field name="interruption_type" domain="interruption_type_domain"/>
                             </group>
                             <!-- <field name="time"/> -->
                         </group>

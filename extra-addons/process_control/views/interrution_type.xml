@@ -17,24 +17,21 @@
                             margin: -7px 0 !important;
                             }
                         </style>
-                        <group col="4">
-                            <group colspan="2">
+                        <group>
+                            <group>
                                 <field name="name"/>
                                 <field name="code"/>
                             </group>
                             <group>
-                                <field name="use_in_any_machine" widget="boolean_toggle"/>
-                                <field name="is_linked_to_machine" widget="boolean_toggle"/>
-                            </group>
-                            <group>
+                                <field name="activate" widget="boolean_toggle"/>
                                 <field name="cause"/>
                             </group>
                             <!-- <group class="separator_group">
                                 <separator string="Máquinas Asociadas"/>
                             </group> -->
-                            <group colspan="4">
-                                <field name="machines_related" widget="many2many_tags"/>
-                            </group>                       
+                            <group string="Tipo de máquinas asociadas" colspan="2">
+                                <field name="machine_type_related" widget="many2many_tags"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>
@@ -48,9 +45,8 @@
                 <tree>
                     <field name="name"/>
                     <field name="code"/>
-                    <field name="use_in_any_machine" widget="boolean_toggle"/>
-                    <field name="is_linked_to_machine" widget="boolean_toggle"/>
-                    <field name="machines_related" widget="many2many_tags"/>
+                    <field name="activate" widget="boolean_toggle"/>
+                    <field name="machine_type_related" widget="many2many_tags"/>
                 </tree>
             </field>
         </record>

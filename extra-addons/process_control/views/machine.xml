@@ -57,7 +57,7 @@
                                 <field name="productive_line_id"/>
                             </group>
                         </group>
-                        <group>
+                        <group string="Conjuntos de Piezas">
                         <field name="set_of_peaces">
                             <tree>
                                 <field name="name"/>
