@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo noupdate="1">
     <record id="cron_import_data_smoke" model="ir.cron">
-        <field name="name">Import Records Smoke</field>
+        <field name="name">Smoke: Import Records Smoke</field>
         <field name="interval_number">1</field>
         <field name="interval_type">months</field>
         <field name="numbercall">-1</field>
-        <field name="nextcall" eval="(DateTime.now() + relativedelta(day=4)).strftime('%Y-%m-%d 06:00:00')" />
+        <field name="nextcall" eval="(DateTime.now() + relativedelta(day=7)).strftime('%Y-%m-%d 06:00:00')" />
         <field name="doall" eval="True"/>
         <field name="model_id" ref="model_smoke_smoke"/>
         <field name="code">model._cron_import_data_smoke()</field>
