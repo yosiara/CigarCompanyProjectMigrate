@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
-
-import logging
-
-import psycopg2
-import mysql.connector
-import pymssql
-import pymysql
-from mysql.connector import errorcode
-
 from odoo import api, fields, models
 from odoo.exceptions import UserError
 from odoo.tools.translate import _
+
+try:
+    import psycopg2
+    import mysql.connector
+    import pymssql
+    import pymysql
+    from mysql.connector import errorcode
+except ImportError:
+    raise ImportError("Import Python Librery Error")
+
+import logging
 
 logging.basicConfig(level=logging.DEBUG)
 _logger = logging.getLogger("info")
@@ -18,25 +20,26 @@ _logger = logging.getLogger("info")
 
 class DBExternalConnectorTemplate(models.Model):
     _name = "db_external_connector.template"
-    _description = "Data Base Connector Template"
+    _description = "DataBase Connector Template"
     _inherit = ["mail.thread"]
 
     # _connection = False
 
-    name = fields.Char(string="Datasource Name", required=True)
-    server = fields.Char(string="Server", required=True)
-    port = fields.Char(string="Port", required=True)
-    user = fields.Char(string="User", required=True)
-    pwd = fields.Char(string="Password", required=True)
-    dbname = fields.Char(string="Database Name", required=True)
+    name = fields.Char(string="Datasource Name *", required=True)
+    server = fields.Char(string="Server *", required=True)
+    port = fields.Char(string="Port *", required=True)
+    user = fields.Char(string="User *", required=True)
+    pwd = fields.Char(string="Password *", required=True)
+    dbname = fields.Char(string="Database Name *", required=True)
     connector = fields.Selection(
-        string=_("Connector"),
+        string=_("Connector *"),
         selection=[
             ("psycopg2", "PostgreSQL"),
             ("mysql", "MySQL"),
             ("pymysql", "PyMySQL"),
             ("pymssql", "MSSQL"),
         ],
+        required=False,
     )
     company_id = fields.Many2one(
         "res.company", string="Company", default=lambda self: self.env.user.company_id
@@ -49,6 +52,7 @@ class DBExternalConnectorTemplate(models.Model):
         ],
         help="System to create conection. This field can be used in order to identify the connection...",
         string="Application",
+        required=False,
     )
 
     # @api.one
@@ -102,7 +106,7 @@ class DBExternalConnectorTemplate(models.Model):
             except pymssql.Error as err:
                 print(err)
 
-        return None
+        return False
 
     # def close(self):
     #     if self._connection:

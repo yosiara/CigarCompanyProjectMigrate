@@ -5,7 +5,7 @@ from odoo import models, fields, api, _
 import logging
 import re
 from datetime import datetime, timedelta
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -43,11 +43,11 @@ class SmokeSmoke(models.Model):
     #     string="Integration with iddocumento in Versat db", required=True
     # )
 
-    date = fields.Date(string="Date", required=True)
+    date = fields.Date(string="Date *", required=True)
 
-    amount = fields.Float(string="Amount", required=True)
+    amount = fields.Float(string="Quantity *", required=True)
 
-    external_concept_id = fields.Integer(string="Concept ID", required=True)
+    external_concept_id = fields.Integer(string="Concept ID *", required=True)
 
     order = fields.Char(string="Order", default="")
 
@@ -74,10 +74,8 @@ class SmokeSmoke(models.Model):
         month_prev = hoy.month - 1 if hoy.month > 1 else 12
         year_month_prev = hoy.year if hoy.month > 1 else hoy.year - 1
 
-        start_date = f"{year_month_prev}-{month_prev:02d}-01"
-        end_date = (
-            datetime(year_month_prev, month_prev + 1, 1) - timedelta(days=1)
-        ).date()
+        start_date = datetime(year_month_prev, month_prev, 1).date()
+        end_date = (datetime(hoy.year, hoy.month, 1) - timedelta(days=1)).date()
 
         return start_date, end_date
 
@@ -87,14 +85,20 @@ class SmokeSmoke(models.Model):
             [("application", "=", "versat")], limit=1
         )
         if not inst:
-            raise UserError(
+            raise ValidationError(
                 _(
-                    """The operation has not been completed. Please, check the connection of the Database..."""
+                    """The operation Import Data Smoke has not been completed. Please, check the connection of the Versat Database..."""
                 )
             )
         cnx = inst.connect()
+        if not cnx:
+            raise ValidationError(
+                _(
+                    """The operation Import Data Smoke has not been completed. Please, check the connection of the Versat Database..."""
+                )
+            )
 
-        # Clear db in range date
+        # Clear db in date range
         start_date, end_date = self.get_date_range()
         self.search([("create_date", ">", end_date)]).unlink()
         self.concept_id.search([("create_date", ">", end_date)]).unlink()
@@ -117,7 +121,7 @@ class SmokeSmoke(models.Model):
             reverse=True,
         )
 
-        # Process and Insert Data
+        # Data processing...
         for i in dataSmoke:
             math = re.findall(r"(?:IPV|VALE|ORDEN).+$", i[2], flags=re.IGNORECASE)
             order_tmp = ""
@@ -134,12 +138,11 @@ class SmokeSmoke(models.Model):
                 )
             ).upper()
 
-            if i[3] == 53:
+            if i[3] == 53 and order_tmp:
                 inst = self.search(
                     [("order", "=", order_tmp), ("external_concept_id", "=", 64)],
                     limit=1,
                 )
-                print("****Inst: ", inst)
                 if inst:
                     concept = inst.concept_id.name
 
@@ -150,7 +153,7 @@ class SmokeSmoke(models.Model):
                     "name": concept,
                 }
                 concept_inst = self.concept_id.create(data)
-                print("Data Concept", data)
+                print("Create Data Concept", data)
 
             concept_id_tmp = (
                 concept_inst.id
@@ -166,4 +169,4 @@ class SmokeSmoke(models.Model):
             }
             self.create(data)
 
-            print("Data All", data)
+            print("Create Data Smoke", data)
