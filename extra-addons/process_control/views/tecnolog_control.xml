@@ -71,8 +71,8 @@
                                 <field name="productive_section_id"/>
                             </group>
                             <group>
-                                <field name="turn_id" options="{'no_create_edit': True}"/>
-                                <field name="turn_attendance_id" domain="turn_attendance_domain" options="{'no_create_edit': True}"/>
+                                <field name="turn_id"/>
+                                <field name="turn_attendance_id" domain="turn_attendance_domain"/>
                             </group>
                             <group>
                                 <field name="plan_time"/>
@@ -121,29 +121,29 @@
                                             <field name="production_count" widget="xls_formula"/>
                                         </tree>
                                     </field>
-                                </page> -->
+                                </page>
                                 <page string="Producción y rechazo">
                                     <field name="rechazo_mod1_ids">
-                                           <!-- invisible="tec_model_type == 'mod' | productive_section_id ==  False"> -->
-                                        <!-- <div class="alert alert-info">
+                                           invisible="tec_model_type == 'mod' | productive_section_id ==  False">
+                                        <div class="alert alert-info">
                                             <strong>Información:</strong>
                                             Se capta la producción y rechazo de las máquinas 'NANO', 'SBO', 'SRC'
-                                        </div> -->
+                                        </div>
 
                                         <tree>
                                             <field name="productive_line_id"/>
-                                                   <!-- domain="[('productive_section_id', '=', parent.productive_section_id)]"/> -->
+                                                   domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
                                             <field name="machine_id"/>
-                                            <!-- <field name="machine_type_id" invisible="1"/> -->
-                                            <!-- <field name="machine_type_name" invisible="1"/> -->
+                                            <field name="machine_type_id" invisible="1"/>
+                                            <field name="machine_type_name" invisible="1"/>
                                             <field name="produccion_en_cigarrillos"/>
-                                                   <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
+                                                   invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
                                             <field name="rechazo_en_cigarrillos"/>
-                                                   <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
+                                                   invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
                                             <field name="produccion_en_cajones"/>
-                                                   <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
+                                                   invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
                                             <field name="rechazo_en_cajetillas"/>
-                                                   <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
+                                                   invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
                                         </tree>
 
                                         <form>
@@ -154,26 +154,26 @@
                                                     <field name="machine_id"/>
                                                     <field name="produccion_en_cigarrillos"/>
                                                 </group>
-                                                <!-- <group colspan="4">
+                                                <group colspan="4">
                                                     <field name="machine_type_id" invisible="1"/>
                                                     <field name="machine_type_name" invisible="1"/>
-                                                </group> -->
-                                                <!-- <group> -->
+                                                </group>
                                                 <group>
-                                                           <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
+                                                <group>
+                                                           invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
                                                     <field name="rechazo_en_cigarrillos"/>
-                                                           <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
+                                                           invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
                                                     <field name="produccion_en_cajones"/>
                                                     <field name="rechazo_en_cajetillas"/>
                                                 </group>
-                                                <!-- <group colspan="4">
+                                                <group colspan="4">
                                                            invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
                                                            <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
-                                                </group> -->
+                                                </group>
                                             </group>
                                         </form>
                                     </field>
-                                    <!-- <field name="rechazo_amf_ids"
+                                    <field name="rechazo_amf_ids"
                                            invisible="tec_model_type == 'mod1' | productive_section_id == False">
                                         <div class="alert alert-info">
                                             <strong>Información:</strong>
@@ -187,8 +187,8 @@
                                             <field name="produccion_en_cajones" widget="xls_formula"/>
                                             <field name="rechazo_en_cajetijas" widget="xls_formula"/>
                                         </tree>
-                                    </field> -->
-                                </page>
+                                    </field>
+                                </page> -->
                             </notebook>
                     </sheet>
                     <div class="oe_chatter">

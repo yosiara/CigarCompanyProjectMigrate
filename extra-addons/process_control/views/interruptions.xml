@@ -6,6 +6,13 @@
                     res_model="process_control.interruption"
                     view_mode="tree,form"/> -->
 
+        <!-- <menuitem
+            id="interruption_menu"
+            name="Interruption"
+            action="turei_process_interruptions_action"
+            parent="process_control_settings_menu"
+            sequence="10"/> -->
+
         <record id="turei_process_interruptions_action" model="ir.actions.act_window">
             <field name="name">Interrupciones</field>
             <field name="res_model">process_control.interruption</field>
@@ -27,7 +34,7 @@
                     <!-- <field name="name"/> -->
                     <field name="start_date"/>
                     <field name="end_date"/>
-                    <field name="interruption_type"/>
+                    <field name="interruption_type_id"/>
                     <field name="productive_line_id"/>
                     <field name="machine_id"/>
                     <field name="set_of_peaces_id"/>
@@ -55,7 +62,7 @@
                             <group colspan="2">
                                 <field name="machine_id" domain="machine_domain"/>
                                 <field name="set_of_peaces_id" domain="peaces_domain"/>
-                                <field name="interruption_type" domain="interruption_type_domain"/>
+                                <field name="interruption_type_id" domain="interruption_type_domain"/>
                             </group>
                             <!-- <field name="time"/> -->
                         </group>

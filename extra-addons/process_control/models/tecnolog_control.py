@@ -19,7 +19,7 @@ class TecnologControl(models.Model):
     turn_attendance_id = fields.Many2one('process_control.turn_attendance', string='Sesión *', copy=True, required=True)
     turn_attendance_domain = fields.Binary(compute="_compute_turn_attendance_domain", exportable=False)
 
-    productive_section_id = fields.Many2one(comodel_name="process_control.productive_section", string="Módulo *", required=True, ondelete='cascade')
+    productive_section_id = fields.Many2one(comodel_name="process_control.productive_section", string="Módulo *", required=True)
     productive_capacity = fields.Integer('Capacidad Prod. *', required=True)
     plan_time = fields.Integer('Tmpo. Plan(Horas) *', required=True)
 
@@ -29,23 +29,23 @@ class TecnologControl(models.Model):
 
     # tec_model_type = fields.Selection(string="Documento/control", selection=[('mod', 'Módulo'), ('mod1', 'Módulo 1')], default=_get_default_tec_model_type)
 
-    interruption_ids = fields.One2many(comodel_name="process_control.interruption", inverse_name="tecnolog_control_id", string="Interrupciones", required=False, ondelete='cascade')
+    interruption_ids = fields.One2many(comodel_name="process_control.interruption", inverse_name="tecnolog_control_id", string="Interrupciones")
 
-    production_by_hours_ids = fields.One2many(comodel_name="process_control.production_by_hours", inverse_name="tecnolog_control_id", string="Produccion Horaria", required=False)
+    #production_by_hours_ids = fields.One2many(comodel_name="process_control.production_by_hours", inverse_name="tecnolog_control_id", string="Produccion Horaria", required=False)
 
     # production_in_production_system = fields.Float(string="Prod. Sistema prod.", readonly=True,
     #                                                compute="get_production_in_production_system",
     #                                                help="Muestra producción registraba en el sistema de producción.")
 
-    production_in_proccess_control = fields.Float(string="Prod. calculada en el sistema.", readonly=True, store=True, compute='_compute_total_prod')
+    #production_in_proccess_control = fields.Float(string="Prod. calculada en el sistema.", readonly=True, store=True, compute='_compute_total_prod')
 
     # rechazo_amf_ids = fields.One2many(comodel_name="process_control.rechazo_amf",
     #                              inverse_name="tecnolog_control_id",
     #                              string="Rechazo de las AMF", required=False)
 
-    rechazo_mod1_ids = fields.One2many(comodel_name="process_control.rechazo_mod1", inverse_name="tecnolog_control_id", string="Rechazo 'NANO', 'SBO', 'SRC'", required=False)
+    #rechazo_mod1_ids = fields.One2many(comodel_name="process_control.rechazo_mod1", inverse_name="tecnolog_control_id", string="Rechazo 'NANO', 'SBO', 'SRC'", required=False)
 
-    name = fields.Char(string="Nombre", required=False, compute='_calc_name')
+    name = fields.Char(string="Nombre", default="Documento de control")
 
     # _sql_constraints = [('turn_calendar_id_in_date_uniq', 'unique(turn_calendar_id,date,productive_section_id,attendance_id)',
     #                      "Ya existe un modelo registrado para el turno (Sesión) en la fecha seleccionada."),
@@ -115,9 +115,11 @@ class TecnologControl(models.Model):
     #             except Exception:
     #                 pass
 
-    def _calc_name(self):
-        for doc in self:
-            doc.name = "Documento de control"
+    # @api.model_create_multi
+    # def create(self, vals_list):
+    #     print(self)
+    #     print(vals_list)
+    #     return super().create(vals_list)
 
     @api.depends("turn_id")
     def _compute_turn_attendance_domain(self):
@@ -125,6 +127,11 @@ class TecnologControl(models.Model):
             self.turn_attendance_domain = [('turn_id', '=', self.turn_id.id)]
         else:
             self.turn_attendance_domain = [('turn_id', '=', False)]
+
+    @api.onchange("productive_section_id")
+    def _onchange_productive_section_id(self):
+        if self.productive_section_id:
+            self.interruption_ids.unlink()
 
     # def _create_domain(self, fname, value):
     #     if not fname == 'account_prefix':
@@ -205,14 +212,14 @@ class TecnologControl(models.Model):
     #             #     self.rechazo_mod1_ids = list_lines
 
     
-    @api.depends('production_by_hours_ids.production_count')
-    def _compute_total_prod(self):
-        for mod in self:
-            if mod.production_by_hours_ids:
-                total = 0
-                for prod in mod.production_by_hours_ids:
-                    total += prod.production_count
-                mod.production_in_proccess_control = total
+    # @api.depends('production_by_hours_ids.production_count')
+    # def _compute_total_prod(self):
+    #     for mod in self:
+    #         if mod.production_by_hours_ids:
+    #             total = 0
+    #             for prod in mod.production_by_hours_ids:
+    #                 total += prod.production_count
+    #             mod.production_in_proccess_control = total
 
     # @api.model_create_multi
     # def create(self, vals_list):

@@ -5,7 +5,8 @@ from odoo import models, fields, api
 
 
 class InterruptionType(models.Model):
-    _name = 'process_control.interruption_type'
+    _name = "process_control.interruption_type"
+    _description = "Interruption Type"
 
     name = fields.Char(string="Nombre *", required=True)
     machine_type_related = fields.Many2many(comodel_name="process_control.machine_type",

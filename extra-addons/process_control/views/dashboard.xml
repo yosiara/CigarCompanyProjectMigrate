@@ -6,7 +6,7 @@
             <field name="model">process_control.interruption</field>
             <field name="arch" type="xml">
                 <graph string="Interrupciones" type="pie">
-                    <field name="interruption_type" type="row"/>
+                    <field name="interruption_type_id" type="row"/>
                 </graph>
             </field>
         </record>

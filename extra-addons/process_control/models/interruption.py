@@ -5,13 +5,13 @@ from odoo.exceptions import ValidationError
 class Interruption(models.Model):
     _name = "process_control.interruption"
     _description = "Interruption"
-    _rec_name = 'name'
+    #_rec_name = 'name'
 
-    name = fields.Char(string="Nombre", required=False)
+    name = fields.Char(string="Nombre", default="Interruption")
     
-    interruption_type = fields.Many2one('process_control.interruption_type', 'Tipo *', required=True)
+    interruption_type_id = fields.Many2one('process_control.interruption_type', string='Tipo *', required=True)
     interruption_type_domain = fields.Binary(compute="_get_interruption_type_domain", exportable=False)
-    
+
     machine_id = fields.Many2one('process_control.machine', 'Máquina')
     machine_domain = fields.Binary(compute="_get_machine_domain", exportable=False)
     
@@ -24,7 +24,8 @@ class Interruption(models.Model):
     #time = fields.Integer('Tiempo en minutos', required=True)
     #frequency = fields.Integer('Frecuencia', required=True)
     # modelo del control del proceso, recoge todas las interrupciones de un turno en un dia X
-    tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Documento", required=False)
+    tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Control", ondelete="cascade")
+    
     productive_line_id = fields.Many2one('process_control.productive_line', string='Líneas Prod.')
     line_domain = fields.Binary(compute="_get_line_domain", exportable=False)
     # productive_line_mia_id = fields.Many2one('process_control.productive_line', string='Líneas Prod.')
@@ -93,28 +94,34 @@ class Interruption(models.Model):
     #                 tools.ustr("Interruptión de tipo ") + tools.ustr(inter.name) + tools.ustr(
     #                     " no puede tener tiempo 0"))
 
+    # -------------------------------------------------------------------------
+    # CONSTRAINS METHODS
+    # -------------------------------------------------------------------------
+
+    @api.constrains("start_date", "end_date")
+    def _constrains_date_range(self):
+        if self.start_date < self.tecnolog_control_id.turn_attendance_id.hour_from or self.end_date > self.tecnolog_control_id.turn_attendance_id.hour_to:
+            raise ValidationError("El inicio y el fin de la interrupción no está en el rango de la sesión seleccionada")            
+    
+    # -------------------------------------------------------------------------
+    # COMPUTE METHODS
+    # -------------------------------------------------------------------------
+
     @api.depends("tecnolog_control_id.productive_section_id", "productive_line_id")
     def _get_machine_domain(self):
-        domain = []
-        self.machine_id = False
-        if self.tecnolog_control_id.productive_section_id:
-            machine_in_section = self.machine_id.search([("productive_section_id", "=", self.tecnolog_control_id.productive_section_id.id)])
-            domain.append(("id", "in", machine_in_section.ids))
-            if self.productive_line_id:
-                domain.append(('productive_line_id', '=', self.productive_line_id.id))
-            self.machine_domain = domain
+        if self.productive_line_id:
+            self.machine_domain = [('productive_line_id', '=', self.productive_line_id.id)]
+        elif self.tecnolog_control_id.productive_section_id:
+            self.machine_domain = [("productive_section_id", "=", self.tecnolog_control_id.productive_section_id.id)]
         else:
-            domain.append(('id', 'in', False))
-            self.machine_domain = domain
+            self.machine_domain = [('id', 'in', False)]
 
     @api.depends("machine_id")
     def _get_peaces_domain(self):
-        self.set_of_peaces_id = False
         self.peaces_domain = [('id', 'in', self.machine_id.set_of_peaces.ids)] if self.machine_id else [('id', 'in', False)]
 
     @api.depends("tecnolog_control_id.productive_section_id")
     def _get_line_domain(self):
-        self.productive_line_id = False
         if self.tecnolog_control_id.productive_section_id:
             machine_in_section = self.machine_id.search([("productive_section_id", "=", self.tecnolog_control_id.productive_section_id.id)])
             self.line_domain = [("id", "in", [rec.productive_line_id.id for rec in machine_in_section])]
@@ -123,10 +130,28 @@ class Interruption(models.Model):
 
     @api.depends("machine_id")
     def _get_interruption_type_domain(self):
-        self.interruption_type = False
         if self.machine_id:
             self._cr.execute(f"SELECT interruption_type_id FROM process_control_interruption_type_machine_type_asoc WHERE machine_type_id='{self.machine_id.machine_type_id.id}'")
             ids_asoc = [rec[0] for rec in self._cr.fetchall()]
-            self.interruption_type_domain = [("id", "in", self.interruption_type.search(['|', ('machine_type_related', '=', False), ('id', 'in', ids_asoc), ('activate', '=', True)]).ids)]
+            self.interruption_type_domain = ['|', ('machine_type_related', '=', False), ('id', 'in', ids_asoc), ('activate', '=', True)]
         else:
-            self.interruption_type_domain = [("id", "in", False)]
+            self.interruption_type_domain = [('machine_type_related', '=', False), ('activate', '=', True)]
+
+    # -------------------------------------------------------------------------
+    # ONCHANGE METHODS
+    # -------------------------------------------------------------------------
+
+    @api.onchange("productive_line_id")
+    def _onchange_productive_line_id(self):
+        self.machine_id = False
+
+    @api.onchange("machine_id")
+    def _onchange_machine_id(self):
+        self.set_of_peaces_id = False
+        self.interruption_type_id = False
+
+    # @api.model_create_multi
+    # def create(self, vals_list):
+    #     print(self)
+    #     print(vals_list)
+    #     return super().create(vals_list)
