@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, _
 
-try:
-    import re
-except:
-    raise ImportError("Import Python Librery Error")
+import re
 
 class ReportSmoke(models.AbstractModel):
     _name = "report.smoke.report_smoke"
@@ -12,6 +9,7 @@ class ReportSmoke(models.AbstractModel):
 
     @api.model
     def _get_report_values(self, docids, data=None):
+        # Variable declarations
         objConcept = self.env["smoke.concept"]
         dataConcept = self.env["smoke.concept"]
         objSmoke = self.env["smoke.smoke"]
@@ -27,7 +25,7 @@ class ReportSmoke(models.AbstractModel):
         farol = 0.00
         cajetillas = 0.00
 
-        # Get Data
+        # Obtain and prepare data
         if data["concept_id"]:
             domain = [
                 ("date", ">=", data["start_date"]),
@@ -48,7 +46,7 @@ class ReportSmoke(models.AbstractModel):
                     ids.append(i.concept_id.id)
             dataConcept = objConcept.browse(ids)
 
-        # Data processing...
+        # Processing data...
         for i in dataConcept:
             sumcantSal = 0.00
             sumcantDev = 0.00

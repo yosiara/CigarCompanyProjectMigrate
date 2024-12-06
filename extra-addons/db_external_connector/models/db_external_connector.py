@@ -1,21 +1,18 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models
-from odoo.exceptions import UserError
-from odoo.tools.translate import _
+from odoo import api, fields, models, _
+import logging
+from odoo.exceptions import ValidationError
+
+logging.basicConfig(level=logging.DEBUG)
+_logger = logging.getLogger(__name__)
 
 try:
     import psycopg2
     import mysql.connector
     import pymssql
     import pymysql
-    from mysql.connector import errorcode
 except ImportError:
-    raise ImportError("Import Python Librery Error")
-
-import logging
-
-logging.basicConfig(level=logging.DEBUG)
-_logger = logging.getLogger("info")
+    raise ImportError(_("Python Library Import Error"))
 
 
 class DBExternalConnectorTemplate(models.Model):
@@ -23,51 +20,46 @@ class DBExternalConnectorTemplate(models.Model):
     _description = "DataBase Connector Template"
     _inherit = ["mail.thread"]
 
-    # _connection = False
-
-    name = fields.Char(string="Datasource Name *", required=True)
+    name = fields.Char(string="Datasource *", required=True)
     server = fields.Char(string="Server *", required=True)
-    port = fields.Char(string="Port *", required=True)
+    port = fields.Integer(string="Port *", required=True)
     user = fields.Char(string="User *", required=True)
     pwd = fields.Char(string="Password *", required=True)
-    dbname = fields.Char(string="Database Name *", required=True)
+    dbname = fields.Char(string="Database *", required=True)
     connector = fields.Selection(
-        string=_("Connector *"),
         selection=[
             ("psycopg2", "PostgreSQL"),
             ("mysql", "MySQL"),
             ("pymysql", "PyMySQL"),
             ("pymssql", "MSSQL"),
-        ],
-        required=False,
+        ], string=("Connector *"), required=True, default="pymssql",
     )
-    company_id = fields.Many2one(
-        "res.company", string="Company", default=lambda self: self.env.user.company_id
-    )
+    # company_id = fields.Many2one(
+    #     "res.company", string="Company", default=lambda self: self.env.user.company_id
+    # )
     application = fields.Selection(
         selection=[
             ("fastos", "Fastos"),
             ("versat", "Versat"),
             ("ocsinventory", "OCSInventory"),
-        ],
-        help="System to create conection. This field can be used in order to identify the connection...",
-        string="Application",
-        required=False,
+        ], string="Application *", required=True, default="versat",
+        help="System to connect to. This field will be used to identify the connection...",
     )
 
-    # @api.one
-    def action_test_connection(self):
-        try:
-            cnx = self.connect()
-            cnx.close()
-            self.message_post(body=_("Connection established successfully!!."))
-        except Exception:
-            self.message_post(
-                body=_("Connection failed!!. Check your data connection.")
-            )
-            return False
-        return True
+    @api.constrains("port")
+    def _constrains_port(self):
+        if self.port == 0:
+            raise ValidationError(_("Please make sure to set a valid port"))
 
+    @api.onchange("connector")
+    def _onchange_connector(self):
+        if self.connector == "psycopg2":
+            self.port = 5432
+        elif self.connector == "pymssql":
+            self.port = 1433
+        elif self.connector in ["mysql", "pymysql"]:
+            self.port = 3306
+            
     def connect(self):
         config = {
             "database": self.dbname,
@@ -76,39 +68,34 @@ class DBExternalConnectorTemplate(models.Model):
             "user": self.user,
             "password": self.pwd,
         }
+        try:
+            match self.connector:
+                case "psycopg2":
+                    cnx = psycopg2.connect(**config)
+                case "mysql":
+                    cnx = mysql.connector.connect(**config)
+                case "pymysql":
+                    cnx = pymysql.connect(**config)
+                case "pymssql":
+                    cnx = pymssql.connect(**config)
+                case other:
+                    raise ValueError(f"Invalid Connector: {other}")
+        except (psycopg2.Error, mysql.connector.Error, pymysql.Error, pymssql.Error, ValueError):
+            _logger.exception("Database Connection Failed")
+            raise
+        else:
+            _logger.info("Connection established successfully!!!.")
+            return cnx
 
-        if self.connector == "psycopg2":
-            try:
-                return psycopg2.connect(**config)
-            except psycopg2.Error as err:
-                print(err)
+    def action_test_connection(self):
+        try:
+            cnx = self.connect()
+        except Exception as e:
+            _logger.critical(f"Test connection failed. Error={e}")
+            self.message_post(body=_("Connection failed!!!. Check your data connection."))
+            return False
+        else:
+            cnx.close()
+            self.message_post(body=_("Connection established successfully!!!."))
+            return True
 
-        elif self.connector == "mysql":
-            try:
-                return mysql.connector.connect(**config)
-            except mysql.connector.Error as err:
-                if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-                    print("Something is wrong with your user name or password")
-                elif err.errno == errorcode.ER_BAD_DB_ERROR:
-                    print("Database does not exist")
-                else:
-                    print(err)
-
-        elif self.connector == "pymysql":
-            try:
-                return pymysql.connect(**config)
-            except pymysql.Error as err:
-                print(err)
-
-        elif self.connector == "pymssql":
-            try:
-                return pymssql.connect(**config)
-            except pymssql.Error as err:
-                print(err)
-
-        return False
-
-    # def close(self):
-    #     if self._connection:
-    #         self._connection.close()
-    #     return True

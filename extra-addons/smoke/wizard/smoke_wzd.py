@@ -1,6 +1,6 @@
 from odoo import api, fields, models, tools
 from odoo.tools.translate import _
-from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
 
 
 class SmokeWzd(models.TransientModel):
@@ -34,11 +34,10 @@ class SmokeWzd(models.TransientModel):
     def print_report(self):
         self.ensure_one()
         if self.end_date < self.start_date:
-            raise UserError(_("Entrada incorrecta, el inicio es mayor que el fin"))
+            raise ValidationError(_("The start date cannot be greater than the end date"))
         datas = {
             "start_date": self.start_date,
             "end_date": self.end_date,
             "concept_id": self.concept_id.id,
         }
-        print("DATA READ-------> ", datas)
         return self.env.ref("smoke.action_report_smoke").report_action(self, data=datas)

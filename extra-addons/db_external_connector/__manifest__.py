@@ -13,6 +13,7 @@
     # Check /odoo/addons/base/module/module_data.xml for the full list.
     "category": "Database Connector",
     "version": "17.0",
+    "license": "LGPL-3",
     # Any module necessary for this one to work correctly.
     "depends": [
         "base",
