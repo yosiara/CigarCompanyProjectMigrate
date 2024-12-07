@@ -1,101 +1,150 @@
 # -*- coding: utf-8 -*-
-
-import xlsxwriter
-from odoo import models,fields, api, tools
+from odoo import models,fields, api, tools, _
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
-from odoo.addons.report_xlsx.report.report_xlsx import ReportXlsx
 
+import logging
+_logger = logging.getLogger(__name__)
 
-class InterruptionsToExcelReport(ReportXlsx):
+import io
+
+try:
+    import xlsxwriter
+except ImportError:
+    raise ImportError(_("Python Library Import Error."))
+ 
+
+class InterruptionsToExcelReport(models.AbstractModel):
+    _name = "report.process_control.interruptions_to_excel_report"
+    _description = "Interruptions to excel report"
+
     @api.model
-    def generate_xlsx_report(self, workbook, data, lines):
-        control_models = self.env['process_control.tecnolog_control'].search([('date', '>=', lines.date_start), ('date', '<=', lines.date_end)])
-        if not control_models:
-            self.env.user.notify_info(tools.ustr('No existen datos que mostrar.'))
-            return
+    def generate_xlsx_report(self, data, response):
+        output = io.BytesIO()
+        workbook = xlsxwriter.Workbook(output, {'in_memory': True})
+        
+        # Title
+        title = f"Listado de Interrupciones desde {data['start_date']} hasta {data['end_date']}"
 
+        # Formats
+        title_format = workbook.add_format({'bold': 1, 'border': 6, 'align': 'center', 'valign': 'vcenter', 'font_size': 20, 'italic': 1, 'fg_color': '#D7E4BC', 'underline': 2})
+        header_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vcenter'})
+        data_format = workbook.add_format({'bold': 0})
+        cell_format = workbook.add_format({'border': 1, 'align': 'center', 'valign': 'vcenter'})
+        
+        # Add worksheet
         worksheet = workbook.add_worksheet("Interrupciones")
-        worksheet.set_column('B:M', 22)
-        worksheet.set_column('F4:F4', 25)
-        worksheet.set_column('I4:I4', 25)
-        worksheet.set_column('G4:G4', 25)
-        worksheet.set_column('H4:H4', 25)
+        
+        # Write the title.
+        worksheet.merge_range("A1:N3", title, title_format)
+        
+        # Options to use in the table.
+        options = {
+            #"style": "Table Style Light 11",
+            'total_row': True,
+            "columns": [ # Header
+                {"header": "No", "header_format": header_format, "format": data_format},
+                {"header": "Año", "header_format": header_format, "format": data_format},
+                {"header": "Mes", "header_format": header_format, "format": data_format},
+                {"header": "Día", "header_format": header_format, "format": data_format},
+                {"header": "Turno", "header_format": header_format, "format": data_format},
+                {"header": "Módulo", "header_format": header_format, "format": data_format},
+                {"header": "Inicio", "header_format": header_format, "format": data_format},
+                {"header": "Fin", "header_format": header_format, "format": data_format},
+                {"header": "Línea", "header_format": header_format, "format": data_format},
+                {"header": "Máquina", "header_format": header_format, "format": data_format},
+                {"header": "Subconjunto", "header_format": header_format, "format": data_format},
+                {"header": "Tipo de interrupción", "header_format": header_format, "format": data_format},
+                {"header": "Exógena/Endógena", "header_format": header_format, "format": data_format},
+                {"header": "Tiempo (horas)", "header_format": header_format, "format": data_format},
+            ],
+        }
 
-        fecha_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vcenter'})
-        fecha_data_format = workbook.add_format({'bold': 0, 'border': 1, 'align': 'center', 'valign': 'vcenter'})
+        # Add a table to the worksheet.
+        worksheet.add_table("A6:N7", options)
 
-        merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}})
-        data_format = workbook.add_format({'bold': 0, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}})
+        # Get data
+        tecnolog_control_ids = self.env['process_control.tecnolog_control'].search([('date', '>=', data["start_date"]), ('date', '<=', data["end_date"])])
+        if not tecnolog_control_ids: # Empty data
+           _logger.warning('There is no data to display.')
+           return
 
-        worksheet.write('B3', 'Desde', merge_format)
-        worksheet.write('C3', lines.date_start, fecha_format)
-        worksheet.write('D3', 'Hasta', merge_format)
-        worksheet.write('E3', lines.date_end, fecha_format)
+        # Variables Decalaration
+        row = 6
+        max_len = []
 
-        worksheet.write('B4', tools.ustr('Año'), merge_format)
-        worksheet.write('C4', tools.ustr('Mes'), merge_format)
-        worksheet.write('D4', tools.ustr('Día'), merge_format)
-        worksheet.write('E4', tools.ustr('Turno'), merge_format)
-        worksheet.write('F4', tools.ustr('Modulo'), merge_format)
-        worksheet.write('G4', tools.ustr('Línea'), merge_format)
-        worksheet.write('H4', tools.ustr('Máquina'), merge_format)
-        worksheet.write('I4', tools.ustr('Subconjunto'), merge_format)
-        worksheet.write('J4', tools.ustr('Tipo de interrupción'), merge_format)
-        worksheet.write('K4', tools.ustr('Exógena/Endógena'), merge_format)
-        worksheet.write('L4', tools.ustr('Tiempo (horas)'), merge_format)
-        worksheet.write('M4', tools.ustr('Fecuencia'), merge_format)
+        # Initial definition of column widths
+        for h in options['columns']:
+            max_len.append(len(h['header']))
+        
+        # Write data
+        for tc in tecnolog_control_ids:
+            for i in tc.interruption_ids:
+                worksheet.write(row, 0, row - 5, cell_format) # write(row, col, *args)
+                worksheet.write(row, 1, tc.date.year, cell_format)
+                worksheet.write(row, 2, tc.date.month, cell_format)
+                worksheet.write(row, 3, tc.date.day, cell_format)
+                worksheet.write(row, 4, tc.turn_id.name, cell_format)
+                worksheet.write(row, 5, tc.productive_section_id.name, cell_format)
+                worksheet.write(row, 6, i.start_date, cell_format)
+                worksheet.write(row, 7, i.end_date, cell_format)
+                worksheet.write(row, 8, i.productive_line_id.name if i.productive_line_id else '', cell_format)
+                worksheet.write(row, 9, i.machine_id.name if i.machine_id else '', cell_format)
+                worksheet.write(row, 10, i.set_of_peaces_id.name if i.set_of_peaces_id else '', cell_format)
+                worksheet.write(row, 11, i.interruption_type_id.name, cell_format)
+                worksheet.write(row, 12, i.interruption_type_id.cause, cell_format)
+                worksheet.write(row, 13, tc.plan_time, cell_format)
 
-        aux_row = 5
-        for c_model in control_models:
-            date = fields.datetime.strptime(c_model.date, DEFAULT_SERVER_DATE_FORMAT)
+                # To calculate minimum column width
+                max_tmp = len(str(row - 5))
+                if max_tmp > max_len[0]:
+                    max_len[0] = max_tmp
+                max_tmp = len(tc.turn_id.name)
+                if max_tmp > max_len[4]:
+                    max_len[4] = max_tmp
+                max_tmp = len(tc.productive_section_id.name)
+                if max_tmp > max_len[5]:
+                    max_len[5] = max_tmp
+                max_tmp = len(i.productive_line_id.name) if i.productive_line_id else 0
+                if max_tmp > max_len[8]:
+                    max_len[8] = max_tmp
+                max_tmp = len(i.machine_id.name) if i.machine_id else 0
+                if max_tmp > max_len[9]:
+                    max_len[9] = max_tmp
+                max_tmp = len(i.set_of_peaces_id.name) if i.set_of_peaces_id else 0
+                if max_tmp > max_len[10]:
+                    max_len[10] = max_tmp
+                max_tmp = len(i.interruption_type_id.name)
+                if max_tmp > max_len[11]:
+                    max_len[11] = max_tmp
+                max_tmp = len(i.interruption_type_id.cause)
+                if max_tmp > max_len[12]:
+                    max_len[12] = max_tmp
 
-            for interruption in c_model.interruption_ids:
-                worksheet.write_number('B'+str(aux_row), date.year, fecha_data_format)
-                worksheet.write_number('C'+str(aux_row), date.month, fecha_data_format)
-                worksheet.write_number('D'+str(aux_row), date.day, fecha_data_format)
-                worksheet.write('E'+str(aux_row), c_model.turn_calendar_id.name, data_format)
-                worksheet.write('F'+str(aux_row), c_model.productive_section_id.name, data_format)
-                if interruption.productive_line_id.productive_line.name:
-                    worksheet.write('G'+str(aux_row), interruption.productive_line_id.productive_line.name, data_format)
-                else:
-                    worksheet.write('G'+str(aux_row), "", data_format)
+                row += 1 # next row
 
-                if interruption.machine_id.name:
-                    worksheet.write('H'+str(aux_row), interruption.machine_id.name, data_format)
-                else:
-                    worksheet.write('H'+str(aux_row), "", data_format)
+        # Set the columns widths.
+        for col in range(len(max_len)):
+            worksheet.set_column(col, col, max_len[col] + 4) # set_column(first_col, last_col, width, cell_format, options)
 
-                if interruption.set_of_peaces_id.name:
-                    worksheet.write('I'+str(aux_row), interruption.set_of_peaces_id.name, data_format)
-                else:
-                    worksheet.write('I'+str(aux_row), "", data_format)
+                # if interruption.time:
+                #     if interruption.interruption_type.cause == 'exogena' and not interruption.productive_line_id:
+                #         worksheet.write('L'+str(aux_row), round(interruption.time * 2 / 60.00,2), data_format)
+                #     elif not interruption.productive_line_id:
+                #         worksheet.write('L'+str(aux_row), round(interruption.time * 2 / 60.00,2), data_format)
+                #     else:
+                #         worksheet.write('L'+str(aux_row), round(interruption.time / 60.00,2), data_format)
+                # else:
+                #     worksheet.write('L'+str(aux_row), "", data_format)
 
-                if interruption.interruption_type.name:
-                    worksheet.write('J'+str(aux_row), interruption.interruption_type.name, data_format)
-                else:
-                    worksheet.write('J'+str(aux_row), "", data_format)
+                # if interruption.frequency:
+                #     worksheet.write('M'+str(aux_row), interruption.frequency, data_format)
+                # else:
+                #     worksheet.write('M'+str(aux_row), "", data_format)
 
-                if interruption.interruption_type.cause:
-                    worksheet.write('K'+str(aux_row), interruption.interruption_type.cause, data_format)
-                else:
-                    worksheet.write('K'+str(aux_row), "", data_format)
+                # aux_row += 1
 
-                if interruption.time:
-                    if interruption.interruption_type.cause == 'exogena' and not interruption.productive_line_id:
-                        worksheet.write('L'+str(aux_row), round(interruption.time * 2 / 60.00,2), data_format)
-                    elif not interruption.productive_line_id:
-                        worksheet.write('L'+str(aux_row), round(interruption.time * 2 / 60.00,2), data_format)
-                    else:
-                        worksheet.write('L'+str(aux_row), round(interruption.time / 60.00,2), data_format)
-                else:
-                    worksheet.write('L'+str(aux_row), "", data_format)
-
-                if interruption.frequency:
-                    worksheet.write('M'+str(aux_row), interruption.frequency, data_format)
-                else:
-                    worksheet.write('M'+str(aux_row), "", data_format)
-
-                aux_row += 1
-
-
-InterruptionsToExcelReport('report.process_control.interruptions_to_excel_report', 'process_control.interruptions_to_excel_wzd')
+        # Freeing up resources
+        workbook.close()
+        output.seek(0)
+        response.stream.write(output.read())
+        output.close()

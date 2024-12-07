@@ -21,8 +21,8 @@
                         <tr>
                             <td class="text-left">
                                 <b>Período: </b>
-                                <t t-esc="date_start"/> - 
-                                <t t-esc="date_end"/>
+                                <t t-esc="start_date"/> - 
+                                <t t-esc="end_date"/>
                             </td>
                         </tr>
                         <tr>

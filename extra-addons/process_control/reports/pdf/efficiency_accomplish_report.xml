@@ -25,8 +25,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><t t-esc="data['date_start']"/></td>
-                                <td><t t-esc="data['date_end']"/></td>
+                                <td><t t-esc="data['start_date']"/></td>
+                                <td><t t-esc="data['end_date']"/></td>
                                 <td><t t-esc="data['percent']"/></td>
                             </tr>
                         </tbody>

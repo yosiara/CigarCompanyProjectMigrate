@@ -7,8 +7,8 @@ from odoo import models, fields, api
 class WzdProductionByHours(models.TransientModel):
     _name = 'process_control.production_hours_wzd'
 
-    date_start = fields.Date('Desde', required=True)
-    date_end = fields.Date('Hasta', required=True)
+    start_date = fields.Date('Desde', required=True)
+    end_date = fields.Date('Hasta', required=True)
 
     productive_section = fields.Many2one(comodel_name="process_control.productive_section",
                                          string="Sec. Prod.",
@@ -17,8 +17,8 @@ class WzdProductionByHours(models.TransientModel):
 
     def print_report(self):
         return self.env['report'].get_action(self, 'process_control.production_by_hours_report', data={
-            'date_start': self.date_start,
-            'date_end': self.date_end,
+            'start_date': self.start_date,
+            'end_date': self.end_date,
             'productive_section': self.productive_section.id,
             'turn': self.turn.id,
         })

@@ -7,8 +7,8 @@ from odoo import models, fields, api
 class WzdProdAndRegAmf(models.AbstractModel):
     _name = 'report.process_control.prod_and_reg_amf_report'
 
-    def get_prod_and_reg(self, date_start, date_end, turn=False):
-        domain = [('date', '>=', date_start), ('date', '<=', date_end)]
+    def get_prod_and_reg(self, start_date, end_date, turn=False):
+        domain = [('date', '>=', start_date), ('date', '<=', end_date)]
         if turn:
             domain.append(('turn', '=', turn))
         control_mods = self.env['process_control.tecnolog_control'].search(domain).mapped(
@@ -36,12 +36,12 @@ class WzdProdAndRegAmf(models.AbstractModel):
         docargs = {
             'doc_model': report.model,
             'docs': {},
-            # 'docs': self.get_prod_and_reg(data['date_start'], data['date_end'], data['turn']),
+            # 'docs': self.get_prod_and_reg(data['start_date'], data['end_date'], data['turn']),
             'turn': data['turn'],
             'turn_obj': turn_obj,
             'productive_lines_aux': productive_lines_aux,
-            'date_start': data['date_start'],
-            'date_end': data['date_end'],
+            'start_date': data['start_date'],
+            'end_date': data['end_date'],
         }
 
         return report_obj.render('process_control.prod_and_reg_amf_report', docargs)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <data noupdate="0">
+    <data noupdate="1">
         <record id="interruption_type_PM" model="process_control.interruption_type">
             <field name="name">Problema mecánico</field>
             <field name="code">PM</field>
@@ -97,14 +97,8 @@
             <field name="cause">endogena</field>
         </record>
         <record id="interruption_type_OEN" model="process_control.interruption_type">
-            <field name="name">Otros (Endogeno)</field>
+            <field name="name">Otros</field>
             <field name="code">OEN</field>
-            <field name="cause">endogena</field>
-        </record>
-
-        <record id="interruption_type_OEX" model="process_control.interruption_type">
-            <field name="name">Otros (Exogena)</field>
-            <field name="code">OEX</field>
             <field name="cause">endogena</field>
         </record>
     </data>

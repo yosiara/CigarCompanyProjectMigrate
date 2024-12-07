@@ -31,10 +31,10 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <t t-raw="date_start"/>
+                                <t t-raw="start_date"/>
                             </td>
                             <td colspan="2">
-                                <t t-raw="date_end"/>
+                                <t t-raw="end_date"/>
                             </td>
                             <td colspan="2">
                                 <t t-if="turn">
@@ -83,7 +83,7 @@
 
                                             <t t-foreach="productive_lines_aux" t-as="line">
                                                 <t t-set="production_aux"
-                                                   t-value="line.get_product_amf_productive_line(date_start,date_end,turn)"/>
+                                                   t-value="line.get_product_amf_productive_line(start_date,end_date,turn)"/>
                                                 <t t-if="line.productive_line.id in production_aux">
                                                     <td align="center">
                                                         <t t-raw="production_aux[line.productive_line.id]"/>
@@ -110,7 +110,7 @@
 
                                             <t t-foreach="productive_lines_aux" t-as="line">
                                                 <t t-set="reg_aux"
-                                                   t-value="line.get_reg_amf_by_productive_line(date_start,date_end,turn)"/>
+                                                   t-value="line.get_reg_amf_by_productive_line(start_date,end_date,turn)"/>
                                                 <t t-if="line.productive_line.id in reg_aux">
                                                     <t t-set="total_reg_cojones"
                                                        t-value="total_reg_cojones + reg_aux[line.productive_line.id]"/>
@@ -137,7 +137,7 @@
 
                                             <t t-foreach="productive_lines_aux" t-as="line">
                                                 <t t-set="reg_ind"
-                                                   t-value="line.get_reg_ind(date_start,date_end,turn, line.productive_line.id)"/>
+                                                   t-value="line.get_reg_ind(start_date,end_date,turn, line.productive_line.id)"/>
                                                 <t t-set="total_ind_rech"
                                                    t-value="total_ind_rech + reg_ind"/>
                                                 <td t-if="reg_ind > 0" align="center">
@@ -166,7 +166,7 @@
                                             <t t-foreach="productive_lines_aux" t-as="pl">
                                                 <t t-if="pl.productive_section_id.id != ps_auxo">
                                                     <t t-set="reg_ind_sp"
-                                                       t-value="pl.productive_section_id.get_ind_rechazo(date_start,date_end,turn)"/>
+                                                       t-value="pl.productive_section_id.get_ind_rechazo(start_date,end_date,turn)"/>
 
                                                     <td t-if="reg_ind_sp > 0" t-att-colspan="len(pl.productive_section_id.productive_line_ids)" align="center">
                                                         <t t-raw="reg_ind_sp"/>

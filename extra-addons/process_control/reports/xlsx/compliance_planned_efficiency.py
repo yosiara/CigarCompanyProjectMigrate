@@ -20,7 +20,7 @@ class CompliancePannedEfficiencyToExcelReport(ReportXlsx):
         worksheet.insert_textbox('A1:K1', tools.ustr("EMPRESA DE CIGARRO LAZARO PEÑA"), options={'font': {'color': 'black',
                                                                                                           'size': 12, 'bold': 1}, 'width': 550, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                                                                                  'line': {'none': True}})
-        worksheet.insert_textbox('A2:K2', tools.ustr("CUMPLIMIENTO DE EFICIENCIA PLANIFICADA (DESDE %s HASTA %s)") % (lines.date_start, lines.date_end),
+        worksheet.insert_textbox('A2:K2', tools.ustr("CUMPLIMIENTO DE EFICIENCIA PLANIFICADA (DESDE %s HASTA %s)") % (lines.start_date, lines.end_date),
                                  options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                                   'size': 10}, 'width': 730, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                           'line': {'none': True}})
@@ -65,7 +65,7 @@ class CompliancePannedEfficiencyToExcelReport(ReportXlsx):
             sum_eff = 0.00
             sum_dev_eff = 0.00
             for turn in turns:
-                efficiency = productive_section.calculate_efficiency(lines.date_start, lines.date_end, turn.id)
+                efficiency = productive_section.calculate_efficiency(lines.start_date, lines.end_date, turn.id)
                 sum_eff += efficiency
                 worksheet.write_number(row, index, efficiency, workbook.add_format({'bold': 0, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}}))
                 index += 1

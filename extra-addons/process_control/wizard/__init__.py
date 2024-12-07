@@ -7,7 +7,7 @@
 # from . import wzd_interruptions_by_line
 # from . import wzd_interruptions_by_machine
 # from . import wzd_prod_and_reg_amf
-# from . import wzd_interruptions_to_excel
+from . import wzd_interruptions_to_excel
 # from . import wzd_time_use_to_excel
 # from . import wzd_efficiency_cdt_excel_report
 # #from . import wdz_resume_time_frequency

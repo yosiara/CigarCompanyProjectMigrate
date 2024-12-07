@@ -15,7 +15,7 @@ class InterruptionType(models.Model):
                                         column2="machine_type_id", string="Tipo de Máquinas")
     #use_in_any_machine = fields.Boolean(string="Usar para cualquier máquina", default=False)
     activate = fields.Boolean(string="Activa", default=True)
-    cause = fields.Selection(string="Causa", required=True, default='endogena', selection=[
+    cause = fields.Selection(string="Causa *", required=True, default='endogena', selection=[
         ('endogena', 'ENDÓGENAS (Internas)'),
         ('exogena', 'EXÓGENAS (Externas)')
     ])

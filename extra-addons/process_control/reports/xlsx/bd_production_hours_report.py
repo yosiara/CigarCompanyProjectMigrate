@@ -9,7 +9,7 @@ from odoo.addons.report_xlsx.report.report_xlsx import ReportXlsx
 class BdProductionHoursToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
-        production_hours = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)], order="date, productive_section_id")
+        production_hours = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)], order="date, productive_section_id")
 
         worksheet = workbook.add_worksheet(tools.ustr("Seccion Mañana"))
         worksheet1 = workbook.add_worksheet(tools.ustr("Seccion Tarde"))

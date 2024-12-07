@@ -56,12 +56,12 @@ class ProductiveSection(models.Model):
     #                 + u'" ya ha sido añadida en la Modulo: "' +
     #                 tools.ustr(lines_in_system[0].productive_section_id.name) + '"')
 
-    def calculate_cdt(self, date_start=None, date_end=None, turn=None):
+    def calculate_cdt(self, start_date=None, end_date=None, turn=None):
         self.ensure_one()
         domain = [('productive_section_id', '=', self.id)]
-        if date_start and date_end:
-            domain.append(('date', '<=', date_end))
-            domain.append(('date', '>=', date_start))
+        if start_date and end_date:
+            domain.append(('date', '<=', end_date))
+            domain.append(('date', '>=', start_date))
         else:
             raise ValidationError('El CDT debe calcularse en un rango de fechas.')
 
@@ -90,12 +90,12 @@ class ProductiveSection(models.Model):
 
         return cdt
 
-    def calculate_efficiency(self, date_start=None, date_end=None, turn=None):
+    def calculate_efficiency(self, start_date=None, end_date=None, turn=None):
         self.ensure_one()
         domain = [('productive_section_id', '=', self.id)]
-        if date_start and date_end:
-            domain.append(('date', '<=', date_end))
-            domain.append(('date', '>=', date_start))
+        if start_date and end_date:
+            domain.append(('date', '<=', end_date))
+            domain.append(('date', '>=', start_date))
         else:
             raise ValidationError('La eficiencia productiva debe calcularse en un rango de fechas.')
 
@@ -121,9 +121,9 @@ class ProductiveSection(models.Model):
         self.ensure_one()
         return self.env['process_control.productive_section_plan'].search([('productive_section_ids', 'in', self.id), ('active', '=', True)])
 
-    def get_ind_rechazo(self, date_start, date_end, turn=False):
+    def get_ind_rechazo(self, start_date, end_date, turn=False):
         suma_ind = 0.00
         for line in self.productive_line_ids:
-            suma_ind += line.get_reg_ind(date_start, date_end, turn, line.productive_line.id)
+            suma_ind += line.get_reg_ind(start_date, end_date, turn, line.productive_line.id)
         # return round(suma_ind/len(self.productive_line_ids), 3)
         return round(suma_ind / self.get_efficiency_plan().quantity_line, 3)

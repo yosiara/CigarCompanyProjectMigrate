@@ -9,10 +9,10 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="date_start"/>
+                                <field name="start_date"/>
                             </group>
                             <group>
-                                <field name="date_end"/>
+                                <field name="end_date"/>
                             </group>
                         </group>
                         <footer>

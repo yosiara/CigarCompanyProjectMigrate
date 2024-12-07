@@ -34,10 +34,10 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <t t-raw="date_start"/>
+                                    <t t-raw="start_date"/>
                                 </td>
                                 <td colspan="2">
-                                    <t t-raw="date_end"/>
+                                    <t t-raw="end_date"/>
                                 </td>
                                 <td colspan="2">
                                     <t t-if="productive_section">

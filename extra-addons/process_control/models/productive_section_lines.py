@@ -20,9 +20,9 @@ class ProductiveSectionLines(models.Model):
         for ps in self:
             ps.productive_section_name = ps.productive_section_id.name
 
-    def get_product_amf_productive_line(self, date_start, date_end, turn=False):
+    def get_product_amf_productive_line(self, start_date, end_date, turn=False):
         self.ensure_one()
-        domain = [('date', '>=', date_start), ('date', '<=', date_end),
+        domain = [('date', '>=', start_date), ('date', '<=', end_date),
                   ('productive_section_id', '=', self.productive_section_id.id)]
         if turn:
             domain.append(('turn_calendar_id', '=', turn))
@@ -35,9 +35,9 @@ class ProductiveSectionLines(models.Model):
                 res[line.productive_line_id.productive_line.id] += line.produccion_en_cajones
         return res
 
-    def get_reg_amf_by_productive_line(self, date_start, date_end, turn=False):
+    def get_reg_amf_by_productive_line(self, start_date, end_date, turn=False):
         self.ensure_one()
-        domain = [('date', '>=', date_start), ('date', '<=', date_end),
+        domain = [('date', '>=', start_date), ('date', '<=', end_date),
                   ('productive_section_id', '=', self.productive_section_id.id)]
         if turn:
             domain.append(('turn_calendar_id', '=', turn))
@@ -50,11 +50,11 @@ class ProductiveSectionLines(models.Model):
                 res[line.productive_line_id.productive_line.id] += round(line.rechazo_en_cajetijas / 500.00, 3)
         return res
 
-    def get_reg_ind(self, date_start, date_end, turn=False, line_id=False):
+    def get_reg_ind(self, start_date, end_date, turn=False, line_id=False):
         # calcular indice de rechazo de la linea
         self.ensure_one()
-        prod = self.get_product_amf_productive_line(date_start, date_end, turn)
-        reg = self.get_reg_amf_by_productive_line(date_start, date_end, turn)
+        prod = self.get_product_amf_productive_line(start_date, end_date, turn)
+        reg = self.get_reg_amf_by_productive_line(start_date, end_date, turn)
         if line_id in prod:
             prod = prod[line_id]
         else:

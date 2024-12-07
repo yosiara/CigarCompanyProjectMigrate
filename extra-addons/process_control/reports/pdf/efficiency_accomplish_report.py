@@ -16,7 +16,7 @@ class EfficiencyAccomplishReport(models.AbstractModel):
         records = []
 
         for productive_section in productives_sections:
-            efficiency = productive_section.calculate_efficiency(data['date_start'], data['date_end'])
+            efficiency = productive_section.calculate_efficiency(data['start_date'], data['end_date'])
             if efficiency < data['percent']:
                 records.append((productive_section, efficiency))
 

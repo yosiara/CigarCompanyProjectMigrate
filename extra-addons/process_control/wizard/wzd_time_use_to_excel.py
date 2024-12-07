@@ -7,11 +7,11 @@ from odoo import models, fields
 class WzdTimeUseToExcel(models.TransientModel):
     _name = 'process_control.time_use_to_excel_wzd'
 
-    date_start = fields.Date('Desde', required=True)
-    date_end = fields.Date('Hasta', required=True)
+    start_date = fields.Date('Desde', required=True)
+    end_date = fields.Date('Hasta', required=True)
 
-    def export_to_xls(self):
+    def export_to_xlsx(self):
         return self.env['report'].get_action(self, 'process_control.time_use_to_excel_report', data={
-            'date_start': self.date_start,
-            'date_end': self.date_end,
+            'start_date': self.start_date,
+            'end_date': self.end_date,
         })

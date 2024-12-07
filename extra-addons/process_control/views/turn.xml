@@ -64,7 +64,7 @@
                 </field>
             </record>
             
-            <menuitem action="action_turn_form" id="menu_turn" parent="process_control_settings_menu" sequence="1"/>
+            <menuitem action="action_turn_form" string="Turnos de trabajo" id="menu_turn" parent="process_control_settings_menu" sequence="1"/>
 
         <!-- <record id="resource_calendar_form_inherit" model="ir.ui.view">
             <field name="name">resource.calendar.form</field>

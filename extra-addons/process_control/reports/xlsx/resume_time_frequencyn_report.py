@@ -17,12 +17,12 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
                                                                                                  'line': {'none': True}})
         if lines.turn:
             # self.env['resource.calendar'].browse([lines.turn]).sgp_turn_id.sgp_id
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.date_start, lines.date_end, lines.turn.sgp_turn_id.sgp_id),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.start_date, lines.end_date, lines.turn.sgp_turn_id.sgp_id),
                                  options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                                    'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                           'line': {'none': True}})
         else:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.date_start, lines.date_end),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.start_date, lines.end_date),
                                  options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                                    'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                           'line': {'none': True}})
@@ -41,9 +41,9 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn_calendar_id', '=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date),('turn_calendar_id', '=', lines.turn.id)])
         else:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)])
 
         dic_int, dic_int_fr = {}, {}
         for tc in tecnolog_control:
@@ -140,12 +140,12 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
                                                                                                           'size': 12, 'bold': 1}, 'width': 495, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                                                                                  'line': {'none': True}})
         if lines.turn:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.date_start, lines.date_end, lines.turn.sgp_turn_id.sgp_id),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.start_date, lines.end_date, lines.turn.sgp_turn_id.sgp_id),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
         else:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.date_start, lines.date_end),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.start_date, lines.end_date),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
@@ -188,12 +188,12 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                                                                                                           'size': 12, 'bold': 1}, 'width': 495, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                                                                                  'line': {'none': True}})
         if lines.turn:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.date_start, lines.date_end, lines.turn.sgp_turn_id.sgp_id),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.start_date, lines.end_date, lines.turn.sgp_turn_id.sgp_id),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
         else:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.date_start, lines.date_end),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.start_date, lines.end_date),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
@@ -209,9 +209,9 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn_calendar_id', '=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date),('turn_calendar_id', '=', lines.turn.id)])
         else:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)])
 
         dic_int, dic_int_fr = {}, {}
         for tc in tecnolog_control:
@@ -327,12 +327,12 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
                                                                                                           'size': 12, 'bold': 1}, 'width': 495, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                                                                                  'line': {'none': True}})
         if lines.turn:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.date_start, lines.date_end, lines.turn.sgp_turn_id.sgp_id),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.start_date, lines.end_date, lines.turn.sgp_turn_id.sgp_id),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
         else:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.date_start, lines.date_end),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.start_date, lines.end_date),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})

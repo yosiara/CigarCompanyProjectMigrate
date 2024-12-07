@@ -6,7 +6,7 @@
 # from . import interruptions_by_machine_report
 # from . import efficiency_accomplish_report
 # from . import prod_and_reg_amf_report
-# from . import interruptions_to_excel_report
+from .xlsx import interruptions_to_excel_report
 # from . import time_use_to_excel_report
 # from . import efficiency_cdt_excel_report
 # from . import resume_time_frequency_report

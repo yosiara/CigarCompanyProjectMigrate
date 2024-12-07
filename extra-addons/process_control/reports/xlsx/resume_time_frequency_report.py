@@ -42,12 +42,12 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
                                                                                                           'size': 12, 'bold': 1}, 'width': 495, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                                                                                  'line': {'none': True}})
         if lines.turn:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.date_start, lines.date_end, lines.turn),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.start_date, lines.end_date, lines.turn),
                                  options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                                    'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                           'line': {'none': True}})
         else:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.date_start, lines.date_end),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.start_date, lines.end_date),
                                  options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                                    'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                           'line': {'none': True}})
@@ -64,9 +64,9 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            self.env.cr.execute(query % (lines.date_start, lines.date_end, lines.turn))
+            self.env.cr.execute(query % (lines.start_date, lines.end_date, lines.turn))
         else:
-            self.env.cr.execute(query % (lines.date_start, lines.date_end))
+            self.env.cr.execute(query % (lines.start_date, lines.end_date))
         records_query = self.env.cr.dictfetchall()
 
         row_index = 4
@@ -93,23 +93,23 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
 
                 if records_query[i]['machine_type_id']:
                     query_time += " and process_control_machine.machine_type_id = %d"
-                    #query_time %= (ps.id, lines.turn , lines.date_start, lines.date_end, records_query[i]['id'], records_query[i]['machine_type_id'])
+                    #query_time %= (ps.id, lines.turn , lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'])
                 #else:
-                    #query_time %= (ps.id, lines.turn, lines.date_start, lines.date_end, records_query[i]['id'])
+                    #query_time %= (ps.id, lines.turn, lines.start_date, lines.end_date, records_query[i]['id'])
                 if lines.turn:
                     query_time += " and process_control_tecnolog_control.turn = %d"
 
                 if records_query[i]['machine_type_id'] and lines.turn:
-                    query_time %= (ps.id, lines.date_start, lines.date_end, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
+                    query_time %= (ps.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
 
                 elif records_query[i]['machine_type_id'] and not lines.turn:
-                    query_time %= (ps.id, lines.date_start, lines.date_end, records_query[i]['id'], records_query[i]['machine_type_id'])
+                    query_time %= (ps.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'])
 
                 elif not records_query[i]['machine_type_id'] and lines.turn:
-                    query_time %= (ps.id, lines.date_start, lines.date_end, records_query[i]['id'], lines.turn)
+                    query_time %= (ps.id, lines.start_date, lines.end_date, records_query[i]['id'], lines.turn)
 
                 elif not records_query[i]['machine_type_id'] and not lines.turn:
-                    query_time %= (ps.id, lines.date_start, lines.date_end, records_query[i]['id'])
+                    query_time %= (ps.id, lines.start_date, lines.end_date, records_query[i]['id'])
 
 
                 self.env.cr.execute(query_time)
@@ -131,12 +131,12 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
                                                                                                           'size': 12, 'bold': 1}, 'width': 495, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                                                                                  'line': {'none': True}})
         if lines.turn:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.date_start, lines.date_end, lines.turn),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.start_date, lines.end_date, lines.turn),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
         else:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.date_start, lines.date_end),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.start_date, lines.end_date),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
@@ -151,9 +151,9 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
             worksheet.write(3, column_index, 'Sp.' + ps.name[-2:], merge_format)
             column_index += 1
         if lines.turn:
-            self.env.cr.execute(query % (lines.date_start, lines.date_end, lines.turn))
+            self.env.cr.execute(query % (lines.start_date, lines.end_date, lines.turn))
         else:
-            self.env.cr.execute(query % (lines.date_start, lines.date_end))
+            self.env.cr.execute(query % (lines.start_date, lines.end_date))
         records_query = self.env.cr.dictfetchall()
 
         row_index = 4
@@ -180,23 +180,23 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
 
                 if records_query[i]['machine_type_id']:
                     query_time += " and process_control_machine.machine_type_id = %d"
-                    #query_time %= (ps.id, lines.turn , lines.date_start, lines.date_end, records_query[i]['id'], records_query[i]['machine_type_id'])
+                    #query_time %= (ps.id, lines.turn , lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'])
                 #else:
-                    #query_time %= (ps.id, lines.turn, lines.date_start, lines.date_end, records_query[i]['id'])
+                    #query_time %= (ps.id, lines.turn, lines.start_date, lines.end_date, records_query[i]['id'])
                 if lines.turn:
                     query_time += " and process_control_tecnolog_control.turn = %d"
 
                 if records_query[i]['machine_type_id'] and lines.turn:
-                    query_time %= (ps.id, lines.date_start, lines.date_end, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
+                    query_time %= (ps.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
 
                 elif records_query[i]['machine_type_id'] and not lines.turn:
-                    query_time %= (ps.id, lines.date_start, lines.date_end, records_query[i]['id'], records_query[i]['machine_type_id'])
+                    query_time %= (ps.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'])
 
                 elif not records_query[i]['machine_type_id'] and lines.turn:
-                    query_time %= (ps.id, lines.date_start, lines.date_end, records_query[i]['id'], lines.turn)
+                    query_time %= (ps.id, lines.start_date, lines.end_date, records_query[i]['id'], lines.turn)
 
                 elif not records_query[i]['machine_type_id'] and not lines.turn:
-                    query_time %= (ps.id, lines.date_start, lines.date_end, records_query[i]['id'])
+                    query_time %= (ps.id, lines.start_date, lines.end_date, records_query[i]['id'])
 
                 self.env.cr.execute(query_time)
                 records_time = self.env.cr.dictfetchall()
@@ -239,12 +239,12 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
                                                                                                           'size': 12, 'bold': 1}, 'width': 495, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                                                                                  'line': {'none': True}})
         if lines.turn:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.date_start, lines.date_end, lines.turn),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.start_date, lines.end_date, lines.turn),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
         else:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.date_start, lines.date_end),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.start_date, lines.end_date),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
@@ -263,11 +263,11 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
             query += """ and process_control_tecnolog_control.turn = %d
             GROUP BY process_control_interruption_type.id, cause,process_control_interruption_type.name,process_control_machine_type.name,process_control_machine.machine_type_id
             ORDER BY cause DESC, machine_type ASC """
-            self.env.cr.execute(query % (lines.date_start, lines.date_end, lines.turn))
+            self.env.cr.execute(query % (lines.start_date, lines.end_date, lines.turn))
         else:
             query += """ GROUP BY process_control_interruption_type.id, cause,process_control_interruption_type.name,process_control_machine_type.name,process_control_machine.machine_type_id
             ORDER BY cause DESC, machine_type ASC """
-            self.env.cr.execute(query % (lines.date_start, lines.date_end))
+            self.env.cr.execute(query % (lines.start_date, lines.end_date))
 
         records_query = self.env.cr.dictfetchall()
 
@@ -299,16 +299,16 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
                     query_time += " and process_control_tecnolog_control.turn = %d"
 
                 if records_query[i]['machine_type_id'] and lines.turn:
-                    query_time %= (ln.id, lines.date_start, lines.date_end, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
+                    query_time %= (ln.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
 
                 elif records_query[i]['machine_type_id'] and not lines.turn:
-                    query_time %= (ln.id, lines.date_start, lines.date_end, records_query[i]['id'], records_query[i]['machine_type_id'])
+                    query_time %= (ln.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'])
 
                 elif not records_query[i]['machine_type_id'] and lines.turn:
-                    query_time %= (ln.id, lines.date_start, lines.date_end, records_query[i]['id'], lines.turn)
+                    query_time %= (ln.id, lines.start_date, lines.end_date, records_query[i]['id'], lines.turn)
 
                 elif not records_query[i]['machine_type_id'] and not lines.turn:
-                    query_time %= (ln.id, lines.date_start, lines.date_end, records_query[i]['id'])
+                    query_time %= (ln.id, lines.start_date, lines.end_date, records_query[i]['id'])
 
                 self.env.cr.execute(query_time)
                 records_time = self.env.cr.dictfetchall()
@@ -325,12 +325,12 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
                                                                                                           'size': 12, 'bold': 1}, 'width': 495, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                                                                                  'line': {'none': True}})
         if lines.turn:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.date_start, lines.date_end, lines.turn),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) TURNO %d") % (lines.start_date, lines.end_date, lines.turn),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
         else:
-            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.date_start, lines.date_end),
+            worksheet.insert_textbox('A2:K2', tools.ustr("REPORTE RESUMEN DE TIEMPO Y FRECUENCIA POR Modulo (DESDE %s HASTA %s) ") % (lines.start_date, lines.end_date),
                              options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                               'size': 10}, 'width': 720, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                       'line': {'none': True}})
@@ -346,9 +346,9 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            self.env.cr.execute(query % (lines.date_start, lines.date_end, lines.turn))
+            self.env.cr.execute(query % (lines.start_date, lines.end_date, lines.turn))
         else:
-            self.env.cr.execute(query % (lines.date_start, lines.date_end))
+            self.env.cr.execute(query % (lines.start_date, lines.end_date))
         records_query = self.env.cr.dictfetchall()
 
         row_index = 4
@@ -379,16 +379,16 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
                     query_time += " and process_control_tecnolog_control.turn = %d"
 
                 if records_query[i]['machine_type_id'] and lines.turn:
-                    query_time %= (ln.id, lines.date_start, lines.date_end, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
+                    query_time %= (ln.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
 
                 elif records_query[i]['machine_type_id'] and not lines.turn:
-                    query_time %= (ln.id, lines.date_start, lines.date_end, records_query[i]['id'], records_query[i]['machine_type_id'])
+                    query_time %= (ln.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'])
 
                 elif not records_query[i]['machine_type_id'] and lines.turn:
-                    query_time %= (ln.id, lines.date_start, lines.date_end, records_query[i]['id'], lines.turn)
+                    query_time %= (ln.id, lines.start_date, lines.end_date, records_query[i]['id'], lines.turn)
 
                 elif not records_query[i]['machine_type_id'] and not lines.turn:
-                    query_time %= (ln.id, lines.date_start, lines.date_end, records_query[i]['id'])
+                    query_time %= (ln.id, lines.start_date, lines.end_date, records_query[i]['id'])
 
                 self.env.cr.execute(query_time)
                 records_time = self.env.cr.dictfetchall()

@@ -20,7 +20,7 @@ class ReportProductionByHours(models.AbstractModel):
                 tecnolog_control_id = process_control_tecnolog_control."id"
             )
             WHERE process_control_tecnolog_control."date" BETWEEN '%s' and '%s'
-        """ % (data['date_start'], data['date_end'])
+        """ % (data['start_date'], data['end_date'])
 
         conditions = []
         if 'turn' in data and data['turn']:
@@ -81,8 +81,8 @@ class ReportProductionByHours(models.AbstractModel):
         docargs = {
             'doc_model': report.model,
             'docs': records,
-            'date_start': data['date_start'],
-            'date_end': data['date_end'],
+            'start_date': data['start_date'],
+            'end_date': data['end_date'],
             'turn': self.env['resource.calendar'].browse([data['turn']]).sgp_turn_id.sgp_id,
             'max_len': len(records['productive_sections']),
             'productive_sections': records['productive_sections']

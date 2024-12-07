@@ -155,9 +155,9 @@ class TecnologControl(models.Model):
     #     if self.attendance_id.id:
     #         list_hours = []
     #         self.production_by_hours_ids = False
-    #         date_start = datetime.strptime(str(int(self.attendance_id.hour_from)), '%H')
-    #         date_end = datetime.strptime(str(int(self.attendance_id.hour_to)), '%H')
-    #         timedelta_diff = date_end - date_start
+    #         start_date = datetime.strptime(str(int(self.attendance_id.hour_from)), '%H')
+    #         end_date = datetime.strptime(str(int(self.attendance_id.hour_to)), '%H')
+    #         timedelta_diff = end_date - start_date
     #         iter_count = int(timedelta_diff.seconds / 3600)
     #         hours_counter = 1
     #         sufix = {0: 'ra', 1: 'da', 2: 'ra', 3: 'ta', 4: 'ta', 5: 'ta', 6: 'ma', 7: 'va', 8: 'na', 9: 'ma'}
@@ -167,8 +167,8 @@ class TecnologControl(models.Model):
     #                 aux_sufix = sufix[i]
     #             list_hours.append(
     #                 [0, 0,
-    #                  {'hour_production': str(1 + i) + aux_sufix + ' hora ' + date_start.strftime('%H:%M') + ' a ' +
-    #                                      (date_start + timedelta(hours=hours_counter)).strftime('%H:%M')}])
+    #                  {'hour_production': str(1 + i) + aux_sufix + ' hora ' + start_date.strftime('%H:%M') + ' a ' +
+    #                                      (start_date + timedelta(hours=hours_counter)).strftime('%H:%M')}])
     #             hours_counter += 1
     #             self.production_by_hours_ids = list_hours
     #         self._compute_plan_time()
@@ -176,9 +176,9 @@ class TecnologControl(models.Model):
     # @api.depends('attendance_id')
     # def _compute_plan_time(self):
     #     for att in self:
-    #         date_start = datetime.strptime(str(int(att.attendance_id.hour_from)), '%H')
-    #         date_end = datetime.strptime(str(int(att.attendance_id.hour_to)), '%H')
-    #         timedelta_diff = date_end - date_start
+    #         start_date = datetime.strptime(str(int(att.attendance_id.hour_from)), '%H')
+    #         end_date = datetime.strptime(str(int(att.attendance_id.hour_to)), '%H')
+    #         timedelta_diff = end_date - start_date
     #         att.plan_time = int(timedelta_diff.seconds / 3600)
 
     # @api.model_create_multi

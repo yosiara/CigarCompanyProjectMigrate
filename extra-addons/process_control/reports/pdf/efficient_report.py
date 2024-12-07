@@ -42,12 +42,12 @@ class EfficientReport(models.AbstractModel):
                 LEFT JOIN "public".process_control_machine_set_of_peaces ON "public".process_control_interruption.set_of_peaces_id = "public".process_control_machine_set_of_peaces.id
                 """
 
-        turns_domain = [('date', '<=', data['date_end']), ('date', '>=', data['date_start'])]
+        turns_domain = [('date', '<=', data['end_date']), ('date', '>=', data['start_date'])]
         prod_section_id = False
 
         if data['turn'] and data['productive_section']:
             query += """WHERE productive_section= '%s' and "date" BETWEEN '%s' and '%s' and turn= '%s'"""
-            query %= (data['productive_section'], data['date_start'], data['date_end'], data['turn'])
+            query %= (data['productive_section'], data['start_date'], data['end_date'], data['turn'])
             docargs.update({'turn': self.env['resource.calendar'].search([('id', '=', data['turn'])], limit=1)})
             turns_domain.append(('turn_calendar_id', '=', data['turn']))
             turns_domain.append(('productive_section_id', '=', data['productive_section']))
@@ -55,17 +55,17 @@ class EfficientReport(models.AbstractModel):
         else:
             if not data['turn'] and data['productive_section']:
                 query += """WHERE productive_section= '%s' and "date" BETWEEN '%s' and '%s'"""
-                query %= (data['productive_section'], data['date_start'], data['date_end'])
+                query %= (data['productive_section'], data['start_date'], data['end_date'])
                 turns_domain.append(('productive_section_id', '=', data['productive_section']))
                 prod_section_id = str(data['productive_section']) if data['productive_section'] > 9 else '0'+str(data['productive_section'])
             elif not data['productive_section'] and data['turn']:
                 query += """WHERE "date" BETWEEN '%s' and '%s' and turn= '%s'"""
-                query %= (data['date_start'], data['date_end'], data['turn'])
+                query %= (data['start_date'], data['end_date'], data['turn'])
                 docargs.update({'turn': self.env['resource.calendar'].search([('id', '=', data['turn'])], limit=1)})
                 turns_domain.append(('turn_calendar_id', '=', data['turn']))
             else:
                 query += """WHERE "date" BETWEEN '%s' and '%s'"""
-                query %= (data['date_start'], data['date_end'])
+                query %= (data['start_date'], data['end_date'])
 
         query += ' ORDER BY "key", productive_section, "date", turn, cause DESC'
 
@@ -131,8 +131,8 @@ class EfficientReport(models.AbstractModel):
                     productividad_operativa += ((records_query[i]['plan_time'] * 60.0)-sum_time_exogena_tmp) * records_query[i]['productive_capacity']
 
         docargs.update({
-            'date_start': data['date_start'],
-            'date_end': data['date_end'],
+            'start_date': data['start_date'],
+            'end_date': data['end_date'],
             'turnos_trabajados': turnos_trabajados,
             'records': records_query,
             'sum_frequency_exogena': sum_frequency_exogena,

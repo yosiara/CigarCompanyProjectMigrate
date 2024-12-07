@@ -3,7 +3,7 @@ from odoo import api, fields, models, tools
 
 class SetOfPeacesNomenclature(models.Model):
     _name = "process_control.machine_set_of_peaces"
-    _rec_name = "name"
+    #_rec_name = "name"
     _description = "Subconjuntos de piezas"
 
     name = fields.Char('Nombre', size=40, required=True)

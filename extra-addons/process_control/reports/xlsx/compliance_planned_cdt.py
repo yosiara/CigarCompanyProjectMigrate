@@ -27,7 +27,7 @@ class CompliancePannedCdtToExcelReport(models.AbstractModel):
         worksheet.insert_textbox('A1:K1', tools.ustr("EMPRESA DE CIGARRO LAZARO PEÑA"), options={'font': {'color': 'black',
                                                                                                           'size': 12, 'bold': 1}, 'width': 550, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                                                                                  'line': {'none': True}})
-        worksheet.insert_textbox('A2:K2', tools.ustr("CUMPLIMIENTO DEL CDT (DESDE %s HASTA %s)") % (data["date_start"], data["date_end"]),
+        worksheet.insert_textbox('A2:K2', tools.ustr("CUMPLIMIENTO DEL CDT (DESDE %s HASTA %s)") % (data["start_date"], data["end_date"]),
                                  options={'y_offset': 0, 'font': {'color': 'black', 'bold': 1,
                                                                   'size': 10}, 'width': 730, 'x_offset': 15, 'height': 10, 'fill': {'none': True},
                                           'line': {'none': True}})
@@ -72,7 +72,7 @@ class CompliancePannedCdtToExcelReport(models.AbstractModel):
             # sum_cdt = 0.00
             # sum_dev_cdt = 0.00
             # for turn in turns:
-            #     cdt = productive_section.calculate_cdt(lines.date_start, lines.date_end, turn.id)
+            #     cdt = productive_section.calculate_cdt(lines.start_date, lines.end_date, turn.id)
             #     sum_cdt += cdt
             #     worksheet.write_number(row, index, cdt, workbook.add_format({'bold': 0, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}}))
             #     index += 1
@@ -95,10 +95,11 @@ class CompliancePannedCdtToExcelReport(models.AbstractModel):
             #     worksheet.write_number(row, index, desv_total, workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}}))
             # row += 1
 
-            workbook.close()
-            output.seek(0)
-            response.stream.write(output.read())
-            output.close()
+        workbook.close()
+        output.seek(0)
+        response.stream.write(output.read())
+        output.close()
+        
 
 
 # CompliancePannedCdtToExcelReport('report.process_control.compliance_planned_cdt', 'process_control.compliance_planned_cdt_excel_wzd')

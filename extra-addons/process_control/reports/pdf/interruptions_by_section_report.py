@@ -13,7 +13,7 @@ class ReportInterruptionsBySection(models.AbstractModel):
         report = report_obj._get_report_from_name('process_control.interruptions_by_section_report')
 
         records = {}
-        domain = [('date', '>=', data['date_start']), ('date', '<=', data['date_end'])]
+        domain = [('date', '>=', data['start_date']), ('date', '<=', data['end_date'])]
 
         if data['productive_section']:
             domain.append(('productive_section', '=', data['productive_section']))
@@ -42,7 +42,7 @@ class ReportInterruptionsBySection(models.AbstractModel):
         docargs = {
             'doc_model': report.model,
             'docs': records,
-            'date_start': data['date_start'],
-            'date_end': data['date_end'],
+            'start_date': data['start_date'],
+            'end_date': data['end_date'],
         }
         return report_obj.render('process_control.interruptions_by_section_report', docargs)

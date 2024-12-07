@@ -15,15 +15,15 @@
                         </style>
                         <group>
                             <group col="2">
-                                <field name="date_start"/>
+                                <field name="start_date"/>
                             </group>
                             <group col="2">
-                                <field name="date_end"/>
+                                <field name="end_date"/>
                             </group>
                         </group>
                         <footer>
                             <div>
-                                <button name="export_to_xls" icon="fa-file-excel-o" string="Imprimir" type="object"
+                                <button name="export_to_xlsx" icon="fa-file-excel-o" string="Imprimir" type="object"
                                         class="oe_highlight"/>
                                 o
                                 <button special="cancel" string="Cancelar" class="oe_link"/>
@@ -44,6 +44,6 @@
         </record>
 
         <menuitem action="wzd_compliance_planned_cdt_excel_act_window"
-                  id="menu_wzd_compliance_planned_cdt_excel_report" parent="process_control_informes_xls" sequence="6"/>
+                  id="menu_wzd_compliance_planned_cdt_excel_report" parent="process_control_informes_xlsx" sequence="6"/>
     </data>
 </odoo>

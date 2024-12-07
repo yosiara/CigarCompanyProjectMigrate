@@ -14,14 +14,14 @@
                             }
                         </style>
                         <group col="4">
-                            <field name="date_start"/>
+                            <field name="start_date"/>
                             <field name="turn" options="{'no_create_edit': True}"/>
                         </group>
 
 
                         <footer>
                             <div>
-                                <button name="export_to_xls" icon="fa-file-excel-o" string="Imprimir" type="object"
+                                <button name="export_to_xlsx" icon="fa-file-excel-o" string="Imprimir" type="object"
                                         class="oe_highlight"/>
                                 o
                                 <button special="cancel" string="Cancelar" class="oe_link"/>
@@ -42,6 +42,6 @@
         </record>
 
         <menuitem action="wzd_statistical_results_to_excel_report_act_window"
-                  id="wzd_statistical_results_to_excel_report_report" parent="process_control_informes_xls" sequence="9"/>
+                  id="wzd_statistical_results_to_excel_report_report" parent="process_control_informes_xlsx" sequence="9"/>
     </data>
 </odoo>

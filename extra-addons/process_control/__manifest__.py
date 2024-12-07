@@ -24,18 +24,21 @@
     'version': '17.0',
     'author': 'Yosiel Arango Arencibia',
     'category': 'Turei',
+    "license": "LGPL-3",
     'sequence': 2,
     'summary': 'Control of the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba',
-    'description': """Control module for interruptions in the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba.
-    """,
+    'description': """Control module for interruptions in the production process of the Lázaro Peña Cigar Factory. 
+    Holguín, Cuba.""",
     'images': [],
     'depends': ['mail'],
     'data': [
         'data/machine_types.xml',
         'data/interruption_type.xml',
         'data/machine_set_of_peaces.xml',
+        'data/turn.xml',
         # 'security/turei_security.xml',
         # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv', #tmp
 
         'views/base_menu.xml',
 #        'views/db_production_connector.xml',
@@ -58,7 +61,7 @@
         # 'wizard/wzd_interruptions_by_machine.xml',
         # 'wizard/wzd_efficiency_accomplish.xml',
         # 'wizard/wzd_prod_and_reg_amf.xml',
-        # 'wizard/wzd_interruptions_to_excel.xml',
+        'wizard/wzd_interruptions_to_excel.xml',
         # 'wizard/wzd_time_to_excel.xml',
         # 'wizard/wzd_efficiency_cdt_excel_report.xml',
         # #'wizard/wdz_resume_time_frequency.xml',
@@ -84,7 +87,7 @@
         # 'reports/efficiency_cdt_excel_report.xml',
         # 'reports/resume_time_frequency_report.xml',
         # 'reports/compliance_planned_efficiency.xml',
-        'reports/xlsx/compliance_planned_cdt.xml',
+        #'reports/xlsx/compliance_planned_cdt.xml',
         # 'reports/machine_set_of_peaces_report.xml',
         # 'reports/bd_production_hours_report.xml',
         # 'reports/statistical_results_report.xml',

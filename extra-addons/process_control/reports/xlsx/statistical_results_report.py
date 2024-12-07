@@ -36,7 +36,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             worksheet.merge_range('A1:S1', tools.ustr("RESULTADOS ESTADÍSTICOS DE CONTROL DEL PROCESO"), head_format)
             worksheet.merge_range('A2:D2', tools.ustr('Seccion Productiva: ' + ps.name[-2:]), head_format)
             worksheet.merge_range('F2:J2', tools.ustr('Turno: %s') %(lines.turn.name[-1:]), head_format)
-            worksheet.merge_range('O2:S2', tools.ustr('Fecha: %s') %(lines.date_start), head_format)
+            worksheet.merge_range('O2:S2', tools.ustr('Fecha: %s') %(lines.start_date), head_format)
 
             worksheet.merge_range('A3:E3', tools.ustr('Indicadores'), merge_format)
             worksheet.merge_range('F3:H3', tools.ustr('Día'), merge_format)
@@ -134,9 +134,9 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             worksheet.write('Q31', tools.ustr('10-11'), normal_format1)
             worksheet.merge_range('R30:S31', tools.ustr('Promedio'), merge_format)
 
-            date_start =  datetime.date(int(lines.date_start.split('-')[0]), int(lines.date_start.split('-')[1]), 1)
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','=',lines.date_start),('productive_section_id','=',ps.id),('turn_calendar_id', '=', lines.turn.id)])
-            acum_tec_control = self.env['process_control.tecnolog_control'].search([('date','>=',date_start),('date','<',lines.date_start),('productive_section_id','=',ps.id),('turn_calendar_id', '=', lines.turn.id)])
+            start_date =  datetime.date(int(lines.start_date.split('-')[0]), int(lines.start_date.split('-')[1]), 1)
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','=',lines.start_date),('productive_section_id','=',ps.id),('turn_calendar_id', '=', lines.turn.id)])
+            acum_tec_control = self.env['process_control.tecnolog_control'].search([('date','>=',start_date),('date','<',lines.start_date),('productive_section_id','=',ps.id),('turn_calendar_id', '=', lines.turn.id)])
             ttp, trp, ttig, prc, er, sum_time_exog, eo, cdt, ppc, pc, tf, cturnm, cturnt, tt  = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0.0
             quantity_line = ps.get_efficiency_plan().quantity_line
             h, j, ind_rech, acum_ind_rech = 7, 14, 0.0, 0.0
@@ -474,7 +474,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
         worksheet.merge_range('A1:S1', tools.ustr("RESULTADOS ESTADÍSTICOS DE CONTROL DEL PROCESO"), head_format)
         worksheet.merge_range('A2:D2', tools.ustr('Seccion Productiva: TODAS' ), head_format)
         worksheet.merge_range('F2:J2', tools.ustr('Turno: %s') % (lines.turn.name[-1:]), head_format)
-        worksheet.merge_range('O2:S2', tools.ustr('Fecha: %s') % (lines.date_start), head_format)
+        worksheet.merge_range('O2:S2', tools.ustr('Fecha: %s') % (lines.start_date), head_format)
 
         worksheet.merge_range('A3:E3', tools.ustr('Indicadores'), merge_format)
         worksheet.merge_range('F3:H3', tools.ustr('Día'), merge_format)

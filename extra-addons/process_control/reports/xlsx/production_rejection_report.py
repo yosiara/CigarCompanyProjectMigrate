@@ -10,9 +10,9 @@ class ProductionRejectionToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
         if lines.turn:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end),('turn_calendar_id','=', lines.turn.id)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date),('turn_calendar_id','=', lines.turn.id)])
         else:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.date_start),('date','<=',lines.date_end)])
+            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)])
         worksheet = workbook.add_worksheet(tools.ustr("Control de Producción y Rechazo"))
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vdistributed', 'font': {'size': 11}})
         normal_format = workbook.add_format({'bold': 0, 'border': 1, 'align': 'left', 'valign': 'vcenter', 'font': {'size': 11}})
@@ -24,8 +24,8 @@ class ProductionRejectionToExcelReport(ReportXlsx):
         worksheet.merge_range('C3:D3', tools.ustr("Hasta"), normal_format)
         worksheet.set_column('E3:F3', 15)
         worksheet.merge_range('E3:F3', tools.ustr("Turno"), normal_format)
-        worksheet.write('B4', tools.ustr(lines.date_start), normal_format)
-        worksheet.merge_range('C4:D4', tools.ustr(lines.date_end), normal_format)
+        worksheet.write('B4', tools.ustr(lines.start_date), normal_format)
+        worksheet.merge_range('C4:D4', tools.ustr(lines.end_date), normal_format)
         if lines.turn:
             worksheet.merge_range('E4:F4', tools.ustr(lines.turn.name[-1:]), normal_format)
         else:

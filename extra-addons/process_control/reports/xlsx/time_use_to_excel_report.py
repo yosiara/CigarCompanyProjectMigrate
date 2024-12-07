@@ -31,7 +31,7 @@ class TimeUseToExcelReport(ReportXlsx):
                 AND '%s'
                 ORDER BY "key", productive_section, "date", turn"""
 
-        query %= (lines.date_start, lines.date_end)
+        query %= (lines.start_date, lines.end_date)
 
         self.env.cr.execute(query)
         records_query = self.env.cr.dictfetchall()
@@ -98,9 +98,9 @@ class TimeUseToExcelReport(ReportXlsx):
         data_format = workbook.add_format({'bold': 0, 'border': 1, 'align': 'center', 'valign': 'vcenter', 'font': {'size': 12}})
 
         worksheet.write('B3', 'Desde', merge_format)
-        worksheet.write('C3', lines.date_start, fecha_format)
+        worksheet.write('C3', lines.start_date, fecha_format)
         worksheet.write('D3', 'Hasta', merge_format)
-        worksheet.write('E3', lines.date_end, fecha_format)
+        worksheet.write('E3', lines.end_date, fecha_format)
 
         worksheet.write('B4', tools.ustr('Año'), merge_format)
         worksheet.write('C4', tools.ustr('Mes'), merge_format)

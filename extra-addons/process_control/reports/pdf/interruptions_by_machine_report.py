@@ -13,7 +13,7 @@ class ReportInterruptionsByLine(models.AbstractModel):
         report = report_obj._get_report_from_name('process_control.interruptions_by_line_report')
 
         records = {}
-        domain = [('date', '>=', data['date_start']), ('date', '<=', data['date_end'])]
+        domain = [('date', '>=', data['start_date']), ('date', '<=', data['end_date'])]
 
         controles = self.env['process_control.tecnolog_control'].search(domain)
 
@@ -65,7 +65,7 @@ class ReportInterruptionsByLine(models.AbstractModel):
         docargs = {
             'doc_model': report.model,
             'docs': records,
-            'date_start': data['date_start'],
-            'date_end': data['date_end'],
+            'start_date': data['start_date'],
+            'end_date': data['end_date'],
         }
         return report_obj.render('process_control.interruptions_by_machine_report', docargs)
