@@ -100,8 +100,9 @@ class Interruption(models.Model):
 
     @api.constrains("start_date", "end_date")
     def _constrains_date_range(self):
-        if self.start_date < self.tecnolog_control_id.turn_attendance_id.hour_from or self.end_date > self.tecnolog_control_id.turn_attendance_id.hour_to:
-            raise ValidationError("El inicio y el fin de la interrupción no está en el rango de la sesión seleccionada")            
+        for rec in self:
+            if rec.start_date < rec.tecnolog_control_id.turn_attendance_id.hour_from or rec.end_date > rec.tecnolog_control_id.turn_attendance_id.hour_to:
+                raise ValidationError("El inicio y el fin de la interrupción no está en el rango de la sesión seleccionada")            
     
     # -------------------------------------------------------------------------
     # COMPUTE METHODS
@@ -109,33 +110,37 @@ class Interruption(models.Model):
 
     @api.depends("tecnolog_control_id.productive_section_id", "productive_line_id")
     def _get_machine_domain(self):
-        if self.productive_line_id:
-            self.machine_domain = [('productive_line_id', '=', self.productive_line_id.id)]
-        elif self.tecnolog_control_id.productive_section_id:
-            self.machine_domain = [("productive_section_id", "=", self.tecnolog_control_id.productive_section_id.id)]
-        else:
-            self.machine_domain = [('id', 'in', False)]
+        for rec in self:
+            if rec.productive_line_id:
+                rec.machine_domain = [('productive_line_id', '=', rec.productive_line_id.id)]
+            elif rec.tecnolog_control_id.productive_section_id:
+                rec.machine_domain = [("productive_section_id", "=", rec.tecnolog_control_id.productive_section_id.id)]
+            else:
+                rec.machine_domain = [('id', 'in', False)]
 
     @api.depends("machine_id")
     def _get_peaces_domain(self):
-        self.peaces_domain = [('id', 'in', self.machine_id.set_of_peaces.ids)] if self.machine_id else [('id', 'in', False)]
+        for rec in self:
+            rec.peaces_domain = [('id', 'in', rec.machine_id.set_of_peaces.ids)] if rec.machine_id else [('id', 'in', False)]
 
     @api.depends("tecnolog_control_id.productive_section_id")
     def _get_line_domain(self):
-        if self.tecnolog_control_id.productive_section_id:
-            machine_in_section = self.machine_id.search([("productive_section_id", "=", self.tecnolog_control_id.productive_section_id.id)])
-            self.line_domain = [("id", "in", [rec.productive_line_id.id for rec in machine_in_section])]
-        else:
-            self.line_domain = [("id", "in", False)]
+        for rec in self:
+            if rec.tecnolog_control_id.productive_section_id:
+                machine_in_section = rec.machine_id.search([("productive_section_id", "=", rec.tecnolog_control_id.productive_section_id.id)])
+                rec.line_domain = [("id", "in", [i.productive_line_id.id for i in machine_in_section])]
+            else:
+                rec.line_domain = [("id", "in", False)]
 
     @api.depends("machine_id")
     def _get_interruption_type_domain(self):
-        if self.machine_id:
-            self._cr.execute(f"SELECT interruption_type_id FROM process_control_interruption_type_machine_type_asoc WHERE machine_type_id='{self.machine_id.machine_type_id.id}'")
-            ids_asoc = [rec[0] for rec in self._cr.fetchall()]
-            self.interruption_type_domain = ['|', ('machine_type_related', '=', False), ('id', 'in', ids_asoc), ('activate', '=', True)]
-        else:
-            self.interruption_type_domain = [('machine_type_related', '=', False), ('activate', '=', True)]
+        for rec in self:
+            if rec.machine_id:
+                rec._cr.execute(f"SELECT interruption_type_id FROM process_control_interruption_type_machine_type_asoc WHERE machine_type_id='{rec.machine_id.machine_type_id.id}'")
+                ids_asoc = [i[0] for i in rec._cr.fetchall()]
+                rec.interruption_type_domain = ['|', ('machine_type_related', '=', False), ('id', 'in', ids_asoc), ('activate', '=', True)]
+            else:
+                rec.interruption_type_domain = [('machine_type_related', '=', False), ('activate', '=', True)]
 
     # -------------------------------------------------------------------------
     # ONCHANGE METHODS
