@@ -1,4 +1,4 @@
-FROM odoo:17.1
+FROM odoo:17.3
 
 USER root
 
@@ -6,7 +6,10 @@ USER root
 #RUN python3 -m pip install --upgrade debugpy pymssql mysql.connector pymysql
 
 #odoo:17.3 tomando como base 17.1
-RUN python3 -m pip install --upgrade XlsxWriter
+#RUN python3 -m pip install --upgrade XlsxWriter
+
+#odoo:17.3 tomando como base 17.3
+RUN python3 -m pip install --upgrade jingtrang
 
 #odoo:17.2
 #COPY ./entrypoint.sh /

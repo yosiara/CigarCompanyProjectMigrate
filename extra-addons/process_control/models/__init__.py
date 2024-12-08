@@ -1,4 +1,5 @@
 from . import turn
+from . import turn_attendance
 from . import machine_type
 from . import machine
 #from . import db_production_connector

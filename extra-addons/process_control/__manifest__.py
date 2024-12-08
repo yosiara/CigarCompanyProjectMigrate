@@ -38,11 +38,11 @@
         'data/turn.xml',
         # 'security/turei_security.xml',
         # 'security/ir.model.access.csv',
-        'security/ir.model.access.csv', #tmp
+        'security/ir.model.access.csv',
 
         'views/base_menu.xml',
-#        'views/db_production_connector.xml',
         'views/turn.xml',
+#        'views/db_production_connector.xml',
         'views/machine_type.xml',
         'views/machine.xml',
         'views/interrution_type.xml',

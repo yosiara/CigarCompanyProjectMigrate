@@ -54,7 +54,7 @@
             </record>
 
             <record id="action_turn_form" model="ir.actions.act_window">
-                <field name="name">Working Turns</field>
+                <field name="name">Turnos de trabajo</field>
                 <field name="res_model">process_control.turn</field>
                 <field name="view_mode">tree,form</field>
                 <field name="help" type="html">
@@ -64,7 +64,7 @@
                 </field>
             </record>
             
-            <menuitem action="action_turn_form" string="Turnos de trabajo" id="menu_turn" parent="process_control_settings_menu" sequence="1"/>
+            <menuitem action="action_turn_form" id="menu_turn" parent="process_control_settings_menu" sequence="1"/>
 
         <!-- <record id="resource_calendar_form_inherit" model="ir.ui.view">
             <field name="name">resource.calendar.form</field>
