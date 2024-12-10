@@ -6,7 +6,6 @@ import logging
 _logger = logging.getLogger(__name__)
 
 from io import BytesIO
-from urllib.request import urlopen
 
 try:
     import xlsxwriter
@@ -39,7 +38,7 @@ class InterruptionsToExcelReport(models.AbstractModel):
         cell_format = workbook.add_format({'border': 1, 'align': 'center', 'valign': 'vcenter'})
         
         # Add worksheet
-        worksheet = workbook.add_worksheet("Interrupciones") 
+        worksheet = workbook.add_worksheet("Interrupciones")
         
         # Insert logo.
         worksheet.merge_range("A1:D3", '')
