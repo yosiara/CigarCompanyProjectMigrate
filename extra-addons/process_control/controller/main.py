@@ -29,6 +29,18 @@ class XLSXReportController(http.Controller):
                 report_obj.generate_xlsx_report(options, response)
                 response.set_cookie('fileToken', token)
                 return response
+            # elif output_format == 'pdf':
+            #     response = request.make_response(
+            #         None,
+            #         headers=[
+            #             ('Content-Type', 'application/pdf'),
+            #             ('Content-Disposition',
+            #              content_disposition(f"{report_name}.pdf"))
+            #         ]
+            #     )
+            #     report_obj.generate_xlsx_report(options, response)
+            #     response.set_cookie('fileToken', token)
+            #     return
         except Exception as e:
             se = _serialize_exception(e)
             error = {

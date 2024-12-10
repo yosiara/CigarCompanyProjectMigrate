@@ -24,6 +24,7 @@ class ReportSmoke(models.AbstractModel):
         concepts = []
         farol = 0.00
         cajetillas = 0.00
+        flagCS = False
 
         # Obtain and prepare data
         if data["concept_id"]:
@@ -45,6 +46,7 @@ class ReportSmoke(models.AbstractModel):
                 if i.concept_id.id not in ids:
                     ids.append(i.concept_id.id)
             dataConcept = objConcept.browse(ids)
+            flagCS = True
 
         # Processing data...
         for i in dataConcept:
@@ -87,4 +89,5 @@ class ReportSmoke(models.AbstractModel):
             "cantSal": cantSal,
             "cantDev": cantDev,
             "desgloseCS": desgloseCS,
+            "flagCS": flagCS,
         }

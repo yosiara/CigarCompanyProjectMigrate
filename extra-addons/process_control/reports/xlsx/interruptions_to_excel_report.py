@@ -5,7 +5,8 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 import logging
 _logger = logging.getLogger(__name__)
 
-import io
+from io import BytesIO
+from urllib.request import urlopen
 
 try:
     import xlsxwriter
@@ -19,24 +20,34 @@ class InterruptionsToExcelReport(models.AbstractModel):
 
     @api.model
     def generate_xlsx_report(self, data, response):
-        output = io.BytesIO()
+        # Get data
+        tecnolog_control_ids = self.env['process_control.tecnolog_control'].search([('date', '>=', data["start_date"]), ('date', '<=', data["end_date"])])
+        if not tecnolog_control_ids: # Empty data
+           _logger.warning('There is no data to display.')
+           return
+
+        output = BytesIO()
         workbook = xlsxwriter.Workbook(output, {'in_memory': True})
         
         # Title
         title = f"Listado de Interrupciones desde {data['start_date']} hasta {data['end_date']}"
 
         # Formats
-        title_format = workbook.add_format({'bold': 1, 'border': 6, 'align': 'center', 'valign': 'vcenter', 'font_size': 20, 'italic': 1, 'fg_color': '#D7E4BC', 'underline': 2})
+        title_format = workbook.add_format({'bold': 1, 'align': 'center', 'valign': 'vcenter', 'font_size': 18, 'italic': 1, 'font_color': '#873b0f', 'underline': 2})
         header_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vcenter'})
         data_format = workbook.add_format({'bold': 0})
         cell_format = workbook.add_format({'border': 1, 'align': 'center', 'valign': 'vcenter'})
         
         # Add worksheet
-        worksheet = workbook.add_worksheet("Interrupciones")
+        worksheet = workbook.add_worksheet("Interrupciones") 
+        
+        # Insert logo.
+        worksheet.merge_range("A1:D3", '')
+        worksheet.insert_image("A1", '/mnt/extra-addons/process_control/static/src/img/hoja_turei.jpg', {'x_scale': 1.5, 'y_scale': 1.7})
         
         # Write the title.
-        worksheet.merge_range("A1:N3", title, title_format)
-        
+        worksheet.merge_range("E1:N3", title, title_format)
+
         # Options to use in the table.
         options = {
             #"style": "Table Style Light 11",
@@ -60,13 +71,7 @@ class InterruptionsToExcelReport(models.AbstractModel):
         }
 
         # Add a table to the worksheet.
-        worksheet.add_table("A6:N7", options)
-
-        # Get data
-        tecnolog_control_ids = self.env['process_control.tecnolog_control'].search([('date', '>=', data["start_date"]), ('date', '<=', data["end_date"])])
-        if not tecnolog_control_ids: # Empty data
-           _logger.warning('There is no data to display.')
-           return
+        worksheet.add_table("A5:N6", options)
 
         # Variables Decalaration
         row = 6
@@ -124,7 +129,7 @@ class InterruptionsToExcelReport(models.AbstractModel):
 
         # Set the columns widths.
         for col in range(len(max_len)):
-            worksheet.set_column(col, col, max_len[col] + 4) # set_column(first_col, last_col, width, cell_format, options)
+            worksheet.set_column(col, col, max_len[col] + 4.3) # set_column(first_col, last_col, width, cell_format, options)
 
                 # if interruption.time:
                 #     if interruption.interruption_type.cause == 'exogena' and not interruption.productive_line_id:
