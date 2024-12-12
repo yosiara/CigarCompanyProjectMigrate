@@ -13,9 +13,9 @@ except ImportError:
     raise ImportError(_("Python Library Import Error."))
  
 
-class InterruptionsToExcelReport(models.AbstractModel):
-    _name = "report.process_control.interruptions_to_excel_report"
-    _description = "Interruptions to excel report"
+class InterruptionsExcelReport(models.AbstractModel):
+    _name = "report.process_control.interruptions_excel_report"
+    _description = "Interruptions excel report"
 
     @api.model
     def generate_xlsx_report(self, data, response):
@@ -73,7 +73,7 @@ class InterruptionsToExcelReport(models.AbstractModel):
         worksheet.add_table("A5:N6", options)
 
         # Variables Decalaration
-        row = 6
+        row = 5
         max_len = []
 
         # Initial definition of column widths
@@ -83,7 +83,7 @@ class InterruptionsToExcelReport(models.AbstractModel):
         # Write data
         for tc in tecnolog_control_ids:
             for i in tc.interruption_ids:
-                worksheet.write(row, 0, row - 5, cell_format) # write(row, col, *args)
+                worksheet.write(row, 0, row - 4, cell_format) # write(row, col, *args)
                 worksheet.write(row, 1, tc.date.year, cell_format)
                 worksheet.write(row, 2, tc.date.month, cell_format)
                 worksheet.write(row, 3, tc.date.day, cell_format)
@@ -99,7 +99,7 @@ class InterruptionsToExcelReport(models.AbstractModel):
                 worksheet.write(row, 13, tc.plan_time, cell_format)
 
                 # To calculate minimum column width
-                max_tmp = len(str(row - 5))
+                max_tmp = len(str(row - 4))
                 if max_tmp > max_len[0]:
                     max_len[0] = max_tmp
                 max_tmp = len(tc.turn_id.name)
