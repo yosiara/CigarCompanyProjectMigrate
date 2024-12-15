@@ -39,7 +39,10 @@
                             </tbody>
                             <footer>
                                 <tr>
-                                    <th>Total</th> <th><t t-out="totalSal + totalSalCS"/></th> <th><t t-out="totalDev + totalDevCS"/></th> <th><t t-out="(totalSal + totalSalCS) - (totalDev + totalDevCS)"/></th>
+                                    <th>Total</th>
+                                    <th><t t-out="totalSal + totalSalCS"/></th>
+                                    <th><t t-out="totalDev + totalDevCS"/></th>
+                                    <th><t t-out="(totalSal + totalSalCS) - (totalDev + totalDevCS)"/></th>
                                 </tr>
                             </footer>
                         </table>

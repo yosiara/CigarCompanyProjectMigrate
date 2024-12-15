@@ -105,6 +105,7 @@
     'assets': {
         'web.assets_backend': [
             'process_control/static/src/js/report_handler.js',
+            'process_control/static/src/css/fields.css',
         ],
     },
 }

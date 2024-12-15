@@ -27,24 +27,17 @@ class ReportSmoke(models.AbstractModel):
         flagCS = False
 
         # Obtain and prepare data
+        domain = [
+            ("date", ">=", data["start_date"]),
+            ("date", "<=", data["end_date"]),
+        ]
         if data["concept_id"]:
-            domain = [
-                ("date", ">=", data["start_date"]),
-                ("date", "<=", data["end_date"]),
-                ("concept_id", "=", data["concept_id"]),
-            ]
+            domain.append(("concept_id", "=", data["concept_id"]))
             dataSmoke = objSmoke.search(domain)
             dataConcept = objConcept.browse(data["concept_id"])
         else:
-            domain = [
-                ("date", ">=", data["start_date"]),
-                ("date", "<=", data["end_date"]),
-            ]
             dataSmoke = objSmoke.search(domain)
-            ids = []
-            for i in dataSmoke:
-                if i.concept_id.id not in ids:
-                    ids.append(i.concept_id.id)
+            ids = {i.concept_id.id for i in dataSmoke}
             dataConcept = objConcept.browse(ids)
             flagCS = True
 

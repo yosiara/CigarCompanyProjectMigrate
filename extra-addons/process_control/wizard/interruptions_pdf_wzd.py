@@ -13,11 +13,14 @@ class InterruptionsPdfReportWzd(models.TransientModel):
     
     productive_section_id = fields.Many2one(comodel_name="process_control.productive_section", string="Módulo", ondelete='cascade')
     productive_line_id = fields.Many2one('process_control.productive_line', string='Línea')
+    
     machine_id = fields.Many2one('process_control.machine', string='Máquina')
+    machine_domain = fields.Binary(compute="_get_machine_domain", exportable=False)
+    
     set_of_peaces_id = fields.Many2one("process_control.machine_set_of_peaces", string="Subconjunto de Piezas")
     peaces_domain = fields.Binary(compute="_get_peaces_domain", exportable=False)
 
-    filter = fields.Selection([
+    filt = fields.Selection([
         ('productive_section', 'Módulo'),
         ('productive_line', 'Línea'),
         ('machine', 'Máquina'),
@@ -28,6 +31,19 @@ class InterruptionsPdfReportWzd(models.TransientModel):
         for rec in self:
             rec.peaces_domain = [('id', 'in', rec.machine_id.set_of_peaces.ids)] if rec.machine_id else []
 
+    @api.depends("interruption_type_id")
+    def _get_machine_domain(self):
+        for rec in self:
+            if rec.interruption_type_id:
+                rec.machine_domain = [('machine_type_id', 'in', rec.interruption_type_id.machine_type_related.ids)]
+            else:
+                rec.machine_domain = []
+
+    @api.onchange("machine_id")
+    def _onchange_machine_id(self):
+        if self.interruption_type_id.machine_type_related and self.machine_id.machine_type_id.id not in self.interruption_type_id.machine_type_related.ids:
+            self.interruption_type_id = False
+
     def print_report(self):
         self.ensure_one()
         if self.end_date < self.start_date:
@@ -36,11 +52,11 @@ class InterruptionsPdfReportWzd(models.TransientModel):
             "start_date": self.start_date,
             "end_date": self.end_date,
             "interruption_type_id": self.interruption_type_id.id,
-            "productive_section_id": self.productive_section_id.id if self.filter == "productive_section" else False,
-            "productive_line_id": self.productive_line_id.id if self.filter == "productive_line" else False,
-            "machine_id": self.machine_id.id if self.filter == "machine" else False,
-            "set_of_peaces_id": self.set_of_peaces_id.id if self.filter == "machine" else False,
-            "filter": self.filter,
+            "productive_section_id": self.productive_section_id.id if self.filt == "productive_section" else False,
+            "productive_line_id": self.productive_line_id.id if self.filt == "productive_line" else False,
+            "machine_id": self.machine_id.id if self.filt == "machine" else False,
+            "set_of_peaces_id": self.set_of_peaces_id.id if self.filt == "machine" else False,
+            "filt": self.filt,
         }
         return self.env.ref("process_control.interruptions_pdf_report_action").report_action(self, data=data)
 

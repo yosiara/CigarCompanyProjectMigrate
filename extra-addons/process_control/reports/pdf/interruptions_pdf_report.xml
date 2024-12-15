@@ -4,94 +4,65 @@
         <template id="interruptions_pdf_report">
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
-                    <div class="header">
-                        <div class="row">
-                            <div class="col-xs-2 text-left" style="margin:0 0 0 0; padding:0 0 0 15px">
-                                <img src="/process_control/static/src/img/logo_hoja.png"/>
-                            </div>
-                            <div class="col-xs-10 text-center" style="padding:35px">
-                                <h4>
-                                    <b>Reporte de Interrupciones</b>
-                                </h4>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="page">
-                        <table class="table-bordered table">
-                            <tr>
-                                <td class="text-left">
-                                    <b>Período: </b>
-                                    <t t-esc="start_date"/> - 
-                                    <t t-esc="end_date"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Modulo</th>
-                                            <th>Tipo de Interrupción</th>
-                                            <th>Cantidad</th>
-                                            <th>Tiempo(horas)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <t t-set="total_cantidad" t-value="0"/>
-                                        <t t-set="total_tiempo" t-value="0"/>
-                                        <t t-foreach="docs" t-as="seccion">
-                                            <t t-set="interruption_type_count" t-value="len(docs[seccion])"/>
-                                            <t t-set="first" t-value="1"/>
-                                            <t t-set="total_seccion_cantidad" t-value="0"/>
-                                            <t t-set="total_seccion_tiempo" t-value="0"/>
-                                            <tr t-foreach="docs[seccion]" t-as="tipo">
-                                                <t t-if="first==1">
-                                                    <td t-att-rowspan="interruption_type_count">
-                                                        <t t-raw="seccion"/>
-                                                    </td>
-                                                    <t t-set="first" t-value="0"/>
-                                                </t>
-                                                <td>
-                                                    <t t-raw="tipo"/>
-                                                </td>
-                                                <td>
-                                                    <t t-esc="docs[seccion][tipo]['cantidad']"/>
-                                                    <t t-set="total_seccion_cantidad" t-value="total_seccion_cantidad+docs[seccion][tipo]['cantidad']"/>
-                                                </td>
-                                                <td>
-                                                    <t t-esc="round(docs[seccion][tipo]['tiempo']/60.00,2)"/>
-                                                    <t t-set="total_seccion_tiempo" t-value="total_seccion_tiempo+docs[seccion][tipo]['tiempo']"/>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" align="right">Subtotal
-                                                    <t t-esc="seccion"/>
-                                                </td>
-                                                <td>
-                                                    <t t-esc="total_seccion_cantidad"/>
-                                                </td>
-                                                <td>
-                                                    <t t-esc="round(total_seccion_tiempo/60.00,2)"/>
-                                                </td>
-                                            </tr>
-                                            <t t-set="total_cantidad" t-value="total_cantidad+total_seccion_cantidad"/>
-                                            <t t-set="total_tiempo" t-value="total_tiempo+total_seccion_tiempo"/>
-                                        </t>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th class="text-right" align="right" colspan="2">Total</th>
-                                            <th>
-                                                <t t-esc="total_cantidad"/>
-                                            </th>
-                                            <th>
-                                                <t t-esc="round(total_tiempo/60.00,2)"/>
-                                            </th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </tr>
+                        <h3>Resumen de Interrupciones desde <t t-out="start_date"/> hasta <t t-out="end_date"/></h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <t t-if="filt == 'machine'">
+                                        <th>Máquina</th>
+                                        <th>Subconjunto</th>
+                                    </t>
+                                    <t t-elif="filt == 'productive_line'">
+                                        <th>Línea</th>
+                                    </t>
+                                    <t t-else="">
+                                        <th>Módulo</th>
+                                    </t>
+                                    <th>Tipo de Interrupción</th>
+                                    <th>Cantidad</th>
+                                    <th>Tiempo(horas)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="res" t-as="ent">
+                                    <t t-set="interruption_type_count" t-value="len(res[ent])+2"/>
+                                    <td t-att-rowspan="interruption_type_count" class="text-center">
+                                        <t t-out="ent"/>
+                                    </td>
+                                    <tr t-foreach="res[ent]" t-as="type">
+                                        <td>
+                                            <t t-out="type"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-out="res[ent][type]['cantidad']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <t t-out="res[ent][type]['tiempo']"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Subtotal</th>
+                                        <th>
+                                            <t t-out="total[ent]['cantidad']"/>
+                                        </th>
+                                        <th>
+                                            <t t-out="total[ent]['tiempo']"/>
+                                        </th>
+                                    </tr>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr style="font-size: 17px;">
+                                    <th colspan="2">Total</th>
+                                    <th>
+                                        <t t-out="total['Total']['cantidad']"/>
+                                    </th>
+                                    <th>
+                                        <t t-out="total['Total']['tiempo']"/>
+                                    </th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </t>

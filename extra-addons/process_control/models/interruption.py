@@ -148,12 +148,15 @@ class Interruption(models.Model):
 
     @api.onchange("productive_line_id")
     def _onchange_productive_line_id(self):
-        self.machine_id = False
+        if self.productive_line_id.id is not self.machine_id.productive_line_id.id:
+            self.machine_id = False
 
     @api.onchange("machine_id")
     def _onchange_machine_id(self):
-        self.set_of_peaces_id = False
-        self.interruption_type_id = False
+        if self.set_of_peaces_id.id not in self.machine_id.set_of_peaces.ids:
+            self.set_of_peaces_id = False
+        if self.interruption_type_id.machine_type_related and self.machine_id.machine_type_id.id not in self.interruption_type_id.machine_type_related.ids:
+            self.interruption_type_id = False
 
     # @api.model_create_multi
     # def create(self, vals_list):
