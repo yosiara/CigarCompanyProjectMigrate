@@ -25,36 +25,77 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr t-foreach="res" t-as="ent">
-                                    <t t-set="interruption_type_count" t-value="len(res[ent])+2"/>
-                                    <td t-att-rowspan="interruption_type_count" class="text-center">
-                                        <t t-out="ent"/>
-                                    </td>
-                                    <tr t-foreach="res[ent]" t-as="type">
-                                        <td>
-                                            <t t-out="type"/>
+                                <!-- Machine -->
+                                <t t-if="filt == 'machine'">
+                                    <tr t-foreach="res" t-as="machine">
+                                        <td t-att-rowspan="total[machine]['rowspan']+2" align="center" valign="middle">
+                                            <t t-out="machine"/>
                                         </td>
-                                        <td class="text-center">
-                                            <t t-out="res[ent][type]['cantidad']"/>
-                                        </td>
-                                        <td class="text-center">
-                                            <t t-out="res[ent][type]['tiempo']"/>
-                                        </td>
+                                        <tr t-foreach="res[machine]" t-as="subset">
+                                            <td t-att-rowspan="len(res[machine][subset])+1" align="center" valign="middle">
+                                                <t t-out="subset"/>
+                                            </td>
+                                            <tr t-foreach="res[machine][subset]" t-as="type">
+                                                <td>
+                                                    <t t-out="type"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <t t-out="res[machine][subset][type]['cantidad']"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <t t-out="res[machine][subset][type]['tiempo']"/>
+                                                </td>
+                                            </tr>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2">Subtotal</th>
+                                            <th>
+                                                <t t-out="total[machine]['cantidad']"/>
+                                            </th>
+                                            <th>
+                                                <t t-out="total[machine]['tiempo']"/>
+                                            </th>
+                                        </tr>
                                     </tr>
-                                    <tr>
-                                        <th>Subtotal</th>
-                                        <th>
-                                            <t t-out="total[ent]['cantidad']"/>
-                                        </th>
-                                        <th>
-                                            <t t-out="total[ent]['tiempo']"/>
-                                        </th>
+                                </t>
+                                <!-- Other -->
+                                <t t-else="">
+                                    <tr t-foreach="res" t-as="ent">
+                                        <t t-set="interruption_type_count" t-value="len(res[ent])+2"/>
+                                        <td t-att-rowspan="interruption_type_count" align="center" valign="middle">
+                                            <t t-out="ent"/>
+                                        </td>
+                                        <tr t-foreach="res[ent]" t-as="type">
+                                            <td>
+                                                <t t-out="type"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-out="res[ent][type]['cantidad']"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <t t-out="res[ent][type]['tiempo']"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Subtotal</th>
+                                            <th>
+                                                <t t-out="total[ent]['cantidad']"/>
+                                            </th>
+                                            <th>
+                                                <t t-out="total[ent]['tiempo']"/>
+                                            </th>
+                                        </tr>
                                     </tr>
-                                </tr>
+                                </t>
                             </tbody>
                             <tfoot>
                                 <tr style="font-size: 17px;">
-                                    <th colspan="2">Total</th>
+                                    <t t-if="filt == 'machine'">
+                                        <th colspan="3">Total</th>
+                                    </t>
+                                    <t t-else="">
+                                        <th colspan="2">Total</th>
+                                    </t>
                                     <th>
                                         <t t-out="total['Total']['cantidad']"/>
                                     </th>

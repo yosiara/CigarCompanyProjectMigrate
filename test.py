@@ -1,10 +1,20 @@
 res = {
     'Sección A': {
-        'Tipo 1': {'cantidad': 5, 'tiempo': 120},
-        'Tipo 2': {'cantidad': 3, 'tiempo': 60},
+        'Subconjunto 1': {
+            'Interrupcion 1': {'cantidad': 3, 'tiempo': 60},
+            'Interrupcion 2': {'cantidad': 3, 'tiempo': 60},
+        },
+        'Subconjunto 2': {
+            'Interrupcion 3': {'cantidad': 3, 'tiempo': 60},
+            'Interrupcion 4': {'cantidad': 3, 'tiempo': 60},
+            'Interrupcion 5': {'cantidad': 10, 'tiempo': 80},
+        } 
     },
     'Sección B': {
-        'Tipo 1': {'cantidad': 2, 'tiempo': 30},
+        'Subconjunto 3': {
+            'Interrupcion 1': {'cantidad': 3, 'tiempo': 60},
+            'Interrupcion 2': {'cantidad': 3, 'tiempo': 60},
+        },
     },
 }
 

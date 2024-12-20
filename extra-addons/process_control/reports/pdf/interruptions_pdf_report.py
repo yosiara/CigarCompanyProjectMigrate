@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from odoo import models, api
-
+import logging
+_logger = logging.getLogger(__name__)
 
 class InterruptionsPdfReport(models.AbstractModel):
     _name = "report.process_control.interruptions_pdf_report"
@@ -9,12 +10,16 @@ class InterruptionsPdfReport(models.AbstractModel):
     @api.model
     def _get_report_values(self, docids, data=None):
         res = {}
-        total = {'Total': {'cantidad': 0, 'tiempo': 0.00}}
+        total = {
+            'Total': {
+                'cantidad': 0, 'tiempo': 0.00
+            },
+        }
         
         # Get tecnolog_control data
         domain = [('date', '>=', data['start_date']), ('date', '<=', data['end_date'])] # Domain for tecnolog_control
-        if data['productive_section_ids']:
-            domain.append(('productive_section_id', 'in', data['productive_section_ids']))
+        if data['productive_section_id']:
+            domain.append(('productive_section_id', '=', data['productive_section_id']))
         tecnolog_control = self.env['process_control.tecnolog_control'].search(domain)
         
         # Get interruptions data in tecnolog_control
@@ -25,14 +30,16 @@ class InterruptionsPdfReport(models.AbstractModel):
         interruptions = self.env["process_control.interruption"].browse(ids)
 
         domain = [] # Domain for interruptions
-        if data["interruption_type_ids"]:
-            domain.append('interruption_type_id', 'in', data["interruption_type_ids"])
-        if data["machine_ids"]:
-            domain.append(('machine_id', 'in', data["machine_ids"]))
-        elif data["productive_line_ids"]:
-            domain.append(('productive_line_id', 'in', data["productive_line_ids"]))
+        if data["interruption_type_id"]:
+            domain.append('interruption_type_id', '=', data["interruption_type_id"])
+        if data["machine_id"]:
+            domain.append(('machine_id', '=', data["machine_id"]))
+        elif data["productive_line_id"]:
+            domain.append(('productive_line_id', '=', data["productive_line_id"]))
         interruptions = interruptions.filtered_domain(domain)
-        if not interruptions:
+        
+        if not interruptions: # Empty Data
+            _logger.warning('There is no data to display.')
             return
         
         # Processing data...
@@ -42,15 +49,22 @@ class InterruptionsPdfReport(models.AbstractModel):
                     if i.machine_id:
                         machine = i.machine_id.name
                         type = i.interruption_type_id.name
-                        set_of_peaces = i.set_of_peaces_id.name if i.set_of_peaces_id else None
+                        set_of_peaces = i.set_of_peaces_id.name if i.set_of_peaces_id else '-'
                         if machine not in res:
                             res[machine] = {}
-                        if set_of_peaces not in res[machine] and set_of_peaces is not None:
+                            total[machine] = {'cantidad': 0, 'tiempo': 0.00, 'rowspan': 0}
+                        if set_of_peaces not in res[machine]:
                             res[machine][set_of_peaces] = {}
+                            total[machine]['rowspan'] += 1
                         if type not in res[machine][set_of_peaces]:
                             res[machine][set_of_peaces][type] = {'cantidad': 0, 'tiempo': 0.00}
+                            total[machine]['rowspan'] += 1
                         res[machine][set_of_peaces][type]['cantidad'] += 1
+                        total[machine]['cantidad'] += 1
+                        total['Total']['cantidad'] += 1
                         res[machine][set_of_peaces][type]['tiempo'] += i.end_date - i.start_date
+                        total[machine]['tiempo'] += i.end_date - i.start_date
+                        total['Total']['tiempo'] += i.end_date - i.start_date
             case "productive_line":
                 for i in interruptions:
                     if i.productive_line_id:
