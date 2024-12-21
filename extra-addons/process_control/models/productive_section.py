@@ -38,6 +38,7 @@ class ProductiveSection(models.Model):
     #                                       string='Líneas Productivas')
 
     productive_section_plan_id = fields.Many2one('process_control.productive_section_plan', string='Plan *', required=True)
+
     active = fields.Boolean(string="Activa", default=True)
 
     _sql_constraints = [

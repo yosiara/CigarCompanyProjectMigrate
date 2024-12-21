@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
 from datetime import datetime
 from odoo import models, fields, api
 
@@ -17,7 +15,7 @@ class ProductiveSectionPlan(models.Model):
         return datetime.strptime(date.split('-')[0], '%Y').year
 
     year = fields.Char(string="Año *", required=True, default=_default_year)
-    active = fields.Boolean(string="Activo", default=True)
+    activate = fields.Boolean(string="Activo", default=True)
 
     productive_section_ids = fields.One2many(comodel_name="process_control.productive_section", string="Módulos",
                                             inverse_name='productive_section_plan_id', required=False)
@@ -25,14 +23,14 @@ class ProductiveSectionPlan(models.Model):
     productive_capacity = fields.Integer('Capacidad Prod. *', required=True)
     quantity_line = fields.Integer('Cantidad Líneas Trabajando *', required=True)
 
-    @api.model_create_multi
-    @api.depends('year')
-    def get_name(self):
-        for plan in self:
-            if plan.id and plan.year:
-                plan.name = plan.year+' # '+str(plan.id)
-            else:
-                plan.name = ' # '
+    # @api.model_create_multi
+    # @api.depends('year')
+    # def get_name(self):
+    #     for plan in self:
+    #         if plan.id and plan.year:
+    #             plan.name = plan.year+' # '+str(plan.id)
+    #         else:
+    #             plan.name = ' # '
 
     # @api.model
     # def create(self, vals):
@@ -46,3 +44,4 @@ class ProductiveSectionPlan(models.Model):
     #     if vals.get('active'):
     #         self.search([]).write({'active': False})
     #     return super(ProductiveSectionPlan, self).write(vals)
+

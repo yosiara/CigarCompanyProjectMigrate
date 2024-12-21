@@ -2,7 +2,6 @@ from . import turn
 from . import turn_attendance
 from . import machine_type
 from . import machine
-#from . import db_production_connector
 from . import productive_line
 from . import productive_section
 from . import interrution_type
@@ -10,7 +9,9 @@ from . import interruption
 from . import tecnolog_control
 from . import productive_section_plan
 from . import machine_set_of_peaces
-from . import production_by_hours
-from . import productive_section_lines
 from . import rechazo_amf
 from . import rechazo_mod1
+#from . import machine_peaces
+#from . import production_by_hours
+#from . import db_production_connector
+#from . import productive_section_lines

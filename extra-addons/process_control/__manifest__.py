@@ -37,6 +37,8 @@
         'data/interruption_type.xml',
         'data/machine_set_of_peaces.xml',
         'data/turn.xml',
+
+        #-----------------------security-------------------------------------#
         # 'security/turei_security.xml',
         # 'security/ir.model.access.csv',
         'security/ir.model.access.csv',
@@ -96,16 +98,12 @@
         # 'reports/production_rejection_report.xml',
         # 'reports/resume_time_frequencyn_report.xml',
     ],
-    'demo': [],
-    'test': [],
-    'installable': True,
     'application': True,
-    'auto_install': False,
-    'css': [],
     'assets': {
         'web.assets_backend': [
             'process_control/static/src/js/report_handler.js',
-            'process_control/static/src/css/fields.css',
+            'process_control/static/src/js/formAutoSave.js',
+            #'process_control/static/src/css/fields.css',
         ],
     },
 }

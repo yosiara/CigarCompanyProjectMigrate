@@ -31,7 +31,7 @@ class InterruptionsPdfReport(models.AbstractModel):
 
         domain = [] # Domain for interruptions
         if data["interruption_type_id"]:
-            domain.append('interruption_type_id', '=', data["interruption_type_id"])
+            domain.append(('interruption_type_id', '=', data["interruption_type_id"]))
         if data["machine_id"]:
             domain.append(('machine_id', '=', data["machine_id"]))
         elif data["productive_line_id"]:

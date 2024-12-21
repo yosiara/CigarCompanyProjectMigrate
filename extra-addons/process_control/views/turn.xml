@@ -49,6 +49,7 @@
                 <field name="arch" type="xml">
                     <tree string="Working Time">
                         <field name="name"/>
+                        <field name="turn_attendance_ids" widget="many2many_tags"/>
                     </tree>
                 </field>
             </record>

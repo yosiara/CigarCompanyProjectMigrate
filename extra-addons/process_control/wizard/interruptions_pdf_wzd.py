@@ -34,15 +34,15 @@ class InterruptionsPdfReportWzd(models.TransientModel):
     @api.depends("interruption_type_id")
     def _get_machine_domain(self):
         for rec in self:
-            if rec.interruption_type_id:
+            if rec.interruption_type_id and rec.interruption_type_id.machine_type_related:
                 rec.machine_domain = [('machine_type_id', 'in', rec.interruption_type_id.machine_type_related.ids)]
             else:
                 rec.machine_domain = []
 
-    @api.onchange("machine_id")
+    @api.onchange("interruption_type_id")
     def _onchange_machine_id(self):
         if self.interruption_type_id.machine_type_related and self.machine_id.machine_type_id.id not in self.interruption_type_id.machine_type_related.ids:
-            self.interruption_type_id = False
+            self.machine_id = False
 
     def print_report(self):
         self.ensure_one()
