@@ -18,8 +18,8 @@ class InterruptionsPdfReport(models.AbstractModel):
         
         # Get tecnolog_control data
         domain = [('date', '>=', data['start_date']), ('date', '<=', data['end_date'])] # Domain for tecnolog_control
-        if data['productive_section_id']:
-            domain.append(('productive_section_id', '=', data['productive_section_id']))
+        if data['productive_section_ids']:
+            domain.append(('productive_section_id', 'in', data['productive_section_ids']))
         tecnolog_control = self.env['process_control.tecnolog_control'].search(domain)
         
         # Get interruptions data in tecnolog_control
@@ -30,12 +30,14 @@ class InterruptionsPdfReport(models.AbstractModel):
         interruptions = self.env["process_control.interruption"].browse(ids)
 
         domain = [] # Domain for interruptions
-        if data["interruption_type_id"]:
-            domain.append(('interruption_type_id', '=', data["interruption_type_id"]))
-        if data["machine_id"]:
-            domain.append(('machine_id', '=', data["machine_id"]))
-        elif data["productive_line_id"]:
-            domain.append(('productive_line_id', '=', data["productive_line_id"]))
+        if data["interruption_type_ids"]:
+            domain.append(('interruption_type_id', 'in', data["interruption_type_ids"]))
+        if data["machine_ids"]:
+            domain.append(('machine_id', 'in', data["machine_ids"]))
+        if data["set_of_peaces_ids"]:
+            domain.append(('set_of_peaces_id', 'in', data["set_of_peaces_ids"]))
+        elif data["productive_line_ids"]:
+            domain.append(('productive_line_id', 'in', data["productive_line_ids"]))
         interruptions = interruptions.filtered_domain(domain)
         
         if not interruptions: # Empty Data
@@ -65,6 +67,12 @@ class InterruptionsPdfReport(models.AbstractModel):
                         res[machine][set_of_peaces][type]['tiempo'] += i.end_date - i.start_date
                         total[machine]['tiempo'] += i.end_date - i.start_date
                         total['Total']['tiempo'] += i.end_date - i.start_date
+                for _, v in res.items():
+                    if '-' in v:
+                        val = v['-']
+                        del v['-']
+                        v['-'] = val
+                        
             case "productive_line":
                 for i in interruptions:
                     if i.productive_line_id:
