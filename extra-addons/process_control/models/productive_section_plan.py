@@ -3,7 +3,8 @@ from datetime import datetime
 from odoo import models, fields, api
 
 class ProductiveSectionPlan(models.Model):
-    _name = 'process_control.productive_section_plan'
+    _name = "process_control.productive_section_plan"
+    _description = "Productive Section Plan"
 
     indice_planif_efici_real = fields.Float(string="Ind Eficiencia (%) *", required=True, default=0.00)
     indice_planif_rechazo = fields.Float(string="Ind Rechazo (%) *", required=True, default=0.00)
@@ -14,34 +15,14 @@ class ProductiveSectionPlan(models.Model):
         date = str(fields.Datetime.now())
         return datetime.strptime(date.split('-')[0], '%Y').year
 
+    name = fields.Char(string='Nombre *', required=True, default="Plan ")
     year = fields.Char(string="Año *", required=True, default=_default_year)
     activate = fields.Boolean(string="Activo", default=True)
-
-    productive_section_ids = fields.One2many(comodel_name="process_control.productive_section", string="Módulos",
-                                            inverse_name='productive_section_plan_id', required=False)
-    name = fields.Char(string='Nombre *', required=True)
     productive_capacity = fields.Integer('Capacidad Prod. *', required=True)
     quantity_line = fields.Integer('Cantidad Líneas Trabajando *', required=True)
+    productive_section_ids = fields.One2many(comodel_name="process_control.productive_section", string="Módulos", inverse_name='productive_section_plan_id')
 
-    # @api.model_create_multi
-    # @api.depends('year')
-    # def get_name(self):
-    #     for plan in self:
-    #         if plan.id and plan.year:
-    #             plan.name = plan.year+' # '+str(plan.id)
-    #         else:
-    #             plan.name = ' # '
-
-    # @api.model
-    # def create(self, vals):
-    #     plan_id = super(ProductiveSectionPlan, self).create(vals)
-    #     if plan_id.active:
-    #         self.search([('id', '!=', plan_id.id), ('year', '!=', plan_id.year)]).write({'active': False})
-    #     return plan_id
-
-    # @api.model_create_multi
-    # def write(self, vals):
-    #     if vals.get('active'):
-    #         self.search([]).write({'active': False})
-    #     return super(ProductiveSectionPlan, self).write(vals)
+    _sql_constraints = [
+        ('name_uniq', 'unique(name)', 'El nombre del Plan de Trabajo debe ser único.'),
+    ]
 

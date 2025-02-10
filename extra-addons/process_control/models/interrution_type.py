@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-
-
 from odoo import models, fields, api
-
 
 class InterruptionType(models.Model):
     _name = "process_control.interruption_type"
@@ -16,7 +13,7 @@ class InterruptionType(models.Model):
     #use_in_any_machine = fields.Boolean(string="Usar para cualquier máquina", default=False)
     activate = fields.Boolean(string="Activa", default=True)
     cause = fields.Selection(string="Causa *", required=True, default='endogena', selection=[
-        ('endogena', 'ENDÓGENAS (Internas)'),
-        ('exogena', 'EXÓGENAS (Externas)')
+        ('endogena', 'Endógenas (Internas)'),
+        ('exogena', 'Exógenas (Externas)')
     ])
     code = fields.Char(string="Código")

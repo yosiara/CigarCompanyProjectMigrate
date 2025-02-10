@@ -5,17 +5,14 @@ from odoo.exceptions import ValidationError
 
 class Machine(models.Model):
     _name = "process_control.machine"
-    _description = "Máquinas"
+    _description = "Machine"
 
-    # def _get_default_name(self):
-    #     if self.machine_type_id:
-    #         return str(self.machine_type_id.name) + '-Mod-Line'
-
-    name = fields.Char('Nombre *', size=40, copy=False, required=True)
+    name = fields.Char('Nombre *', required=True)
     machine_type_id = fields.Many2one('process_control.machine_type', string='Tipo de máquina *', required=True)
     productive_section_id = fields.Many2one('process_control.productive_section', string='Módulo *', required=True)
-    productive_line_id = fields.Many2one('process_control.productive_line', string='Productive Line')
-    set_of_peaces = fields.Many2many('process_control.machine_set_of_peaces', string='Tipo de Piezas *', copy=True, required=True, ondelete='restrict',
+    productive_line_id = fields.Many2one('process_control.productive_line', string='Línea Prod.')
+    line_domain = fields.Binary(compute="_get_line_domain", exportable=False)
+    set_of_peaces = fields.Many2many('process_control.machine_set_of_peaces', string='Tipo de Piezas *', required=True, ondelete='restrict',
                             relation="process_control_machine_machine_set_of_peaces_asoc", column1='machine_id', column2='machine_set_of_peaces_id')
 
     _sql_constraints = [
@@ -38,21 +35,11 @@ class Machine(models.Model):
         if self.machine_type_id:
             self.set_of_peaces = self.set_of_peaces.search([('machine_type_ids', '=', self.machine_type_id.id)])
 
+    @api.depends("productive_section_id")
+    def _get_line_domain(self):
+        for rec in self:
+            if rec.productive_section_id:
+                rec.line_domain = [('productive_section_id', '=', rec.productive_section_id.id)]
+            else:
+                rec.line_domain = [('id', 'in', False)]
 
-    # @api.model_create_multi
-    # def create(self, vals_list):
-    #     machines = super().create(vals_list)
-    #     match = []
-    #     for vals in machines:
-    #         vals.name = vals.machine_type_id.name + '-' + vals.productive_section_id.name
-    #         if vals.name not in match:
-    #             match.append(vals.name)
-    #         else:
-    #             raise ValidationError
-    #     return machines
-
-    # def write(self, vals):
-    #     res = super().write(vals)
-    #     if "productive_section_id" in vals or "machine_type_id" in vals:
-    #         self.name = self.machine_type_id.name + '-' + self.productive_section_id.name
-    #     return res

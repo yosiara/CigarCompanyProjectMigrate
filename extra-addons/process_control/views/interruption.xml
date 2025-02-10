@@ -1,33 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <!-- <act_window id="turei_process_interruptions_action"
-                    name="Interrupciones"
-                    res_model="process_control.interruption"
-                    view_mode="tree,form"/> -->
-
-        <!-- <menuitem
-            id="interruption_menu"
-            name="Interruption"
-            action="turei_process_interruptions_action"
-            parent="process_control_settings_menu"
-            sequence="10"/> -->
-
-        <record id="turei_process_interruptions_action" model="ir.actions.act_window">
-            <field name="name">Interrupciones</field>
-            <field name="res_model">process_control.interruption</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <!--<menuitem id="turei_process_interruptions_menu"-->
-                  <!--name="Listado de interrupciones"-->
-                  <!--parent="process_control_control_tec"-->
-                  <!--action="turei_process_interruptions_action"-->
-                  <!--sequence="11"-->
-        <!--/>-->
-
-        <record id="process_control_interrupciones_view_tree" model="ir.ui.view">
-            <field name="name">control_proc_interruption_view_tree</field>
+        <record id="interruption_tree" model="ir.ui.view">
+            <field name="name">interruption_tree</field>
             <field name="model">process_control.interruption</field>
             <field name="arch" type="xml">
                 <tree class="alig-left-fields">
@@ -43,8 +18,8 @@
             </field>
         </record>
 
-        <record id="process_control_interrupciones_view_form" model="ir.ui.view">
-            <field name="name">control_proc_interruption_view_form</field>
+        <record id="interruption_form" model="ir.ui.view">
+            <field name="name">interruption_form</field>
             <field name="model">process_control.interruption</field>
             <field name="arch" type="xml">
                 <form>
@@ -69,6 +44,12 @@
                     </sheet>
                 </form>
             </field>
+        </record>
+
+        <record id="interruption_action" model="ir.actions.act_window">
+            <field name="name">Interrupciones</field>
+            <field name="res_model">process_control.interruption</field>
+            <field name="view_mode">tree,form</field>
         </record>
     </data>
 </odoo>

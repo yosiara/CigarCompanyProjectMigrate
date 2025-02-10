@@ -1,58 +1,46 @@
 <?xml version="1.0"?>
 <odoo>
     <data>
-        <!-- <act_window id="control_proc_productive_line_action"
-                    name="Productive Line"
-                    res_model="process_control.productive_line"
-                    view_mode="tree,form"/> -->
-
-        <record id="control_proc_productive_line_action" model="ir.actions.act_window">
-            <field name="name">Productive Line</field>
-            <field name="res_model">process_control.productive_line</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="control_proc_productive_line_menu"
-                  name="Líneas Productivas"
-                  parent="process_control_settings_menu"
-                  action="control_proc_productive_line_action"
-                  sequence="30"
-        />
-
         <record id="control_proc_productive_line_view_form" model="ir.ui.view">
             <field name="name">process_control_productive_line_view_form</field>
             <field name="model">process_control.productive_line</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <group col="3">
+                        <group>
                             <group>
                                 <field name="name"/>
                             </group>
-                            <!-- <group>
+                            <group>
                                 <field name="productive_section_id"/>
-                            </group> -->
-                            <group colspan="2">
-                                <field name="machine_ids" widget="many2many_tags"/>
                             </group>
+                            <!-- <group colspan="2">
+                                <field name="machine_ids" widget="many2many_tags"/>
+                            </group> -->
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
 
-        <!-- To-Do Task List view -->
-        <record id="control_proc_productive_line_view_tree" model="ir.ui.view">
-            <field name="name">process_control_productive_line_view_tree</field>
+        <record id="productive_line_tree" model="ir.ui.view">
+            <field name="name">productive_line_tree</field>
             <field name="model">process_control.productive_line</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <!-- <field name="productive_section_id"/> -->
+                    <field name="productive_section_id"/>
                     <field name="machine_ids" widget="many2many_tags"/>
                 </tree>
             </field>
         </record>
-    </data>
 
+        <record id="productive_line_action" model="ir.actions.act_window">
+            <field name="name">Líneas Productivas</field>
+            <field name="res_model">process_control.productive_line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="productive_line_menu" parent="process_control_settings_menu" action="productive_line_action" sequence="30"/>
+    </data>
 </odoo>

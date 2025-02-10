@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record id="control_proc_control_proc_productive_section_plan_form" model="ir.ui.view">
-            <field name="name">control_proc_control_proc_productive_section_plan_view_form</field>
+        <record id="productive_section_plan_form" model="ir.ui.view">
+            <field name="name">productive_section_plan_view_form</field>
             <field name="model">process_control.productive_section_plan</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
                         <group col="3">
                             <group>
-                                <field name="year"/>
-                                <!-- <field name="productive_section_ids"/> -->
                                 <field name="name"/>
+                                <field name="year"/>
                                 <field name="activate" widget="boolean_toggle"/>
                             </group>
                             <group>
@@ -30,13 +29,13 @@
             </field>
         </record>
 
-        <record id="control_proc_productive_section_plan_view_tree" model="ir.ui.view">
-            <field name="name">control_proc_productive_section_plan_view_tree</field>
+        <record id="productive_section_plan_tree" model="ir.ui.view">
+            <field name="name">productive_section_plan_view_tree</field>
             <field name="model">process_control.productive_section_plan</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="year"/>
                     <field name="name"/>
+                    <field name="year"/>
                     <field name="activate" widget="boolean_toggle"/>
                     <field name="productive_capacity"/>
                     <field name="quantity_line"/>
@@ -48,20 +47,12 @@
             </field>
         </record>
 
-        <!-- <act_window id="control_proc_productive_section_plan"
-                    name="Planificación de norma e indices"
-                    res_model="process_control.productive_section_plan"
-                    view_mode="tree,form"/> -->
-
-        <record id="control_proc_productive_section_plan" model="ir.actions.act_window">
-            <field name="name">Planificación de norma e indicadores</field>
+        <record id="productive_section_plan_action" model="ir.actions.act_window">
+            <field name="name">Planificación de Norma e Indicadores</field>
             <field name="res_model">process_control.productive_section_plan</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="control_proc_productive_section_plan_menu"
-                  name="Planes"
-                  parent="process_control_settings_menu"
-                  action="control_proc_productive_section_plan" sequence="38"/>
+        <menuitem id="productive_section_plan_menu" name="Planes de Trabajo" parent="process_control_settings_menu" action="productive_section_plan_action" sequence="38"/>
     </data>
 </odoo>

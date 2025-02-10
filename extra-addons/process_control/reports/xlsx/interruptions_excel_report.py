@@ -72,18 +72,15 @@ class InterruptionsExcelReport(models.AbstractModel):
         # Add a table to the worksheet.
         worksheet.add_table("A5:N6", options)
 
-        # Variables Decalaration
+        # Variables definition
         row = 5
-        max_len = []
-
-        # Initial definition of column widths
-        for h in options['columns']:
-            max_len.append(len(h['header']))
+        max_len = [len(col['header']) for col in options['columns']] # column widths
         
         # Write data
         for tc in tecnolog_control_ids:
             for i in tc.interruption_ids:
-                worksheet.write(row, 0, row - 4, cell_format) # write(row, col, *args)
+                # write(row, col, *args)
+                worksheet.write(row, 0, row - 4, cell_format)
                 worksheet.write(row, 1, tc.date.year, cell_format)
                 worksheet.write(row, 2, tc.date.month, cell_format)
                 worksheet.write(row, 3, tc.date.day, cell_format)
@@ -128,24 +125,23 @@ class InterruptionsExcelReport(models.AbstractModel):
 
         # Set the columns widths.
         for col in range(len(max_len)):
-            worksheet.set_column(col, col, max_len[col] + 4.3) # set_column(first_col, last_col, width, cell_format, options)
+            # set_column(first_col, last_col, width, cell_format, options)
+            worksheet.set_column(col, col, max_len[col] + 4.3)
 
-                # if interruption.time:
-                #     if interruption.interruption_type.cause == 'exogena' and not interruption.productive_line_id:
-                #         worksheet.write('L'+str(aux_row), round(interruption.time * 2 / 60.00,2), data_format)
-                #     elif not interruption.productive_line_id:
-                #         worksheet.write('L'+str(aux_row), round(interruption.time * 2 / 60.00,2), data_format)
-                #     else:
-                #         worksheet.write('L'+str(aux_row), round(interruption.time / 60.00,2), data_format)
-                # else:
-                #     worksheet.write('L'+str(aux_row), "", data_format)
-
-                # if interruption.frequency:
-                #     worksheet.write('M'+str(aux_row), interruption.frequency, data_format)
-                # else:
-                #     worksheet.write('M'+str(aux_row), "", data_format)
-
-                # aux_row += 1
+            # if interruption.time:
+            #     if interruption.interruption_type.cause == 'exogena' and not interruption.productive_line_id:
+            #         worksheet.write('L'+str(aux_row), round(interruption.time * 2 / 60.00,2), data_format)
+            #     elif not interruption.productive_line_id:
+            #         worksheet.write('L'+str(aux_row), round(interruption.time * 2 / 60.00,2), data_format)
+            #     else:
+            #         worksheet.write('L'+str(aux_row), round(interruption.time / 60.00,2), data_format)
+            # else:
+            #     worksheet.write('L'+str(aux_row), "", data_format)
+            # if interruption.frequency:
+            #     worksheet.write('M'+str(aux_row), interruption.frequency, data_format)
+            # else:
+            #     worksheet.write('M'+str(aux_row), "", data_format)
+            # aux_row += 1
 
         # Freeing up resources
         workbook.close()

@@ -64,15 +64,15 @@ class InterruptionsPdfReport(models.AbstractModel):
                         res[machine][set_of_peaces][type]['cantidad'] += 1
                         total[machine]['cantidad'] += 1
                         total['Total']['cantidad'] += 1
-                        res[machine][set_of_peaces][type]['tiempo'] += i.end_date - i.start_date
-                        total[machine]['tiempo'] += i.end_date - i.start_date
-                        total['Total']['tiempo'] += i.end_date - i.start_date
-                for _, v in res.items():
-                    if '-' in v:
-                        val = v['-']
-                        del v['-']
-                        v['-'] = val
-                        
+                        time = i.end_date - i.start_date
+                        res[machine][set_of_peaces][type]['tiempo'] += time
+                        total[machine]['tiempo'] += time
+                        total['Total']['tiempo'] += time
+                # for _, v in res.items():
+                #     if '-' in v:
+                #         val = v['-']
+                #         del v['-']
+                #         v['-'] = val              
             case "productive_line":
                 for i in interruptions:
                     if i.productive_line_id:
@@ -86,9 +86,10 @@ class InterruptionsPdfReport(models.AbstractModel):
                         res[line][type]['cantidad'] += 1
                         total[line]['cantidad'] += 1
                         total['Total']['cantidad'] += 1
-                        res[line][type]['tiempo'] += i.end_date - i.start_date
-                        total[line]['tiempo'] += i.end_date - i.start_date
-                        total['Total']['tiempo'] += i.end_date - i.start_date
+                        time = i.end_date - i.start_date
+                        res[line][type]['tiempo'] += time
+                        total[line]['tiempo'] += time
+                        total['Total']['tiempo'] += time
             case "productive_section":
                 for tc in tecnolog_control:
                     for i in interruptions.filtered(lambda i: i.tecnolog_control_id.id == tc.id):
@@ -102,9 +103,10 @@ class InterruptionsPdfReport(models.AbstractModel):
                         res[section][type]['cantidad'] += 1
                         total[section]['cantidad'] += 1
                         total['Total']['cantidad'] += 1
-                        res[section][type]['tiempo'] += i.end_date - i.start_date
-                        total[section]['tiempo'] += i.end_date - i.start_date
-                        total['Total']['tiempo'] += i.end_date - i.start_date
+                        time = i.end_date - i.start_date
+                        res[section][type]['tiempo'] += time
+                        total[section]['tiempo'] += time
+                        total['Total']['tiempo'] += time
 
         return {
             #'doc_model': report.model,

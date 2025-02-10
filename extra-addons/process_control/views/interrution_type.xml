@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <record id="control_proc_interruption_type_view_form" model="ir.ui.view">
-            <field name="name">control_proc_interruption_type_view_form</field>
+        <record id="interruption_type_form" model="ir.ui.view">
+            <field name="name">interruption_type_form</field>
             <field name="model">process_control.interruption_type</field>
             <field name="arch" type="xml">
-                <form string="Tipos de Interrupciones">
+                <form string="Tipo de Interrupciones">
                     <sheet>
-                        <style>
-                            .separator_group{
-                            padding: 0;
-                            margin: -20px 0 !important;
-                            }
-                            .separator_group_15
-                            {
-                            margin: -7px 0 !important;
-                            }
-                        </style>
                         <group>
                             <group>
                                 <field name="name"/>
@@ -26,9 +16,6 @@
                                 <field name="activate" widget="boolean_toggle"/>
                                 <field name="cause"/>
                             </group>
-                            <!-- <group class="separator_group">
-                                <separator string="Máquinas Asociadas"/>
-                            </group> -->
                             <group string="Tipo de máquinas asociadas" colspan="2">
                                 <field name="machine_type_related" widget="many2many_tags"/>
                             </group>
@@ -38,8 +25,8 @@
             </field>
         </record>
 
-        <record id="control_proc_interruption_type_view_tree" model="ir.ui.view">
-            <field name="name">control_proc_interruption_type_view_tree</field>
+        <record id="interruption_type_tree" model="ir.ui.view">
+            <field name="name">interruption_type_tree</field>
             <field name="model">process_control.interruption_type</field>
             <field name="arch" type="xml">
                 <tree>
@@ -51,17 +38,12 @@
             </field>
         </record>
 
-        <record id="control_proc_interruption_type_action" model="ir.actions.act_window">
-            <field name="name">Tipo de interrupción</field>
+        <record id="interruption_type_action" model="ir.actions.act_window">
+            <field name="name">Tipos de Interrupciones</field>
             <field name="res_model">process_control.interruption_type</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="control_proc_interruption_type_menu"
-                  name="Tipo de interrupción"
-                  parent="process_control_settings_menu"
-                  action="control_proc_interruption_type_action"
-                  sequence="40"
-        />
+        <menuitem id="interruption_type_menu" parent="process_control_settings_menu" action="interruption_type_action" sequence="40"/>
     </data>
 </odoo>

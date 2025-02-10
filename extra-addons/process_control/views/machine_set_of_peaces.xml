@@ -1,24 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <!-- <act_window id="control_proc_set_of_peaces_action"
-                    name="Subconjuntos de piezas"
-                    res_model="process_control.machine_set_of_peaces"
-                    view_mode="tree,form"/> -->
-
-        <record id="control_proc_set_of_peaces_action" model="ir.actions.act_window">
-            <field name="name">Subconjuntos de piezas</field>
-            <field name="res_model">process_control.machine_set_of_peaces</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="control_proc_set_of_peaces_menu"
-                  name="Subconjuntos de piezas"
-                  parent="process_control_settings_menu"
-                  action="control_proc_set_of_peaces_action" sequence="37"/>
-
-        <record id="control_proc_set_of_peaces_view_form" model="ir.ui.view">
-            <field name="name">control_proc_set_of_peaces_view_form</field>
+        <record id="set_of_peaces_form" model="ir.ui.view">
+            <field name="name">set_of_peaces_form</field>
             <field name="model">process_control.machine_set_of_peaces</field>
             <field name="arch" type="xml">
                 <form>
@@ -37,8 +21,8 @@
             </field>
         </record>
 
-        <record id="control_proc_set_of_peaces_view_tree" model="ir.ui.view">
-            <field name="name">control_proc_set_of_peaces_view_tree</field>
+        <record id="set_of_peaces_tree" model="ir.ui.view">
+            <field name="name">set_of_peaces_tree</field>
             <field name="model">process_control.machine_set_of_peaces</field>
             <field name="arch" type="xml">
                 <tree>
@@ -48,5 +32,13 @@
                 </tree>
             </field>
         </record>
+
+        <record id="set_of_peaces_action" model="ir.actions.act_window">
+            <field name="name">Subconjuntos de Piezas</field>
+            <field name="res_model">process_control.machine_set_of_peaces</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="set_of_peaces_menu" name="Subconjuntos de Piezas" parent="process_control_settings_menu" action="set_of_peaces_action" sequence="37"/>
     </data>
 </odoo>

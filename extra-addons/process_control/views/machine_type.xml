@@ -1,24 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <!-- <act_window id="control_proc_machine_type_action"
-                    name="Tipo de máquinas"
-                    res_model="process_control.machine_type"
-                    view_mode="tree,form"/> -->
-
-        <record id="control_proc_machine_type_action" model="ir.actions.act_window">
-            <field name="name">Tipo de máquinas</field>
-            <field name="res_model">process_control.machine_type</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="control_proc_machine_type_menu"
-                  name="Tipo de máquinas"
-                  parent="process_control_settings_menu"
-                  action="control_proc_machine_type_action" sequence="34"/>
-
-        <record id="control_proc_machine_type_view_form" model="ir.ui.view">
-            <field name="name">control_proc_machine_type_view_form</field>
+        <record id="machine_type_form" model="ir.ui.view">
+            <field name="name">machine_type_form</field>
             <field name="model">process_control.machine_type</field>
             <field name="arch" type="xml">
                 <form>
@@ -33,8 +17,8 @@
             </field>
         </record>
 
-        <record id="control_proc_machine_type_view_tree" model="ir.ui.view">
-            <field name="name">control_proc_machine_type_view_tree</field>
+        <record id="machine_type_tree" model="ir.ui.view">
+            <field name="name">machine_type_tree</field>
             <field name="model">process_control.machine_type</field>
             <field name="arch" type="xml">
                 <tree>
@@ -42,5 +26,13 @@
                 </tree>
             </field>
         </record>
+
+        <record id="machine_type_action" model="ir.actions.act_window">
+            <field name="name">Tipos de Máquinas</field>
+            <field name="res_model">process_control.machine_type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="machine_type_menu" parent="process_control_settings_menu" action="machine_type_action" sequence="34"/>
     </data>
 </odoo>

@@ -1,51 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-
-        <record id="process_control_interrupciones_view_search" model="ir.ui.view">
-            <field name="name">Control model search view</field>
+        <record id="tecnolog_control_search" model="ir.ui.view">
+            <field name="name">tecnolog_control.search</field>
             <field name="model">process_control.tecnolog_control</field>
             <field name="arch" type="xml">
                 <search string="Modelo de control">
                     <field name="date"/>
                     <field name="productive_section_id"/>
                     <field name="turn_id"/>
-                    <!-- <filter name="group_year" string="Por año"
-                            context="{'group_by': 'year_char'}" -->
-                    <!-- /> -->
                     <filter name="group_date" string="Fecha" context="{'group_by': 'date'}"/>
-                    <!-- <filter name="group_day" string="Por día"
-                            context="{'group_by': 'day_char'}"
-                    /> -->
                     <filter name="group_section" string="Módulo" context="{'group_by': 'productive_section_id'}"/>
                     <filter name="group_turn" string="Turno" context="{'group_by': 'turn_id'}"/>
                 </search>
             </field>
         </record>
 
-        <!-- <act_window id="process_control_interruptiones_action"
-                    name="Control tecnológico"
-                    res_model="process_control.tecnolog_control"
-                    view_mode="tree,form"
-                    context="{'search_default_group_year': 1, 'search_default_group_date1': 1, 'search_default_group_day': 1}"
-        /> -->
-
-        <record id="process_control_interruptiones_action" model="ir.actions.act_window">
-            <field name="name">Control tecnológico</field>
-            <field name="res_model">process_control.tecnolog_control</field>
-            <field name="view_mode">tree,form</field>
-            <!-- <field name="context">{'search_default_group_date': 1}</field> -->
-        </record>
-
-        <menuitem id="process_control_interruptiones_menu"
-                  name="Ingreso Inter/producción"
-                  parent="process_control_control_tec"
-                  action="process_control_interruptiones_action"
-                  sequence="10"
-        />
-
-        <record id="tecnolog_control_view_tree" model="ir.ui.view">
-            <field name="name">control_proc_interruption_type_view_tree</field>
+        <record id="tecnolog_control_tree" model="ir.ui.view">
+            <field name="name">tecnolog_control.tree</field>
             <field name="model">process_control.tecnolog_control</field>
             <field name="arch" type="xml">
                 <tree>
@@ -58,13 +30,12 @@
             </field>
         </record>
 
-        <record id="control_proc_interruptiones_view_form" model="ir.ui.view">
-            <field name="name">process_control_interrupciones_view_form</field>
+        <record id="tecnolog_control_form" model="ir.ui.view">
+            <field name="name">tecnolog_control.form</field>
             <field name="model">process_control.tecnolog_control</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <field name="turn_attendance_domain" invisible="1"/>
                         <group col="3">
                             <group>
                                 <field name="date"/>
@@ -72,125 +43,25 @@
                             </group>
                             <group>
                                 <field name="turn_id"/>
-                                <field name="turn_attendance_id" domain="turn_attendance_domain"/>
+                                <field name="session"/>
                             </group>
                             <group>
                                 <field name="plan_time"/>
                                 <field name="productive_capacity" readonly="0"/>
                             </group>
-                            <!-- <group>
-                                <field name="tec_model_type" invisible="1"/>
-                            </group> -->
                         </group>
-                            <notebook>
-                                <page string="Interrupciones">
-                                    <field name="interruption_ids"/>
-                                        <!-- <tree>
-                                            <field name="start_date" />
-                                            <field name="end_date" />
-                                            <field name="productive_line_id"
-                                                   domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
-                                            <field name="machine_id"/>
-                                            <field name="interruption_type"/>
-                                            <field name="set_of_peaces_id"/>
-                                            <field name="time" widget="xls_formula"/>
-                                            <field name="frequency" widget="xls_formula"/>
-                                        </tree>
-                                        <form>
-                                            <field name="productive_line_id"
-                                                   domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
-                                            <field name="machine_id"/>
-                                            <field name="start_date"/>
-                                            <field name="end_date"/>
-                                            <field name="interruption_type"/>
-                                            <field name="set_of_peaces_id"/>
-                                            <field name="time" widget="xls_formula"/>
-                                            <field name="frequency" widget="xls_formula"/>
-                                        </form> -->
-                                    <!-- </field> -->
-                                </page>
-                                <!-- <page string="Producción Horaria">
-                                    <group>
-                                        <field name="production_in_production_system"/>
-                                        <field name="production_in_proccess_control"/>
-                                    </group>
-                                    <field name="production_by_hours_ids"
-                                           readonly="attendance_id == False">
-                                        <tree editable="bottom">
-                                            <field name="hour_production"/>
-                                            <field name="production_count" widget="xls_formula"/>
-                                        </tree>
-                                    </field>
-                                </page>
-                                <page string="Producción y rechazo">
-                                    <field name="rechazo_mod1_ids">
-                                           invisible="tec_model_type == 'mod' | productive_section_id ==  False">
-                                        <div class="alert alert-info">
-                                            <strong>Información:</strong>
-                                            Se capta la producción y rechazo de las máquinas 'NANO', 'SBO', 'SRC'
-                                        </div>
 
-                                        <tree>
-                                            <field name="productive_line_id"/>
-                                                   domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
-                                            <field name="machine_id"/>
-                                            <field name="machine_type_id" invisible="1"/>
-                                            <field name="machine_type_name" invisible="1"/>
-                                            <field name="produccion_en_cigarrillos"/>
-                                                   invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
-                                            <field name="rechazo_en_cigarrillos"/>
-                                                   invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
-                                            <field name="produccion_en_cajones"/>
-                                                   invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
-                                            <field name="rechazo_en_cajetillas"/>
-                                                   invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
-                                        </tree>
-
-                                        <form>
-                                            <group>
-                                                <group>
-                                                    <field name="productive_line_id"
-                                                           domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
-                                                    <field name="machine_id"/>
-                                                    <field name="produccion_en_cigarrillos"/>
-                                                </group>
-                                                <group colspan="4">
-                                                    <field name="machine_type_id" invisible="1"/>
-                                                    <field name="machine_type_name" invisible="1"/>
-                                                </group>
-                                                <group>
-                                                <group>
-                                                           invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
-                                                    <field name="rechazo_en_cigarrillos"/>
-                                                           invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
-                                                    <field name="produccion_en_cajones"/>
-                                                    <field name="rechazo_en_cajetillas"/>
-                                                </group>
-                                                <group colspan="4">
-                                                           invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/> -->
-                                                           <!-- invisible="machine_type_id.name != 'NANO' | machine_type_id.name == False" widget="xls_formula"/>
-                                                </group>
-                                            </group>
-                                        </form>
-                                    </field>
-                                    <field name="rechazo_amf_ids"
-                                           invisible="tec_model_type == 'mod1' | productive_section_id == False">
-                                        <div class="alert alert-info">
-                                            <strong>Información:</strong>
-                                            Se capta la producción y rechazo de las AMF
-                                        </div>
-                                        <tree editable="bottom">
-                                            <field name="productive_line_id"
-                                                   domain="[('productive_section_id', '=', parent.productive_section_id)]"/>
-                                            <field name="machine_id"/>
-                                            <field name="machine_type_id" invisible="1"/>
-                                            <field name="produccion_en_cajones" widget="xls_formula"/>
-                                            <field name="rechazo_en_cajetijas" widget="xls_formula"/>
-                                        </tree>
-                                    </field>
-                                </page> -->
-                            </notebook>
+                        <notebook invisible="productive_section_id == False">
+                            <page string="Interrupciones">
+                                <field name="interruption_ids"/>
+                            </page>
+                            <page string="Producción y Rechazo">
+                                <field name="rechazo_amf_ids" invisible="productive_section_id == 1"/>
+                                <field name="rechazo_mod1_ids" invisible="productive_section_id != 1"/>
+                            </page>
+                        </notebook>
                     </sheet>
+
                     <div class="oe_chatter">
                         <field name="message_follower_ids" widget="mail_followers"/>
                         <field name="activity_ids"/>
@@ -199,5 +70,14 @@
                 </form>
             </field>
         </record>
+
+        <record id="tecnolog_control_action" model="ir.actions.act_window">
+            <field name="name">Control tecnológico</field>
+            <field name="res_model">process_control.tecnolog_control</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="context">{'search_default_group_date': 1}</field> -->
+        </record>
+
+        <menuitem id="tecnolog_control_menu" name="Ingreso Inter/Producción" parent="process_control_control_tec" action="tecnolog_control_action" sequence="10"/>
     </data>
 </odoo>

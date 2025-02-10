@@ -9,6 +9,7 @@ from . import interruption
 from . import tecnolog_control
 from . import productive_section_plan
 from . import machine_set_of_peaces
+from . import rechazo
 from . import rechazo_amf
 from . import rechazo_mod1
 #from . import machine_peaces

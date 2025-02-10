@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-
         <record id="turn_view_form" model="ir.ui.view">
                 <field name="name">turn.form</field>
                 <field name="model">process_control.turn</field>
                 <field name="arch" type="xml">
-                    <form string="Working Time">
-                        <sheet string="Working Time">
+                    <form>
+                        <sheet>
                             <h1>
                                 <field name="name"/>
                             </h1>
                             <separator/>
+                            <field name="turn_attendance_context" invisible="1"/>
                             <notebook>
-                                <page string="Working Hours" name="working_hours">
-                                    <field name="turn_attendance_ids" widget="section_one2many">
-                                        <tree string="Working Time" editable="bottom" multi_edit="1">
+                                <page string="Horas de Trabajo">
+                                    <field name="turn_attendance_ids" widget="section_one2many" context="{'default_session': turn_attendance_context['default_session'], 'default_name': turn_attendance_context['default_name'], 'default_hour_from': turn_attendance_context['default_hour_from'], 'default_hour_to': turn_attendance_context['default_hour_to']}">
+                                        <tree editable="bottom">
                                             <field name="name"/>
+                                            <field name="session"/>
                                             <field name="hour_from" widget="float_time"/>
                                             <field name="hour_to" widget="float_time"/>
                                         </tree>
-                                        <!-- <form string="Working Time">
+                                         <!-- <form>
                                             <sheet>
                                                 <group>
                                                     <group>
                                                         <field name="name"/>
-                                                        <field name="turn_id"/>
+                                                        <field name="session"/>
                                                     </group>
-                                                    <label for="hour_from" string="Hours"/>
                                                     <group>
                                                         <field name="hour_from" widget="float_time"/>
                                                         <field name="hour_to" widget="float_time"/>
@@ -41,95 +41,28 @@
                         </sheet>
                     </form>
                 </field>
-            </record>
+        </record>
 
-            <record id="view_turn_tree" model="ir.ui.view">
-                <field name="name">turn.tree</field>
-                <field name="model">process_control.turn</field>
-                <field name="arch" type="xml">
-                    <tree string="Working Time">
-                        <field name="name"/>
-                        <field name="turn_attendance_ids" widget="many2many_tags"/>
-                    </tree>
-                </field>
-            </record>
-
-            <record id="action_turn_form" model="ir.actions.act_window">
-                <field name="name">Turnos de trabajo</field>
-                <field name="res_model">process_control.turn</field>
-                <field name="view_mode">tree,form</field>
-                <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">
-                    Define working hours and time table that could be scheduled to your project members
-                </p>
-                </field>
-            </record>
-            
-            <menuitem action="action_turn_form" id="menu_turn" parent="process_control_settings_menu" sequence="1"/>
-
-        <!-- <record id="resource_calendar_form_inherit" model="ir.ui.view">
-            <field name="name">resource.calendar.form</field>
-            <field name="model">resource.calendar</field>
-            <field name="inherit_id" ref="resource.resource_calendar_form"/>
+        <record id="view_turn_tree" model="ir.ui.view">
+            <field name="name">turn.tree</field>
+            <field name="model">process_control.turn</field>
             <field name="arch" type="xml">
-                <xpath expr="//sheet" position="inside">
-                    <div class="alert alert-info">
-                        <strong>Información:</strong>
-                        Las Fechas usan el formato de 24 horas. Ejemplo 11:00 PM es 23:00
-                    </div>
-                </xpath>
-                <field name="name" position="after">
-                    <field name="description"/>
-                </field>
-            </field>
-        </record> -->
-
-        <!-- <record id="resource_calendar_tree" model="ir.ui.view">
-            <field name="name">resource.calendar.tree</field>
-            <field name="model">resource.calendar</field>
-            <field name="inherit_id" ref="resource.view_resource_calendar_tree"/>
-            <field name="arch" type="xml">
-                <field name="name" position="replace">
+                <tree>
                     <field name="name"/>
-                    <field name="description"/>
-                </field>
-            </field>
-        </record> -->
-
-        <!-- <record model="ir.ui.view" id="resource_calendar_search">
-            <field name="name">resource.view_resource_calendar_search_modificado</field>
-            <field name="inherit_id" ref="resource.view_resource_calendar_search"/>
-            <field name="model">resource.calendar</field>
-            <field name="arch" type="xml">
-                <xpath expr="//search" position="replace">
-                    <search string="Buscar Turno de trabajo">
-                        <field name="name" string="Turno de trabajo"/>
-                        <field name="description"/>
-                    </search>
-                </xpath>
+                </tree>
             </field>
         </record>
-
-        <record id="suinli_view_resource_calendar_attendance_tree" model="ir.ui.view">
-            <field name="name">suinli_resource.calendar.attendance.tree</field>
-            <field name="model">resource.calendar.attendance</field>
-            <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree"/>
-            <field name="arch" type="xml">
-                <field name="dayofweek" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </field>
+        <record id="action_turn_form" model="ir.actions.act_window">
+            <field name="name">Turnos de Trabajo</field>
+            <field name="res_model">process_control.turn</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define working hours and time table that could be scheduled to your project members
+            </p>
             </field>
         </record>
-
-        <record id="suinli_view_resource_calendar_attendance_form" model="ir.ui.view">
-            <field name="name">suinli_resource.calendar.attendance.form</field>
-            <field name="model">resource.calendar.attendance</field>
-            <field name="inherit_id" ref="resource.view_resource_calendar_attendance_form"/>
-            <field name="arch" type="xml">
-                <field name="dayofweek" position="attributes">
-                    <attribute name="invisible">True</attribute>
-                </field>
-            </field>
-        </record> -->
+        
+        <menuitem action="action_turn_form" id="menu_turn" parent="process_control_settings_menu" sequence="1"/>
     </data>
 </odoo>

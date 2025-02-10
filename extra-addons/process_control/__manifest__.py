@@ -1,24 +1,4 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
 {
     'name': 'Process Control',
     'version': '17.0',
@@ -27,8 +7,7 @@
     "license": "LGPL-3",
     'sequence': 2,
     'summary': 'Control of the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba',
-    'description': """Control module for interruptions in the production process of the Lázaro Peña Cigar Factory. 
-    Holguín, Cuba.""",
+    'description': """Control module for interruptions in the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba.""",
     'images': [],
     'depends': ['mail'],
     'data': [
@@ -57,6 +36,10 @@
         'views/tecnolog_control.xml',
         'views/productive_section_plan.xml',
         'views/dashboard.xml',
+        # 'views/rechazo.xml',
+        'views/rechazo_amf.xml',
+        'views/rechazo_mod1.xml',
+        'views/turn_attendance.xml',
 
         #-----------------------wizard-------------------------------------#
         'wizard/interruptions_pdf_wzd.xml',
@@ -102,7 +85,7 @@
     'assets': {
         'web.assets_backend': [
             'process_control/static/src/js/report_handler.js',
-            'process_control/static/src/js/formAutoSave.js',
+            #'process_control/static/src/js/formAutoSave.js',
             #'process_control/static/src/css/fields.css',
         ],
     },

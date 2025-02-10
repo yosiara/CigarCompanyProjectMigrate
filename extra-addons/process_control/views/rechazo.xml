@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="rechazo_form" model="ir.ui.view">
+            <field name="name">rechazo.form</field>
+            <field name="model">process_control.rechazo</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group name="rechazo">
+                                <field name="turn_attendance_id" domain="[('session', '=', parent.session), ('turn_id', '=', parent.turn_id)]"/>
+                                <field name="productive_line_id"/>
+                                <field name="machine_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rechazo_tree" model="ir.ui.view">
+            <field name="name">rechazo.tree</field>
+            <field name="model">process_control.rechazo</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="turn_attendance_id"/>
+                    <field name="productive_line_id"/>
+                    <field name="machine_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="rechazo_action" model="ir.actions.act_window">
+            <field name="name">Rechazo</field>
+            <field name="res_model">process_control.rechazo</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
