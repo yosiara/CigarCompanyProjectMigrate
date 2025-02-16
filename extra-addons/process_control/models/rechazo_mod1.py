@@ -11,10 +11,23 @@ class RechazoMod1(models.Model):
     prod_en_cigarrillos = fields.Integer('Produción en cigarrillos *', required=True)
     rechazo_en_cigarrillos = fields.Integer('Rechazo en cigarrillos *', required=True)
     #prod_en_cajetillas = fields.Integer('Producción en cajetillas')
-    
-    _sql_constraints = [
-        ('rechazo_amf_id_uniq', 'unique(rechazo_amf_id)', "Existe un rechazo igual"),
-    ]
+
+    @api.onchange("productive_line_id")
+    def _onchange_productive_line_id(self):
+        if self.productive_line_id.id is not self.machine_id.productive_line_id.id:
+            rechazo_mod1_recs = self.tecnolog_control_id.rechazo_mod1_ids
+            machine_recs = self.machine_id.search([('productive_line_id', '=', self.productive_line_id.id)])
+            i = 0
+            if len(rechazo_mod1_recs) > 1:
+                for m in range(len(machine_recs)-1):
+                    if machine_recs[m].id == rechazo_mod1_recs[-2].machine_id.id:
+                        i = m + 1
+                        break
+            self.machine_id = machine_recs[i].id
+
+    @api.onchange("tecnolog_control_id")
+    def _onchange_tecnolog_control_id(self):
+        self.productive_line_id = self.productive_line_id.search([('productive_section_id', '=', self.tecnolog_control_id.productive_section_id.id)], limit=1).id
 
     # @api.onchange("rechazo_id")
     # def _get_default_turn_attendance(self):
@@ -28,17 +41,3 @@ class RechazoMod1(models.Model):
     #             overtime = self.turn_attendance_id.search(domain + [('hour_from', '=', 0), ('hour_to', '=', 0)], order='hour_from asc', limit=1)
     #             if overtime:
     #                 self.turn_attendance_id = overtime.id
-
-    # @api.model_create_multi
-    # @api.onchange('productive_line_id')
-    # def _onchange_productive_line(self):
-    #     for psc in self.productive_line_id:
-    #             return {'domain': {'machine_id': [('id', 'in', psc.productive_line.machine_ids.ids),
-    #                                               ('machine_type_id.name', 'in', ['NANO', 'SBO', 'SRC'])]}}
-    #     return {'domain': {'machine_id': [('id', 'in', [])]}}
-
-    # @api.onchange('machine_id')
-    # def _onchange_machine_id(self):
-    #     if self.productive_line_id:
-    #         return {'domain': {'machine_id': [('id', 'in', self.productive_line_id.productive_line.machine_ids.ids),
-    #                                               ('machine_type_id.name', 'in', ['NANO', 'SBO', 'SRC'])]}}

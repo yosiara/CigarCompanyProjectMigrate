@@ -12,7 +12,6 @@ from . import machine_set_of_peaces
 from . import rechazo
 from . import rechazo_amf
 from . import rechazo_mod1
-#from . import machine_peaces
-#from . import production_by_hours
+from . import production_by_hours
 #from . import db_production_connector
 #from . import productive_section_lines

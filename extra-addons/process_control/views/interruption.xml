@@ -5,15 +5,19 @@
             <field name="name">interruption_tree</field>
             <field name="model">process_control.interruption</field>
             <field name="arch" type="xml">
-                <tree class="alig-left-fields">
-                    <!-- <field name="name"/> -->
-                    <field name="start_date" class="alig-left-fields"/>
-                    <field name="end_date"/>
-                    <field name="interruption_type_id"/>
-                    <field name="productive_line_id"/>
-                    <field name="machine_id"/>
-                    <field name="set_of_peaces_id"/>
-                    <!-- <field name="time"/> -->
+                <tree>
+                    <!--***************** DOMAINS ********************* -->
+                    <field name="line_domain" column_invisible="True"/>
+                    <field name="machine_domain" column_invisible="True"/>
+                    <field name="peaces_domain" column_invisible="True"/>
+                    <field name="interruption_type_domain" column_invisible="True"/>
+                    <!--***************** FIELDS ********************* -->
+                    <field name="start_date" widget="float_time"/>
+                    <field name="end_date" widget="float_time"/>
+                    <field name="interruption_type_id" domain="interruption_type_domain"/>
+                    <field name="productive_line_id" domain="line_domain"/>
+                    <field name="machine_id" domain="machine_domain"/>
+                    <field name="set_of_peaces_id" domain="peaces_domain"/>
                 </tree>
             </field>
         </record>
@@ -24,10 +28,12 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
+                        <!--***************** DOMAINS ********************* -->
                         <field name="line_domain" invisible="1"/>
                         <field name="machine_domain" invisible="1"/>
                         <field name="peaces_domain" invisible="1"/>
                         <field name="interruption_type_domain" invisible="1"/>
+                        <!--***************** FIELDS ********************* -->
                         <group col="3">
                             <group>
                                 <field name="start_date" widget="float_time"/>
@@ -39,7 +45,6 @@
                                 <field name="set_of_peaces_id" domain="peaces_domain"/>
                                 <field name="interruption_type_id" domain="interruption_type_domain"/>
                             </group>
-                            <!-- <field name="time"/> -->
                         </group>
                     </sheet>
                 </form>

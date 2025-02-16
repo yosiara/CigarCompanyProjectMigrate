@@ -9,7 +9,7 @@ class Interruption(models.Model):
     start_date = fields.Float(string="Inicio *", required=True)
     end_date = fields.Float(string="Fin *", required=True)
     
-    interruption_type_id = fields.Many2one('process_control.interruption_type', string='Tipo *', required=True)
+    interruption_type_id = fields.Many2one('process_control.interruption_type', string='Tipo *', required=True, default=lambda self: self.interruption_type_id.search([('code', '=', 'PM')], limit=1))
     interruption_type_domain = fields.Binary(compute="_get_interruption_type_domain", exportable=False)
 
     machine_id = fields.Many2one('process_control.machine', 'Máquina')
@@ -18,10 +18,10 @@ class Interruption(models.Model):
     set_of_peaces_id = fields.Many2one("process_control.machine_set_of_peaces", string="Subconjunto", required=False)
     peaces_domain = fields.Binary(compute="_get_peaces_domain", exportable=False)
     
-    productive_line_id = fields.Many2one('process_control.productive_line', string='Líneas Prod.')
+    productive_line_id = fields.Many2one('process_control.productive_line', string='Línea Prod.')
     line_domain = fields.Binary(compute="_get_line_domain", exportable=False)
 
-    tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Control", ondelete="cascade")
+    tecnolog_control_id = fields.Many2one(comodel_name="process_control.tecnolog_control", string="Control", ondelete="cascade", required=True)
     
 
     # -------------------------------------------------------------------------
@@ -32,16 +32,10 @@ class Interruption(models.Model):
     def _constrains_date_range(self):
         for rec in self:
             if rec.start_date >= rec.end_date:
-                raise ValidationError(_("El inicio es menor que el fin, verfique la hora de la interrupción"))
-            hour_from_min = 24
-            hour_to_max = 0
-            for i in rec.env['process_control.turn_attendance'].search([('turn_id', '=', rec.tecnolog_control_id.turn_id.id), ('session', '=', rec.tecnolog_control_id.session)]):
-                if i.hour_from < hour_from_min:
-                    hour_from_min = i.hour_from
-                if i.hour_to > hour_to_max:
-                    hour_to_max =  i.hour_to
-            if rec.start_date < hour_from_min or rec.end_date > hour_to_max:
-                raise ValidationError(_("El inicio y el fin de la interrupción no está en el rango de la sesión seleccionada"))
+                raise ValidationError(_(f"La inicio {rec.start_date} no debe ser mayor o igual que el fin {rec.end_date}, por favor verfique el rango de hora de la interrupción"))
+            hour_range = rec.tecnolog_control_id.turn_id.hour_range(session=rec.tecnolog_control_id.session)
+            if rec.start_date < hour_range[0] or rec.end_date > hour_range[1]:
+                raise ValidationError(_("La hora de inicio y/o de fin de la interrupción no está en el rango de la sesión seleccionada"))
     
     # -------------------------------------------------------------------------
     # COMPUTE METHODS
@@ -97,6 +91,12 @@ class Interruption(models.Model):
             self.set_of_peaces_id = False
         if self.interruption_type_id.machine_type_related and self.machine_id.machine_type_id.id not in self.interruption_type_id.machine_type_related.ids:
             self.interruption_type_id = False
+
+    @api.onchange("tecnolog_control_id")
+    def _onchange_tecnolog_control_id(self):
+        hour_range = self.tecnolog_control_id.turn_id.hour_range(session=self.tecnolog_control_id.session)
+        self.start_date = hour_range[0]
+        self.end_date = hour_range[1]
 
     # @api.model_create_multi
     # @api.depends('interruption_type', 'machine_id')

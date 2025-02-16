@@ -17,8 +17,8 @@ class InterruptionsPdfReport(models.AbstractModel):
         }
         
         # Get tecnolog_control data
-        domain = [('date', '>=', data['start_date']), ('date', '<=', data['end_date'])] # Domain for tecnolog_control
-        if data['productive_section_ids']:
+        domain = [('date', '>=', data.get('start_date')), ('date', '<=', data.get('end_date'))] # Domain for tecnolog_control
+        if data.get('productive_section_ids'):
             domain.append(('productive_section_id', 'in', data['productive_section_ids']))
         tecnolog_control = self.env['process_control.tecnolog_control'].search(domain)
         
@@ -30,19 +30,18 @@ class InterruptionsPdfReport(models.AbstractModel):
         interruptions = self.env["process_control.interruption"].browse(ids)
 
         domain = [] # Domain for interruptions
-        if data["interruption_type_ids"]:
+        if data.get("interruption_type_ids"):
             domain.append(('interruption_type_id', 'in', data["interruption_type_ids"]))
-        if data["machine_ids"]:
+        if data.get("machine_ids"):
             domain.append(('machine_id', 'in', data["machine_ids"]))
-        if data["set_of_peaces_ids"]:
+        if data.get("set_of_peaces_ids"):
             domain.append(('set_of_peaces_id', 'in', data["set_of_peaces_ids"]))
-        elif data["productive_line_ids"]:
+        elif data.get("productive_line_ids"):
             domain.append(('productive_line_id', 'in', data["productive_line_ids"]))
         interruptions = interruptions.filtered_domain(domain)
         
         if not interruptions: # Empty Data
             _logger.warning('There is no data to display.')
-            return
         
         # Processing data...
         match data["filt"]:
@@ -112,8 +111,7 @@ class InterruptionsPdfReport(models.AbstractModel):
             #'doc_model': report.model,
             'res': res,
             'total': total,
-            'filt': data["filt"],
-            'start_date': data['start_date'],
-            'end_date': data['end_date'],
+            'filt': data.get("filt"),
+            'start_date': data.get('start_date'),
+            'end_date': data.get('end_date'),
         }
-       # return report_obj.render('process_control.interruptions_by_section_report', docargs)

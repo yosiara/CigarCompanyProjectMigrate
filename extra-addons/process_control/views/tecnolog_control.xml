@@ -5,13 +5,21 @@
             <field name="name">tecnolog_control.search</field>
             <field name="model">process_control.tecnolog_control</field>
             <field name="arch" type="xml">
-                <search string="Modelo de control">
+                <search>
                     <field name="date"/>
                     <field name="productive_section_id"/>
                     <field name="turn_id"/>
-                    <filter name="group_date" string="Fecha" context="{'group_by': 'date'}"/>
-                    <filter name="group_section" string="Módulo" context="{'group_by': 'productive_section_id'}"/>
-                    <filter name="group_turn" string="Turno" context="{'group_by': 'turn_id'}"/>
+                    <filter string="Mañana" name="morning" domain="[('session', '=', 'morning')]"/>
+                    <separator/>
+                    <filter string="Tarde" name="afternoon" domain="[('session', '=', 'afternoon')]"/>
+                    <separator/>
+                    <group name="group_by" string="Group By">
+                        <filter name="group_date" string="Fecha" context="{'group_by': 'date'}"/>
+                        <separator/>
+                        <filter name="group_section" string="Módulo" context="{'group_by': 'productive_section_id'}"/>
+                        <separator/>
+                        <filter name="group_turn" string="Turno" context="{'group_by': 'turn_id'}"/>
+                    </group>
                 </search>
             </field>
         </record>
@@ -25,7 +33,7 @@
                     <field name="productive_section_id"/>
                     <field name="turn_id"/>
                     <field name="plan_time"/>
-                    <field name="productive_capacity" string="Capacidad Productiva *"/>
+                    <field name="productive_capacity"/>
                 </tree>
             </field>
         </record>
@@ -46,14 +54,17 @@
                                 <field name="session"/>
                             </group>
                             <group>
-                                <field name="plan_time"/>
-                                <field name="productive_capacity" readonly="0"/>
+                                <field name="plan_time" readonly="1"/>
+                                <field name="productive_capacity" readonly="1"/>
                             </group>
                         </group>
 
                         <notebook invisible="productive_section_id == False">
                             <page string="Interrupciones">
                                 <field name="interruption_ids"/>
+                            </page>
+                            <page string="Producción Horaria">
+                                <field name="production_by_hours_ids"/>
                             </page>
                             <page string="Producción y Rechazo">
                                 <field name="rechazo_amf_ids" invisible="productive_section_id == 1"/>
@@ -72,7 +83,7 @@
         </record>
 
         <record id="tecnolog_control_action" model="ir.actions.act_window">
-            <field name="name">Control tecnológico</field>
+            <field name="name">Control Tecnológico</field>
             <field name="res_model">process_control.tecnolog_control</field>
             <field name="view_mode">tree,form</field>
             <!-- <field name="context">{'search_default_group_date': 1}</field> -->

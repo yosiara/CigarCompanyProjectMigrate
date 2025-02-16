@@ -7,12 +7,16 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
+                        <!--***************** DOMAINS ********************* -->
                         <field name="rechazo_id" invisible="1"/>
+                        <field name="machine_domain" invisible="1"/>
+                        <field name="line_domain" invisible="1"/>
+                        <!--***************** FIELDS ********************* -->
                         <group>
                             <group>
-                                <field name="turn_attendance_id" domain="[('session', '=', parent.session), ('turn_id', '=', parent.turn_id)]"/>
-                                <field name="productive_line_id"/>
-                                <field name="machine_id"/>
+                                <!-- <field name="turn_attendance_id" domain="[('session', '=', parent.session), ('turn_id', '=', parent.turn_id)]"/> -->
+                                <field name="productive_line_id" domain="line_domain"/>
+                                <field name="machine_id" domain="machine_domain"/>
                             </group>
                             <group>
                                 <field name="prod_en_cajones"/>
@@ -29,9 +33,13 @@
             <field name="model">process_control.rechazo_amf</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="turn_attendance_id"/>
-                    <field name="productive_line_id"/>
-                    <field name="machine_id"/>
+                    <!--***************** DOMAINS ********************* -->
+                    <field name="machine_domain" column_invisible="1"/>
+                    <field name="line_domain" column_invisible="1"/>
+                    <!--***************** FIELDS ********************* -->
+                    <!-- <field name="turn_attendance_id"/> -->
+                    <field name="productive_line_id" domain="line_domain"/>
+                    <field name="machine_id" domain="machine_domain"/>
                     <field name="prod_en_cajones"/>
                     <field name="rechazo_en_cajetillas"/>
                 </tree>

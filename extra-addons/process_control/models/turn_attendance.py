@@ -10,8 +10,9 @@ class TurnAttendance(models.Model):
     hour_from = fields.Float(string='Hora de Inicio *', required=True)
     hour_to = fields.Float(string='Hora de Fin *', required=True,
         help="End of working.\nA specific value of 24:00 is interpreted as 23:59:59.999999.")
-    
     turn_id = fields.Many2one("process_control.turn", string="Turno *", required=True, ondelete="cascade")
+
+    production_by_hours_ids = fields.One2many('process_control.production_by_hours', 'turn_att_id', string='Production BY Hours')
     
     session = fields.Selection([
         ('morning', 'Mañana'),

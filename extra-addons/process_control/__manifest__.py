@@ -40,6 +40,7 @@
         'views/rechazo_amf.xml',
         'views/rechazo_mod1.xml',
         'views/turn_attendance.xml',
+        'views/production_by_hours.xml',
 
         #-----------------------wizard-------------------------------------#
         'wizard/interruptions_pdf_wzd.xml',

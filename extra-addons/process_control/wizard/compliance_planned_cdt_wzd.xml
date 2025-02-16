@@ -42,8 +42,8 @@
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
-
+<!-- 
         <menuitem action="wzd_compliance_planned_cdt_excel_act_window"
-                  id="menu_wzd_compliance_planned_cdt_excel_report" parent="process_control_informes_xlsx" sequence="6"/>
+                  id="menu_wzd_compliance_planned_cdt_excel_report" parent="process_control_informes_xlsx" sequence="6"/> -->
     </data>
 </odoo>

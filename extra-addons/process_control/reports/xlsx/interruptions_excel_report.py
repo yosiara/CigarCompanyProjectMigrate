@@ -20,7 +20,7 @@ class InterruptionsExcelReport(models.AbstractModel):
     @api.model
     def generate_xlsx_report(self, data, response):
         # Get data
-        tecnolog_control_ids = self.env['process_control.tecnolog_control'].search([('date', '>=', data["start_date"]), ('date', '<=', data["end_date"])])
+        tecnolog_control_ids = self.env['process_control.tecnolog_control'].search([('date', '>=', data.get("start_date")), ('date', '<=', data.get("end_date"))])
         if not tecnolog_control_ids: # Empty data
            _logger.warning('There is no data to display.')
            return
@@ -96,30 +96,14 @@ class InterruptionsExcelReport(models.AbstractModel):
                 worksheet.write(row, 13, tc.plan_time, cell_format)
 
                 # To calculate minimum column width
-                max_tmp = len(str(row - 4))
-                if max_tmp > max_len[0]:
-                    max_len[0] = max_tmp
-                max_tmp = len(tc.turn_id.name)
-                if max_tmp > max_len[4]:
-                    max_len[4] = max_tmp
-                max_tmp = len(tc.productive_section_id.name)
-                if max_tmp > max_len[5]:
-                    max_len[5] = max_tmp
-                max_tmp = len(i.productive_line_id.name) if i.productive_line_id else 0
-                if max_tmp > max_len[8]:
-                    max_len[8] = max_tmp
-                max_tmp = len(i.machine_id.name) if i.machine_id else 0
-                if max_tmp > max_len[9]:
-                    max_len[9] = max_tmp
-                max_tmp = len(i.set_of_peaces_id.name) if i.set_of_peaces_id else 0
-                if max_tmp > max_len[10]:
-                    max_len[10] = max_tmp
-                max_tmp = len(i.interruption_type_id.name)
-                if max_tmp > max_len[11]:
-                    max_len[11] = max_tmp
-                max_tmp = len(i.interruption_type_id.cause)
-                if max_tmp > max_len[12]:
-                    max_len[12] = max_tmp
+                max_len[0] = max(max_len[0], len(str(row - 4)))
+                max_len[4] = max(max_len[4], len(tc.turn_id.name))
+                max_len[5] = max(max_len[5], len(tc.productive_section_id.name))
+                max_len[8] = max(max_len[8], len(i.productive_line_id.name)) if i.productive_line_id else max_len[8]
+                max_len[9] = max(max_len[9], len(i.machine_id.name)) if i.machine_id else max_len[9]
+                max_len[10] = max(max_len[10], len(i.set_of_peaces_id.name)) if i.set_of_peaces_id else max_len[10]
+                max_len[11] = max(max_len[11], len(i.interruption_type_id.name))
+                max_len[12] = max(max_len[12], len(i.interruption_type_id.cause))
 
                 row += 1 # next row
 

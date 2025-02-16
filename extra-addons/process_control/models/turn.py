@@ -14,6 +14,18 @@ class Turn(models.Model):
         ('name_uniq', 'unique(name)', 'El nombre del Turno debe ser único.'),
     ]
 
+    def hour_range(self, session=False):
+        self.ensure_one()
+        minimo = 23.99
+        maximo = 0.00
+        domain = [('hour_from', '!=', 0.0), ('hour_to', '!=', 0.0)]
+        if session:
+            domain.append(('session', '=', session))
+        for att in self.turn_attendance_ids.filtered_domain(domain):
+            minimo = min(minimo, att.hour_from, att.hour_to)
+            maximo = max(maximo, att.hour_from, att.hour_to)
+        return (minimo, maximo)
+
     def float_to_time(self, h):
         if h >= 24.0:
             return time(23, 59, 59, 999999)
@@ -35,7 +47,7 @@ class Turn(models.Model):
                 session = att_recs[0].session
                 hour_from = att_recs[0].hour_to
                 hour_to = hour_from + 1
-                name = f"({self.float_to_time(hour_from)}-{self.float_to_time(hour_to)})"
+                name = f"({self.float_to_time(hour_from).strftime('%H:%M')}-{self.float_to_time(hour_to).strftime('%H:%M')})"
             rec.turn_attendance_context = {
                 "default_session": session,
                 "default_hour_from": hour_from,

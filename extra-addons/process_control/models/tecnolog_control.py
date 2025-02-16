@@ -21,16 +21,17 @@ class TecnologControl(models.Model):
     interruption_ids = fields.One2many(comodel_name="process_control.interruption", inverse_name="tecnolog_control_id", string="Interrupciones")  
     rechazo_amf_ids = fields.One2many(comodel_name="process_control.rechazo_amf", inverse_name="tecnolog_control_id", string="Rechazo de las AMF")
     rechazo_mod1_ids = fields.One2many(comodel_name="process_control.rechazo_mod1", inverse_name="tecnolog_control_id", string="Rechazo 'NANO', 'SBO', 'SRC'")
-    #production_by_hours_ids = fields.One2many(comodel_name="process_control.production_by_hours", inverse_name="tecnolog_control_id", string="Produccion Horaria", required=False)
+    production_by_hours_ids = fields.One2many(comodel_name="process_control.production_by_hours", inverse_name="tecnolog_control_id", string="Producción Horaria")
     
 
     # Clear notebook data
-    @api.onchange("productive_section_id")
+    @api.onchange("productive_section_id", "turn_id", "session")
     def _onchange_productive_section_id(self):
         if self.productive_section_id:
             self.interruption_ids.unlink()
             self.rechazo_amf_ids.unlink()
             self.rechazo_mod1_ids.unlink()
+            self.production_by_hours_ids.unlink()
 
     @api.model
     def default_get(self, fields):
