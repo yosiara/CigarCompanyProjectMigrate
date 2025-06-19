@@ -1,7 +1,6 @@
-version: '3.1'
 services:
   odoo:
-    image: odoo:17.3
+    image: odoo:18.0
     container_name: odoo_${CONTAINER_NAME}
     depends_on:
       - postgres
@@ -22,7 +21,7 @@ services:
     command: --dev=all --update=process_control
 
   postgres:
-    image: postgres:15
+    image: postgres:17
     container_name: db_${CONTAINER_NAME}
     environment:
       - POSTGRES_DB=postgres

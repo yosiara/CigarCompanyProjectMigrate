@@ -1,4 +1,4 @@
 {
     "python.languageServer": "None",
-    "python.analysis.stubPath": "odoo-stubs-17.0",
+    "python.analysis.stubPath": "odoo-stubs-18.0",
 }
