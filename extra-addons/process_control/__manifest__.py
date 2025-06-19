@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Process Control',
-    'version': '17.0',
+    'version': '18.0',
     'author': 'Yosiel Arango Arencibia',
     'category': 'Turei',
     "license": "LGPL-3",

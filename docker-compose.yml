@@ -1,6 +1,6 @@
 services:
   odoo:
-    image: odoo:18.0
+    image: odoo_cigarros:18.0
     container_name: odoo_${CONTAINER_NAME}
     depends_on:
       - postgres
@@ -9,7 +9,7 @@ services:
       - USER=${CONTAINER_USER}
       - PASSWORD=${CONTAINER_PASSWORD}
     ports:
-      - "8017:8069"
+      - "8069:8069"
       - "5678:5678"
     volumes:
 #      - odoo-data:/var/lib/odoo
@@ -34,19 +34,19 @@ services:
     #   - postgres-odoo-data:/var/lib/postgresql/data
     restart: always
 
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: pg_${CONTAINER_NAME}
-    depends_on:
-      - postgres
-    ports:
-      - "5050:80"
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-      - PGADMIN_DEFAULT_PASSWORD=${CONTAINER_PASSWORD}
-    # volumes:
-    #   - pgadmin-odoo-data:/var/lib/pgadmin
-    restart: always
+  # pgadmin:
+  #   image: dpage/pgadmin4:latest
+  #   container_name: pg_${CONTAINER_NAME}
+  #   depends_on:
+  #     - postgres
+  #   ports:
+  #     - "5050:80"
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+  #     - PGADMIN_DEFAULT_PASSWORD=${CONTAINER_PASSWORD}
+  #   # volumes:
+  #   #   - pgadmin-odoo-data:/var/lib/pgadmin
+  #   restart: always
 
 # volumes:
 #   odoo-data:
