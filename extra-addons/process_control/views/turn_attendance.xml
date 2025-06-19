@@ -23,24 +23,24 @@
                 </field>
         </record>
 
-        <record id="turn_attendance_tree" model="ir.ui.view">
-            <field name="name">turn_attendance.tree</field>
+        <record id="turn_attendance_list" model="ir.ui.view">
+            <field name="name">turn_attendance.list</field>
             <field name="model">process_control.turn_attendance</field>
             <field name="arch" type="xml">
-               <tree>
+               <list>
                     <field name="name"/>
                     <field name="session"/>
                     <field name="hour_from" widget="float_time"/>
                     <field name="hour_to" widget="float_time"/>
                     <field name="turn_id"/>
-                </tree>
+                </list>
             </field>
         </record>
         
         <record id="turn_attendance_action" model="ir.actions.act_window">
             <field name="name">Work Detail</field>
             <field name="res_model">process_control.turn_attendance</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
     </data>
 </odoo>

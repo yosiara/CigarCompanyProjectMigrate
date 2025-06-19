@@ -28,11 +28,11 @@
             </field>
         </record>
 
-        <record id="rechazo_mod1_tree" model="ir.ui.view">
-            <field name="name">rechazo_mod1.tree</field>
+        <record id="rechazo_mod1_list" model="ir.ui.view">
+            <field name="name">rechazo_mod1.list</field>
             <field name="model">process_control.rechazo_mod1</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <!--***************** DOMAINS ********************* -->
                     <field name="machine_domain" column_invisible="1"/>
                     <field name="line_domain" column_invisible="1"/>
@@ -42,14 +42,14 @@
                     <field name="machine_id" domain="machine_domain"/>
                     <field name="prod_en_cigarrillos"/>
                     <field name="rechazo_en_cigarrillos"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="rechazo_mod1_action" model="ir.actions.act_window">
             <field name="name">Rechazo Módulo 1</field>
             <field name="res_model">process_control.rechazo_mod1</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
     </data>
 </odoo>

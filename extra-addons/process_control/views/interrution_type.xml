@@ -25,24 +25,24 @@
             </field>
         </record>
 
-        <record id="interruption_type_tree" model="ir.ui.view">
-            <field name="name">interruption_type_tree</field>
+        <record id="interruption_type_list" model="ir.ui.view">
+            <field name="name">interruption_type_list</field>
             <field name="model">process_control.interruption_type</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="code"/>
                     <field name="cause"/>
                     <field name="activate" widget="boolean_toggle"/>
                     <field name="machine_type_related" widget="many2many_tags"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="interruption_type_action" model="ir.actions.act_window">
             <field name="name">Tipos de Interrupciones</field>
             <field name="res_model">process_control.interruption_type</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <menuitem id="interruption_type_menu" parent="process_control_settings_menu" action="interruption_type_action" sequence="40"/>

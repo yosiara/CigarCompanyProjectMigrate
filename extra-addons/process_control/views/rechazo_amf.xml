@@ -28,11 +28,11 @@
             </field>
         </record>
 
-        <record id="rechazo_amf_tree" model="ir.ui.view">
-            <field name="name">rechazo_amf.tree</field>
+        <record id="rechazo_amf_list" model="ir.ui.view">
+            <field name="name">rechazo_amf.list</field>
             <field name="model">process_control.rechazo_amf</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <!--***************** DOMAINS ********************* -->
                     <field name="machine_domain" column_invisible="1"/>
                     <field name="line_domain" column_invisible="1"/>
@@ -42,14 +42,14 @@
                     <field name="machine_id" domain="machine_domain"/>
                     <field name="prod_en_cajones"/>
                     <field name="rechazo_en_cajetillas"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="rechazo_amf_action" model="ir.actions.act_window">
             <field name="name">Rechazo AMF</field>
             <field name="res_model">process_control.rechazo_amf</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <!-- <field name="binding_model_id" ref="model_process_control_rechazo"/> -->
         </record>
     </data>

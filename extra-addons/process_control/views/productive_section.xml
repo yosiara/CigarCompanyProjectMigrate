@@ -35,23 +35,23 @@
             </field>
         </record>
 
-        <record id="productive_section_tree" model="ir.ui.view">
-            <field name="name">productive_section_tree</field>
+        <record id="productive_section_list" model="ir.ui.view">
+            <field name="name">productive_section_list</field>
             <field name="model">process_control.productive_section</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <!-- <field name="tec_model_type"/> -->
                     <field name="productive_section_plan_id"/>
                     <field name="productive_line_ids" widget="many2many_tags"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="productive_section_action" model="ir.actions.act_window">
             <field name="name">Módulos de Producción</field>
             <field name="res_model">process_control.productive_section</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <menuitem id="productive_section_menu" parent="process_control_settings_menu" action="productive_section_action" sequence="20"/>

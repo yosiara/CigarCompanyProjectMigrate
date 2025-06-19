@@ -59,11 +59,11 @@
                         </group>
                         <group string="Conjuntos de Piezas">
                         <field name="set_of_peaces">
-                            <tree>
+                            <list>
                                 <field name="name"/>
                                 <field name="machine_type_ids" widget="many2many_tags"/>
                                 <!-- <field name="quantity"/> -->
-                            </tree>
+                            </list>
                             <form>
                                 <sheet>
                                     <group>
@@ -86,23 +86,23 @@
             </field>
         </record>
 
-        <record id="machine_tree" model="ir.ui.view">
-            <field name="name">machine_tree</field>
+        <record id="machine_list" model="ir.ui.view">
+            <field name="name">machine_list</field>
             <field name="model">process_control.machine</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="machine_type_id"/>
                     <field name="productive_section_id"/>
                     <field name="productive_line_id"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="machine_action" model="ir.actions.act_window">
             <field name="name">Máquinas</field>
             <field name="res_model">process_control.machine</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_mode">list,form,kanban</field>
         </record>
 
         <menuitem id="machine_menu" parent="process_control_settings_menu" action="machine_action" sequence="35"/>

@@ -29,11 +29,11 @@
             </field>
         </record>
 
-        <record id="productive_section_plan_tree" model="ir.ui.view">
-            <field name="name">productive_section_plan_view_tree</field>
+        <record id="productive_section_plan_list" model="ir.ui.view">
+            <field name="name">productive_section_plan_view_list</field>
             <field name="model">process_control.productive_section_plan</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="year"/>
                     <field name="activate" widget="boolean_toggle"/>
@@ -43,14 +43,14 @@
                     <field name="indice_planif_rechazo"/>
                     <field name="indice_planif_disp_tec"/>
                     <field name="indice_planif_norma"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="productive_section_plan_action" model="ir.actions.act_window">
             <field name="name">Planificación de Norma e Indicadores</field>
             <field name="res_model">process_control.productive_section_plan</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <menuitem id="productive_section_plan_menu" name="Planes de Trabajo" parent="process_control_settings_menu" action="productive_section_plan_action" sequence="38"/>

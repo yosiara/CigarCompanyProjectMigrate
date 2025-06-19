@@ -23,22 +23,22 @@
             </field>
         </record>
 
-        <record id="productive_line_tree" model="ir.ui.view">
-            <field name="name">productive_line_tree</field>
+        <record id="productive_line_list" model="ir.ui.view">
+            <field name="name">productive_line_list</field>
             <field name="model">process_control.productive_line</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="productive_section_id"/>
                     <field name="machine_ids" widget="many2many_tags"/>
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="productive_line_action" model="ir.actions.act_window">
             <field name="name">Líneas Productivas</field>
             <field name="res_model">process_control.productive_line</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <menuitem id="productive_line_menu" parent="process_control_settings_menu" action="productive_line_action" sequence="30"/>

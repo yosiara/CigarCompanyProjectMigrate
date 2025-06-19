@@ -33,19 +33,19 @@
             </field>
         </record>
 
-        <!-- TREE VIEW -->
-        <record id="db_production_connector_tree_view" model="ir.ui.view">
-            <field name="name">db_production_connector_tree_view</field>
+        <!-- list VIEW -->
+        <record id="db_production_connector_list_view" model="ir.ui.view">
+            <field name="name">db_production_connector_list_view</field>
             <field name="model">process_control.db_production_connector</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="server"/>
                     <field name="port"/>
                     <field name="user"/>
                     <field name="dbname"/>
                     <field name="connector"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -54,7 +54,7 @@
             <field name="name">Conexión a Sistema de producción </field>
             <field name="res_model">process_control.db_production_connector</field>
             <field name="binding_view_types">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <!-- MENU ITEM -->

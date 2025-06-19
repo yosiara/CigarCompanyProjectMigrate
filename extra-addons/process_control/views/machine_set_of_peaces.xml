@@ -21,22 +21,22 @@
             </field>
         </record>
 
-        <record id="set_of_peaces_tree" model="ir.ui.view">
-            <field name="name">set_of_peaces_tree</field>
+        <record id="set_of_peaces_list" model="ir.ui.view">
+            <field name="name">set_of_peaces_list</field>
             <field name="model">process_control.machine_set_of_peaces</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="machine_type_ids" widget="many2many_tags"/>
                     <!-- <field name="quantity" invisible="1"/> -->
-                </tree>
+                </list>
             </field>
         </record>
 
         <record id="set_of_peaces_action" model="ir.actions.act_window">
             <field name="name">Subconjuntos de Piezas</field>
             <field name="res_model">process_control.machine_set_of_peaces</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <menuitem id="set_of_peaces_menu" name="Subconjuntos de Piezas" parent="process_control_settings_menu" action="set_of_peaces_action" sequence="37"/>

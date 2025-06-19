@@ -15,8 +15,8 @@ class TecnologControl(models.Model):
     ], string="Sesión *", required=True, default='morning')
 
     productive_section_id = fields.Many2one(comodel_name="process_control.productive_section", string="Módulo *", required=True)
-    productive_capacity = fields.Integer('Capacidad Prod. *', required=True)
-    plan_time = fields.Integer('Tmpo. Plan(Horas) *', required=True)
+    productive_capacity = fields.Integer('Capacidad Prod. *', required=False)
+    plan_time = fields.Integer('Tmpo. Plan(Horas) *', required=False)
 
     interruption_ids = fields.One2many(comodel_name="process_control.interruption", inverse_name="tecnolog_control_id", string="Interrupciones")  
     rechazo_amf_ids = fields.One2many(comodel_name="process_control.rechazo_amf", inverse_name="tecnolog_control_id", string="Rechazo de las AMF")
