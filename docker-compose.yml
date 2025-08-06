@@ -15,10 +15,12 @@ services:
 #      - odoo-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./extra-addons:/mnt/extra-addons
-    restart: always
-    tty: true
+    
     entrypoint: /usr/bin/python3 -m debugpy --listen 0.0.0.0:5678 /usr/bin/odoo -c /etc/odoo/odoo.conf
     command: --dev=all --update=process_control
+    
+    tty: true
+    restart: unless-stopped
 
   postgres:
     image: postgres:17
@@ -32,7 +34,7 @@ services:
 #      - "5051:5432"
     # volumes:
     #   - postgres-odoo-data:/var/lib/postgresql/data
-    restart: always
+    restart: unless-stopped
 
   # pgadmin:
   #   image: dpage/pgadmin4:latest
@@ -46,7 +48,7 @@ services:
   #     - PGADMIN_DEFAULT_PASSWORD=${CONTAINER_PASSWORD}
   #   # volumes:
   #   #   - pgadmin-odoo-data:/var/lib/pgadmin
-  #   restart: always
+  #   restart: unless-stopped
 
 # volumes:
 #   odoo-data:

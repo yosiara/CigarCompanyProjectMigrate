@@ -1,4 +1,7 @@
 {
     "python.languageServer": "None",
     "python.analysis.stubPath": "odoo-stubs-18.0",
+    "python.autoComplete.extraPaths": [
+        "addons",
+    ],
 }
