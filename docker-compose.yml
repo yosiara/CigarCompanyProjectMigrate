@@ -1,4 +1,3 @@
-version: '3.1'
 services:
   odoo:
     image: odoo:17.3
@@ -11,15 +10,15 @@ services:
       - PASSWORD=${CONTAINER_PASSWORD}
     ports:
       - "8017:8069"
-      - "5678:5678"
+      - "5679:5678"
     volumes:
 #      - odoo-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./extra-addons:/mnt/extra-addons
-    restart: always
+    restart: unless-stopped
     tty: true
-    entrypoint: /usr/bin/python3 -m debugpy --listen 0.0.0.0:5678 /usr/bin/odoo -c /etc/odoo/odoo.conf
-    command: --dev=all --update=process_control
+    entrypoint: /usr/bin/python3 -m debugpy --listen 0.0.0.0:5679 /usr/bin/odoo -c /etc/odoo/odoo.conf
+    command: --dev=all --update=process_control -i web_community
 
   postgres:
     image: postgres:15
@@ -33,21 +32,21 @@ services:
 #      - "5051:5432"
     # volumes:
     #   - postgres-odoo-data:/var/lib/postgresql/data
-    restart: always
+    restart: unless-stopped
 
-  pgadmin:
-    image: dpage/pgadmin4:latest
-    container_name: pg_${CONTAINER_NAME}
-    depends_on:
-      - postgres
-    ports:
-      - "5050:80"
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-      - PGADMIN_DEFAULT_PASSWORD=${CONTAINER_PASSWORD}
-    # volumes:
-    #   - pgadmin-odoo-data:/var/lib/pgadmin
-    restart: always
+  # pgadmin:
+  #   image: dpage/pgadmin4:latest
+  #   container_name: pg_${CONTAINER_NAME}
+  #   depends_on:
+  #     - postgres
+  #   ports:
+  #     - "5050:80"
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+  #     - PGADMIN_DEFAULT_PASSWORD=${CONTAINER_PASSWORD}
+  #   # volumes:
+  #   #   - pgadmin-odoo-data:/var/lib/pgadmin
+  #   restart: unless-stopped
 
 # volumes:
 #   odoo-data:
