@@ -53,7 +53,6 @@ export class HomeMenu extends Component {
         this.menus = useService("menu");
         this.user = useService("user");
         this.homeMenuService = useService("home_menu");
-        this.subscription = useState(useService("community_subscription"));
         this.ui = useService("ui");
         this.state = useState({
             focusedIndex: null,
