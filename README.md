@@ -1,9 +1,9 @@
-Empresa de Cigarros Lázaro Peña. Holguín. Cuba.
+Lázaro Peña Cigar Company. Holguín, Cuba.
 ----
-Proyecto de migración y desarrollo usando tecnología Odoo.
+Migration and development project using Odoo technology.
 ----
-Desarrollado por departamento de Informática.
+Developed by the IT Department.
 ----
-Especialista en Ciencias Informáticas,
+Computer Science Specialist,
 <!-- prettier-ignore-end -->
 Yosiel R. Arango Arencibia.
