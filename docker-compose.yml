@@ -1,6 +1,6 @@
 services:
   odoo:
-    image: odoo:17.3
+    image: ${IMAGES_NAME}
     container_name: odoo_${CONTAINER_NAME}
     depends_on:
       - postgres
@@ -17,8 +17,8 @@ services:
       - ./extra-addons:/mnt/extra-addons
     restart: unless-stopped
     tty: true
-    entrypoint: /usr/bin/python3 -m debugpy --listen 0.0.0.0:5679 /usr/bin/odoo -c /etc/odoo/odoo.conf
-    command: --dev=all --update=process_control -i web_community
+    entrypoint: /usr/bin/python3 -m debugpy --listen 0.0.0.0:5678 /usr/bin/odoo -c /etc/odoo/odoo.conf
+    command: --dev=all --update=process_control #-i web_community
 
   postgres:
     image: postgres:15
