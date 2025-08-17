@@ -59,7 +59,7 @@
                             </group>
                         </group>
 
-                        <notebook invisible="productive_section_id == False">
+                        <notebook invisible="productive_section_id == False or turn_id == False">
                             <page string="Interrupciones">
                                 <field name="interruption_ids"/>
                             </page>
