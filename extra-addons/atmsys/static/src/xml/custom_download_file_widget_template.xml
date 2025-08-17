@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+    <t t-name="WidgetDownloadFile">
+        <button type="button" t-attf-class="btn btn-sm custom_button #{widget.node.attrs['class'] or ''}" t-att-style="widget.node.attrs['style']">
+            <div class="fa fa-fw fa-download o_button_icon"></div>
+            <span><t t-esc="widget.node.attrs['string']"/></span>
+        </button>
+    </t>
+</templates>

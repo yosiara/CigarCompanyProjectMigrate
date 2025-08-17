@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <template id="work_order_report_template">
+            <t t-foreach="docs" t-as="work_order">
+                <div class="page">
+                    <link href="/turei_maintenance/static/src/css/report_templates.css" rel="stylesheet"
+                          type="text/css"/>
+                    <table width="1005" border="1" cellpadding="0" cellspacing="0" class="table-border">
+                            <tr>
+                                <td colspan="2">
+                                    <div class="col-xs-2 text-left" style="margin:5px 5px 5px 5px; padding:0 0 0 15px">
+                                        <img src="/turei_maintenance/static/src/img/tabacuba.jpg" width="150px" heigth="50px"/>
+                                    </div>
+                                </td>
+                                <td colspan="4" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>ORDEN DE TRABAJO</strong>
+                                </td>
+                                <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>No. <t t-esc="work_order.number_new"/></strong>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3">
+                                    <br/>
+                                    <strong>Ejecutor:</strong> <t t-esc="work_order.executor_id.name"/> <br/><br/>
+                                </td>
+                                <td colspan="3">
+                                    <br/>
+                                    <strong>C. Costo:</strong> <t t-esc="work_order.receive_cost_center_id.name"/> <br/><br/>
+                                </td>
+                                <td colspan="2"><br/>
+                                    <strong>Fecha de Solicitud:</strong> <t t-esc="work_order.opening_date"/><br/><br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="8">
+                                    <span class="cell-top-left"><strong>Descripción:</strong></span>
+                                    <span><t t-esc="work_order.note"/></span><br/><br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2" align="center" valign="middle" class="cell-center-middle" width="55"><strong>Fecha <br/>de<br/> Inicio</strong></td>
+                                <td rowspan="2" align="center" valign="middle" class="cell-center-middle" width="170"><strong>Empleado</strong></td>
+                                <td rowspan="2" align="center" valign="middle" class="cell-center-middle" width="280"><strong>Trabajo</strong></td>
+                                <td rowspan="2" align="center" valign="middle" class="cell-center-middle" width="200"><strong>Equipo y No.</strong></td>
+                                <td rowspan="2" align="center" valign="middle" class="cell-center-middle" width="50"><strong>Tiempo</strong></td>
+                                <td colspan="2" align="center" valign="middle" class="cell-center-middle" width="100"><strong>Serv. Concluido</strong></td>
+                                <td rowspan="2" align="center" valign="middle" class="cell-center-middle" width="150"><strong>Observaciones</strong></td>
+                            </tr>
+                            <tr>
+                                <td align="center" valign="middle" class="cell-center-middle">Si</td>
+                                <td align="center" valign="middle" class="cell-center-middle">No</td>
+                            </tr>
+                             <t t-foreach="work_order.realized_work_ids" t-as="line">
+                                <tr>
+                                    <td><t t-esc="work_order.opening_date"/></td>
+                                    <td class="cell-center-middle"><t t-esc="line.executor_id.name"/></td>
+                                    <td><t t-esc="line.description"/></td>
+                                    <td><t t-esc="line.equipment_id.name"/></td>
+                                    <td class="cell-center-middle"><t t-esc="line.time"/></td>
+                                    <td class="cell-center-middle"><t t-if="line.ready_service == 'si'">X</t></td>
+                                    <td class="cell-center-middle"><t t-if="line.ready_service == 'no'">X</t></td>
+                                    <td><t t-esc="line.note"/></td>
+                                </tr>
+                             </t>
+                            <tr>
+                                <td rowspan="2" colspan="3">
+                                    <span>Nombre Responsable Prod:____________________________</span><br/>
+                                    <span>Firma:______________________</span>
+                                </td>
+                                <td colspan="5">
+                                    <p class="cell-center-middle"><strong>Maquina Lista para el Trabajo</strong></p>
+                                    <p class="cell-center-middle">
+                                        <span>Si <t t-if="work_order.ready_equipment == 'si'">_X_</t><t t-else="">_____</t></span>
+                                        <span>No <t t-if="work_order.ready_equipment == 'no'">_X_</t><t t-else="">_____</t></span>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">Fecha de Cierre: <t t-esc="work_order.closing_date"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center" valign="middle" class="cell-center-middle"><br/><strong>Defecto</strong><br/><br/></td>
+                                <td colspan="2" align="center" valign="middle" class="cell-center-middle"><br/><strong>Causa</strong><br/><br/></td>
+                                <td colspan="4" align="center" valign="middle" class="cell-center-middle"><br/><strong>Acciones</strong><br/><br/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><br/><br/></td>
+                                <td colspan="2"><br/><br/></td>
+                                <td colspan="4"><br/><br/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="8" rowspan="8">
+                                    <span class="cell-top-left"><strong>Observaciones:</strong></span><br/><br/>
+                                </td>
+                            </tr>
+
+                    </table>
+                </div>
+
+                <div class="page">
+                    <link href="/turei_maintenance/static/src/css/report_templates.css" rel="stylesheet"
+                          type="text/css"/>
+
+                    <div class="row col-xs-6 col-xs-offset-3 title">LISTADO DE RECURSOS EXTRAIDOS</div>
+
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>CODIGO</th>
+                                <th>DESCRIPCION</th>
+                                <th>U/M</th>
+                                <th>CANTIDAD</th>
+                                <th>IMPORTE CUC</th>
+                                <th>IMPORTE CUP</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <t t-set="total_cuc" t-value="0"/>
+                            <t t-set="total_cup" t-value="0"/>
+
+                            <t t-foreach="work_order.product_order_ids" t-as="product_order">
+                                <tr>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.product_id.code"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="product_order.product_id.name"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.product_id.uom_id.name"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.quantity"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.quantity * product_order.product_id.price_extra"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.quantity * product_order.product_id.price"/>
+                                    </td>
+                                </tr>
+
+                                <t t-set="total_cuc" t-value="total_cuc + product_order.quantity * product_order.product_id.price_extra"/>
+                                <t t-set="total_cup" t-value="total_cup + product_order.quantity * product_order.product_id.price"/>
+                            </t>
+
+                            <tr>
+                                <td></td><td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+
+                            <tr>
+                                <td></td><td></td><td></td><td></td>
+                                <td class="cell-center-middle">
+                                    <t t-esc="total_cuc"/>
+                                </td>
+                                <td class="cell-center-middle">
+                                    <t t-esc="total_cup"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row col-xs-6 col-xs-offset-3 title">LISTADO DEL TRABAJO REALIZADO</div>
+
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>CODIGO</th>
+                                <th colspan="4">EMPLEADO</th>
+                                <th>IMPORTE CUP</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <t t-set="total_cup" t-value="0"/>
+
+                            <t t-foreach="work_order.realized_work_ids" t-as="rw">
+                                <tr>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="rw.code_executor"/>
+                                    </td>
+                                    <td colspan="4">
+                                        <t t-esc="rw.executor_id.name"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="round(rw.rate,2)"/>
+                                    </td>
+                                </tr>
+                                <t t-set="total_cup" t-value="total_cup + rw.rate"/>
+                            </t>
+
+                            <tr>
+                                <td></td><td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+
+                            <tr>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td class="cell-center-middle">
+                                    <t t-esc="round(total_cup,2)"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

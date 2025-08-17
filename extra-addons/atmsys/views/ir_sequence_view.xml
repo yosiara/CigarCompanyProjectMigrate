@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="atmsys_view_ir_sequence_form" model="ir.actions.act_window">
+            <field name="name">Secuencias</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ir.sequence</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('code', '=', 'atmsys.work.order')]</field>
+            <field name="filter" eval="True"/>
+        </record>
+
+        <menuitem id="atmsys_ir_sequence_menu" sequence="25" name="Secuencias" parent="atmsys.atmsys_work_order_type_left_menu" action="atmsys.atmsys_view_ir_sequence_form"/>
+
+    </data>
+</odoo>

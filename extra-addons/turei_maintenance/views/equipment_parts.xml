@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- TREE VIEW -->
+        <record id="turei_maintenance_equipment_parts_tree_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_equipment_parts_tree_view</field>
+            <field name="model">turei_maintenance.equipment_parts</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		 <field name="name"/>
+					 <field name="item"/>
+					 <field name="code"/>
+					 <field name="reference"/>
+<!--					<field name="quantity" sum="Total"/>-->
+<!--					<field name="equipment_id"/>-->
+	            </tree>
+	        </field>
+	    </record>
+
+		<!-- SEARCH VIEW -->
+        <record id="turei_maintenance_equipment_parts_search_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_equipment_parts_search_view</field>
+            <field name="model">turei_maintenance.equipment_parts</field>
+            <field name="arch" type="xml">
+            	<search>
+                    <field name="name"/>
+					 <field name="item"/>
+					 <field name="code"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- FORM VIEW -->
+        <record id="turei_maintenance_equipment_parts_form_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_equipment_parts_form_view</field>
+            <field name="model">turei_maintenance.equipment_parts</field>
+            <field name="arch" type="xml">
+            	<form>
+					<sheet>
+						<group>
+							<group>
+								 <field name="name"/>
+								 <field name="item"/>
+								 <field name="code"/>
+<!--								<field name="equipment_id"/>-->
+							</group>
+							<group>
+<!--								 <field name="quantity"/>-->
+								 <field name="reference"/>
+								 <field name="fabricator"/>
+							</group>
+						</group>
+						<group>
+							<field name="note"/>
+						</group>
+						<group>
+							<field name="equipment_ids">
+								<tree>
+									<field name="name"/>
+									<field name="code"/>
+									<field name="model"/>
+									<field name="line_id"/>
+								</tree>
+							</field>
+						</group>
+					</sheet>
+	            </form>
+	        </field>
+	    </record>
+
+        <!-- ACTION -->
+        <record id="turei_maintenance_equipment_parts_action" model="ir.actions.act_window">
+	    	<field name="name">Gestionar Piezas</field>
+		    <field name="res_model">turei_maintenance.equipment_parts</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Gestionar Piezas"
+				  id="turei_maintenance_item_equipment_parts"
+				  action="turei_maintenance_equipment_parts_action"
+				  parent="turei_maintenance_equipaments_menu_item"
+				  />
+
+
+    </data>
+</odoo>

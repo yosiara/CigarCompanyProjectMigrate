@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+
+		<!-- FORM VIEW -->
+		<record id="atmsys_work_order_cancel_form_view" model="ir.ui.view">
+            <field name="name">atmsys_work_order_cancel_wizard_form_view</field>
+            <field name="model">atmsys.work_order_cancel_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            	<form>
+                    <sheet>
+
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <button name="action_cancel" string="Cancelar" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Salir" class="btn-default"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atm_work_order_cancel_action" model="ir.actions.act_window">
+            <field name="name">Asistente para cancelar Orden de Trabajo</field>
+            <field name="res_model">atmsys.work_order_cancel_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

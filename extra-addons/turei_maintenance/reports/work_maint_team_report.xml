@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_maintenance_work_maint_team"
+                model="wzd.work.maint.team"
+                string="Rep. Ordenes por Equipo de Mantenimiento"
+                report_type="xlsx"
+                name="turei_maintenance.work_maint_team_report"
+                file="turei_maintenance.work_maint_team_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

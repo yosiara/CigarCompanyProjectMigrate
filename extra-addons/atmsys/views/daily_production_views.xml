@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+        DAILY PRODUCTION
+        Model: atmsys.daily_production
+        =========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_daily_production_view_form" model="ir.ui.view">
+            <field name="name">atmsys_daily_production_view_form</field>
+            <field name="model">atmsys.daily_production</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="destiny_id"/>
+                                <field name="quantity"/>
+                                <field name="year" readonly="True"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="atmsys_daily_production_view_tree" model="ir.ui.view">
+            <field name="name">atmsys_daily_production_view_tree</field>
+            <field name="model">atmsys.daily_production</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"/>
+                    <field name="destiny_id"/>
+                    <field name="quantity" sum="Total"/>
+                    <field name="year" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="base_lekkerland_product_request_time_average_report_search_view" model="ir.ui.view">
+            <field name="name">base_lekkerland_product_request_time_average_report_search_view</field>
+            <field name="model">atmsys.daily_production</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="date"/>
+                    <field name="year"/>
+                    <field name="destiny_id"/>
+                    <field name="quantity"/>
+
+                    <filter string="Today" name="today"
+                            domain="[
+                                ('date', '&gt;=', datetime.datetime.now().replace(hour=0, minute=0, second=0)),
+                                ('date', '&lt;=', datetime.datetime.now().replace(hour=23, minute=59, second=59))
+                            ]"
+                    />
+
+                    <filter string="Current Month"
+                            domain="[
+                                ('date', '&gt;=', datetime.datetime.now().strftime('%Y-%m-01')),
+                                ('date', '&lt;=', datetime.datetime.now().strftime('%Y-%m-%d'))
+                            ]"
+                    />
+
+                    <filter string="Current Year"
+                            domain="[
+                                ('date', '&gt;=', datetime.datetime.now().strftime('%Y-01-01')),
+                                ('date', '&lt;=', datetime.datetime.now().strftime('%Y-12-31'))
+                            ]"
+                    />
+
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_year" string="Year" context="{'group_by': 'year'}"/>
+                        <filter name="group_by_date" string="Date" context="{'group_by': 'date'}"/>
+                        <filter name="group_by_destiny" string="Destiny" context="{'group_by': 'destiny_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atmsys_daily_production_action" model="ir.actions.act_window">
+            <field name="name">Daily Production</field>
+            <field name="res_model">atmsys.daily_production</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{
+                    'search_default_group_by_year': True,
+                    'search_default_group_by_date': True,
+                    'search_default_group_by_destiny': True
+                }
+            </field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new <b>Daily Production</b>...
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem id="atmsys_daily_production_menu_item"
+                  name="Daily Production"
+                  parent="atmsys_general_elements_left_menu"
+                  action="atmsys_daily_production_action"
+                  sequence="1"/>
+    </data>
+</odoo>

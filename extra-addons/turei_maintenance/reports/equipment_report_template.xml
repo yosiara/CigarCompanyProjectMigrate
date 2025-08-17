@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <template id="equipment_report_template">
+            <t t-foreach="docs" t-as="equipment">
+                <div class="page">
+                    <link href="/turei_maintenance/static/src/css/report_templates.css" rel="stylesheet"
+                          type="text/css"/>
+                    <table width="1005" border="1" cellpadding="0" cellspacing="0" class="table-border">
+                        <tr>
+                            <td colspan="4" align="center" valign="middle" class="cell-center-middle">
+                                <span>NOMBRE DEL EQUIPO</span>
+                                <br/>
+                                <span><t t-esc="equipment.name"/></span>
+                            </td>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>CODIFICACION</span>
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>NUM. INVENTARIO</span>
+                                <br/>
+                               <span><t t-esc="equipment.code"/></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>NUM. CARPETA</span>
+                            </td>
+                            <td colspan="3">
+                                <span>NOMBRE DEL EQUIPO</span>
+                                <br/>
+                                <span><t t-esc="equipment.name"/></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>CODIFICACION</span>
+                                <span>
+                                    <BR/>
+                                </span>
+                            </td>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>NUM. INVENTARIO</span>
+                               <br/>
+                                <span><t t-esc="equipment.code"/></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>NUM. CARPETA</span>
+                                <span>
+                                    <BR/>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>MARCA</span>
+                                <br/>
+                                <span><t t-esc="equipment.brand"/></span>
+                            </td>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>MODELO</span>
+                                <br/>
+                                <span><t t-esc="equipment.model"/></span>
+                            </td>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>PAIS DE ORIGEN</span>
+                                <br/>
+                                <span><t t-esc="equipment.country"/></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>AÑO DE FABRICACION</span>
+                                <br/>
+                                <span><t t-esc="equipment.year_production"/></span>
+                            </td>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>CAPACIDAD DE CARGA</span>
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>POTENCIA</span>
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>PRESION</span>
+                                <span></span>
+                            </td>
+                            <td colspan="4" align="center" valign="middle" class="cell-center-middle">
+                                <span>TEMPERATURA</span>
+                                <span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center" valign="middle" class="cell-center-middle">
+                                <span>DIMENSIONES CM</span>
+                                <span></span>
+                            </td>
+                            <td colspan="5" align="center" valign="middle" class="cell-center-middle">
+                                <span>TIPO DE ACCIONAMIENTO</span>
+                                <span></span>
+                            </td>
+                            <td colspan="3" align="center" valign="middle" class="cell-center-middle">
+                                <span>LINEA Y TIPO DE PRODUCCION</span>
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>TURNO DE TRABAJO</span>
+                                <span></span>
+                            </td>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>HORAS EFECTIVAS DIARIAS</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>DIAS DE TRABAJO/AÑO</span>
+                                <span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>L</span>
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>A</span>
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>H</span>
+                                <span></span>
+                            </td>
+                            <td colspan="5" rowspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+
+                            </td>
+                            <td colspan="3" rowspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td rowspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td colspan="2" rowspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span><t t-esc="equipment.work_time"/></span>
+                            </td>
+                            <td rowspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>f</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>f</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>f</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8" align="center" valign="middle" class="cell-center-middle">
+                                <span>RELACION DE ELECTROMOTORES</span>
+                            </td>
+                            <td colspan="7" align="center" valign="middle" class="cell-center-middle">
+                                <span>OTROS EQUIPOS Y/O ACCESORIOS</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>No. ORD</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>Pot.</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>Fases</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>RPM</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>No. Tarj. Motor</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>No. Inventario</span>
+                            </td>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>Parte que Acciona</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>No. Inventario</span>
+                            </td>
+                            <td colspan="6" align="center" valign="middle" class="cell-center-middle">
+                                <span>DESCRIPCION</span>
+                            </td>
+                        </tr>
+<!--                        Motores electricos-->
+                        <t t-set="no_ord" t-value="1"/>
+                        <t t-foreach="equipment.equipment_electric_motor_ids" t-as="line">
+                            <tr>
+                                <td><t t-esc="no_ord"/><t t-set="no_ord" t-value="no_ord + 1"/></td>
+                                <td>-</td>
+                                <td><t t-esc="line.phase"/></td>
+                                <td><t t-esc="line.rpm"/></td>
+                                <td><t t-esc="line.no_motor"/></td>
+                                <td>-</td>
+                                <td colspan="2">-</td>
+                                <td>-</td>
+                                <td colspan="6">-</td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <td colspan="2" rowspan="4" align="center" valign="middle" class="cell-center-middle">
+                                <span>CICLO DE REPARACIONES</span>
+                            </td>
+                            <td colspan="6" rowspan="4" align="center" valign="middle">
+                                <span class="cell-top-left">ESTRUCTURA</span><br/>
+                                <span class="cell-center-middle">
+                                    <t t-esc="equipment.cycle_maintenance"/>
+                                </span>
+                            </td>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>OPERACIONES</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>CANTIDAD</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>HORAS</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>AÑOS</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>MESES</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>DIAS</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>REVISIONES (R)</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>REPARACION PARCIAL (P)</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>REPARACION GENERAL (G)</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="8" align="center" valign="middle" class="cell-center-middle">
+                                <span>RELACION DE CATALAGO</span>
+                            </td>
+                            <td colspan="7" rowspan="2" align="center" valign="middle" class="cell-center-middle">
+                                <span>OBSERVACIONES GENERALES</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>NUM.</span>
+                            </td>
+                            <td colspan="5" align="center" valign="middle" class="cell-center-middle">
+                                <span>TITULO</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>IDIOMA</span>
+                            </td>
+                            <td align="center" valign="middle" class="cell-center-middle">
+                                <span>LOCALIZACION</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td colspan="5">-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td colspan="7">-</td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

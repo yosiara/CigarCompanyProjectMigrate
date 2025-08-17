@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+        WAREHOUSE PRODUCTS REPORT REQUEST IN PDF FORMAT
+        Model: warehouse.warehouse_request
+        =========================================================================================== -->
+
+        <template id="warehouse_products_request_report_template">
+            <t t-foreach="docs" t-as="request">
+                <div class="page">
+                    <link href="/atmsys/static/src/css/report_templates.css" rel="stylesheet" type="text/css"/>
+
+                    <table width="1005" border="1" cellpadding="0" cellspacing="0" class="table-border">
+                        <tr>
+                            <td colspan="6" rowspan="2" class="cell-center-middle">
+                                <strong>Empresa de Cigarros</strong>
+                                <strong><br/>&quot;LAZARO PENA&quot; COD: 131.0.1221
+                                </strong>
+                            </td>
+                            <td colspan="17" rowspan="2" align="center" valign="middle" class="title">
+                                SOLICITUD DE ENTREGA
+                            </td>
+                            <td width="25" height="25" align="center" valign="middle" class="cell-center-middle">D</td>
+                            <td width="25" align="center" valign="middle" class="cell-center-middle">M</td>
+                            <td width="35" align="center" valign="middle" class="cell-center-middle">A</td>
+                            <td colspan="3" rowspan="2" align="center" valign="middle" class="cell-center-middle" style="font-size: 13px;">
+                                <span class="cell-center-middle">
+                                    <strong><t t-esc="request.code"/></strong>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="25" height="30" class="cell-center-middle">
+                                <t t-esc="request.date.split('-')[2]"/>
+                            </td>
+                            <td class="cell-center-middle">
+                                <t t-esc="request.date.split('-')[1]"/>
+                            </td>
+                            <td class="cell-center-middle">
+                                <t t-esc="request.date.split('-')[0]"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" class="vertical-text">
+                                ALMACEN
+                            </td>
+                            <td height="35" colspan="6" class="cell-center-middle">
+                                <span class="cell-center-middle">
+                                    <strong>CODIGO - NOMBRE</strong>
+                                </span>
+                            </td>
+                            <td class="cell-center-middle">
+                                <strong>VALE DE SALIDA</strong>
+                            </td>
+                            <td width="25" rowspan="2" class="vertical-text">AREA</td>
+                            <td colspan="6" class="cell-center-middle">
+                                <span class="cell-center-middle">
+                                    <strong>CODIGO - NOMBRE</strong>
+                                </span>
+                            </td>
+                            <td width="30" rowspan="2" class="vertical-text">C.COSTO</td>
+                            <td colspan="9" class="cell-center-middle">
+                                <span class="cell-center-middle">
+                                    <strong>CODIGO - NOMBRE</strong>
+                                </span>
+                            </td>
+                            <td rowspan="2" class="vertical-text">
+                                ORDEN
+                            </td>
+                            <td colspan="3" class="cell-center-middle">
+                                <span class="cell-center-middle">
+                                    <strong>NUMERO</strong>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="57" height="35" class="cell-center-middle">
+                                <t t-esc="request.warehouse_id.code"/>
+                            </td>
+                            <td height="35" colspan="5" class="cell-center-middle">
+                                <t t-esc="request.warehouse_id.name"/>
+                            </td>
+                            <td width="186" class="cell-center-middle"></td>
+                            <td width="45" class="cell-center-middle">
+                                <t t-esc="request.responsibility_area_id.code"/>
+                            </td>
+                            <td colspan="5" class="cell-center-middle">
+                                <t t-esc="request.responsibility_area_id.name"/>
+                            </td>
+                            <td colspan="2" class="cell-center-middle">
+                                <t t-esc="request.cost_center_id.code"/>
+                            </td>
+                            <td colspan="7" class="cell-center-middle">
+                                <t t-esc="request.cost_center_id.name"/>
+                            </td>
+                            <td colspan="3" class="cell-center-middle" style="font-size: 13px;">
+                                <t t-if="request.work_order_id">
+				    <t t-if="request.work_order_id.number">		
+                                    	<t t-esc="request.work_order_id.number"/>
+				    </t>
+				    <t t-else="">
+					<t t-esc="request.work_order_id.number_new"/>
+				    </t>	
+                                </t>
+                                <t t-if="not request.work_order_id">
+                                    S/O
+                                </t>
+                            </td>
+                        </tr>
+                        <tr class="bold-text-center">
+                            <td height="30" colspan="2" class="cell-center-middle">
+                                <strong>CODIGO</strong>
+                            </td>
+                            <td height="30" colspan="14" class="cell-center-middle">
+                                <strong>DESCRIPCION</strong>
+                            </td>
+                            <td width="24" class="cell-center-middle">
+                                <strong>E</strong>
+                            </td>
+                            <td width="24" class="cell-center-middle">
+                                <strong>F</strong>
+                            </td>
+                            <td width="24" class="cell-center-middle">
+                                <strong>C</strong>
+                            </td>
+                            <td colspan="4" class="cell-center-middle">
+                                <strong>U/M</strong>
+                            </td>
+                            <td colspan="3" class="cell-center-middle">
+                                <strong>CANTIDAD</strong>
+                            </td>
+                            <td colspan="3" class="cell-center-middle">
+                                <strong>EXISTENCIA</strong>
+                            </td>
+                        </tr>
+
+                        <t t-foreach="request.requested_product_ids" t-as="product">
+                            <tr>
+                                <td height="26" colspan="2" class="cell-center-middle" style="font-size: 13px;">
+                                    <strong><t t-esc="product.product_id.code"/></strong>
+                                </td>
+                                <td height="26" colspan="14" class="cell-left">
+                                    <t t-esc="product.product_id.name"/>
+                                </td>
+                                <td height="26" class="cell-center-middle">
+                                    <t t-esc="product.shelf"/>
+                                </td>
+                                <td height="26" class="cell-center-middle">
+                                    <t t-esc="product.row"/>
+                                </td>
+                                <td height="26" class="cell-center-middle">
+                                    <t t-esc="product.pigeonhole"/>
+                                </td>
+                                <td colspan="4" class="cell-center-middle">
+                                    <t t-esc="product.product_id.uom_id.name"/>
+                                </td>
+                                <td colspan="3" class="cell-center-middle">
+                                    <strong><t t-esc="product.quantity"/></strong>
+                                </td>
+                                <td colspan="3" class="cell-center-middle"></td>
+                            </tr>
+                        </t>
+
+                        <tr>
+                            <td width="25" rowspan="3" class="vertical-text">SOLICITA</td>
+                            <t t-if="request.employee"> 
+                                <td height="50" colspan="5" class="cell-top-left">NOMBRE: <t t-esc="request.applicant_id.name"/></td>
+                            </t> 
+                            <t t-if="not request.employee"> 
+                                <td height="50" colspan="5" class="cell-top-left">NOMBRE: <t t-esc="request.driver_id.name"/></td>
+                            </t> 
+                            <td width="25" rowspan="3" class="vertical-text">AUTORIZA</td>
+                            <td colspan="6" class="cell-top-left">NOMBRE: <t t-esc="request.authorize_id.name"/></td>
+                            <td width="25" height="54" rowspan="3" class="vertical-text">
+                                RECIBE SOLICITUD
+                            </td>
+                            <td colspan="8" class="cell-top-left">NOMBRE:</td>
+                            <td width="25" rowspan="3" class="vertical-text">
+                                RECIBE PRODUCTOS
+                            </td>
+                            <td colspan="6" class="cell-top-left">NOMBRE: <t t-esc="request.receive_id.name"/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" rowspan="2" class="cell-top-left">FIRMA:</td>
+                            <td width="27" height="25" align="center" valign="middle" class="cell-center-middle">D</td>
+                            <td width="25" align="center" valign="middle" class="cell-center-middle">M</td>
+                            <td width="35" class="cell-center-middle">A</td>
+                            <td colspan="3" rowspan="2" class="cell-top-left">FIRMA:</td>
+                            <td width="25" align="center" valign="middle" class="cell-center-middle">D</td>
+                            <td width="25" align="center" valign="middle" class="cell-center-middle">M</td>
+                            <td width="35" class="cell-center-middle">A</td>
+                            <td colspan="5" rowspan="2" class="cell-top-left">FIRMA:</td>
+                            <td width="22" align="center" valign="middle" class="cell-center-middle">D</td>
+                            <td width="24" align="center" valign="middle" class="cell-center-middle">M</td>
+                            <td width="35" class="cell-center-middle">A</td>
+                            <td colspan="3" rowspan="2" class="cell-top-left">FIRMA:</td>
+                            <td width="25" height="25" align="center" valign="middle" class="cell-center-middle">D</td>
+                            <td width="25" align="center" valign="middle" class="cell-center-middle">M</td>
+                            <td width="35" align="center" valign="middle" class="cell-center-middle">A</td>
+                        </tr>
+                        <tr>
+                            <td height="27" class="cell-center-middle">
+                                <t t-esc="request.date.split('-')[2]"/>
+                            </td>
+                            <td class="cell-center-middle">
+                                <t t-esc="request.date.split('-')[1]"/>
+                            </td>
+                            <td width="35" class="cell-center-middle">
+                                <t t-esc="request.date.split('-')[0]"/>
+                            </td>
+                            <td height="25" class="cell-center-middle">
+                                <t t-esc="request.date.split('-')[2]"/>
+                            </td>
+                            <td class="cell-center-middle">
+                                <t t-esc="request.date.split('-')[1]"/>
+                            </td>
+                            <td width="35" class="cell-center-middle">
+                                <t t-esc="request.date.split('-')[0]"/>
+                            </td>
+                            <td height="25" class="cell-center-middle"></td>
+                            <td class="cell-center-middle"></td>
+                            <td width="35" class="cell-center-middle"></td>
+                            <td class="cell-center-middle"></td>
+                            <td class="cell-center-middle"></td>
+                            <td class="cell-center-middle"></td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,3 @@
+.o_form_view .oe_button_box + .oe_title, .o_form_view .oe_button_box + .oe_avatar + .oe_title {
+    width: 100%;
+}

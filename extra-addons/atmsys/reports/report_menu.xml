@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<menuitem name="Informes"
+                  id="atmsys_reports_menu"
+                  parent="atmsys_root_menu"
+                  sequence="50"
+        />
+
+        <report id="atmsys_warehouse_request_report"
+				name="atmsys.warehouse_products_request_report_template"
+				file="atmsys.warehouse_products_request_report_template"
+ 				model="warehouse.warehouse_request"
+ 				string="Print Products Request..."
+                paperformat="atmsys.atmsys_paper_format_letter"
+    			report_type="qweb-pdf"
+    			menu="True"/>
+
+        <report id="atmsys_unloading_authorization_report"
+				name="atmsys.unloading_authorization_report_template"
+				file="atmsys.unloading_authorization_report_template"
+ 				model="atmsys.blind_reception"
+ 				string="Print Unloading Authorization..."
+                paperformat="atmsys.atmsys_paper_format_letter"
+    			report_type="qweb-pdf"
+    			menu="True"/>
+
+		<report id="atmsys_unloading_authorization_extend_report"
+				name="atmsys.unloading_authorization_extend_report_template"
+				file="atmsys.unloading_authorization_extend_report_template"
+ 				model="atmsys.blind_reception"
+ 				string="Print Unloading Authorization (Extended)..."
+                paperformat="atmsys.atmsys_paper_format_letter"
+    			report_type="qweb-pdf"
+    			menu="True"/>
+
+        <report id="atmsys_extracted_resources_report"
+				name="atmsys.extracted_resources_report_template"
+				file="atmsys.extracted_resources_report_template"
+ 				model="atmsys.work_order"
+ 				string="Print Extracted Resources..."
+                paperformat="atmsys.atmsys_paper_format_letter"
+    			report_type="qweb-pdf"
+    			menu="True"/>
+    </data>
+</odoo>

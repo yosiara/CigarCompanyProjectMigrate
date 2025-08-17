@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+        EXTRACTED RESOURCES AGAINST WORK ORDER
+        Model: atmsys.work_order
+        =========================================================================================== -->
+
+        <template id="extracted_resources_report_template">
+            <t t-foreach="docs" t-as="work_order">
+                <div class="page">
+                    <link href="/atmsys/static/src/css/report_templates.css" rel="stylesheet" type="text/css"/>
+
+                    <div class="row col-xs-6 col-xs-offset-3 title">LISTADO DE RECURSOS EXTRAIDOS</div>
+                    <div class="row mt8 mb32"></div>
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <table class="proj_report_table">
+                                <tr>
+                                    <td class="prt_label">
+                                        <strong>NO.</strong>
+                                    </td>
+                                    <td class="prt_data_text">
+                                        <t t-esc='work_order.number'/>
+                                    </td>
+                                </tr>
+				<tr>
+                                    <td class="prt_label">
+                                        <strong>NO.</strong>
+                                    </td>
+                                    <td class="prt_data_text">
+                                        <t t-esc='work_order.number_new'/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="prt_label">
+                                        <strong>FECHA CIERRE</strong>
+                                    </td>
+                                    <td class="prt_data_text">
+                                        <t t-esc='work_order.closing_date'/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="prt_label">
+                                        <strong>EJECUTA</strong>
+                                    </td>
+                                    <td class="prt_data_text">
+                                        <t t-esc='work_order.execute_cost_center_id.name'/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="col-xs-8">
+                            <table class="proj_report_table">
+                                <tr>
+                                    <td class="prt_label">
+                                        <strong>TRABAJO REALIZADO</strong>
+                                    </td>
+                                    <td class="prt_data_text">
+                                        <t t-esc='work_order.realized_work'/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="prt_label">
+                                        <strong>EQUIPO O AREA</strong>
+                                    </td>
+                                    <td class="prt_data_text">
+                                        <t t-esc='work_order.equipment_or_area'/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="prt_label">
+                                        <strong>RECIBE</strong>
+                                    </td>
+                                    <td class="prt_data_text">
+                                        <t t-esc='work_order.receive_cost_center_id.name'/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row mt8 mb8"></div>
+
+                    <table class="table table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>FECHA</th>
+                                <th>NO. SOLICITUD</th>
+                                <th>CODIGO</th>
+                                <th>DESCRIPCION</th>
+                                <th>U/M</th>
+                                <th>CANTIDAD</th>
+                                <th>IMPORTE CUC</th>
+                                <th>IMPORTE CUP</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <t t-set="total_cuc" t-value="0"/>
+                            <t t-set="total_cup" t-value="0"/>
+
+                            <t t-foreach="work_order.product_order_ids" t-as="product_order">
+                                <tr>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.warehouse_request_id.date"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.warehouse_request_id.code"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.product_id.code"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="product_order.product_id.name"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.product_id.uom_id.name"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.quantity"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.quantity * product_order.product_id.price_extra"/>
+                                    </td>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="product_order.quantity * product_order.product_id.price"/>
+                                    </td>
+                                </tr>
+
+                                <t t-set="total_cuc" t-value="total_cuc + product_order.quantity * product_order.product_id.price_extra"/>
+                                <t t-set="total_cup" t-value="total_cup + product_order.quantity * product_order.product_id.price"/>
+                            </t>
+
+                            <tr>
+                                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+
+                            <tr>
+                                <td></td><td></td><td></td><td></td><td></td><td></td>
+                                <td class="cell-center-middle">
+                                    <t t-esc="total_cuc"/>
+                                </td>
+                                <td class="cell-center-middle">
+                                    <t t-esc="total_cup"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt4 mb4"></div>
+
+                    <div class="col-xs-9">
+                        <div class="col-xs-12 col-xs-offset-1">
+                            <p><b>Nombre y apellidos: </b> <t t-esc="work_order.shutter_id.name"/></p>
+                        </div>
+
+                        <div class="row mt8 mb16"></div>
+
+                        <div class="col-xs-12 col-xs-offset-1">
+                            <p><b>Firma:</b></p>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <div class="row cell-center-middle">
+                            <p class="info">
+                                <b>ESTOS IMPORTES CARECEN DE VALOR CONTABLE</b>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

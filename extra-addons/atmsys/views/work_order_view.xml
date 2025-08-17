@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		WORK ORDER
+		Model: atmsys.work_order
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_work_order_form_view" model="ir.ui.view">
+            <field name="name">atmsys_work_order_form_view</field>
+            <field name="model">atmsys.work_order</field>
+            <field name="arch" type="xml">
+            	<form>
+					<header>
+            			<button name="button_open" string="Open" type="object" attrs="{'invisible': [('state', 'in', ['open','cancel'])]}"/>
+            			<button name="button_close" string="Close" type="object" attrs="{'invisible': [('state', 'in', ['created','closed','cancel'])]}"/>
+						<button name="button_cancel" string="Cancelar" type="object" attrs="{'invisible': [('state', 'in', ['closed','cancel'])]}"/>
+	                    <field name="state" widget="statusbar" statusbar_visible="created,open,closed,cancel"/>
+	                </header>
+
+					<sheet>
+                    	<group>
+            				<group>
+            					<field name="code" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+								<field name="type_id" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+            					<field name="number" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+								<field name="name" invisible="1"/>
+								<field name="number_new" readonly="1"/>
+            				</group>
+
+            				<group>
+            					<field name="opening_date" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+            					<field name="closing_date" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+            				</group>
+            			</group>
+
+						<notebook>
+            				<page string="General Information...">
+								<br/>
+								<group>
+									<field name="realized_work" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+									<field name="equipment_or_area" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+								</group>
+
+								<group string="Implicated people...">
+									<field name="creator_id"/>
+									<field name="emitter_id" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+									<field name="executor_id" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+									<field name="shutter_id"/>
+								</group>
+
+								<group string="Implicated Cost Centers...">
+									<field name="execute_cost_center_id" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+									<field name="receive_cost_center_id" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+								</group>
+            				</page>
+
+            				<page string="Products..." attrs="{'invisible' : [('state', '!=', 'closed')]}">
+            					<field name="product_order_ids" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+            				</page>
+
+							<page string="Notes...">
+								<br/>
+								<field name="note" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+							</page>
+							<page string="Datos de Cancelación..." attrs="{'invisible': [('state', '!=', 'cancel')]}">
+								<group>
+									<group>
+										<field name="user_cancel_id" readonly="1"/>
+									</group>
+									<group>
+										<field name="date_cancel" readonly="1"/>
+									</group>
+								</group>
+								<group string="Motivo">
+									<field name="description_cancel" nolabel="1" readonly="1"/>
+								</group>
+							</page>
+            			</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"/>
+						<field name="message_ids" widget="mail_thread"/>
+                	</div>
+	            </form>
+	        </field>
+	    </record>
+
+        <!-- TREE VIEW -->
+        <record id="atmsys_work_order_tree_view" model="ir.ui.view">
+            <field name="name">atmsys_work_order_tree_view</field>
+            <field name="model">atmsys.work_order</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		<field name="code"/>
+            		<field name="number"/>
+					<field name="number_new"/>
+            		<field name="opening_date"/>
+            		<field name="closing_date"/>
+            		<field name="realized_work"/>
+            		<field name="equipment_or_area"/>
+                    <field name="type_id" invisible="1"/>
+                    <field name="execute_cost_center_id" invisible="1"/>
+                    <field name="receive_cost_center_id" invisible="1"/>
+                    <field name="creator_id" invisible="1"/>
+                    <field name="emitter_id" invisible="1"/>
+                    <field name="executor_id" invisible="1"/>
+                    <field name="shutter_id" invisible="1"/>
+            		<field name="state"/>
+	            </tree>
+	        </field>
+	    </record>
+
+		<!-- SEARCH VIEW -->
+        <record id="atmsys_work_order_search_view" model="ir.ui.view">
+            <field name="name">atmsys_work_order_search_view</field>
+            <field name="model">atmsys.work_order</field>
+            <field name="arch" type="xml">
+            	<search>
+                    <field name="code"/>
+                    <field name="number"/>
+					<field name="number_new"/>
+                    <field name="realized_work"/>
+                    <field name="equipment_or_area"/>
+                    <separator/>
+
+                    <filter string="Today" name="today" domain="[('opening_date', '&gt;=', datetime.datetime.now().replace(hour=0, minute=0, second=0)),('opening_date', '&lt;=', datetime.datetime.now().replace(hour=23, minute=59, second=59))]" />
+                    <filter string="Current Month" domain="[('opening_date', '&gt;=', datetime.datetime.now().strftime('%Y-%m-01'))]" />
+                    <filter string="Current Year"
+                            domain="[('opening_date', '&gt;=', datetime.datetime.now().strftime('%Y-01-01')),
+                                     ('opening_date', '&lt;=', datetime.datetime.now().strftime('%Y-12-31'))]"/>
+
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_opening_date" string="Opening Date" context="{'group_by': 'opening_date'}"/>
+                        <filter name="group_by_closing_date" string="Closed Date" context="{'group_by': 'closing_date'}"/>
+                        <separator/>
+
+                        <filter name="group_by_execute_cost_center" string="Execute" context="{'group_by': 'execute_cost_center_id'}"/>
+                        <filter name="group_by_receive_cost_center" string="Receive" context="{'group_by': 'receive_cost_center_id'}"/>
+                        <filter name="group_by_type" string="Type" context="{'group_by': 'type_id'}"/>
+                        <filter name="group_by_state" string="State" context="{'group_by': 'state'}"/>
+                        <separator/>
+
+                        <filter name="group_by_creator" string="Creator" context="{'group_by': 'creator_id'}"/>
+                        <filter name="group_by_emitter" string="Emitter" context="{'group_by': 'emitter_id'}"/>
+                        <filter name="group_by_executor" string="Executor" context="{'group_by': 'executor_id'}"/>
+                        <filter name="group_by_shutter" string="Shutter" context="{'group_by': 'shutter_id'}"/>
+                        <separator/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atmsys_work_order_action" model="ir.actions.act_window">
+	    	<field name="name">Work Order</field>
+		    <field name="res_model">atmsys.work_order</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Work Orders"
+				  id="atmsys_work_order_menu_item"
+				  action="atmsys_work_order_action"
+				  parent="atmsys_work_order_type_left_menu"/>
+
+		<!-- ======================================================================================
+		WORK ORDER TYPE
+		Model: atmsys.work_order.type
+		=========================================================================================== -->
+
+		<!-- FORM VIEW -->
+        <record id="atmsys_work_order_type_form_view" model="ir.ui.view">
+            <field name="name">atmsys_work_order_type_form_view</field>
+            <field name="model">atmsys.work_order.type</field>
+            <field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="is_used_in_budget"/>
+						</group>
+
+						<label for="note" class="oe_edit_only"/>
+						<field name="note" placeholder="Description..."/>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- TREE VIEW -->
+        <record id="atmsys_work_order_type_tree_view" model="ir.ui.view">
+            <field name="name">atmsys_work_order_type_tree_view</field>
+            <field name="model">atmsys.work_order.type</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		<field name="name"/>
+					<field name="note"/>
+					<field name="is_used_in_budget"/>
+	            </tree>
+	        </field>
+	    </record>
+
+		<!-- ACTION -->
+        <record id="atmsys_work_order_type_action" model="ir.actions.act_window">
+	    	<field name="name">Work Order Types</field>
+		    <field name="res_model">atmsys.work_order.type</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Work Order Types"
+				  id="atmsys_work_order_type_menu_item"
+				  action="atmsys_work_order_type_action"
+				  parent="atmsys_work_order_type_left_menu"/>
+    </data>
+</odoo>

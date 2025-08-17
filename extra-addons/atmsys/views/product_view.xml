@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		PRODUCT
+		Model: simple_product.product
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_product_form_view_inherit" model="ir.ui.view">
+            <field name="name">atmsys_product_form_view_inherit</field>
+            <field name="inherit_id" ref="atm_product.atm_product_product_form_view_inherit"/>
+            <field name="model">simple_product.product</field>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@id='group4']" position="inside">
+                    <field name="has_assingments"/>
+                </xpath>
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Assingments..." attrs="{'invisible': [('has_assingments', '=', False)]}">
+                        <field name="assingment_ids">
+                            <tree editable="bottom">
+                                <field name="date"/>
+                                <field name="area_id"/>
+                                <field name="quantity"/>
+                                <field name="given_quantity"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                    <page string="Norma de consumo">
+                        <br/>
+                        <group>
+                            <field name="formula_month_plan"/>
+                        </group>
+
+                        <group string="Norma de consumo para 1 millón de cigarrillos">
+                            <field name="consumption_norm_ids" nolabel="1">
+                                <tree editable="top">
+                                    <field name="uom_id"/>
+                                    <field name="quantity"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+
+                <field name="uom_id" position="before">
+                    <field name="account_id"/>
+                </field>
+
+                <field name="uom_id" position="after">
+                    <field name="quantity_in_millions"/>
+                    <field name="conversion_factor"/>
+                </field>
+
+                <xpath expr="//group[@id='group1']" position="attributes">
+                    <attribute name="string"/>
+                </xpath>
+
+                <xpath expr="//group[@id='group2']" position="attributes">
+                    <attribute name="string"/>
+                </xpath>
+
+                <field name="price" position="before">
+                    <field name="group_number"/>
+					<field name="group_name"/>
+                    <field name="origin"/>
+                    <field name="destiny_id"/>
+                    <field name="weight"/>
+                </field>
+
+                <field name="is_tool_or_util" position="after">
+                    <field name="is_aft"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

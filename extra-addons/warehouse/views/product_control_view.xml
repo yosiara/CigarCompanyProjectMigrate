@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		PRODUCT CONTROL
+		Model: warehouse.product_control
+		=========================================================================================== -->
+
+        <!-- TREE VIEW -->
+        <record id="warehouse_product_control_tree_view" model="ir.ui.view">
+            <field name="name">warehouse_product_control_tree_view</field>
+            <field name="model">warehouse.product_control</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		<field name="product_id"/>
+                    <field name="warehouse_id" invisible="1"/>
+                    <field name="uom_id"/>
+                    <field name="quantity"/>
+	            </tree>
+	        </field>
+	    </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="warehouse_product_control_search_view" model="ir.ui.view">
+            <field name="name">warehouse_product_control_search_view</field>
+            <field name="model">warehouse.product_control</field>
+            <field name="arch" type="xml">
+            	<search>
+                    <field name="warehouse_id"/>
+                    <field name="product_id"/>
+                    <field name="quantity"/>
+
+                    <filter string="Stock &gt; 0" name="stock_true" domain="[('quantity', '&gt;', 0.0)]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_warehouse" string="Warehouse" context="{'group_by': 'warehouse_id'}"/>
+                        <separator/>
+                        <filter name="group_by_product" string="Product" context="{'group_by': 'product_id'}"/>
+                        <separator/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="warehouse_product_control_action" model="ir.actions.act_window">
+	    	<field name="name">Detailed Inventory</field>
+		    <field name="res_model">warehouse.product_control</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+            <field name="search_view_id" ref="warehouse_product_control_search_view"/>
+            <field name="context">{'search_default_group_by_warehouse': 1}</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Detailed Inventory"
+				  id="warehouse_product_control_menu_item"
+				  action="warehouse_product_control_action"
+				  parent="warehouse_warehouse_left_menu"/>
+    </data>
+</odoo>

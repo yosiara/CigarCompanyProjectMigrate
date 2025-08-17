@@ -1,0 +1,122 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.title {
+	font-size: 16px;
+	font-weight: bold;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.bold-text-center {
+	font-size: 12px;
+}
+
+.table-border, .table-border td {
+	border: 2px solid black;
+}
+
+.vertical-text {
+	-ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+	text-transform:uppercase;
+    font-size: 8px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.cell-top-left {
+	padding: 5px 0px 0px 5px;
+	vertical-align:text-top;
+}
+
+.cell-left {
+	padding-left: 5px;
+    vertical-align: middle;
+}
+
+.cell-center-middle {
+	vertical-align:middle;
+	text-align:center;
+}
+
+.tpo {
+    padding-top: 5px;
+}
+
+.spacer {
+    padding-top: 50px;
+}
+
+.border-right {
+    border-right: 1px gray solid;
+}
+
+.table th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.proj_report_table {
+	margin-bottom: 20px;
+}
+
+.proj_report_table td.prt_label {
+	border-right: 1px solid #DDD;
+	padding: 2px 0px;
+	min-width: 80px;
+}
+
+.prt_label {
+    font-size: 100%;
+    font-weight: bold;
+    line-height: 1;
+    white-space: nowrap;
+    line-height: 18px;
+    width: 120px;
+}
+
+.prt_label1 {
+    font-size: 100%;
+    font-weight: bold;
+    line-height: 1;
+    white-space: nowrap;
+    line-height: 18px;
+    width: 60px;
+}
+
+.prt_label2 {
+    font-size: 100%;
+    font-weight: bold;
+    line-height: 1;
+    white-space: nowrap;
+    line-height: 18px;
+    width: 80px;
+}
+
+.prt_label3 {
+    font-size: 100%;
+    font-weight: bold;
+    line-height: 1;
+    white-space: nowrap;
+    line-height: 18px;
+    width: 120px;
+}
+
+.prt_data_text {
+    font-size: 100%;
+    line-height: 1;
+    padding: 2px 0px 2px 8px;
+}
+
+.prt_data_text p {
+    margin: 0px 0px 0px;
+}
+
+.info {
+    font-size: 8px !important;
+}

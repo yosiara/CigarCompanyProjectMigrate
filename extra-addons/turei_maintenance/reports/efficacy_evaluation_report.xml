@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_maintenance_efficacy_evaluation"
+                model="wzd.efficacy.evaluation"
+                string="Rep. Evaluacion de la Eficacia"
+                report_type="xlsx"
+                name="turei_maintenance.efficacy_evaluation_report"
+                file="turei_maintenance.efficacy_evaluation_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

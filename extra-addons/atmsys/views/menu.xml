@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+
+        <!-- ======================================================================================
+		ROOT MENU
+		=========================================================================================== -->
+
+        <menuitem name="ATM"
+                  id="atmsys_root_menu"
+                  web_icon="atmsys,static/description/icon.png"
+                  sequence="2"/>
+
+        <!-- ======================================================================================
+		MENU ITEMS
+		=========================================================================================== -->
+
+        <menuitem name="Work Orders"
+				  id="atmsys_work_order_type_left_menu"
+				  parent="atmsys_root_menu"
+                  sequence="10"/>
+
+        <menuitem name="Receptions"
+				  id="atmsys_blind_reception_left_menu"
+				  parent="atmsys_root_menu"
+                  sequence="20"/>
+
+        <menuitem name="General Elements"
+                  id="atmsys_general_elements_left_menu"
+                  parent="atmsys_root_menu"
+                  sequence="30"/>
+
+        <menuitem name="Areas"
+                  id="atmsys_area_menu_item"
+                  parent="atmsys_general_elements_left_menu"
+                  action="l10n_cu_base.l10n_cu_base_area_action"
+                  sequence="30"/>
+
+        <menuitem name="Cost Centers"
+                  id="atmsys_cost_enter_menu_item"
+                  parent="atmsys_general_elements_left_menu"
+                  action="l10n_cu_base.l10n_cu_base_cost_center_action"
+                  sequence="20"/>
+
+        <menuitem name="Responsibility Areas"
+                  id="atmsys_responsibility_area_menu_item"
+                  parent="atmsys_general_elements_left_menu"
+                  action="l10n_cu_base.l10n_cu_base_responsibility_area_action"
+                  sequence="10"/>
+
+        <menuitem name="Suppliers"
+                  id="atmsys_suppliers_menu_item"
+                  parent="atmsys_general_elements_left_menu"
+                  action="base.action_partner_supplier_form"
+                  sequence="15"/>
+    </data>
+</odoo>

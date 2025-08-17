@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_maintenance_request_maint"
+                model="wzd.request.maint"
+                string="Rep. Peticiones de Mantenimiento"
+                report_type="xlsx"
+                name="turei_maintenance.request_maint_report"
+                file="turei_maintenance.request_maint_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

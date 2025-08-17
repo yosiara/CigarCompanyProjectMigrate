@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- TREE VIEW -->
+        <record id="turei_maintenance_equipment_electric_motor_tree_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_equipment_electric_motor_tree_view</field>
+            <field name="model">turei_maintenance.equipment_electric_motor</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		 <field name="equipment_id"/>
+					 <field name="brand"/>
+					 <field name="model"/>
+					 <field name="fabricator"/>
+					 <field name="serial_no"/>
+					 <field name="no_motor"/>
+					 <field name="quantity"/>
+	            </tree>
+	        </field>
+	    </record>
+
+		<!-- SEARCH VIEW -->
+        <record id="turei_maintenance_equipment_electric_motor_search_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_equipment_electric_motor_search_view</field>
+            <field name="model">turei_maintenance.equipment_electric_motor</field>
+            <field name="arch" type="xml">
+            	<search>
+					 <field name="equipment_id"/>
+					 <field name="brand"/>
+					 <field name="model"/>
+					 <field name="no_motor"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- FORM VIEW -->
+        <record id="turei_maintenance_equipment_electric_motor_form_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_equipment_electric_motor_form_view</field>
+            <field name="model">turei_maintenance.equipment_electric_motor</field>
+            <field name="arch" type="xml">
+            	<form>
+					<sheet>
+						<group>
+							<group>
+								 <field name="brand"/>
+								 <field name="model"/>
+								 <field name="fabricator"/>
+								 <field name="serial_no"/>
+								 <field name="subset"/>
+							</group>
+							<group>
+								<field name="no_motor"/>
+								 <field name="review_frequency"/>
+								 <field name="clase"/>
+								 <field name="service"/>
+								 <field name="quantity"/>
+							</group>
+						</group>
+						<notebook>
+							<page string="Caracteristicas Técnicas">
+								<group>
+									<group>
+										 <field name="hp"/>
+										 <field name="kw"/>
+										 <field name="volts"/>
+										 <field name="cycles"/>
+										 <field name="amps"/>
+									</group>
+									<group>
+										 <field name="phase"/>
+										 <field name="rpm"/>
+										 <field name="pulley_side"/>
+										 <field name="cap_side"/>
+									</group>
+								</group>
+							</page>
+							<page name="equipment" string="Equipos">
+								<group>
+									<field name="equipment_ids" nolabel="1">
+										<tree>
+											<field name="name"/>
+											<field name="code"/>
+											<field name="model"/>
+											<field name="line_id"/>
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+	            </form>
+	        </field>
+	    </record>
+
+        <!-- ACTION -->
+        <record id="turei_maintenance_equipment_electric_motor_action" model="ir.actions.act_window">
+	    	<field name="name">Gestionar Motores Electricos</field>
+		    <field name="res_model">turei_maintenance.equipment_electric_motor</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Gestionar Motores Electricos"
+				  id="turei_maintenance_item_equipment_electric_motor"
+				  action="turei_maintenance_equipment_electric_motor_action"
+				  parent="turei_maintenance_equipaments_menu_item"
+				  />
+
+
+    </data>
+</odoo>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+        UNLOADING AUTHORIZATION
+        Model: atmsys.blind_reception
+        =========================================================================================== -->
+
+        <template id="unloading_authorization_report_template">
+            <t t-foreach="docs" t-as="reception">
+                <div class="page">
+                    <link href="/atmsys/static/src/css/report_templates.css" rel="stylesheet" type="text/css"/>
+
+                    <t t-foreach="[1,2]" t-as="z">
+                        <table width="1005" border="1" cellpadding="0" cellspacing="0" class="table-border">
+                            <tr>
+                                <td height="50" colspan="10">
+                                    <div class="title tpo">AUTORIZACION DE DESCARGA EN ALMACEN</div>
+                                    <div class="title">RECEPCION A CIEGAS</div>
+                                </td>
+                            </tr>
+                            <tr class="cell-center-middle">
+                                <td width="142" height="25" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>NO. RECEPCION</strong>
+                                </td>
+                                <td width="338" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>ALMACEN</strong>
+                                </td>
+                                <td colspan="6" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>NO. FACTURA</strong>
+                                </td>
+                                <td width="127" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>FECHA</strong>
+                                </td>
+                                <td width="133" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>CHAPA</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="20" align="center" valign="middle" class="cell-center-middle">
+                                    <t t-esc="reception.code"/>
+                                </td>
+                                <td align="center" valign="middle" class="cell-center-middle">
+                                    <t t-esc="reception.warehouse_id.code"/>
+                                    -
+                                    <t t-esc="reception.warehouse_id.name"/>
+                                </td>
+                                <td colspan="6" align="center" valign="middle" class="cell-center-middle">
+                                    <t t-esc="reception.invoice_number"/>
+                                </td>
+                                <td align="center" valign="middle" class="cell-center-middle">
+                                    <t t-esc="reception.get_datetime_now()"/>
+                                </td>
+                                <td align="center" valign="middle" class="cell-center-middle">
+                                    <t t-esc="reception.car_plate"/>
+                                </td>
+                            </tr>
+                            <tr class="cell-center-middle">
+                                <td height="25" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>NO. ORDEN</strong>
+                                </td>
+                                <td colspan="3" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>DESCRIPCION DE LOS PRODUCTOS</strong>
+                                </td>
+                                <td width="100" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>GRUPO ARTICULO</strong>
+                                </td>
+                                <td width="40" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>E</strong>
+                                </td>
+                                <td width="30" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>F</strong>
+                                </td>
+                                <td width="40" align="center" valign="middle" class="cell-center-middle">
+                                    <strong>C</strong>
+                                </td>
+                                <td align="center" valign="middle" class="cell-center-middle">
+                                    <strong>U/M</strong>
+                                </td>
+                                <td align="center" valign="middle" class="cell-center-middle">
+                                    <strong>CANTIDAD</strong>
+                                </td>
+                            </tr>
+
+                            <t t-set="x" t-value="0"/>
+                            <t t-foreach="reception.product_ids" t-as="product">
+                                <t t-set="x" t-value="x + 1"/>
+                                <tr>
+                                    <td class="cell-center-middle">
+                                        <t t-esc="x"/>
+                                    </td>
+                                    <td height="20" colspan="3" class="cell-left">
+                                        <t t-esc="product.product_description"/>
+                                    </td>
+
+                                    <td class="cell-center-middle"></td>
+                                    <td class="cell-center-middle"></td>
+                                    <td class="cell-center-middle"></td>
+                                    <td class="cell-center-middle"></td>
+
+                                    <td class="cell-center-middle">
+                                        <!--<t t-esc="product.uom_id.name"/>-->
+                                    </td>
+
+                                    <td class="cell-center-middle"></td>
+                                </tr>
+                            </t>
+
+                            <tr>
+                                <td height="25" class="cell-left">
+                                    <strong>TRANSPORTISTA</strong>
+                                </td>
+                                <td colspan="6" class="cell-left">
+                                    <t t-esc="reception.driver_id.name"/>
+                                </td>
+                                <td width="65" class="cell-left">
+                                    <strong>No. Iden.</strong>
+                                </td>
+                                <td class="cell-center-middle">
+                                    <t t-esc="reception.driver_id.ci"/>
+                                </td>
+                                <td class="cell-left">
+                                    <strong>Firma:</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25" class="cell-left">
+                                    <strong>COMPRADOR</strong>
+                                </td>
+                                <td colspan="6" class="cell-left">
+                                    <t t-esc="reception.buyer_id.name"/>
+                                </td>
+                                <td class="cell-left">
+                                    <strong>No. Iden.</strong>
+                                </td>
+                                <td class="cell-center-middle">
+                                    <t t-esc="reception.buyer_id.sudo().identification_id"/>
+                                </td>
+                                <td class="cell-left">
+                                    <strong>Firma:</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25" class="cell-left">
+                                    <strong>ALMACEN</strong>
+                                </td>
+                                <td colspan="6" class="cell-left"></td>
+                                <td class="cell-left">
+                                    <strong>Cargo:</strong>
+                                </td>
+                                <td class="cell-center-middle"></td>
+                                <td class="cell-left">
+                                    <strong>Firma:</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25" colspan="7" class="cell-left">
+                                    <strong>AUTORIZADO POR:</strong>
+                                    <t t-esc="reception.approve_id.name"/>
+                                </td>
+                                <td class="cell-left" colspan="3">
+                                    <strong>Fecha de recepción:</strong>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <p class="spacer"/>
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

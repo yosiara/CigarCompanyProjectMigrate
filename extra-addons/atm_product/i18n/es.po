@@ -1,0 +1,82 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* atm_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20161124\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-08 21:05+0000\n"
+"PO-Revision-Date: 2017-01-08 21:05+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: atm_product
+#: model:ir.model.fields,field_description:atm_product.field_simple_product_product_area_id
+msgid "Area"
+msgstr "Área"
+
+#. module: atm_product
+#: model:ir.model.fields,help:atm_product.field_simple_product_product_is_exclusive_product
+msgid "Checked if the product if for exclusive use of a area..."
+msgstr "Seleccionado si el producto es para uso exclusivo de un área..."
+
+#. module: atm_product
+#: model:ir.model.fields,field_description:atm_product.field_simple_product_product_is_exclusive_product
+msgid "Exclusive?"
+msgstr "¿Exclusivo?"
+
+#. module: atm_product
+#: model:ir.model.fields,field_description:atm_product.field_simple_product_product_is_for_contingency
+msgid "Is for contingency?"
+msgstr "¿Para contingencias?"
+
+#. module: atm_product
+#: model:ir.model.fields,field_description:atm_product.field_simple_product_product_is_protected
+msgid "Is protected?"
+msgstr "¿Está protegido?"
+
+#. module: atm_product
+#: model:ir.model.fields,field_description:atm_product.field_simple_product_product_is_tool_or_util
+msgid "Is util or tool?"
+msgstr "¿Útil o herramienta?"
+
+#. module: atm_product
+#: model:ir.model.fields,field_description:atm_product.field_simple_product_product_do_not_use
+msgid "Must it not be used?"
+msgstr "¿No usar?"
+
+#. module: atm_product
+#: model:ir.ui.view,arch_db:atm_product.atm_product_product_form_view_inherit
+msgid "Others..."
+msgstr "Otros..."
+
+#. module: atm_product
+#: model:ir.model.fields,field_description:atm_product.field_simple_product_product_owner_id
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: atm_product
+#: model:ir.model.fields,field_description:atm_product.field_simple_product_product_protection_cause
+msgid "Protection cause"
+msgstr "Causa"
+
+#. module: atm_product
+#: model:ir.model.fields,field_description:atm_product.field_simple_product_product_contingency_quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: atm_product
+#: model:ir.model.fields,help:atm_product.field_simple_product_product_contingency_quantity
+msgid "Quantity that must be kept for contingencies..."
+msgstr "Cantidad a mantener para contingencias..."
+
+#. module: atm_product
+#: model:ir.model,name:atm_product.model_simple_product_product
+msgid "simple_product.product"
+msgstr "simple_product.product"
+

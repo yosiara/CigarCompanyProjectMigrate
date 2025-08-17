@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		WIZARD TO PRINT REPORTS
+		Model: atmsys.print_report_wizard
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_print_report_wizard_form_view" model="ir.ui.view">
+            <field name="name">atmsys_print_report_wizard_form_view</field>
+            <field name="model">atmsys.print_report_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div style="display: flex;">
+                            <div style="width: 50px; margin: 50px 20px;">
+                                <img src="/atmsys/static/src/img/excel_icon.png"/>
+                            </div>
+
+                            <div style="margin: 70px 10px;">
+                                <p/>
+                                <p>
+                                    Este asistente le permitirá generar varios reportes. Seleccione los parámetros
+                                    correctos en pos de obtener adecuadamente los resultados...
+                                </p>
+
+                                <group>
+                                    <field name="report_name"/>
+                                    <field name="month"/>
+                                    <field name="year"/>
+                                </group>
+                            </div>
+                        </div>
+                    </sheet>
+
+                    <footer>
+                        <widget string="Download..." model="atmsys.print_report_wizard" type="download_file"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atmsys_reports_wizard_action" model="ir.actions.act_window">
+            <field name="name">Asistente de reportes...</field>
+            <field name="res_model">atmsys.print_report_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Wizard"
+                  id="atmsys_reports_wizard_left_menu"
+                  parent="atmsys_reports_menu"
+                  action="atmsys_reports_wizard_action"
+                  sequence="1"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		PRODUCTS BLIND RECEPTION
+		Model: atmsys.product_assignment
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_product_assignment_form_view" model="ir.ui.view">
+            <field name="name">atmsys_product_assignment_form_view</field>
+            <field name="model">atmsys.product_assignment</field>
+            <field name="arch" type="xml">
+            	<form>
+            		<sheet>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+
+                            <group>
+                                <field name="area_id"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name="product_id"/>
+                            </group>
+
+                            <group>
+                                <field name="quantity"/>
+                                <field name="given_quantity"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Deliveries...">
+                                <button string="Update..."
+                                        name="action_compute_product_deliveries"
+                                        class="oe_link oe_right" type="object"/>
+
+                                <field name="detail_ids">
+                                    <tree>
+                                        <field name="date"/>
+                                        <field name="quantity"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="atmsys_product_assignment_tree_view" model="ir.ui.view">
+            <field name="name">atmsys_product_assignment_tree_view</field>
+            <field name="model">atmsys.product_assignment</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		<field name="date"/>
+            		<field name="area_id"/>
+                    <field name="product_id"/>
+                    <field name="quantity"/>
+                    <field name="given_quantity"/>
+	            </tree>
+	        </field>
+	    </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="atmsys_product_assignment_search_view" model="ir.ui.view">
+            <field name="name">atmsys_product_assignment_search_view</field>
+            <field name="model">atmsys.product_assignment</field>
+            <field name="arch" type="xml">
+            	<search>
+                    <field name="area_id"/>
+                    <field name="product_id"/>
+                    <separator/>
+
+                    <filter string="Current Year"
+                            domain="[('date', '&gt;=', datetime.datetime.now().strftime('%Y-01-01')),
+                                     ('date', '&lt;=', datetime.datetime.now().strftime('%Y-12-31'))]"/>
+
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_date" string="Date" context="{'group_by': 'date'}"/>
+                        <separator/>
+
+                        <filter name="group_by_area" string="Area" context="{'group_by': 'area_id'}"/>
+                        <filter name="group_by_product" string="Product" context="{'group_by': 'product_id'}"/>
+                        <separator/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atmsys_product_assignment_action" model="ir.actions.act_window">
+	    	<field name="name">Assingments</field>
+		    <field name="res_model">atmsys.product_assignment</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Product Assingments"
+				  id="atmsys_product_assignment_menu_item"
+				  action="atmsys_product_assignment_action"
+				  parent="simple_product.simple_product_left_menu"/>
+    </data>
+</odoo>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ========================================================================================================
+        CONFIGURATIONS
+        model: atmsys.report_configuration
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_configuration_form_view" model="ir.ui.view">
+            <field name="name">atmsys_configuration_form_view</field>
+            <field name="model">atmsys.report_configuration</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_right">
+                            <button name="action_save" string="Apply..." type="object" class="oe_highlight"/>
+                        </div>
+
+                        <div class="oe_title">
+                            <h1>Configuración de los reportes...</h1>
+                        </div>
+
+                        <group>
+                            <field name="working_days"/>
+                        </group>
+
+                        <notebook>
+                            <page string="Existencia y Coverturas">
+                                <group>
+                                    <field name="report_one_product_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="product_id"/>
+                                            <field name="uom_id"/>
+                                            <field name="conversion_factor"/>
+                                        </tree>
+                                    </field>
+                                </group>
+
+                                <group string="Otros materiales importantes">
+                                    <field name="report_one_other_product_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="product_id"/>
+                                            <field name="uom_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Piezas Desgaste">
+                                <group>
+                                    <field name="report_two_product_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="product_id"/>
+                                            <field name="uom_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+
+                                <group string="Otras piezas importantes">
+                                    <field name="report_two_other_product_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="product_id"/>
+                                            <field name="uom_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Materiales Seleccionados">
+                                <group>
+                                    <field name="report_three_product_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="product_id"/>
+                                            <field name="uom_id"/>
+                                            <field name="conversion_factor"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Cumplimiento de Materiales Fundamentales">
+                                <group>
+                                    <field name="report_four_product_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="product_id"/>
+                                            <field name="uom_id"/>
+                                            <field name="conversion_factor"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Productos Almacen 10">
+                                <group>
+                                    <field name="report_six_product_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="product_id"/>
+                                            <field name="uom_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atmsys_configuration_action" model="ir.actions.act_window">
+            <field name="name">Configuration</field>
+            <field name="res_model">atmsys.report_configuration</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="res_id" ref="atmsys_report_configuration"/>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Configuraciones"
+                  id="atmsys_configuration_menu_item"
+                  action="atmsys_configuration_action"
+                  parent="atmsys_reports_menu"
+                  sequence="100"/>
+
+        <!-- ========================================================================================================
+        CONFIGURATION RECORD
+        model: atmsys.report_one_record
+        ========================================================================================================= -->
+        <record id="atmsys_configuration_record_form_view" model="ir.ui.view">
+            <field name="name">atmsys_configuration_record_form_view</field>
+            <field name="model">atmsys.report_one_record</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="uom_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="atmsys_report_two_record_form_view" model="ir.ui.view">
+            <field name="name">atmsys_configuration_record_form_view</field>
+            <field name="model">atmsys.report_two_record</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="uom_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="atmsys_report_three_form_view" model="ir.ui.view">
+            <field name="name">atmsys_configuration_record_form_view</field>
+            <field name="model">atmsys.report_three_record</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="uom_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="atmsys_report_four_form_view" model="ir.ui.view">
+            <field name="name">atmsys_configuration_record_form_view</field>
+            <field name="model">atmsys.report_four_record</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="uom_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="atmsys_report_six_form_view" model="ir.ui.view">
+            <field name="name">atmsys_configuration_record_form_view</field>
+            <field name="model">atmsys.report_six_record</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="uom_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
