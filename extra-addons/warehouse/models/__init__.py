@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import product
-import warehouse
-import product_control
-import warehouse_request
-import employee
-import employee_driver
+from . import product
+from . import warehouse
+from . import product_control
+from . import warehouse_request
+from . import employee
+from . import employee_driver
