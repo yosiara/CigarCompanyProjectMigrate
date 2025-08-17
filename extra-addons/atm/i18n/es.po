@@ -1,0 +1,2087 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* atm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-23 14:02+0000\n"
+"PO-Revision-Date: 2018-10-23 14:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "0001"
+msgstr "0001"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "0058"
+msgstr "0058"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "10"
+msgstr "10"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "11"
+msgstr "11"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "12"
+msgstr "12"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "13"
+msgstr "13"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "14"
+msgstr "14"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "15"
+msgstr "15"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "16"
+msgstr "16"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "17"
+msgstr "17"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "18"
+msgstr "18"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "19"
+msgstr "19"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "20"
+msgstr "20"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "21"
+msgstr "21"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "22"
+msgstr "22"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "23"
+msgstr "23"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "24"
+msgstr "24"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "25"
+msgstr "25"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "26"
+msgstr "26"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "27"
+msgstr "27"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "28"
+msgstr "28"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "29"
+msgstr "29"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "30"
+msgstr "30"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "31"
+msgstr "31"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "32"
+msgstr "32"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "33"
+msgstr "33"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "34"
+msgstr "34"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "35"
+msgstr "35"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "36"
+msgstr "36"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "37"
+msgstr "37"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "38"
+msgstr "38"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "39"
+msgstr "39"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "40"
+msgstr "40"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "41"
+msgstr "41"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "42"
+msgstr "42"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "<b>ESTOS IMPORTES CARECEN DE VALOR CONTABLE</b>"
+msgstr "<b>ESTOS IMPORTES CARECEN DE VALOR CONTABLE</b>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "<b>Firma:</b>"
+msgstr "<b>Firma:</b>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "<b>Nombre y apellidos: </b>"
+msgstr "<b>Nombre y apellidos: </b>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "<span class=\"cell-center-middle\">\n"
+"                                    <strong>CODIGO - NOMBRE</strong>\n"
+"                                </span>"
+msgstr "<span class=\"cell-center-middle\">\n"
+"                                    <strong>CODIGO - NOMBRE</strong>\n"
+"                                </span>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "<span class=\"cell-center-middle\">\n"
+"                                    <strong>NUMERO</strong>\n"
+"                                </span>"
+msgstr "<span class=\"cell-center-middle\">\n"
+"                                    <strong>NUMERO</strong>\n"
+"                                </span>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>ALMACEN</strong>"
+msgstr "<strong>ALMACEN</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>AUTORIZADO POR:</strong>"
+msgstr "<strong>AUTORIZADO POR:</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "<strong>CANTIDAD</strong>"
+msgstr "<strong>CANTIDAD</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>CHAPA</strong>"
+msgstr "<strong>CHAPA</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "<strong>CODIGO</strong>"
+msgstr "<strong>CODIGO</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>COMPRADOR</strong>"
+msgstr "<strong>COMPRADOR</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>Cargo:</strong>"
+msgstr "<strong>Cargo:</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>DESCRIPCION DE LOS PRODUCTOS</strong>"
+msgstr "<strong>DESCRIPCION DE LOS PRODUCTOS</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "<strong>DESCRIPCION</strong>"
+msgstr "<strong>DESCRIPCION</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "<strong>EJECUTA</strong>"
+msgstr "<strong>EJECUTA</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "<strong>EQUIPO O AREA</strong>"
+msgstr "<strong>EQUIPO O AREA</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "<strong>EXISTENCIA</strong>"
+msgstr "<strong>EXISTENCIA</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "<strong>Empresa de Cigarros</strong>\n"
+"                                <strong><br/>\"LAZARO PENA\" COD: 131.0.1221\n"
+"                                </strong>"
+msgstr "<strong>Empresa de Cigarros</strong>\n"
+"                                <strong><br/>\"LAZARO PENA\" COD: 131.0.1221\n"
+"                                </strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "<strong>FECHA CIERRE</strong>"
+msgstr "<strong>FECHA CIERRE</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>FECHA</strong>"
+msgstr "<strong>FECHA</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>Fecha de recepción:</strong>"
+msgstr "<strong>Fecha de recepción:</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>Firma:</strong>"
+msgstr "<strong>Firma:</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>GRUPO ARTICULO</strong>"
+msgstr "<strong>GRUPO ARTICULO</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>NO. FACTURA</strong>"
+msgstr "<strong>NO. FACTURA</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>NO. ORDEN</strong>"
+msgstr "<strong>NO. ORDEN</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>NO. RECEPCION</strong>"
+msgstr "<strong>NO. RECEPCION</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "<strong>NO.</strong>"
+msgstr "<strong>NO.</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>No. Iden.</strong>"
+msgstr "<strong>No. Iden.</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "<strong>RECIBE</strong>"
+msgstr "<strong>RECIBE</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "<strong>TRABAJO REALIZADO</strong>"
+msgstr "<strong>TRABAJO REALIZADO</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "<strong>TRANSPORTISTA</strong>"
+msgstr "<strong>TRANSPORTISTA</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "<strong>U/M</strong>"
+msgstr "<strong>U/M</strong>"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "<strong>VALE DE SALIDA</strong>"
+msgstr "<strong>VALE DE SALIDA</strong>"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_is_aft
+msgid "AFT?"
+msgstr "AFT?"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "AL PALLET"
+msgstr "AL PALLET"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "ALMACEN"
+msgstr "ALMACEN"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "AREA"
+msgstr "AREA"
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_root_menu
+msgid "ATM"
+msgstr "ATM"
+
+#. module: atm
+#: model:res.groups,name:atm.group_atm_manager
+msgid "ATM / Manager"
+msgstr "ATM / Responsable"
+
+#. module: atm
+#: model:res.groups,name:atm.group_atm_user
+msgid "ATM / User"
+msgstr "ATM / Usuario"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "AUTORIZA"
+msgstr "AUTORIZA"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "AUTORIZACION DE DESCARGA EN ALMACEN"
+msgstr "AUTORIZACION DE DESCARGA EN ALMACEN"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan04
+msgid "Abril"
+msgstr "Abril"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_warehouse_request_form_view_inherit
+msgid "According System"
+msgstr "Según Sistema"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_account_id
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan08
+msgid "Agosto"
+msgstr "Agosto"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "Almacen"
+msgstr "Almacen"
+
+#. module: atm
+#: code:addons/atm/models/work_order.py:104
+#, python-format
+msgid "Another work order have the same number..."
+msgstr "Otra Orden de Trabajo tiene el mismo número..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_configuration_form_view
+msgid "Apply..."
+msgstr "Aplicar..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_search_view
+msgid "Approve"
+msgstr "Aprueba"
+
+#. module: atm
+#: code:addons/atm/models/utils.py:6
+#: code:addons/atm/models/utils.py:12
+#: code:addons/atm/models/utils.py:23
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "April"
+msgstr "Abril"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_area_id
+#: model:ir.model.fields,field_description:atm.field_warehouse_warehouse_request_area_id
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+#: model:ir.ui.view,arch_db:atm.atm_product_assignment_search_view
+#: model:ir.ui.view,arch_db:atm.atm_warehouse_request_search_view_inherit
+msgid "Area"
+msgstr "Área"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Area de Responsabilidad #1..."
+msgstr "Area de Responsabilidad #1..."
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_area_menu_item
+msgid "Areas"
+msgstr "Áreas"
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_reports_wizard_action
+msgid "Asistente de reportes..."
+msgstr "Asistente de reportes..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail_assingment_id
+msgid "Assingment id"
+msgstr "Assingment id"
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_product_assignment_action
+msgid "Assingments"
+msgstr "Asignaciones"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_l10n_cu_base_area_assingment_ids
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_assingment_ids
+#: model:ir.ui.view,arch_db:atm.atm_product_form_view_inherit
+msgid "Assingments..."
+msgstr "Asignaciones..."
+
+#. module: atm
+#: code:addons/atm/models/utils.py:7
+#: code:addons/atm/models/utils.py:13
+#: code:addons/atm/models/utils.py:24
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "August"
+msgstr "Agosto"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_approve_id
+msgid "Authorize"
+msgstr "Autoriza"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "Autorizado por:"
+msgstr "Autorizado por:"
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_blind_reception_action
+#: model:ir.ui.menu,name:atm.atm_blind_reception_menu_item
+msgid "Blind Receptions"
+msgstr "Recepciones a ciegas"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_blind_reception_id
+msgid "Blind reception id"
+msgstr "Blind reception id"
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_cost_center_budget_action
+#: model:ir.ui.menu,name:atm.atm_cost_center_budget_menu_item
+msgid "Budgets"
+msgstr "Presupuestos"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_buyer_id
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_search_view
+msgid "Buyer"
+msgstr "Comprador"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "C.COSTO"
+msgstr "C.COSTO"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "CANT. TOTAL"
+msgstr "CANT. TOTAL"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "CANTIDAD"
+msgstr "CANTIDAD"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "CHAPA"
+msgstr "CHAPA"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "CODIGO"
+msgstr "CODIGO"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "CONTENEDOR"
+msgstr "CONTENEDOR"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_hr_employee_can_authorize_a_blind_reception
+msgid "Can authorize a Blind Reception?"
+msgstr "¿Autoriza Recepcioners a Ciegas?"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_print_report_wizard_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_quantity
+msgid "Cantidad actual"
+msgstr "Cantidad actual"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_quantity_in_millions
+msgid "Cantidad en MU"
+msgstr "Cantidad en MU"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_car_plate
+msgid "Car plate"
+msgstr "Chapa"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "Cargo:"
+msgstr "Cargo:"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Centro de Costo #1..."
+msgstr "Centro de Costo #1..."
+
+#. module: atm
+#: model:ir.actions.act_window,help:atm.atm_daily_production_action
+msgid "Click to create a new <b>Daily Production</b>..."
+msgstr "Click para crear un nuevo <b>Plan diario</b>..."
+
+#. module: atm
+#: model:ir.actions.act_window,help:atm.atm_production_plan_action
+msgid "Click to create a new <b>Production Plan</b>..."
+msgstr "Click para crear un nuevo <b>Plan de producción</b>..."
+
+#. module: atm
+#: model:ir.actions.act_window,help:atm.atm_storeroom_existence_action
+msgid "Click to create a new <b>Storeroom Existence</b>..."
+msgstr "Click para crear una nueva <b>Existencia en pañol</b>..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_work_order_form_view
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: atm
+#: selection:atm.work_order,state:0
+msgid "Closed"
+msgstr "Cerrada"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+msgid "Closed Date"
+msgstr "Fecha de cierre"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_closing_date
+msgid "Closing date"
+msgstr "Fecha de cierre"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_code
+#: model:ir.model.fields,field_description:atm.field_atm_product_destiny_code
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_code
+msgid "Code"
+msgstr "Código"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "Comprador"
+msgstr "Comprador"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_warehouse_request_form_view_inherit
+msgid "Con estas operaciones usted esta <b>excediendo</b> el presupuesto asignado al\n"
+"                            centro de costo referido en esta Solicitud de Salida..."
+msgstr "Con estas operaciones usted esta <b>excediendo</b> el presupuesto asignado al\n"
+"                            centro de costo referido en esta Solicitud de Salida..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_warehouse_request_form_view_inherit
+msgid "Con estas operaciones usted esta <b>excediendo</b> la cantidad de producto permitido\n"
+"                            según asignación para el area o grupo especificado..."
+msgstr "Con estas operaciones usted esta <b>excediendo</b> la cantidad de producto permitido\n"
+"                            según asignación para el area o grupo especificado..."
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_configuration_menu_item
+msgid "Configuraciones"
+msgstr "Configuraciones"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_configuration_form_view
+msgid "Configuración de los reportes..."
+msgstr "Configuración de los reportes..."
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_configuration_action
+#: model:ir.model.fields,field_description:atm.field_atm_report_one_record_config_id
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Configuration..."
+msgstr "Configuración..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_container_or_box
+msgid "Container or box"
+msgstr "Contenedor - Casilla"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_l10n_cu_base_cost_center_budget_ids
+msgid "Correlated budgets..."
+msgstr "Presupuestos relacionados..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget_cost_center_id
+#: model:ir.model.fields,field_description:atm.field_warehouse_warehouse_request_cost_center_id
+#: model:ir.ui.view,arch_db:atm.atm_warehouse_request_search_view_inherit
+msgid "Cost Center"
+msgstr "Centro de Costo"
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_cost_enter_menu_item
+msgid "Cost Centers"
+msgstr "Centros de Costo"
+
+#. module: atm
+#: selection:atm.work_order,state:0
+msgid "Created"
+msgstr "Creada"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_consumption_norm_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_import_wizard_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_print_report_wizard_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_product_destiny_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_production_plan_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_report_one_record_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_existence_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_create_uid
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_consumption_norm_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_import_wizard_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_print_report_wizard_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_product_destiny_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_production_plan_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_report_one_record_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_existence_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_create_date
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_search_view
+msgid "Creation Date"
+msgstr "Fecha de creada"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_creation_date
+msgid "Creation date"
+msgstr "Fecha de creación"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+msgid "Creator"
+msgstr "Creador"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_search_view
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+#: model:ir.ui.view,arch_db:atm.base_lekkerland_product_request_time_average_report_search_view
+msgid "Current Month"
+msgstr "Mes actual"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_search_view
+#: model:ir.ui.view,arch_db:atm.atm_product_assignment_search_view
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+#: model:ir.ui.view,arch_db:atm.base_lekkerland_product_request_time_average_report_search_view
+msgid "Current Year"
+msgstr "Año actual"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Código"
+msgstr "Código"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "DEL PALLET"
+msgstr "DEL PALLET"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "DESCRIPCION"
+msgstr "DESCRIPCION"
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_daily_production_action
+#: model:ir.ui.menu,name:atm.atm_daily_production_menu_item
+msgid "Daily Production"
+msgstr "Producción diaria"
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.versat_integration_wizard_menu_item
+msgid "Data Import..."
+msgstr "Importación..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget_date
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production_date
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_date
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail_date
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_existence_date
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_date
+#: model:ir.ui.view,arch_db:atm.atm_product_assignment_search_view
+#: model:ir.ui.view,arch_db:atm.base_lekkerland_product_request_time_average_report_search_view
+msgid "Date"
+msgstr "Fecha"
+
+#. module: atm
+#: code:addons/atm/models/utils.py:8
+#: code:addons/atm/models/utils.py:14
+#: code:addons/atm/models/utils.py:25
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "December"
+msgstr "Diciembre"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail_ids
+#: model:ir.ui.view,arch_db:atm.atm_product_assignment_form_view
+msgid "Deliveries..."
+msgstr "Entregas..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Descripción"
+msgstr "Descripción"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type_note
+msgid "Description"
+msgstr "Descripción"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_work_order_type_form_view
+msgid "Description..."
+msgstr "Descripción..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production_destiny_id
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_destiny_id
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_destiny_id
+msgid "Destino"
+msgstr "Destino"
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_product_destiny_action
+#: model:ir.ui.menu,name:atm.atm_product_destiny_menu_item
+msgid "Destinos"
+msgstr "Destinos"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.base_lekkerland_product_request_time_average_report_search_view
+msgid "Destiny"
+msgstr "Destiny"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan12
+msgid "Diciembre"
+msgstr "Diciembre"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_consumption_norm_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_import_wizard_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_print_report_wizard_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_product_destiny_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_production_plan_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_report_one_record_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_existence_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_display_name
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_print_report_wizard_form_view
+msgid "Download..."
+msgstr "Descargar..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_driver_id
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_search_view
+msgid "Driver"
+msgstr "Chofer"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_working_days
+msgid "Días laborables"
+msgstr "Días laborables"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+msgid "Emitter"
+msgstr "Emite"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_emitter_id
+msgid "Emmitter"
+msgstr "Emite"
+
+#. module: atm
+#: model:ir.model,name:atm.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan01
+msgid "Enero"
+msgstr "Enero"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_equipment_or_area
+msgid "Equipment or area"
+msgstr "Equipo o Área"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_print_report_wizard_form_view
+msgid "Este asistente le permitirá generar varios reportes. Seleccione los parámetros\n"
+"                                    correctos en pos de obtener adecuadamente los resultados..."
+msgstr "Este asistente le permitirá generar varios reportes. Seleccione los parámetros\n"
+"                                    correctos en pos de obtener adecuadamente los resultados..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Este centro de costo es..."
+msgstr "Este centro de costo es..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Este grupo de productos..."
+msgstr "Este grupo de productos..."
+
+#. module: atm
+#: code:addons/atm/models/warehouse_request.py:93
+#, python-format
+msgid "Este producto tiene asignaciones. Especifique el area para realizar la comprobacion... "
+msgstr "Este producto tiene asignaciones. Especifique el area para realizar la comprobacion... "
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_execute_cost_center_id
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+msgid "Execute"
+msgstr "Ejecuta"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_executor_id
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+msgid "Executor"
+msgstr "Ejecuta"
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_storeroom_existence_action
+#: model:ir.ui.menu,name:atm.atm_storeroom_existence_menu_item
+msgid "Existencia en pañol"
+msgstr "Existencia en pañol"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_configuration_form_view
+msgid "Existencia y Coverturas"
+msgstr "Existencia y Coverturas"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_form_view
+msgid "Explanatory notes about the merchandise..."
+msgstr "Notas aclaratorias sobre la mercancía..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "FACTURA"
+msgstr "FACTURA"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "FECHA"
+msgstr "FECHA"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "FIRMA:"
+msgstr "FIRMA:"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_conversion_factor
+msgid "Factor de conversión"
+msgstr "Factor de conversión"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan02
+msgid "Febrero"
+msgstr "Febrero"
+
+#. module: atm
+#: code:addons/atm/models/utils.py:6
+#: code:addons/atm/models/utils.py:12
+#: code:addons/atm/models/utils.py:23
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "February"
+msgstr "Febrero"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_import_wizard_file
+msgid "File"
+msgstr "Archivo"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_import_wizard_filename
+msgid "Filename"
+msgstr "Nombre Archivo"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "Firma:"
+msgstr "Firma:"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_formula_month_plan
+msgid "Fórmula Plan Mensual"
+msgstr "Fórmula Plan Mensual"
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_general_elements_left_menu
+msgid "General Elements"
+msgstr "Elementos Generales"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_work_order_form_view
+msgid "General Information..."
+msgstr "Elementos Generales..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_given_quantity
+msgid "Given quantity"
+msgstr "Cantidad entregada"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_search_view
+#: model:ir.ui.view,arch_db:atm.atm_product_assignment_search_view
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+#: model:ir.ui.view,arch_db:atm.base_lekkerland_product_request_time_average_report_search_view
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Grupo de productos de prueba..."
+msgstr "Grupo de productos de prueba..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_has_assingments
+msgid "Has assingments by area?"
+msgstr "¿Asignaciones?"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_l10n_cu_base_area_has_assingments
+msgid "Has assingments?"
+msgstr "¿Tiene asignaciones?"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_l10n_cu_base_cost_center_has_budgets
+msgid "Has budgets?"
+msgstr "¿Tiene presupuestos?"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_id
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_id
+#: model:ir.model.fields,field_description:atm.field_atm_consumption_norm_id
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget_id
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production_id
+#: model:ir.model.fields,field_description:atm.field_atm_import_wizard_id
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_id
+#: model:ir.model.fields,field_description:atm.field_atm_print_report_wizard_id
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail_id
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_id
+#: model:ir.model.fields,field_description:atm.field_atm_product_destiny_id
+#: model:ir.model.fields,field_description:atm.field_atm_production_plan_id
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_id
+#: model:ir.model.fields,field_description:atm.field_atm_report_one_record_id
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_existence_id
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_id
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_id
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type_id_2806
+msgid "ID"
+msgstr "ID"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "IMPORTE CUC"
+msgstr "IMPORTE CUC"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "IMPORTE CUP"
+msgstr "IMPORTE CUP"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_group_number
+msgid "Identificador de Grupo"
+msgstr "Identificador de Grupo"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_work_order_form_view
+msgid "Implicated Cost Centers..."
+msgstr "Centros de Costo implicados..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_work_order_form_view
+msgid "Implicated people..."
+msgstr "Personas implicadas..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_import_wizard_action
+msgid "Import"
+msgstr "Importar"
+
+#. module: atm
+#: selection:atm.import_wizard,action:0
+msgid "Import Cost Centers..."
+msgstr "Importar Centros de Costo..."
+
+#. module: atm
+#: selection:atm.import_wizard,action:0
+msgid "Import Product Groups"
+msgstr "Importar Grupos"
+
+#. module: atm
+#: selection:atm.import_wizard,action:0
+msgid "Import Responsibility Areas..."
+msgstr "Importar Areas de Responsabilidad..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Import..."
+msgstr "Importar..."
+
+#. module: atm
+#: selection:simple_product.product,origin:0
+msgid "Importación"
+msgstr "Importación"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_print_report_wizard_report_name
+msgid "Informe"
+msgstr "Informe"
+
+#. module: atm
+#: selection:atm.print_report_wizard,report_name:0
+msgid "Informe de cumplimiento de entregas de materiales fundamentales."
+msgstr "Informe de cumplimiento de entregas de materiales fundamentales."
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_reports_menu
+msgid "Informes"
+msgstr "Informes"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_invoice_number
+msgid "Invoice number"
+msgstr "No. Factura"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_warehouse_warehouse_request_is_exceeded_assingment
+msgid "Is exceeded assingment"
+msgstr "Asignación excedida"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_warehouse_warehouse_request_is_exceeded_budget
+msgid "Is exceeded budget"
+msgstr "Presupuesto excedido"
+
+#. module: atm
+#: code:addons/atm/models/utils.py:6
+#: code:addons/atm/models/utils.py:12
+#: code:addons/atm/models/utils.py:23
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "January"
+msgstr "Enero"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan07
+msgid "Julio"
+msgstr "Julio"
+
+#. module: atm
+#: code:addons/atm/models/utils.py:7
+#: code:addons/atm/models/utils.py:13
+#: code:addons/atm/models/utils.py:24
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "July"
+msgstr "Julio"
+
+#. module: atm
+#: code:addons/atm/models/utils.py:7
+#: code:addons/atm/models/utils.py:12
+#: code:addons/atm/models/utils.py:24
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "June"
+msgstr "June"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan06
+msgid "Junio"
+msgstr "Junio"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "LISTADO DE RECURSOS EXTRAIDOS"
+msgstr "LISTADO DE RECURSOS EXTRAIDOS"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_consumption_norm___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_import_wizard___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_print_report_wizard___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_product_destiny___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_production_plan___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_report_one_record___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_existence___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_work_order___last_update
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_consumption_norm_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_import_wizard_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_print_report_wizard_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_product_destiny_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_production_plan_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_report_one_record_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_existence_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type_write_uid
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_consumption_norm_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_import_wizard_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_print_report_wizard_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_product_destiny_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_production_plan_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_report_one_record_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_existence_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type_write_date
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: atm
+#: code:addons/atm/models/utils.py:6
+#: code:addons/atm/models/utils.py:12
+#: code:addons/atm/models/utils.py:23
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "March"
+msgstr "Marzo"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan03
+msgid "Marzo"
+msgstr "Marzo"
+
+#. module: atm
+#: code:addons/atm/models/utils.py:7
+#: code:addons/atm/models/utils.py:12
+#: code:addons/atm/models/utils.py:23
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "May"
+msgstr "Mayo"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan05
+msgid "Mayo"
+msgstr "Mayo"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_print_report_wizard_month
+msgid "Month"
+msgstr "Month"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "NO."
+msgstr "NO."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "NO. PALLET"
+msgstr "NO. PALLET"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "NO. RECEPCION"
+msgstr "NO. RECEPCION"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "NO. SOLICITUD"
+msgstr "NO. SOLICITUD"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "NOMBRE:"
+msgstr "NOMBRE:"
+
+#. module: atm
+#: selection:simple_product.product,origin:0
+msgid "Nacional"
+msgstr "Nacional"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_product_destiny_name
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "No. identidad"
+msgstr "No. identidad"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Nombre"
+msgstr "Nombre"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "Nombre y apellidos:"
+msgstr "Nombre y apellidos:"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_product_form_view_inherit
+msgid "Norma de consumo"
+msgstr "Norma de consumo"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_product_form_view_inherit
+msgid "Norma de consumo para 1 millón de cigarrillos"
+msgstr "Norma de consumo para 1 millón de cigarrillos"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_consumption_norm_ids
+msgid "Normas de consumo"
+msgstr "Normas de consumo"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_note
+msgid "Note"
+msgstr "Nota"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_notes
+msgid "Notes"
+msgstr "Notas"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_form_view
+#: model:ir.ui.view,arch_db:atm.atm_work_order_form_view
+msgid "Notes..."
+msgstr "Notas..."
+
+#. module: atm
+#: code:addons/atm/models/utils.py:8
+#: code:addons/atm/models/utils.py:13
+#: code:addons/atm/models/utils.py:25
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "November"
+msgstr "Noviembre"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan11
+msgid "Noviembre"
+msgstr "Noviembre"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_number
+#: model:ir.ui.view,arch_db:atm.atm_employee_tree_view_inherit
+msgid "Number"
+msgstr "Número"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "ORDEN"
+msgstr "ORDEN"
+
+#. module: atm
+#: code:addons/atm/models/utils.py:8
+#: code:addons/atm/models/utils.py:13
+#: code:addons/atm/models/utils.py:24
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "October"
+msgstr "Octubre"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan10
+msgid "Octubre"
+msgstr "Octubre"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_creator_id
+#: model:ir.ui.view,arch_db:atm.atm_work_order_form_view
+msgid "Open"
+msgstr "Abre"
+
+#. module: atm
+#: selection:atm.work_order,state:0
+msgid "Opened"
+msgstr "Abierta"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+msgid "Opening Date"
+msgstr "Fecha de apertura"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_opening_date
+msgid "Opening date"
+msgstr "Fecha de apertura"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_report_one_other_product_ids
+msgid "Otros"
+msgstr "Otros"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_configuration_form_view
+msgid "Otros materiales importantes"
+msgstr "Otros materiales importantes"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "PESO"
+msgstr "PESO"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "PESO TOTAL"
+msgstr "PESO TOTAL"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "PRODUCTO"
+msgstr "PRODUCTO"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "PROVEEDOR"
+msgstr "PROVEEDOR"
+
+#. module: atm
+#: selection:atm.print_report_wizard,report_name:0
+msgid "Parte de compras, ventas y consumo de materiales seleccionados."
+msgstr "Parte de compras, ventas y consumo de materiales seleccionados."
+
+#. module: atm
+#: selection:atm.print_report_wizard,report_name:0
+msgid "Parte de entrada de materiales."
+msgstr "Parte de entrada de materiales."
+
+#. module: atm
+#: selection:atm.print_report_wizard,report_name:0
+msgid "Parte de existencias y coverturas de materiales fundamentales."
+msgstr "Parte de existencias y coverturas de materiales fundamentales."
+
+#. module: atm
+#: selection:atm.print_report_wizard,report_name:0
+msgid "Parte de extracciones de recursos de la UEB IST."
+msgstr "Parte de extracciones de recursos de la UEB IST."
+
+#. module: atm
+#: selection:atm.print_report_wizard,report_name:0
+msgid "Parte de gastables."
+msgstr "Parte de gastables."
+
+#. module: atm
+#: selection:atm.print_report_wizard,report_name:0
+msgid "Parte de materiales fundamentales y gastables críticos."
+msgstr "Parte de materiales fundamentales y gastables críticos."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_weight
+msgid "Peso en Kg"
+msgstr "Peso en Kg"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget_plan
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan_id
+msgid "Plan"
+msgstr "Plan"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_production_plan_record_ids
+msgid "Planes"
+msgstr "Planes"
+
+#. module: atm
+#: model:ir.actions.report.xml,name:atm.atm_extracted_resources_report
+msgid "Print Extracted Resources..."
+msgstr "Reporte Recursos Extraidos..."
+
+#. module: atm
+#: model:ir.actions.report.xml,name:atm.atm_warehouse_request_report
+msgid "Print Products Request..."
+msgstr "Reporte Productos Solicitados..."
+
+#. module: atm
+#: model:ir.actions.report.xml,name:atm.atm_unloading_authorization_extend_report
+msgid "Print Unloading Authorization (Extended)..."
+msgstr "Reporte Autorización Descarga (Extendido)..."
+
+#. module: atm
+#: model:ir.actions.report.xml,name:atm.atm_unloading_authorization_report
+msgid "Print Unloading Authorization..."
+msgstr "Reporte Autorización Descarga..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_simple_product_product_origin
+msgid "Procedencia"
+msgstr "Procedencia"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_consumption_norm_product_id
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_product_id
+#: model:ir.model.fields,field_description:atm.field_atm_report_one_record_product_id
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_product_id
+#: model:ir.ui.view,arch_db:atm.atm_product_assignment_search_view
+msgid "Product"
+msgstr "Producto"
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_product_assignment_menu_item
+msgid "Product Assingments"
+msgstr "Asignaciones"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_product_description
+msgid "Product description"
+msgstr "Descripción del producto"
+
+#. module: atm
+#: code:addons/atm/models/warehouse_request.py:84
+#, python-format
+msgid "Product is for contingency. "
+msgstr "El producto es para contingencias. "
+
+#. module: atm
+#: code:addons/atm/models/warehouse_request.py:81
+#, python-format
+msgid "Product is util or tool. "
+msgstr "El producto es un útil o herramienta. "
+
+#. module: atm
+#: code:addons/atm/models/warehouse_request.py:78
+#, python-format
+msgid "Product protected: "
+msgstr "Producto protegido: "
+
+#. module: atm
+#: model:ir.model.fields,help:atm.field_warehouse_product_order_stock
+msgid "Product stock according to Versat..."
+msgstr "Existencia según Versat..."
+
+#. module: atm
+#: model:ir.model.fields,help:atm.field_warehouse_product_order_stock_validation
+msgid "Product stock according to the system..."
+msgstr "Existencia según Sistema..."
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_production_plan_action
+#: model:ir.ui.menu,name:atm.atm_production_plan_menu_item
+msgid "Production Plan"
+msgstr "Plan de producción"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_ids
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_report_one_product_ids
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_report_two_product_ids
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_report_three_product_ids
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_report_four_product_ids
+#: model:ir.model.fields,field_description:atm.field_atm_report_configuration_report_six_product_ids
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_existence_record_ids
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_form_view
+msgid "Products"
+msgstr "Productos"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_product_order_ids
+#: model:ir.ui.view,arch_db:atm.atm_work_order_form_view
+msgid "Products..."
+msgstr "Productos..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_quantity
+#: model:ir.model.fields,field_description:atm.field_atm_consumption_norm_quantity
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production_quantity
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_detail_quantity
+#: model:ir.model.fields,field_description:atm.field_atm_product_assignment_quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_report_template
+msgid "RECEPCION A CIEGAS"
+msgstr "RECEPCION A CIEGAS"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "RECIBE PRODUCTOS"
+msgstr "RECIBE PRODUCTOS"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "RECIBE SOLICITUD"
+msgstr "RECIBE SOLICITUD"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_cost_center_budget_real
+msgid "Real"
+msgstr "Real"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_realized_work
+msgid "Realized work"
+msgstr "Trabajo realizado"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_receive_cost_center_id
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+msgid "Receive"
+msgstr "Recibe"
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_blind_reception_left_menu
+msgid "Receptions"
+msgstr "Recepciones"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_warehouse_warehouse_request_required_field_receive_id
+msgid "Required field receive id"
+msgstr "Campo requerido"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_warehouse_warehouse_request_responsibility_area_id
+#: model:ir.ui.view,arch_db:atm.atm_warehouse_request_search_view_inherit
+msgid "Responsibility Area"
+msgstr "Área de Responsabilidad"
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_responsibility_area_menu_item
+msgid "Responsibility Areas"
+msgstr "Áreas de responsabilidad"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "S/O"
+msgstr "S/O"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "SOLICITA"
+msgstr "SOLICITA"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.warehouse_products_request_report_template
+msgid "SOLICITUD DE ENTREGA"
+msgstr "SOLICITUD DE ENTREGA"
+
+#. module: atm
+#: model:ir.model.fields,help:atm.field_simple_product_product_formula_month_plan
+msgid "Se espera la formula: Plan Mensual / dias laborables"
+msgstr "Se espera la formula: Plan Mensual / dias laborables"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Se espera que el archivo <b>Excel</b> tenga la información a importar en la primera hoja\n"
+"                                y este compuesto por las siguientes columnas, de las cuales la descripción\n"
+"                                no es obligatoria..."
+msgstr "Se espera que el archivo <b>Excel</b> tenga la información a importar en la primera hoja\n"
+"                                y este compuesto por las siguientes columnas, de las cuales la descripción\n"
+"                                no es obligatoria..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Se espera que el archivo <b>Excel</b> tenga la información a importar en la primera hoja\n"
+"                                y este compuesto por las siguientes columnas..."
+msgstr "Se espera que el archivo <b>Excel</b> tenga la información a importar en la primera hoja\n"
+"                                y este compuesto por las siguientes columnas..."
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_import_wizard_form_view
+msgid "Seleccione la opción requerida <b>para importar datos</b>, y cargue el archivo\n"
+"                                correspondiente..."
+msgstr "Seleccione la opción requerida <b>para importar datos</b>, y cargue el archivo\n"
+"                                correspondiente..."
+
+#. module: atm
+#: code:addons/atm/models/utils.py:7
+#: code:addons/atm/models/utils.py:13
+#: code:addons/atm/models/utils.py:24
+#: selection:atm.print_report_wizard,month:0
+#, python-format
+msgid "September"
+msgstr "Septiembre"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_plan_record_plan09
+msgid "Septiembre"
+msgstr "Septiembre"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_shutter_id
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+msgid "Shutter"
+msgstr "Cierra"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_state
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+msgid "State"
+msgstr "Estado"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_warehouse_product_order_stock
+msgid "Stock"
+msgstr "Existencia"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_warehouse_product_order_stock_validation
+msgid "Stock validation"
+msgstr "Validación Existencia"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_storeroom_existence_id
+msgid "Storeroom Existence"
+msgstr "Existencia en pañol"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_supplier_id
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_search_view
+msgid "Supplier"
+msgstr "Proveedor"
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_suppliers_menu_item
+msgid "Suppliers"
+msgstr "Proveedores"
+
+#. module: atm
+#: code:addons/atm/models/warehouse_request.py:116
+#, python-format
+msgid "The associated Work Order is closed..."
+msgstr "La orden de trabajo asociada esta cerrada..."
+
+#. module: atm
+#: code:addons/atm/models/product_order.py:37
+#: code:addons/atm/models/product_order.py:54
+#, python-format
+msgid "The requested product quantity can not be great than the product stock..."
+msgstr "La cantidad solicitada no puede superar la existencia..."
+
+#. module: atm
+#: code:addons/atm/models/product_order.py:34
+#, python-format
+msgid "The requested product quantity must be great than 0.0..."
+msgstr "La cantidad solicitada debe ser mayor que 0.0..."
+
+#. module: atm
+#: code:addons/atm/models/warehouse_request.py:90
+#, python-format
+msgid "This product is for exclusive use to: "
+msgstr "Este producto es para uso exclusivo de: "
+
+#. module: atm
+#: code:addons/atm/models/warehouse_request.py:87
+#, python-format
+msgid "This product is not for use. "
+msgstr "¡No usar este producto! "
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_search_view
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+#: model:ir.ui.view,arch_db:atm.base_lekkerland_product_request_time_average_report_search_view
+msgid "Today"
+msgstr "Hoy"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_daily_production_view_tree
+msgid "Total"
+msgstr "Total"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.unloading_authorization_extend_report_template
+msgid "Transportista"
+msgstr "Transportista"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type_id
+#: model:ir.ui.view,arch_db:atm.atm_work_order_search_view
+msgid "Type"
+msgstr "Tipo"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.extracted_resources_report_template
+msgid "U/M"
+msgstr "U/M"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_storeroom_product_quantity_last_day
+msgid "Ultima cantidad"
+msgstr "Ultima cantidad"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_product_uom_id
+#: model:ir.model.fields,field_description:atm.field_atm_consumption_norm_uom_id
+#: model:ir.model.fields,field_description:atm.field_atm_report_one_record_uom_id
+#: model:ir.model.fields,field_description:atm.field_atm_report_two_record_uom_id
+#: model:ir.model.fields,field_description:atm.field_atm_report_three_record_uom_id
+#: model:ir.model.fields,field_description:atm.field_atm_report_four_record_uom_id
+#: model:ir.model.fields,field_description:atm.field_atm_report_six_record_uom_id
+#: model:ir.model.fields,field_description:atm.field_warehouse_product_order_uom_id
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: atm
+#: model:ir.ui.view,arch_db:atm.atm_product_assignment_form_view
+msgid "Update..."
+msgstr "Actualizar..."
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_work_order_type_is_used_in_budget
+msgid "Used in budget?"
+msgstr "¿Usado en los presupuestos?"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_blind_reception_warehouse_id
+#: model:ir.ui.view,arch_db:atm.atm_blind_reception_search_view
+msgid "Warehouse"
+msgstr "Almacén"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_warehouse_warehouse_request_warning_message
+msgid "Warning message"
+msgstr "Mensaje de advertencia"
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_integration_left_menu
+#: model:ir.ui.menu,name:atm.atm_reports_wizard_left_menu
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_import_wizard_action
+msgid "Wizard to import data..."
+msgstr "Asistente de importación de datos..."
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_work_order_action
+#: model:ir.model.fields,field_description:atm.field_warehouse_product_order_work_order_id
+#: model:ir.ui.view,arch_db:atm.atm_warehouse_request_search_view_inherit
+msgid "Work Order"
+msgstr "Orden de Trabajo"
+
+#. module: atm
+#: model:ir.actions.act_window,name:atm.atm_work_order_type_action
+#: model:ir.ui.menu,name:atm.atm_work_order_type_menu_item
+msgid "Work Order Types"
+msgstr "Tipos"
+
+#. module: atm
+#: model:ir.ui.menu,name:atm.atm_work_order_menu_item
+#: model:ir.ui.menu,name:atm.atm_work_order_type_left_menu
+msgid "Work Orders"
+msgstr "Ordenes de Trabajo"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_warehouse_warehouse_request_work_order_id
+msgid "Work order"
+msgstr "Orden de Trabajo"
+
+#. module: atm
+#: model:ir.model.fields,field_description:atm.field_atm_daily_production_year
+#: model:ir.model.fields,field_description:atm.field_atm_print_report_wizard_year
+#: model:ir.model.fields,field_description:atm.field_atm_production_plan_year
+#: model:ir.ui.view,arch_db:atm.base_lekkerland_product_request_time_average_report_search_view
+msgid "Year"
+msgstr "Año"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_account
+msgid "atm.account"
+msgstr "atm.account"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_blind_reception
+msgid "atm.blind_reception"
+msgstr "atm.blind_reception"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_blind_reception_product
+msgid "atm.blind_reception.product"
+msgstr "atm.blind_reception.product"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_consumption_norm
+msgid "atm.consumption_norm"
+msgstr "atm.consumption_norm"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_cost_center_budget
+msgid "atm.cost_center.budget"
+msgstr "atm.cost_center.budget"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_daily_production
+msgid "atm.daily_production"
+msgstr "atm.daily_production"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_import_wizard
+msgid "atm.import_wizard"
+msgstr "atm.import_wizard"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_plan_record
+msgid "atm.plan_record"
+msgstr "atm.plan_record"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_print_report_wizard
+msgid "atm.print_report_wizard"
+msgstr "atm.print_report_wizard"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_product_assignment
+msgid "atm.product_assignment"
+msgstr "atm.product_assignment"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_product_assignment_detail
+msgid "atm.product_assignment.detail"
+msgstr "atm.product_assignment.detail"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_product_destiny
+msgid "atm.product_destiny"
+msgstr "atm.product_destiny"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_production_plan
+msgid "atm.production_plan"
+msgstr "atm.production_plan"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_report_configuration
+msgid "atm.report_configuration"
+msgstr "atm.report_configuration"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_report_one_record
+msgid "atm.report_one_record"
+msgstr "atm.report_one_record"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_storeroom_existence
+msgid "atm.storeroom_existence"
+msgstr "atm.storeroom_existence"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_storeroom_product
+msgid "atm.storeroom_product"
+msgstr "atm.storeroom_product"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_work_order
+msgid "atm.work_order"
+msgstr "atm.work_order"
+
+#. module: atm
+#: model:ir.model,name:atm.model_atm_work_order_type
+msgid "atm.work_order.type"
+msgstr "atm.work_order.type"
+
+#. module: atm
+#: model:ir.model,name:atm.model_l10n_cu_base_area
+msgid "l10n_cu_base.area"
+msgstr "l10n_cu_base.area"
+
+#. module: atm
+#: model:ir.model,name:atm.model_l10n_cu_base_cost_center
+msgid "l10n_cu_base.cost_center"
+msgstr "l10n_cu_base.cost_center"
+
+#. module: atm
+#: model:ir.model,name:atm.model_simple_product_product
+msgid "simple_product.product"
+msgstr "simple_product.product"
+
+#. module: atm
+#: model:ir.model,name:atm.model_warehouse_product_order
+msgid "warehouse.product_order"
+msgstr "warehouse.product_order"
+
+#. module: atm
+#: model:ir.model,name:atm.model_warehouse_warehouse_request
+msgid "warehouse.warehouse_request"
+msgstr "warehouse.warehouse_request"
+
