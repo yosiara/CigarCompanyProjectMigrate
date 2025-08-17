@@ -1,18 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from odoo.models import Model
-from odoo.fields import Char, One2many
+from odoo import models, fields, api, tools
 
-
-class ResponsibilityArea(Model):
+class ResponsibilityArea(models.Model):
     _name = 'base_cu.responsibility_area'
-    _description = 'base_cu.responsibility_area'
+    _description = 'Responsibility Area'
 
-    code = Char(required=True)
-    name = Char(required=True)
-    cost_center_ids = One2many('base_cu.cost_center', 'responsibility_area_id', 'Cost Centers')
+    code = fields.Char('Code', required=True)
+    name = fields.Char('Name', required=True)
+    cost_center_ids = fields.One2many('base_cu.cost_center', 'responsibility_area_id', 'Cost Centers')
 
     _sql_constraints = [
         ('unique_code', 'unique(code)', 'The code must be unique!'),
     ]
-ResponsibilityArea()

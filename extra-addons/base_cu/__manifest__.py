@@ -16,7 +16,7 @@ Adds elements to the Odoo kernel, necessary for the l10n_cu localization modules
     'depends': [
         'base',
         'resource',
-        'web_notify',
+        # 'web_notify',
         #'inputmask_widget',
         #'report',
         #'l10n_cu_hlg_single_login','l10n_cu_report_docxtpl'

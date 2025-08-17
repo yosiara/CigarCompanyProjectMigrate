@@ -12,6 +12,7 @@ from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 class AuthorizedSignature(models.Model):
     _name = 'base_cu.authorized_signature'
+    _description = 'Authorized Signature'
     _rec_name = 'model'
 
     model = fields.Many2one('ir.model', 'Model')
@@ -21,6 +22,7 @@ class AuthorizedSignature(models.Model):
 
 class Reg(models.Model):
     _name = 'base_cu.reg'
+    _description = 'Reg'
     _order = 'code'
 
     name = fields.Char('Name', size=64, required=True)

@@ -6,18 +6,20 @@ from odoo.exceptions import ValidationError
 
 
 class Ministry(models.Model):
-    _name = 'l10n_cu.ministry'
-    name = fields.Char('Name', required=True)
+    _name = 'base_cu.ministry'
+    _description = 'Ministry'
 
+    name = fields.Char('Name', required=True)
 
 class Branch(models.Model):
-    _name = 'l10n_cu.branch'
+    _name = 'base_cu.branch'
+    _description = 'Branch'
 
     name = fields.Char('Name', required=True)
 
-
 class PartnerLocation(models.Model):
-    _name = 'l10n_cu_hlg.partner_location'
+    _name = 'base_cu.partner_location'
+    _description = 'Partner Location'
 
     name = fields.Char('Name', required=True)
     street = fields.Char('Street')
@@ -28,56 +30,50 @@ class PartnerLocation(models.Model):
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    @api.model
-    def _get_default_country(self):
-        return 52
-
     ci = fields.Char('CI')
     reeup_code = fields.Char('REEUP Code')
     nit_code = fields.Char('NIT Code')
-    # nae_code = fields.Char('NAE Code')
     usd_license_number = fields.Char('No. de Licencia de Operación en Divisa')
     date_license_number = fields.Date('Fecha de Licencia Operativa en Divisa')
     short_name = fields.Char('Short Name')
     municipality_id = fields.Many2one('base_cu.municipality', 'Municipality')
-    ministry_id = fields.Many2one('l10n_cu.ministry', 'Ministry')
-    branch_id = fields.Many2one('l10n_cu.branch', 'Branch')
+    ministry_id = fields.Many2one('base_cu.ministry', 'Ministry')
+    branch_id = fields.Many2one('base_cu.branch', 'Branch')
     archive_nro = fields.Char('Archive Nro')
-    country_id = fields.Many2one('res.country', string='Country', ondelete='restrict', default=_get_default_country)
+    country_id = fields.Many2one('res.country', string='Country', ondelete='restrict', default=52)
     # Accreditation
     acc_res_no = fields.Char('Resolution Nro')
     acc_res_date = fields.Date('Resolution Date')
-    acc_res_date_day = fields.Char('Resolution Day', compute='_get_resolution_day', store=True)
     mercantil_register = fields.Char('Registro Mercantil')
     code_swift = fields.Char('Código SWIFT')
 
-    @api.depends('acc_res_date')
-    
-    def _get_resolution_day(self):
-        if self.acc_res_date:
-            date = self.acc_res_date
-            date = date.split('-')
-            self.acc_res_date_day = date[2]
+    # acc_res_date = fields.Datetime('Resolution', compute='_get_resolution_date')
+    acc_res_date_year = fields.Char('Resolution Year', compute='_get_resolution_date', store=True)
+    acc_res_date_month = fields.Char('Resolution Month', compute='_get_resolution_date', store=True)
+    acc_res_date_day = fields.Char('Resolution Day', compute='_get_resolution_date', store=True)
 
-    acc_res_date_month = fields.Char('Resolution Month', compute='_get_resolution_month', store=True)
+    @api.depends('acc_res_date') 
+    def _get_resolution_date(self):
+        for rec in self:
+            if rec.acc_res_date:
+                date = rec.acc_res_date
+                date = date.split('-')
+                rec.acc_res_date_year = date[0]
+                rec.acc_res_date_month = date[1]
+                rec.acc_res_date_day = date[2]
 
-    @api.depends('acc_res_date')
-    
-    def _get_resolution_month(self):
-        if self.acc_res_date:
-            date = self.acc_res_date
-            date = date.split('-')
-            self.acc_res_date_month = date[1]
+    # @api.depends('acc_res_date')
+    # def _get_resolution_month(self):
+    #     if self.acc_res_date:
+    #         date = self.acc_res_date
+    #         date = date.split('-')
 
-    acc_res_date_year = fields.Char('Resolution Year', compute='_get_resolution_year', store=True)
 
-    @api.depends('acc_res_date')
-    
-    def _get_resolution_year(self):
-        if self.acc_res_date:
-            date = self.acc_res_date
-            date = date.split('-')
-            self.acc_res_date_year = date[0]
+    # @api.depends('acc_res_date')
+    # def _get_resolution_year(self):
+    #     if self.acc_res_date:
+    #         date = self.acc_res_date
+    #         date = date.split('-')
 
     acc_res_emitted = fields.Char('Emitted by')
 
@@ -99,10 +95,10 @@ class ResPartner(models.Model):
     approve_res_no_invoice = fields.Char("Resolution Nro")
     approve_res_date_invoice = fields.Date("Resolution Date")
     partner_location_ids = fields.One2many(
-        'l10n_cu_hlg.partner_location', 'partner_id', 'Partner Location')
-    # reconcile
+        'base_cu.partner_location', 'partner_id', 'Partner Location')
+    # Reconcile
     authorized_reconcile = fields.Boolean("Autorizado a firmar conciliaciones")
-    # solicitar servicios
+    # Solicitar servicios
     authorized_apply = fields.Boolean("Autorizado a solicitar servicios")
 
     @api.onchange('municipality_id')

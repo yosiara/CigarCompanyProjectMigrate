@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from odoo.models import Model
-from odoo.fields import Char, Text, Date, Many2one, Integer
+from odoo import api, fields, models
 
-class Area(Model):
+class Area(models.Model):
     _name = 'base_cu.area'
     _description = 'base_cu.area'
 
-    code = Char(required=True)
-    name = Char(required=True)
-    abbreviation = Char()
-    color = Integer()
-Area()
+    code = fields.Char('Code', required=True)
+    name = fields.Char('Name', required=True)
+    abbreviation = fields.Char('Abbreviation')
+    color = fields.Integer('Color')
