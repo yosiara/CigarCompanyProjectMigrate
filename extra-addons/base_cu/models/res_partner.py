@@ -39,7 +39,7 @@ class ResPartner(models.Model):
     usd_license_number = fields.Char('No. de Licencia de Operación en Divisa')
     date_license_number = fields.Date('Fecha de Licencia Operativa en Divisa')
     short_name = fields.Char('Short Name')
-    municipality_id = fields.Many2one('l10n_cu_base.municipality', 'Municipality')
+    municipality_id = fields.Many2one('base_cu.municipality', 'Municipality')
     ministry_id = fields.Many2one('l10n_cu.ministry', 'Ministry')
     branch_id = fields.Many2one('l10n_cu.branch', 'Branch')
     archive_nro = fields.Char('Archive Nro')

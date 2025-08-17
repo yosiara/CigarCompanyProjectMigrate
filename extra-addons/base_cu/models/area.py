@@ -4,8 +4,8 @@ from odoo.models import Model
 from odoo.fields import Char, Text, Date, Many2one, Integer
 
 class Area(Model):
-    _name = 'l10n_cu_base.area'
-    _description = 'l10n_cu_base.area'
+    _name = 'base_cu.area'
+    _description = 'base_cu.area'
 
     code = Char(required=True)
     name = Char(required=True)

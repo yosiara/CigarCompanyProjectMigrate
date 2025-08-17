@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <template id="l10n_cu_base.report_customer_template">
+        <template id="base_cu.report_customer_template">
             <t t-call="report.html_container">
                 <t t-foreach="docs" t-as="o">
                     <t t-call="report.external_layout">

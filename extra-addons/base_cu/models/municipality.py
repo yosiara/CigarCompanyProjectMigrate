@@ -4,7 +4,7 @@ from odoo import api, fields, models
 
 
 class Municipality(models.Model):
-    _name = 'l10n_cu_base.municipality'
+    _name = 'base_cu.municipality'
     _order = 'code'
 
     state_id = fields.Many2one('res.country.state', 'State', required=True)
@@ -16,10 +16,10 @@ class Municipality(models.Model):
 
 
 class District(models.Model):
-    _name = 'l10n_cu_base.district'
+    _name = 'base_cu.district'
     _order = 'code'
 
-    municipality_id = fields.Many2one('l10n_cu_base.municipality', 'Municipality', required=True)
+    municipality_id = fields.Many2one('base_cu.municipality', 'Municipality', required=True)
     name = fields.Char('District name', size=64)
     code = fields.Char('Code', size=3, help='The District code in three chars', required=True)
 

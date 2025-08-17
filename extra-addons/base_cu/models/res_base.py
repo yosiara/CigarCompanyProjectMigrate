@@ -11,7 +11,7 @@ from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 class AuthorizedSignature(models.Model):
-    _name = 'l10n_cu_base.authorized_signature'
+    _name = 'base_cu.authorized_signature'
     _rec_name = 'model'
 
     model = fields.Many2one('ir.model', 'Model')
@@ -20,7 +20,7 @@ class AuthorizedSignature(models.Model):
 
 
 class Reg(models.Model):
-    _name = 'l10n_cu_base.reg'
+    _name = 'base_cu.reg'
     _order = 'code'
 
     name = fields.Char('Name', size=64, required=True)
@@ -38,7 +38,7 @@ class Reg(models.Model):
         return encoded
 
     def get_key(self, m):
-        keys = self.env['l10n_cu_base.reg'].search([('name', '=', m)])
+        keys = self.env['base_cu.reg'].search([('name', '=', m)])
         if keys:
             for k in keys:
                 return k.code
@@ -70,7 +70,7 @@ class Reg(models.Model):
         #return 'ok'
 
         if not key:
-            module = self.env['l10n_cu_base.reg'].search([('name', '=', m)])
+            module = self.env['base_cu.reg'].search([('name', '=', m)])
             if not module.create_date:
                 return 'nokey'
             rest = datetime.today() - datetime.strptime(module.create_date, "%Y-%m-%d %H:%M:%S")

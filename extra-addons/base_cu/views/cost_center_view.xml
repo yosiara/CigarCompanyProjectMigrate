@@ -4,13 +4,13 @@
     <data>
         <!-- ======================================================================================
 		COST CENTER
-		Model: l10n_cu_base.cost_center
+		Model: base_cu.cost_center
 		=========================================================================================== -->
 
         <!-- FORM VIEW -->
-        <record id="l10n_cu_base_cost_center_form_view" model="ir.ui.view">
-            <field name="name">l10n_cu_base_cost_center_form_view</field>
-            <field name="model">l10n_cu_base.cost_center</field>
+        <record id="base_cu_cost_center_form_view" model="ir.ui.view">
+            <field name="name">base_cu_cost_center_form_view</field>
+            <field name="model">base_cu.cost_center</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -34,9 +34,9 @@
         </record>
 
         <!-- TREE VIEW -->
-        <record id="l10n_cu_base_cost_center_tree_view" model="ir.ui.view">
-            <field name="name">l10n_cu_base_cost_center_tree_view</field>
-            <field name="model">l10n_cu_base.cost_center</field>
+        <record id="base_cu_cost_center_tree_view" model="ir.ui.view">
+            <field name="name">base_cu_cost_center_tree_view</field>
+            <field name="model">base_cu.cost_center</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="code"/>
@@ -48,9 +48,9 @@
         </record>
 
         <!-- ACTION -->
-        <record id="l10n_cu_base_cost_center_action" model="ir.actions.act_window">
+        <record id="base_cu_cost_center_action" model="ir.actions.act_window">
 	    	<field name="name">Cost Centers</field>
-		    <field name="res_model">l10n_cu_base.cost_center</field>
+		    <field name="res_model">base_cu.cost_center</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="help" type="html">
