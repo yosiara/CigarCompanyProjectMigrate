@@ -7,6 +7,7 @@
     'license': 'LGPL-3',
     'category': 'Inventory',
     'version': '2.0',
+    'sequence': 3,
     'summary': 'System for controlling the ATM department of the Lázaro Peña Cigar Company...',
     'description': """
 ATM

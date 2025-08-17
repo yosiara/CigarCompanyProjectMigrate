@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.maintenance_turei_orders_pending"
+                model="wzd.orders.pending"
+                string="Rep. Órdenes Pendientes"
+                report_type="xlsx"
+                name="maintenance_turei.orders_pending_report"
+                file="maintenance_turei.orders_pending_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

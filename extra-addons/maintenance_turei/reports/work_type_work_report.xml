@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.maintenance_turei_work_type_work"
+                model="wzd.work.type.work"
+                string="Rep. Tipo de Órdenes de Trabajo"
+                report_type="xlsx"
+                name="maintenance_turei.work_type_work_report"
+                file="maintenance_turei.work_type_work_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

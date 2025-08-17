@@ -1,14 +1,8 @@
 # -*- coding: utf-8 -*-
-
-# Alejandro Cora González
-# alek.cora.glez@gmail.com
-
 import json
-
 from odoo import http
 from odoo.http import Controller, request
 from odoo.tools import ustr
-
 
 class FileDispatcher(Controller):
     @http.route('/custom_download_file/', type='http', auth='user')
