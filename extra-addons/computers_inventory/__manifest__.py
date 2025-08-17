@@ -19,7 +19,7 @@ Computers Inventory using OCS Inventory Server...
         #'l10n_cu_report_docxtpl',
         "hr_maintenance",
         #'maintenance',
-        #'l10n_cu_base',
+        #'base_cu',
         "l10n_cu_locals",
     ],
     "data": [

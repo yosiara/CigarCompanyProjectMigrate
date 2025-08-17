@@ -85,7 +85,7 @@ class ImportWizard(TransientModel):
         doc = xlrd.open_workbook(path)
         sheet = doc.sheet_by_index(0)
 
-        area_obj = self.env['l10n_cu_base.responsibility_area']
+        area_obj = self.env['base_cu.responsibility_area']
         x = 1
 
         while x < sheet.nrows:
@@ -121,8 +121,8 @@ class ImportWizard(TransientModel):
         doc = xlrd.open_workbook(path)
         sheet = doc.sheet_by_index(0)
 
-        area_obj = self.env['l10n_cu_base.responsibility_area']
-        cost_center_obj = self.env['l10n_cu_base.cost_center']
+        area_obj = self.env['base_cu.responsibility_area']
+        cost_center_obj = self.env['base_cu.cost_center']
         x = 1
 
         while x < sheet.nrows:

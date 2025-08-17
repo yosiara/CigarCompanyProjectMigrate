@@ -10,7 +10,7 @@ access_manager_product_group,manager product_group,simple_product.model_simple_p
 access_manager_product_assignment_detail,manager product_assignment_detail,model_atm_product_assignment_detail,group_atm_manager,1,1,1,1
 access_manager_product_uom,manager product_uom,product.model_product_uom,group_atm_manager,1,1,1,1
 
-access_manager_cost_center,manager cost_center,l10n_cu_base.model_l10n_cu_base_cost_center,group_atm_manager,1,1,1,1
+access_manager_cost_center,manager cost_center,base_cu.model_base_cu_cost_center,group_atm_manager,1,1,1,1
 access_manager_cost_center_budget,manager cost_center_budget,model_atm_cost_center_budget,group_atm_manager,1,1,1,1
 
 access_manager_blind_reception,manager blind_reception,model_atm_blind_reception,group_atm_manager,1,1,1,1
@@ -27,8 +27,8 @@ access_manager_warehouse_warehouse_request,manager warehouse_warehouse_request,w
 access_manager_warehouse_product_order,manager warehouse_product_order,warehouse.model_warehouse_product_order,group_atm_manager,1,1,1,1
 access_manager_warehouse_product_location,manager warehouse_product_location,warehouse.model_warehouse_product_location,group_atm_manager,1,1,1,1
 
-access_manager_area,manager area,l10n_cu_base.model_l10n_cu_base_area,group_atm_manager,1,1,1,1
-access_manager_responsibility_area,manager responsibility_area,l10n_cu_base.model_l10n_cu_base_responsibility_area,group_atm_manager,1,1,1,1
+access_manager_area,manager area,base_cu.model_base_cu_area,group_atm_manager,1,1,1,1
+access_manager_responsibility_area,manager responsibility_area,base_cu.model_base_cu_responsibility_area,group_atm_manager,1,1,1,1
 access_manager_employee_driver,manager employee_driver,warehouse.model_warehouse_employee_driver,group_atm_manager,1,1,1,1
 
 
@@ -42,7 +42,7 @@ access_user_product_group,user product_group,simple_product.model_simple_product
 access_user_product_assignment_detail,user product_assignment_detail,model_atm_product_assignment_detail,group_atm_user,1,1,1,1
 access_user_product_uom,user product_uom,product.model_product_uom,group_atm_user,1,1,1,1
 
-access_user_cost_center,user cost_center,l10n_cu_base.model_l10n_cu_base_cost_center,group_atm_user,1,1,1,1
+access_user_cost_center,user cost_center,base_cu.model_base_cu_cost_center,group_atm_user,1,1,1,1
 access_user_cost_center_budget,user cost_center_budget,model_atm_cost_center_budget,group_atm_user,1,1,1,1
 
 access_user_blind_reception,user blind_reception,model_atm_blind_reception,group_atm_user,1,1,1,1
@@ -61,8 +61,8 @@ access_user_warehouse_warehouse_request,user warehouse_warehouse_request,warehou
 access_user_warehouse_product_order,user warehouse_product_order,warehouse.model_warehouse_product_order,group_atm_user,1,1,1,1
 access_user_warehouse_product_location,user warehouse_product_location,warehouse.model_warehouse_product_location,group_atm_user,1,1,1,1
 
-access_user_area,user area,l10n_cu_base.model_l10n_cu_base_area,group_atm_user,1,1,1,1
-access_user_responsibility_area,user responsibility_area,l10n_cu_base.model_l10n_cu_base_responsibility_area,group_atm_user,1,1,1,1
+access_user_area,user area,base_cu.model_base_cu_area,group_atm_user,1,1,1,1
+access_user_responsibility_area,user responsibility_area,base_cu.model_base_cu_responsibility_area,group_atm_user,1,1,1,1
 
 access_manager_versat_integration_account,manager versat_integration_account,versat_integration.model_versat_integration_account,group_atm_manager,1,1,1,1
 access_manager_atm_report_configuration,manager atm_report_configuration,atm.model_atm_report_configuration,group_atm_manager,1,1,1,1

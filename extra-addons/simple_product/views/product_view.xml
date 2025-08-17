@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		PRODUCT
+		Model: simple_product.product
+		=========================================================================================== -->
+
+        <!-- KANBAN VIEW -->
+        <record id="simple_product_kanban_view" model="ir.ui.view">
+            <field name="name">simple_product_kanban_view</field>
+            <field name="model">simple_product.product</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="image_small"/>
+                    <field name="is_new"/>
+                    <field name="color"/>
+                    <field name="code"/>
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                                <div class="oe_kanban_global_click">
+                                    <div class="o_kanban_tags_section"/>
+
+                                    <div class="o_dropdown_kanban dropdown">
+                                        <a class="dropdown-toggle btn" data-toggle="dropdown" href="#" >
+                                            <span class="fa fa-bars fa-lg"/>
+                                        </a>
+
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                            <t t-if="widget.editable"><li><a type="edit">Edit...</a></li></t>
+                                            <t t-if="widget.deletable"><li><a type="delete">Delete...</a></li></t>
+                                            <li><ul class="oe_kanban_colorpicker" data-field="color"/></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="o_kanban_image">
+                                        <img t-att-src="kanban_image('product.product', 'image_small', record.id.value)"/>
+                                    </div>
+
+                                    <div class="oe_kanban_details">
+                                        <a type="open"><strong><field name="name"/></strong></a>
+                                        <ul>
+                                            <li><b>Code:</b> <field name="code"/></li>
+                                            <li><b>Price:</b> <field name="price"/> (MN), <field name="price_extra"/> (CUC)</li>
+                                        </ul>
+                                        <div name="tags"/>
+                                    </div>
+
+                                    <div class="oe_kanban_new_product">
+                                        <t t-if="record.is_new.raw_value">
+                                            <span class="new_product">New!</span>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- FORM VIEW -->
+        <record id="simple_product_product_form_view" model="ir.ui.view">
+            <field name="name">simple_product_product_form_view</field>
+            <field name="model">simple_product.product</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+
+                        <field name="image_medium" widget="image" class="oe_avatar"/>
+
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Product Name"/>
+                            <h1><field name="name" placeholder="Product Name"/></h1>
+                            <div name="options">
+                                <b>Code: </b><field name="code"/>
+                            </div>
+                        </div>
+
+                        <notebook>
+                            <page string="Information...">
+                                <br/>
+                                <label for="description" class="oe_edit_only"/>
+                                <field name="description"
+                                       placeholder="A precise description, used only for internal information purposes..."/>
+
+                                <group id="group0" col="8">
+                                    <group id="group1" string="General..." col="2" colspan="4">
+                                        <field name="category_id"/>
+                                        <field name="group_id" string="Group"/>
+                                        <field name="uom_id"/>
+                                    </group>
+
+                                    <group id="group2" string="Prices..." col="2" colspan="4">
+                                        <field name="price"/>
+                                        <field name="price_extra"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="simple_product_product_tree_view" model="ir.ui.view">
+            <field name="name">simple_product_product_tree_view</field>
+            <field name="model">simple_product.product</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="uom_id"/>
+                    <field name="price"/>
+                    <field name="price_extra"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="simple_product_search_view" model="ir.ui.view">
+            <field name="name">simple_product_search_view</field>
+            <field name="model">simple_product.product</field>
+            <field name="arch" type="xml">
+            	<search>
+                    <field name="code"/>
+                    <field name="name"/>
+
+                    <filter string="New products" domain="[('is_new', '=', True)]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_category" string="Category" context="{'group_by': 'category_id'}"/>
+                        <filter name="group_by_group" string="Group" context="{'group_by': 'group_id'}"/>
+                        <separator/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="simple_product_product_action" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">simple_product.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new product...
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Products"
+                  id="simple_product_product_root_menu"
+                  action="simple_product_product_action"
+                  parent="simple_product_left_menu"
+                  sequence="1"/>
+    </data>
+</odoo>

@@ -685,6 +685,6 @@ class ImportComputersAndComponentsWizard(models.TransientModel):
     #
     # @api.constrains('connector_id')
     # def check_reg(self):
-    #     resp = self.env['l10n_cu_base.reg'].check_reg('l10n_cu_hlg_computers_inventory')
+    #     resp = self.env['base_cu.reg'].check_reg('l10n_cu_hlg_computers_inventory')
     #     if resp != 'ok':
     #         raise ValidationError(resp_dic[resp])

@@ -8,9 +8,9 @@ from . import reports
 
 # def post_init_hook(cr, registry):
 #     env = api.Environment(cr, SUPERUSER_ID, {})
-#     data = env['l10n_cu_base.reg'].search(
+#     data = env['base_cu.reg'].search(
 #         [('name', '=', 'l10n_cu_hlg_computers_inventory')])
 #     if len(data) == 0:
-#         env['l10n_cu_base.reg'].create({
+#         env['base_cu.reg'].create({
 #             'name': 'l10n_cu_hlg_computers_inventory'
 #        })

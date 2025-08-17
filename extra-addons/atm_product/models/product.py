@@ -16,4 +16,4 @@ class Product(Model):
     owner_id = Many2one('hr.employee', string='Owner')
     protection_cause = Char(placeholder='Cause of the product protection...')
     contingency_quantity = Integer(string='Quantity', help='Quantity that must be kept for contingencies...')
-    area_id = Many2one('l10n_cu_base.area', string='Area')
+    area_id = Many2one('base_cu.area', string='Area')

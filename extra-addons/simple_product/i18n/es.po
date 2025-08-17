@@ -1,0 +1,292 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* simple_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-23 00:36+0000\n"
+"PO-Revision-Date: 2017-01-23 00:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_kanban_view
+msgid "(CUC)"
+msgstr "(CUC)"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_kanban_view
+msgid "(MN),"
+msgstr "(MN),"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_product_form_view
+msgid "<b>Code: </b>"
+msgstr "<b>Código: </b>"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_kanban_view
+msgid "<b>Code:</b>"
+msgstr "<b>Código:</b>"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_kanban_view
+msgid "<b>Price:</b>"
+msgstr "<b>Precio:</b>"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_kanban_view
+msgid "<span class=\"new_product\">New!</span>"
+msgstr "<span class=\"new_product\">¡Nuevo!</span>"
+
+#. module: simple_product
+#: model:ir.model.fields,help:simple_product.field_simple_product_product_description
+#: model:ir.ui.view,arch_db:simple_product.simple_product_product_form_view
+msgid "A precise description, used only for internal information purposes..."
+msgstr "Descripción del producto, usado para propósitos informativos internos..."
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_image
+msgid "Big-sized image"
+msgstr "Imagen grande"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_search_view
+msgid "Category"
+msgstr "Categoría"
+
+#. module: simple_product
+#: model:ir.actions.act_window,help:simple_product.simple_product_product_group_action
+msgid "Click to create a new <b>Product Group</b>..."
+msgstr "Click para crear un nuevo <b>Grupo</b>..."
+
+#. module: simple_product
+#: model:ir.actions.act_window,help:simple_product.simple_product_product_action
+msgid "Click to define a new product..."
+msgstr "Click para crear un nuevo <b>Producto</b>..."
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_code
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_group_code
+msgid "Code"
+msgstr "Código"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_color
+msgid "Color Index"
+msgstr "Índice de Colores"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_create_uid
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_group_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_create_date
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_group_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: simple_product
+#: model:ir.model.fields,help:simple_product.field_simple_product_product_uom_id
+msgid "Default Unit of Measure used for all stock operation."
+msgstr "Unidad de medida por defecto utilizada para todas las operaciones de stock."
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_kanban_view
+msgid "Delete..."
+msgstr "Eliminar..."
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_description
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_group_description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_display_name
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_group_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_kanban_view
+msgid "Edit..."
+msgstr "Editar..."
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_product_form_view
+msgid "General..."
+msgstr "General..."
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_product_form_view
+#: model:ir.ui.view,arch_db:simple_product.simple_product_search_view
+msgid "Group"
+msgstr "Grupo"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_search_view
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: simple_product
+#: model:ir.model.fields,help:simple_product.field_simple_product_product_active
+msgid "If unchecked, it will allow you to hide the product without removing it..."
+msgstr "Si está seleccionado, podrá esconder el producto sin necesidad de eliminarlo..."
+
+#. module: simple_product
+#: model:ir.model.fields,help:simple_product.field_simple_product_product_image
+msgid "Image of the product variant (Big-sized image of product template if false). It is automatically resized as a 1024x1024px image, with aspect ratio preserved."
+msgstr "Imagen de la variante del producto (Imagen grande de la plantilla del producto en caso de que esté vacía). Se redimensionará automáticamente como una imagen 1024x1024px, manteniendo la proporción."
+
+#. module: simple_product
+#: model:ir.model.fields,help:simple_product.field_simple_product_product_image_medium
+msgid "Image of the product variant (Medium-sized image of product template if false)."
+msgstr "Imagen de la variante del producto (Imagen mediana de la plantilla del producto en caso de que esté vacía)."
+
+#. module: simple_product
+#: model:ir.model.fields,help:simple_product.field_simple_product_product_image_small
+msgid "Image of the product variant (Small-sized image of product template if false)."
+msgstr "Imagen de la variante del producto (Imagen pequeña de la plantilla del producto en caso de que esté vacía)."
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_product_form_view
+msgid "Information..."
+msgstr "Información..."
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_category_id
+msgid "Internal Category"
+msgstr "Categoría interna"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_is_new
+msgid "Is new?"
+msgstr "¿Es nuevo?"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product___last_update
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_group___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_group_write_uid
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_group_write_date
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_image_medium
+msgid "Medium-sized image"
+msgstr "Imagen de tamaño mediano"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_group_name
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_search_view
+msgid "New products"
+msgstr "Nuevos productos"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_price
+msgid "Price"
+msgstr "Precio"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_price_extra
+msgid "Price CUC"
+msgstr "Precio CUC"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_product_form_view
+msgid "Prices..."
+msgstr "Precios..."
+
+#. module: simple_product
+#: model:ir.ui.menu,name:simple_product.versat_uom_menu_item
+msgid "Product Categories"
+msgstr "Categorías"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_group_id
+msgid "Product Group"
+msgstr "Grupo"
+
+#. module: simple_product
+#: model:ir.actions.act_window,name:simple_product.simple_product_product_group_action
+#: model:ir.ui.menu,name:simple_product.simple_product_product_group_root_menu
+msgid "Product Groups"
+msgstr "Grupos"
+
+#. module: simple_product
+#: model:ir.ui.view,arch_db:simple_product.simple_product_product_form_view
+msgid "Product Name"
+msgstr "Nombre del producto"
+
+#. module: simple_product
+#: model:ir.actions.act_window,name:simple_product.simple_product_product_action
+#: model:ir.ui.menu,name:simple_product.simple_product_left_menu
+#: model:ir.ui.menu,name:simple_product.simple_product_product_root_menu
+#: model:ir.ui.menu,name:simple_product.simple_product_root_menu
+msgid "Products"
+msgstr "Productos"
+
+#. module: simple_product
+#: model:ir.model.fields,help:simple_product.field_simple_product_product_category_id
+msgid "Select category for the current product"
+msgstr "Seleccione la categoría para el producto actual."
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_image_small
+msgid "Small-sized image"
+msgstr "Imagen de tamaño pequeño"
+
+#. module: simple_product
+#: sql_constraint:simple_product.product:0
+msgid "The code must be unique!"
+msgstr "¡El código debe ser único!"
+
+#. module: simple_product
+#: model:ir.model.fields,field_description:simple_product.field_simple_product_product_uom_id
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: simple_product
+#: model:ir.ui.menu,name:simple_product.simple_product_product_uom_menu_item
+msgid "Units of Measure"
+msgstr "Unidades de medida"
+
+#. module: simple_product
+#: model:ir.model,name:simple_product.model_simple_product_product
+msgid "simple_product.product"
+msgstr "simple_product.product"
+
+#. module: simple_product
+#: model:ir.model,name:simple_product.model_simple_product_product_group
+msgid "simple_product.product.group"
+msgstr "simple_product.product.group"
+

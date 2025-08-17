@@ -39,8 +39,8 @@ class WorkOrder(Model):
     opening_date = Date(readonly=False, track_visibility='onchange')
     closing_date = Date(readonly=False, track_visibility='onchange')
 
-    execute_cost_center_id = Many2one('l10n_cu_base.cost_center', string='Execute', required=True, track_visibility='onchange')
-    receive_cost_center_id = Many2one('l10n_cu_base.cost_center', string='Receive', required=True, track_visibility='onchange')
+    execute_cost_center_id = Many2one('base_cu.cost_center', string='Execute', required=True, track_visibility='onchange')
+    receive_cost_center_id = Many2one('base_cu.cost_center', string='Receive', required=True, track_visibility='onchange')
     state = Selection([('created', 'Created'), ('open', 'Opened'), ('closed', 'Closed'), ('cancel', 'Cancelada')], default='created', readonly=True, track_visibility='onchange')
     type_id = Many2one('atm.work_order.type', string='Type', required=True, readonly=False, track_visibility='onchange')
 
@@ -58,7 +58,7 @@ class WorkOrder(Model):
 
     product_order_ids = One2many('warehouse.product_order', inverse_name='work_order_id', string='Products...')
 
-    work_order_mtto_id = Many2one('turei_maintenance.work_order', string='WOMTTO', required=False)
+    work_order_mtto_id = Many2one('maintenance_turei.work_order', string='WOMTTO', required=False)
     name = Char('Número ID', default=_default_name)
     number_new = Char("Número Nuevo", default=_default_name)
 
@@ -135,7 +135,7 @@ class WorkOrder(Model):
     #     return True
 
     def product_order_maintenance(self):
-        work_order = self.env['turei_maintenance.work_order'].browse(self.work_order_mtto_id.id)
+        work_order = self.env['maintenance_turei.work_order'].browse(self.work_order_mtto_id.id)
         if work_order:
             work_order.product_order_ids.unlink()
             list_product = []
@@ -168,14 +168,14 @@ class WorkOrder(Model):
                     for line in work_order.product_order_ids:
                         list_product.append((0, 0, {'product_id': line.product_id.id, 'quantity': line.quantity}))
                     vals['product_order_ids'] = list_product
-                work_order_mtto = self.env['turei_maintenance.work_order'].sudo().create(vals)
+                work_order_mtto = self.env['maintenance_turei.work_order'].sudo().create(vals)
                 work_order.write({'work_order_mtto_id': work_order_mtto.id})
         return work_order
 
     @api.model_create_multi
     def write(self, vals):
         res = super(WorkOrder, self).write(vals)
-        work_order = self.env['turei_maintenance.work_order'].browse(self.work_order_mtto_id.id)
+        work_order = self.env['maintenance_turei.work_order'].browse(self.work_order_mtto_id.id)
         if work_order:
             work_order.product_order_ids.unlink()
             list_product = []

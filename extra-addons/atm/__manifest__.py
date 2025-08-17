@@ -18,15 +18,15 @@ System for controlling the ATM department of the Lázaro Peña Cigar Company...
     * Warehouse and inventory control.
     """,
     'depends': [
-        'atm_product',
+        # 'atm_product',
         # 'versat_integration',
-        'l10n_cu_base',
+        'base_cu',
         'warehouse',
         'hr',
         # 'save_readonly_fields',
         # 'web_export_view',
         # 'hide_official_modules',
-        'turei_maintenance',
+        'maintenance_turei',
     ],
     'data': [
         # Security...

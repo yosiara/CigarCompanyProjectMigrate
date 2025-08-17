@@ -17,8 +17,8 @@ class WorkOrder(models.Model):
     opening_date = fields.Date(readonly=False, string='Fecha Apertura')
     closing_date = fields.Date(readonly=False, string='Fecha Cierre')
 
-    execute_cost_center_id = fields.Many2one('l10n_cu_base.cost_center', string='Ejecuta', required=True)
-    receive_cost_center_id = fields.Many2one('l10n_cu_base.cost_center', string='Recibe', required=True)
+    execute_cost_center_id = fields.Many2one('base_cu.cost_center', string='Ejecuta', required=True)
+    receive_cost_center_id = fields.Many2one('base_cu.cost_center', string='Recibe', required=True)
     state = fields.Selection([('created', 'Creada'), ('open', 'Abierta'), ('closed', 'Cerrada'), ('cancel', 'Cancelada')], default='created', readonly=True, string='Estado')
     # type_id = fields.Many2one('atmsys.work_order.type', string='Tipo', required=True, readonly=False)
 

@@ -7,6 +7,17 @@ class Product(models.Model):
     _inherit = "simple_product.product"
     _order = 'group_number'
 
+    # ----------------ATM Product Module Old-----------------------------#
+    is_protected = fields.Boolean(string='Is protected?')
+    is_for_contingency = fields.Boolean(string='Is for contingency?')
+    do_not_use = fields.Boolean(string='Must it not be used?')
+    is_exclusive_product = fields.Boolean(string='Exclusive?', help='Checked if the product if for exclusive use of a area...')
+    owner_id = fields.Many2one('hr.employee', string='Owner')
+    protection_cause = fields.Char(placeholder='Cause of the product protection...')
+    contingency_quantity = fields.Integer(string='Quantity', help='Quantity that must be kept for contingencies...')
+    area_id = fields.Many2one('base_cu.area', string='Area')
+    # ----------------ATM Product Module Old-----------------------------#
+
     group_number = fields.Char(string='Identificador de Grupo')
     group_name = fields.Char(string='Nombre de Grupo')
     consumption_norm_ids = fields.One2many('atm.consumption_norm', inverse_name='product_id', string='Normas de consumo')

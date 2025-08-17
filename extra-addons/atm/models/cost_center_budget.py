@@ -33,14 +33,14 @@ class CostCenterBudget(Model):
         self.real = res
 
     date = Date()
-    cost_center_id = Many2one('l10n_cu_base.cost_center', string='Cost Center', required=True)
+    cost_center_id = Many2one('base_cu.cost_center', string='Cost Center', required=True)
     real = Float(digits=(16, 4), compute=_compute_real)
     plan = Float(digits=(16, 4))
 CostCenterBudget()
 
 
 class CostCenter(Model):
-    _inherit = 'l10n_cu_base.cost_center'
+    _inherit = 'base_cu.cost_center'
 
     
     def _compute_has_budgets(self):

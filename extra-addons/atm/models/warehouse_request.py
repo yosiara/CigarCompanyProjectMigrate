@@ -44,9 +44,9 @@ class WarehouseRequest(Model):
     code = Char(required=True, default=_get_code)
     work_order_id = Many2one('atm.work_order', string='Work order', domain=[('state', '=', 'open')])
 
-    area_id = Many2one('l10n_cu_base.area', string='Area')
-    responsibility_area_id = Many2one('l10n_cu_base.responsibility_area', string='Responsibility Area', required=True)
-    cost_center_id = Many2one('l10n_cu_base.cost_center', string='Cost Center', required=True)
+    area_id = Many2one('base_cu.area', string='Area')
+    responsibility_area_id = Many2one('base_cu.responsibility_area', string='Responsibility Area', required=True)
+    cost_center_id = Many2one('base_cu.cost_center', string='Cost Center', required=True)
 
     # Used to alert when the budget value has been exceeded...
     is_exceeded_budget = Boolean(compute=_is_cost_center_exceeding_budget)
@@ -130,7 +130,7 @@ ProductOrder()
 
 
 class Area(Model):
-    _inherit = 'l10n_cu_base.area'
+    _inherit = 'base_cu.area'
 
     
     def _compute_has_assingments(self):
@@ -155,7 +155,7 @@ Area()
 
 
 class CostCenter(Model):
-    _inherit = 'l10n_cu_base.cost_center'
+    _inherit = 'base_cu.cost_center'
 
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):

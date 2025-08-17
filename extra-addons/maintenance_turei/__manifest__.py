@@ -14,7 +14,7 @@ Maintenance Turei
 
 Control module of the Industrial Maintenance Process of the Lázaro Peña Cigar Company.
     """,
-    'depends': ['maintenance', 'l10n_cu_base', 'warehouse'],
+    'depends': ['maintenance', 'base_cu', 'warehouse'],
     'data': [
         # Security...
         # 'security/security.xml',

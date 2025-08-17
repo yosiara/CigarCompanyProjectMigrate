@@ -20,7 +20,7 @@ class MaintenanceEquipment(models.Model):
 
     category_id = fields.Many2one('maintenance.equipment.category', string='Taller',
                                   track_visibility='onchange', group_expand='_read_group_category_ids')
-    location = fields.Many2one('l10n_cu_base.cost_center', string='Usado en la ubicación')
+    location = fields.Many2one('base_cu.cost_center', string='Usado en la ubicación')
     state = fields.Selection([('bueno', 'Bueno'), ('regular', 'Regular'), ('malo', 'Malo'), ('fuera_servicio', 'Fuera Servicio'), ('conservacion','Conservación'), ('baja','Baja')], string='Estado')
     year_production = fields.Char(string='Año de Fabricación')
     brand = fields.Char(string='Marca')

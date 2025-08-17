@@ -29,7 +29,7 @@ class ProductAssingment(Model):
         self.given_quantity = res
 
     date = Date()
-    area_id = Many2one('l10n_cu_base.area', string='Area', required=True)
+    area_id = Many2one('base_cu.area', string='Area', required=True)
     product_id = Many2one('simple_product.product', string='Product', required=True)
     given_quantity = Float(digits=(16, 4), compute=_compute_given_quantity)
     quantity = Float(digits=(16, 4), required=True)
