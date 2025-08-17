@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import import_wizard
-import print_report_wizard
-import work_order_cancel_wizard
+from . import import_wizard
+from . import print_report_wizard
+from . import work_order_cancel_wizard
