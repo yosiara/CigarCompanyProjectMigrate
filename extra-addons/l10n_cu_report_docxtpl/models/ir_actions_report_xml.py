@@ -17,7 +17,7 @@ class IrActionsReportXml(models.Model):
 
     _inherit = 'ir.actions.report.xml'
 
-    @api.multi
+    @api.model_create_multi
     @api.constrains("docxtpl_filetype", "report_type")
     def _check_docxtpl_filetype(self):
         for report in self:
@@ -78,7 +78,7 @@ class IrActionsReportXml(models.Model):
         return super(IrActionsReportXml, self).render_report(
             res_ids, name, data)
 
-    @api.multi
+    @api.model_create_multi
     def gen_report_download_filename(self, res_ids, data):
         """Override this function to change the name of the downloaded report
         """

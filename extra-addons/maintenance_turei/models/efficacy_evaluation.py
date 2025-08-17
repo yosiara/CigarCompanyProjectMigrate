@@ -13,7 +13,7 @@ class EvaluationParameter(models.Model):
     value_opt = fields.Float('Valor Óptimo Alcanzado', default=65.00)
     efficacy_evaluation_ids = fields.One2many(comodel_name='maintenance_turei.efficacy_evaluation', inverse_name='evaluation_parameter_id', string='Indicadores')
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('cohef_maint', 'unit_cohef_maint')
     def _compute_value_efficacy_industry(self):
         for c_model in self:
@@ -41,20 +41,20 @@ class EfficacyEvaluation(models.Model):
     # unit_value_efficacy_industry = fields.Selection(selection=[('>', '>'), ('<', '<'), ('>=', '>='), ('<=', '<=')], string='Operador para puntuación eficiente')
     # comp_value_efficacy_industry = fields.Char('Puntuación para determinar si el proceso de mantenimiento es eficiente', compute='_compute_value_efficacy_industry', store=True)
 
-    # @api.multi
+    # @api.model_create_multi
     # @api.depends('value_punctuation', 'value_weight')
     # def _compute_value_reached(self):
     #     for c_model in self:
     #         c_model.value_reached = c_model.value_punctuation * c_model.value_weight
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('value_efficacy', 'unit_value_efficacy')
     def _compute_value_efficacy(self):
         for c_model in self:
             value_unit = c_model.unit_value_efficacy if c_model.unit_value_efficacy else ''
             c_model.comp_value_efficacy = '{} {}'.format(value_unit, c_model.value_efficacy)
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('value_no_efficacy', 'unit_value_no_efficacy')
     def _compute_value_no_efficacy(self):
         for c_model in self:

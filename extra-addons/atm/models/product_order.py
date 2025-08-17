@@ -48,7 +48,7 @@ class ProductOrder(Model):
             controls.write({'quantity_system': controls[0].quantity_system - values['quantity']})
         return res
 
-    @api.multi
+    @api.model_create_multi
     def write(self, values):
         if self.stock_validation < values.get('quantity'):
             raise ValidationError(_('The requested product quantity can not be great than the product stock...'))
@@ -68,7 +68,7 @@ class ProductOrder(Model):
 
         return super(ProductOrder, self).write(values)
 
-    @api.multi
+    @api.model_create_multi
     def unlink(self):
         for record in self:
             control_obj = record.env['warehouse.product_control']

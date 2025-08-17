@@ -8,7 +8,7 @@ from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 class MaintenanceEquipment(models.Model):
     _inherit = "maintenance.equipment"
 
-    @api.multi
+    @api.model_create_multi
     def name_get(self):
         result = []
         for record in self:
@@ -259,7 +259,7 @@ class CycleMaintenancePlan(models.Model):
     date = fields.Date('Fecha Inicio')
     year_char = fields.Char(string=u"Año", required=False, compute="_compute_year_char", store=True)
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('date')
     def _compute_year_char(self):
         for c_model in self:
@@ -273,7 +273,7 @@ class CycleMaintenancePlan(models.Model):
         res.equipment_id._create_new_request(res.date, res.cycle)
         return res
 
-    @api.multi
+    @api.model_create_multi
     def unlink(self):
         self.env['maintenance.request'].search([('equipment_id', '=', self.equipment_id.id), ('cycle_id', '=', self.cycle.id), ('request_date', '=', self.date)]).unlink()
         return super(CycleMaintenancePlan, self).unlink()
@@ -311,7 +311,7 @@ class MaintenanceRequest(models.Model):
     cycle_id = fields.Many2one('maintenance_turei.cycle_maintenance', string='Ciclo')
     year_char = fields.Char(string=u"Año", required=False, compute="_compute_year_char", store=True)
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('request_date')
     def _compute_year_char(self):
         for c_model in self:

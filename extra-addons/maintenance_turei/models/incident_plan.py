@@ -13,7 +13,7 @@ class IncidentPlan(models.Model):
     description = fields.Text(string="Descripción")
     year_char = fields.Char(string=u"Año", required=False, compute="_compute_year_char", store=True)
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('date_start')
     def _compute_year_char(self):
         for c_model in self:

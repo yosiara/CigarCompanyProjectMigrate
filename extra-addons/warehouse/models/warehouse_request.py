@@ -26,7 +26,7 @@ class WarehouseRequest(Model):
     requested_product_ids = One2many('warehouse.product_order', inverse_name='warehouse_request_id', string='Products')
     note = Text()
 
-    @api.multi
+    @api.model_create_multi
     def unlink(self):
         for record in self:
             record.requested_product_ids.unlink()

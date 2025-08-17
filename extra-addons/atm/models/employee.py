@@ -9,7 +9,7 @@ class Employee(Model):
     _inherit = 'hr.employee'
     can_authorize_a_blind_reception = Boolean(string='Can authorize a Blind Reception?')
 
-    # @api.multi
+    # @api.model_create_multi
     # def name_get(self):
     #     results = []
     #     for record in self:

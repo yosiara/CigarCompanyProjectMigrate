@@ -23,7 +23,7 @@ class District(models.Model):
     name = fields.Char('District name', size=64)
     code = fields.Char('Code', size=3, help='The District code in three chars', required=True)
 
-    @api.multi
+    @api.model_create_multi
     def name_get(self):
         result = []
         for record in self:

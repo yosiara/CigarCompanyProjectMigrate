@@ -19,7 +19,7 @@ class VersatConcept(Model):
     to_import = Boolean(string='Import?')
     is_out_operation = Boolean(string='Is out operation?')
 
-    @api.multi
+    @api.model_create_multi
     def write(self, vals):
         res = super(VersatConcept, self).write(vals)
         return res

@@ -172,7 +172,7 @@ class WorkOrder(Model):
                 work_order.write({'work_order_mtto_id': work_order_mtto.id})
         return work_order
 
-    @api.multi
+    @api.model_create_multi
     def write(self, vals):
         res = super(WorkOrder, self).write(vals)
         work_order = self.env['turei_maintenance.work_order'].browse(self.work_order_mtto_id.id)

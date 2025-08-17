@@ -28,7 +28,7 @@ class ImportComputersAndComponentsWizard(models.TransientModel):
 
     import_software = fields.Boolean('Import Software', default=False)
 
-    #@api.multi
+    #@api.model_create_multi
     def action_import(self):
         self._action_import_function()
         return {

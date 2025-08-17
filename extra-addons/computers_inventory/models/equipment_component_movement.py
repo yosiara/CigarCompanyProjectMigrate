@@ -62,7 +62,7 @@ class MaintenanceEquipment(models.Model):
         #if len(aux):
         #    self.has_movements_for_approval = True
 
-    #@api.multi
+    #@api.model_create_multi
     def show_movements(self):
         return {
             'name': _('Detailed view...'),

@@ -9,7 +9,7 @@ class ResUsers(models.Model):
 
     _inherit = 'res.users'
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('create_date')
     def _compute_channel_names(self):
         for record in self:
@@ -22,19 +22,19 @@ class ResUsers(models.Model):
     notify_warning_channel_name = fields.Char(
         compute='_compute_channel_names')
 
-    @api.multi
+    @api.model_create_multi
     def notify_info(self, message, title=None, sticky=False):
         title = title or _('Information')
         self._notify_channel(
             'notify_info_channel_name', message, title, sticky)
 
-    @api.multi
+    @api.model_create_multi
     def notify_warning(self, message, title=None, sticky=False):
         title = title or _('Warning')
         self._notify_channel(
             'notify_warning_channel_name', message, title, sticky)
 
-    @api.multi
+    @api.model_create_multi
     def _notify_channel(self, channel_name_field, message, title, sticky):
         bus_message = {
             'message': message,

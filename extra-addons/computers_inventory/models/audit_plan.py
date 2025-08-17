@@ -64,7 +64,7 @@ class AuditPlan(models.Model):
     def button_unrealized(self):
         self.state = 'unrealized'
 
-    #@api.multi
+    #@api.model_create_multi
     def unlink(self):
         for obj in self:
             if obj.state != 'planned':

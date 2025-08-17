@@ -22,14 +22,14 @@ class Product(models.Model):
     is_tool_or_util = fields.Boolean(string='Is util or tool?', compute='_compute_is_tool_or_util')
     is_aft = fields.Boolean(string='AFT?', compute='_compute_is_aft')
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('account_id')
     def _compute_is_tool_or_util(self):
         for rec in self:
             if rec.account_id.code in [187]:
                 rec.is_tool_or_util = True
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('account_id')
     def _compute_is_aft(self):
         for rec in self:

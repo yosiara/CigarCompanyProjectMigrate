@@ -15,7 +15,7 @@ class EquipmentSoftware(models.Model):
     ocs_external_id = fields.Integer()
     notes = fields.Text()
 
-    #@api.multi
+    #@api.model_create_multi
     def write(self, vals):
         vals['ocs_external_id'] = False
         res = super(EquipmentSoftware, self).write(vals)

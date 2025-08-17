@@ -59,7 +59,7 @@ class WarehouseRequest(Model):
 
     required_field_receive_id = Boolean(compute='_compute_required_field_receive_id')
 
-    @api.multi
+    @api.model_create_multi
     @api.depends('requested_product_ids')
     def _compute_required_field_receive_id(self):
         for rec in self:
@@ -108,7 +108,7 @@ class WarehouseRequest(Model):
             rec.write({'work_order_id': res.work_order_id.id})
         return res
 
-    @api.multi
+    @api.model_create_multi
     def write(self, values):
         if self.work_order_id and self.work_order_id.state == 'closed':
             if values.get('requested_product_ids', False):

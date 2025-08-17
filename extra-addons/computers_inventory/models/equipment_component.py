@@ -89,7 +89,7 @@ class EquipmentComponent(models.Model):
         ret_val = createBarcodeDrawing('QR', value=tools.ustr(qr_code), **options)
         self.qrcode_image = base64.encodestring(ret_val.asString('jpg'))
 
-    #@api.multi
+    #@api.model_create_multi
     def _compute_specific_properties(self):
         for record in self:
             if record.component_type == 'motherboard':

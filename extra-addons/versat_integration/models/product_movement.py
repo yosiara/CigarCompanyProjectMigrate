@@ -22,7 +22,7 @@ class ProductMovement(Model):
     description = Char()
     date = Date()
 
-    @api.multi
+    @api.model_create_multi
     def unlink(self):
         product_control_obj = self.env['warehouse.product_control']
         for product_movement in self:

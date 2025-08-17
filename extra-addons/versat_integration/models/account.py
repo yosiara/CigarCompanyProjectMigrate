@@ -7,7 +7,7 @@ class Account(models.Model):
     _name = 'versat_integration.account'
     _description = 'versat_integration.account'
 
-    @api.multi
+    @api.model_create_multi
     def name_get(self):
         return [(x.id, '%s - %s' % (x.code, x.name)) for x in self]
 

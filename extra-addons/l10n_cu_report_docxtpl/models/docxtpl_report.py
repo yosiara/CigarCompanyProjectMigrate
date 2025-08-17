@@ -81,7 +81,7 @@ class DocxTplReport(models.TransientModel):
         required=True, ondelete='cascade'
     )
 
-    @api.multi
+    @api.model_create_multi
     def _is_valid_template_path(self, path):
         """ Check if the path is a trusted path for docxtpl templates.
         """
@@ -100,7 +100,7 @@ class DocxTplReport(models.TransientModel):
                 "path %s", real_path, root_path)
         return is_valid
 
-    @api.multi
+    @api.model_create_multi
     def _is_valid_template_filename(self, filename):
         """ Check if the filename can be used as docxtpl template
         """
@@ -115,7 +115,7 @@ class DocxTplReport(models.TransientModel):
             '%s is not a valid Docx template filename', filename)
         return False
 
-    @api.multi
+    @api.model_create_multi
     def _get_template_from_path(self, tmpl_name):
         """ Return the template from the path to root of the module if specied
         or an absolute path on your server
@@ -137,7 +137,7 @@ class DocxTplReport(models.TransientModel):
                 return tmpl.read()
         return None
 
-    @api.multi
+    @api.model_create_multi
     def _get_template_fallback(self, model_instance):
         """
         Return the template referenced in the report definition
@@ -147,7 +147,7 @@ class DocxTplReport(models.TransientModel):
         report_xml = self.ir_actions_report_xml_id
         return self._get_template_from_path(report_xml.docxtpl_template_fallback)
 
-    @api.multi
+    @api.model_create_multi
     def get_template(self, model_instance):
         """private helper to fetch the template data either from the database
         or from the default template file provided by the implementer.
@@ -181,7 +181,7 @@ class DocxTplReport(models.TransientModel):
 
         return tmpl_data
 
-    @api.multi
+    @api.model_create_multi
     def _extend_parser_context(self, context_instance, report_xml):
         # add default extenders
         for fct in _extender_functions.get(None, []):
@@ -192,7 +192,7 @@ class DocxTplReport(models.TransientModel):
             for fct in _extender_functions[xml_id]:
                 fct(report_xml, context_instance.localcontext)
 
-    @api.multi
+    @api.model_create_multi
     def _get_parser_context(self, model_instance, data):
         report_xml = self.ir_actions_report_xml_id
         context_instance = rml_parse(self.env.cr, self.env.uid,
@@ -224,7 +224,7 @@ class DocxTplReport(models.TransientModel):
                         'The PDF document %s is now saved in the database',
                         attachment['name'])
 
-    @api.multi
+    @api.model_create_multi
     def _create_single_report(self, model_instance, data, save_in_attachment):
         """ This function to generate our docxtpl report
         """
@@ -255,7 +255,7 @@ class DocxTplReport(models.TransientModel):
 
         return result_path
 
-    @api.multi
+    @api.model_create_multi
     def _replace_media(self, tpl, media, localcontext):
         for m in media:
             dst = False
@@ -271,7 +271,7 @@ class DocxTplReport(models.TransientModel):
             if src and dst:
                 tpl.replace_media(src, dst)
 
-    @api.multi
+    @api.model_create_multi
     def _replace_logo(self, tpl, data, localcontext):
         dst = False
         src = False
@@ -283,7 +283,7 @@ class DocxTplReport(models.TransientModel):
         if src and dst:
             tpl.replace_media(src, dst)
 
-    @api.multi
+    @api.model_create_multi
     def _convert_single_report(self, result_path, model_instance, data):
         """Run a command to convert to our target format"""
         filetype = self.ir_actions_report_xml_id.docxtpl_filetype
@@ -305,7 +305,7 @@ class DocxTplReport(models.TransientModel):
             )
         return result_path
 
-    @api.multi
+    @api.model_create_multi
     def _convert_single_report_cmd(self, result_path, model_instance, data):
         """Return a command list suitable for use in subprocess.call"""
         return [
@@ -318,7 +318,7 @@ class DocxTplReport(models.TransientModel):
             result_path,
         ]
 
-    @api.multi
+    @api.model_create_multi
     def _get_or_create_single_report(self, model_instance, data, save_in_attachment):
         self.ensure_one()
         if save_in_attachment and save_in_attachment['loaded_documents'].get(model_instance.id):
@@ -329,7 +329,7 @@ class DocxTplReport(models.TransientModel):
             return report_file
         return self._create_single_report(model_instance, data, save_in_attachment)
 
-    @api.multi
+    @api.model_create_multi
     def _zip_results(self, reports_path):
         self.ensure_one()
         zfname_prefix = self.ir_actions_report_xml_id.name
@@ -344,7 +344,7 @@ class DocxTplReport(models.TransientModel):
                 cpt += 1
         return result_path
 
-    @api.multi
+    @api.model_create_multi
     def _merge_results(self, reports_path):
         self.ensure_one()
         filetype = self.ir_actions_report_xml_id.docxtpl_filetype
@@ -367,7 +367,7 @@ class DocxTplReport(models.TransientModel):
                 logger.error(
                     'Error when trying to remove file %s' % temporary_file)
 
-    @api.multi
+    @api.model_create_multi
     def create_report(self, res_ids, data):
         model_instances = self.env[self.ir_actions_report_xml_id.model].browse(res_ids)
         save_in_attachment = self._check_attachment_use(res_ids, self.ir_actions_report_xml_id) or {}

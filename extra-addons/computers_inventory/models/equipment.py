@@ -82,7 +82,7 @@ class MaintenanceEquipment(models.Model):
             equipment.message_subscribe_users(user_ids=user_ids)
         return equipment
 
-    ##@api.multi
+    ##@api.model_create_multi
     def write(self, vals):
         res = super(MaintenanceEquipment, self).write(vals)
         user_ids = []
@@ -95,7 +95,7 @@ class MaintenanceEquipment(models.Model):
             self.message_subscribe_users(user_ids=user_ids)
         return res
 
-    ##@api.multi
+    ##@api.model_create_multi
     def _track_subtype(self, init_values):
         self.ensure_one()
         if 'employee_ids' in init_values and self.employee_ids:
