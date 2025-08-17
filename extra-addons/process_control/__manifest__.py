@@ -2,13 +2,13 @@
 {
     'name': 'Process Control',
     'version': '17.0',
-    'author': 'Yosiel Arango Arencibia',
-    'category': 'Turei',
-    "license": "LGPL-3",
+    'author': 'Computer Science Specialist, '
+    'Yosiel R. Arango Arencibia. ',
+    'category': 'Productivity',
+    'license': 'LGPL-3',
     'sequence': 2,
     'summary': 'Control of the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba',
-    'description': """Control module for interruptions in the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba.""",
-    'images': [],
+    'description': 'Control module for interruptions in the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba.',
     'depends': ['mail'],
     'data': [
         #-----------------------data-------------------------------------#
@@ -82,7 +82,6 @@
         # 'reports/production_rejection_report.xml',
         # 'reports/resume_time_frequencyn_report.xml',
     ],
-    'application': True,
     'assets': {
         'web.assets_backend': [
             'process_control/static/src/js/report_handler.js',
@@ -90,4 +89,6 @@
             #'process_control/static/src/css/fields.css',
         ],
     },
+    'installable': True,
+    'application': True,
 }

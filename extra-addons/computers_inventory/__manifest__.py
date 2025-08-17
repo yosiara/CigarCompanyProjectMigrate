@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 
 {
-    "name": "PC-Inside v1.1",
-    "summary": "Sistema que gestiona varias de las acciones que se realizan en el área de informática. Resaltando la Seguridad Informática.",
+    "name": "PC Inside",
+    "author": "Computer Science Specialist, "
+    "Yosiel R. Arango Arencibia. ",
+    "category": "Inventory",
+    "version": "1.0",
+    "summary": "A system that manages various actions performed in the IT field, emphasizing IT security.",
     "description": """
 Computers Inventory
 ===================
@@ -10,12 +14,6 @@ Computers Inventory
 Computers Inventory using OCS Inventory Server...
     * Server Version: 2.3.1...
 """,
-    "author": "Yosiel Arango Arencibia. Holguín. Cuba.",
-    # Categories can be used to filter modules in modules listing.
-    # Check /odoo/addons/base/module/module_data.xml for the full list.
-    "category": "Tools",
-    "version": "1.0",
-    # Any module necessary for this one to work correctly.
     "depends": [
         "db_external_connector",
         #'l10n_cu_report_docxtpl',
@@ -24,7 +22,6 @@ Computers Inventory using OCS Inventory Server...
         #'l10n_cu_base',
         "l10n_cu_locals",
     ],
-    # Always loaded.
     "data": [
         # Security...
         "security/security.xml",
@@ -71,16 +68,11 @@ Computers Inventory using OCS Inventory Server...
         # Templates...
         #'static/src/xml/webclient_templates.xml',
     ],
-    # Only loaded in demonstration mode.
-    "demo": [],
-    "test": [],
-    "installable": True,
-    "application": True,
-    "auto_install": False,
-    # "post_init_hook": "post_init_hook",
     "assets": {
         "web.assets_backend": [
             "/computers_inventory/static/src/css/styles.css",
         ],
     },
+    "installable": True,
+    "application": True,
 }

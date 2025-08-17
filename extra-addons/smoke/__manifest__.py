@@ -1,24 +1,21 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Smoke",
-    "summary": "Management of the smoking process, Lázaro Peña Cigar Factory. Holguín, Cuba",
-    "description": """
-        Module in development to facilitate the management of the smoking process for workers 
-        at the Lázaro Peña Cigar Factory. Holguín, Cuba.
-    """,
-    "author": "Yosiel Arango Arencibia",
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
-    "category": "Turei",
+    "author": "Computer Science Specialist, "
+    "Yosiel R. Arango Arencibia. ",
+    "category": "Sales",
     "version": "17.0",
     "license": "LGPL-3",
-    # any module necessary for this one to work correctly
+    "sequence": 1,
+    "summary": "Management of the smoking process, Lázaro Peña Cigar Factory. Holguín, Cuba",
+    "description": """
+Module in development to facilitate the management of the smoking process for workers 
+at the Lázaro Peña Cigar Factory. Holguín, Cuba.
+    """,
     "depends": [
         "base",
         "db_external_connector",
     ],
-    # always loaded
     "data": [
         # data
         "data/cron.xml",
@@ -34,10 +31,9 @@
         # wizard
         "wizard/smoke_wzd.xml",
     ],
-    # only loaded in demonstration mode
     "demo": [
         "demo/demo.xml",
     ],
-    "sequence": 1,
+    "installable": True,
     "application": True,
 }
