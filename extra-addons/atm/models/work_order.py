@@ -113,7 +113,7 @@ class WorkOrder(Model):
 
 
 
-    # @api.one
+    # 
     # @api.constrains('number')
     # def _check_number(self):
     #     value = ""

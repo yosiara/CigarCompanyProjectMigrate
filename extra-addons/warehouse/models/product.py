@@ -8,7 +8,7 @@ from odoo.fields import One2many, Char, Many2one
 class Product(Model):
     _inherit = "simple_product.product"
 
-    @api.one
+    
     def _compute_product_controls_as_str(self):
         rep = ""
         cont = 1

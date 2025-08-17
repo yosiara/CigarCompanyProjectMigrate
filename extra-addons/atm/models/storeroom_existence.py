@@ -38,7 +38,7 @@ class StoreroomProduct(models.Model):
     quantity_last_day = fields.Float(required=True, digits=(16, 4), string='Ultima cantidad', readonly=True)
     quantity = fields.Float(required=True, digits=(16, 4), string='Cantidad actual')
 
-    @api.one
+    
     @api.depends('storeroom_existence_id.date')
     def _compute_date(self):
         self.date = self.storeroom_existence_id.date

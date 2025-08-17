@@ -11,7 +11,7 @@ class CostCenterBudget(Model):
     _description = 'atm.cost_center.budget'
     _rec_name = 'cost_center_id'
 
-    @api.one
+    
     def _compute_real(self):
         work_order_type_obj = self.env['atm.work_order.type']
         used_in_budget = work_order_type_obj.search([('is_used_in_budget', '=', True)])
@@ -42,7 +42,7 @@ CostCenterBudget()
 class CostCenter(Model):
     _inherit = 'l10n_cu_base.cost_center'
 
-    @api.one
+    
     def _compute_has_budgets(self):
         if not len(self.budget_ids):
             self.has_budgets = False

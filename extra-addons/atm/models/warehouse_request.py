@@ -26,14 +26,14 @@ class WarehouseRequest(Model):
         code += rep
         return code
 
-    @api.one
+    
     def _is_cost_center_exceeding_budget(self):
         if self.cost_center_id.is_budget_exceeded():
             self.is_exceeded_budget = True
         else:
             self.is_exceeded_budget = False
 
-    @api.one
+    
     def _is_exceeded_product_assingment(self):
         print self.area_id.is_assingment_exceeded()
         if self.area_id.is_assingment_exceeded():
@@ -68,7 +68,7 @@ class WarehouseRequest(Model):
                     rec.required_field_receive_id = True
                     continue
 
-    @api.one
+    
     @api.depends('requested_product_ids')
     def _compute_requested_products(self):
         for product_order in self.requested_product_ids:
@@ -132,7 +132,7 @@ ProductOrder()
 class Area(Model):
     _inherit = 'l10n_cu_base.area'
 
-    @api.one
+    
     def _compute_has_assingments(self):
         if not len(self.assingment_ids):
             self.has_assingments = False

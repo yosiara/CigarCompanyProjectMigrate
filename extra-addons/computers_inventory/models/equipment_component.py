@@ -76,7 +76,7 @@ class EquipmentComponent(models.Model):
             return {'value': {'name': '%s / %s' % (self.manufacturer_custom, self.model_custom)}}
 
 
-    #@api.one
+    #
     @api.depends('name', 'equipment_id', 'inventory_number')
     def get_qrimage(self):
         options = {'width': 100 * mm, 'height': 100 * mm}

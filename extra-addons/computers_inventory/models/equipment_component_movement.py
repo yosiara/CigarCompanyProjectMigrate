@@ -21,13 +21,13 @@ class ComponentMovement(models.Model):
         track_visibility='onchange', copy=False, default='waiting_approval'
     )
 
-    #@api.one
+    #
     @api.depends('component_id')
     def _compute_component_type(self):
         if self.equipment_id and self.component_id:
             self.component_type = self.component_id.component_type
 
-    #@api.one
+    #
     def action_approve(self):
         self.equipment_id.quantity_movements_for_approval = self.equipment_id.quantity_movements_for_approval - 1
         self.state = 'approved'
@@ -50,7 +50,7 @@ class MaintenanceEquipment(models.Model):
         domain=[('state', '=', 'waiting_approval')]
     )
 
-    #@api.one
+    #
     def _compute_has_movements_for_approval(self):
         # #args = [('equipment_id', '=', self.id), ('state', '=', 'waiting_approval')]
         # print("Self: ******", self)
@@ -74,11 +74,11 @@ class MaintenanceEquipment(models.Model):
             'target': 'current',
         }
 
-    #@api.one
+    #
     def _compute_quantity_movements(self):
         self.quantity_movements = 5
 
-    #@api.one
+    #
     def approve_all_movements(self):
         self.quantity_movements_for_approval = 0
         self.env['equipment.component_movement'].search(

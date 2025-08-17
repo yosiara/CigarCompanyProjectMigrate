@@ -71,21 +71,21 @@ class ProductOrder(Model):
     product_id = Many2one('simple_product.product', string='Product', required=True)
     quantity = Float(digits=(16, 4), required=True)
 
-    @api.one
+    
     def _compute_shelf(self):
         for location in self.product_id.location_ids:
             if location.warehouse_id.id == self.warehouse_id.id:
                 loc = location.location.split('-')
                 self.shelf = loc[2] if len(loc) >= 3 else ''
 
-    @api.one
+    
     def _compute_row(self):
         for location in self.product_id.location_ids:
             if location.warehouse_id.id == self.warehouse_id.id:
                 loc = location.location.split('-')
                 self.row = loc[3] if len(loc) >= 4 else ''
 
-    @api.one
+    
     def _compute_pigeonhole(self):
         for location in self.product_id.location_ids:
             if location.warehouse_id.id == self.warehouse_id.id:
@@ -96,7 +96,7 @@ class ProductOrder(Model):
     row = Char(compute=_compute_row)
     pigeonhole = Char(compute=_compute_pigeonhole)
 
-    @api.one
+    
     def _compute_request_date(self):
         self.request_date = self.warehouse_request_id.date
 

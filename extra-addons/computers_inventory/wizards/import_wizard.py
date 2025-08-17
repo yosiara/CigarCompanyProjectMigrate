@@ -64,7 +64,7 @@ class ImportComputersAndComponentsWizard(models.TransientModel):
 
         return True
 
-    #@api.one
+    #
     def import_equipments_from_ocs_database(self, connection):
         cursor = connection.cursor()
         query = """SELECT TAG, ID, UUID, NAME, OSNAME, OSVERSION, LASTDATE, USERID, UUID, ARCH, IPADDR, WORKGROUP
@@ -682,7 +682,7 @@ class ImportComputersAndComponentsWizard(models.TransientModel):
                 'type': 'down'
             })
 
-    #@api.one
+    #
     # @api.constrains('connector_id')
     # def check_reg(self):
     #     resp = self.env['l10n_cu_base.reg'].check_reg('l10n_cu_hlg_computers_inventory')

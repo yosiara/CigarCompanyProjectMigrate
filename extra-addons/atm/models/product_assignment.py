@@ -11,7 +11,7 @@ class ProductAssingment(Model):
     _description = 'atm.product_assignment'
     _rec_name = 'area_id'
 
-    @api.one
+    
     def _compute_given_quantity(self):
         request_obj = self.env['warehouse.warehouse_request']
         requests = request_obj.search([('area_id', '=', self.area_id.id)])
@@ -37,7 +37,7 @@ class ProductAssingment(Model):
     # To know the real request of the product...
     detail_ids = One2many('atm.product_assignment.detail', inverse_name='assingment_id', string='Deliveries...')
 
-    @api.one
+    
     def action_compute_product_deliveries(self):
         detail_obj = self.env['atm.product_assignment.detail']
         details = detail_obj.search([('assingment_id', '=', self.id)])

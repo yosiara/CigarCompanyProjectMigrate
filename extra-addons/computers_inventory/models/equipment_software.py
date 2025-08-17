@@ -21,7 +21,7 @@ class EquipmentSoftware(models.Model):
         res = super(EquipmentSoftware, self).write(vals)
         return res
 
-    #@api.one
+    #
     def confirm(self):
         self.ocs_external_id = False
         return True

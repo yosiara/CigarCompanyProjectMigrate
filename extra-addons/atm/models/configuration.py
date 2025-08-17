@@ -49,7 +49,7 @@ class ReportConfiguration(models.Model):
         string='Products'
     )
 
-    @api.one
+    
     def action_save(self):
         return True
 

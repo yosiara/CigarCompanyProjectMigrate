@@ -50,7 +50,7 @@ class MaintenanceEquipment(models.Model):
     work_order_count = fields.Integer(string='Ord. de Trabajo', compute='_compute_work_order_count')
     history_work_order_count = fields.Integer(string='Historial de OT', compute='_compute_history_work_order_count')
 
-    # @api.one
+    # 
     # def _compute_equipment_parts_count(self):
     #     count = 0
     #     for parts in self.equipment_parts_ids:
@@ -69,32 +69,32 @@ class MaintenanceEquipment(models.Model):
             equipment_electric_motor = equipment_electric_motor_obj.search([('equipment_ids', 'in', record.id)]).mapped('id')
             record.equipment_electric_motor_ids = equipment_electric_motor
 
-    # @api.one
+    # 
     # def _compute_equipment_electric_motor_count(self):
     #     count = 0
     #     for motor in self.equipment_electric_motor_ids:
     #         count += motor.quantity
     #     self.equipment_electric_motor_count = count
 
-    @api.one
+    
     def _compute_history_work_order_count(self):
         work_order_obj = self.env['maintenance_turei.work_order']
         count = work_order_obj.search_count([('equipament_id', '=', self.id)])
         self.history_work_order_count = count
 
-    @api.one
+    
     def _compute_work_order_count(self):
         work_order_obj = self.env['maintenance_turei.work_order']
         count = work_order_obj.search_count([('equipament_id', '=', self.id), ('opening_date', '>=', datetime.now().strftime('%Y-01-01')),('opening_date', '<=', datetime.now().strftime('%Y-12-31'))])
         self.work_order_count = count
 
-    # @api.one
+    # 
     # @api.depends('maintenance_ids.stage_id.done')
     # def _compute_maintenance_count(self):
     #     self.maintenance_count = len(self.maintenance_ids)
     #     self.maintenance_open_count = len(self.maintenance_ids.filtered(lambda x: not x.stage_id.done))
 
-    @api.one
+    
     def _compute_cycle_maintenance(self):
         name = ''
         long = 0

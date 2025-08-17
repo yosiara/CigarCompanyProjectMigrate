@@ -37,7 +37,7 @@ class hr_turei_employee_movement(models.Model):
 
 
     @api.constrains('old_job_position_id', 'new_job_position_id')
-    @api.one
+    
     def _validate_job_positions(self):
         if not self.old_job_position_id and not self.new_job_position_id:
             raise UserError(_('The fields "Old Job Position" and "New Job Position" can not be empty '
@@ -77,7 +77,7 @@ class hr_turei_employee_movement(models.Model):
 
         return super(hr_turei_employee_movement, self).create(values)
 
-    @api.one
+    
     def write(self, values):
         if values['movement_type'] == 'PR' or values['movement_type'] == 'A':
             job_data = self.env['hr.job'].search([('id', '=', values['new_job_position_id'])])

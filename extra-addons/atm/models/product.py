@@ -36,7 +36,7 @@ class Product(models.Model):
             if rec.account_id.code in [240, 241, 242, 243, 244, 247, 248, 249, 250, 251]:
                 rec.is_aft = True
 
-    @api.one
+    
     def _compute_product_controls_as_str(self):
         rep = ""
         cont = 1

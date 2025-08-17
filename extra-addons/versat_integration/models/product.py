@@ -8,28 +8,28 @@ from odoo.fields import Integer, One2many, Float, Many2one
 class ProductProduct(Model):
     _inherit = 'simple_product.product'
 
-    @api.one
+    
     def _compute_quantity_by_movements_in(self):
         cant = 0.0
         for mov in self.movement_in_ids:
             cant += mov.quantity
         self.quantity_by_movements_in = cant
 
-    @api.one
+    
     def _compute_quantity_by_movements_out(self):
         cant = 0.0
         for mov in self.movement_out_ids:
             cant += mov.quantity
         self.quantity_by_movements_out = cant
 
-    @api.one
+    
     def _compute_quantity_by_out_requests(self):
         cant = 0.0
         for mov in self.out_request_ids:
             cant += mov.quantity
         self.quantity_by_out_requests = cant
 
-    @api.one
+    
     def _compute_total(self):
         self.total = self.quantity_by_movements_in - self.quantity_by_movements_out - self.quantity_by_out_requests
 

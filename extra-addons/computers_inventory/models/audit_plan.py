@@ -48,19 +48,19 @@ class AuditPlan(models.Model):
                              help='Initially the audits are created as "Planned", and their status can be changed to "Approved". Once the audit is approved, we can change its status to "Done" or "Unrealized" depending on the case.')
 
     
-    #@api.one
+    #
     def button_planned(self):
         self.state = 'planned'
 
-    #@api.one
+    #
     def button_approved(self):
         self.state = 'approved'
 
-    #@api.one
+    #
     def button_done(self):
         self.state = 'done'
 
-    #@api.one
+    #
     def button_unrealized(self):
         self.state = 'unrealized'
 

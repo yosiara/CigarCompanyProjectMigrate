@@ -52,7 +52,7 @@ class ResPartner(models.Model):
     code_swift = fields.Char('Código SWIFT')
 
     @api.depends('acc_res_date')
-    @api.one
+    
     def _get_resolution_day(self):
         if self.acc_res_date:
             date = self.acc_res_date
@@ -62,7 +62,7 @@ class ResPartner(models.Model):
     acc_res_date_month = fields.Char('Resolution Month', compute='_get_resolution_month', store=True)
 
     @api.depends('acc_res_date')
-    @api.one
+    
     def _get_resolution_month(self):
         if self.acc_res_date:
             date = self.acc_res_date
@@ -72,7 +72,7 @@ class ResPartner(models.Model):
     acc_res_date_year = fields.Char('Resolution Year', compute='_get_resolution_year', store=True)
 
     @api.depends('acc_res_date')
-    @api.one
+    
     def _get_resolution_year(self):
         if self.acc_res_date:
             date = self.acc_res_date
