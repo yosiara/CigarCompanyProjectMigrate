@@ -2,10 +2,12 @@
 
 {
     'name': 'Web Community',
+    'author': 'Computer Science Specialist, '
+    'Yosiel R. Arango Arencibia. ',
     'category': 'Themes/Themes',
     'version': '1.0',
     'description': """
-Odoo Community Web Client.
+Odoo Community Web Client
 ===========================
 
 This module modifies the web addon to provide Community design and responsiveness.

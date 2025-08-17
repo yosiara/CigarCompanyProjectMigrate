@@ -9,6 +9,9 @@
     "sequence": 1,
     "summary": "Management of the smoking process, Lázaro Peña Cigar Factory. Holguín, Cuba",
     "description": """
+Smoke
+======
+
 Module in development to facilitate the management of the smoking process for workers 
 at the Lázaro Peña Cigar Factory. Holguín, Cuba.
     """,

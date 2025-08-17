@@ -9,7 +9,7 @@
     "summary": "A system that manages various actions performed in the IT field, emphasizing IT security.",
     "description": """
 Computers Inventory
-===================
+====================
 
 Computers Inventory using OCS Inventory Server...
     * Server Version: 2.3.1...

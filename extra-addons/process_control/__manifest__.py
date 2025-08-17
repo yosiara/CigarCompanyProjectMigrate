@@ -8,7 +8,13 @@
     'license': 'LGPL-3',
     'sequence': 2,
     'summary': 'Control of the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba',
-    'description': 'Control module for interruptions in the production process of the Lázaro Peña Cigar Factory. Holguín, Cuba.',
+    'description': """
+Process Control
+================
+
+Control module for interruptions in the production process of the Lázaro Peña Cigar Factory.
+Holguín, Cuba.
+    """,
     'depends': ['mail'],
     'data': [
         #-----------------------data-------------------------------------#

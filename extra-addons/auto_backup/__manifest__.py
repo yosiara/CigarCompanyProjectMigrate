@@ -15,7 +15,7 @@
     "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/server-tools",
-    "category": "Tools",
+    "category": "Tools/Tools",
     "depends": ["mail"],
     "data": [
         "data/ir_cron.xml",

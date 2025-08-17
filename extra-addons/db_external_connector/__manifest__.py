@@ -4,13 +4,14 @@
     "name": "External Database Connector",
     "summary": "Used to make connections to external databases...",
     "description": """
-External Database Connector.
+External Database Connector
 ============================
+
 Used to make connections to external databases...
     """,
     "author": "Computer Science Specialist, "
     "Yosiel R. Arango Arencibia. ",
-    "category": "Tools",
+    "category": "Tools/Tools",
     "version": "17.0",
     "license": "LGPL-3",
     "depends": [
