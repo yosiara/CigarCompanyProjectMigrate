@@ -53,7 +53,7 @@
         <record id="base_cu_responsibility_area_action" model="ir.actions.act_window">
 	    	<field name="name">Responsibility Areas</field>
 		    <field name="res_model">base_cu.responsibility_area</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="help" type="html">
                 <p class="oe_view_nocontent_create">

@@ -51,7 +51,7 @@
         <record id="base_cu_cost_center_action" model="ir.actions.act_window">
 	    	<field name="name">Cost Centers</field>
 		    <field name="res_model">base_cu.cost_center</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="help" type="html">
                 <p class="oe_view_nocontent_create">
