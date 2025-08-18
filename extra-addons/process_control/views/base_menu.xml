@@ -3,7 +3,7 @@
     <data>
         <menuitem id="menu_proccess_control" name="Control Proceso" sequence="11" web_icon="process_control,static/description/icon.png"/>
 
-        <menuitem id="process_control_settings_menu" name="Configuración" parent="menu_proccess_control" sequence="99" groups="group_process_control_admin"/>
+        <menuitem id="process_control_settings_menu" name="Configuración" parent="menu_proccess_control" sequence="99" groups="group_process_control_operator_ep"/>
 
         <menuitem id="process_control_control_tec" name="Control Tecnológico" parent="menu_proccess_control" sequence="0"/>
 

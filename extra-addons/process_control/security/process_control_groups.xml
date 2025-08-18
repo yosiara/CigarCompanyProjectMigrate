@@ -6,6 +6,7 @@
             <field name="name">Control Proceso / Consultor</field>
             <field name="category_id" ref="base.module_category_productivity"/>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
         </record>
 
         <!-- Power Users Group (Medium Privileges) -->
@@ -13,6 +14,7 @@
             <field name="name">Control Proceso / Operador</field>
             <field name="category_id" ref="base.module_category_productivity"/>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
         </record>
 
         <!-- Administration group (high privileges) -->
