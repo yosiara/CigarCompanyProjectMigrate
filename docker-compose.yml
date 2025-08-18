@@ -34,19 +34,19 @@ services:
     #   - postgres-odoo-data:/var/lib/postgresql/data
     restart: unless-stopped
 
-  # pgadmin:
-  #   image: dpage/pgadmin4:latest
-  #   container_name: pg_${CONTAINER_NAME}
-  #   depends_on:
-  #     - postgres
-  #   ports:
-  #     - "5050:80"
-  #   environment:
-  #     - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-  #     - PGADMIN_DEFAULT_PASSWORD=${CONTAINER_PASSWORD}
-  #   # volumes:
-  #   #   - pgadmin-odoo-data:/var/lib/pgadmin
-  #   restart: unless-stopped
+  pgadmin:
+    image: pgadmin4:15
+    container_name: pg_${CONTAINER_NAME}
+    depends_on:
+      - postgres
+    ports:
+      - "5050:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${CONTAINER_PASSWORD}
+    # volumes:
+    #   - pgadmin-odoo-data:/var/lib/pgadmin
+    restart: unless-stopped
 
 # volumes:
 #   odoo-data:
