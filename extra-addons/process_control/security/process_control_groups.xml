@@ -3,21 +3,21 @@
     <data noupdate="1">
         <!-- Basic User Group (Read Only) -->
         <record id="group_process_control_consultant" model="res.groups">
-            <field name="name">Process Control / Consultant</field>
+            <field name="name">Control Proceso / Consultor</field>
             <field name="category_id" ref="base.module_category_productivity"/>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
         </record>
 
         <!-- Power Users Group (Medium Privileges) -->
         <record id="group_process_control_operator" model="res.groups">
-            <field name="name">Process Control / Operator</field>
+            <field name="name">Control Proceso / Operador</field>
             <field name="category_id" ref="base.module_category_productivity"/>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
         </record>
 
         <!-- Administration group (high privileges) -->
-        <record id="group_process_control_admin" model="res.groups">
-            <field name="name">Process Control / Administrator</field>
+        <record id="group_process_control_operator_ep" model="res.groups">
+            <field name="name">Control Proceso / Operador EP</field>
             <field name="category_id" ref="base.module_category_productivity"/>
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
             <field name="users" eval="[(4, ref('base.user_admin'))]"/>
