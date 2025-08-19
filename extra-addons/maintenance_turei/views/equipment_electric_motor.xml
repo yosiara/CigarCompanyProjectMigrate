@@ -96,7 +96,7 @@
         <record id="maintenance_turei_equipment_electric_motor_action" model="ir.actions.act_window">
 	    	<field name="name">Gestionar Motores Electricos</field>
 		    <field name="res_model">maintenance_turei.equipment_electric_motor</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
 

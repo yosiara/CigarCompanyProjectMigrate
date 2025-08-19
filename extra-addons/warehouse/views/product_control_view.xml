@@ -48,7 +48,7 @@
         <record id="warehouse_product_control_action" model="ir.actions.act_window">
 	    	<field name="name">Detailed Inventory</field>
 		    <field name="res_model">warehouse.product_control</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree</field>
             <field name="search_view_id" ref="warehouse_product_control_search_view"/>
             <field name="context">{'search_default_group_by_warehouse': 1}</field>

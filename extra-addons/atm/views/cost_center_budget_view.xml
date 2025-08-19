@@ -48,7 +48,7 @@
         <record id="atm_cost_center_budget_action" model="ir.actions.act_window">
 	    	<field name="name">Budgets</field>
 		    <field name="res_model">atm.cost_center.budget</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
 

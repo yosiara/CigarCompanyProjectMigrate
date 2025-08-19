@@ -104,7 +104,7 @@ class WorkOrder(Model):
             return {
                 'type': 'ir.actions.act_window',
                 'name': _('Asistente para cancelar Orden de Trabajo'),
-                'view_type': 'form',
+                'binding_view_types': 'form',
                 'view_mode': 'form',
                 'res_model': 'atm.work_order_cancel_wizard',
                 'target': 'new',

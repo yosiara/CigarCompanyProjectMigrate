@@ -6,7 +6,7 @@
             <field name="name">Secuencias</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">ir.sequence</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="domain">[('code', '=', 'atm.work.order')]</field>
             <field name="filter" eval="True"/>
         </record>

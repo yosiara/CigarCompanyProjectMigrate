@@ -41,7 +41,7 @@
         <record id="maintenance_turei_config_maintenance_action" model="ir.actions.act_window">
             <field name="name">Asistente para carga inicial al sistema...</field>
             <field name="res_model">maintenance_turei.config_maintenance</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>

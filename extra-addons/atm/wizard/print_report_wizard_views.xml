@@ -47,7 +47,7 @@
         <record id="atm_reports_wizard_action" model="ir.actions.act_window">
             <field name="name">Asistente de reportes...</field>
             <field name="res_model">atm.print_report_wizard</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>

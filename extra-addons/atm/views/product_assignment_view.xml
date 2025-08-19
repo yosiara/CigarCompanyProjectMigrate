@@ -100,7 +100,7 @@
         <record id="atm_product_assignment_action" model="ir.actions.act_window">
 	    	<field name="name">Assingments</field>
 		    <field name="res_model">atm.product_assignment</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
 

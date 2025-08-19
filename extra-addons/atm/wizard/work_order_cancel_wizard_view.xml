@@ -29,7 +29,7 @@
         <record id="atm_work_order_cancel_action" model="ir.actions.act_window">
             <field name="name">Asistente para cancelar Orden de Trabajo</field>
             <field name="res_model">atm.work_order_cancel_wizard</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>

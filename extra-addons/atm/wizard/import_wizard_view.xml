@@ -135,7 +135,7 @@
         <record id="atm_import_wizard_action" model="ir.actions.act_window">
             <field name="name">Wizard to import data...</field>
             <field name="res_model">atm.import_wizard</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>

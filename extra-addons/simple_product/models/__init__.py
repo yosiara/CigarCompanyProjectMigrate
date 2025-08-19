@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
 
-import product
-import product_group
+from . import product
+from . import product_group

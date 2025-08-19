@@ -50,7 +50,7 @@
         <record id="atm_production_plan_action" model="ir.actions.act_window">
             <field name="name">Production Plan</field>
             <field name="res_model">atm.production_plan</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">

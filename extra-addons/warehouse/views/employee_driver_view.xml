@@ -53,7 +53,7 @@
         <record id="warehouse_employee_driver_action" model="ir.actions.act_window">
 	    	<field name="name">Transportista</field>
 		    <field name="res_model">warehouse.employee_driver</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
 

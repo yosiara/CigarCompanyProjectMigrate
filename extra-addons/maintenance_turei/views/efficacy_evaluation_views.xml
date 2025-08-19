@@ -100,7 +100,7 @@
         <record id="maintenance_turei_efficacy_evaluation_action" model="ir.actions.act_window">
 	    	<field name="name">Indicadores evaluación de la eficacia</field>
 		    <field name="res_model">maintenance_turei.evaluation_parameter</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
 

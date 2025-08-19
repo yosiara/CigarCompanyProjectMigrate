@@ -33,7 +33,7 @@
             <field name="name">Rep. Piezas x Equipos</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">wzd.equipment.parts</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>

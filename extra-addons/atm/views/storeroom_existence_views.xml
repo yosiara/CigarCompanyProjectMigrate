@@ -52,7 +52,7 @@
         <record id="atm_storeroom_existence_action" model="ir.actions.act_window">
             <field name="name">Existencia en pañol</field>
             <field name="res_model">atm.storeroom_existence</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">

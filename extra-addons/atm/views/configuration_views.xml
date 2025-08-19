@@ -108,7 +108,7 @@
         <record id="atm_configuration_action" model="ir.actions.act_window">
             <field name="name">Configuration</field>
             <field name="res_model">atm.report_configuration</field>
-            <field name="view_type">form</field>
+            <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">inline</field>
             <field name="res_id" ref="atm_report_configuration"/>

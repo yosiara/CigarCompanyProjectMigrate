@@ -281,7 +281,7 @@
         <record id="maintenance_turei_team_members_action" model="ir.actions.act_window">
 	    	<field name="name">Equipo de Mantenimeinto</field>
 		    <field name="res_model">maintenance.team</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
 
@@ -394,7 +394,7 @@
         <record id="maintenance_turei_equipment_category_action" model="ir.actions.act_window">
 	    	<field name="name">Gestionar Talleres</field>
 		    <field name="res_model">maintenance.equipment.category</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
 

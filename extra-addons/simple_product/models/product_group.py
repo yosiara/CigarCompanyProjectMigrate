@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from odoo.fields import Char, Text
-from odoo.models import Model
+from odoo import api, fields, models, tools, _
 
+class ProductGroup(models.Model):
+    _name = 'simple_product.product_group'
+    _description = 'Product Group'
 
-class ProductGroup(Model):
-    _name = 'simple_product.product.group'
-    _description = 'simple_product.product.group'
-
-    code = Char(index=True, required=True)
-    name = Char(required=True)
-    description = Text(placekolder='A description of the product group...')
-ProductGroup()
+    code = fields.Char('Code', index=True, required=True)
+    name = fields.Char('Name', required=True)
+    description = fields.Text(placekolder='A description of the product group...')

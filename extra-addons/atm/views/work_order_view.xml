@@ -158,7 +158,7 @@
         <record id="atm_work_order_action" model="ir.actions.act_window">
 	    	<field name="name">Work Order</field>
 		    <field name="res_model">atm.work_order</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
 
@@ -209,7 +209,7 @@
         <record id="atm_work_order_type_action" model="ir.actions.act_window">
 	    	<field name="name">Work Order Types</field>
 		    <field name="res_model">atm.work_order.type</field>
-			<field name="view_type">form</field>
+			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 		</record>
 
