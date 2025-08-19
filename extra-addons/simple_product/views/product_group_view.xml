@@ -4,13 +4,13 @@
     <data>
         <!-- ======================================================================================
 		PRODUCT GROUP
-		Model: simple_product.product.group
+		Model: simple_product.product_group
 		=========================================================================================== -->
 
         <!-- FORM VIEW -->
         <record id="simple_product_product_group_form_view" model="ir.ui.view">
             <field name="name">simple_product_product_group_form_view</field>
-            <field name="model">simple_product.product.group</field>
+            <field name="model">simple_product.product_group</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -30,7 +30,7 @@
         <!-- TREE VIEW -->
         <record id="simple_product_product_group_tree_view" model="ir.ui.view">
             <field name="name">simple_product_product_group_tree_view</field>
-            <field name="model">simple_product.product.group</field>
+            <field name="model">simple_product.product_group</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="code"/>
@@ -43,7 +43,7 @@
         <!-- ACTION -->
         <record id="simple_product_product_group_action" model="ir.actions.act_window">
 	    	<field name="name">Product Groups</field>
-		    <field name="res_model">simple_product.product.group</field>
+		    <field name="res_model">simple_product.product_group</field>
 			<field name="binding_view_types">form</field>
 			<field name="view_mode">tree,form</field>
 			<field name="help" type="html">

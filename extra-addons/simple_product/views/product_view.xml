@@ -8,7 +8,7 @@
 		=========================================================================================== -->
 
         <!-- KANBAN VIEW -->
-        <record id="simple_product_kanban_view" model="ir.ui.view">
+        <!-- <record id="simple_product_kanban_view" model="ir.ui.view">
             <field name="name">simple_product_kanban_view</field>
             <field name="model">simple_product.product</field>
             <field name="arch" type="xml">
@@ -60,7 +60,7 @@
                     </templates>
                 </kanban>
             </field>
-        </record>
+        </record> -->
 
         <!-- FORM VIEW -->
         <record id="simple_product_product_form_view" model="ir.ui.view">
@@ -127,7 +127,7 @@
         </record>
 
         <!-- SEARCH VIEW -->
-        <record id="simple_product_search_view" model="ir.ui.view">
+        <!-- <record id="simple_product_search_view" model="ir.ui.view">
             <field name="name">simple_product_search_view</field>
             <field name="model">simple_product.product</field>
             <field name="arch" type="xml">
@@ -145,15 +145,14 @@
                     </group>
                 </search>
             </field>
-        </record>
+        </record> -->
 
         <!-- ACTION -->
         <record id="simple_product_product_action" model="ir.actions.act_window">
             <field name="name">Products</field>
-            <field name="type">ir.actions.act_window</field>
             <field name="res_model">simple_product.product</field>
             <field name="binding_view_types">form</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">tree,form</field>
             <field name="context">{}</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">

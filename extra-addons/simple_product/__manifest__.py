@@ -15,15 +15,19 @@ This is a module for the managing products, avoiding the complexity of the origi
     'version': '1.0',
     'depends': ['product'],
     'data': [
+        # Security
+        'security/ir.model.access.csv',
+
         # Views...
-        'views/menu.xml',
+        'views/main_menus.xml',
         'views/product_view.xml',
-        'views/product_category_view.xml',
-        'views/product_uom_view.xml',
+        'views/product_category_menus.xml',
+        # 'views/product_uom_view.xml',
         'views/product_group_view.xml',
 
         # Templates...
         # 'static/src/xml/web_client_templates.xml',
     ],
     'installable': True,
+    'application': True,
 }

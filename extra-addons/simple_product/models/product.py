@@ -4,7 +4,7 @@ from odoo import api, fields, models, tools, _
 
 class Product(models.Model):
     _name = 'simple_product.product'
-    _description = 'simple_product.product'
+    _description = 'Product'
 
     def _get_default_uom_id(self):
         return self.env["product.uom"].search([], limit=1, order='id').id
@@ -49,7 +49,7 @@ class Product(models.Model):
         default=_get_default_uom_id, required=False,
         help="Default Unit of Measure used for all stock operation.")
 
-    group_id = fields.Many2one('simple_product.product.group', string='Product Group')
+    group_id = fields.Many2one('simple_product.product_group', string='Product Group')
 
     @api.model_create_multi
     def name_get(self):
