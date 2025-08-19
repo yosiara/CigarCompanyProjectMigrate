@@ -89,8 +89,10 @@ Holguín, Cuba.
     ],
     'assets': {
         'web.assets_backend': [
-            'process_control/static/src/js/report_handler.js',
-            #'process_control/static/src/js/formAutoSave.js',
+            'process_control/static/src/core/report_handler.js',
+            # 'process_control/static/src/views/**/*.js',
+            # 'process_control/static/src/views/**/*.xml',
+            #'extra-addons/process_control/static/src/core/formAutoSave.js',
             #'process_control/static/src/css/fields.css',
         ],
     },

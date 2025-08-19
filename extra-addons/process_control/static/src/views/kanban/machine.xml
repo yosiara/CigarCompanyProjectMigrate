@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- Template principal del controlador -->
+    <t t-name="process_control.MachineKanbanView" owl="1">
+        <div class="o_awesome_kanban_view d-flex h-100">
+            <!-- Sidebar de clientes -->
+            <div class="o_customer_sidebar bg-light border-end" style="width: 300px; min-width: 300px;">
+                <MachineKanbanComponent selectMachine="props.selectMachine"/>
+            </div>
+            
+            <!-- Área principal del kanban -->
+            <div class="o_kanban_renderer_container flex-grow-1">
+                <t t-if="props.state.selectedMachine">
+                    <div class="o_selection_info p-2 bg-info text-white">
+                        <span>Filtrado por: </span>
+                        <strong t-esc="props.state.selectedMachine.name"/>
+                        <button class="btn btn-sm btn-light ms-2" 
+                                t-on-click="() => props.clearFilter()">
+                            Limpiar
+                        </button>
+                    </div>
+                </t>
+                <t t-slot="default"/>
+            </div>
+        </div>
+    </t>
+
+    <!-- Template del componente MachineKanbanComponent -->
+    <t t-name="process_control.MachineKanbanComponent" owl="1">
+        <div class="o_customer_list h-100">
+            <div class="o_customer_header p-3 border-bottom">
+                <h5 class="m-0">Clientes</h5>
+            </div>
+            
+            <div class="o_customer_content">
+                <div class="list-group list-group-flush">
+                    <t t-foreach="state.machines" t-as="machine" t-key="machine.id">
+                        <a href="#" 
+                           class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+                           t-att-class="{
+                               'active': state.selectedMachine === machine.id
+                           }"
+                           t-on-click="() => handleCustomerClick(machine)">
+                            <div>
+                                <strong t-esc="machine.name"/>
+                                <div class="text-muted small" t-esc="machine.machine_type_id.name or ''"/>
+                            </div>
+                            <span class="badge bg-primary rounded-pill" t-esc="machine.id"/>
+                        </a>
+                    </t>
+                </div>
+                
+                <t t-if="state.machines.length === 0">
+                    <div class="text-center p-3 text-muted">
+                        No se encontraron máquinas
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+</templates>
+        
+        <!-- <record id="machine_kanban" model="ir.ui.view">
+            <field name="name">machine_kanban</field>
+            <field name="model">process_control.machine</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <field name="name"/>
+                    <field name="machine_type_id"/>
+                    <field name="productive_section_id"/>
+                    <field name="productive_line_id"></field>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <strong><field name="name"/></strong>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        <span class="badge rounded-pill"><t t-out="record.productive_section_id.value"/></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <strong>Type: </strong><t t-out="record.machine_type_id.value"/>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        <span class="badge rounded-pill"> <t t-out="record.productive_line_id.value"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record> -->
