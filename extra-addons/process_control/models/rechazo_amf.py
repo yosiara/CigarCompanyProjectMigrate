@@ -6,6 +6,10 @@ class RechazoAMF(models.Model):
     _inherits = {"process_control.rechazo": "rechazo_id"}
     _description = "Rechazo AMF"
 
+    _sql_constraints = [
+        ('rechazo_uniq', 'unique(rechazo_id)', 'Por cada registro en rechazo AMF, un único registro de rechazo asociado en el padre.'),
+    ]
+
     rechazo_id = fields.Many2one(comodel_name='process_control.rechazo', string='Rechazo')
 
     prod_en_cajones = fields.Float('Producción en cajones *', required=True)

@@ -6,6 +6,10 @@ class RechazoMod1(models.Model):
     _inherits = {"process_control.rechazo": "rechazo_id"}
     _description = "Rechazo Módulo 1"
 
+    _sql_constraints = [
+        ('rechazo_uniq', 'unique(rechazo_id)', 'Por cada registro en rechazo Módulo 1, un único registro de rechazo asociado en el padre.'),
+    ]
+
     rechazo_id = fields.Many2one(comodel_name='process_control.rechazo', string='Rechazo')
     
     prod_en_cigarrillos = fields.Integer('Produción en cigarrillos *', required=True)
