@@ -28,7 +28,7 @@
 
                         <notebook>
                             <page string="Existencia y Coverturas">
-                                <group>
+                                <!-- <group> -->
                                     <field name="report_one_product_ids" nolabel="1">
                                         <tree editable="bottom">
                                             <field name="product_id"/>
@@ -36,38 +36,40 @@
                                             <field name="conversion_factor"/>
                                         </tree>
                                     </field>
-                                </group>
+                                <!-- </group> -->
 
-                                <group string="Otros materiales importantes">
+                                <separator string="Otros materiales importantes"/>
+                                <!-- <group string="Otros materiales importantes"> -->
                                     <field name="report_one_other_product_ids" nolabel="1">
                                         <tree editable="bottom">
                                             <field name="product_id"/>
                                             <field name="uom_id"/>
                                         </tree>
                                     </field>
-                                </group>
+                                <!-- </group> -->
                             </page>
                             <page string="Piezas Desgaste">
-                                <group>
+                                <!-- <group> -->
                                     <field name="report_two_product_ids" nolabel="1">
                                         <tree editable="bottom">
                                             <field name="product_id"/>
                                             <field name="uom_id"/>
                                         </tree>
                                     </field>
-                                </group>
+                                <!-- </group> -->
 
-                                <group string="Otras piezas importantes">
+                                <separator string="Otras piezas importantes"/>
+                                <!-- <group string="Otras piezas importantes"> -->
                                     <field name="report_two_other_product_ids" nolabel="1">
                                         <tree editable="bottom">
                                             <field name="product_id"/>
                                             <field name="uom_id"/>
                                         </tree>
                                     </field>
-                                </group>
+                                <!-- </group> -->
                             </page>
                             <page string="Materiales Seleccionados">
-                                <group>
+                                <!-- <group> -->
                                     <field name="report_three_product_ids" nolabel="1">
                                         <tree editable="bottom">
                                             <field name="product_id"/>
@@ -75,10 +77,10 @@
                                             <field name="conversion_factor"/>
                                         </tree>
                                     </field>
-                                </group>
+                                <!-- </group> -->
                             </page>
                             <page string="Cumplimiento de Materiales Fundamentales">
-                                <group>
+                                <!-- <group> -->
                                     <field name="report_four_product_ids" nolabel="1">
                                         <tree editable="bottom">
                                             <field name="product_id"/>
@@ -86,17 +88,17 @@
                                             <field name="conversion_factor"/>
                                         </tree>
                                     </field>
-                                </group>
+                                <!-- </group> -->
                             </page>
                             <page string="Productos Almacen 10">
-                                <group>
+                                <!-- <group> -->
                                     <field name="report_six_product_ids" nolabel="1">
                                         <tree editable="bottom">
                                             <field name="product_id"/>
                                             <field name="uom_id"/>
                                         </tree>
                                     </field>
-                                </group>
+                                <!-- </group> -->
                             </page>
                         </notebook>
                     </sheet>
@@ -118,7 +120,7 @@
         <menuitem name="Configuraciones"
                   id="atm_configuration_menu_item"
                   action="atm_configuration_action"
-                  parent="atm.atm_reports_menu"
+                  parent="atm_reports_menu"
                   sequence="100"/>
 
         <!-- ========================================================================================================

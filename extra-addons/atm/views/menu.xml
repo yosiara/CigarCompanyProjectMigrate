@@ -57,5 +57,11 @@
                   parent="atm_general_elements_left_menu"
                   action="base.action_partner_supplier_form"
                   sequence="15"/>
+
+        <menuitem name="Informes"
+                  id="atm_reports_menu"
+                  parent="atm_root_menu"
+                  sequence="50"
+        />
     </data>
 </odoo>

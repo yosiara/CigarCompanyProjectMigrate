@@ -83,7 +83,7 @@
                             </table>
                         </div>
 
-                        <div attrs="{'invisible': [('action', '!=', 'import_product_groups')]}">
+                        <div invisible="action != 'import_product_groups'">
                             <p>
                                 Se espera que el archivo <b>Excel</b> tenga la información a importar en la primera hoja
                                 y este compuesto por las siguientes columnas, de las cuales la descripción

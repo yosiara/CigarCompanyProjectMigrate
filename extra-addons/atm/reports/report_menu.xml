@@ -2,12 +2,6 @@
 
 <odoo>
     <data>
-		<menuitem name="Informes"
-                  id="atm_reports_menu"
-                  parent="atm_root_menu"
-                  sequence="50"
-        />
-
         <report id="atm_warehouse_request_report"
 				name="atm.warehouse_products_request_report_template"
 				file="atm.warehouse_products_request_report_template"
