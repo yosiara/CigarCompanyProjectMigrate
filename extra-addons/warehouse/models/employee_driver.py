@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from odoo.models import Model
-from odoo import api, fields, tools
+from odoo import api, fields, tools, models
 
 
-class EmployeeDriver(Model):
+class EmployeeDriver(models.Model):
     _name = 'warehouse.employee_driver'
+    _description = 'Employee Driver'
 
     name = fields.Char(required=True, string='Nombre y Apellidos')
     ci = fields.Char(string='Carnet Identidad')
-
-EmployeeDriver()

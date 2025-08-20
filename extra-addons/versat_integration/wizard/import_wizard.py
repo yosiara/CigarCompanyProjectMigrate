@@ -225,7 +225,7 @@ class ImportWizard(TransientModel):
             account_dict[account.external_id] = account.id
 
         # Importing products...
-        location_obj = self.env['warehouse.product.location']
+        location_obj = self.env['warehouse.product_location']
         product_obj = self.env['simple_product.product']
         products = []
 

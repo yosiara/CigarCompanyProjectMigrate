@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api
-from odoo.models import Model
-from odoo.fields import One2many, Char, Many2one
+from odoo import api, fields, tools, models
 
-
-class Product(Model):
+class Product(models.Model):
     _inherit = "simple_product.product"
 
-    
     def _compute_product_controls_as_str(self):
         rep = ""
         cont = 1
@@ -19,11 +15,11 @@ class Product(Model):
             cont += 1
         self.product_control_str = rep
 
-    product_control_ids = One2many('warehouse.product_control', inverse_name='product_id', string='Stock')
-    product_control_str = Char(compute='_compute_product_controls_as_str')
+    product_control_ids = fields.One2many('warehouse.product_control', inverse_name='product_id', string='Stock')
+    product_control_str = fields.Char(compute='_compute_product_controls_as_str')
 
     # Useful because a product can be stored in some warehouses...
-    location_ids = One2many('warehouse.product.location', inverse_name='product_id', string='Locations...')
+    location_ids = fields.One2many('warehouse.product_location', inverse_name='product_id', string='Locations...')
 
     @api.model
     def name_search(self, name, args=None, operator='ilike', limit=100):
@@ -55,14 +51,3 @@ class Product(Model):
             args.append(('model', '=', model))
 
         return super(Product, self).search(args, offset=offset, limit=limit, order=order, count=count)
-Product()
-
-
-class ProductLocation(Model):
-    _name = 'warehouse.product.location'
-    _description = 'warehouse.product.location'
-
-    warehouse_id = Many2one('warehouse.warehouse', string='Warehouse')
-    product_id = Many2one('simple_product.product', string='Product')
-    location = Char()
-ProductLocation()

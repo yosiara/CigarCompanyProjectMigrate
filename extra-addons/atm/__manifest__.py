@@ -20,13 +20,14 @@ System for controlling the ATM department of the Lázaro Peña Cigar Company...
     'depends': [
         # 'atm_product',
         # 'versat_integration',
-        'base_cu',
-        'warehouse',
         'hr',
+        'base_cu',
+        'simple_product'
+        'warehouse',
+        'maintenance_turei',
         # 'save_readonly_fields',
         # 'web_export_view',
         # 'hide_official_modules',
-        'maintenance_turei',
     ],
     'data': [
         # Security...

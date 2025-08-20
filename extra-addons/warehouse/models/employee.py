@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo.fields import Boolean
-from odoo.models import Model
+from odoo import api, fields, tools, models
 
-
-class Employee(Model):
+class Employee(models.Model):
     _inherit = 'hr.employee'
-    can_authorize_a_request = Boolean(string='Can authorize a request?')
-Employee()
+
+    can_authorize_a_request = fields.Boolean(string='Can authorize a request?')

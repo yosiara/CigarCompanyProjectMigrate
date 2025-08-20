@@ -47,8 +47,8 @@
 
                         <group>
                             <field name="employee"/>
-                            <field name="applicant_id" attrs="{'invisible': [('employee', '=', False)], 'required': [('employee', '=', True)]}"/>
-                            <field name="driver_id" attrs="{'invisible': [('employee', '=', True)], 'required': [('employee', '=', False)]}"/>
+                            <field name="applicant_id" invisible="employee == False"/>
+                            <field name="driver_id" invisible="employee == True"/>
                             <field name="authorize_id"/>
                             <field name="receive_id"/>
                         </group>
@@ -76,7 +76,7 @@
 	    </record>
 
         <!-- SEARCH VIEW -->
-        <record id="warehouse_warehouse_request_search_view" model="ir.ui.view">
+        <!-- <record id="warehouse_warehouse_request_search_view" model="ir.ui.view">
             <field name="name">warehouse_warehouse_request_search_view</field>
             <field name="model">warehouse.warehouse_request</field>
             <field name="arch" type="xml">
@@ -109,7 +109,7 @@
                     </group>
                 </search>
             </field>
-        </record>
+        </record> -->
 
 		<!-- ACTION -->
         <record id="warehouse_warehouse_request_action" model="ir.actions.act_window">

@@ -6,6 +6,7 @@
     'Yosiel R. Arango Arencibia. ',
     'category': 'Inventory',
     'version': '1.0',
+    'licence': 'LGPL-3',
     'summary': 'This is an alternative module for managing product inventory...',
     'description': """
 Warehouse
@@ -18,6 +19,9 @@ This is a module for the managing products, avoiding the complexity of the origi
         'hr',
     ],
     'data': [
+        # Security
+        'security/ir.model.access.csv',
+
         # Views...
         'views/warehouse_view.xml',
         'views/product_control_view.xml',
@@ -27,4 +31,5 @@ This is a module for the managing products, avoiding the complexity of the origi
         'views/employee_driver_view.xml',
     ],
     'installable': True,
+    'application': True,
 }

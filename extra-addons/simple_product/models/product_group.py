@@ -8,4 +8,4 @@ class ProductGroup(models.Model):
 
     code = fields.Char('Code', index=True, required=True)
     name = fields.Char('Name', required=True)
-    description = fields.Text(placekolder='A description of the product group...')
+    description = fields.Text(placeholder='A description of the product group...')

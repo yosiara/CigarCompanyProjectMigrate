@@ -1,20 +1,16 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api
-from odoo.models import Model
-from odoo.fields import Many2one, Float
+from odoo import api, fields, tools, models
 
-
-class ProductControl(Model):
+class ProductControl(models.Model):
     """ To manage the product stock... """
 
     _name = 'warehouse.product_control'
-    _description = 'warehouse.product_control'
+    _description = 'Product Control'
 
-    warehouse_id = Many2one('warehouse.warehouse', string='Warehouse')
-    product_id = Many2one('simple_product.product', 'Product', required=True)
-    uom_id = Many2one('product.uom', related='product_id.uom_id', store=True)
+    warehouse_id = fields.Many2one('warehouse.warehouse', string='Warehouse')
+    product_id = fields.Many2one('simple_product.product', 'Product', required=True)
+    uom_id = fields.Many2one('product.product', related='product_id.uom_id', store=True)
 
-    quantity = Float(required=True, digits=(16, 4))
-    quantity_system = Float(digits=(16, 4), help='Maybe will be used for validation purpose...')
-ProductControl()
+    quantity = fields.Float(required=True, digits=(16, 4))
+    quantity_system = fields.Float(digits=(16, 4), help='Maybe will be used for validation purpose...')
