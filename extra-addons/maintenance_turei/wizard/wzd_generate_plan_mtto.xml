@@ -42,9 +42,8 @@
 
         <record id="wzd_generate_plan_mtto_report_act_window" model="ir.actions.act_window">
             <field name="name">Generar Plan de Mantenimiento</field>
-            <field name="type">ir.actions.act_window</field>
             <field name="res_model">wzd.generate.plan.mtto</field>
-            <field name="binding_view_types">form</field>
+            <!-- <field name="binding_view_types">form</field> -->
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>

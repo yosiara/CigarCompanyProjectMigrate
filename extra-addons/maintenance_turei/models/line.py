@@ -2,10 +2,9 @@
 
 from odoo import api, fields, models, tools
 
-
-
 class Line(models.Model):
     _name = 'maintenance_turei.line'
+    _description = 'Line'
 
     name = fields.Char(required=True, string='Nombre')
     sequence = fields.Integer(string='Secuencia')

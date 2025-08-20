@@ -20,7 +20,8 @@ class MaintenanceEquipment(models.Model):
 
     category_id = fields.Many2one('maintenance.equipment.category', string='Taller',
                                   track_visibility='onchange', group_expand='_read_group_category_ids')
-    location = fields.Many2one('base_cu.cost_center', string='Usado en la ubicación')
+    cost_center_id = fields.Many2one('base_cu.cost_center', string='Cost Center')
+    location = fields.Char('Usado en la ubicación', related="cost_center_id.name")
     state = fields.Selection([('bueno', 'Bueno'), ('regular', 'Regular'), ('malo', 'Malo'), ('fuera_servicio', 'Fuera Servicio'), ('conservacion','Conservación'), ('baja','Baja')], string='Estado')
     year_production = fields.Char(string='Año de Fabricación')
     brand = fields.Char(string='Marca')
@@ -219,7 +220,7 @@ class MaintenanceEquipment(models.Model):
             'owner_user_id': self.owner_user_id.id,
             'technician_user_id': self.technician_user_id.id,
             'maintenance_team_id': self.maintenance_team_id.id,
-            'duration': self.maintenance_duration,
+            # 'duration': self.maintenance_duration,
             'cycle_id': cycle.id
             })
 
@@ -234,50 +235,6 @@ class MaintenanceEquipment(models.Model):
                                                         ('request_date', '=', equipment.date)])
                 if not next_requests:
                     equip._create_new_request(equipment.date, equipment.cycle)
-
-
-class CycleMaintenance(models.Model):
-    _name = "maintenance_turei.cycle_maintenance"
-    _rec_name = 'cycle'
-
-    cycle = fields.Char(string='Código', required=True)
-    time = fields.Integer('Tiempo entre ciclos(Horas)')
-    equipment_id = fields.Many2one(comodel_name="maintenance.equipment", string="Equipos",
-                                   ondelete='cascade')
-    duration = fields.Integer('Duración(Horas)')
-    volume = fields.Html('Volumen de Trabajo')
-
-
-class CycleMaintenancePlan(models.Model):
-    _name = "maintenance_turei.cycle_maintenance_plan"
-    _rec_name = 'cycle'
-
-    equipment_id = fields.Many2one(comodel_name="maintenance.equipment", string="Equipos",
-                                   ondelete='cascade')
-    cycle = fields.Many2one('maintenance_turei.cycle_maintenance', string='Ciclo', domain="[('equipment_id', '=', equipment_id)]")
-
-    date = fields.Date('Fecha Inicio')
-    year_char = fields.Char(string=u"Año", required=False, compute="_compute_year_char", store=True)
-
-    @api.model_create_multi
-    @api.depends('date')
-    def _compute_year_char(self):
-        for c_model in self:
-            if c_model.date:
-                date = fields.datetime.strptime(c_model.date, DEFAULT_SERVER_DATE_FORMAT)
-                c_model.year_char = str(date.year)
-
-    @api.model
-    def create(self, vals):
-        res = super(CycleMaintenancePlan, self).create(vals)
-        res.equipment_id._create_new_request(res.date, res.cycle)
-        return res
-
-    @api.model_create_multi
-    def unlink(self):
-        self.env['maintenance.request'].search([('equipment_id', '=', self.equipment_id.id), ('cycle_id', '=', self.cycle.id), ('request_date', '=', self.date)]).unlink()
-        return super(CycleMaintenancePlan, self).unlink()
-
 
 class MaintenanceEquipmentCategory(models.Model):
     _inherit = 'maintenance.equipment.category'
@@ -296,25 +253,15 @@ class MaintenanceTeam(models.Model):
 
     member_ids = fields.One2many('maintenance_turei.members.team', inverse_name='member_team_id', string='Miembros...')
 
-
-class MembersTeam(models.Model):
-    _name = "maintenance_turei.members.team"
-
-    member_id = fields.Many2one('hr.employee', string='Miembro')
-    responsible = fields.Boolean('¿Es el Jefe de Brigada?')
-    member_team_id = fields.Many2one(comodel_name="maintenance.team", string="Documento",
-                                    required=False)
-
 class MaintenanceRequest(models.Model):
     _inherit = "maintenance.request"
 
     cycle_id = fields.Many2one('maintenance_turei.cycle_maintenance', string='Ciclo')
     year_char = fields.Char(string=u"Año", required=False, compute="_compute_year_char", store=True)
 
-    @api.model_create_multi
     @api.depends('request_date')
     def _compute_year_char(self):
         for c_model in self:
             if c_model.request_date:
-                date = fields.datetime.strptime(c_model.request_date, DEFAULT_SERVER_DATE_FORMAT)
+                date = fields.datetime #.strptime(c_model.request_date, DEFAULT_SERVER_DATE_FORMAT)
                 c_model.year_char = str(date.year)

@@ -3,9 +3,9 @@
 from odoo import api, fields, models, tools
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
 
-
 class IncidentPlan(models.Model):
     _name = 'maintenance_turei.incident_plan'
+    _description = 'Incident Plan'
     _rec_name = 'description'
 
     date_start = fields.Date('Fecha Inicio', required=True)
@@ -13,11 +13,10 @@ class IncidentPlan(models.Model):
     description = fields.Text(string="Descripción")
     year_char = fields.Char(string=u"Año", required=False, compute="_compute_year_char", store=True)
 
-    @api.model_create_multi
     @api.depends('date_start')
     def _compute_year_char(self):
         for c_model in self:
-            date_start = fields.datetime.strptime(c_model.date_start, DEFAULT_SERVER_DATE_FORMAT)
+            date_start = fields.datetime #.strptime(c_model.date_start, DEFAULT_SERVER_DATE_FORMAT)
             c_model.year_char = str(date_start.year)
 
     @api.model

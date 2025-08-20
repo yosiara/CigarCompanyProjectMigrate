@@ -2,10 +2,9 @@
 
 from odoo import api, fields, models, tools
 
-
-
 class EquipmentParts(models.Model):
     _name = 'maintenance_turei.equipment_parts'
+    _description = 'Equipment Parts'
 
     name = fields.Char(required=True, string='Nombre')
     item = fields.Char(string='Item')
@@ -21,10 +20,4 @@ class EquipmentParts(models.Model):
     equipment_ids = fields.Many2many('maintenance.equipment', 'equipment_parts_rel', 'equipment_id',
                                        'equipment_parts_id', 'Equipos')
 
-
-class EquipmentPartsItem(models.Model):
-    _name = 'maintenance_turei.equipment_parts_item'
-
-    equipment_id = fields.Many2one(comodel_name="maintenance.equipment", string="Equipos")
-    equipment_parts_id = fields.Many2one(comodel_name="maintenance_turei.equipment_parts", string="Piezas")
 

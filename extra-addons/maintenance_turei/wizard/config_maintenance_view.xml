@@ -23,7 +23,7 @@
                                 <field name="action" colspan="4"/>
                             </group>
                             <group col="4" colspan="4">
-                                <field name="number" attrs="{'invisible': [('action', '!=', 'upload_work_order')], 'required': [('action', '=', 'upload_work_order')]}" colspan="4"/>
+                                <field name="number" invisible="action != 'upload_work_order'" colspan="4"/> <!-- 'required': [('action', '=', 'upload_work_order')]}" -->
                             </group>
                         </group>
                     </sheet>

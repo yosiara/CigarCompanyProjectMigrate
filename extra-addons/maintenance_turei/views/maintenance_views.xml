@@ -2,33 +2,65 @@
 
 <odoo>
     <data>
-        <act_window id="action_view_parts"
+        <record id="action_view_parts" model="ir.actions.act_window">
+            <field name="name">Piezas</field>
+            <field name="res_model">maintenance_turei.equipment_parts</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('equipment_id', '=', active_id)]</field>
+            <field name="context">{'default_equipment_id': active_id}</field>
+        </record>
+
+        <record id="action_view_electric_motor" model="ir.actions.act_window">
+            <field name="name">Motores</field>
+            <field name="res_model">maintenance_turei.equipment_electric_motor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('equipment_id', '=', active_id)]</field>
+            <field name="context">{'default_equipment_id': active_id}</field>
+        </record>
+
+        <record id="action_view_work_order" model="ir.actions.act_window">
+            <field name="name">Ord. de Trabajo</field>
+            <field name="res_model">maintenance_turei.work_order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('equipment_id', '=', active_id)]</field>
+            <field name="context">{'default_equipament_id': active_id, 'search_default_current_year': 1}</field>
+        </record>
+
+        <record id="action_view_history_work_order" model="ir.actions.act_window">
+            <field name="name">Historial OT</field>
+            <field name="res_model">maintenance_turei.work_order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('equipment_id', '=', active_id)]</field>
+            <field name="context">{'default_equipament_id': active_id}</field>
+        </record>
+
+        <!-- <act_window id="action_view_parts"
                     name="Piezas"
                     res_model="maintenance_turei.equipment_parts"
                     view_mode="tree,form"
                     domain="[('equipment_id', '=', active_id)]"
-                    context="{'default_equipment_id': active_id}"/>
+                    context="{'default_equipment_id': active_id}"/> -->
 
-        <act_window id="action_view_electric_motor"
+        <!-- <act_window id="action_view_electric_motor"
                     name="Motores"
                     res_model="maintenance_turei.equipment_electric_motor"
                     view_mode="tree,form"
                     domain="[('equipment_id', '=', active_id)]"
-                    context="{'default_equipment_id': active_id}"/>
+                    context="{'default_equipment_id': active_id}"/> -->
 
-        <act_window id="action_view_work_order"
+        <!-- <act_window id="action_view_work_order"
                     name="Ord. de Trabajo"
                     res_model="maintenance_turei.work_order"
                     view_mode="tree,form"
                     domain="[('equipament_id', '=', active_id)]"
-                    context="{'default_equipament_id': active_id, 'search_default_current_year': 1}"/>
+                    context="{'default_equipament_id': active_id, 'search_default_current_year': 1}"/> -->
 
-        <act_window id="action_view_history_work_order"
+        <!-- <act_window id="action_view_history_work_order"
                     name="Historial OT"
                     res_model="maintenance_turei.work_order"
                     view_mode="tree,form"
                     domain="[('equipament_id', '=', active_id)]"
-                    context="{'default_equipament_id': active_id}"/>
+                    context="{'default_equipament_id': active_id}"/> -->
 
         <record id="maintenance_turei_hr_equipment_view_calendar_inherit" model="ir.ui.view">
             <field name="name">equipment.request.calendar.inherit</field>
@@ -86,52 +118,46 @@
             <field name="model">maintenance.equipment</field>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="//div[@name='button_box']" position="inside">
-<!--                        <button class="oe_stat_button" type="action" name="%(action_view_parts)d" icon="fa-wrench" attrs="{'invisible': [('is_industrial', '=', False)]}">-->
-<!--                                <field name="equipment_parts_count" widget="statinfo"/>-->
-<!--                        </button>-->
-<!--                        <button class="oe_stat_button" type="action" name="%(action_view_electric_motor)d" icon="fa-bolt" attrs="{'invisible': [('is_industrial', '=', False)]}">-->
-<!--                                <field name="equipment_electric_motor_count" widget="statinfo"/>-->
-<!--                        </button>-->
-                        <button class="oe_stat_button" type="action" name="%(action_view_work_order)d" icon="fa-clipboard" attrs="{'invisible': [('is_industrial', '=', False)]}">
+                    <!-- <xpath expr="//div[@name='button_box']" position="inside">
+                        <button class="oe_stat_button" type="action" name="%(action_view_work_order)d" icon="fa-clipboard" invisible="is_industrial == False">
                                 <field name="work_order_count" widget="statinfo"/>
                         </button>
-                        <button class="oe_stat_button" type="action" name="%(action_view_history_work_order)d" icon="fa-history" attrs="{'invisible': [('is_industrial', '=', False)]}">
+                        <button class="oe_stat_button" type="action" name="%(action_view_history_work_order)d" icon="fa-history" invisible="is_industrial == False">
                                 <field name="history_work_order_count" widget="statinfo"/>
                         </button>
-                    </xpath>
+                    </xpath> -->
                     <xpath expr="//field[@name='technician_user_id']" position="attributes">
                         <attribute name="invisible">True</attribute>
                     </xpath>
                     <xpath expr="//field[@name='category_id']" position="after">
                         <field name="is_industrial"/>
-                        <field name="christism" attrs="{'invisible': [('is_industrial', '=', False)]}"/>
-                        <field name="parent_id" attrs="{'invisible': [('is_industrial', '=', False)]}"/>
-                        <field name="line_id" attrs="{'invisible': [('is_industrial', '=', False)]}"/>
+                        <field name="christism" invisible="is_industrial == False"/>
+                        <field name="parent_id" invisible="is_industrial == False"/>
+                        <field name="line_id" invisible="is_industrial == False"/>
                     </xpath>
 
                     <xpath expr="//field[@name='location']" position="before">
-                        <label for="work_time" string="Tiempo de Explotación Diario" attrs="{'invisible': [('is_industrial', '=', False)]}"/>
-                        <div class="o_row" attrs="{'invisible': [('is_industrial', '=', False)]}">
+                        <label for="work_time" string="Tiempo de Explotación Diario" invisible="is_industrial == False"/>
+                        <div class="o_row" invisible="is_industrial == False">
                             <field name="work_time"/> horas
                         </div>
                     </xpath>
-                    <xpath expr="//field[@name='warranty']" position="before">
-                        <field name="year_production" attrs="{'invisible': [('is_industrial', '=', False)]}"/>
+                    <xpath expr="//field[@name='warranty_date']" position="before">
+                        <field name="year_production" invisible="is_industrial == False"/>
                     </xpath>
                     <xpath expr="//field[@name='year_production']" position="before">
-                        <field name="country" attrs="{'invisible': [('is_industrial', '=', False)]}"/>
+                        <field name="country" invisible="is_industrial == False"/>
                     </xpath>
                     <xpath expr="//field[@name='year_production']" position="after">
-                        <field name="code" attrs="{'invisible': [('is_industrial', '=', False)]}"/>
+                        <field name="code" invisible="is_industrial == False"/>
                     </xpath>
                     <xpath expr="//field[@name='category_id']" position="after">
-                        <field name="state" attrs="{'invisible': [('is_industrial', '=', False)]}"/>
+                        <field name="state" invisible="is_industrial == False"/>
                     </xpath>
                     <xpath expr="//field[@name='model']" position="after">
-                        <field name="brand" attrs="{'invisible': [('is_industrial', '=', False)]}"/>
+                        <field name="brand" invisible="is_industrial == False"/>
                     </xpath>
-                    <xpath expr="//field[@name='warranty']" position="attributes">
+                    <xpath expr="//field[@name='warranty_date']" position="attributes">
                         <attribute name="invisible">True</attribute>
                     </xpath>
                     <xpath expr="//field[@name='partner_id']" position="attributes">
@@ -140,25 +166,25 @@
                     <xpath expr="//field[@name='partner_ref']" position="attributes">
                         <attribute name="invisible">True</attribute>
                     </xpath>
-                    <xpath expr="//group[@name='maintenance']" position="after">
-                        <group attrs="{'invisible': [('is_industrial', '=', False)]}">
+                    <xpath expr="//page[@name='maintenance']" position="inside">
+                        <group invisible="is_industrial == False">
                             <field name="cycle_maintenance"/>
                             <label for="cycle_time" string="Duración Ciclo Mantenimeinto"/>
                             <div class="o_row">
-                                <field name="cycle_time"/> horas
+                                <field name="cycle_time"> horas </field>
                             </div>
                         </group>
-                        <group attrs="{'invisible': [('is_industrial', '=', False)]}">
-                            <label for="maintenance_duration" string="Duración del mantenimeinto"/>
+                        <group invisible="is_industrial == False">
+                            <!-- <label for="maintenance_duration" string="Duración del mantenimeinto"/>
                             <div class="o_row">
-                                <field name="maintenance_duration"/> horas
-                            </div>
+                                <field name="maintenance_duration"> horas </field>
+                            </div> -->
                             <label for="start_time" string="Hora de Inicio Mantenimeinto"/>
                             <div class="o_row">
                                 <field name="start_time" widget="timepicker" options="{'step': '30', 'disableTextInput': true, 'minTime': '08:00', 'maxTime': '20:00'}"/>
                             </div>
                         </group>
-                        <field name="cycle_maintenance_ids" attrs="{'invisible': [('is_industrial', '=', False)]}">
+                        <field name="cycle_maintenance_ids" invisible="is_industrial == False">
                             <tree>
                                 <field name="cycle"/>
                                 <field name="duration"/>
@@ -178,16 +204,16 @@
                             </form>
                         </field>
                     </xpath>
-                     <xpath expr="//group[@name='maintenance']" position="attributes">
+                     <xpath expr="//page[@name='maintenance']" position="attributes">
                         <attribute name="invisible">True</attribute>
                     </xpath>
 
                     <xpath expr="//notebook[last()]" position="inside">
-                        <page string="Configuración" name="config_maintenance" attrs="{'invisible': [('is_industrial', '=', False)]}">
+                        <page string="Configuración" name="config_maintenance" invisible="is_industrial == False">
                             <group>
                                 <field name="config_maintenance"/>
                             </group>
-                            <group attrs="{'invisible':[('config_maintenance', '=', False)]}">
+                            <group invisible="config_maintenance == False">
                                 <group>
                                     <field name="config_cycle"/>
                                 </group>
@@ -208,7 +234,7 @@
                         </page>
                     </xpath>
                     <xpath expr="//notebook[last()]" position="inside">
-                        <page string="Equipos" name="equipos_child" attrs="{'invisible': [('is_industrial', '=', False)]}">
+                        <page string="Equipos" name="equipos_child" invisible="is_industrial == False">
                             <field name="child_ids">
                                 <tree create="false" edit="false">
                                     <field name="name"/>
@@ -218,7 +244,7 @@
                         </page>
                     </xpath>
                     <xpath expr="//notebook[last()]" position="inside">
-                        <page string="Piezas" name="piezas" attrs="{'invisible': [('is_industrial', '=', False)]}">
+                        <page string="Piezas" name="piezas" invisible="is_industrial == False">
                             <field name="equipment_parts_ids">
                                 <tree create="false" edit="false">
                                     <field name="name"/>
@@ -227,7 +253,7 @@
                                 </tree>
                             </field>
                         </page>
-                        <page string="Motores Electricos" name="motores" attrs="{'invisible': [('is_industrial', '=', False)]}">
+                        <page string="Motores Electricos" name="motores" invisible="is_industrial == False">
                             <field name="equipment_electric_motor_ids">
                                 <tree create="false" edit="false">
                                     <field name="no_motor"/>
@@ -249,7 +275,7 @@
             <field name="model">maintenance.team</field>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="//field[@name='partner_id']" position="after">
+                    <xpath expr="//field[@name='member_ids']" position="replace">
                         <field name="member_ids">
                             <tree editable="bottom">
                                 <field name="member_id"/>
@@ -257,9 +283,9 @@
                             </tree>
                         </field>
                     </xpath>
-                    <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <!-- <xpath expr="//field[@name='member_ids']" position="attributes">
                         <attribute name="invisible">True</attribute>
-                    </xpath>
+                    </xpath> -->
                 </data>
             </field>
         </record>
@@ -299,8 +325,14 @@
             <field name="model">maintenance.equipment.category</field>
             <field name="arch" type="xml">
                 <data>
-                    <xpath expr="//div[@class='oe_title']/label[@class='oe_edit_only']" position="replace">
-                        <label for="name" class="oe_edit_only" string="Nombre de Taller"/>
+                    <xpath expr="//div[@class='oe_title']" position="replace">
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Nombre de Taller"/>
+                            <!-- <label for="name" string="Category Name"/> -->
+                            <h1>
+                                <field name="name" placeholder="e.g. Secundario"/>
+                            </h1>
+                        </div>
                     </xpath>
                     <xpath expr="//field[@name='technician_user_id']" position="attributes">
                         <attribute name="invisible">True</attribute>
@@ -383,7 +415,7 @@
             <field name="inherit_id" ref="maintenance.hr_equipment_request_view_tree"/>
             <field name="arch" type="xml">
 <!--                <field name="owner_user_id" position="replace"/>-->
-                <field name="technician_user_id" position="replace"/>
+                <!-- <field name="technician_user_id" position="replace"/> -->
                  <field name="request_date" position="attributes">
                      <attribute name="groups"/>
                  </field>

@@ -7,6 +7,7 @@
     'category': 'Manufacturing',
     'version': '1.0',
     'sequence': 4,
+    'licence': 'LGPL-3',
     'summary': 'Control module of the Industrial Maintenance Process of the Lázaro Peña Cigar Company.',
     'description': """
 Maintenance Turei
@@ -17,8 +18,8 @@ Control module of the Industrial Maintenance Process of the Lázaro Peña Cigar 
     'depends': ['maintenance', 'base_cu', 'warehouse'],
     'data': [
         # Security...
-        # 'security/security.xml',
-        # 'security/ir.model.access.csv',
+        'security/security.xml',
+        'security/ir.model.access.csv',
 
         # Data files to load...
         'data/line.xml',
@@ -35,21 +36,21 @@ Control module of the Industrial Maintenance Process of the Lázaro Peña Cigar 
         'views/efficacy_evaluation_views.xml',
 
         # Reports...
-        'reports/report_paper_formats.xml',
-        'reports/report_menu.xml',
-        'reports/work_order_report_template.xml',
-        'reports/resources_consumed_report.xml',
-        'reports/orders_delivered_report.xml',
-        'reports/orders_no_delivered_report.xml',
-        'reports/orders_planned_report.xml',
-        'reports/orders_pending_report.xml',
-        'reports/equipment_report_template.xml',
-        'reports/equipment_parts_report.xml',
-        'reports/plan_mtto_report.xml',
-        'reports/efficacy_evaluation_report.xml',
-        'reports/work_maint_team_report.xml',
-        'reports/work_type_work_report.xml',
-        'reports/request_maint_report.xml',
+        # 'reports/report_paper_formats.xml',
+        # 'reports/report_menu.xml',
+        # 'reports/work_order_report_template.xml',
+        # 'reports/resources_consumed_report.xml',
+        # 'reports/orders_delivered_report.xml',
+        # 'reports/orders_no_delivered_report.xml',
+        # 'reports/orders_planned_report.xml',
+        # 'reports/orders_pending_report.xml',
+        # 'reports/equipment_report_template.xml',
+        # 'reports/equipment_parts_report.xml',
+        # 'reports/plan_mtto_report.xml',
+        # 'reports/efficacy_evaluation_report.xml',
+        # 'reports/work_maint_team_report.xml',
+        # 'reports/work_type_work_report.xml',
+        # 'reports/request_maint_report.xml',
 
         # Wizards...
         'wizard/wzd_resources_consumed.xml',
@@ -70,5 +71,4 @@ Control module of the Industrial Maintenance Process of the Lázaro Peña Cigar 
 
     ],
     'installable': True,
-    'application': True,
 }

@@ -13,6 +13,7 @@ Adds elements to the Odoo kernel, necessary for the l10n_cu localization modules
     """,
     'category': 'Technical',
     'version': '1.0',
+    'licence': 'LGPL-3',
     'depends': [
         'base',
         'resource',

@@ -28,14 +28,14 @@
 							<group>
 								<field name="is_secundary" invisible="1"/>
 								<field name="name"/>
-					 			<field name="sequence" attrs="{'invisible': [('is_secundary', '!=', True)]}"/>
-								<field name="is_start" attrs="{'invisible': [('is_secundary', '!=', True)]}"/>
-								<field name="is_end" attrs="{'invisible': [('is_secundary', '!=', True)]}"/>
+					 			<field name="sequence" invisible="is_secundary != True"/>
+								<field name="is_start" invisible="is_secundary != True"/>
+								<field name="is_end" invisible="is_secundary != True"/>
 							</group>
 							<group>
 								<field name="taller"/>
-								<field name="is_module" attrs="{'invisible': [('is_secundary', '!=', True)]}"/>
-								<field name="special_regime" attrs="{'invisible': [('is_secundary', '!=', True)]}"/>
+								<field name="is_module" invisible="is_secundary != True"/>
+								<field name="special_regime" invisible="is_secundary != True"/>
 							</group>
 						</group>
 					</sheet>

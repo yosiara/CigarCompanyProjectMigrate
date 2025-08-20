@@ -2,11 +2,11 @@
 
 <odoo>
     <data>
-		<delete model="ir.ui.menu" search="[('name','=','Equipments')]"/>
+		<!-- <delete model="ir.ui.menu" search="[('name','=','Equipments')]"/>
 		<delete model="ir.ui.menu" id="maintenance.menu_maintenance_teams"/>
 		<delete model="ir.ui.menu" id="maintenance.menu_maintenance_cat"/>
 		<delete model="ir.ui.menu" id="maintenance.menu_maintenance_stage_configuration"/>
-		<delete model="ir.ui.menu" id="maintenance.menu_maintenance_configuration"/>
+		<delete model="ir.ui.menu" id="maintenance.menu_maintenance_configuration"/> -->
 
 		<menuitem name="Equipos"
 				  id="maintenance_turei_equipaments_menu_item"

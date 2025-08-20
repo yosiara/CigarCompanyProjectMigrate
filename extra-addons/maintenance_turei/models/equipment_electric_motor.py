@@ -2,10 +2,9 @@
 
 from odoo import api, fields, models, tools
 
-
-
 class EquipmentElectricMotor(models.Model):
     _name = 'maintenance_turei.equipment_electric_motor'
+    _description = 'Equipment Electric Motor'
     _rec_name = 'equipment_id'
 
     review_frequency = fields.Char(string='Frecuencia de Revisión')
