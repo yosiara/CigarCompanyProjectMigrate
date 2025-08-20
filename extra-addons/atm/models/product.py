@@ -90,7 +90,7 @@ class ConsumptionNorm(models.Model):
     _description = 'atm.consumption_norm'
 
     product_id = fields.Many2one('simple_product.product', string='Product')
-    uom_id = fields.Many2one('product.uom', 'Unit of Measure', required=True)
+    uom_id = fields.Many2one('uom.uom', 'Unit of Measure', required=True)
     quantity = fields.Float(required=True, digits=(16, 4))
 
 

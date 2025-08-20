@@ -25,7 +25,7 @@ class ProductOrder(Model):
 
     stock = Float(digits=(16, 4), readonly=True, help='Product stock according to Versat...')
     stock_validation = Float(digits=(16, 4), readonly=True, help='Product stock according to the system...')
-    uom_id = Many2one('product.uom', 'Unit of Measure', readonly=True)
+    uom_id = Many2one('uom.uom', 'Unit of Measure', readonly=True)
 
     @api.constrains('quantity')
     def _check_product_quantity(self):

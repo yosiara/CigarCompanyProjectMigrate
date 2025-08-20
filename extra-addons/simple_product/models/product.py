@@ -7,7 +7,7 @@ class Product(models.Model):
     _description = 'Product'
 
     def _get_default_uom_id(self):
-        return self.env["product.product"].search([], limit=1, order='uom_id').id
+        return self.env["uom.uom"].search([], limit=1, order='id').id
 
     def _get_default_category_id(self):
         if self._context.get('category_id') or self._context.get('default_category_id'):
@@ -45,7 +45,7 @@ class Product(models.Model):
         required=False, help="Select category for the current product")
 
     uom_id = fields.Many2one(
-        'product.product', 'Unit of Measure',
+        'uom.uom', 'Unit of Measure',
         default=_get_default_uom_id, required=False,
         help="Default Unit of Measure used for all stock operation.")
 

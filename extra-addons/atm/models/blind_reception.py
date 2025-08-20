@@ -57,5 +57,5 @@ class BlindReceptionProduct(Model):
     sequence = Integer(string='Sequence')
     product_description = Char(required=True)
     blind_reception_id = Many2one('atm.blind_reception')
-    uom_id = Many2one('product.uom', 'Unit of Measure', required=True)
+    uom_id = Many2one('uom.uom', 'Unit of Measure', required=True)
     quantity = Float(digits=(16, 4))

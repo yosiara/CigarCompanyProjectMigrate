@@ -61,7 +61,7 @@ class ReportOneProducts(models.Model):
 
     config_id = fields.Many2one('atm.report_configuration', string='Configuration')
     product_id = fields.Many2one('simple_product.product', string='Product', required=True)
-    uom_id = fields.Many2one('product.uom', 'Unit of Measure', required=True)
+    uom_id = fields.Many2one('uom.uom', 'Unit of Measure', required=True)
     conversion_factor = fields.Float(string='Factor de conversión')
 
 class ReportTwoProducts(models.Model):
@@ -71,7 +71,7 @@ class ReportTwoProducts(models.Model):
 
     config_id = fields.Many2one('atm.report_configuration', string='Configuration')
     product_id = fields.Many2one('simple_product.product', string='Product', required=True)
-    uom_id = fields.Many2one('product.uom', 'Unit of Measure', required=True)
+    uom_id = fields.Many2one('uom.uom', 'Unit of Measure', required=True)
 
 
 class ReportThreeProducts(models.Model):
@@ -81,7 +81,7 @@ class ReportThreeProducts(models.Model):
 
     config_id = fields.Many2one('atm.report_configuration', string='Configuration')
     product_id = fields.Many2one('simple_product.product', string='Product', required=True)
-    uom_id = fields.Many2one('product.uom', 'Unit of Measure', required=True)
+    uom_id = fields.Many2one('uom.uom', 'Unit of Measure', required=True)
     conversion_factor = fields.Float(string='Factor de conversión')
 
 
@@ -92,7 +92,7 @@ class ReportFourProducts(models.Model):
 
     config_id = fields.Many2one('atm.report_configuration', string='Configuration')
     product_id = fields.Many2one('simple_product.product', string='Product', required=True)
-    uom_id = fields.Many2one('product.uom', 'Unit of Measure', required=True)
+    uom_id = fields.Many2one('uom.uom', 'Unit of Measure', required=True)
     conversion_factor = fields.Float(string='Factor de conversión')
 
 class ReportSixProducts(models.Model):
@@ -101,4 +101,4 @@ class ReportSixProducts(models.Model):
 
     config_id = fields.Many2one('atm.report_configuration', string='Configuration')
     product_id = fields.Many2one('simple_product.product', string='Product', required=True)
-    uom_id = fields.Many2one('product.uom', 'Unit of Measure', required=True)
+    uom_id = fields.Many2one('uom.uom', 'Unit of Measure', required=True)

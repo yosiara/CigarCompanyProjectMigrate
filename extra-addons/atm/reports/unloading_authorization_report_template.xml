@@ -100,7 +100,7 @@
                                     <td class="cell-center-middle"></td>
 
                                     <td class="cell-center-middle">
-                                        <!--<t t-esc="product.uom_id.name"/>-->
+                                        <!--<t t-esc="uom.uom_id.name"/>-->
                                     </td>
 
                                     <td class="cell-center-middle"></td>

@@ -13,6 +13,6 @@ class VersatUnitOfMeasure(Model):
 
     external_id = Integer()
     name = Char(string='Code', required=True)
-    uom_id = Many2one('product.uom', string='Reference uom')
+    uom_id = Many2one('uom.uom', string='Reference uom')
     description = Char()
 VersatUnitOfMeasure()
