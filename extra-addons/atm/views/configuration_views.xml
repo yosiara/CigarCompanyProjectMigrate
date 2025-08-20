@@ -111,14 +111,14 @@
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">inline</field>
-            <field name="res_id" ref="atm_report_configuration"/>
+            <!-- <field name="res_id" ref="atm_report_configuration"/> -->
         </record>
 
         <!-- MENU ITEM -->
         <menuitem name="Configuraciones"
                   id="atm_configuration_menu_item"
                   action="atm_configuration_action"
-                  parent="atm_reports_menu"
+                  parent="atm.atm_reports_menu"
                   sequence="100"/>
 
         <!-- ========================================================================================================

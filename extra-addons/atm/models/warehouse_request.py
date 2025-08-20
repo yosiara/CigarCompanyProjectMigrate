@@ -59,7 +59,6 @@ class WarehouseRequest(Model):
 
     required_field_receive_id = Boolean(compute='_compute_required_field_receive_id')
 
-    @api.model_create_multi
     @api.depends('requested_product_ids')
     def _compute_required_field_receive_id(self):
         for rec in self:
@@ -120,19 +119,17 @@ class WarehouseRequest(Model):
         for rec in self.requested_product_ids:
             rec.write({'work_order_id': self.work_order_id.id})
         return res
-WarehouseRequest()
 
 
 class ProductOrder(Model):
     _inherit = 'warehouse.product_order'
+
     work_order_id = Many2one('atm.work_order', string='Work Order')
-ProductOrder()
 
 
 class Area(Model):
     _inherit = 'base_cu.area'
 
-    
     def _compute_has_assingments(self):
         if not len(self.assingment_ids):
             self.has_assingments = False
@@ -151,8 +148,6 @@ class Area(Model):
         #print today_assingment[0].given_quantity
         #print today_assingment[0].quantity
         return True if len(today_assingment) and today_assingment[0].given_quantity > today_assingment[0].quantity else False
-Area()
-
 
 class CostCenter(Model):
     _inherit = 'base_cu.cost_center'
@@ -167,4 +162,3 @@ class CostCenter(Model):
             return self.search([('responsibility_area_id', '=', area)], limit=limit).name_get()
 
         return super(CostCenter, self).name_search(name, args, operator, limit)
-CostCenter()

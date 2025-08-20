@@ -10,7 +10,6 @@ class CostCenterBudget(Model):
     _name = 'atm.cost_center.budget'
     _description = 'atm.cost_center.budget'
     _rec_name = 'cost_center_id'
-
     
     def _compute_real(self):
         work_order_type_obj = self.env['atm.work_order.type']
@@ -36,13 +35,11 @@ class CostCenterBudget(Model):
     cost_center_id = Many2one('base_cu.cost_center', string='Cost Center', required=True)
     real = Float(digits=(16, 4), compute=_compute_real)
     plan = Float(digits=(16, 4))
-CostCenterBudget()
 
 
 class CostCenter(Model):
     _inherit = 'base_cu.cost_center'
 
-    
     def _compute_has_budgets(self):
         if not len(self.budget_ids):
             self.has_budgets = False
@@ -56,4 +53,3 @@ class CostCenter(Model):
         last_day_current_year = datetime.datetime.now().strftime('%Y-12-31')
         today_budget = self.budget_ids.filtered(lambda rec: first_day_current_year <= rec.date <= last_day_current_year)
         return True if len(today_budget) and today_budget[0].real > today_budget[0].plan else False
-CostCenter()

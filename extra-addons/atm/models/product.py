@@ -30,24 +30,21 @@ class Product(models.Model):
     conversion_factor = fields.Float(string='Factor de conversión', default=1.0)
     formula_month_plan = fields.Char(string='Fórmula Plan Mensual', help='Se espera la formula: Plan Mensual / dias laborables')
 
-    is_tool_or_util = fields.Boolean(string='Is util or tool?', compute='_compute_is_tool_or_util')
-    is_aft = fields.Boolean(string='AFT?', compute='_compute_is_aft')
+    is_tool_or_util = fields.Boolean(string='Is util or tool?',)# compute='_compute_is_tool_or_util')
+    is_aft = fields.Boolean(string='AFT?',)# compute='_compute_is_aft')
 
-    @api.model_create_multi
-    @api.depends('account_id')
-    def _compute_is_tool_or_util(self):
-        for rec in self:
-            if rec.account_id.code in [187]:
-                rec.is_tool_or_util = True
+    # @api.depends('account_id')
+    # def _compute_is_tool_or_util(self):
+    #     for rec in self:
+    #         if rec.account_id.code in [187]:
+    #             rec.is_tool_or_util = True
 
-    @api.model_create_multi
-    @api.depends('account_id')
-    def _compute_is_aft(self):
-        for rec in self:
-            if rec.account_id.code in [240, 241, 242, 243, 244, 247, 248, 249, 250, 251]:
-                rec.is_aft = True
+    # @api.depends('account_id')
+    # def _compute_is_aft(self):
+    #     for rec in self:
+    #         if rec.account_id.code in [240, 241, 242, 243, 244, 247, 248, 249, 250, 251]:
+    #             rec.is_aft = True
 
-    
     def _compute_product_controls_as_str(self):
         rep = ""
         cont = 1

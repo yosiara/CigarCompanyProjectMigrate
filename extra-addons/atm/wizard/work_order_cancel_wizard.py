@@ -24,5 +24,3 @@ class WorkOrderCancelWizard(TransientModel):
                 'state': 'cancel'
 
             })
-
-WorkOrderCancelWizard()

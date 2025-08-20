@@ -18,7 +18,7 @@
                     <field name="is_exceeded_assingment" invisible="1"/>
                     <field name="warning_message" invisible="1"/>
 
-                    <div attrs="{'invisible': [('is_exceeded_budget', '!=', True)]}"
+                    <div invisible="is_exceeded_budget != True"
                          class="oe_form_box_info oe_text_center"
                          style="margin-bottom: 10px; margin-top: 10px;">
 
@@ -28,7 +28,7 @@
                         </h4>
                     </div>
 
-                    <div attrs="{'invisible': [('is_exceeded_assingment', '!=', True)]}"
+                    <div invisible="is_exceeded_assingment != True"
                          class="oe_form_box_info oe_text_center"
                          style="margin-bottom: 10px; margin-top: 10px;">
 
@@ -38,7 +38,7 @@
                         </h4>
                     </div>
 
-                    <div attrs="{'invisible': [('warning_message', '=', '')]}"
+                    <div invisible="warning_message == ''"
                          class="oe_form_box_info oe_text_center oe_edit_only"
                          style="margin-bottom: 10px; margin-top: 10px;">
 
@@ -88,9 +88,9 @@
                     </field>
                 </field>
 
-                <xpath expr="//field[@name='receive_id']" position="attributes">
+                <!-- <xpath expr="//field[@name='receive_id']" position="attributes">
                     <attribute name="attrs">{'required': [('required_field_receive_id', '=', True)]}</attribute>
-                </xpath>
+                </xpath> -->
 
                 <field name="receive_id" position="after">
                     <field name="required_field_receive_id" invisible="1"/>
@@ -114,7 +114,7 @@
 	    </record>
 
         <!-- SEARCH VIEW -->
-        <record id="atm_warehouse_request_search_view_inherit" model="ir.ui.view">
+        <!-- <record id="atm_warehouse_request_search_view_inherit" model="ir.ui.view">
             <field name="name">atm_warehouse_request_search_view_inherit</field>
             <field name="inherit_id" ref="warehouse.warehouse_warehouse_request_search_view"/>
             <field name="model">warehouse.warehouse_request</field>
@@ -127,6 +127,6 @@
                     <separator/>
                 </filter>
 	        </field>
-	    </record>
+	    </record> -->
     </data>
 </odoo>

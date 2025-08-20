@@ -26,15 +26,15 @@
 
                         <group id="group5">
                             <field name="protection_cause"
-                                   attrs="{'invisible': [('is_protected', '=', False)],
-                                           'required': [('is_protected', '=', True)]}"/>
+                                    invisible="is_protected == False"/>
+                                           <!-- 'required': [('is_protected', '=', True)]}"/> -->
 
                             <field name="contingency_quantity"
-                                   attrs="{'invisible': [('is_for_contingency', '=', False)],
-                                           'required': [('is_for_contingency', '=', True)]}"/>
+                                   invisible="is_for_contingency == False"/>
+                                           <!-- 'required': [('is_for_contingency', '=', True)]}"/> -->
 
                             <field name="owner_id"
-                                   attrs="{'invisible': [('is_tool_or_util', '=', False)]}"/>
+                                   invisible="is_tool_or_util == False"/>
 
                             <!-- <field name="area_id"
                                    attrs="{'invisible': [('is_exclusive_product', '=', False)],
@@ -44,7 +44,7 @@
                 </xpath>
 
                 <xpath expr="//notebook" position="inside">
-                    <page string="Assingments..." attrs="{'invisible': [('has_assingments', '=', False)]}">
+                    <page string="Assingments..." invisible="has_assingments == False">
                         <field name="assingment_ids">
                             <tree editable="bottom">
                                 <field name="date"/>
@@ -72,9 +72,9 @@
                     </page>
                 </xpath>
 
-                <field name="uom_id" position="before">
+                <!-- <field name="uom_id" position="before">
                     <field name="account_id"/>
-                </field>
+                </field> -->
 
                 <field name="uom_id" position="after">
                     <field name="quantity_in_millions"/>

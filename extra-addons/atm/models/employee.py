@@ -7,6 +7,7 @@ from odoo.models import Model
 
 class Employee(Model):
     _inherit = 'hr.employee'
+
     can_authorize_a_blind_reception = Boolean(string='Can authorize a Blind Reception?')
 
     # @api.model_create_multi
@@ -25,4 +26,3 @@ class Employee(Model):
     #
     #     ids = self.search(args, limit=limit)
     #     return ids.name_get()
-Employee()

@@ -14,25 +14,25 @@
             <field name="arch" type="xml">
             	<form>
 					<header>
-            			<button name="button_open" string="Open" type="object" attrs="{'invisible': [('state', 'in', ['open','cancel'])]}"/>
-            			<button name="button_close" string="Close" type="object" attrs="{'invisible': [('state', 'in', ['created','closed','cancel'])]}"/>
-						<button name="button_cancel" string="Cancelar" type="object" attrs="{'invisible': [('state', 'in', ['closed','cancel'])]}"/>
+            			<button name="button_open" string="Open" type="object" invisible="state in ['open','cancel']"/>
+            			<button name="button_close" string="Close" type="object" invisible="state in ['created','closed','cancel']"/>
+						<button name="button_cancel" string="Cancelar" type="object" invisible="state in ['closed','cancel']"/>
 	                    <field name="state" widget="statusbar" statusbar_visible="created,open,closed,cancel"/>
 	                </header>
 
 					<sheet>
                     	<group>
             				<group>
-            					<field name="code" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
-								<field name="type_id" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
-            					<field name="number" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+            					<field name="code" readonly="state in ['closed','cancel']"/>
+								<field name="type_id" readonly="state in ['closed','cancel']"/>
+            					<field name="number" readonly="state in ['closed','cancel']"/>
 								<field name="name" invisible="1"/>
 								<field name="number_new" readonly="1"/>
             				</group>
 
             				<group>
-            					<field name="opening_date" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
-            					<field name="closing_date" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+            					<field name="opening_date" readonly="state in ['closed','cancel']"/>
+            					<field name="closing_date" readonly="state in ['closed','cancel']"/>
             				</group>
             			</group>
 
@@ -40,32 +40,32 @@
             				<page string="General Information...">
 								<br/>
 								<group>
-									<field name="realized_work" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
-									<field name="equipment_or_area" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+									<field name="realized_work" readonly="state in ['closed','cancel']"/>
+									<field name="equipment_or_area" readonly="state in ['closed','cancel']"/>
 								</group>
 
 								<group string="Implicated people...">
 									<field name="creator_id"/>
-									<field name="emitter_id" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
-									<field name="executor_id" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+									<field name="emitter_id" readonly="state in ['closed','cancel']"/>
+									<field name="executor_id" readonly="state in ['closed','cancel']"/>
 									<field name="shutter_id"/>
 								</group>
 
 								<group string="Implicated Cost Centers...">
-									<field name="execute_cost_center_id" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
-									<field name="receive_cost_center_id" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+									<field name="execute_cost_center_id" readonly="state in ['closed','cancel']"/>
+									<field name="receive_cost_center_id" readonly="state in ['closed','cancel']"/>
 								</group>
             				</page>
 
-            				<page string="Products..." attrs="{'invisible' : [('state', '!=', 'closed')]}">
-            					<field name="product_order_ids" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+            				<page string="Products..." invisible="state != 'closed'">
+            					<field name="product_order_ids" readonly="state in ['closed','cancel']"/>
             				</page>
 
 							<page string="Notes...">
 								<br/>
-								<field name="note" attrs="{'readonly': [('state', 'in', ['closed','cancel'])]}"/>
+								<field name="note" readonly="state in ['closed','cancel']"/>
 							</page>
-							<page string="Datos de Cancelación..." attrs="{'invisible': [('state', '!=', 'cancel')]}">
+							<page string="Datos de Cancelación..." readonly="state in ['closed','cancel']">
 								<group>
 									<group>
 										<field name="user_cancel_id" readonly="1"/>
@@ -114,7 +114,7 @@
 	    </record>
 
 		<!-- SEARCH VIEW -->
-        <record id="atm_work_order_search_view" model="ir.ui.view">
+        <!-- <record id="atm_work_order_search_view" model="ir.ui.view">
             <field name="name">atm_work_order_search_view</field>
             <field name="model">atm.work_order</field>
             <field name="arch" type="xml">
@@ -152,7 +152,7 @@
                     </group>
                 </search>
             </field>
-        </record>
+        </record> -->
 
         <!-- ACTION -->
         <record id="atm_work_order_action" model="ir.actions.act_window">

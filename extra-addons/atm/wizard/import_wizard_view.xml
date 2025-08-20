@@ -22,7 +22,7 @@
                             </p>
                         </div>
 
-                        <div attrs="{'invisible': [('action', '!=', 'import_responsibility_areas')]}">
+                        <div invisible="action != 'import_responsibility_areas'">
                             <p>
                                 Se espera que el archivo <b>Excel</b> tenga la información a importar en la primera hoja
                                 y este compuesto por las siguientes columnas...
@@ -49,7 +49,7 @@
                             </table>
                         </div>
 
-                        <div attrs="{'invisible': [('action', '!=', 'import_cost_centers')]}">
+                        <div invisible="action != 'import_cost_centers'">
                             <p>
                                 Se espera que el archivo <b>Excel</b> tenga la información a importar en la primera hoja
                                 y este compuesto por las siguientes columnas, de las cuales la descripción

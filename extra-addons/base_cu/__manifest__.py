@@ -24,8 +24,8 @@ Adds elements to the Odoo kernel, necessary for the l10n_cu localization modules
     ],
     'data': [
         # Data files to load...
-        # 'data/res_country_states_data.xml',
-        # 'data/report_paperformat_data.xml',
+        'data/res_country_states_data.xml',
+        'data/report_paperformat_data.xml',
 
 		# Views...
         'views/res_partner_view.xml',

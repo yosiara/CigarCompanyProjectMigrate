@@ -184,7 +184,6 @@ class WorkOrder(Model):
             vals['product_order_ids'] = list_product
             work_order.write(vals)
         return res
-WorkOrder()
 
 
 class WorkOrderType(Model):
@@ -194,4 +193,3 @@ class WorkOrderType(Model):
     name = Char()
     note = Text(string='Description')
     is_used_in_budget = Boolean('Used in budget?')
-WorkOrderType()

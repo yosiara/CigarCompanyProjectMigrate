@@ -18,7 +18,7 @@ services:
     restart: unless-stopped
     tty: true
     entrypoint: /usr/bin/python3 -m debugpy --listen 0.0.0.0:5678 /usr/bin/odoo -c /etc/odoo/odoo.conf
-    command: --dev=all --update=process_control #-i web_community
+    command: --dev=all #--update=process_control #-i web_community
 
   postgres:
     image: postgres:15

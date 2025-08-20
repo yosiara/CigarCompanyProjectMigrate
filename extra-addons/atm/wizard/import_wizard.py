@@ -216,4 +216,3 @@ class ImportWizard(TransientModel):
         f.close()
 
         return abspath(path)
-ImportWizard()

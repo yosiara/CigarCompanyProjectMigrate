@@ -79,4 +79,3 @@ class ProductOrder(Model):
                 controls.write({'quantity_system': controls[0].quantity_system + record.quantity})
 
         return super(ProductOrder, self).unlink()
-ProductOrder()

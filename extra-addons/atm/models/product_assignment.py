@@ -58,15 +58,12 @@ class ProductAssingment(Model):
                     lst.append(res.id)
 
         self.detail_ids = lst
-ProductAssingment()
-
 
 class Product(Model):
     _inherit = 'simple_product.product'
+    
     has_assingments = Boolean(string='Has assingments by area?')
     assingment_ids = One2many('atm.product_assignment', inverse_name='product_id', string='Assingments...')
-Product()
-
 
 class AssingmentDetail(Model):
     _name = 'atm.product_assignment.detail'
@@ -75,4 +72,3 @@ class AssingmentDetail(Model):
     assingment_id = Many2one('atm.product_assignment')
     quantity = Float(digits=(16, 4))
     date = Date()
-AssingmentDetail()
