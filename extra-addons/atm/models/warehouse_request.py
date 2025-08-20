@@ -35,7 +35,7 @@ class WarehouseRequest(Model):
 
     
     def _is_exceeded_product_assingment(self):
-        print self.area_id.is_assingment_exceeded()
+        print (self.area_id.is_assingment_exceeded())
         if self.area_id.is_assingment_exceeded():
             self.is_exceeded_assingment = True
         else:
