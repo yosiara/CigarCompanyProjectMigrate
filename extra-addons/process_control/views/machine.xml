@@ -5,7 +5,7 @@
             <field name="name">machine_kanban</field>
             <field name="model">process_control.machine</field>
             <field name="arch" type="xml">
-                <kanban class="o_kanban_mobile">
+                <kanban js_class="process_control_machine_kanban">
                     <field name="name"/>
                     <field name="machine_type_id"/>
                     <field name="productive_section_id"/>

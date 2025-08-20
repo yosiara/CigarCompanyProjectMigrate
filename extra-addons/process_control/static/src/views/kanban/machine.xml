@@ -3,13 +3,13 @@
 
     <!-- Template principal del controlador -->
     <t t-name="process_control.MachineKanbanView" owl="1">
-        <div class="o_awesome_kanban_view d-flex h-100">
+        <!-- <div class="o_awesome_kanban_view d-flex h-100"> -->
             <!-- Sidebar de clientes -->
-            <div class="o_customer_sidebar bg-light border-end" style="width: 300px; min-width: 300px;">
+            <!-- <div class="o_customer_sidebar bg-light border-end" style="width: 300px; min-width: 300px;">
                 <MachineKanbanComponent selectMachine="props.selectMachine"/>
             </div>
             
-            <!-- Área principal del kanban -->
+            Área principal del kanban
             <div class="o_kanban_renderer_container flex-grow-1">
                 <t t-if="props.state.selectedMachine">
                     <div class="o_selection_info p-2 bg-info text-white">
@@ -22,13 +22,13 @@
                     </div>
                 </t>
                 <t t-slot="default"/>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
     </t>
 
     <!-- Template del componente MachineKanbanComponent -->
     <t t-name="process_control.MachineKanbanComponent" owl="1">
-        <div class="o_customer_list h-100">
+        <!-- <div class="o_customer_list h-100">
             <div class="o_customer_header p-3 border-bottom">
                 <h5 class="m-0">Clientes</h5>
             </div>
@@ -57,7 +57,7 @@
                     </div>
                 </t>
             </div>
-        </div>
+        </div> -->
     </t>
 
 </templates>

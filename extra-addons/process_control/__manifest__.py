@@ -92,6 +92,7 @@ Holguín, Cuba.
             'process_control/static/src/core/report_handler.js',
             # 'process_control/static/src/views/**/*.js',
             # 'process_control/static/src/views/**/*.xml',
+            # 'process_control/static/src/scss/**/*.scss',
             #'extra-addons/process_control/static/src/core/formAutoSave.js',
             #'process_control/static/src/css/fields.css',
         ],
