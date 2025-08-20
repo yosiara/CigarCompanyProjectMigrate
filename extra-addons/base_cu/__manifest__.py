@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'CU Base',
+    'name': 'Base CU',
     'author': 'Computer Science Specialist, '
     'Yosiel R. Arango Arencibia. ',
     'summary': 'Adds elements to the Odoo kernel, necessary for the l10n_cu localization modules',
