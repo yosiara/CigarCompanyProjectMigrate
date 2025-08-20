@@ -30,7 +30,7 @@ System for controlling the ATM department of the Lázaro Peña Cigar Company...
     'data': [
         # Security...
         # 'security/security.xml',
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
 
         # Data files to load...
         'data/work_order_type_data.xml',
@@ -70,11 +70,11 @@ System for controlling the ATM department of the Lázaro Peña Cigar Company...
         'wizard/work_order_cancel_wizard_view.xml',
 
         # Templates...
-        'static/src/xml/webclient_templates.xml',
+        # 'static/src/xml/webclient_templates.xml',
     ],
-    'qweb': [
-        'static/src/xml/custom_download_file_widget_template.xml'
-    ],
+    # 'qweb': [
+    #     'static/src/xml/custom_download_file_widget_template.xml'
+    # ],
     'installable': True,
     'application': True,
 }

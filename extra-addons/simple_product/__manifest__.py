@@ -13,7 +13,7 @@ This is a module for the managing products, avoiding the complexity of the origi
     """,
     'category': 'Products',
     'version': '1.0',
-    'licence': 'LGPL-3',
+    'license': 'LGPL-3',
     'depends': ['product'],
     'data': [
         # Security

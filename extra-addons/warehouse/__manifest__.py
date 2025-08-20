@@ -6,7 +6,7 @@
     'Yosiel R. Arango Arencibia. ',
     'category': 'Inventory',
     'version': '1.0',
-    'licence': 'LGPL-3',
+    'license': 'LGPL-3',
     'summary': 'This is an alternative module for managing product inventory...',
     'description': """
 Warehouse

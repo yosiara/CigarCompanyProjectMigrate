@@ -7,7 +7,7 @@
     'category': 'Manufacturing',
     'version': '1.0',
     'sequence': 4,
-    'licence': 'LGPL-3',
+    'license': 'LGPL-3',
     'summary': 'Control module of the Industrial Maintenance Process of the Lázaro Peña Cigar Company.',
     'description': """
 Maintenance Turei
