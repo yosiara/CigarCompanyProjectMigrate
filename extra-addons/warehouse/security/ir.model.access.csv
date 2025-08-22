@@ -1,5 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-warehouse.access_warehouse_warehouse,access_warehouse_warehouse,warehouse.model_warehouse_warehouse,base.group_user,1,1,1,1
 warehouse.access_warehouse_product_control,access_warehouse_product_control,warehouse.model_warehouse_product_control,base.group_user,1,1,1,1
 warehouse.access_warehouse_warehouse_request,access_warehouse_warehouse_request,warehouse.model_warehouse_warehouse_request,base.group_user,1,1,1,1
 warehouse.access_warehouse_employee_driver,access_warehouse_employee_driver,warehouse.model_warehouse_employee_driver,base.group_user,1,1,1,1

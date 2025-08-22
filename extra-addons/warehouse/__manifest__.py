@@ -7,6 +7,7 @@
     'category': 'Inventory',
     'version': '1.0',
     'license': 'LGPL-3',
+    'sequence': 5,
     'summary': 'This is an alternative module for managing product inventory...',
     'description': """
 Warehouse
@@ -15,7 +16,8 @@ Warehouse
 This is a module for the managing products, avoiding the complexity of the original module of Odoo...
     """,
     'depends': [
-        'simple_product',
+        'product',
+        'stock',
         'hr',
     ],
     'data': [
