@@ -9,7 +9,7 @@
         
         <!-- Form Button Save -->
         <xpath expr="//button[contains(@class, 'o_form_button_save')]" position="attributes">
-            <attribute name="class">o_form_button_save btn btn-primary px-1</attribute>
+            <attribute name="class">o_form_button_save btn btn-primary</attribute>
         </xpath>
         <xpath expr="//button[contains(@class, 'o_form_button_save')]/i" position="replace">
             <span><i class="fa fa-cloud-upload fa-fw"/> Guardar</span>
@@ -17,7 +17,7 @@
 
         <!-- Form Button Cancel -->
         <xpath expr="//button[contains(@class, 'o_form_button_cancel')]" position="attributes">
-            <attribute name="class">o_form_button_cancel btn btn-secondary px-1</attribute>
+            <attribute name="class">o_form_button_cancel btn btn-secondary</attribute>
         </xpath>
         <xpath expr="//button[contains(@class, 'o_form_button_cancel')]/i" position="replace">
             <span><i class="fa fa-undo fa-fw"/> Descartar</span>
