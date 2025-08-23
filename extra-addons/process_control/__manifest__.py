@@ -24,7 +24,7 @@ Holguín, Cuba.
         'data/turn.xml',
 
         #-----------------------security-------------------------------------#
-        'security/process_control_groups.xml',
+        'security/process_control_security.xml',
         'security/ir.model.access.csv',
 
         #-----------------------views-------------------------------------#

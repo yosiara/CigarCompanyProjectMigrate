@@ -1,29 +1,29 @@
 # -*- coding: utf-8 -*-
 
 {
-    "name": "External Database Connector",
+    "name": "DB External Connector",
     "summary": "Used to make connections to external databases...",
     "description": """
-External Database Connector
-============================
+DB External Connector
+======================
 
 Used to make connections to external databases...
     """,
     "author": "Computer Science Specialist, "
     "Yosiel R. Arango Arencibia. ",
-    "category": "Tools/Tools",
+    "category": "Tools",
     "version": "17.0",
     "license": "LGPL-3",
-    "depends": [
-        "base",
-        "mail",
-    ],
+    "depends": ["mail"],
     # Data files to load...
     "data": [
+        # Security
+        "security/db_external_connector_security.xml",
+        "security/ir.model.access.csv",
+        
+        # Views
         "views/base_menu.xml",
         "views/external_db_source_view.xml",
-        #"security/db_external_connector_security.xml",
-        "security/ir.model.access.csv",
     ],
     "installable": True,
 }

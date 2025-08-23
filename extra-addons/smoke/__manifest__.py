@@ -16,7 +16,6 @@ Module in development to facilitate the management of the smoking process for wo
 at the Lázaro Peña Cigar Factory. Holguín, Cuba.
     """,
     "depends": [
-        "base",
         "db_external_connector",
     ],
     "data": [

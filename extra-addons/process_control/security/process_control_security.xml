@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Power Users Group (Medium Privileges) -->
+        <record id="group_process_control_operator" model="res.groups">
+            <field name="name">Control Proceso / Operador</field>
+            <field name="category_id" ref="base.module_category_productivity"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Administration group (high privileges) -->
+        <record id="group_process_control_ep" model="res.groups">
+            <field name="name">Control Proceso / Operador EP</field>
+            <field name="category_id" ref="base.module_category_productivity"/>
+            <field name="implied_ids" eval="[(4, ref('process_control.group_process_control_operator'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+</odoo>

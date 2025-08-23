@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        <!-- Reglas de seguridad -->
-        <record id="db_external_connector_rule" model="ir.rule">
-            <field name="name">DB External Connector Rule</field>
-            <field name="model_id" ref="model_db_external_connector_template"/>
-            <field name="global" eval="True"/>
-            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <!-- Administration group (high privileges) -->
+        <record id="group_db_external_connector_admin" model="res.groups">
+            <field name="name">DB External Connector / Administration</field>
+            <field name="category_id" ref="base.module_category_tools"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
         </record>
-     <!-- Fin de las reglas de seguridad -->
-
     </data>
 </odoo>
