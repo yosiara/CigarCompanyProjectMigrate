@@ -15,15 +15,16 @@ services:
 #      - odoo-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./extra-addons:/mnt/extra-addons
+      - ./extra-addons:/mnt/enterprise-addons
     
     entrypoint: /usr/bin/python3 -m debugpy --listen 0.0.0.0:5678 /usr/bin/odoo -c /etc/odoo/odoo.conf
-    command: --dev=all --update=process_control
+    command: --dev=all #--update=process_control
     
     tty: true
     restart: unless-stopped
 
   postgres:
-    image: postgres:17
+    image: postgres:17-bookworm
     container_name: db_${CONTAINER_NAME}
     environment:
       - POSTGRES_DB=postgres

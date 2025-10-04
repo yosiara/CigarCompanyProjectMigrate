@@ -4,4 +4,5 @@
     "python.autoComplete.extraPaths": [
         "addons",
     ],
+    "xml.symbols.enabled": false,
 }
