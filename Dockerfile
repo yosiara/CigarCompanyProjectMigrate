@@ -2,9 +2,10 @@ FROM odoo:18.0
 
 USER root
 
-#odoo_cigarros:18.0
+COPY requirements.txt .
+
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y python3-debugpy
+    apt-get install -y requirements.txt
 
 USER odoo
