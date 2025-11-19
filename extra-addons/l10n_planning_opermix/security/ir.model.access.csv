@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_planning_subcomisiones_user,planning.subcomisiones.user,model_planning_subcomisiones,base.group_user,1,0,0,0
+access_planning_subcomisiones_user_esp,planning.subcomisiones.user.esp,model_planning_subcomisiones,planning.group_planning_user,1,0,0,0
+access_planning_subcomisiones_manager,planning.subcomisiones.manager,model_planning_subcomisiones,planning.group_planning_manager,1,1,1,1
+access_planning_prorrogation_user,planning.prorrogation.user,model_planning_prorrogation,base.group_user,1,0,0,0
+access_planning_prorrogation_user_esp,planning.prorrogation.user.esp,model_planning_prorrogation,planning.group_planning_user,1,1,0,0
+access_planning_prorrogation_manager,planning.prorrogation.manager,model_planning_prorrogation,planning.group_planning_manager,1,1,1,1

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- planning.slot views -->
+    <record id="planning_view_form_inherit_opermix" model="ir.ui.view">
+        <field name="name">planning.slot.form.inherit.opermix</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="planning.planning_view_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="attributes">
+                <attribute name="placeholder">Descripción de la Tarea</attribute>
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="resource_id" position="attributes">
+                <attribute name="string">Responsable</attribute>
+                <attribute name="placeholder">Por ejemplo, Anita Oliver</attribute>
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="role_id" position="attributes">
+                <attribute name="string">Comisión</attribute>
+                <attribute name="placeholder">Por ejemplo, Comisión de Cuadros</attribute>
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="role_id" position="after">
+                <field name="planning_subcomision_id" domain="[('planning_role_id', '=', role_id)]"/>
+                <field name="nro_acuerdo"/>
+<!--                <field name="plan_trabajo"/>-->
+                <field name="child_ids" invisible="1"/>
+                <field name="ejecutor_id" domain="[('id', 'in', child_ids)]"/>
+                <field name="controla_cumplimiento_id"/>
+            </field>
+            <field name="name" position="after">
+                <group>
+                    <field name="archivo_indicacion"/>
+                </group>
+                <group>
+                    <field name="cumplimiento_usuario"/>
+                    <field name="fecha_cumplimiento" readonly="1" invisible="not cumplimiento_usuario"/>
+                    <field name="prorrogar"/>
+                    <field name="fecha_solicitada" invisible="not prorrogar"/>
+                    <field name="causa_prorroga" invisible="not prorrogar"/>
+                    <field name="nueva_fecha_propuesta" invisible="not prorrogar"/>
+                    <field name="aceptar_prorroga" invisible="not prorrogar" groups="planning.group_planning_manager"/>
+                    <field name="planning_prorrogation_ids"/>
+                </group>
+                <field name="info_cumplimiento" invisible="not cumplimiento_usuario" placeholder="Nota del Cumplimiento"/>
+                <group>
+                    <field name="adjunto_respuesta" invisible="not cumplimiento_usuario"/>
+                </group>
+                 <group>
+                    <field name="mostrar_conformidad" invisible="1"/>
+                    <field name="conformidad" invisible="not mostrar_conformidad"/>
+                    <field name="fecha_revision" invisible="not mostrar_conformidad" groups="planning.group_planning_manager"/>
+                    <field name="cumplimiento_final" groups="planning.group_planning_manager"/>
+                    <field name="fecha_real" groups="planning.group_planning_manager" invisible="not mostrar_fecha_real"/>
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <record id="planning_prorrogation_view_tree" model="ir.ui.view">
+        <field name="name">planning.prorrogation.list</field>
+        <field name="model">planning.prorrogation</field>
+        <field name="arch" type="xml">
+            <list string="Prorrogas Aprobadas">
+                <field name="fecha_solicitud"/>
+                <field name="name"/>
+                <field name="fecha_propuesta"/>
+            </list>
+        </field>
+    </record>
+</odoo>
