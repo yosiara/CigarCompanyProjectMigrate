@@ -5,6 +5,8 @@ _logger = logging.getLogger(__name__)
 
 class HREmployee(models.Model):
     _inherit = 'hr.employee'
+
+    planning_slot_id = fields.Many2one('planning.slot')
     
     @api.model_create_multi
     def create(self, vals_list):
