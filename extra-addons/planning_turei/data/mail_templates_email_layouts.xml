@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="mail_notification_light_inherit" inherit_id="mail.mail_notification_light">
+            <xpath expr="//t[contains(@t-out, 'model_description')]" position="replace">
+                <span style="font-size: 10px;">Planeación de Tareas</span>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

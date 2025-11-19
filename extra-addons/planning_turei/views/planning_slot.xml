@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="planning_view_search_base_inherit" model="ir.ui.view">
+        <field name="name">planning.slot.search.base.inherit</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="planning.planning_view_search_base"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="ejecutor_id" groups="planning.group_planning_user"/>
+                <field name="control_compliance_id" groups="planning.group_planning_user"/>
+                <filter string="Por cumplir" name="no_cumplido" domain="[('accomplished', '=', False)]" groups="planning.group_planning_user"/>
+            </xpath>
+            <xpath expr="//field[@name='role_id']" position="attributes">
+                <attribute name="string">Comisión</attribute>
+            </xpath>
+            <xpath expr="//filter[@name='group_by_role']" position="attributes">
+                <attribute name="string">Comisión</attribute>
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter name="group_by_ejecutor" string="Ejecuta" context="{'group_by': 'ejecutor_id'}" groups="planning.group_planning_user"/>
+                <filter name="group_by_controla" string="Ctrl. Cumpl." context="{'group_by': 'control_compliance_id'}" groups="planning.group_planning_user"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="planning_view_form_turei" model="ir.ui.view">
+        <field name="name">planning.slot.form.turei</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="planning.planning_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='start_datetime']" position="before">
+                <field name="task_seq"/>
+            </xpath>
+            
+            <!-- ############################################################################# -->
+            <!-- #                                SUSEL                                      # -->
+            <!-- ############################################################################# -->
+            <field name="name" position="attributes">
+                <attribute name="placeholder">Descripción de la Tarea</attribute>
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="resource_id" position="attributes">
+                <attribute name="string">Responsable</attribute>
+                <attribute name="placeholder">Por ejemplo, Anita Oliver</attribute>
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="role_id" position="attributes">
+                <attribute name="string">Comisión</attribute>
+                <attribute name="placeholder">Por ejemplo, Comisión de Cuadros</attribute>
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="role_id" position="after">
+                <field name="subcommissions_domain" invisible="1"/>
+                <field name="subcommissions_id" domain="subcommissions_domain"/>
+                <field name="agreement_number"/>
+                <field name="child_ids" invisible="1"/>
+                <field name="ejecutor_id" domain="[('id', 'in', child_ids)]"/>
+                <field name="control_compliance_id"/>
+            </field>
+            <field name="name" position="after">
+                <group>
+                    <field name="attach_file"/>
+                </group>
+                <group>
+                    <field name="accomplished"/>
+                    <field name="compliance_date" readonly="1" invisible="not accomplished"/>
+                    <field name="prorogue"/>
+                    <field name="request_date" invisible="not prorogue"/>
+                    <field name="prorogue_cause" invisible="not prorogue"/>
+                    <field name="prorogue_proposed_date" invisible="not prorogue"/>
+                    <field name="prorogue_approve" invisible="not prorogue" groups="planning.group_planning_manager"/>
+                    <field name="prorrogation_ids"/>
+                </group>
+                <field name="compliance_info" invisible="not accomplished" placeholder="Nota del Cumplimiento"/>
+                <group>
+                    <field name="attach_response" invisible="not accomplished"/>
+                </group>
+                 <group>
+                    <field name="show_conformity" invisible="1"/>
+                    <field name="conformity" invisible="not show_conformity"/>
+                    <field name="conformity_date" invisible="not show_conformity" groups="planning.group_planning_manager"/>
+                    <field name="task_closure" groups="planning.group_planning_manager"/>
+                    <field name="compliance_date_real" groups="planning.group_planning_manager" invisible="not compliance_real_show"/>
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <!-- <record id="planning_prorrogation_view_tree" model="ir.ui.view">
+        <field name="name">planning.prorrogation.list</field>
+        <field name="model">planning.prorrogation</field>
+        <field name="arch" type="xml">
+            <list string="Prorrogas Aprobadas">
+                <field name="request_date"/>
+                <field name="name"/>
+                <field name="prorogue_proposed_date"/>
+            </list>
+        </field>
+    </record> -->
+
+    <!-- <record id="planning_turei.planning_view_gantt_inherit" model="ir.ui.view">
+        <field name="name">planning.slot.gantt.inherit</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="planning.planning_view_gantt"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//gantt" position="inside">
+                <field name="current_employee_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record> -->
+    
+    <record id="planning.planning_action_schedule_by_resource" model="ir.actions.act_window">
+        <field name="name">Schedule by Resource</field>
+        <field name="res_model">planning.slot</field>
+        <field name="path">planning</field>
+        <field name="view_mode">gantt,calendar,list,form,kanban,pivot,graph</field>
+        <field name="mobile_view_mode">calendar</field>
+        <field name="context">{
+            'planning_expand_resource': 1,
+            'planning_expand_role': 1,
+            'search_default_no_cumplido': 1,
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No shifts found. Let's create one!
+            </p>
+            <p>
+                Schedule your human and material resources across roles, projects and sales orders.
+            </p>
+        </field>
+    </record>
+</odoo>
