@@ -3,8 +3,13 @@
     <data>
 
         <template id="mail_notification_light_inherit" inherit_id="mail.mail_notification_light">
-            <xpath expr="//t[contains(@t-out, 'model_description')]" position="replace">
-                <span style="font-size: 10px;">Planeación de Tareas</span>
+            <xpath expr="//span/t[contains(@t-out, 'model_description')]" position="replace">
+                <t t-out="'Planeación de Tareas'"/>
+            </xpath>
+            <xpath expr="//t[@t-else='']/span" position="replace">
+                <span style="font-size: 20px; font-weight: bold;">
+                    <t t-out="message.record_name and message.record_name.replace('💬', '').replace('/', '-') or ''"/>
+                </span>
             </xpath>
         </template>
 

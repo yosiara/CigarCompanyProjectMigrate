@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Planeación Turei',
+    'name': 'Planning Turei',
     'version': '18.0',
     'author': 'Computer Science Specialist, '
     'Yosiel R. Arango Arencibia. ',
@@ -9,7 +9,7 @@
     'sequence': 131,
     'summary': 'Customizing the Planning module for the Lázaro Peña Cigar Company. Holguín, Cuba',
     'description': """
-Planeación Turei
+Planning Turei
 =================
 
 Customizing the Planning module for the Lázaro Peña Cigar Company. Holguín, Cuba.

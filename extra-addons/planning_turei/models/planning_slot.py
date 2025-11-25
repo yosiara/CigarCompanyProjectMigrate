@@ -9,9 +9,9 @@ _logger = logging.getLogger(__name__)
 class PlanningSlot(models.Model):
     _inherit = 'planning.slot'
 
-    # -------------------------------------------------------------------------
-    # DEFAULT METHODS                                                         #
-    # -------------------------------------------------------------------------
+    # ------------------------------------------------------------------------ #
+    #                           DEFAULT METHODS                                #
+    # ------------------------------------------------------------------------ #
     def _default_next_task_seq(self):
         seq = self.env['ir.sequence'].search([('code', '=', 'planning.slot.task_seq')], limit=1)
         if not seq:
@@ -19,15 +19,15 @@ class PlanningSlot(models.Model):
         return seq.get_next_char(number_next=seq.number_next_actual)
 
     task_seq = fields.Char(string='N° Consecutivo', readonly=True, copy=False, index=True, default=_default_next_task_seq)
-    subcommissions_id = fields.Many2one(comodel_name='planning_turei.subcommissions', string='Subcomisión', required=True, ondelete='cascade')
+    subcommissions_id = fields.Many2one(comodel_name='planning_turei.subcommissions', string='Subcomisión', ondelete='cascade')
     subcommissions_domain = fields.Binary(compute="_get_subcommissions_domain", exportable=False)
-    ejecutor_id = fields.Many2one('hr.employee', string='Ejecuta')
-    child_ids = fields.One2many('hr.employee', 'planning_slot_id')
+    ejecutor_id = fields.Many2one(comodel_name='hr.employee', string='Ejecuta')
+    child_ids = fields.One2many(comodel_name='hr.employee', inverse_name='planning_slot_id')
 
     # Conformity
     conformity = fields.Boolean(string='Conformidad')
     conformity_date = fields.Date(string='Fecha de Conformidad', default=fields.Date().today())
-    show_conformity = fields.Boolean(string='Mostrar Conformidad', compute='_compute_controla_cumplimiento')
+    show_conformity = fields.Boolean(string='Mostrar Conformidad', compute='_compute_show_conformity')
     agreement_number = fields.Char(string='Nro. Acuerdo')
 
     # Compliance fields
@@ -60,9 +60,10 @@ class PlanningSlot(models.Model):
     )
     # work_plan = fields.Boolean(string='Plan Trabajo', default=False)
 
-    # -------------------------------------------------------------------------
-    # INHERITED METHODS                                                       #
-    # -------------------------------------------------------------------------
+    # ------------------------------------------------------------------------ #
+    #                           INHERITED METHODS                              #
+    # ------------------------------------------------------------------------ #
+
     def action_send(self):
         self.ensure_one()
         if not self.employee_id or not self.employee_id.work_email:
@@ -163,9 +164,10 @@ class PlanningSlot(models.Model):
         return super().create(vals)
 
 
-    # -------------------------------------------------------------------------
-    # COMPUTE METHODS                                                         #
-    # -------------------------------------------------------------------------
+    # ------------------------------------------------------------------------ #
+    #                           COMPUTE METHODS                                #
+    # ------------------------------------------------------------------------ #
+    
     @api.depends("role_id")
     def _get_subcommissions_domain(self):
         for rec in self:
@@ -174,12 +176,7 @@ class PlanningSlot(models.Model):
             else:
                 rec.subcommissions_domain = []
 
-    @api.onchange("role_id")
-    def _onchange_role_id(self):
-        if self.subcommissions_id.id is not self.role_id.id:
-            self.subcommissions_id = False
-
-    def _compute_controla_cumplimiento(self):
+    def _compute_show_conformity(self):
         for record in self:
             record.show_conformity = False
             if record.control_compliance_id:
@@ -188,9 +185,15 @@ class PlanningSlot(models.Model):
                 else:
                     record.show_conformity = False
 
-    # -------------------------------------------------------------------------
-    # ONCHANGE METHODS                                                        #
-    # -------------------------------------------------------------------------
+    # ------------------------------------------------------------------------ #
+    #                           ONCHANGE METHODS                               #
+    # ------------------------------------------------------------------------ #
+
+    @api.onchange("role_id")
+    def _onchange_role_id(self):
+        if self.subcommissions_id.id is not self.role_id.id:
+            self.subcommissions_id = False
+
     @api.onchange('resource_id')
     def _onchange_resource_id(self):
         auxiliar = []
