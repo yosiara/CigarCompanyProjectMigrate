@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Calendar Events : Views and Actions  -->
+
+    <record id="view_calendar_event_form_inherit" model="ir.ui.view">
+        <field name="name">calendar.event.form.inherit</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+        <field name="arch" type="xml">
+            <field name="start_date" position="before">
+                <field name="group_task"/>
+                <field name="organizational_groups_ids" invisible="group_task == False" required="group_task == True" widget="many2many_tags"/>
+            </field>
+            <field name="name" position="after">
+                <label for="short_name">Nombre Corto</label>
+                <field name="short_name" required="1" readonly="0"/>
+            </field>
+            <field name="allday" position="after">
+                <label for="task_type">Tipo</label>
+                <field name="task_type" required="1"/>
+                <label for="priority">Prioridad</label>
+                <field name="priority" required="1"/>
+            </field>
+            <field name="location" position="attributes">
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="partner_ids" position="attributes">
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="user_id" position="replace">
+                <field name="user_id" required="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_calendar_event_calendar_inherit_opermix" model="ir.ui.view">
+        <field name="name">calendar.event.calendar.inherit.opermix</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+        <field name="arch" type="xml">
+            <xpath expr="//calendar" position="attributes">
+                <attribute name="event_limit">11</attribute>
+            </xpath>
+            <field name="location" position="after">
+                <field name="short_name"/>
+            </field>
+        </field>
+    </record>
+    
+</odoo>

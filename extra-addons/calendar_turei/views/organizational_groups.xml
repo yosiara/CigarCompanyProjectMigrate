@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_calendar_grupos_organizativos_list" model="ir.ui.view">
+        <field name="name">calendar_turei.organizational_groups.list</field>
+        <field name="model">calendar_turei.organizational_groups</field>
+        <field name="arch" type="xml">
+            <list string="Grupos Organizativos" sample="1">
+                <field name="name"/>
+                <field name="members_groups_ids"/>
+            </list>
+        </field>
+    </record>
+    
+    <record id="calendar_grupos_organizativos_view_form" model="ir.ui.view">
+        <field name="name">calendar_turei.organizational_groups.form</field>
+        <field name="model">calendar_turei.organizational_groups</field>
+        <field name="arch" type="xml">
+            <form string="Grupos Organizativos">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="members_groups_ids">
+                            <list string="Integrantes" editable="bottom">
+                                <field name="employee_id"/>
+                                <field name="job_id"/>
+                                <field name="membership_type_id"/>
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_calendar_grupos_organizativos" model="ir.actions.act_window">
+        <field name="name">Grupos Organizativos</field>
+        <field name="res_model">calendar_turei.organizational_groups</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_calendar_grupos_organizativos_list"/>
+    </record>
+    
+    <menuitem
+    id="calendar_grupos_organizativos_menu"
+    parent="calendar.calendar_menu_config"
+    name="Grupos Organizativos"
+    sequence="40"
+    action="action_calendar_grupos_organizativos"
+    groups="base.group_system,base.group_no_one"/>
+
+</odoo>

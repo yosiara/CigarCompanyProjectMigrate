@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_calendar_opermix_periodos_list" model="ir.ui.view">
+        <field name="name">calendar.calendar_turei.periods.list</field>
+        <field name="model">calendar_turei.periods</field>
+        <field name="arch" type="xml">
+            <list string="Períodos" sample="1">
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="anual"/>
+            </list>
+        </field>
+    </record>
+    
+    <record id="calendar_opermix_periodos_view_form" model="ir.ui.view">
+        <field name="name">calendar.calendar_turei.periods.form</field>
+        <field name="model">calendar_turei.periods</field>
+        <field name="arch" type="xml">
+            <form string="Períodos">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="anual"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_calendar_opermix_periodos" model="ir.actions.act_window">
+        <field name="name">Períodos</field>
+        <field name="res_model">calendar_turei.periods</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_calendar_opermix_periodos_list"/>
+    </record>
+    
+    <menuitem
+    id="calendar_opermix_periodos_menu"
+    parent="calendar.calendar_menu_config"
+    name="Períodos"
+    sequence="40"
+    action="action_calendar_opermix_periodos"
+    groups="base.group_system,base.group_no_one,base.group_user"/>
+    
+</odoo>

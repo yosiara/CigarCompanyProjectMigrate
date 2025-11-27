@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="paperformat_letter_landscape_calendar" model="report.paperformat">
+            <field name="name">US Letter Landscape</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">20</field>
+            <field name="margin_bottom">05</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="True"/>
+            <field name="header_spacing">25</field>
+            <field name="dpi">96</field>
+        </record>
+
+        <record id="paperformat_letter_portrait_calendar" model="report.paperformat">
+            <field name="name">US Letter Portrait</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="margin_bottom">05</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="True"/>
+            <field name="header_spacing">25</field>
+            <field name="dpi">96</field>
+        </record>
+
+        <record id="action_report_individual_plan" model="ir.actions.report">
+            <field name="name">Plan de Trabajo</field>
+            <field name="model">report.calendar_turei.report_individual_plan</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">calendar_turei.report_individual_plan</field>
+            <field name="report_file">calendar_turei.report_individual_plan</field>
+            <field name="paperformat_id" ref="calendar_turei.paperformat_letter_landscape_calendar"/>
+            <field name="print_report_name">'Plan Individual'</field>
+            <field name="binding_type">report</field>
+            <field name="attachment">'Plan'+(object.employee_id.name)+'.pdf'</field>
+            <field name="attachment_use">True</field>
+        </record>
+
+        <template id="calendar_turei.report_individual_plan">
+            <t t-call="web.html_container">
+                <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+                <t t-tag="Plan de Trabajo ? 'button' : 'span'" class="badge border d-flex p-2 ms-2 bg-view" data-hotkey="y"/>
+                <t t-foreach="docs" t-as="o">
+<!--                    <t t-call="web.external_layout_standard">-->
+                        <div class="page">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr valign="top">
+                                        <td width="15%" style="border: none; padding: 0cm">
+                                            <p align="right"><font face="Arial" style="font-size: 8pt">Aprobado por: </font></p>
+                                        </td>
+                                        <td width="24%" style="border: none; padding: 0cm">
+                                            <p align="left"><font face="Arial" style="font-size: 8pt"><span  t-esc="o['manager_name']"/></font>
+                                                <br></br>
+                                            <font face="Arial" style="font-size: 8pt"><span  t-esc="o['manager_job']"/></font></p>
+                                        </td>
+                                        <td width="30%" style="border: none; padding: 0cm">
+                                            <p align="center"><font face="Arial" style="font-size: 8pt"><b>PLAN DE TRABAJO INDIVIDUAL</b>
+                                            <br></br>
+                                            <b><span  t-esc="o['mes']"/> </b></font></p>
+                                        </td>
+                                        <td width="30%" style="border: none; padding: 0cm">
+                                            <p align="right"><font face="Arial" style="font-size: 8pt">Área: <span t-esc="o['area']"/></font></p>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td width="15%" style="border: none; padding: 0cm">
+                                            <p align="right">  </p>
+                                        </td>
+                                        <td width="24%" style="border: none; padding: 0cm">
+                                            <p align="left"> </p>
+                                        </td>
+                                        <td width="30%" style="border: none; padding: 0cm">
+                                            <p align="center"> </p>
+                                        </td>
+                                        <td width="30%" style="border: none; padding: 0cm">
+                                            <p align="right"> </p>
+                                        </td>
+                                    </tr>
+                            </table>
+                            <p align="left">
+                            <font face="Arial"><font style="font-size: 8pt"><span lang="es-ES"><b>ACTIVIDADES PRINCIPALES:</b></span>
+                                <t t-foreach="o['main_task_list']" t-as="t">
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <span t-esc="t"/>.
+                                                </font>
+                                    </t>
+                            </font> </font>
+                            </p>
+                            <t t-set="flag" t-value="0"/>
+                            <t t-foreach="o['calendar']" t-as="week">
+                                <table width="100%" cellpadding="4" cellspacing="0" style="page-break-inside:avoid">
+                                    <tr valign="top">
+                                        <td width="16%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[0]['dia']">
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <b>Lunes
+                                                        <span t-esc="week[0]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="16%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[1]['dia']">
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <b>Martes
+                                                        <span t-esc="week[1]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="16%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[2]['dia']">
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <b>Miercoles
+                                                        <span t-esc="week[2]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="16%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[3]['dia']">
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <b>Jueves
+                                                        <span t-esc="week[3]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="16%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[4]['dia']">
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <b>Viernes
+                                                        <span t-esc="week[4]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="10%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[5]['dia']">
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <b>Sab.
+                                                        <span t-esc="week[5]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="10%" align="center" style="border: 1px double #000000; padding: 0cm">
+                                            <t t-if="week[6]['dia']">
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <b>Dom.
+                                                        <span t-esc="week[6]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td width="16%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <t t-foreach="week[0]['task']" t-as="task">
+                                                        <span t-esc="task['hour_start']"/>-
+                                                        <span t-esc="task['name']"/>
+<!--                                                        <t t-if="task['local']">-->
+<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                        </t>-->
+                                                        <br/>
+                                                    </t>
+                                                </font>
+                                            </p>
+                                        </td>
+                                        <td width="16%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <t t-foreach="week[1]['task']" t-as="task">
+                                                        <span t-esc="task['hour_start']"/>-
+                                                        <span t-esc="task['name']"/>
+<!--                                                        <t t-if="task['local']">-->
+<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                        </t>-->
+                                                        <br/>
+                                                    </t>
+                                                </font>
+                                            </p>
+                                        </td>
+                                        <td width="16%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <t t-foreach="week[2]['task']" t-as="task">
+                                                        <span t-esc="task['hour_start']"/>-
+                                                        <span t-esc="task['name']"/>
+<!--                                                        <t t-if="task['local']">-->
+<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                        </t>-->
+                                                        <br/>
+                                                    </t>
+                                                </font>
+                                            </p>
+                                        </td>
+                                        <td width="16%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <t t-foreach="week[3]['task']" t-as="task">
+                                                        <span t-esc="task['hour_start']"/>-
+                                                        <span t-esc="task['name']"/>
+<!--                                                        <t t-if="task['local']">-->
+<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                        </t>-->
+                                                        <br/>
+                                                    </t>
+                                                </font>
+                                            </p>
+                                        </td>
+                                        <td width="16%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <t t-foreach="week[4]['task']" t-as="task">
+                                                        <span t-esc="task['hour_start']"/>-
+                                                        <span t-esc="task['name']"/>
+<!--                                                        <t t-if="task['local']">-->
+<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                        </t>-->
+                                                        <br/>
+                                                    </t>
+                                                </font>
+                                            </p>
+                                        </td>
+                                        <td width="10%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <t t-foreach="week[5]['task']" t-as="task">
+                                                        <span t-esc="task['hour_start']"/>-
+                                                        <span t-esc="task['name']"/>
+<!--                                                        <t t-if="task['local']">-->
+<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                        </t>-->
+                                                        <br/>
+                                                    </t>
+                                                </font>
+                                            </p>
+                                        </td>
+                                        <td width="10%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: 1px double #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                            <p>
+                                                <font face="Arial" style="font-size: 8pt">
+                                                    <t t-foreach="week[6]['task']" t-as="task">
+                                                        <span t-esc="task['hour_start']"/>-
+                                                        <span t-esc="task['name']"/>
+<!--                                                        <t t-if="task['local']">-->
+<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                        </t>-->
+                                                        <br/>
+                                                    </t>
+                                                </font>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </t>
+                            <p align="center">
+                                <br/>
+                                <br/>
+                            </p>
+                            <table style="page-break-inside: avoid" width="100%" cellpadding="0" cellspacing="0">
+                                <tr valign="top">
+                                    <td width="40%" style="border: none; padding: 0cm">
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <br/>
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <font face="Arial" style="font-size: 8pt">
+                                                <b>
+                                                    <span t-esc="o['job']"/>
+                                                </b>
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="40%" style="border: none; padding: 0cm">
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="right">
+                                            <font face="Arial" style="font-size: 8pt">
+                                            </font>
+                                        </p>
+                                        <p align="center">
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="40%" style="border: none; padding: 0cm">
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <br/>
+
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <font face="Arial" style="font-size: 8pt">
+                                                <b>
+                                                    <span t-esc="o['name']"/>
+                                                </b>
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+<!--                            <p align="center">-->
+<!--                                <br/>-->
+<!--                                <br/>-->
+<!--                            </p>-->
+                        </div>
+<!--                    </t>-->
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>
