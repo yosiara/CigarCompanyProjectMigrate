@@ -8,49 +8,31 @@ class HREmployee(models.Model):
 
     planning_slot_id = fields.Many2one(comodel_name='planning.slot')
     
+    def _assign_photo_from_documents(self, registration_number):
+        """Busca y asigna la foto del empleado desde los documentos"""
+        if not registration_number:
+            return False
+        document = self.env['documents.document'].search([
+            ('mimetype', 'ilike', 'image/%'),   # Solo archivos de imagen
+            ('name', '=ilike', f'{registration_number}.%')
+        ], limit=1)
+        if not document:
+            return False # comodidad para filtros posteriores
+        return document.datas # Obtener el contenido binario de la imagen
+
     @api.model_create_multi
     def create(self, vals_list):
         employees = super().create(vals_list)
-        
         for employee in employees:
-            employee._assign_photo_from_documents()
-
+            employee.image_1920 = self._assign_photo_from_documents(registration_number=employee.registration_number)
         return employees
     
     @api.model
     def write(self, vals):
-        result = super().write(vals)
-        
         # Si se actualiza el código del empleado, buscar la foto
         if 'registration_number' in vals:
-            for employee in self:
-                employee._assign_photo_from_documents()
-        
-        return result
-    
-    def _assign_photo_from_documents(self):
-        """Busca y asigna la foto del empleado desde los documentos"""
-        self.ensure_one()
-        
-        if not self.registration_number:
-            self.image_1920 = False # comodidad para filtros posteriores
-            return
-        
-        document = self.env['documents.document'].search([
-            ('mimetype', 'ilike', 'image/%'),
-            ('name', '=ilike', f'{self.registration_number}.%')
-        ], limit=1) # Solo archivos de imagen
-
-        if document:
-            image_data = document.datas # Obtener el contenido binario de la imagen
-            try:
-                self.image_1920 = image_data
-                _logger.info(f"Foto asignada automáticamente para empleado {self.registration_number}")
-            except Exception as e:
-                _logger.error(f"Error al asignar foto para empleado {self.registration_number}: {str(e)}")
-        else:
-            self.image_1920 = False # comodidad para filtros posteriores
-        
+            vals['image_1920'] = self._assign_photo_from_documents(registration_number=vals['registration_number'])
+        return super().write(vals)
 
     def action_assign_photo_from_documents(self):
         """Acción para asignar fotos desde documentos"""
@@ -58,7 +40,7 @@ class HREmployee(models.Model):
 
         # Insertar foto para todos los empleados con codigo de trabajador
         for employee in employees:
-            employee._assign_photo_from_documents()
+            employee.image_1920 = self._assign_photo_from_documents(registration_number=employee.registration_number)
 
-        _logger.info(f"Se asignaron todas las fotos desde documentos")
+        _logger.info(f"Fotos de empleados asignadas desde documentos!!!")
         return
