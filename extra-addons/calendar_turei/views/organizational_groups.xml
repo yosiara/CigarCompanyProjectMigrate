@@ -41,11 +41,11 @@
     </record>
     
     <menuitem
-    id="calendar_grupos_organizativos_menu"
-    parent="calendar.calendar_menu_config"
-    name="Grupos Organizativos"
-    sequence="40"
-    action="action_calendar_grupos_organizativos"
-    groups="base.group_system,base.group_no_one"/>
+        id="calendar_grupos_organizativos_menu"
+        parent="calendar.calendar_menu_config"
+        name="Grupos Organizativos"
+        sequence="55"
+        action="action_calendar_grupos_organizativos"
+        groups="base.group_system,base.group_no_one"/>
 
 </odoo>

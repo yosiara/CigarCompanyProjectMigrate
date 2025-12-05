@@ -5,14 +5,14 @@
     'author': 'Computer Science Specialist, '
     'Yosiel R. Arango Arencibia. ',
     'category': 'Productivity/Calendar',
-    "license": "LGPL-3",
+    'license': 'LGPL-3',
     'sequence': 166,
     'summary': 'Customizing the calendar module for the Lázaro Peña Cigar Company. Holguín, Cuba',
     'description': """
 Calendar Turei
 ===============
 
-Customizing the employee module for the Lázaro Peña Cigar Company. Holguín, Cuba.
+Customizing the calendar module for the Lázaro Peña Cigar Company. Holguín, Cuba.
     """,
     'depends': ['calendar', 'hr'],
     'auto_install': ['calendar'],

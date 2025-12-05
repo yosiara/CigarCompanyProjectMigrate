@@ -43,17 +43,14 @@ class CalendarPrintIndividualPlan(models.TransientModel):
     date_start = fields.Date(related='period_id.date_start', store=True, readonly=True)
     date_end = fields.Date(related='period_id.date_end', store=True, readonly=True)
     period_id = fields.Many2one('calendar_turei.periods', string='Período', required=True)
-    # type = fields.Selection([('plan', 'Plan'), ('resume', 'Accomplish resume'), ('ics', 'ICS')], 'Type', required=True,
     type = fields.Selection([('plan', 'Plan')], 'Type', required=True,
                             default='plan')
     text = fields.Html('Cualitative Resume', default="")
     confirmed = fields.Boolean('Confirmed', default=True)
     name = fields.Char('File Name', readonly=True)
     data = fields.Binary('File', readonly=True)
-    # state = fields.Selection([('print', 'Print'), ('get', 'Get')],  # choose print or get the ics file
     state = fields.Selection([('print', 'Print')],  # choose print or get the ics file
                              default='print')
-    # format = fields.Selection([('pdf', 'PDF'), ('docx', 'DOCX')], 'Output Format', required=True, default='pdf')
     format = fields.Selection([('pdf', 'PDF')], 'Output Format', required=True, default='pdf')
 
     # -------
@@ -67,8 +64,6 @@ class CalendarPrintIndividualPlan(models.TransientModel):
         data['employee_id'] = self.env['hr.employee'].search([('id', '=', self._context['active_id'])]).id
         user_id = self._context['uid']
         employee = self.sudo().env['hr.employee'].browse(data['employee_id'])
-        # employee = self.sudo(user=SUPERUSER_ID).env['hr.employee'].browse(data['employee_id'])
-        # employee = self.env['hr.employee'].browse(data['employee_id'])
         partner_id = employee.user_id.partner_id.id
         event_obj = self.env['calendar.event']
         if self.type == 'plan':
@@ -76,24 +71,8 @@ class CalendarPrintIndividualPlan(models.TransientModel):
                 # se aprueban las tareas y las tareas recurrentes deben convertirse en tareas fisicas o no virtuales
                 # se buscan la tareas recurrentes del grupo en el periodo del año actual
                 # se fija el rango de fecha al año actual para las tareas recurrentes
-                # fecha = datetime.strptime(self.date_start, DEFAULT_SERVER_DATE_FORMAT)
                 fecha_start = datetime.strptime(data['date_start'], DEFAULT_SERVER_DATE_FORMAT)
                 fecha_stop = datetime.strptime(data['date_end'], DEFAULT_SERVER_DATE_FORMAT)
-                # year_first_day = str(fecha.year) + '-01-01'
-                # year_last_day = str(fecha.year) + '-12-31'
-                # rec_event_ids = event_obj.search(
-                #     [('partner_ids','in',partner_id), ('user_id', '=', user_id), ('stop', '>=', fecha_start.strftime(DEFAULT_SERVER_DATETIME_FORMAT)), ('start', '<=', fecha_stop.strftime(DEFAULT_SERVER_DATETIME_FORMAT))])
-                # for e in rec_event_ids:
-                #     if e.recurrency:
-                #         # Buscar los calendar recurrence
-                #         rec = self.env['calendar.recurrence'].search([('calendar_event_ids', 'in', [e])])
-                #         e._detach_events()
-
-                # event_ids = event_obj.search(
-                #     [('partner_ids','in',partner_id), ('user_id', '=', user_id), ('stop', '>=', fecha_start.strftime(DEFAULT_SERVER_DATETIME_FORMAT)), ('start', '<=', fecha_stop.strftime(DEFAULT_SERVER_DATETIME_FORMAT))])
-                #     # [('state', '=', 'draft'), ('partner_ids','in',partner_id), ('user_id', '=', user_id), ('stop', '>=', fecha_start.strftime(DEFAULT_SERVER_DATETIME_FORMAT)), ('start', '<=', fecha_stop.strftime(DEFAULT_SERVER_DATETIME_FORMAT))])
-                # if event_ids:
-                #     event_ids.write({'state': 'open'})
 
             report_obj = self.env['ir.actions.report']
             data['enable_editor'] = 0
@@ -104,15 +83,11 @@ class CalendarPrintIndividualPlan(models.TransientModel):
             event_obj = self.env['calendar.event']
             date_start = data['date_start']
             date_end = data['date_end']
-            # employee = self.sudo(user=SUPERUSER_ID).env['hr.employee'].browse(data['employee_id'])
             employee = self.env['hr.employee'].browse(data['employee_id'])
             partner_id = employee.user_id.partner_id.id
             # IMPORTANTE!!
             event_list = []  # esta lista se utiliza para almacenar los dias con el listado de tareas
             # se toman las tareas que no son recurrentes en el rango de fechas
-            # event_ids = event_obj.search(
-            #     [('partner_ids', 'in', partner_id), ('start', '>=', date_start), ('start', '<=', date_end),
-            #      ('recurrency', '=', False)])
             event_ids = event_obj.search(
                 [('partner_ids', 'in', partner_id), ('start', '>=', date_start), ('start', '<=', date_end),
                  ('recurrency', '=', False)])
@@ -130,12 +105,10 @@ class CalendarPrintIndividualPlan(models.TransientModel):
 
                 res = {}
                 res['name'] = e.short_name
-                # res['name'] = e.name
                 res['start'] = str(start)[:10]
                 res['stop'] = str(stop)[:10]
                 res['hour_start'] = 'T/D' if e.allday else str(start)[11:][:5]
                 res['local'] = e.location
-                # res['local'] = e.local_id.name
                 res['priority'] = e.priority
                 res['orderby'] = str(start)[:10][8:] + str(start)[11:][:2]
                 event_list.append(res)
@@ -214,9 +187,7 @@ class CalendarPrintIndividualPlan(models.TransientModel):
                         date_time_am = date_time_am.strftime(DEFAULT_SERVER_DATE_FORMAT)
                         for event in event_list:
                             if event['start'] <= date_time_am <= event['stop']:
-                                # if event['start'] == date_time_am:
                                 t_list.append(event)
-                                # event_list.remove(event)
                             if event['priority'] == '2':
                                 if event['name'] not in main_task_list:
                                     main_task_list.append(event['name'])
@@ -231,61 +202,4 @@ class CalendarPrintIndividualPlan(models.TransientModel):
             if self.format == 'pdf':
                 data['docs'] = indv_plan_res
                 return self.env.ref('calendar_turei.action_report_individual_plan').report_action([], data=data)
-                # return self.env['ir.actions.report']._render('rep.calendar_turei.report_individual_plan',
-                #                                              res_ids=employee.ids,
-                #                                              data={'docs': indv_plan_res})
-                # return self.env['ir.actions.report'].get_action(self, 'calendar_turei.report_individual_plan', data={'docs': indv_plan_res})
-            # else:
-            #     path = pkg_resources.resource_filename(
-            #         "odoo.addons.l10n_cu_calendar",
-            #         "static/src/img/dummy_logo.png",
-            #     )
-            #     indv_plan_res[0]['replace_logo'] = { 'src': 'path', 'data': path }
-            #     user = self.env['res.users'].search([('id', '=', user_id)])
-            #     if user.company_id.individual_plan_one_page:
-            #         return {
-            #             'type': 'ir.actions.report.xml',
-            #             'report_name': 'l10n_cu_calendar.individual_plan_one_page_docx',
-            #             'datas': indv_plan_res[0]
-            #         }
-            #     else:
-            #         return {
-            #             'type': 'ir.actions.report.xml',
-            #             'report_name': 'l10n_cu_calendar.individual_plan_docx',
-            #             'datas': indv_plan_res[0]
-            #         }
-
-        # if self.type == 'resume':
-        #     report_data = self.env['l10n_cu_calendar.report_utils']._compute_resume_values(data)
-        #     if self.format == 'pdf':
-        #         return self.env['report'].get_action(self, 'l10n_cu_calendar.report_individual_plan_resumen', data={'docs': report_data})
-        #     # else:
-        #     #     path = pkg_resources.resource_filename(
-        #     #         "odoo.addons.l10n_cu_calendar",
-        #     #         "static/src/img/dummy_logo.png",
-        #     #     )
-        #     #     report_data[0]['replace_logo'] = { 'src': 'path', 'data': path }
-        #     #     return {
-        #     #         'type': 'ir.actions.report.xml',
-        #     #         'report_name': 'l10n_cu_calendar.individual_plan_resumen_docx',
-        #     #         'datas': report_data[0]
-        #     #     }
-        # else:
-        #     event_ids = event_obj.search(
-        #         [('partner_ids', 'in', partner_id), ('start', '>=', self.date_start), ('start', '<=', self.date_end)]
-        #     )
-        #     ics_file = event_ids.get_ics_single_file()
-        #
-        #     output = str(ics_file).encode('base64')
-        #     output_name = 'PTI-' + employee.name + '(' + self.period_id.name + ').ics'
-        #     self.write({'state': 'get', 'data': output, 'name': output_name})
-        #     return {
-        #         'type': 'ir.actions.act_window',
-        #         'res_model': 'l10n_cu_calendar.print_individual_plan',
-        #         'view_mode': 'form',
-        #         'view_type': 'form',
-        #         'res_id': self.id,
-        #         'views': [(False, 'form')],
-        #         'target': 'new',
-        #     }
 

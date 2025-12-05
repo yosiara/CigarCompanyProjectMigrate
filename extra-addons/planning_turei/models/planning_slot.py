@@ -18,13 +18,14 @@ class PlanningSlot(models.Model):
             return _("New")
         return seq.get_next_char(number_next=seq.number_next_actual)
 
+    # Main fields
     task_seq = fields.Char(string='N° Consecutivo', readonly=True, copy=False, index=True, default=_default_next_task_seq)
     subcommissions_id = fields.Many2one(comodel_name='planning_turei.subcommissions', string='Subcomisión', ondelete='cascade')
     subcommissions_domain = fields.Binary(compute="_get_subcommissions_domain", exportable=False)
     ejecutor_id = fields.Many2one(comodel_name='hr.employee', string='Ejecuta')
     child_ids = fields.One2many(comodel_name='hr.employee', inverse_name='planning_slot_id')
 
-    # Conformity
+    # Conformity fields
     conformity = fields.Boolean(string='Conformidad')
     conformity_date = fields.Date(string='Fecha de Conformidad', default=fields.Date().today())
     show_conformity = fields.Boolean(string='Mostrar Conformidad', compute='_compute_show_conformity')
@@ -39,7 +40,7 @@ class PlanningSlot(models.Model):
     compliance_real_show = fields.Boolean(string='Mostrar Fecha Real')
     task_closure = fields.Selection([('Cumplido', 'Cumplido'), ('Incumplido', 'Incumplido'), ('Derogado', 'Derogado')], string='Cumplimiento')
     
-    # Prorogue
+    # Prorogue fields
     prorogue = fields.Boolean(string='Prorrogar')
     request_date = fields.Date(string='Fecha solicitud', default=fields.Date().today())
     prorogue_cause = fields.Text(string='Causa')
@@ -47,17 +48,10 @@ class PlanningSlot(models.Model):
     prorogue_approve = fields.Boolean(string='Aprobar')
     prorrogation_ids = fields.One2many(comodel_name='planning_turei.prorrogation', inverse_name='planning_slot_id', string='Prórrogas Aprobadas')
     
-    # Attach information
-    attach_file = fields.Binary(
-        attachment=True,
-        string="Archivo",
-        copy=False,
-    )
-    attach_response = fields.Binary(
-        attachment=True,
-        string="Adjuntar Rpta.",
-        copy=False,
-    )
+    # Attach information fields
+    attach_file = fields.Binary(attachment=True, string="Archivo", copy=False)
+    attach_response = fields.Binary(attachment=True, string="Adjuntar Rpta.", copy=False)
+
     # work_plan = fields.Boolean(string='Plan Trabajo', default=False)
 
     # ------------------------------------------------------------------------ #
@@ -70,7 +64,7 @@ class PlanningSlot(models.Model):
             self.state = 'published'
         employee_ids = self._get_employees_to_send_slot()
         
-        # Add my registers
+        # My registers
         if self.ejecutor_id:
             employee_ids |= self.ejecutor_id
         if self.control_compliance_id:
@@ -97,7 +91,7 @@ class PlanningSlot(models.Model):
                 'include_unassigned': include_unassigned,
             })
 
-        template = self.env.ref('planning_turei.email_template_slot_single_modified')
+        template = self.env.ref('planning_turei.email_template_slot_single_modified') # Refencia a mi plantilla modificada
         employee_url_map = {**employee_without_backend.sudo()._planning_get_url(planning), **employee_with_backend._slot_get_url(self)}
 
         cal_url = self._get_slot_resource_urls()
@@ -157,12 +151,11 @@ class PlanningSlot(models.Model):
         })
 
     @api.model_create_multi
-    def create(self, vals):
-        """Automatically generate a reference number for new tasks."""
-        for val in vals:
-            val['task_seq'] = self.env['ir.sequence'].next_by_code('planning.slot.task_seq')
-        return super().create(vals)
-
+    def create(self, vals_list):
+        """Automatically generate a reference number for new tasks"""
+        for vals in vals_list:
+            vals['task_seq'] = self.env['ir.sequence'].next_by_code('planning.slot.task_seq') # Incrementar consecutivo
+        return super().create(vals_list)
 
     # ------------------------------------------------------------------------ #
     #                           COMPUTE METHODS                                #

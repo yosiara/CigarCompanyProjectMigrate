@@ -11,6 +11,11 @@ addons/
 community-addons/
 enterprise-addons/
 
+# Excluded Addons
+extra-addons/l10n_cu_opermix_hr/
+extra-addons/l10n_opermix_calendar/
+extra-addons/l10n_planning_opermix/
+
 # Images Docker
 images/
 
