@@ -6,8 +6,6 @@ _logger = logging.getLogger(__name__)
 class HREmployee(models.Model):
     _inherit = 'hr.employee'
 
-    planning_slot_id = fields.Many2one(comodel_name='planning.slot')
-    
     def _assign_photo_from_documents(self, registration_number):
         """Busca y asigna la foto del empleado desde los documentos"""
         if not registration_number:

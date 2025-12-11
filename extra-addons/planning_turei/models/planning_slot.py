@@ -21,9 +21,8 @@ class PlanningSlot(models.Model):
     # Main fields
     task_seq = fields.Char(string='N° Consecutivo', readonly=True, copy=False, index=True, default=_default_next_task_seq)
     subcommissions_id = fields.Many2one(comodel_name='planning_turei.subcommissions', string='Subcomisión', ondelete='cascade')
-    subcommissions_domain = fields.Binary(compute="_get_subcommissions_domain", exportable=False)
     ejecutor_id = fields.Many2one(comodel_name='hr.employee', string='Ejecuta')
-    child_ids = fields.One2many(comodel_name='hr.employee', inverse_name='planning_slot_id')
+    ejecutor_domain = fields.Binary(compute="_get_ejecutor_domain", exportable=False)
 
     # Conformity fields
     conformity = fields.Boolean(string='Conformidad')
@@ -160,14 +159,14 @@ class PlanningSlot(models.Model):
     # ------------------------------------------------------------------------ #
     #                           COMPUTE METHODS                                #
     # ------------------------------------------------------------------------ #
-    
-    @api.depends("role_id")
-    def _get_subcommissions_domain(self):
+
+    @api.depends("resource_id")
+    def _get_ejecutor_domain(self):
         for rec in self:
-            if rec.role_id:
-                rec.subcommissions_domain = [('planning_role_id', '=', rec.role_id.id)]
+            if rec.resource_id:
+                rec.ejecutor_domain = [('id', 'in', (self.resource_id.employee_id.child_ids | self.resource_id.employee_id).ids)]
             else:
-                rec.subcommissions_domain = []
+                rec.ejecutor_domain = [('id', 'in', False)]
 
     def _compute_show_conformity(self):
         for record in self:
@@ -184,18 +183,13 @@ class PlanningSlot(models.Model):
 
     @api.onchange("role_id")
     def _onchange_role_id(self):
-        if self.subcommissions_id.id is not self.role_id.id:
+        if self.subcommissions_id.planning_role_id.id is not self.role_id.id:
             self.subcommissions_id = False
 
-    @api.onchange('resource_id')
+    @api.onchange("resource_id")
     def _onchange_resource_id(self):
-        auxiliar = []
-        if self.resource_id:
-            for one in self.resource_id.employee_id.child_ids:
-                auxiliar.append(one.id)
-            auxiliar.append(self.resource_id.employee_id.id)
-        self.child_ids = [(5, 0, False)]
-        self.child_ids = self.env['hr.employee'].browse(auxiliar)
+        if self.ejecutor_id not in self.resource_id.employee_id.child_ids | self.resource_id.employee_id:
+            self.ejecutor_id = False
 
     @api.onchange('accomplished')
     def _onchange_accomplished(self):

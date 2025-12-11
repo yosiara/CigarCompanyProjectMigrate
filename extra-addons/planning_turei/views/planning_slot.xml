@@ -50,11 +50,10 @@
                 <attribute name="required">1</attribute>
             </field>
             <field name="role_id" position="after">
-                <field name="subcommissions_domain" invisible="1"/>
-                <field name="subcommissions_id" domain="subcommissions_domain"/>
+                <field name="subcommissions_id" domain="[('planning_role_id', '=', role_id)]"/>
                 <field name="agreement_number"/>
-                <field name="child_ids" invisible="1"/>
-                <field name="ejecutor_id" domain="[('id', 'in', child_ids)]"/>
+                <field name="ejecutor_domain" invisible="1"/>
+                <field name="ejecutor_id" domain="ejecutor_domain"/>
                 <field name="control_compliance_id"/>
             </field>
             <field name="name" position="after">
