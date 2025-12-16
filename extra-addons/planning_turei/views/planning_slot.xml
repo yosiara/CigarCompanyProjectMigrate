@@ -53,7 +53,7 @@
                 <field name="subcommissions_id" domain="[('planning_role_id', '=', role_id)]"/>
                 <field name="agreement_number"/>
                 <field name="ejecutor_domain" invisible="1"/>
-                <field name="ejecutor_id" domain="ejecutor_domain"/>
+                <field name="ejecutor_id"/>
                 <field name="control_compliance_id"/>
             </field>
             <field name="name" position="after">
