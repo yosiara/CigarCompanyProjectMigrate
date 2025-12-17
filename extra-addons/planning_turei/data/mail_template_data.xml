@@ -11,91 +11,113 @@
             <field name="auto_delete" eval="True"/>
             <field name="description">Email sent automatically when publishing a task</field>
             <field name="body_html" type="html">
-                <style>
-                    .planning_mail_template_button {
-                        padding: 5px 10px;
-                        text-decoration: none;
-                        border: 1px;
-                        border-radius: 3px;
-                        text-align: center;
-                        color: #374151;
-                        background-color: #E7E9ED;
-                        border: solid #E7E9ED;
-                        flex: 1 1 40%;
-                    }
-                    .top_button {
-                        color: #FFFFFF;
-                        background-color: #714B67;
-                        border: solid #714B67;
-                        flex: 1 1 60%;
-                    }
-                    .button_box {
-                        display: flex;
-                        flex-wrap: wrap;
-                        gap: 10px;
-                        margin: 20px 15px 0px 15px;
-                    }
-                </style>
-                <div>
-                    <p t-if="ctx.get('employee_name')">Apreciable <t t-out="ctx['employee_name']">Anita Oliver</t>,</p>
-                    <p t-else="">Hola,</p>
-                    <br/>
-                    <p t-if="ctx.get('open_shift_available')">Nueva tarea abierta:</p>
-                    <p t-else="">Se le ha asignado la siguiente tarea:</p>
-                    <table style="margin-left: 30px;">
-                        <tr t-if="(ctx.get('start_datetime') and ctx.get('end_datetime'))
-                                  or ctx.get('allocated_hours')
-                                  or ctx.get('allocated_percentage')"
-                        >
-                            <th style="padding: 5px; text-align: left;">Fecha</th>
-                            <td style="padding: 5px;">
-                                <span t-if="ctx.get('start_datetime') and ctx.get('end_datetime')"
-                                      t-out="'%s ⟶ %s' % (
-                                    ctx['start_datetime'],
-                                    ctx['end_datetime'],
-                                )">
-                                    05/31/2021, 8:00 AM ⟶ 05/31/2021, 4:00 PM
-                                </span>
-                                <span t-if="ctx.get('allocated_hours')" style="opacity: 0.5;">
-                                    (<t t-out="ctx['allocated_hours']">4:00</t>h)
-                                </span>
-                                <span t-if="ctx.get('allocated_percentage') and ctx['allocated_percentage'] != '100'" style="opacity: 0.5;">
-                                    (<t t-out="ctx['allocated_percentage']">50</t>%)
-                                </span>
-                            </td>
-                        </tr>
-                        <tr t-if="object.role_id">
-                            <th style="padding: 5px; text-align: left;">Comisión</th>
-                            <td style="padding: 5px;" t-out="object.role_id.name or ''">Comisión</td>
-                        </tr>
-                        <tr t-if="object.subcommissions_id">
-                            <th style="padding: 5px; text-align: left;">Subcomisión</th>
-                            <td style="padding: 5px;" t-out="object.subcommissions_id.name or ''">Subcomisión</td>
-                        </tr>
-                        <tr t-if="object.resource_id">
-                            <th style="padding: 5px; text-align: left;">Responsable</th>
-                            <td style="padding: 5px;" t-out="object.resource_id.name or ''">Responsable</td>
-                        </tr>
-                        <tr t-if="object.ejecutor_id">
-                            <th style="padding: 5px; text-align: left;">Ejecuta</th>
-                            <td style="padding: 5px;" t-out="object.ejecutor_id.name or ''">Ejecuta</td>
-                        </tr>
-                        <tr t-if="object.control_compliance_id">
-                            <th style="padding: 5px; text-align: left;">Ctrl. Cumpl.</th>
-                            <td style="padding: 5px;" t-out="object.control_compliance_id.name or ''">Ctrl. Cumpl.</td>
-                        </tr>
-                        <tr t-if="hasattr(object, 'name') and object.name">
-                            <th style="padding: 5px; text-align: left;">Descripción</th>
-                            <td style="padding: 5px;" t-out="object.name or ''">/</td>
-                        </tr>
-                    </table>
-                    <div class="button_box">
-                        <a t-if="ctx.get('google_url')" t-att-href="ctx['google_url']" target="_blank"
-                            class="planning_mail_template_button">Agregar a Google Calendar</a>
-                        <a t-if="ctx.get('opermix_planning_url')" t-att-href="ctx['opermix_planning_url']" target="_blank"
-                            class="planning_mail_template_button">Ver en Opermix/Planeación</a>
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 5px;">
+                        <p t-if="ctx.get('employee_name')" style="margin: 0 0 10px 0; color: #374151;">
+                            Apreciable <strong t-out="ctx['employee_name']">Anita Oliver</strong>,
+                        </p>
+                        <p t-else="" style="margin: 0 0 10px 0; color: #374151;">Hola,</p>
+
+                        <br/>
+                        
+                        <p t-if="ctx.get('open_shift_available')" style="color: #714B67; font-weight: bold; margin: 10px 0;">
+                            Nueva tarea abierta:
+                        </p>
+                        <p t-elif="object.accomplished" style="color: #28a745; font-weight: bold; margin: 10px 0;">
+                            Se ha cumplido la siguiente tarea:
+                        </p>
+                        <p t-else="" style="color: #714B67; font-weight: bold; margin: 10px 0;">
+                            Se le ha asignado la siguiente tarea:
+                        </p>
+                        
+                        <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                            <tr t-if="(ctx.get('start_datetime') and ctx.get('end_datetime'))
+                                      or ctx.get('allocated_hours')
+                                      or ctx.get('allocated_percentage')"
+                                style="border-bottom: 1px solid #e5e7eb;"
+                            >
+                                <th style="padding: 10px 5px; text-align: left; color: #6b7280; font-weight: normal; width: 120px;">
+                                    Fecha
+                                </th>
+                                <td style="padding: 10px 5px; color: #374151;">
+                                    <span t-if="ctx.get('start_datetime') and ctx.get('end_datetime')"
+                                          t-out="'%s ⟶ %s' % (
+                                        ctx['start_datetime'],
+                                        ctx['end_datetime'],
+                                    )">
+                                        05/31/2021, 8:00 AM ⟶ 05/31/2021, 4:00 PM
+                                    </span>
+                                    <span t-if="ctx.get('allocated_hours')" style="opacity: 0.5; margin-left: 5px;">
+                                        (<t t-out="ctx['allocated_hours']">4:00</t>h)
+                                    </span>
+                                    <span t-if="ctx.get('allocated_percentage') and ctx['allocated_percentage'] != '100'" style="opacity: 0.5; margin-left: 5px;">
+                                        (<t t-out="ctx['allocated_percentage']">50</t>%)
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr t-if="object.role_id" style="border-bottom: 1px solid #e5e7eb;">
+                                <th style="padding: 10px 5px; text-align: left; color: #6b7280; font-weight: normal; width: 120px;">
+                                    Comisión
+                                </th>
+                                <td style="padding: 10px 5px; color: #374151;" t-out="object.role_id.name or ''">Comisión</td>
+                            </tr>
+                            <tr t-if="object.subcommissions_id" style="border-bottom: 1px solid #e5e7eb;">
+                                <th style="padding: 10px 5px; text-align: left; color: #6b7280; font-weight: normal; width: 120px;">
+                                    Subcomisión
+                                </th>
+                                <td style="padding: 10px 5px; color: #374151;" t-out="object.subcommissions_id.name or ''">Subcomisión</td>
+                            </tr>
+                            <tr t-if="object.resource_id" style="border-bottom: 1px solid #e5e7eb;">
+                                <th style="padding: 10px 5px; text-align: left; color: #6b7280; font-weight: normal; width: 120px;">
+                                    Responsable
+                                </th>
+                                <td style="padding: 10px 5px; color: #374151;" t-out="object.resource_id.name or ''">Responsable</td>
+                            </tr>
+                            <tr t-if="object.ejecutor_id" style="border-bottom: 1px solid #e5e7eb;">
+                                <th style="padding: 10px 5px; text-align: left; color: #6b7280; font-weight: normal; width: 120px;">
+                                    Ejecuta
+                                </th>
+                                <td style="padding: 10px 5px; color: #374151;" t-out="object.ejecutor_id.name or ''">Ejecuta</td>
+                            </tr>
+                            <tr t-if="object.control_compliance_id" style="border-bottom: 1px solid #e5e7eb;">
+                                <th style="padding: 10px 5px; text-align: left; color: #6b7280; font-weight: normal; width: 120px;">
+                                    Ctrl. Cumpl.
+                                </th>
+                                <td style="padding: 10px 5px; color: #374151;" t-out="object.control_compliance_id.name or ''">Ctrl. Cumpl.</td>
+                            </tr>
+                            <tr t-if="hasattr(object, 'name') and object.name" style="border-bottom: 1px solid #e5e7eb;">
+                                <th style="padding: 10px 5px; text-align: left; color: #6b7280; font-weight: normal; width: 120px;">
+                                    Descripción
+                                </th>
+                                <td style="padding: 10px 5px; color: #374151;" t-out="object.name or ''">/</td>
+                            </tr>
+                            <tr t-if="object.accomplished" style="border-bottom: 1px solid #e5e7eb;">
+                                <th style="padding: 10px 5px; text-align: left; color: #6b7280; font-weight: normal; width: 120px;">
+                                    Cumplimiento
+                                </th>
+                                <td style="padding: 10px 5px; color: #28a745; font-weight: bold;">
+                                    La tarea fue marcada como cumplida, usted puede proceder con la verificación de la misma
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; justify-content: center;">
+                            <a t-if="ctx.get('google_url')" t-att-href="ctx['google_url']" target="_blank"
+                                style="padding: 10px 20px; text-decoration: none; border-radius: 3px; text-align: center; color: #374151; background-color: #E7E9ED; border: 1px solid #E7E9ED; flex: 1 1 40%; min-width: 200px; font-weight: bold;">
+                                Agregar a Google Calendar
+                            </a>
+                            <a t-if="ctx.get('opermix_planning_url')" t-att-href="ctx['opermix_planning_url']" target="_blank"
+                                style="padding: 10px 20px; text-decoration: none; border-radius: 3px; text-align: center; color: #FFFFFF; background-color: #714B67; border: 1px solid #714B67; flex: 1 1 60%; min-width: 200px; font-weight: bold;">
+                                Ver en Opermix/Planeación
+                            </a>
+                        </div>
+                        
+                        <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e5e7eb; text-align: center; color: #6b7280; font-size: 12px;">
+                            <p style="margin: 0;">
+                                Este correo fue generado automáticamente por el sistema y no debe responderse directamente
+                            </p>
+                        </div>
                     </div>
-                    <br/>
                 </div>
             </field>
         </record>

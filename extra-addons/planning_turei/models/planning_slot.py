@@ -3,6 +3,7 @@ import logging
 from datetime import timedelta
 from odoo.tools import float_utils
 from odoo.exceptions import UserError
+from markupsafe import Markup
 
 _logger = logging.getLogger(__name__)
 
@@ -54,7 +55,7 @@ class PlanningSlot(models.Model):
     # work_plan = fields.Boolean(string='Plan Trabajo', default=False)
 
     # ------------------------------------------------------------------------ #
-    #                           INHERITED METHODS                              #
+    #                           OVERRIDE METHODS                               #
     # ------------------------------------------------------------------------ #
 
     def action_send(self):
@@ -73,7 +74,7 @@ class PlanningSlot(models.Model):
         message = _("Tareas enviadas")
         return self._get_notification_action('success', message)
 
-    def _send_slot(self, employee_ids, start_datetime, end_datetime, include_unassigned=True, message=None):
+    def _send_slot(self, employee_ids, start_datetime, end_datetime, include_unassigned=True, message=None, mail_subject: str = None): # Parametro agregado(mail_subject)
         if not include_unassigned:
             self = self.filtered(lambda s: s.resource_id)
         if not self:
@@ -98,7 +99,7 @@ class PlanningSlot(models.Model):
         view_context = dict(self._context)
         view_context.update({
             'open_shift_available': not self.employee_id,
-            'mail_subject': _('Planificación: nuevo turno abierto disponible en'),
+            'mail_subject': mail_subject or _('Planificación: nuevo turno abierto disponible en'),
             'google_url': cal_url['google_url'],
             'iCal_url': cal_url['iCal'],
             'opermix_planning_url': cal_url['opermix_planning_url']
@@ -112,7 +113,7 @@ class PlanningSlot(models.Model):
                 else:
                     unavailable_link = '/planning/%s/%s/unassign/%s?message=1' % (planning.access_token, self.employee_id.sudo().employee_token, self.id)
                 view_context.update({'unavailable_link': unavailable_link})
-            view_context.update({'mail_subject': _('Planificación: nueva tarea')})
+            view_context.update({'mail_subject': mail_subject or _('Planificación:  nueva tarea')})
 
         mails_to_send_ids = []
         for employee in employee_ids.filtered(lambda e: e.work_email):
@@ -155,6 +156,69 @@ class PlanningSlot(models.Model):
         for vals in vals_list:
             vals['task_seq'] = self.env['ir.sequence'].next_by_code('planning.slot.task_seq') # Incrementar consecutivo
         return super().create(vals_list)
+
+
+    def write(self, vals):
+        res = super().write(vals)
+        if 'accomplished' in vals and vals['accomplished']:
+            self._send_accomplished_notification()
+        return res
+    
+    # ------------------------------------------------------------------------ #
+    #                           HELPER METHODS                                 #
+    # ------------------------------------------------------------------------ #
+    
+    def _send_accomplished_notification(self):
+        """Enviar notificación cuando una tarea es marcada como cumplida"""
+        self.ensure_one()
+        if not self.control_compliance_id or not self.control_compliance_id.work_email:
+            msg = (f"No hay una persona asignada para controlar el cumplimiento de la tarea '{self.task_seq}' o no tiene email")
+            _logger.warning(msg)
+            # return self._get_notification_action('warning', msg)
+        
+        user_name = (self.control_compliance_id.work_email).split('@')[0]
+        user = self.env['res.users'].search([('login', '=', user_name)], limit=1)
+        if not user:
+            msg = f"{self.control_compliance_id.name} no tiene usuario asociado"
+            _logger.warning(msg)
+            # return self._get_notification_action('warning', msg)
+        
+        message_body = Markup(f"""
+            <div style="font-family: Arial, sans-serif; padding: 15px; border-left: 4px solid #28a745; background-color: #f8f9fa;">
+                <h3 style="color: #28a745; margin-top: 0;">✅ Tarea Cumplida</h3>
+                
+                <div style="margin: 15px 0;">
+                    <p style="margin: 5px 0;"><strong>📋 Tarea:</strong> {self.task_seq or self.name}</p>
+                    <p style="margin: 5px 0;"><strong>👤 Ejecutor:</strong> {self.ejecutor_id.name}</p>
+                    <p style="margin: 5px 0;"><strong>🎯 Controlador:</strong> {self.control_compliance_id.name}</p>
+                    <p style="margin: 5px 0;"><strong>📅 Fecha de cumplimiento:</strong> {self.compliance_date or fields.Date.today()}</p>
+                    <p style="margin: 5px 0;"><strong>⏰ Hora:</strong> {fields.Datetime.now().strftime('%H:%M')}</p>
+                    <a href="{self.get_task_url()}" style="margin: 5px 0;"><strong>👁‍🗨 Abrir directamente</strong></a>
+                </div>
+                
+                <div style="margin-top: 15px; padding: 10px; background-color: #e9ecef; border-radius: 5px;">
+                    <p style="margin: 0; font-size: 12px; color: #666;">
+                        <em>Este mensaje fue generado automáticamente cuando la tarea fue marcada como cumplida.</em>
+                    </p>
+                </div>
+            </div>
+        """)
+        subject=f'✅  Tarea Cumplida: {self.task_seq or self.name}'
+        self.control_compliance_id.message_post(
+            body=message_body,
+            message_type='comment',
+            subtype_xmlid='mail.mt_note',
+            partner_ids=[user.partner_id.id],
+        )
+        self._send_slot(employee_ids=self.control_compliance_id, start_datetime=self.start_datetime, end_datetime=self.end_datetime, mail_subject=subject)
+        
+        # notification = _(f"Notification enviada a {self.control_compliance_id.name}")
+        # return self._get_notification_action('success', notification)
+
+    def get_task_url(self):
+        """Obtener la URL de la tarea"""
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        return f"{base_url}/web#id={self.id}&model=planning.slot&view_type=form"
 
     # ------------------------------------------------------------------------ #
     #                           COMPUTE METHODS                                #
