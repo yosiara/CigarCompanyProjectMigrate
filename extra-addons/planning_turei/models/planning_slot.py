@@ -8,7 +8,9 @@ from markupsafe import Markup
 _logger = logging.getLogger(__name__)
 
 class PlanningSlot(models.Model):
-    _inherit = 'planning.slot'
+    _name = 'planning.slot'
+    _inherit = ['planning.slot', 'mail.thread', 'mail.activity.mixin']
+    _mail_post_access = 'read'
 
     # ------------------------------------------------------------------------ #
     #                           DEFAULT METHODS                                #
@@ -157,7 +159,6 @@ class PlanningSlot(models.Model):
             vals['task_seq'] = self.env['ir.sequence'].next_by_code('planning.slot.task_seq') # Incrementar consecutivo
         return super().create(vals_list)
 
-
     def write(self, vals):
         res = super().write(vals)
         if 'accomplished' in vals and vals['accomplished']:
@@ -174,22 +175,17 @@ class PlanningSlot(models.Model):
         if not self.control_compliance_id or not self.control_compliance_id.work_email:
             msg = (f"No hay una persona asignada para controlar el cumplimiento de la tarea '{self.task_seq}' o no tiene email")
             _logger.warning(msg)
-            # return self._get_notification_action('warning', msg)
         
         user_name = (self.control_compliance_id.work_email).split('@')[0]
         user = self.env['res.users'].search([('login', '=', user_name)], limit=1)
-        if not user:
-            msg = f"{self.control_compliance_id.name} no tiene usuario asociado"
-            _logger.warning(msg)
-            # return self._get_notification_action('warning', msg)
         
-        message_body = Markup(f"""
+        body = Markup(f"""
             <div style="font-family: Arial, sans-serif; padding: 15px; border-left: 4px solid #28a745; background-color: #f8f9fa;">
                 <h3 style="color: #28a745; margin-top: 0;">✅ Tarea Cumplida</h3>
                 
                 <div style="margin: 15px 0;">
                     <p style="margin: 5px 0;"><strong>📋 Tarea:</strong> {self.task_seq or self.name}</p>
-                    <p style="margin: 5px 0;"><strong>👤 Ejecutor:</strong> {self.ejecutor_id.name}</p>
+                    <p style="margin: 5px 0;"><strong>👤 Ejecutor:</strong> {self.ejecutor_id.name or 'No asignado'}</p>
                     <p style="margin: 5px 0;"><strong>🎯 Controlador:</strong> {self.control_compliance_id.name}</p>
                     <p style="margin: 5px 0;"><strong>📅 Fecha de cumplimiento:</strong> {self.compliance_date or fields.Date.today()}</p>
                     <p style="margin: 5px 0;"><strong>⏰ Hora:</strong> {fields.Datetime.now().strftime('%H:%M')}</p>
@@ -204,16 +200,18 @@ class PlanningSlot(models.Model):
             </div>
         """)
         subject=f'✅  Tarea Cumplida: {self.task_seq or self.name}'
-        self.control_compliance_id.message_post(
-            body=message_body,
-            message_type='comment',
-            subtype_xmlid='mail.mt_note',
-            partner_ids=[user.partner_id.id],
-        )
+        if user:
+            self.message_post(
+                body=body,
+                message_type='comment',
+                subtype_xmlid='mail.mt_note',
+                partner_ids=[user.partner_id.id],
+            )
+        else:
+            msg = f"{self.control_compliance_id.name} no tiene usuario asociado"
+            _logger.warning(msg)
+
         self._send_slot(employee_ids=self.control_compliance_id, start_datetime=self.start_datetime, end_datetime=self.end_datetime, mail_subject=subject)
-        
-        # notification = _(f"Notification enviada a {self.control_compliance_id.name}")
-        # return self._get_notification_action('success', notification)
 
     def get_task_url(self):
         """Obtener la URL de la tarea"""
