@@ -4,6 +4,7 @@ class Prorogation(models.Model):
     _name = 'planning_turei.prorogation'
     _description = 'Planning Turei Prorogation'
     
+    request_date = fields.Date(string='Fecha Solicitada', default=fields.Date().today())
     cause = fields.Text(string='Causa')
     proposed_date = fields.Date(string='Fecha Propuesta')
     is_approved = fields.Boolean(string='Aprobar')

@@ -42,8 +42,8 @@ class PlanningSlot(models.Model):
     final_verdict = fields.Selection([('completed', 'Completada'), ('not_completed', 'No completada'), ('revoked', 'Derogada')], string='Veredicto Final')
     conformity_date = fields.Date(string='Fecha de Conformidad', default=fields.Date().today())
 
-    # Attach information fields
-    attach_file = fields.Binary(attachment=True, string="Archivo", copy=False)
+    # Attach fields
+    attach_file = fields.Binary(attachment=True, string="Adjuntar Archivo", copy=False)
     attach_response = fields.Binary(attachment=True, string="Adjuntar Rpta.", copy=False)
 
     # Domain fields
@@ -53,6 +53,55 @@ class PlanningSlot(models.Model):
     # conformity = fields.Boolean(string='Conformidad')
     # compliance_real_show = fields.Boolean(string='Mostrar Fecha Real')
     # work_plan = fields.Boolean(string='Plan Trabajo', default=False)
+
+    def _send_is_done_notification(self):
+        """Enviar notificación cuando una tarea es marcada como cumplida"""
+        self.ensure_one()
+        if not self.control_compliance_id or not self.control_compliance_id.work_email:
+            msg = (f"No hay una persona asignada para controlar el cumplimiento de la tarea '{self.task_seq}' o no tiene email")
+            _logger.warning(msg)
+        
+        user_name = (self.control_compliance_id.work_email).split('@')[0]
+        user = self.env['res.users'].search([('login', '=', user_name)], limit=1)
+        
+        body = Markup(f"""
+            <div style="font-family: Arial, sans-serif; padding: 15px; border-left: 4px solid #28a745; background-color: #f8f9fa;">
+                <h3 style="color: #28a745; margin-top: 0;">✅ Tarea Cumplida</h3>
+                
+                <div style="margin: 15px 0;">
+                    <p style="margin: 5px 0;"><strong>📋 Tarea:</strong> {self.task_seq or self.name}</p>
+                    <p style="margin: 5px 0;"><strong>👤 Ejecutor:</strong> {self.ejecutor_id.name or 'No asignado'}</p>
+                    <p style="margin: 5px 0;"><strong>🎯 Controlador:</strong> {self.control_compliance_id.name}</p>
+                    <p style="margin: 5px 0;"><strong>📅 Fecha de cumplimiento:</strong> {self.compliance_date or fields.Date.today()}</p>
+                    <p style="margin: 5px 0;"><strong>⏰ Hora:</strong> {fields.Datetime.now().strftime('%H:%M')}</p>
+                    <a href="{self.get_task_url()}" style="margin: 5px 0;"><strong>👁‍🗨 Abrir directamente</strong></a>
+                </div>
+                
+                <div style="margin-top: 15px; padding: 10px; background-color: #e9ecef; border-radius: 5px;">
+                    <p style="margin: 0; font-size: 12px; color: #666;">
+                        <em>Este mensaje fue generado automáticamente cuando la tarea fue marcada como cumplida.</em>
+                    </p>
+                </div>
+            </div>
+        """)
+        subject=f'✅  Tarea Cumplida: {self.task_seq or self.name}'
+        if user:
+            self.message_post(
+                body=body,
+                message_type='comment',
+                subtype_xmlid='mail.mt_note',
+                partner_ids=[user.partner_id.id],
+            )
+        else:
+            msg = f"{self.control_compliance_id.name} no tiene usuario asociado"
+            _logger.warning(msg)
+
+        self._send_slot(employee_ids=self.control_compliance_id, start_datetime=self.start_datetime, end_datetime=self.end_datetime, mail_subject=subject)
+
+    def get_task_url(self):
+        """Obtener la URL de la tarea"""
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        return f"{base_url}/web#id={self.id}&model=planning.slot&view_type=form"
 
     # ------------------------------------------------------------------------ #
     #                           OVERRIDE METHODS                               #
@@ -162,59 +211,6 @@ class PlanningSlot(models.Model):
         if 'is_done' in vals and vals['is_done']:
             self._send_is_done_notification()
         return res
-    
-    # ------------------------------------------------------------------------ #
-    #                           HELPER METHODS                                 #
-    # ------------------------------------------------------------------------ #
-    
-    def _send_is_done_notification(self):
-        """Enviar notificación cuando una tarea es marcada como cumplida"""
-        self.ensure_one()
-        if not self.control_compliance_id or not self.control_compliance_id.work_email:
-            msg = (f"No hay una persona asignada para controlar el cumplimiento de la tarea '{self.task_seq}' o no tiene email")
-            _logger.warning(msg)
-        
-        user_name = (self.control_compliance_id.work_email).split('@')[0]
-        user = self.env['res.users'].search([('login', '=', user_name)], limit=1)
-        
-        body = Markup(f"""
-            <div style="font-family: Arial, sans-serif; padding: 15px; border-left: 4px solid #28a745; background-color: #f8f9fa;">
-                <h3 style="color: #28a745; margin-top: 0;">✅ Tarea Cumplida</h3>
-                
-                <div style="margin: 15px 0;">
-                    <p style="margin: 5px 0;"><strong>📋 Tarea:</strong> {self.task_seq or self.name}</p>
-                    <p style="margin: 5px 0;"><strong>👤 Ejecutor:</strong> {self.ejecutor_id.name or 'No asignado'}</p>
-                    <p style="margin: 5px 0;"><strong>🎯 Controlador:</strong> {self.control_compliance_id.name}</p>
-                    <p style="margin: 5px 0;"><strong>📅 Fecha de cumplimiento:</strong> {self.compliance_date or fields.Date.today()}</p>
-                    <p style="margin: 5px 0;"><strong>⏰ Hora:</strong> {fields.Datetime.now().strftime('%H:%M')}</p>
-                    <a href="{self.get_task_url()}" style="margin: 5px 0;"><strong>👁‍🗨 Abrir directamente</strong></a>
-                </div>
-                
-                <div style="margin-top: 15px; padding: 10px; background-color: #e9ecef; border-radius: 5px;">
-                    <p style="margin: 0; font-size: 12px; color: #666;">
-                        <em>Este mensaje fue generado automáticamente cuando la tarea fue marcada como cumplida.</em>
-                    </p>
-                </div>
-            </div>
-        """)
-        subject=f'✅  Tarea Cumplida: {self.task_seq or self.name}'
-        if user:
-            self.message_post(
-                body=body,
-                message_type='comment',
-                subtype_xmlid='mail.mt_note',
-                partner_ids=[user.partner_id.id],
-            )
-        else:
-            msg = f"{self.control_compliance_id.name} no tiene usuario asociado"
-            _logger.warning(msg)
-
-        self._send_slot(employee_ids=self.control_compliance_id, start_datetime=self.start_datetime, end_datetime=self.end_datetime, mail_subject=subject)
-
-    def get_task_url(self):
-        """Obtener la URL de la tarea"""
-        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
-        return f"{base_url}/web#id={self.id}&model=planning.slot&view_type=form"
 
     # ------------------------------------------------------------------------ #
     #                           COMPUTE METHODS                                #
