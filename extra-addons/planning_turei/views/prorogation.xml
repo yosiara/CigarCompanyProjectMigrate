@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="prorogation_view_list" model="ir.ui.view">
+        <field name="name">planning.turei.prorogation.list</field>
+        <field name="model">planning_turei.prorogation</field>
+        <field name="arch" type="xml">
+            <list string="Prórrogas">
+                <field name="cause"/>
+                <field name="proposed_date"/>
+                <field name="is_approved"/>
+            </list>
+        </field>
+    </record>
+</odoo>

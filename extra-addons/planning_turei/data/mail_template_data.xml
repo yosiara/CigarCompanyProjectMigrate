@@ -23,7 +23,7 @@
                         <p t-if="ctx.get('open_shift_available')" style="color: #714B67; font-weight: bold; margin: 10px 0;">
                             Nueva tarea abierta:
                         </p>
-                        <p t-elif="object.accomplished" style="color: #28a745; font-weight: bold; margin: 10px 0;">
+                        <p t-elif="object.is_done" style="color: #28a745; font-weight: bold; margin: 10px 0;">
                             Se ha cumplido la siguiente tarea:
                         </p>
                         <p t-else="" style="color: #714B67; font-weight: bold; margin: 10px 0;">
@@ -91,7 +91,7 @@
                                 </th>
                                 <td style="padding: 10px 5px; color: #374151;" t-out="object.name or ''">/</td>
                             </tr>
-                            <tr t-if="object.accomplished" style="border-bottom: 1px solid #e5e7eb;">
+                            <tr t-if="object.is_done" style="border-bottom: 1px solid #e5e7eb;">
                                 <th style="padding: 10px 5px; text-align: left; color: #6b7280; font-weight: normal; width: 120px;">
                                     Cumplimiento
                                 </th>

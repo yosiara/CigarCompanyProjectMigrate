@@ -25,7 +25,7 @@ Customizing the Planning module for the Lázaro Peña Cigar Company. Holguín, C
         'data/mail_templates_email_layouts.xml',
         #----------------------- views ---------------------------------------#
         'views/planning_slot.xml',
-        'views/prorrogation.xml',
+        'views/prorogation.xml',
         'views/subcommissions.xml',
     ],
 }

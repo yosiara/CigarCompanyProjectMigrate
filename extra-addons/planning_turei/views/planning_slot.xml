@@ -8,7 +8,7 @@
             <xpath expr="//search" position="inside">
                 <field name="ejecutor_id" groups="planning.group_planning_user"/>
                 <field name="control_compliance_id" groups="planning.group_planning_user"/>
-                <filter string="Por cumplir" name="no_cumplido" domain="[('accomplished', '=', False)]" groups="planning.group_planning_user"/>
+                <filter string="Por cumplir" name="no_cumplido" domain="[('is_done', '=', False)]" groups="planning.group_planning_user"/>
             </xpath>
             <xpath expr="//field[@name='role_id']" position="attributes">
                 <attribute name="string">Comisión</attribute>
@@ -31,10 +31,6 @@
             <xpath expr="//label[@for='start_datetime']" position="before">
                 <field name="task_seq"/>
             </xpath>
-            
-            <!-- ############################################################################# -->
-            <!-- #                                SUSEL                                      # -->
-            <!-- ############################################################################# -->
             <field name="name" position="attributes">
                 <attribute name="placeholder">Descripción de la Tarea</attribute>
                 <attribute name="required">1</attribute>
@@ -61,42 +57,31 @@
                     <field name="attach_file"/>
                 </group>
                 <group>
-                    <field name="accomplished"/>
-                    <field name="compliance_date" readonly="1" invisible="not accomplished"/>
-                    <field name="prorogue"/>
-                    <field name="request_date" invisible="not prorogue"/>
-                    <field name="prorogue_cause" invisible="not prorogue"/>
-                    <field name="prorogue_proposed_date" invisible="not prorogue"/>
-                    <field name="prorogue_approve" invisible="not prorogue" groups="planning.group_planning_manager"/>
-                    <field name="prorrogation_ids"/>
+                    <field name="is_done"/>
+                    <field name="compliance_date" readonly="1" invisible="not is_done"/>
+                    <field name="show_prorogue"/>
+                    <field name="prorogation_ids" invisible="not show_prorogue"/>
                 </group>
-                <field name="compliance_info" invisible="not accomplished" placeholder="Nota del Cumplimiento"/>
+                <field name="compliance_info" invisible="not is_done" placeholder="Nota del Cumplimiento"/>
                 <group>
-                    <field name="attach_response" invisible="not accomplished"/>
+                    <field name="attach_response" invisible="not is_done"/>
                 </group>
-                 <group>
-                    <field name="show_conformity" invisible="1"/>
-                    <field name="conformity" invisible="not show_conformity"/>
+                <group>
+                    <field name="show_conformity"/>
                     <field name="conformity_date" invisible="not show_conformity" groups="planning.group_planning_manager"/>
-                    <field name="task_closure" groups="planning.group_planning_manager"/>
-                    <field name="compliance_date_real" groups="planning.group_planning_manager" invisible="not compliance_real_show"/>
+                    <field name="final_verdict" invisible="not show_conformity" groups="planning.group_planning_manager"/>
+                    <field name="conformity_date" invisible="not show_conformity" groups="planning.group_planning_manager"/>
                 </group>
-
             </field>
             <xpath expr="//sheet" position="after">
-                <!-- CHATTER (conversaciones/mensajes) -->
                 <chatter reload_on_follower="True"/>
-                <!-- <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="message_ids" widget="mail_thread"/>
-                </div> -->
             </xpath>
         </field>
     </record>
 
-    <!-- <record id="planning_prorrogation_view_tree" model="ir.ui.view">
-        <field name="name">planning.prorrogation.list</field>
-        <field name="model">planning.prorrogation</field>
+    <!-- <record id="planning_prorogation_view_tree" model="ir.ui.view">
+        <field name="name">planning.prorogation.list</field>
+        <field name="model">planning.prorogation</field>
         <field name="arch" type="xml">
             <list string="Prorrogas Aprobadas">
                 <field name="request_date"/>

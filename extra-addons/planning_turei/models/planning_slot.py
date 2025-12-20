@@ -21,39 +21,37 @@ class PlanningSlot(models.Model):
             return _("New")
         return seq.get_next_char(number_next=seq.number_next_actual)
 
-    # Main fields
+    # General fields
     task_seq = fields.Char(string='N° Consecutivo', readonly=True, copy=False, index=True, default=_default_next_task_seq)
     subcommissions_id = fields.Many2one(comodel_name='planning_turei.subcommissions', string='Subcomisión', ondelete='cascade')
-    ejecutor_id = fields.Many2one(comodel_name='hr.employee', string='Ejecuta')
-    ejecutor_domain = fields.Binary(compute="_get_ejecutor_domain", exportable=False)
-
-    # Conformity fields
-    conformity = fields.Boolean(string='Conformidad')
-    conformity_date = fields.Date(string='Fecha de Conformidad', default=fields.Date().today())
-    show_conformity = fields.Boolean(string='Mostrar Conformidad', compute='_compute_show_conformity')
     agreement_number = fields.Char(string='Nro. Acuerdo')
-
-    # Compliance fields
-    control_compliance_id = fields.Many2one('hr.employee', string='Ctrl. Cumpl.')
-    accomplished = fields.Boolean(string='Cumplido')
-    compliance_info = fields.Text(string='Inf. Cumplimiento')
-    compliance_date = fields.Date(string='Fecha Cumplimiento', default=fields.Date().today())
-    compliance_date_real = fields.Date(string='Cumpl. Real', default=fields.Date().today())
-    compliance_real_show = fields.Boolean(string='Mostrar Fecha Real')
-    task_closure = fields.Selection([('Cumplido', 'Cumplido'), ('Incumplido', 'Incumplido'), ('Derogado', 'Derogado')], string='Cumplimiento')
+    ejecutor_id = fields.Many2one(comodel_name='hr.employee', string='Ejecuta')
     
     # Prorogue fields
-    prorogue = fields.Boolean(string='Prorrogar')
-    request_date = fields.Date(string='Fecha solicitud', default=fields.Date().today())
-    prorogue_cause = fields.Text(string='Causa')
-    prorogue_proposed_date = fields.Date(string='Fecha Propuesta')
-    prorogue_approve = fields.Boolean(string='Aprobar')
-    prorrogation_ids = fields.One2many(comodel_name='planning_turei.prorrogation', inverse_name='planning_slot_id', string='Prórrogas Aprobadas')
+    show_prorogue = fields.Boolean(string='Pedir Prórroga')
+    prorrogation_ids = fields.One2many(comodel_name='planning_turei.prorogation', inverse_name='planning_slot_id', string='Prórrogas')
+
+    # Compliance fields
+    is_done = fields.Boolean(string='Cumplido')
+    compliance_date = fields.Date(string='Fecha de Cumplimiento', default=fields.Date().today())
+    compliance_info = fields.Text(string='Inf. Cumplimiento')
+    control_compliance_id = fields.Many2one('hr.employee', string='Ctrl. Cumpl.')
     
+    # Conformity fields
+    show_conformity = fields.Boolean(string='Mostrar Conformidad')
+    final_verdict = fields.Selection([('completed', 'Completada'), ('not_completed', 'No completada'), ('revoked', 'Derogada')], string='Veredicto Final')
+    conformity_date = fields.Date(string='Fecha de Conformidad', default=fields.Date().today())
+
     # Attach information fields
     attach_file = fields.Binary(attachment=True, string="Archivo", copy=False)
     attach_response = fields.Binary(attachment=True, string="Adjuntar Rpta.", copy=False)
 
+    # Domain fields
+    ejecutor_domain = fields.Binary(compute="_get_ejecutor_domain", exportable=False)
+
+    # closed_date = fields.Date(string='Fecha de Completada', default=fields.Date().today())
+    # conformity = fields.Boolean(string='Conformidad')
+    # compliance_real_show = fields.Boolean(string='Mostrar Fecha Real')
     # work_plan = fields.Boolean(string='Plan Trabajo', default=False)
 
     # ------------------------------------------------------------------------ #
@@ -161,15 +159,15 @@ class PlanningSlot(models.Model):
 
     def write(self, vals):
         res = super().write(vals)
-        if 'accomplished' in vals and vals['accomplished']:
-            self._send_accomplished_notification()
+        if 'is_done' in vals and vals['is_done']:
+            self._send_is_done_notification()
         return res
     
     # ------------------------------------------------------------------------ #
     #                           HELPER METHODS                                 #
     # ------------------------------------------------------------------------ #
     
-    def _send_accomplished_notification(self):
+    def _send_is_done_notification(self):
         """Enviar notificación cuando una tarea es marcada como cumplida"""
         self.ensure_one()
         if not self.control_compliance_id or not self.control_compliance_id.work_email:
@@ -230,14 +228,14 @@ class PlanningSlot(models.Model):
             else:
                 rec.ejecutor_domain = [('id', 'in', False)]
 
-    def _compute_show_conformity(self):
-        for record in self:
-            record.show_conformity = False
-            if record.control_compliance_id:
-                if record.control_compliance_id.id == self.env.user.id or self.env.user.has_group('planning.group_planning_manager'):
-                    record.show_conformity = True
-                else:
-                    record.show_conformity = False
+    # def _compute_show_conformity(self):
+    #     for record in self:
+    #         record.show_conformity = False
+    #         if record.control_compliance_id:
+    #             if record.control_compliance_id.id == self.env.user.id or self.env.user.has_group('planning.group_planning_manager'):
+    #                 record.show_conformity = True
+    #             else:
+    #                 record.show_conformity = False
 
     # ------------------------------------------------------------------------ #
     #                           ONCHANGE METHODS                               #
@@ -253,22 +251,10 @@ class PlanningSlot(models.Model):
         if self.ejecutor_id not in self.resource_id.employee_id.child_ids | self.resource_id.employee_id:
             self.ejecutor_id = False
 
-    @api.onchange('accomplished')
-    def _onchange_accomplished(self):
-        if self.accomplished:
-            if not self.env.user.has_group('planning.group_planning_manager'):
-                if self.env.user.id != self.ejecutor_id.user_id.id:
-                    raise UserError(_('Usted no puede modificar el cumplimiento del Acuerdo, solo el Ejecutor puede hacerlo. '
-                                      'Si cree que esto es un error contacte con su Administrador de Sistema.'))
-
-    @api.onchange('prorogue_approve')
-    def _onchange_prorogue_approve(self):
-        if self.prorogue_approve:
-            self.write({
-                'prorrogation_ids': [(0, 0, {
-                    'name': self.prorogue_cause,
-                    'request_date': self.request_date,
-                    'prorogue_proposed_date': self.prorogue_proposed_date,
-                })]
-            })
-            self.prorogue = False
+    # @api.onchange('is_done')
+    # def _onchange_is_done(self):
+    #     if self.is_done:
+    #         if not self.env.user.has_group('planning.group_planning_manager'):
+    #             if self.env.user.id != self.ejecutor_id.user_id.id:
+    #                 raise UserError(_('Usted no puede modificar el cumplimiento del Acuerdo, solo el Ejecutor puede hacerlo. '
+    #                                   'Si cree que esto es un error contacte con su Administrador de Sistema.'))
