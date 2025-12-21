@@ -19,56 +19,6 @@ class ResUsersExtended(models.Model):
         ], limit=1)
 
         return employee or False
-    
-    def _sync_from_employee(self, employee):
-        """Sincronizar datos del empleado al usuario"""
-        self.ensure_one()
-        
-        sync_vals = {}
-        
-        # 1. Nombre (empleado → usuario)
-        if self.name != employee.name:
-            sync_vals['name'] = employee.name
-        
-        # 2. Email (work_email → email)
-        # if employee.work_email and self.email != employee.work_email:
-        #     sync_vals['email'] = employee.work_email
-        
-        # 3. Timezone (si empleado tiene)
-        if employee.tz and self.tz != employee.tz:
-            sync_vals['tz'] = employee.tz
-        
-        # 4. Imagen (empleado → usuario)
-        # if employee.image_1920 and self.image_1920 != employee.image_1920:
-        #     sync_vals['image_1920'] = employee.image_1920
-
-        # 5. Partner (work_contact_id → partner_id)
-        if employee.work_contact_id and self.partner_id != employee.work_contact_id:
-            sync_vals['partner_id'] = employee.work_contact_id
-        
-        # Aplicar cambios al usuario
-        if sync_vals:
-            self.write(sync_vals)
-        
-        # Vincular empleado con usuario
-        employee.write({
-            'user_id': self.id,
-        })
-        
-        # 6. Sincronizar partner (contacto) del usuario
-        # partner_vals = {}
-        # if self.partner_id.name != employee.name:
-        #     partner_vals['name'] = employee.name
-        # if employee.work_email and self.partner_id.email != employee.work_email:
-        #     partner_vals['email'] = employee.work_email
-        
-        # if partner_vals:
-        #     self.partner_id.write(partner_vals)
-        
-        _logger.info(
-            "Usuario %s sincronizado desde empleado %s (ID: %d)",
-            self.login, employee.name, employee.id
-        )
 
     # ------------------------------------------------------------------------ #
     #                           OVERRIDE METHODS                               #
@@ -83,8 +33,8 @@ class ResUsersExtended(models.Model):
             # Buscar empleado que coincida
             employee = user._find_matching_employee()
             if employee:
-                # Sincronizar datos DEL EMPLEADO AL USUARIO
-                user._sync_from_employee(employee)
+                # Vincular empleado con usuario
+                employee.write({'user_id': user.id})
         
         return users
     
