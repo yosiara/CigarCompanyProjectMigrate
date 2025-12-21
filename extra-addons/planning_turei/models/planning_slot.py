@@ -206,10 +206,12 @@ class PlanningSlot(models.Model):
             vals['task_seq'] = self.env['ir.sequence'].next_by_code('planning.slot.task_seq') # Incrementar consecutivo
         return super().create(vals_list)
 
+    @api.model
     def write(self, vals):
         res = super().write(vals)
         if 'is_done' in vals and vals['is_done']:
-            self._send_is_done_notification()
+            for rec in self:
+                rec._send_is_done_notification()
         return res
 
     # ------------------------------------------------------------------------ #
