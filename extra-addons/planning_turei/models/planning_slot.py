@@ -144,7 +144,7 @@ class PlanningSlot(models.Model):
         employee_url_map = {**employee_without_backend.sudo()._planning_get_url(planning), **employee_with_backend._slot_get_url(self)}
 
         cal_url = self._get_slot_resource_urls()
-        cal_url['opermix_planning_url'] = 'https://intranet.turei.co.cu/odoo/planning' # Url del sistema opermix agregada
+        cal_url['opermix_planning_url'] = self.get_task_url() # Url del sistema opermix agregada
         view_context = dict(self._context)
         view_context.update({
             'open_shift_available': not self.employee_id,
