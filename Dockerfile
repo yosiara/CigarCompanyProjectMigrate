@@ -4,6 +4,7 @@ USER root
 
 COPY requirements.txt .
 
-RUN apt-get install -y requirements.txt
+RUN apt-get update && \
+    apt-get install -y python3-debugpy
 
 USER odoo
