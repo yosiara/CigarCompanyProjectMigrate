@@ -20,6 +20,28 @@ class ResUsersExtended(models.Model):
 
         return employee or False
 
+    def _sync_from_employee(self, employee):
+        """Sincronizar datos del empleado al usuario"""
+        self.ensure_one()
+        
+        sync_vals = {}
+        
+        # 1. Nombre (empleado → usuario)
+        if self.name != employee.name:
+            sync_vals['name'] = employee.name
+        
+        # 4. Imagen (empleado → usuario)
+        if employee.image_1920 and self.image_1920 != employee.image_1920:
+            sync_vals['image_1920'] = employee.image_1920
+        
+        # Archivar/Desarchivar usuario asociado, excluyendo administrador del sistema
+        if employee.active != self.active and not self._is_admin():
+            sync_vals['active'] = employee.active
+
+        # Aplicar cambios al usuario
+        if sync_vals:
+            self.write(sync_vals)
+
     # ------------------------------------------------------------------------ #
     #                           OVERRIDE METHODS                               #
     # ------------------------------------------------------------------------ #
@@ -33,36 +55,14 @@ class ResUsersExtended(models.Model):
             # Buscar empleado que coincida
             employee = user._find_matching_employee()
             if employee:
-                # Vincular empleado con usuario
+                # 1. Sincronizar datos no compartidos
+                user._sync_from_employee(employee)
+
+                # 2. Partner (work_contact_id → partner_id)
+                if employee.work_contact_id and user.partner_id != employee.work_contact_id:
+                    user.partner_id.write(employee.work_contact_id)
+                
+                # 3. Vincular empleado con usuario
                 employee.write({'user_id': user.id})
         
         return users
-    
-    # def write(self, vals):
-    #     """Sobreescribir write para manejar sincronización bidireccional"""
-    #     # Primero guardar cambios en usuario
-    #     result = super(ResUsersExtended, self).write(vals)
-        
-    #     # Si el usuario tiene empleado vinculado, propagar CIERTOS cambios
-    #     for user in self:
-    #         if user.employee_ids:
-    #             employee = user.employee_ids[0]
-                
-    #             # Solo propagar cambios que NO afecten datos principales del empleado
-    #             # Por ejemplo: tz, imagen, pero NO nombre ni email
-    #             emp_vals = {}
-                
-    #             # Timezone (usuario puede actualizar su tz)
-    #             if 'tz' in vals and employee.tz != user.tz:
-    #                 emp_vals['tz'] = user.tz
-                
-    #             # Imagen (usuario puede cambiar su avatar)
-    #             if 'image_1920' in vals and employee.image_1920 != user.image_1920:
-    #                 emp_vals['image_1920'] = user.image_1920
-    #                 if employee.work_contact_id:
-    #                     employee.work_contact_id.image_1920 = user.image_1920
-                
-    #             if emp_vals:
-    #                 employee.write(emp_vals)
-        
-    #     return result
