@@ -24,10 +24,22 @@ class HREmployee(models.Model):
 
         # Insertar foto para todos los empleados con codigo de trabajador
         for employee in employees:
-            employee.image_1920 = self._get_photo_from_documents(registration_number=employee.registration_number)
-            _logger.info(f"Foto asignada a '{employee.name}'")
-        _logger.info(f"Fotos de empleados asignadas correctamente desde documentos!!!")
-        return
+            image_1920 = self._get_photo_from_documents(registration_number=employee.registration_number)
+            if image_1920 != employee.image_1920:
+                employee.image_1920 = image_1920
+                _logger.info(f"Foto asignada a '{employee.name}'")
+
+        message = "Fotos de empleados asignadas correctamente desde documentos!!!"
+        _logger.info(message)
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'type': 'success',
+                'message': message,
+                'next': {'type': 'ir.actions.act_window_close'},
+            }
+        }
         
     # ------------------------------------------------------------------------ #
     #                           OVERRIDE METHODS                               #
@@ -37,21 +49,37 @@ class HREmployee(models.Model):
     def create(self, vals_list):
         employees = super().create(vals_list)
         for employee in employees:
-            employee.image_1920 = self._get_photo_from_documents(registration_number=employee.registration_number)
+            image_1920 = self._get_photo_from_documents(registration_number=employee.registration_number)
+            if image_1920 != employee.image_1920:
+                employee.image_1920 = image_1920
         return employees
-    
-    @api.model
-    def write(self, vals):
-        if 'registration_number' in vals: # Actualizar foto correspondiente
-            vals['image_1920'] = self._get_photo_from_documents(registration_number=vals['registration_number'])
-        res = super().write(vals)
 
-        # Sincronizar datos para usuario, esto mantenerlo comentado hasta averiguar 
-        # donde esta el metodo que cambia el nombre desde usuario hacia empleado
-        # evitar sincronizacion circular
-        # for employee in self:
-        #     user = employee.user_id
-        #     if user:
-        #         user._sync_from_employee(employee)
-                
-        return res
+    # ------------------------------------------------------------------------ #
+    #                           ONCHANGE METHODS                               #
+    # ------------------------------------------------------------------------ #
+
+    @api.onchange('name', 'user_id')
+    def _onchange_name(self):
+        if self.name and self.user_id and self.name != self.user_id.name:
+            self.user_id.name = self.name
+
+    @api.onchange('work_phone', 'user_id')
+    def _onchange_work_phone(self):
+        if self.work_phone and self.user_id and self.work_phone != self.user_id.phone:
+            self.user_id.phone = self.work_phone
+
+    @api.onchange('image_1920', 'user_id')
+    def _onchange_image_1920(self):
+        if self.image_1920 and self.user_id and self.image_1920 != self.user_id.image_1920:
+            self.user_id.image_1920 = self.image_1920
+
+    @api.onchange('job_id', 'user_id')
+    def _onchange_job_id(self):
+        if self.job_id and self.user_id and self.job_id.name != self.user_id.function:
+            self.user_id.function = self.job_id.name
+
+    @api.onchange('registration_number')
+    def _onchange_registration_number(self):
+        image_1920 = self._get_photo_from_documents(registration_number=self.registration_number)
+        if image_1920 != self.image_1920:
+            self.image_1920 = image_1920
