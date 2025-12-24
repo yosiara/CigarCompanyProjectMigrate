@@ -29,7 +29,7 @@ class PlanningSlot(models.Model):
     
     # Prorogue fields
     show_prorogue = fields.Boolean(string='Pedir Prórroga')
-    prorrogation_ids = fields.One2many(comodel_name='planning_turei.prorogation', inverse_name='planning_slot_id', string='Prórrogas')
+    prorogation_ids = fields.One2many(comodel_name='planning_turei.prorogation', inverse_name='planning_slot_id', string='Prórrogas')
 
     # Compliance fields
     is_done = fields.Boolean(string='Cumplido')
