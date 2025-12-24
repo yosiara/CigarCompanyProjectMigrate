@@ -15,7 +15,7 @@
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}/extra-addons",
-                    "remoteRoot": "/mnt/extra-addons"
+                    "remoteRoot": "/mnt/opermix18-extra-addons"
                 }
             ]
         }
