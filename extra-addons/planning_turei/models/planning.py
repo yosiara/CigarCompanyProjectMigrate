@@ -28,7 +28,7 @@ class PlanningSlot(models.Model):
     ejecutor_id = fields.Many2one(comodel_name='hr.employee', string='Ejecuta')
     
     # Prorogue fields
-    show_prorogue = fields.Boolean(string='Pedir Prórroga')
+    show_prorogue = fields.Boolean(string='Prórroga')
     prorogation_ids = fields.One2many(comodel_name='planning_turei.prorogation', inverse_name='planning_slot_id', string='Prórrogas')
 
     # Compliance fields
@@ -256,3 +256,9 @@ class PlanningSlot(models.Model):
     #             if self.env.user.id != self.ejecutor_id.user_id.id:
     #                 raise UserError(_('Usted no puede modificar el cumplimiento del Acuerdo, solo el Ejecutor puede hacerlo. '
     #                                   'Si cree que esto es un error contacte con su Administrador de Sistema.'))
+
+
+class PlanningRole(models.Model):
+    _inherit = 'planning.role'
+
+    management_book = fields.Boolean('Libro de la Gestión')

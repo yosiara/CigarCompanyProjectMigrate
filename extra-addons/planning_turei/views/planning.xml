@@ -98,6 +98,29 @@
         </field>
     </record>
 
+    <!-- planning.role views -->
+    <record id="planning_role_view_form_inherit" model="ir.ui.view">
+        <field name="name">planning.role.view.form.inherit</field>
+        <field name="model">planning.role</field>
+        <field name="inherit_id" ref="planning.planning_role_view_form"/>
+        <field name="arch" type="xml">
+            <field name="color" position="before">
+                <field name="management_book" widget="boolean_toggle"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="planning_role_view_list_inherit" model="ir.ui.view">
+        <field name="name">planning.role.view.list.inherit</field>
+        <field name="model">planning.role</field>
+        <field name="inherit_id" ref="planning.planning_role_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="color" position="before">
+                <field name="management_book" widget="boolean_toggle"/>
+            </field>
+        </field>
+    </record>
+
     <!-- <record id="planning_prorogation_view_tree" model="ir.ui.view">
         <field name="name">planning.prorogation.list</field>
         <field name="model">planning.prorogation</field>
@@ -143,4 +166,13 @@
             </p>
         </field>
     </record>
+
+    <!-- <menuitem
+        id="planning.planning_menu_settings_role"
+        name="Comisión"
+        parent="planning.planning_menu_settings"
+        sequence="20"
+        action="planning.planning_action_roles"
+        groups="planning.group_planning_manager"/> -->
+
 </odoo>

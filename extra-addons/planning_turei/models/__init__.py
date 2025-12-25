@@ -1,3 +1,3 @@
-from . import planning_slot
+from . import planning
 from . import prorogation
 from . import subcommissions
