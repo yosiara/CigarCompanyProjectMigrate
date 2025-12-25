@@ -24,7 +24,7 @@ class PlanningSlot(models.Model):
     # General fields
     task_seq = fields.Char(string='N° Consecutivo', readonly=True, copy=False, index=True, default=_default_next_task_seq)
     subcommissions_id = fields.Many2one(comodel_name='planning_turei.subcommissions', string='Subcomisión', ondelete='cascade')
-    agreement_number = fields.Char(string='Nro. Acuerdo')
+    agreement_number = fields.Char(string='N° Acuerdo')
     ejecutor_id = fields.Many2one(comodel_name='hr.employee', string='Ejecuta')
     
     # Prorogue fields
@@ -33,14 +33,14 @@ class PlanningSlot(models.Model):
 
     # Compliance fields
     is_done = fields.Boolean(string='Cumplido')
-    compliance_date = fields.Date(string='Fecha de Cumplimiento', default=fields.Date().today())
+    compliance_date = fields.Date(string='Fecha', default=fields.Date().today())
     compliance_info = fields.Text(string='Inf. Cumplimiento')
     control_compliance_id = fields.Many2one('hr.employee', string='Ctrl. Cumpl.')
     
     # Conformity fields
-    show_conformity = fields.Boolean(string='Mostrar Conformidad')
+    show_conformity = fields.Boolean(string='Conformidad')
     final_verdict = fields.Selection([('completed', 'Completada'), ('not_completed', 'No completada'), ('revoked', 'Derogada')], string='Veredicto Final')
-    conformity_date = fields.Date(string='Fecha de Conformidad', default=fields.Date().today())
+    conformity_date = fields.Date(string='Fecha', default=fields.Date().today())
 
     # Attach fields
     attach_file = fields.Binary(attachment=True, string="Adjuntar Archivo", copy=False)

@@ -4,10 +4,11 @@
         <field name="name">planning.turei.prorogation.list</field>
         <field name="model">planning_turei.prorogation</field>
         <field name="arch" type="xml">
-            <list string="Prórrogas">
+            <list string="Prórrogas" editable="bottom">
+                <field name="request_date"/>
                 <field name="cause"/>
                 <field name="proposed_date"/>
-                <field name="is_approved"/>
+                <field name="is_approved" widget="boolean_toggle"/>
             </list>
         </field>
     </record>

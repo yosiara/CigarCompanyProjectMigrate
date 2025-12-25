@@ -35,9 +35,6 @@
         <field name="model">planning.slot</field>
         <field name="inherit_id" ref="planning.planning_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//label[@for='start_datetime']" position="before">
-                <field name="task_seq"/>
-            </xpath>
             <field name="name" position="attributes">
                 <attribute name="placeholder">Descripción de la Tarea</attribute>
                 <attribute name="required">1</attribute>
@@ -52,33 +49,48 @@
                 <attribute name="placeholder">Por ejemplo, Comisión de Cuadros</attribute>
                 <attribute name="required">1</attribute>
             </field>
+            <!-- ############################################################################## -->
+            <xpath expr="//label[@for='start_datetime']" position="before">
+                <field name="task_seq"/>
+            </xpath>
+            <xpath expr="//div[@class='o_row']" position="after">
+                <field name="agreement_number"/>
+                <field name="attach_file" nolabel="1"/>
+            </xpath>
             <field name="role_id" position="after">
                 <field name="subcommissions_id" domain="[('planning_role_id', '=', role_id)]"/>
-                <field name="agreement_number"/>
                 <field name="ejecutor_domain" invisible="1"/>
                 <field name="ejecutor_id"/>
                 <field name="control_compliance_id"/>
             </field>
             <field name="name" position="after">
-                <group>
-                    <field name="attach_file"/>
+                
+                <group name="prorogue" class="d-inline-flex">
+                    <field name="show_prorogue" widget="boolean_toggle"/>
+                    <field name="prorogation_ids" nolabel="1" invisible="not show_prorogue"/>
                 </group>
-                <group>
-                    <field name="is_done"/>
-                    <field name="compliance_date" readonly="1" invisible="not is_done"/>
-                    <field name="show_prorogue"/>
-                    <field name="prorogation_ids" invisible="not show_prorogue"/>
+
+                <group name="done">
+                    <group class="d-inline-flex">
+                        <field name="is_done" widget="boolean_toggle"/>
+                        <field name="compliance_date" readonly="1" invisible="not is_done"/>
+                    </group>
+                    <group>
+                        <field name="attach_response" nolabel="1" invisible="not is_done"/>
+                    </group>
+                    <field name="compliance_info" nolabel="1" invisible="not is_done" placeholder="Nota del Cumplimiento"/>
                 </group>
-                <field name="compliance_info" invisible="not is_done" placeholder="Nota del Cumplimiento"/>
-                <group>
-                    <field name="attach_response" invisible="not is_done"/>
+
+                <group name="conformity">
+                    <group class="d-inline-flex">
+                        <field name="show_conformity" widget="boolean_toggle"/>
+                        <field name="conformity_date" invisible="not show_conformity" groups="planning.group_planning_manager"/>
+                    </group>
+                    <group>
+                        <field name="final_verdict" invisible="not show_conformity" groups="planning.group_planning_manager"/>
+                    </group>
                 </group>
-                <group>
-                    <field name="show_conformity"/>
-                    <field name="conformity_date" invisible="not show_conformity" groups="planning.group_planning_manager"/>
-                    <field name="final_verdict" invisible="not show_conformity" groups="planning.group_planning_manager"/>
-                    <field name="conformity_date" invisible="not show_conformity" groups="planning.group_planning_manager"/>
-                </group>
+                
             </field>
             <xpath expr="//sheet" position="after">
                 <chatter reload_on_follower="True"/>
@@ -124,7 +136,7 @@
         }</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                No shifts found. Let's create one!
+                No Task found. Let's create one!
             </p>
             <p>
                 Schedule your human and material resources across roles, projects and sales orders.
