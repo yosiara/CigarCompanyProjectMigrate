@@ -23,13 +23,15 @@ class HREmployee(models.Model):
         employees = self.search([])
 
         # Insertar foto para todos los empleados con codigo de trabajador
+        count = 0
         for employee in employees:
             image_1920 = self._get_photo_from_documents(registration_number=employee.registration_number)
             if image_1920 != employee.image_1920:
                 employee.image_1920 = image_1920
-                _logger.info(f"Foto asignada a '{employee.name}'")
+                _logger.info(f"----------->> Foto asignada a: {employee.name}")
+                count += 1
 
-        message = "Fotos de empleados asignadas correctamente desde documentos!!!"
+        message = f"----------->> Asignadas {count} fotos correctamente desde documentos!!!"
         _logger.info(message)
         return {
             'type': 'ir.actions.client',
