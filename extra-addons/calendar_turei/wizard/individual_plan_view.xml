@@ -22,7 +22,7 @@
 							<field name="date_end"/>
 							<label for="text" colspan="4"  invisible="'type','in',('plan','ics')"/>
 							<field name="text" colspan="4" invisible="'type','in',('plan','ics')" nolabel="1"/>
-							<field name="employee_id"/>
+							<!-- <field name="employee_id"/> -->
 						</group>
 						<p invisible="'type','in',('resume','ics')">Remember all tasks must be <b>non-recurring</b> to proceed with the task evaluation.</p>
 						<p invisible="'type','in',('resume','ics')">If you do not know what this means, leave the checkbox marked <field name="confirmed"/></p>
