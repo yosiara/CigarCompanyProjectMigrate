@@ -36,8 +36,6 @@ class HREmployee(models.Model):
             username = (employee.work_email).split('@')[0]
             user = self.env['res.users'].search([('login', '=', username), ('share', '=', False)], limit=1)
             if user and not employee.user_id:
-                employee_data = user.get_sync_employee_data(employee)
-                user.write(**employee_data)
                 employee.user_id = user.id
                 _logger.info(f"----------->> Usuario con ID = {user.id} sincronizado y vinculado a {employee.name}")
                 count_sync_user += 1
