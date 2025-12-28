@@ -29,20 +29,20 @@ class HREmployee(models.Model):
             image_1920 = self._get_photo_from_documents(registration_number=employee.registration_number)
             if image_1920 != employee.image_1920:
                 employee.image_1920 = image_1920
-                _logger.info(f"----------->> Foto asignada al empleado: {employee.name}")
+                _logger.info(f"---->> Foto asignada al empleado: {employee.name}")
                 count_images += 1
             
             # Buscar matching con usuario, syncronizar y vincular
             username = (employee.work_email).split('@')[0]
-            user = self.env['res.users'].search([('login', '=', username), ('share', '=', False)], limit=1)
+            user = self.env['res.users'].search([('login', '=', username)], limit=1)
             if user and not employee.user_id:
                 employee.user_id = user.id
-                _logger.info(f"----------->> Usuario con ID = {user.id} sincronizado y vinculado a {employee.name}")
+                _logger.info(f"---->> Usuario con ID = {user.id} sincronizado y vinculado a {employee.name}")
                 count_sync_user += 1
 
 
-        message = (f"----------->> Asignadas {count_images} fotos"
-                  f"------------>> Sincronizados {count_sync_user} usuarios"
+        message = (f"---->> Asignadas {count_images} fotos"
+                   f"---->> Sincronizados {count_sync_user} usuarios"
         )
         _logger.info(message)
         return {
@@ -59,9 +59,17 @@ class HREmployee(models.Model):
     #                           OVERRIDE METHODS                               #
     # ------------------------------------------------------------------------ #
 
+    @api.onchange('user_id')
+    def _onchange_user(self):
+        # self.update(self._sync_user(self.user_id, (bool(self.image_1920))))
+        # if not self.name:
+        #     self.name = self.user_id.name
+        pass
+
     def _sync_user(self, user, employee_has_image=False):
         sync_vals = {}
 
+        # Sincronizar usuario, priorizar la siguiente información del empleado, antes del vínculo
         if self.name != user.name:
             sync_vals['name'] = self.name
         if employee_has_image and self.image_1920 != user.image_1920:
@@ -86,6 +94,22 @@ class HREmployee(models.Model):
         if user.tz:
             vals['tz'] = user.tz
         return vals
+
+    # def _sync_user(self, user, employee_has_image=False):
+    #     """Sincronizar usuario, priorizar información del empleado, antes del vínculo"""
+    #     sync_vals = user._sync_employee(employee=self, employee_has_image=employee_has_image)
+    #     if sync_vals:
+    #         user.write(**sync_vals)
+        
+    #     vals = dict(
+    #         work_contact_id=user.partner_id.id if user else self.work_contact_id.id,
+    #         user_id=user.id,
+    #     )
+    #     # if not employee_has_image:
+    #     #     vals['image_1920'] = user.image_1920
+    #     if user.tz:
+    #         vals['tz'] = user.tz
+    #     return vals
 
     @api.model_create_multi
     def create(self, vals_list):
