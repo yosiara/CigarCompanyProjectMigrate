@@ -115,11 +115,9 @@ class PlanningSlot(models.Model):
 
         user = ctrl_compl.user_id
         email = ctrl_compl.work_email
-        # user_name = (self.control_compliance_id.work_email).split('@')[0]
-        # user = self.env['res.users'].search([('login', '=', user_name)], limit=1)
-
         subject=f'✅  Tarea Cumplida: {self.task_seq or self.name}'
         body = self.get_notify_body(key="done")
+
         if user:
             self.message_post(
                 body=body,
@@ -159,20 +157,22 @@ class PlanningSlot(models.Model):
             employee_ids |= self.control_compliance_id
         
         # Send notification by Odoo
+        subject=f'📋  Tarea Creada: {self.task_seq or self.name}'
         body = self.get_notify_body(key="created")
+        partner_ids = [
+                employee.user_id.partner_id.id
+                for employee in employee_ids
+                if employee.user_id and employee.user_id.id != self.env.user.id
+            ]
         self.message_post(
             body=body,
             message_type='comment',
             subtype_xmlid='mail.mt_note',
-            partner_ids=[
-                employee.work_contact_id.id
-                for employee in employee_ids
-                if employee.user_id
-            ],
+            partner_ids=partner_ids,
         )
 
         # Send notification by email
-        self._send_slot(employee_ids, self.start_datetime, self.end_datetime)
+        self._send_slot(employee_ids, self.start_datetime, self.end_datetime, mail_subject=subject)
         
         message = _("Tareas enviadas")
         return self._get_notification_action('success', message)
