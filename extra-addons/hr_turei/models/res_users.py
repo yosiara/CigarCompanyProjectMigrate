@@ -19,12 +19,16 @@ class ResUsersExtended(models.Model):
         # 2. Buscar por username@dominio
         employee = self.env['hr.employee'].search([
             ('work_email', '=ilike', f'{username}@%'),
-            ('user_id', '=', False)
+            ('user_id', '=', False),
+            ('active', '=', True),
         ], limit=1)
 
-        return employee or False
+        if employee:
+            return employee
 
-    def _sync_employee(self, employee, employee_has_image=False):
+        return False
+
+    def _sync_employee(self, employee):
         """Sincronizar datos del empleado al usuario"""
         self.ensure_one()
 
@@ -35,7 +39,7 @@ class ResUsersExtended(models.Model):
             sync_vals['name'] = employee.name
         
         # 2. Imagen (empleado → usuario)
-        if employee_has_image and employee.image_1920 != self.image_1920:
+        if employee.image_1920 and employee.image_1920 != self.image_1920:
             sync_vals['image_1920'] = employee.image_1920
 
         # 3. Work Phone (empleado → usuario)
@@ -51,7 +55,6 @@ class ResUsersExtended(models.Model):
             # username = (self.email).split('@')[0].lower()
             # sync_vals['login'] = username
             sync_vals['email'] = employee.work_email
-
 
         # 6. Job (empleado → usuario)
         if employee.job_id and employee.job_id.name != self.function:
@@ -70,13 +73,16 @@ class ResUsersExtended(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        """Cuando se crea usuario, sincronizar empleado existente"""
-        users = super(ResUsersExtended, self).create(vals_list)
+        """ Sincronizar usuario con el empleado correspondiente """
+        users = super().create(vals_list)
         
-        # Vincular empleados
         for user in users:
             employee = user._find_matching_employee()
-            employee.write({'user_id': user.id})
+            if employee:
+                sync_vals = user._sync_employee(employee)
+                if sync_vals:
+                    user.write(sync_vals)
+                employee.write({'user_id': user.id})
         
         return users
         

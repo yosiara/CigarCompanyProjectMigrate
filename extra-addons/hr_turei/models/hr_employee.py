@@ -38,13 +38,16 @@ class HREmployee(models.Model):
             if username and not employee.user_id:
                 for i, user in enumerate(users):
                     if user.login == username:
+                        sync_vals = user._sync_employee(employee)
+                        if sync_vals:
+                            user.write(sync_vals)
                         employee.user_id = user.id
                         _logger.info(f"---->> Usuario con ID = {user.id} sincronizado y vinculado a {employee.name}")
                         count_sync_user += 1
                         del users[i]
                         break
 
-        message = (f"\n************** Resumen Final ******************"
+        message = (f"\n********* Resumen Final **************"
                    f"\n---->> Fotos asignadas: {count_images}"
                    f"\n---->> Usuarios sincronizados: {count_sync_user}"
         )
@@ -54,24 +57,6 @@ class HREmployee(models.Model):
     # ------------------------------------------------------------------------ #
     #                           OVERRIDE METHODS                               #
     # ------------------------------------------------------------------------ #
-
-    @api.onchange('user_id')
-    def _onchange_user(self):
-        pass
-
-    def _sync_user(self, user, employee_has_image=False):
-        """Sincronizar usuario antes del vínculo, priorizar información del empleado"""
-        vals = user._sync_employee(employee=self, employee_has_image=employee_has_image)
-        if vals:
-            user.write(vals)
-        
-        vals = dict(
-            work_contact_id=user.partner_id.id if user else self.work_contact_id.id,
-            user_id=user.id,
-        )
-        if user.tz:
-            vals['tz'] = user.tz
-        return vals
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -117,8 +102,10 @@ class HREmployee(models.Model):
         if self.job_id and self.user_id and self.job_id.name != self.user_id.function:
             self.user_id.function = self.job_id.name
 
-    @api.onchange('active')
-    def _onchange_job_id(self):
-        # 5. Active (empleado → usuario)
-        if self.user_id and not self.user_id._is_admin() and self.active != self.user_id.active:
-            self.user_id.active = self.active
+    # No se ejecuta al archivar
+    # @api.onchange('active')
+    # def _onchange_active(self):
+    #     # 5. Active (empleado → usuario)
+    #     _logger.info(f"----------->> Inside Self: {self}")
+    #     if self.user_id and not self.user_id._is_admin() and self.active != self.user_id.active:
+    #         self.user_id.active = self.active
