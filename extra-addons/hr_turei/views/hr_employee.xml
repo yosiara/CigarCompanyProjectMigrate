@@ -17,8 +17,11 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='active_group']" position="attributes">
+            <xpath expr="//group[@name='active_group']//field[@name='user_id']" position="attributes">
                 <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='active_group']//button[@name='action_create_user']" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
         </field>
     </record>
