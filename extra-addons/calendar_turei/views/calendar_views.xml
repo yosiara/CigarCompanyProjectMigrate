@@ -28,9 +28,9 @@
             <field name="partner_ids" position="attributes">
                 <attribute name="required">1</attribute>
             </field>
-            <field name="user_id" position="replace">
+            <!-- <field name="user_id" position="replace">
                 <field name="user_id"/>
-            </field>
+            </field> -->
         </field>
     </record>
 
