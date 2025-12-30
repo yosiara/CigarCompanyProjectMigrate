@@ -61,10 +61,11 @@ class CalendarPrintIndividualPlan(models.TransientModel):
         data['date_end'] = fields.Date().to_string(self.date_end)
         data['periodo'] = self.period_id.name
         data['text'] = self.text
-        data['employee_id'] = self.env['hr.employee'].search([('id', '=', self._context['active_id'])]).id
-        user_id = self._context['uid']
-        employee = self.sudo().env['hr.employee'].browse(data['employee_id'])
-        partner_id = employee.user_id.partner_id.id
+        employee = self.env.user.employee_id #self.sudo().env['hr.employee'].browse(data['employee_id'])
+        data['employee_id'] = employee.id #self.env['hr.employee'].search([('id', '=', self._context['active_id'])]).id
+        user = self.env.user
+        user_id = user.id #self._context['uid']
+        partner_id = employee.work_contact_id.id #employee.user_id.partner_id.id
         event_obj = self.env['calendar.event']
         if self.type == 'plan':
             if self.confirmed:
@@ -83,8 +84,8 @@ class CalendarPrintIndividualPlan(models.TransientModel):
             event_obj = self.env['calendar.event']
             date_start = data['date_start']
             date_end = data['date_end']
-            employee = self.env['hr.employee'].browse(data['employee_id'])
-            partner_id = employee.user_id.partner_id.id
+            employee = employee #self.env['hr.employee'].browse(data['employee_id'])
+            partner_id = partner_id #employee.user_id.partner_id.id
             # IMPORTANTE!!
             event_list = []  # esta lista se utiliza para almacenar los dias con el listado de tareas
             # se toman las tareas que no son recurrentes en el rango de fechas

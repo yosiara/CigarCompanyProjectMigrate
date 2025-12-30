@@ -47,5 +47,12 @@
             </field>
         </field>
     </record>
+
+    <menuitem
+        id="calendar_turei_reports_menu"
+        parent="calendar.mail_menu_calendar"
+        name="Reportes"
+        sequence="5"
+        groups="base.group_user"/>
     
 </odoo>
