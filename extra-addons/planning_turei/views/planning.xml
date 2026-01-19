@@ -8,12 +8,12 @@
             <xpath expr="//search" position="inside">
                 <field name="ejecutor_id" groups="planning.group_planning_user"/>
                 <field name="control_compliance_id" groups="planning.group_planning_user"/>
-                <filter string="Mis tareas" name="my_task" groups="planning.group_planning_user" domain="[
+                <!-- <filter string="Mis tareas" name="my_task" groups="planning.group_planning_user" domain="[
                     ('|'), ('|'),
                     ('resource_id.user_id', '=', uid),
                     ('ejecutor_id.user_id', '=', uid),
                     ('control_compliance_id.user_id', '=', uid),
-                ]" />
+                ]" /> -->
                 <filter string="Cumplidas" name="cumplido" domain="[('is_done', '=', True)]" groups="planning.group_planning_user"/>
                 <filter string="Por cumplir" name="no_cumplido" domain="[('is_done', '=', False)]" groups="planning.group_planning_user"/>
             </xpath>
@@ -154,10 +154,15 @@
         <field name="path">planning</field>
         <field name="view_mode">gantt,calendar,list,form,kanban,pivot,graph</field>
         <field name="mobile_view_mode">calendar</field>
+        <field name="domain">[
+            ('|'), ('|'),
+            ('resource_id.user_id', '=', uid),
+            ('ejecutor_id.user_id', '=', uid),
+            ('control_compliance_id.user_id', '=', uid),
+        ]</field>
         <field name="context">{
             'planning_expand_resource': 1,
             'planning_expand_role': 1,
-            'search_default_my_task': 1,
             'search_default_no_cumplido': 1,
         }</field>
         <field name="help" type="html">
