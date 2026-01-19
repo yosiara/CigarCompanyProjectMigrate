@@ -160,10 +160,10 @@ class PlanningSlot(models.Model):
         subject=f'📋  Tarea Creada: {self.task_seq or self.name}'
         body = self.get_notify_body(key="created")
         partner_ids = [
-                employee.user_id.partner_id.id
-                for employee in employee_ids
-                if employee.user_id and employee.user_id.id != self.env.user.id
-            ]
+            employee.user_id.partner_id.id
+            for employee in employee_ids
+            if employee.user_id and employee.user_id.id != self.env.user.id
+        ]
         self.message_post(
             body=body,
             message_type='comment',
