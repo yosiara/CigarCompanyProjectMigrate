@@ -1,0 +1,45 @@
+# Dockerfile.debug
+FROM odoo:18
+
+ARG UNAME=developer
+ARG UID=1000
+ARG GID=1000
+
+USER root
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y --no-install-recommends \
+    sudo \
+    git-all \
+    python3-debugpy
+    # && rm -rf /var/lib/apt/lists/*
+
+# Configure user
+RUN EXISTING_USER=$(getent passwd $UID | cut -d: -f1 2>/dev/null) && \
+    if [ -z "$EXISTING_USER" ]; then \
+        # Create new
+        groupadd -g $GID $UNAME 2>/dev/null || true && \
+        useradd -m -u $UID -g $GID -s /bin/bash $UNAME; \
+    elif [ "$EXISTING_USER" != "$UNAME" ]; then \
+        # Rename existing
+        usermod -l $UNAME $EXISTING_USER && \
+        groupmod -n $UNAME $EXISTING_USER && \
+        usermod -d /home/$UNAME -m $UNAME; \
+    fi && \
+    # Full sudo without password
+    mkdir -p /etc/sudoers.d && \
+    chmod 755 /etc/sudoers.d && \
+    echo "$UNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/"$UNAME" && \
+    chmod 0440 /etc/sudoers.d/"$UNAME"
+
+COPY debug-entrypoint.sh /debug-entrypoint.sh
+RUN chmod +x /debug-entrypoint.sh && chown odoo /debug-entrypoint.sh
+
+USER odoo
+
+ENV DEBUGPY_ENABLE=false
+ENV DEBUGPY_PORT=5678
+
+ENTRYPOINT ["/debug-entrypoint.sh"]
+CMD ["--dev=all"]
