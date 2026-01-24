@@ -30,32 +30,18 @@
             "settings": {
                 "python.defaultInterpreterPath": "/usr/bin/python3",
                 "python.analysis.stubPath": "odoo-stubs-18.0",
-                // "python.analysis.extraPaths": [
-                //     "extra-addons",
-                //     "/usr/lib/python3/dist-packages/odoo",
-                //     "/usr/lib/python3/dist-packages/odoo/addons"
-                // ],
-                // "python.analysis.typeCheckingMode": "basic",
+                "python.analysis.extraPaths": [
+                    "/usr/lib/python3/dist-packages/odoo"
+                ],
+                "python.analysis.typeCheckingMode": "basic",
                 "files.exclude": {
                     "**/__pycache__": true,
                     "**/.pyc": true
-                },
-                "editor.formatOnSave": true
+                }
             }
         }
-    }
-    // "postCreateCommand": "ln -sf /usr/lib/python3/dist-packages/odoo/addons ."
-    // "postCreateCommand": [
-    //     // ... zsh ...
-    //     "sudo apt-get update && sudo apt-get install -y zsh",
-    //     "sudo chsh -s /usr/bin/zsh vscode",
-    //     "sudo -u vscode sh -c 'git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh'",
-    //     "sudo cp /home/vscode/.oh-my-zsh/templates/zshrc.zsh-template /home/vscode/.zshrc"
-    // git
-    // "git config --global --add safe.directory /workspace",
-    // extensions
-    // "pip install pylint-odoo --no-cache-dir 2>/dev/null || true",
-    // ]
+    },
+    "postCreateCommand": "ln -sf /usr/lib/python3/dist-packages/odoo/addons ."
     // "forwardPorts": [8069, 5678]
     // "features": {
     //     "git": "latest"

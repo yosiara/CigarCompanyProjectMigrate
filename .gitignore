@@ -9,7 +9,7 @@ __pycache__/
 # Native Addons
 addons/
 community-addons/
-enterprise-addons/
+# enterprise-addons/
 
 # Excluded Addons
 extra-addons/l10n_cu_opermix_hr/
