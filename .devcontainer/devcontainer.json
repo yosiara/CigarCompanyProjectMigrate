@@ -1,11 +1,11 @@
 {
     "name": "Odoo Dev",
     "dockerComposeFile": [
-        "../compose.dev.yml",
+        "../compose.opermix.yml",
         "docker-compose.yml"
     ],
     "service": "odoo",
-    "remoteUser": "${localEnv:USER}",
+    "remoteUser": "${localEnv:USER:-developer}",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "shutdownAction": "stopCompose",
     // "overrideCommand": false,

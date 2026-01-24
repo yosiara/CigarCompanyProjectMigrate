@@ -7,7 +7,8 @@ services:
         UNAME: ${USER:-developer}
         UID: ${UID:-1000}
         GID: ${GID:-1000}
-    container_name: odoo-18.0
+    # image: odoo-backup:20260123_130651
+    container_name: odoo-${CONTAINER_NAME}
     depends_on:
       - db
     environment:
@@ -17,14 +18,16 @@ services:
       # PostgreSQL
       - HOST=db
       - PORT=5432
-      - USER=odoo
-      - PASSWORD=odoo
+      - USER=${CONTAINER_USER}
+      - PASSWORD=${CONTAINER_PASSWORD}
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./extra-addons:/mnt/extra-addons
+      - ./enterprise-addons:/mnt/enterprise-addons
     ports:
       - "8069:8069"  # Odoo web
       - "5678:5678"  # Debugger
-    # volumes:
-      # - ./config:/etc/odoo
-      # - ./extra-addons:/mnt/extra-addons
     # command: ["--dev=all"] # ["--dev=reload,xml,qweb"]
     # develop:
     #   watch:
@@ -34,10 +37,22 @@ services:
     tty: true
 
   db:
-    image: postgres:17
-    container_name: odoo-db-18.0
+    image: postgres-backup:20260123_130651
+    container_name: db-${CONTAINER_NAME}
     environment:
       - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=odoo
-      - POSTGRES_USER=odoo
-      - PGDATA=/var/lib/postgresql/data
+      - POSTGRES_USER=${CONTAINER_USER}
+      - POSTGRES_PASSWORD=${CONTAINER_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres-odoo-data:/var/lib/postgresql/data
+
+volumes:
+  odoo-data:
+    name: odoo-data-${VOLUME_NAME}
+    external: true
+  postgres-odoo-data:
+    name: postgres-odoo-data-${VOLUME_NAME}
+    external: true
+  # opermix18-pgadmin4-data:
+  #   driver: local

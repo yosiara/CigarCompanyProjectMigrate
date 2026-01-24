@@ -1,5 +1,5 @@
 # Dockerfile.debug
-FROM odoo:18
+FROM odoo-backup:20260123_130651
 
 ARG UNAME=developer
 ARG UID=1000

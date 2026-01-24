@@ -15,8 +15,8 @@ services:
     volumes:
       - odoo-data:/var/lib/odoo
       - /mnt/extra-addons:/mnt/extra-addons
-    command: --dev=all
     tty: true
+    command: --dev=reload
     restart: unless-stopped
 
   postgres:
@@ -26,13 +26,13 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=${CONTAINER_USER}
       - POSTGRES_PASSWORD=${CONTAINER_PASSWORD}
-      - PGDATA=/var/lib/postgresql/data
+      - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - postgres-odoo-data:/var/lib/postgresql/data
     restart: unless-stopped
 
 volumes:
   odoo-data:
-    name: odoo-${VOLUMES_NAME}
+    name: odoo-data-${VOLUME_NAME}
   postgres-odoo-data:
-    name: postgres-${VOLUMES_NAME}
+    name: postgres-odoo-data-${VOLUME_NAME}
