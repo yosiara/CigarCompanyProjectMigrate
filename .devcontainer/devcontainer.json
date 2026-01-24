@@ -31,12 +31,19 @@
                 "python.defaultInterpreterPath": "/usr/bin/python3",
                 "python.analysis.stubPath": "odoo-stubs-18.0",
                 "python.analysis.extraPaths": [
-                    "/usr/lib/python3/dist-packages/odoo"
+                    "/usr/bin/odoo"
+                ],
+                "python.autoComplete.extraPaths": [
+                    "/usr/lib/python3/dist-packages/odoo/addons",
+                    "enterprise-addons",
+                    "extra-addons"
                 ],
                 "python.analysis.typeCheckingMode": "basic",
                 "files.exclude": {
                     "**/__pycache__": true,
-                    "**/.pyc": true
+                    "**/.pyc": true,
+                    "**/.po": true,
+                    "**/.pot": true
                 }
             }
         }
