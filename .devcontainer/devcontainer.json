@@ -38,17 +38,24 @@
                     "enterprise-addons",
                     "extra-addons"
                 ],
-                "python.analysis.typeCheckingMode": "basic",
+                // "python.analysis.typeCheckingMode": "basic",
                 "files.exclude": {
                     "**/__pycache__": true,
                     "**/.pyc": true,
                     "**/.po": true,
                     "**/.pot": true
-                }
+                },
+                "remote.autoForwardPorts": false
             }
         }
     },
-    "postCreateCommand": "ln -sf /usr/lib/python3/dist-packages/odoo/addons ."
+    "postCreateCommand": "nohup sleep infinity >/dev/null 2>&1 & echo $! > /tmp/odoo_keepalive.pid && echo \"Keep-alive started with PID: $(cat /tmp/odoo_keepalive.pid)\"",
+    "postStartCommand": "test -e community-addons || ln -s /usr/lib/python3/dist-packages/odoo/addons ./community-addons"
+    // "terminal.integrated.shell.linux": "/bin/bash",
+    // // "postCreateCommand": "ln -sf /usr/lib/python3/dist-packages/odoo/addons .",
+    // "postAttachCommand": {
+    //     "server": "bash /debug-entrypoint.sh"
+    // }
     // "forwardPorts": [8069, 5678]
     // "features": {
     //     "git": "latest"
