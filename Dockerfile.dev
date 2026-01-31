@@ -43,4 +43,4 @@ ENV DEBUGPY_ENABLE=false
 ENV DEBUGPY_PORT=5678
 
 ENTRYPOINT ["/debug-entrypoint.sh"]
-CMD ["--dev=all"]
+CMD ["odoo"]

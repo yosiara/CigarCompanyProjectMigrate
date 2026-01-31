@@ -29,14 +29,11 @@
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/bin/python3",
-                "python.analysis.stubPath": "odoo-stubs-18.0",
+                "python.analysis.stubPath": "/workspaces/${localWorkspaceFolderBasename}/odoo-stubs",
                 "python.analysis.extraPaths": [
-                    "/usr/bin/odoo"
-                ],
-                "python.autoComplete.extraPaths": [
                     "/usr/lib/python3/dist-packages/odoo/addons",
-                    "enterprise-addons",
-                    "extra-addons"
+                    "/workspaces/${localWorkspaceFolderBasename}/extra-addons",
+                    "/workspaces/${localWorkspaceFolderBasename}/enterprise-addons"
                 ],
                 // "python.analysis.typeCheckingMode": "basic",
                 "files.exclude": {
@@ -49,15 +46,5 @@
             }
         }
     },
-    "postCreateCommand": "nohup sleep infinity >/dev/null 2>&1 & echo $! > /tmp/odoo_keepalive.pid && echo \"Keep-alive started with PID: $(cat /tmp/odoo_keepalive.pid)\"",
-    "postStartCommand": "test -e community-addons || ln -s /usr/lib/python3/dist-packages/odoo/addons ./community-addons"
-    // "terminal.integrated.shell.linux": "/bin/bash",
-    // // "postCreateCommand": "ln -sf /usr/lib/python3/dist-packages/odoo/addons .",
-    // "postAttachCommand": {
-    //     "server": "bash /debug-entrypoint.sh"
-    // }
-    // "forwardPorts": [8069, 5678]
-    // "features": {
-    //     "git": "latest"
-    // }
+    "postCreateCommand": "test -e community-addons || ln -s /usr/lib/python3/dist-packages/odoo/addons ./community-addons"
 }

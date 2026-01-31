@@ -13,8 +13,8 @@ services:
       - db
     environment:
       # Debugger
-      - DEBUGPY_ENABLE=true
-      - DEBUGPY_PORT=5678
+      # - DEBUGPY_ENABLE=true
+      # - DEBUGPY_PORT=5678
       # PostgreSQL
       - HOST=db
       - PORT=5432
@@ -28,7 +28,7 @@ services:
     ports:
       - "8069:8069"  # Odoo web
       - "5678:5678"  # Debugger
-    # command: ["--dev=all"] # ["--dev=reload,xml,qweb"]
+    command: --dev=all # ["--dev=reload,xml,qweb"]
     # develop:
     #   watch:
     #     - action: rebuild
