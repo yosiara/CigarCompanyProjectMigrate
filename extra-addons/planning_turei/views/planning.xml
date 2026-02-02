@@ -8,12 +8,13 @@
             <xpath expr="//search" position="inside">
                 <field name="ejecutor_id" groups="planning.group_planning_user"/>
                 <field name="control_compliance_id" groups="planning.group_planning_user"/>
-                <!-- <filter string="Mis tareas" name="my_task" groups="planning.group_planning_user" domain="[
-                    ('|'), ('|'),
+                <filter string="Mis tareas" name="my_task" groups="planning_turei.group_planning_super_manager" domain="[
+                    ('|'), ('|'), ('|'),
                     ('resource_id.user_id', '=', uid),
                     ('ejecutor_id.user_id', '=', uid),
                     ('control_compliance_id.user_id', '=', uid),
-                ]" /> -->
+                    ('create_uid', '=', uid),
+                ]" />
                 <filter string="Cumplidas" name="cumplido" domain="[('is_done', '=', True)]" groups="planning.group_planning_user"/>
                 <filter string="Por cumplir" name="no_cumplido" domain="[('is_done', '=', False)]" groups="planning.group_planning_user"/>
             </xpath>
@@ -151,18 +152,13 @@
     <record id="planning.planning_action_schedule_by_resource" model="ir.actions.act_window">
         <field name="name">Schedule by Resource</field>
         <field name="res_model">planning.slot</field>
-        <field name="path">planning</field>
+        <field name="path">planning_turei</field>
         <field name="view_mode">gantt,calendar,list,form,kanban,pivot,graph</field>
         <field name="mobile_view_mode">calendar</field>
-        <field name="domain">[
-            ('|'), ('|'),
-            ('resource_id.user_id', '=', uid),
-            ('ejecutor_id.user_id', '=', uid),
-            ('control_compliance_id.user_id', '=', uid),
-        ]</field>
         <field name="context">{
             'planning_expand_resource': 1,
             'planning_expand_role': 1,
+            'search_default_my_task': 1,
             'search_default_no_cumplido': 1,
         }</field>
         <field name="help" type="html">
@@ -176,11 +172,50 @@
     </record>
 
     <!-- <menuitem
-        id="planning.planning_menu_settings_role"
-        name="Comisión"
-        parent="planning.planning_menu_settings"
-        sequence="20"
-        action="planning.planning_action_roles"
-        groups="planning.group_planning_manager"/> -->
+        id="planning_menu_settings"
+        name="Configuration"
+        parent="planning_menu_root"
+        sequence="50"
+        groups="planning.group_planning_manager"/>
+
+        <menuitem
+            id="planning_menu_settings_config"
+            name="Settings"
+            parent="planning_menu_settings"
+            sequence="10"
+            action="planning_action_settings"
+            groups="base.group_system"/>
+
+        <menuitem
+            id="planning_menu_settings_employee"
+            name="Employees"
+            parent="planning_menu_settings"
+            sequence="12"
+            action="hr.open_view_employee_list_my"
+            groups="planning.group_planning_manager"/>
+
+        <menuitem
+            id="planning_menu_settings_resource"
+            name="Materials"
+            parent="planning_menu_settings"
+            sequence="15"
+            action="planning_action_resources"
+            groups="planning.group_planning_manager"/>
+
+        <menuitem
+            id="planning.planning_menu_settings_role"
+            name="Comisión"
+            parent="planning.planning_menu_settings"
+            sequence="20"
+            action="planning.planning_action_roles"
+            groups="planning.group_planning_manager"/>
+
+        <menuitem
+            id="planning_menu_settings_shift_template"
+            name="Shift Templates"
+            parent="planning_menu_settings"
+            sequence="30"
+            action="planning_action_shift_template"
+            groups="planning.group_planning_manager"/> -->
 
 </odoo>

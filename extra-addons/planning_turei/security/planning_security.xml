@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="group_planning_super_manager" model="res.groups">
+        <field name="name">Super Administrator</field>
+        <field name="category_id" ref="base.module_category_human_resources_planning"/>
+        <field name="implied_ids" eval="[(4, ref('planning.group_planning_manager'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <data noupdate="1">
+
+        <record id="planning_turei_rule_manager_involucrate" model="ir.rule">
+            <field name="name">Planning: manager can read/create/update involucrate and published task</field>
+            <field name="model_id" ref="planning.model_planning_slot"/>
+            <field name="domain_force">[
+                ('|'), ('|'),
+                    ('resource_id.user_id', '=', user.id),
+                    ('ejecutor_id.user_id', '=', user.id),
+                    ('control_compliance_id.user_id', '=', user.id),
+                ('state', '=', 'published')
+            ]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4, ref('planning.group_planning_manager'))]"/>
+        </record>
+
+        <record id="planning_turei_rule_manager_owner" model="ir.rule">
+            <field name="name">Planning: manager can read/create/update/delete their own task</field>
+            <field name="model_id" ref="planning.model_planning_slot"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('planning.group_planning_manager'))]"/>
+        </record>
+
+        <record id="planning_turei_rule_super_manager" model="ir.rule">
+            <field name="name">Planning: super manager can read/create/update/delete all planning entries</field>
+            <field name="model_id" ref="planning.model_planning_slot"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="groups" eval="[(4, ref('group_planning_super_manager'))]"/>
+        </record>
+
+    </data>
+</odoo>

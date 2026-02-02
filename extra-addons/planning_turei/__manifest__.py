@@ -18,6 +18,7 @@ Customizing the Planning module for the Lázaro Peña Cigar Company. Holguín, C
     'auto_install': ['planning'],
     'data': [
         # ---------------------- security ------------------------------------#
+        'security/planning_security.xml',
         'security/ir.model.access.csv',
         #----------------------- data ----------------------------------------#
         'data/planning_slot_data.xml',
