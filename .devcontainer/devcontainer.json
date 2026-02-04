@@ -25,7 +25,9 @@
                 "redhat.vscode-xml",
                 "mechatroner.rainbow-csv",
                 "eamodio.gitlens",
-                "GitHub.copilot"
+                "GitHub.copilot",
+                "trinhanhngoc.vscode-odoo",
+                "mstuttgart.odoo-snippets"
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/bin/python3",
@@ -42,7 +44,8 @@
                     "**/.po": true,
                     "**/.pot": true
                 },
-                "remote.autoForwardPorts": false
+                "remote.autoForwardPorts": false,
+                "python.languageServer": "Pylance"
             }
         }
     },
