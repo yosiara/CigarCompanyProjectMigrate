@@ -21,5 +21,6 @@ Customizing the employee module for the Lázaro Peña Cigar Company. Holguín, C
         'data/cron_data.xml',
         #-----------------------views----------------------------------------#
         'views/hr_employee.xml',
+        'views/res_user.xml',
     ],
 }
