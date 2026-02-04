@@ -33,12 +33,12 @@
         </field>
     </record>
 
-    <menuitem
-        id="planning_menu_settings_subcommissions"
-        name="Subcomisiones"
-        parent="planning.planning_menu_settings"
-        sequence="25"
-        action="subcommissions_view_act"
-        groups="planning.group_planning_manager"/>
+    <record id="planning_menu_settings_subcommissions" model="ir.ui.menu">
+        <field name="name">Subcomisiones</field>
+        <field name="parent_id" ref="planning.planning_menu_settings"/>
+        <field name="sequence">25</field>
+        <field name="action" ref="planning_turei.subcommissions_view_act"/>
+        <field name="groups_id" eval="[Command.set([ref('planning_turei.group_planning_super_manager')])]"/>
+    </record>
 
 </odoo>

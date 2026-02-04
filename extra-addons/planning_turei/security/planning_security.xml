@@ -10,6 +10,14 @@
 
     <data noupdate="1">
 
+        <record id="planning.planning_rule_user_is_published" model="ir.rule">
+            <field name="active" eval="False"/>
+        </record>
+
+        <record id="planning.planning_rule_manager" model="ir.rule">
+            <field name="active" eval="False"/>
+        </record>
+
         <record id="planning_turei_rule_manager_involucrate" model="ir.rule">
             <field name="name">Planning: manager can read/create/update involucrate and published task</field>
             <field name="model_id" ref="planning.model_planning_slot"/>

@@ -171,51 +171,25 @@
         </field>
     </record>
 
-    <!-- <menuitem
-        id="planning_menu_settings"
-        name="Configuration"
-        parent="planning_menu_root"
-        sequence="50"
-        groups="planning.group_planning_manager"/>
+    <!-- MENUS INHERIT -->
+    <record id="planning.planning_menu_settings" model="ir.ui.menu">
+        <field name="groups_id" eval="[Command.set([ref('planning_turei.group_planning_super_manager')])]"/>
+    </record>
 
-        <menuitem
-            id="planning_menu_settings_config"
-            name="Settings"
-            parent="planning_menu_settings"
-            sequence="10"
-            action="planning_action_settings"
-            groups="base.group_system"/>
+        <record id="planning.planning_menu_settings_employee" model="ir.ui.menu">
+            <field name="groups_id" eval="[Command.set([ref('planning_turei.group_planning_super_manager')])]"/>
+        </record>
 
-        <menuitem
-            id="planning_menu_settings_employee"
-            name="Employees"
-            parent="planning_menu_settings"
-            sequence="12"
-            action="hr.open_view_employee_list_my"
-            groups="planning.group_planning_manager"/>
+        <record id="planning.planning_menu_settings_resource" model="ir.ui.menu">
+            <field name="groups_id" eval="[Command.set([ref('planning_turei.group_planning_super_manager')])]"/>
+        </record>
 
-        <menuitem
-            id="planning_menu_settings_resource"
-            name="Materials"
-            parent="planning_menu_settings"
-            sequence="15"
-            action="planning_action_resources"
-            groups="planning.group_planning_manager"/>
+        <record id="planning.planning_menu_settings_role" model="ir.ui.menu">
+            <field name="groups_id" eval="[Command.set([ref('planning_turei.group_planning_super_manager')])]"/>
+        </record>
 
-        <menuitem
-            id="planning.planning_menu_settings_role"
-            name="Comisión"
-            parent="planning.planning_menu_settings"
-            sequence="20"
-            action="planning.planning_action_roles"
-            groups="planning.group_planning_manager"/>
-
-        <menuitem
-            id="planning_menu_settings_shift_template"
-            name="Shift Templates"
-            parent="planning_menu_settings"
-            sequence="30"
-            action="planning_action_shift_template"
-            groups="planning.group_planning_manager"/> -->
+        <record id="planning.planning_menu_settings_shift_template" model="ir.ui.menu">
+            <field name="groups_id" eval="[Command.set([ref('planning_turei.group_planning_super_manager')])]"/>
+        </record>
 
 </odoo>
