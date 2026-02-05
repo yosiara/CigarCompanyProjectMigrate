@@ -37,7 +37,6 @@
                     "/workspaces/${localWorkspaceFolderBasename}/extra-addons",
                     "/workspaces/${localWorkspaceFolderBasename}/enterprise-addons"
                 ],
-                // "python.analysis.typeCheckingMode": "basic",
                 "files.exclude": {
                     "**/__pycache__": true,
                     "**/.pyc": true,
