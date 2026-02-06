@@ -34,11 +34,11 @@ class ResUsersExtended(models.Model):
 
         sync_vals = {}
         
-        # 1. Nombre (empleado → usuario)
+        # 1. Name (empleado → usuario)
         if employee.name and employee.name != self.name:
             sync_vals['name'] = employee.name
         
-        # 2. Imagen (empleado → usuario)
+        # 2. Image (empleado → usuario)
         if employee.image_1920 and employee.image_1920 != self.image_1920:
             sync_vals['image_1920'] = employee.image_1920
 
@@ -52,8 +52,6 @@ class ResUsersExtended(models.Model):
         
         # 5. Work Email (empleado → usuario)
         if employee.work_email and employee.work_email != self.email:
-            # username = (self.email).split('@')[0].lower()
-            # sync_vals['login'] = username
             sync_vals['email'] = employee.work_email
 
         # 6. Job (empleado → usuario)
@@ -64,7 +62,6 @@ class ResUsersExtended(models.Model):
         if employee.active != self.active and not self._is_admin():
             sync_vals['active'] = employee.active
 
-        # Retornar valores
         return sync_vals
 
     # ------------------------------------------------------------------------ #
@@ -73,7 +70,6 @@ class ResUsersExtended(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        """ Sincronizar usuario con el empleado correspondiente """
         users = super().create(vals_list)
         
         for user in users:

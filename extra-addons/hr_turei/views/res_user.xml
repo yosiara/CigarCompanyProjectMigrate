@@ -2,8 +2,8 @@
 <odoo>
     <data>
         <!-- 1. Anular sincronización de imagen de usuario → empleado. -->
-        <!-- 2. Esta información será syncronizada en sentido inverso. -->
-        <!-- 3. Si se desea tener una imagen diferente a la del empleado asociado como excepción: editar el contacto relacionado del usuario en cuestión. -->
+        <!-- 2. Esta información será sincronizada en sentido inverso: empleado → usuario. -->
+        <!-- 3. Si se desea tener una imagen diferente a la del empleado asociado: editar el contacto relacionado del usuario en cuestión. -->
         <!-- 4. Note que si hace lo anterior y luego se edita la imagen desde empleados volverá al segundo punto. -->
         <record id="view_users_form" model="ir.ui.view">
             <field name="name">res.users.form</field>

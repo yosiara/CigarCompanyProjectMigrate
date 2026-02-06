@@ -16,12 +16,15 @@ class HREmployee(models.Model):
         ], limit=1)
         if not document:
             return False # comodidad para filtros posteriores
-        return document.datas # Obtener el contenido binario de la imagen
+        return document.datas
 
     def action_assign_photo_and_sync_user(self):
-        """Acción para asignar foto a todos los empleados desde documentos"""
+        """ 
+            Asignar foto a todos los empleados desde documentos.
+            Sincronizar usuarios asociados, información primaria manejada desde empleados.
+        """
         employees = self.search([])
-        users = list(self.user_id.search([('share', '=', False)]))
+        users = list(self.user_id.search([('share', '=', False)])) # Usuarios internos solamente
 
         count_images = 0
         count_sync_user = 0
@@ -35,23 +38,18 @@ class HREmployee(models.Model):
             
             # Buscar usuario, sincronizar y vincular
             username = (employee.work_email).split('@')[0].lower() if employee.work_email else False
-            if username and not employee.user_id:
+            if username:
                 for i, user in enumerate(users):
                     if user.login == username:
                         sync_vals = user._sync_employee(employee)
                         if sync_vals:
                             user.write(sync_vals)
                         employee.user_id = user.id
-                        _logger.info(f"---->> Usuario con ID = {user.id} sincronizado y vinculado a {employee.name}")
+                        _logger.info(f"---->> Usuario '{user.id}' sincronizado con {employee.name}")
                         count_sync_user += 1
                         del users[i]
                         break
-
-        message = (f"\n********* Resumen Final **************"
-                   f"\n---->> Fotos asignadas: {count_images}"
-                   f"\n---->> Usuarios sincronizados: {count_sync_user}"
-        )
-        _logger.info(message)
+        _logger.info(f"---->> Fotos asignadas: {count_images}. Usuarios sincronizados: {count_sync_user}")
         return
         
     # ------------------------------------------------------------------------ #
@@ -80,13 +78,13 @@ class HREmployee(models.Model):
     """ Sincronizar datos del empleado al usuario """
     @api.onchange('name')
     def _onchange_name(self):
-        # 1. Nombre (empleado → usuario)
+        # 1. Name (empleado → usuario)
         if self.name and self.user_id and self.name != self.user_id.name:
             self.user_id.name = self.name
 
     @api.onchange('image_1920')
     def _onchange_image_1920(self):
-        # 2. Imagen (empleado → usuario)
+        # 2. Image (empleado → usuario)
         if self.image_1920 and self.user_id and self.image_1920 != self.user_id.image_1920:
             self.user_id.image_1920 = self.image_1920
     
