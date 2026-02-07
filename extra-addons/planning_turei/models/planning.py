@@ -49,20 +49,14 @@ class PlanningSlot(models.Model):
     # Domain fields
     ejecutor_domain = fields.Binary(compute="_get_ejecutor_domain", exportable=False)
 
-    # closed_date = fields.Date(string='Fecha de Completada', default=fields.Date().today())
-    # conformity = fields.Boolean(string='Conformidad')
-    # compliance_real_show = fields.Boolean(string='Mostrar Fecha Real')
-    # work_plan = fields.Boolean(string='Plan Trabajo', default=False)
-
     def get_notify_body(self, key: str):
-        
         if key == "created":
             body = Markup(f"""
                 <div style="font-family: Arial, sans-serif; padding: 15px; border-left: 4px solid #28a745; background-color: #f8f9fa;">
-                    <h3 style="color: #28a745; margin-top: 0;">✅ Tarea Asignada</h3>
+                    <h3 style="color: #28a745; margin-top: 0;">📝 Tarea asignada</h3>
                     
                     <div style="margin: 15px 0;">
-                        <p style="margin: 5px 0;"><strong>📋 Tarea:</strong> {self.task_seq or self.name}</p>
+                        <p style="margin: 5px 0;"><strong>#️⃣ Número:</strong> {self.task_seq}</p>
                         <p style="margin: 5px 0;"><strong>🙋‍♂️ Responsable:</strong> {self.resource_id.name}</p>
                         <p style="margin: 5px 0;"><strong>👤 Ejecutor:</strong> {self.ejecutor_id.name or 'No asignado'}</p>
                         <p style="margin: 5px 0;"><strong>🎯 Controlador:</strong> {self.control_compliance_id.name or 'No asignado'}</p>
@@ -77,14 +71,13 @@ class PlanningSlot(models.Model):
                     </div>
                 </div>
             """)
-
         elif key == "done":
             body = Markup(f"""
                 <div style="font-family: Arial, sans-serif; padding: 15px; border-left: 4px solid #28a745; background-color: #f8f9fa;">
-                    <h3 style="color: #28a745; margin-top: 0;">✅ Tarea Cumplida</h3>
+                    <h3 style="color: #28a745; margin-top: 0;">✅ Tarea cumplida:</h3>
                     
                     <div style="margin: 15px 0;">
-                        <p style="margin: 5px 0;"><strong>📋 Tarea:</strong> {self.task_seq or self.name}</p>
+                        <p style="margin: 5px 0;"><strong>#️⃣ Número:</strong> {self.task_seq}</p>
                         <p style="margin: 5px 0;"><strong>🙋‍♂️ Responsable:</strong> {self.resource_id.name}</p>
                         <p style="margin: 5px 0;"><strong>👤 Ejecutor:</strong> {self.ejecutor_id.name or 'No asignado'}</p>
                         <p style="margin: 5px 0;"><strong>✍️ Descripción:</strong> {self.name}</p>
@@ -99,12 +92,33 @@ class PlanningSlot(models.Model):
                     </div>
                 </div>
             """)
-            # <p style="margin: 5px 0;"><strong>🎯 Controlador:</strong> {self.control_compliance_id.name}</p>
-
+        elif key == "conformity":
+            body = Markup(f"""
+                <div style="font-family: Arial, sans-serif; padding: 15px; border-left: 4px solid #28a745; background-color: #f8f9fa;">
+                    <h3 style="color: #28a745; margin-top: 0;">👌 Conformidad de tarea</h3>
+                    
+                    <div style="margin: 15px 0;">
+                        <p style="margin: 5px 0;"><strong>#️⃣ Número:</strong> {self.task_seq}</p>
+                        <p style="margin: 5px 0;"><strong>🙋‍♂️ Responsable:</strong> {self.resource_id.name}</p>
+                        <p style="margin: 5px 0;"><strong>👤 Ejecutor:</strong> {self.ejecutor_id.name or 'No asignado'}</p>
+                        <p style="margin: 5px 0;"><strong>🎯 Controlador:</strong> {self.control_compliance_id.name or 'No asignado'}</p>
+                        <p style="margin: 5px 0;"><strong>✍️ Descripción:</strong> {self.name}</p>
+                        <p style="margin: 5px 0;"><strong>📅 Fecha de cumplimiento:</strong> {self.compliance_date or 'Desconocida'}</p>
+                        <p style="margin: 5px 0;"><strong>✔️ Veredicto Final:</strong> {self.final_verdict.title() or 'Sin valoración'}</p>
+                        <a href="{self.get_task_url()}" style="margin: 5px 0;"><strong>👁‍🗨 Abrir directamente</strong></a>
+                    </div>
+                    
+                    <div style="margin-top: 15px; padding: 10px; background-color: #e9ecef; border-radius: 5px;">
+                        <p style="margin: 0; font-size: 12px; color: #666;">
+                            <em>Este mensaje fue generado automáticamente cuando se le ha dado conformidad a la tarea.</em>
+                        </p>
+                    </div>
+                </div>
+            """)
         return body
 
     def _send_is_done_notification(self):
-        """Enviar notificación cuando una tarea es marcada como cumplida"""
+        """Enviar notificación al controlador cuando una tarea es marcada como cumplida"""
         self.ensure_one()
 
         ctrl_compl = self.control_compliance_id
@@ -115,7 +129,7 @@ class PlanningSlot(models.Model):
 
         user = ctrl_compl.user_id
         email = ctrl_compl.work_email
-        subject=f'✅  Tarea Cumplida: {self.task_seq or self.name}'
+        subject=f'✅  Tarea cumplida: {self.task_seq}'
         body = self.get_notify_body(key="done")
 
         if user:
@@ -134,6 +148,36 @@ class PlanningSlot(models.Model):
         else:
             msg = f"{ctrl_compl.name} no tiene email asociado"
             _logger.warning(msg)
+
+    def _send_conformity_notification(self):
+        """ Enviar notificación a todos lo involucrados cuando se le da conformidad a una tarea """
+        self.ensure_one()
+
+        # Partners
+        partner_ids = [self.create_uid.partner_id.id]
+        if self.resource_id.user_id:
+            partner_ids.append(self.resource_id.user_id.partner_id.id)
+        if self.ejecutor_id and self.ejecutor_id.user_id:
+            partner_ids.append(self.ejecutor_id.user_id.partner_id.id)
+
+        # Employees
+        employees = self.create_uid.employee_ids
+        if self.resource_id.employee_id:
+            employees |= self.resource_id.employee_id
+        if self.ejecutor_id:
+            employees |= self.ejecutor_id
+
+        # Send notification
+        subject=f'👌  Conformidad de tarea: {self.task_seq}'
+        body = self.get_notify_body(key="conformity")
+        self.message_post(
+            body=body,
+            message_type='comment',
+            subtype_xmlid='mail.mt_note',
+            partner_ids=partner_ids,
+        )
+        self._send_slot(employee_ids=employees, start_datetime=self.start_datetime, end_datetime=self.end_datetime, mail_subject=subject)
+
 
     def get_task_url(self):
         """Obtener la URL de la tarea"""
@@ -157,7 +201,7 @@ class PlanningSlot(models.Model):
             employee_ids |= self.control_compliance_id
         
         # Send notification by Odoo
-        subject=f'📋  Tarea Creada: {self.task_seq or self.name}'
+        subject=f'📝  Tarea asignada: {self.task_seq}'
         body = self.get_notify_body(key="created")
         partner_ids = [
             employee.user_id.partner_id.id
@@ -255,9 +299,8 @@ class PlanningSlot(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
-        """Automatically generate a reference number for new tasks"""
         for vals in vals_list:
-            vals['task_seq'] = self.env['ir.sequence'].next_by_code('planning.slot.task_seq') # Incrementar consecutivo
+            vals['task_seq'] = self.env['ir.sequence'].next_by_code('planning.slot.task_seq') # Reference number for new tasks
         return super().create(vals_list)
 
     @api.model
@@ -266,6 +309,9 @@ class PlanningSlot(models.Model):
         if 'is_done' in vals and vals['is_done']:
             for rec in self:
                 rec._send_is_done_notification()
+        if 'final_verdict' in vals and vals['final_verdict']:
+            for rec in self:
+                rec._send_conformity_notification()
         return res
 
     # ------------------------------------------------------------------------ #
@@ -280,15 +326,6 @@ class PlanningSlot(models.Model):
             else:
                 rec.ejecutor_domain = [('id', 'in', False)]
 
-    # def _compute_show_conformity(self):
-    #     for record in self:
-    #         record.show_conformity = False
-    #         if record.control_compliance_id:
-    #             if record.control_compliance_id.id == self.env.user.id or self.env.user.has_group('planning.group_planning_manager'):
-    #                 record.show_conformity = True
-    #             else:
-    #                 record.show_conformity = False
-
     # ------------------------------------------------------------------------ #
     #                           ONCHANGE METHODS                               #
     # ------------------------------------------------------------------------ #
@@ -302,14 +339,6 @@ class PlanningSlot(models.Model):
     def _onchange_resource_id(self):
         if self.ejecutor_id not in self.resource_id.employee_id.child_ids | self.resource_id.employee_id:
             self.ejecutor_id = False
-
-    # @api.onchange('is_done')
-    # def _onchange_is_done(self):
-    #     if self.is_done:
-    #         if not self.env.user.has_group('planning.group_planning_manager'):
-    #             if self.env.user.id != self.ejecutor_id.user_id.id:
-    #                 raise UserError(_('Usted no puede modificar el cumplimiento del Acuerdo, solo el Ejecutor puede hacerlo. '
-    #                                   'Si cree que esto es un error contacte con su Administrador de Sistema.'))
 
 
 class PlanningRole(models.Model):
