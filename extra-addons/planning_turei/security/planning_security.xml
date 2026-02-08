@@ -9,12 +9,16 @@
     </record>
 
     <data noupdate="1">
-
-        <record id="planning.planning_rule_user_is_published" model="ir.rule">
+        <record id="planning.access_planning_role_manager" model="ir.model.access">
             <field name="active" eval="False"/>
         </record>
-
+        <record id="planning.access_planning_slot_template_manager" model="ir.model.access">
+            <field name="active" eval="False"/>
+        </record>
         <record id="planning.planning_rule_manager" model="ir.rule">
+            <field name="active" eval="False"/>
+        </record>
+        <record id="planning.planning_rule_user_is_published" model="ir.rule">
             <field name="active" eval="False"/>
         </record>
 

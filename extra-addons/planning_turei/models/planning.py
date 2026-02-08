@@ -26,6 +26,7 @@ class PlanningSlot(models.Model):
     subcommissions_id = fields.Many2one(comodel_name='planning_turei.subcommissions', string='Subcomisión', ondelete='cascade')
     agreement_number = fields.Char(string='N° Acuerdo')
     ejecutor_id = fields.Many2one(comodel_name='hr.employee', string='Ejecuta')
+    ejecutor_uid = fields.Many2one(related='ejecutor_id.user_id', string='Ejecuta User')
     
     # Prorogue fields
     show_prorogue = fields.Boolean(string='Prórroga')
@@ -36,6 +37,7 @@ class PlanningSlot(models.Model):
     compliance_date = fields.Date(string='Fecha', default=fields.Date().today())
     compliance_info = fields.Text(string='Inf. Cumplimiento')
     control_compliance_id = fields.Many2one('hr.employee', string='Ctrl. Cumpl.')
+    control_compliance_uid = fields.Many2one(related='control_compliance_id.user_id', string='Controla User')
     
     # Conformity fields
     show_conformity = fields.Boolean(string='Conformidad')
@@ -150,15 +152,15 @@ class PlanningSlot(models.Model):
             _logger.warning(msg)
 
     def _send_conformity_notification(self):
-        """ Enviar notificación a todos lo involucrados cuando se le da conformidad a una tarea """
+        """ Enviar notificación al creador, responsable y ejecutor cuando se le da conformidad a una tarea """
         self.ensure_one()
 
         # Partners
         partner_ids = [self.create_uid.partner_id.id]
-        if self.resource_id.user_id:
-            partner_ids.append(self.resource_id.user_id.partner_id.id)
-        if self.ejecutor_id and self.ejecutor_id.user_id:
-            partner_ids.append(self.ejecutor_id.user_id.partner_id.id)
+        if self.user_id:
+            partner_ids.append(self.user_id.partner_id.id)
+        if self.ejecutor_uid:
+            partner_ids.append(self.ejecutor_uid.partner_id.id)
 
         # Employees
         employees = self.create_uid.employee_ids

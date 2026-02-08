@@ -31,36 +31,37 @@
         </field>
     </record>
 
-    <record id="planning_view_form_turei" model="ir.ui.view">
-        <field name="name">planning.slot.form.turei</field>
+    <record id="planning_view_form_inherit" model="ir.ui.view">
+        <field name="name">planning.slot.form.inherit</field>
         <field name="model">planning.slot</field>
         <field name="inherit_id" ref="planning.planning_view_form"/>
         <field name="arch" type="xml">
             <field name="resource_id" position="before">
-                <field name="create_uid" readonly="1"/>
+                <field name="create_uid" readonly="1" invisible="not create_uid"/>
             </field>
             <field name="resource_id" position="attributes">
                 <attribute name="string">Responsable</attribute>
                 <attribute name="placeholder">Por ejemplo, Anita Oliver</attribute>
                 <attribute name="required">1</attribute>
-                <attribute name="readonly">not start_datetime or not end_datetime or create_uid != uid</attribute>
+                <attribute name="readonly">not start_datetime or not end_datetime or (create_uid and create_uid != uid)</attribute>
+                <attribute name="options">{'no_create': True, 'no_create_edit': True, 'no_open': True}</attribute>
             </field>
             <field name="role_id" position="attributes">
                 <attribute name="string">Comisión</attribute>
                 <attribute name="placeholder">Por ejemplo, Comisión de Cuadros</attribute>
                 <attribute name="required">1</attribute>
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </field>
             <field name="role_id" position="after">
-                <field name="subcommissions_id" domain="[('planning_role_id', '=', role_id)]" readonly="create_uid != uid"/>
+                <field name="subcommissions_id" domain="[('planning_role_id', '=', role_id)]" readonly="create_uid and create_uid != uid"/>
                 <field name="ejecutor_domain" invisible="1"/>
-                <field name="ejecutor_id" readonly="create_uid != uid"/>
-                <field name="control_compliance_id" readonly="create_uid != uid"/>
+                <field name="ejecutor_id" readonly="create_uid and create_uid != uid"/>
+                <field name="control_compliance_id" readonly="create_uid and create_uid != uid"/>
             </field>
             <field name="name" position="attributes">
                 <attribute name="placeholder">Descripción de la Tarea</attribute>
                 <attribute name="required">1</attribute>
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </field>
             <field name="company_id" position="attributes">
                 <attribute name="invisible">1</attribute>
@@ -70,74 +71,91 @@
                 <field name="task_seq"/>
             </xpath>
             <xpath expr="//field[@name='start_datetime']" position="attributes">
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </xpath>
             <xpath expr="//field[@name='repeat']" position="attributes">
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </xpath>
             <xpath expr="//field[@name='repeat_interval']" position="attributes">
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </xpath>
             <xpath expr="//field[@name='repeat_unit']" position="attributes">
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </xpath>
             <xpath expr="//field[@name='repeat_type']" position="attributes">
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </xpath>
             <xpath expr="//field[@name='repeat_until']" position="attributes">
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </xpath>
             <xpath expr="//field[@name='repeat_number']" position="attributes">
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </xpath>
             <xpath expr="//field[@name='allocated_hours']" position="attributes">
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </xpath>
             <xpath expr="//field[@name='allocated_percentage']" position="attributes">
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </xpath>
             <xpath expr="//field[@name='slot_properties']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//field[@name='name']" position="attributes">
-                <attribute name="readonly">create_uid != uid</attribute>
+                <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </xpath>
             <xpath expr="//div[@class='o_row']" position="after">
-                <field name="agreement_number" readonly="create_uid != uid"/>
-                <field name="attach_file" nolabel="1" readonly="create_uid != uid"/>
+                <field name="agreement_number" readonly="create_uid and create_uid != uid"/>
+                <field name="attach_file" nolabel="1" readonly="create_uid and create_uid != uid"/>
             </xpath>
             <!-- ############################### slot_info_down ############################################### -->
             <field name="name" position="after">
 
                 <group name="prorogue" class="d-inline-flex">
                     <field name="show_prorogue" widget="boolean_toggle"/>
-                    <field name="prorogation_ids" nolabel="1" invisible="not show_prorogue" readonly="resource_id.user_id != uid"/>
+                    <field name="prorogation_ids" nolabel="1" invisible="not show_prorogue" readonly="user_id != uid"/>
                 </group>
 
                 <group name="done">
                     <group class="d-inline-flex">
-                        <field name="is_done" widget="boolean_toggle" readonly="ejecutor_id.user_id != uid"/>
+                        <field name="is_done" widget="boolean_toggle" readonly="ejecutor_uid != uid"/>
                         <field name="compliance_date" readonly="1" invisible="not is_done"/>
                     </group>
                     <group>
-                        <field name="attach_response" nolabel="1" invisible="not is_done" readonly="ejecutor_id.user_id != uid"/>
+                        <field name="attach_response" nolabel="1" invisible="not is_done" readonly="ejecutor_uid != uid"/>
                     </group>
-                    <field name="compliance_info" nolabel="1" invisible="not is_done" placeholder="Nota del Cumplimiento" readonly="ejecutor_id.user_id != uid"/>
+                    <field name="compliance_info" nolabel="1" invisible="not is_done" placeholder="Nota del Cumplimiento" readonly="ejecutor_uid != uid"/>
                 </group>
 
                 <group name="conformity">
                     <group class="d-inline-flex">
-                        <field name="show_conformity" widget="boolean_toggle" readonly="control_compliance_id.user_id != uid or show_conformity"/>
+                        <field name="show_conformity" widget="boolean_toggle" readonly="control_compliance_uid != uid"/>
                         <field name="conformity_date" invisible="not show_conformity" readonly="1"/>
                     </group>
                     <group>
-                        <field name="final_verdict" invisible="not show_conformity" readonly="control_compliance_id.user_id != uid"/>
+                        <field name="final_verdict" invisible="not show_conformity" readonly="control_compliance_uid != uid"/>
                     </group>
                 </group>
                 
             </field>
+            <xpath expr="//button[@name='auto_plan_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
             <xpath expr="//sheet" position="after">
                 <chatter reload_on_follower="True"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="planning_view_form_in_gantt_inherit" model="ir.ui.view">
+        <field name="name">planning.form.in.gantt.inherit</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="planning.planning_view_form_in_gantt"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_save_template']" position="attributes">
+                <attribute name="groups">planning_turei.group_planning_super_manager</attribute>
+            </xpath>
+            <xpath expr="//button[@name='auto_plan_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
         </field>
     </record>
@@ -164,30 +182,6 @@
             </field>
         </field>
     </record>
-
-    <!-- <record id="planning_prorogation_view_tree" model="ir.ui.view">
-        <field name="name">planning.prorogation.list</field>
-        <field name="model">planning.prorogation</field>
-        <field name="arch" type="xml">
-            <list string="Prorrogas Aprobadas">
-                <field name="request_date"/>
-                <field name="name"/>
-                <field name="prorogue_proposed_date"/>
-            </list>
-        </field>
-    </record> -->
-
-    <!-- <record id="planning_turei.planning_view_gantt_inherit" model="ir.ui.view">
-        <field name="name">planning.slot.gantt.inherit</field>
-        <field name="model">planning.slot</field>
-        <field name="inherit_id" ref="planning.planning_view_gantt"/>
-        <field name="mode">primary</field>
-        <field name="arch" type="xml">
-            <xpath expr="//gantt" position="inside">
-                <field name="current_employee_id" invisible="1"/>
-            </xpath>
-        </field>
-    </record> -->
     
     <record id="planning.planning_action_schedule_by_resource" model="ir.actions.act_window">
         <field name="name">Schedule by Resource</field>
