@@ -22,29 +22,31 @@
                 "ms-python.python",
                 "ms-python.debugpy",
                 "ms-python.vscode-pylance",
+                "trinhanhngoc.vscode-odoo",
+                "mstuttgart.odoo-snippets",
+                "mvintg.odoo-file",
                 "redhat.vscode-xml",
                 "mechatroner.rainbow-csv",
-                "eamodio.gitlens",
                 "GitHub.copilot",
-                "trinhanhngoc.vscode-odoo",
-                "mstuttgart.odoo-snippets"
+                "eamodio.gitlens"
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/bin/python3",
                 "python.analysis.stubPath": "/workspaces/${localWorkspaceFolderBasename}/odoo-stubs",
                 "python.analysis.extraPaths": [
-                    "/usr/lib/python3/dist-packages/odoo/addons",
+                    "/usr/lib/python3/dist-packages/odoo",
                     "/workspaces/${localWorkspaceFolderBasename}/extra-addons",
                     "/workspaces/${localWorkspaceFolderBasename}/enterprise-addons"
                 ],
+                "python.languageServer": "Pylance",
+                "remote.autoForwardPorts": false,
+                "remote.downloadExtensionsLocally": true,
                 "files.exclude": {
                     "**/__pycache__": true,
                     "**/.pyc": true,
                     "**/.po": true,
                     "**/.pot": true
-                },
-                "remote.autoForwardPorts": false,
-                "python.languageServer": "Pylance"
+                }
             }
         }
     },

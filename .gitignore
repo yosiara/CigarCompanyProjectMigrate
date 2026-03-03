@@ -9,8 +9,6 @@ __pycache__/
 *.pot
 
 # Excluded Addons
-addons
-addons/
 community-addons
 community-addons/
 enterprise-addons/
