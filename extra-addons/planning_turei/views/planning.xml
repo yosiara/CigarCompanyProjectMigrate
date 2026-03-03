@@ -59,7 +59,7 @@
                 <field name="control_compliance_id" readonly="create_uid and create_uid != uid"/>
             </field>
             <field name="name" position="attributes">
-                <attribute name="placeholder">Descripción de la Tarea</attribute>
+                <attribute name="placeholder">Nota de la tarea...</attribute>
                 <attribute name="required">1</attribute>
                 <attribute name="readonly">create_uid and create_uid != uid</attribute>
             </field>
@@ -105,10 +105,10 @@
             </xpath>
             <xpath expr="//div[@class='o_row']" position="after">
                 <field name="agreement_number" readonly="create_uid and create_uid != uid"/>
-                <field name="attach_file" nolabel="1" readonly="create_uid and create_uid != uid"/>
             </xpath>
             <!-- ############################### slot_info_down ############################################### -->
             <field name="name" position="after">
+                <field name="description" type="html" options="{'collaborative': true, 'resizable': false}" placeholder="Ajuntar detalles..." readonly="create_uid and create_uid != uid"/>
 
                 <group name="prorogue" class="d-inline-flex">
                     <field name="show_prorogue" widget="boolean_toggle"/>
@@ -121,9 +121,8 @@
                         <field name="compliance_date" readonly="1" invisible="not is_done"/>
                     </group>
                     <group>
-                        <field name="attach_response" nolabel="1" invisible="not is_done" readonly="ejecutor_uid != uid"/>
+                        <field name="compliance_info" type="html" options="{'collaborative': true, 'resizable': false}" nolabel="1" invisible="not is_done" placeholder="Nota del Cumplimiento" readonly="ejecutor_uid != uid"/>
                     </group>
-                    <field name="compliance_info" nolabel="1" invisible="not is_done" placeholder="Nota del Cumplimiento" readonly="ejecutor_uid != uid"/>
                 </group>
 
                 <group name="conformity">

@@ -27,6 +27,7 @@ class PlanningSlot(models.Model):
     agreement_number = fields.Char(string='N° Acuerdo')
     ejecutor_id = fields.Many2one(comodel_name='hr.employee', string='Ejecuta')
     ejecutor_uid = fields.Many2one(related='ejecutor_id.user_id', string='Ejecuta User')
+    description = fields.Html(string='Description', sanitize_attributes=False)
     
     # Prorogue fields
     show_prorogue = fields.Boolean(string='Prórroga')
@@ -35,7 +36,7 @@ class PlanningSlot(models.Model):
     # Compliance fields
     is_done = fields.Boolean(string='Cumplido')
     compliance_date = fields.Date(string='Fecha', default=fields.Date().today())
-    compliance_info = fields.Text(string='Inf. Cumplimiento')
+    compliance_info = fields.Html(string='Inf. Cumpl.', sanitize_attributes=False)
     control_compliance_id = fields.Many2one('hr.employee', string='Ctrl. Cumpl.')
     control_compliance_uid = fields.Many2one(related='control_compliance_id.user_id', string='Controla User')
     
@@ -43,10 +44,6 @@ class PlanningSlot(models.Model):
     show_conformity = fields.Boolean(string='Conformidad')
     final_verdict = fields.Selection([('completed', 'Completada'), ('not_completed', 'No completada'), ('revoked', 'Derogada')], string='Veredicto Final')
     conformity_date = fields.Date(string='Fecha', default=fields.Date().today())
-
-    # Attach fields
-    attach_file = fields.Binary(attachment=True, string="Adjuntar Archivo", copy=False)
-    attach_response = fields.Binary(attachment=True, string="Adjuntar Rpta.", copy=False)
 
     # Domain fields
     ejecutor_domain = fields.Binary(compute="_get_ejecutor_domain", exportable=False)
