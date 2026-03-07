@@ -5,10 +5,6 @@
 //     max-width: 280px;
 // }
 
-.justify-content-space {
-    justify-content: space-around;
-}
-
 // Variables
 :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -525,6 +521,10 @@
             animation: pulse 1.5s ease-in-out infinite;
         }
     }
+}
+
+.justify-content-space {
+    justify-content: space-around;
 }
 
 // Animations

@@ -18,7 +18,7 @@
                 
                 <templates>
                     <t t-name="card">
-                        <div class="it-kanban-card" t-on-click="() => this.onCardClick(record)">
+                        <div class="it-kanban-card">
                             <!-- Barra superior según estado -->
                             <div t-att-class="'status-bar status-' + record.state.raw_value"></div>
                             
@@ -85,13 +85,13 @@
                             
                             <!-- Footer con acciones -->
                             <div class="card-footer">
-                                <button class="btn-view" t-on-click.stop="() => this.onButtonClick('view', record.id, $event)">
+                                <button class="btn-view"> <!--  t-on-click.stop="() => this.onButtonClick('view', record.id, $event)" -->
                                     <i class="fa fa-eye"/> Ver
                                 </button>
-                                <button class="btn-edit" t-on-click.stop="() => this.onButtonClick('edit', record.id, $event)">
+                                <button class="btn-edit">
                                     <i class="fa fa-edit"/> Editar
                                 </button>
-                                <button class="btn-maintenance" t-on-click.stop="() => this.onButtonClick('maintenance', record.id, $event)">
+                                <button class="btn-maintenance">
                                     <i class="fa fa-cog"/> Mant.
                                 </button>
                             </div>
@@ -104,4 +104,104 @@
             </kanban>
         </field>
     </record>
+
+    <!-- View it.computer View List -->
+    <record id="view_it_computer_list" model="ir.ui.view">
+        <field name="name">it.computer.list</field>
+        <field name="model">it.computer</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="brand"/>
+                <field name="model"/>
+                <field name="employee_id"/>
+                <field name="state"/>
+                <field name="purchase_date"/>
+                <field name="processor"/>
+                <field name="ram_gb"/>
+                <field name="storage_gb"/>
+                <field name="storage_type"/>
+                <field name="ip_address"/>
+                <field name="mac_address"/>
+                <field name="department_id"/>
+                <field name="active"/>
+                <field name="warranty_date"/>
+                <field name="supplier"/>
+                <field name="notes"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- View it.computer form -->
+    <record id="view_it_computer_form" model="ir.ui.view">
+        <field name="name">view.it.computer.form</field>
+        <field name="model">it.computer</field>
+        <field name="arch" type="xml">
+            <form string="It Computer">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name..."/>
+                        </h1>
+                    </div>
+                    <field name="type"/>
+                    <field name="brand"/>
+                    <field name="model"/>
+                    <field name="employee_id"/>
+                    <field name="state"/>
+                    <field name="purchase_date"/>
+                    <field name="processor"/>
+                    <field name="ram_gb"/>
+                    <field name="storage_gb"/>
+                    <field name="storage_type"/>
+                    <field name="ip_address"/>
+                    <field name="mac_address"/>
+                    <field name="department_id"/>
+                    <field name="active"/>
+                    <field name="warranty_date"/>
+                    <field name="supplier"/>
+                    <field name="notes"/>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View it.computer search -->
+    <record id="view_it_computer_search" model="ir.ui.view">
+        <field name="name">view.it.computer.search</field>
+        <field name="model">it.computer</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action it.computer -->
+    <record id="action_it_computer" model="ir.actions.act_window">
+        <field name="name">Computers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">it.computer</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new It Computer.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu it.computer -->
+    <menuitem id="menu_computers" 
+              name="Computers" 
+              parent="menu_it_root" 
+              sequence="20"
+              action="action_it_computer"/>
+
 </odoo>
