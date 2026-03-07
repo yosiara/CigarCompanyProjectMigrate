@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View it.employee View List -->
+    <record id="view_it_employee_list" model="ir.ui.view">
+        <field name="name">view.it.employee.list</field>
+        <field name="model">it.employee</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- View it.employee form -->
+    <record id="view_it_employee_form" model="ir.ui.view">
+        <field name="name">it.employee.form</field>
+        <field name="model">it.employee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="domain_user"/>
+                            <field name="email"/>
+                            <field name="department_id"/>
+                        </group>
+                        <group>
+                            <field name="phone"/>
+                            <field name="phone_extension"/>
+                            <field name="position"/>
+                            <field name="hire_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Computers">
+                            <field name="computer_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="brand"/>
+                                    <field name="model"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Phones">
+                            <field name="phone_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="brand"/>
+                                    <field name="model"/>
+                                    <field name="phone_number"/>
+                                    <field name="state"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- View it.employee search -->
+    <record id="view_it_employee_search" model="ir.ui.view">
+        <field name="name">view.it.employee.search</field>
+        <field name="model">it.employee</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action it.employee -->
+    <record id="action_it_employee" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">it.employee</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{'search_default_active': True}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new It Employee.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_employees" 
+              name="Employees" 
+              parent="menu_it_root" 
+              sequence="10"
+              action="it.action_it_employee"/>
+
+</odoo>

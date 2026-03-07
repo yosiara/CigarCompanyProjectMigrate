@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_it_computer_kanban" model="ir.ui.view">
+        <field name="name">it.computer.kanban</field>
+        <field name="model">it.computer</field>
+        <field name="arch" type="xml">
+            <kanban js_class="computer_kanban">
+                <field name="name"/>
+                <field name="brand"/>
+                <field name="model"/>
+                <field name="type"/>
+                <field name="state"/>
+                <field name="employee_id"/>
+                <field name="employee_name"/>
+                <field name="processor"/>
+                <field name="ram_gb"/>
+                <field name="storage_gb"/>
+                
+                <templates>
+                    <t t-name="card">
+                        <div class="it-kanban-card" t-on-click="() => this.onCardClick(record)">
+                            <!-- Barra superior según estado -->
+                            <div t-att-class="'status-bar status-' + record.state.raw_value"></div>
+                            
+                            <!-- Badge de estado -->
+                            <div t-att-class="'status-badge badge-' + record.state.raw_value">
+                                <span>
+                                    <i t-attf-class="fa {{
+                                        record.state.raw_value === 'new' ? 'fa-star' :
+                                        record.state.raw_value === 'in_use' ? 'fa-play-circle' :
+                                        record.state.raw_value === 'repair' ? 'fa-wrench' : 'fa-archive'
+                                    }}"></i>
+                                    <t t-esc="record.state.raw_value.replace('_', ' ').toUpperCase()"/>
+                                </span>
+                            </div>
+                            
+                            <div class="card-body">
+                                <!-- Icono principal -->
+                                <div class="icon-wrapper">
+                                    <div t-att-class="'icon-circle icon-' + record.type.raw_value">
+                                        <i t-attf-class="fa {{
+                                            record.type.raw_value === 'laptop' ? 'fa-laptop' :
+                                            record.type.raw_value === 'desktop' ? 'fa-desktop' : 'fa-server'
+                                        }}"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Información del equipo -->
+                                <div class="computer-info">
+                                    <h3><field name="name"/></h3>
+                                    <div class="model">
+                                        <field name="brand"/> <field name="model"/>
+                                    </div>
+                                </div>
+                                
+                                <!-- Especificaciones -->
+                                <div class="specs">
+                                    <span class="spec">
+                                        <i class="fa fa-microchip"></i>
+                                        <t t-esc="record.processor.raw_value or 'N/A'"/>
+                                    </span>
+                                    <span class="spec">
+                                        <i class="fa fa-memory"></i>
+                                        <t t-esc="record.ram_gb.raw_value or '?'"/>GB
+                                    </span>
+                                    <span class="spec">
+                                        <i class="fa fa-hdd-o"></i>
+                                        <t t-esc="record.storage_gb.raw_value or '?'"/>GB
+                                    </span>
+                                </div>
+                                
+                                <!-- Asignación -->
+                                <div t-if="record.employee_id.raw_value" class="assignment">
+                                    <div class="assignment-content">
+                                        <div class="avatar">
+                                            <span t-esc="record.employee_name.raw_value.charAt(0).toUpperCase()"/>
+                                        </div>
+                                        <div class="assignment-info">
+                                            <small>Asignado a</small>
+                                            <span class="employee-name" t-esc="record.employee_name.raw_value"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Footer con acciones -->
+                            <div class="card-footer">
+                                <button class="btn-view" t-on-click.stop="() => this.onButtonClick('view', record.id, $event)">
+                                    <i class="fa fa-eye"/> Ver
+                                </button>
+                                <button class="btn-edit" t-on-click.stop="() => this.onButtonClick('edit', record.id, $event)">
+                                    <i class="fa fa-edit"/> Editar
+                                </button>
+                                <button class="btn-maintenance" t-on-click.stop="() => this.onButtonClick('maintenance', record.id, $event)">
+                                    <i class="fa fa-cog"/> Mant.
+                                </button>
+                            </div>
+                            
+                            <!-- Efecto de brillo -->
+                            <div class="shine-effect"></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

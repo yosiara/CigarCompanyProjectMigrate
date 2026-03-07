@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+it.access_it_employee,access_it_employee,it.model_it_employee,base.group_user,1,1,1,1
+it.access_it_computer,access_it_computer,it.model_it_computer,base.group_user,1,1,1,1
+it.access_it_phone,access_it_phone,it.model_it_phone,base.group_user,1,1,1,1
+it.access_it_service,access_it_service,it.model_it_service,base.group_user,1,1,1,1
+it.access_it_reports,access_it_reports,it.model_it_reports,base.group_user,1,1,1,1

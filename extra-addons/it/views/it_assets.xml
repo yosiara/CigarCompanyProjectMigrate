@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Agregar el componente de búsqueda avanzada -->
+    <template id="assets_backend" name="it assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/it/static/src/js/components/advanced_search/advanced_search.js"/>
+            <script type="text/javascript" src="/it/static/src/js/components/live_stats/live_stats.js"/>
+            <script type="text/javascript" src="/it/static/src/js/components/quick_create/quick_create.js"/>
+        </xpath>
+    </template>
+</odoo>
