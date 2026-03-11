@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_ict_dashboard" model="ir.actions.client">
+        <field name="name">Dashboard</field>
+        <field name="tag">ict_dashboard</field>
+        <field name="target">main</field>
+    </record>
+    
+    <menuitem id="menu_reports" 
+          name="Reports" 
+          parent="menu_ict_root" 
+          sequence="50"
+          action="action_ict_dashboard"/>
+</odoo>
+    

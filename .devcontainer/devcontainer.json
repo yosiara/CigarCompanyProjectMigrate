@@ -28,7 +28,8 @@
                 "redhat.vscode-xml",
                 "mechatroner.rainbow-csv",
                 "GitHub.copilot",
-                "eamodio.gitlens"
+                "eamodio.gitlens",
+                "jeffery9.odoo-snippets"
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/bin/python3",

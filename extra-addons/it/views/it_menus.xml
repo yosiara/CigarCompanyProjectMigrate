@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <!-- Main menu -->
-    <menuitem id="menu_it_root" 
-              name="IT Management" 
-              sequence="10"
-              web_icon="it,static/description/icon.png"/>
-
-</odoo>
