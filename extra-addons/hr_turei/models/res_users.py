@@ -81,4 +81,20 @@ class ResUsersExtended(models.Model):
                 employee.write({'user_id': user.id})
         
         return users
+
+    @api.model
+    def default_get(self, fields):
+        values = super(ResUsersExtended, self).default_get(fields)
+
+        update_vals = {}
+        
+        langs = [code for code, _ in self.env['res.lang'].get_installed()]
+        
+        if 'es_ES' in langs:
+            update_vals['lang'] = 'es_ES'
+
+        if update_vals:
+            values.update(update_vals)
+        
+        return values
         

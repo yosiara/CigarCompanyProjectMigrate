@@ -18,38 +18,64 @@ class HREmployee(models.Model):
             return False # comodidad para filtros posteriores
         return document.datas
 
-    def action_assign_photo_and_sync_user(self):
-        """ 
-            Asignar foto a todos los empleados desde documentos.
-            Sincronizar usuarios asociados, información primaria manejada desde empleados.
+    def _action_prepare_data(self):
         """
-        employees = self.search([])
-        users = list(self.user_id.search([('share', '=', False)])) # Usuarios internos solamente
+        Cambiar el idioma de todos los contactos al Español y zona horaria de Cuba.
+        Archivar contactos huerfanos.
+        Asignar foto desde documentos a los empleados según código de trabajor.
+        Sincronizar usuarios, información primaria manejada desde empleados.
+        """
 
-        count_images = 0
-        count_sync_user = 0
+        _logger.info(f"# ------------ Procesando Contactos ------------ #")
+        partners = self.env['res.partner'].search([])
+        for partner in partners:
+            _logger.info(f"-->> Contacto {partner.name}...")
+            partner_vals = {}
+            
+            if partner.lang != 'es_ES': # Usar lenguaje Español
+                partner_vals['lang'] = 'es_ES'
+                _logger.info(f"---->> Lenguaje actualizado a Spanish/Español")
+            if partner.tz != 'America/Havana': # Usar zona horaria de Cuba
+                partner_vals['tz'] = 'America/Havana'
+                _logger.info(f"---->> Zona horaria actualizada a America/Havana")
+            if partner.employee_ids == False and partner.user_ids == False and partner.id >= 8: # Archivar contactos huerfanos
+                partner_vals['active'] = False
+                _logger.info(f"---->> Registro huerfano archivado: ID={partner.id}")
+            if partner_vals:
+                partners.write(partner_vals)
+
+        _logger.info(f"# ------------ Procesando Empleados ------------ #")
+        employees = self.search([])
+        users = list(self.user_id.search([]))
         for employee in employees:
-            # Actualizar foto de empleado por código de trabajador
+            _logger.info(f"-->> Empleado {employee.name}...")
+            sync_employee = {}
+
+            # Buscar foto de empleado por código de trabajador
             image_1920 = self._get_photo_from_documents(registration_number=employee.registration_number)
             if image_1920 != employee.image_1920:
-                employee.image_1920 = image_1920
-                _logger.info(f"---->> Foto actualizada para el empleado: {employee.name}")
-                count_images += 1
+                sync_employee['image_1920'] = image_1920
+                _logger.info(f"---->> Foto actualizada")
             
             # Buscar usuario, sincronizar y vincular
             username = (employee.work_email).split('@')[0].lower() if employee.work_email else False
             if username:
                 for i, user in enumerate(users):
                     if user.login == username:
-                        sync_vals = user._sync_employee(employee)
-                        if sync_vals:
-                            user.write(sync_vals)
-                        employee.user_id = user.id
-                        _logger.info(f"---->> Usuario '{user.id}' sincronizado con {employee.name}")
-                        count_sync_user += 1
+                        sync_user = user._sync_employee(employee)
+                        if sync_user:
+                            user.write(sync_user)
+                            _logger.info(f"---->> Usuario sincronizado")
+                        if not employee.user_id:
+                            sync_employee['user_id'] = user.id
+                            _logger.info(f"---->> Usuario asignado: ID={user.id}")
                         del users[i]
                         break
-        _logger.info(f"---->> Fotos asignadas: {count_images}. Usuarios sincronizados: {count_sync_user}")
+            
+            # Aplicar cambios a empleado
+            if sync_employee:
+                employee.write(sync_employee)
+
         return
         
     # ------------------------------------------------------------------------ #
