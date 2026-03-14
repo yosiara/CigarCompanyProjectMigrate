@@ -22,7 +22,9 @@ class ICTComputer(models.Model):
     model = fields.Char(string='Model', required=True)
     processor = fields.Char(string='Processor')
     ram_gb = fields.Integer(string='RAM (GB)')
+    # total_ram_gb = fields.Integer(string='Total RAM (GB)', compute='_compute_total_ram_gb')
     storage_gb = fields.Integer(string='Storage (GB)')
+    # total_storage_gb = fields.Integer(string=_('Total Storage (GB)'), compute='_compute_total_storage_gb')
     storage_type = fields.Selection([
         ('hdd', 'HDD'),
         ('ssd', 'SSD'),
@@ -112,3 +114,11 @@ class ICTComputer(models.Model):
             'total': total,
             'by_status': by_status
         }
+
+    # @api.depends('ram_ids')
+    # def _compute_total_ram_gb(self):
+    #     for rec in self:
+    #         total = 0
+    #         for ram in rec.ram_ids:
+    #             total += ram.size
+    #         rec.total_ram_gb = total

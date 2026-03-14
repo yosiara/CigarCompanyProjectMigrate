@@ -176,7 +176,9 @@
     }
 }
 
-// Kanban Cards
+// ============================================
+// KANBAN CARDS
+// ============================================
 .ict-kanban-card {
     background: white;
     border-radius: 1.5rem;
@@ -276,7 +278,7 @@
     }
     
     .card-body {
-        padding: 1.2rem 0.5rem 1rem;
+        padding: 1.2rem 0.8rem 1rem;
         
         .icon-wrapper {
             display: flex;
@@ -291,10 +293,7 @@
                 align-items: center;
                 justify-content: center;
                 transition: all var(--transition-speed);
-                
-                i {
-                    font-size: 1.75rem;
-                }
+                font-size: 1.75rem;
                 
                 &.icon-laptop {
                     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -349,12 +348,15 @@
                 align-items: center;
                 gap: 0.25rem;
                 font-weight: 500;
+
+                i {
+                    font-size: 0.8rem;
+                }
                 
-                i, svg {
+                svg {
                     color: #6b7280;
-                    font-size: 0.6rem;
-                    width: 15px;
-                    height: 15px;
+                    width: 14px;
+                    height: 14px;
                 }
             }
         }
@@ -412,17 +414,17 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
-        justify-content: space-around;
+        justify-content: space-evenly;
         
         .footer-item {
             display: inline-flex;
             background: none;
             align-items: center;
             gap: 0.3rem;
-            padding: 0.2rem 0.6rem;
+            padding: 0.2rem 0.5rem;
             border-radius: 0.5rem;
             border: 1px solid #e2e8f0;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 500;
             color: #2d3748;
             transition: all var(--transition-speed);
@@ -430,7 +432,10 @@
             svg {
                 width: 12px;
                 height: 12px;
-                font-size: 0.5rem;
+            }
+
+            i {
+                font-size: 0.7rem;
             }
             
             &:hover {
@@ -478,7 +483,9 @@
     }
 }
 
-// Kanban Container
+// ============================================
+// KANBAN CONTAINER
+// ============================================
 .o_kanban_view {
     background: linear-gradient(135deg, #f5f7fa 0%, #f3f4f6 100%) !important;
     
@@ -492,34 +499,17 @@
         border: none !important;
         box-shadow: none !important;
         padding: 0.5rem !important;
-        
-        // &.o_record_selected {
-        //     .ict-kanban-card {
-        //         box-shadow: 0 0 0 3px #667eea, var(--card-shadow);
-        //     }
-        // }
     }
-    
-    // .o_kanban_records {
-    //     display: grid !important;
-    //     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-    //     gap: 1.5rem !important;
-    //     padding: 1.5rem !important;
-    // }
-    
-    // Loading skeleton animation
-    // .o_kanban_skeleton {
-    //     .ict-kanban-card {
-    //         animation: pulse 1.5s ease-in-out infinite;
-    //     }
-    // }
+        
 }
 
 .justify-content-space {
     justify-content: space-around;
 }
 
-// Animations
+// ============================================
+// ANIMATIONS
+// ============================================
 @keyframes pulse {
     0%, 100% {
         opacity: 1;
@@ -529,7 +519,9 @@
     }
 }
 
-// Responsive adjustments
+// ============================================
+// RESPONSIVE
+// ============================================
 @media (max-width: 768px) {
     .ict_dashboard_header {
         .quick-filters {
