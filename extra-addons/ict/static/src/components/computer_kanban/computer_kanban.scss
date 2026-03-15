@@ -350,6 +350,7 @@
                 font-weight: 500;
 
                 i {
+                    color: #6b7280;
                     font-size: 0.8rem;
                 }
                 
@@ -363,17 +364,20 @@
         
         .assignment {
             padding-top: 1rem;
-            border-top: 2px solid #f3f4f6;
-            
+            // border-top: 2px solid #f3f4f6;
+            border-top: 2px dashed #e5e7eb;
+
             .assignment-content {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                gap: 0.5rem;
                 
                 .avatar {
                     width: 2rem;
                     height: 2rem;
-                    border-radius: 1rem;
+                    // border-radius: 1rem;
+                    border-radius: 0.75rem;
                     background: linear-gradient(135deg, #667eea, #764ba2);
                     display: flex;
                     align-items: center;
@@ -381,18 +385,27 @@
                     color: white;
                     font-weight: 700;
                     font-size: 0.8rem;
-                    margin-right: 0.5rem;
+
                     box-shadow: 0 4px 6px -1px rgba(102, 126, 234, 0.4);
-                }
+                } 
                 
                 .assignment-info {
                     text-align: left;
                     
+                    // small {
+                    //     font-size: 0.65rem;
+                    //     color: #9ca3af;
+                    //     display: block;
+                    //     line-height: 1;
+                    // }
+
                     small {
-                        font-size: 0.65rem;
-                        color: #9ca3af;
+                        font-size: 0.625rem;
+                        color: #6b7280;
                         display: block;
                         line-height: 1;
+                        text-transform: uppercase;
+                        letter-spacing: 0.025em;
                     }
                     
                     .employee-name {
