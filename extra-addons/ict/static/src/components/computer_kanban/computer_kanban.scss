@@ -7,8 +7,10 @@
     --danger-gradient: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
     --info-gradient: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
     
-    --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --card-hover-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --card-shadow: 0 8px 20px rgba(31, 38, 135, 0.15);
+    // --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    // --card-hover-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --card-hover-shadow: 0 10px 25px rgba(31, 38, 135, 0.25);
     --transition-speed: 0.3s;
 }
 
@@ -192,39 +194,81 @@
     margin: 0 auto;
     cursor: pointer;
     
-    &::before {
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     right: 0;
+    //     height: 0.25rem;
+    //     background: linear-gradient(to right, #667eea, #764ba2);
+    //     transform: scaleX(0);
+    //     transition: transform var(--transition-speed);
+    // }
+
+    // &:hover {
+    //     transform: translateY(-0.5rem) scale(1.02);
+    //     box-shadow: var(--card-hover-shadow);
+        
+    //     &::before {
+    //         transform: scaleX(1);
+    //     }
+        
+    //     .icon-circle {
+    //         transform: scale(1.1) rotate(5deg);
+    //     }
+        
+    //     .card-footer button {
+    //         transform: translateY(0);
+    //         opacity: 1;
+    //     }
+    // }
+
+    // Efecto de borde animado (nuevo)
+    &::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 0.25rem;
-        background: linear-gradient(to right, #667eea, #764ba2);
-        transform: scaleX(0);
-        transition: transform var(--transition-speed);
+        inset: 0;
+        border-radius: inherit;
+        padding: 2px;
+        background: linear-gradient(45deg, transparent 40%, #667eea 50%, transparent 60%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity var(--transition-speed);
     }
     
     &:hover {
-        transform: translateY(-0.5rem) scale(1.02);
+        transform: translateY(-8px) scale(1.02);
         box-shadow: var(--card-hover-shadow);
         
-        &::before {
-            transform: scaleX(1);
+        &::after {
+            opacity: 1;
         }
         
         .icon-circle {
             transform: scale(1.1) rotate(5deg);
         }
-        
-        .card-footer button {
-            transform: translateY(0);
-            opacity: 1;
-        }
     }
     
     .status-bar {
+        position: relative;
         height: 0.25rem;
         width: 100%;
+        z-index: 2;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+            animation: shimmer 2s infinite;
+        }
         
         &.status-new { background: linear-gradient(to right, #10b981, #059669); }
         &.status-in_use { background: linear-gradient(to right, #3b82f6, #2563eb); }
@@ -258,7 +302,6 @@
         &.badge-new span {
             background: rgba(16, 185, 129, 0.9);
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         &.badge-in_use span {
@@ -348,16 +391,11 @@
                 align-items: center;
                 gap: 0.25rem;
                 font-weight: 500;
-
-                i {
-                    color: #6b7280;
-                    font-size: 0.8rem;
-                }
+                border: 1px solid rgba(229, 231, 235, 0.5);
                 
                 svg {
-                    color: #6b7280;
-                    width: 14px;
-                    height: 14px;
+                    width: 0.7rem;
+                    height: 0.7rem;
                 }
             }
         }
@@ -376,7 +414,6 @@
                 .avatar {
                     width: 2rem;
                     height: 2rem;
-                    // border-radius: 1rem;
                     border-radius: 0.75rem;
                     background: linear-gradient(135deg, #667eea, #764ba2);
                     display: flex;
@@ -391,13 +428,6 @@
                 
                 .assignment-info {
                     text-align: left;
-                    
-                    // small {
-                    //     font-size: 0.65rem;
-                    //     color: #9ca3af;
-                    //     display: block;
-                    //     line-height: 1;
-                    // }
 
                     small {
                         font-size: 0.625rem;
@@ -431,31 +461,27 @@
         
         .footer-item {
             display: inline-flex;
-            background: none;
+            // background: none;
             align-items: center;
             gap: 0.3rem;
             padding: 0.2rem 0.5rem;
-            border-radius: 0.5rem;
-            border: 1px solid #e2e8f0;
+            // border-radius: 0.5rem;
+            // border: 1px solid #e2e8f0;
             font-size: 0.65rem;
             font-weight: 500;
             color: #2d3748;
-            transition: all var(--transition-speed);
+            // transition: all var(--transition-speed);
             
             svg {
-                width: 12px;
-                height: 12px;
-            }
-
-            i {
-                font-size: 0.7rem;
+                width: 0.65rem;
+                height: 0.65rem;
             }
             
-            &:hover {
-                background: #edf2f7;
-                transform: translateY(-1px);
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
+            // &:hover {
+            //     background: #edf2f7;
+            //     transform: translateY(-1px);
+            //     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            // }
             
             // Colores de texto para iconos
             .text-primary { color: #3182ce; }
@@ -478,12 +504,7 @@
     .shine-effect {
         position: absolute;
         inset: 0;
-        background: linear-gradient(
-            120deg,
-            transparent 30%,
-            rgba(255, 255, 255, 0.3) 50%,
-            transparent 70%
-        );
+        background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
         opacity: 0;
         transform: translateX(-100%);
         transition: all 1s;
@@ -529,6 +550,15 @@
     }
     50% {
         opacity: 0.5;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
     }
 }
 
