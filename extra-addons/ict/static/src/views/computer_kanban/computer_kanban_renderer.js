@@ -1,18 +1,29 @@
 /** @odoo-module **/
 import { KanbanRenderer } from "@web/views/kanban/kanban_renderer";
-import { kanbanView } from "@web/views/kanban/kanban_view";
 import { useService } from "@web/core/utils/hooks";
-import { useState, onWillStart, onMounted } from "@odoo/owl";
-import { registry } from "@web/core/registry";
-import { useBus } from "@web/core/utils/hooks";
+import { onWillStart, onMounted } from "@odoo/owl";
+import { ComputerKanbanRecord } from "./computer_kanban_record";
 
 export class ComputerKanbanRenderer extends KanbanRenderer {
+    static template = "ict.ComputerKanbanRenderer";
+    static components = {
+        ...KanbanRenderer.components,
+        KanbanRecord: ComputerKanbanRecord,
+    };
+
     setup() {
         super.setup();
         this.orm = useService("orm");
         this.action = useService("action");
         this.notification = useService("notification");
 
+        // this.state = useState({
+        //     ...KanbanRenderer.state,
+        //     stats: {},
+        //     loading: true,
+        //     searchTerm: '',
+        //     activeFilter: 'all',
+        // });
         this.state.stats = this.state.stats || {};
         this.state.loading = this.state.loading || true;
         this.state.searchTerm = this.state.searchTerm || '';
@@ -161,12 +172,4 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
     }
 }
 
-ComputerKanbanRenderer.template = "ict.ComputerKanbanRenderer";
-
-// Registrar la vista personalizada
-export const ComputerKanbanView = {
-    ...kanbanView,
-    Renderer: ComputerKanbanRenderer,
-};
-
-registry.category("views").add("computer_kanban", ComputerKanbanView);
+// ComputerKanbanRenderer.template = "ict.ComputerKanbanRenderer";

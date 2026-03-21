@@ -12,5 +12,7 @@ __pycache__/
 community-addons
 community-addons/
 enterprise-addons/
-extra-addons/l10n_cu_opermix_hr/
-extra-addons/l10n_opermix_calendar/
+l10n*/
+
+# VSCode
+.vscode/

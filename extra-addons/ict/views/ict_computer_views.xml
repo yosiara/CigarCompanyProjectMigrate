@@ -4,7 +4,7 @@
         <field name="name">ict.computer.kanban</field>
         <field name="model">ict.computer</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban js_class="computer_kanban">
                 <field name="name"/>
                 <field name="brand"/>
                 <field name="model"/>

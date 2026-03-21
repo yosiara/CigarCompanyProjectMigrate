@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Main menu -->
-    <menuitem id="menu_ict_root" 
-              name="ICT Management" 
+    <menuitem id="menu_ict_root"
+              name="ICT"
               sequence="10"
               web_icon="ict,static/description/icon.png"/>
 

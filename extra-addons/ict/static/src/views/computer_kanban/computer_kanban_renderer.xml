@@ -2,9 +2,9 @@
 <templates xml:space="preserve">
     <!-- Template principal con header mejorado -->
     <t t-name="ict.ComputerKanbanRenderer" t-inherit="web.KanbanRenderer" t-inherit-mode="primary">
-        <xpath expr="//div[hasclass('o_kanban_renderer')]" position="attributes">
+        <!-- <xpath expr="//div[hasclass('o_kanban_renderer')]" position="attributes">
             <attribute name="t-attf-class">{{ props.list.isGrouped ? 'o_kanban_grouped align-content-stretch' : 'o_kanban_ungrouped align-content-start flex-wrap justify-content-space' }}</attribute>
-        </xpath>
+        </xpath> -->
         <xpath expr="//div[hasclass('o_kanban_renderer')]" position="before">
             <!-- Dashboard Header mejorado -->
             <div class="ict_dashboard_header mb-4">

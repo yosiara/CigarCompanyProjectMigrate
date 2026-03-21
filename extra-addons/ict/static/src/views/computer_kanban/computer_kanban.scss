@@ -518,27 +518,13 @@
 }
 
 // ============================================
-// KANBAN CONTAINER
+// KANBAN RECORD
 // ============================================
-.o_kanban_view {
-    background: linear-gradient(135deg, #f5f7fa 0%, #f3f4f6 100%) !important;
-    
-    .o_kanban_header {
-        background: white;
-        border-bottom: 1px solid #e5e7eb;
-    }
-    
-    .o_kanban_record {
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0.5rem !important;
-    }
-        
-}
-
-.justify-content-space {
-    justify-content: space-around;
+.custom_kanban_record {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.5rem !important;
 }
 
 // ============================================
@@ -584,9 +570,5 @@
                 }
             }
         }
-    }
-    
-    .o_kanban_view .o_kanban_record {
-        grid-template-columns: 1fr !important;
     }
 }
