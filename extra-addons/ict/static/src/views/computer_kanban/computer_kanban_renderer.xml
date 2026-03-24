@@ -5,11 +5,11 @@
         <!-- <xpath expr="//div[hasclass('o_kanban_renderer')]" position="attributes">
             <attribute name="t-attf-class">{{ props.list.isGrouped ? 'o_kanban_grouped align-content-stretch' : 'o_kanban_ungrouped align-content-start flex-wrap justify-content-space' }}</attribute>
         </xpath> -->
-        <xpath expr="//div[hasclass('o_kanban_renderer')]" position="before">
-            <!-- Dashboard Header mejorado -->
+        <!-- <xpath expr="//div[hasclass('o_kanban_renderer')]" position="before">
+            Header mejorado
             <div class="ict_dashboard_header mb-4">
                 <div class="container-fluid px-4">
-                    <!-- Filtros rápidos y búsqueda -->
+                    Filtros rápidos y búsqueda
                     <div class="row mt-4">
                         <div class="col-12">
                             <div class="quick-filters">
@@ -39,6 +39,6 @@
                     </div>
                 </div>
             </div>
-        </xpath>
+        </xpath> -->
     </t>
 </templates>

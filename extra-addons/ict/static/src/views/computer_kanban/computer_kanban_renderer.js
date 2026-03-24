@@ -1,7 +1,7 @@
 /** @odoo-module **/
 import { KanbanRenderer } from "@web/views/kanban/kanban_renderer";
 import { useService } from "@web/core/utils/hooks";
-import { onWillStart, onMounted } from "@odoo/owl";
+import { onWillStart, onMounted, useState } from "@odoo/owl";
 import { ComputerKanbanRecord } from "./computer_kanban_record";
 
 export class ComputerKanbanRenderer extends KanbanRenderer {
@@ -13,33 +13,32 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
 
     setup() {
         super.setup();
-        this.orm = useService("orm");
-        this.action = useService("action");
-        this.notification = useService("notification");
+        // this.orm = useService("orm");
+        // this.action = useService("action");
+        // this.notification = useService("notification");
 
-        // this.state = useState({
-        //     ...KanbanRenderer.state,
+        // this.headState = useState({
         //     stats: {},
         //     loading: true,
         //     searchTerm: '',
         //     activeFilter: 'all',
         // });
-        this.state.stats = this.state.stats || {};
-        this.state.loading = this.state.loading || true;
-        this.state.searchTerm = this.state.searchTerm || '';
-        this.state.activeFilter = this.state.activeFilter || 'all';
+        // this.headState.stats = this.headState.stats || {};
+        // this.headState.loading = this.headState.loading || true;
+        // this.headState.searchTerm = this.headState.searchTerm || '';
+        // this.headState.activeFilter = this.headState.activeFilter || 'all';
         
-        onWillStart(async () => {
-            await this.loadStats();
-        });
+        // onWillStart(async () => {
+        //     await this.loadStats();
+        // });
         
-        onMounted(() => {
-            this.setupSearchListener();
-        });
+        // onMounted(() => {
+        //     this.setupSearchListener();
+        // });
     }
 
     async loadStats() {
-        this.state.loading = true;
+        this.headState.loading = true;
         try {
             const stats = await this.orm.call("ict.computer", "get_kanban_stats", []);
             
@@ -49,7 +48,7 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
             }]);
             
             // Enriquecer stats con tendencias
-            Object.assign(this.state.stats, stats, {
+            Object.assign(this.headState.stats, stats, {
                 trends: this.calculateTrends(stats, lastMonthStats)
             });
             
@@ -60,7 +59,7 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
             );
             console.error("Error loading kanban stats:", error);
         } finally {
-            this.state.loading = false;
+            this.headState.loading = false;
         }
     }
 
@@ -77,7 +76,7 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
         const searchInput = document.querySelector('.search-box input');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
-                this.state.searchTerm = e.target.value.toLowerCase();
+                this.headState.searchTerm = e.target.value.toLowerCase();
                 this.filterRecords();
             });
         }
@@ -89,7 +88,7 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
                     b.classList.remove('active')
                 );
                 btn.classList.add('active');
-                this.state.activeFilter = btn.dataset.filter;
+                this.headState.activeFilter = btn.dataset.filter;
                 this.filterRecords();
             });
         });
@@ -104,10 +103,10 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
             const model = card?.querySelector('.model')?.textContent.toLowerCase() || '';
             const status = card?.querySelector('.status-badge span')?.textContent.toLowerCase() || '';
             
-            const matchesSearch = title.includes(this.state.searchTerm) || 
-                                 model.includes(this.state.searchTerm);
-            const matchesFilter = this.state.activeFilter === 'all' || 
-                                status.includes(this.state.activeFilter.replace('_', ' '));
+            const matchesSearch = title.includes(this.headState.searchTerm) || 
+                                 model.includes(this.headState.searchTerm);
+            const matchesFilter = this.headState.activeFilter === 'all' || 
+                                status.includes(this.headState.activeFilter.replace('_', ' '));
             
             record.style.display = matchesSearch && matchesFilter ? 'block' : 'none';
         });

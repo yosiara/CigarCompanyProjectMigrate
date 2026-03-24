@@ -10,18 +10,13 @@
                 <field name="model"/>
                 <field name="type"/>
                 <field name="state"/>
-                <field name="employee_id"/>
-                <field name="employee_name"/>
-                <field name="processor"/>
-                <field name="ram_gb"/>
-                <field name="storage_gb"/>
-                <field name="storage_type"/>
+                <field name="responsible_name"/>
+                <field name="component_type"/>
                 <field name="ip_address"/>
                 <field name="purchase_date"/>
-                <field name="department_name"/>
                 <field name="operating_system"/>
-                <!-- <field name="total_storage_gb"/>
-                <field name="total_ram_gb"/> -->
+                <field name="total_ram_gb"/>
+                <field name="total_storage_gb"/>
                 
                 <templates>
                     <t t-name="card">
@@ -62,36 +57,36 @@
                                 
                                 <!-- Especificaciones -->
                                 <div class="specs">
-                                    <span class="spec" t-att-title="'Procesador: ' + record.processor.raw_value or 'N/A'">
+                                    <span class="spec" t-att-title="'Procesador: ' + record.component_type.raw_value or 'N/A'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
                                             <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
                                         </svg>
                                         <!-- <i class="fa fa-microchip"></i> -->
-                                        <t t-esc="record.processor.raw_value or 'N/A'"/>
+                                        <t t-esc="record.component_type.raw_value or 'N/A'"/>
                                     </span>
 
-                                    <span class="spec" t-att-title="'Total Memoria RAM: ' + (record.ram_gb.raw_value or '?') + 'GB'">
+                                    <span class="spec" t-att-title="'Total Memoria RAM: ' + (record.total_ram_gb.raw_value or '?') + 'GB'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
                                             <path d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z"/>
                                         </svg>
-                                        <t t-esc="record.ram_gb.raw_value or '?'"/>GB
+                                        <t t-esc="record.total_ram_gb.raw_value or '?'"/>GB
                                     </span>
 
-                                    <span class="spec" t-att-title="'Total Almacenamiento: ' + (record.storage_gb.raw_value or '?') + 'GB'">
+                                    <span class="spec" t-att-title="'Total Almacenamiento: ' + (record.total_storage_gb.raw_value or '?') + 'GB'">
                                         <i class="fa fa-hdd-o"></i>
-                                        <t t-esc="record.storage_gb.raw_value or '?'"/>GB
+                                        <t t-esc="record.total_storage_gb.raw_value or '?'"/>GB
                                     </span>
                                 </div>
                                 
                                 <!-- Asignación -->
-                                <div t-if="record.employee_id.raw_value" class="assignment">
+                                <div t-if="record.responsible_name.raw_value" class="assignment">
                                     <div class="assignment-content">
                                         <div class="avatar">
-                                            <span t-esc="record.employee_name.raw_value.charAt(0).toUpperCase()"/>
+                                            <span t-esc="record.responsible_name.raw_value.charAt(0).toUpperCase()"/>
                                         </div>
                                         <div class="assignment-info">
                                             <small>Asignado a</small>
-                                            <span class="employee-name" t-esc="record.employee_name.raw_value"/>
+                                            <span class="employee-name" t-esc="record.responsible_name.raw_value"/>
                                         </div>
                                     </div>
                                 </div>
@@ -164,17 +159,12 @@
                 <field name="employee_id"/>
                 <field name="state"/>
                 <field name="purchase_date"/>
-                <field name="processor"/>
-                <field name="ram_gb"/>
-                <field name="storage_gb"/>
-                <field name="storage_type"/>
                 <field name="ip_address"/>
-                <field name="mac_address"/>
+                <!-- <field name="mac_address"/> -->
                 <field name="department_id"/>
                 <field name="active"/>
                 <field name="warranty_date"/>
                 <field name="supplier"/>
-                <field name="notes"/>
             </list>
         </field>
     </record>
@@ -198,18 +188,13 @@
                     <field name="employee_id"/>
                     <field name="state"/>
                     <field name="purchase_date"/>
-                    <field name="processor"/>
-                    <field name="ram_gb"/>
-                    <field name="storage_gb"/>
-                    <field name="storage_type"/>
                     <field name="ip_address"/>
-                    <field name="mac_address"/>
+                    <!-- <field name="mac_address"/> -->
                     <field name="department_id"/>
                     <field name="active"/>
                     <field name="warranty_date"/>
                     <field name="supplier"/>
                     <field name="operating_system"/>
-                    <field name="notes"/>
 
                 </sheet>
             </form>
@@ -250,5 +235,67 @@
               parent="menu_ict_root" 
               sequence="20"
               action="action_ict_computer"/>
+
+    <!-- Extender vista tree de maintenance.equipment para mostrar datos IT -->
+    <!-- <record id="view_equipment_tree" model="ir.ui.view">
+        <field name="name">maintenance.equipment.tree.it</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="it_computer_id" string="IT Type" optional="hide"/>
+                <field name="it_computer_type" string="Computer Type" optional="hide"/>
+                <field name="it_processor" string="Processor" optional="hide"/>
+                <field name="it_ram_gb" string="RAM (GB)" optional="hide"/>
+                <field name="it_ip_address" string="IP Address" optional="hide"/>
+            </xpath>
+        </field>
+    </record> -->
+
+    <!-- Extender vista kanban de maintenance.equipment -->
+    <!-- <record id="view_equipment_kanban" model="ir.ui.view">
+        <field name="name">maintenance.equipment.kanban.it</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="inside">
+                <field name="it_computer_id"/>
+                <field name="it_computer_type"/>
+                <field name="it_ip_address"/>
+            </xpath>
+            <xpath expr="//div[@class='oe_kanban_details']" position="inside">
+                <div t-if="record.it_computer_type.value" class="mt-2">
+                    <span class="badge" t-att-class="record.it_computer_type.value === 'laptop' ? 'bg-info' : 'bg-secondary'">
+                        <i t-attf-class="fa {{ record.it_computer_type.value === 'laptop' ? 'fa-laptop' : 'fa-desktop' }}"/>
+                        <t t-esc="record.it_computer_type.value"/>
+                    </span>
+                    <span t-if="record.it_ip_address.value" class="ms-2">
+                        <i class="fa fa-network-wired"/>
+                        <t t-esc="record.it_ip_address.value"/>
+                    </span>
+                </div>
+            </xpath>
+        </field>
+    </record> -->
+
+    <!-- Añadir botón para ir a vista IT desde equipment -->
+    <!-- <record id="maintenance_equipment_view_form_inherit_ict" model="ir.ui.view">
+        <field name="name">maintenance.equipment.view.form.inherit.ict</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <field name="computer_id" invisible="1"/>
+                <div class="alert alert-info" t-if="record.computer_id.value">
+                    <i class="fa fa-laptop me-2"/>
+                    Este equipo es una computadora.
+                    <button class="btn btn-sm btn-primary ms-3" 
+                            t-on-click="action_view_ict_computer">
+                        <i class="fa fa-arrow-right"/> Ver detalles ICT
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record> -->
 
 </odoo>
