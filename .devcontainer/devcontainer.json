@@ -28,7 +28,6 @@
                 "redhat.vscode-xml",
                 "mechatroner.rainbow-csv",
                 "GitHub.copilot",
-                "eamodio.gitlens",
                 "jeffery9.odoo-snippets"
             ],
             "settings": {
@@ -51,5 +50,5 @@
             }
         }
     },
-    "postCreateCommand": "test -e community-addons || ln -s /usr/lib/python3/dist-packages/odoo/addons ./community-addons"
+    "postCreateCommand": "test -e community-addons || ln -s /usr/lib/python3/dist-packages/odoo/addons community-addons"
 }

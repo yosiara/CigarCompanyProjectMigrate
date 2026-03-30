@@ -4,10 +4,10 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       args:
+        IMAGE_TAG: ${IMAGE_TAG}
         UNAME: ${USER:-developer}
         UID: ${UID:-1000}
         GID: ${GID:-1000}
-    # image: odoo-backup:20260123_130651
     container_name: odoo-${CONTAINER_NAME}
     depends_on:
       - db
@@ -28,16 +28,12 @@ services:
     ports:
       - "8069:8069"  # Odoo web
       - "5678:5678"  # Debugger
-    command: --dev=all --update=planning_turei
-    # develop:
-    #   watch:
-    #     - action: rebuild
-    #       path: ./addons
-    #       target: /mnt/extra-addons
-    tty: true
+      - "8072:8072"  # Web socket
+    command: --dev=all #--update=planning_turei
+    # tty: true
 
   db:
-    image: postgres-backup:20260123_130651
+    image: postgres-backup:${IMAGE_TAG}
     container_name: db-${CONTAINER_NAME}
     environment:
       - POSTGRES_DB=postgres
@@ -49,7 +45,7 @@ services:
 
   pgadmin:
     image: pgadmin4:15
-    container_name: pg_${CONTAINER_NAME}
+    container_name: pg-${CONTAINER_NAME}
     depends_on:
       - db
     ports:

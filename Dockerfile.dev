@@ -1,5 +1,6 @@
 # Dockerfile.debug
-FROM odoo-backup:20260123_130651
+ARG IMAGE_TAG=20260123_130651
+FROM odoo-backup:${IMAGE_TAG}
 
 ARG UNAME=developer
 ARG UID=1000
