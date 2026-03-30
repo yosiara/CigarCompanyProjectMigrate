@@ -6,4 +6,10 @@
               sequence="10"
               web_icon="ict,static/description/icon.png"/>
 
+    <!-- Menu ict.computer -->
+    <menuitem id="menu_ict_configuration" 
+              name="Configuration" 
+              parent="menu_ict_root" 
+              sequence="60"/>
+
 </odoo>

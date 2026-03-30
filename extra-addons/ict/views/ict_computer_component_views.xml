@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ========================================================================================================
+        Computer Component
+        model: ict.computer.component
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="view_ict_computer_component_form" model="ir.ui.view">
+            <field name="name">ict.computer.component.form</field>
+            <field name="model">ict.computer.component</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="ocs_external_id" invisible="1"/>
+                        <div class="oe_title">
+                            <h2>
+                                <field name="name" readonly="ocs_external_id != False"/>
+                            </h2>
+                        </div>
+
+                        <field name="id" invisible="1"/>
+                        <group col="4">
+                            <field name="component_type" readonly="id != False"/>
+                            <field name="inventory_number"
+                                   invisible="component_type not in ['monitor','input_device','printer','ups','fax','scanner','speaker']"/>
+                            <field name="type" readonly="id != False"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="manufacturer" readonly="1"/>
+                                <field name="model" readonly="1"/>
+                                <field name="serial_no" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="manufacturer_custom"/>
+                                <field name="model_custom"/>
+                                <field name="serial_no_custom"/>
+                            </group>
+                        </group>
+                        <group col="4" invisible="component_type != 'motherboard'">
+                            <field name="version" readonly="ocs_external_id != False"/>
+                        </group>
+                        <group col="4" invisible="component_type != 'monitor'">
+                            <field name="manufactured_date"/>
+                        </group>
+                        <group col="4" invisible="component_type != 'microprocessor'">
+                            <field name="frequency" readonly="ocs_external_id != False"/>
+                            <field name="socket_type" readonly="ocs_external_id != False"/>
+                            <field name="architecture" readonly="ocs_external_id != False"/>
+                            <field name="cores_number" readonly="ocs_external_id != False"/>
+                        </group>
+                        <group col="4" invisible="component_type != 'memory'">
+                            <field name="speed" readonly="ocs_external_id != False"/>
+                            <field name="capacity" readonly="ocs_external_id != False"/>
+                            <field name="slot_used" readonly="ocs_external_id != False"/>
+                            <field name="slot_description" readonly="ocs_external_id != False"/>
+                        </group>
+                        <group col="4" invisible="component_type != 'storage'">
+                            <field name="firmware" readonly="ocs_external_id != False"/>
+                            <field name="disk_size" readonly="ocs_external_id != False"/>
+                        </group>
+                        <group col="4" invisible="component_type != 'video_card'">
+                            <field name="memory" readonly="ocs_external_id != False"/>
+                            <field name="chipset" readonly="ocs_external_id != False"/>
+                            <field name="resolution" readonly="ocs_external_id != False"/>
+                        </group>
+                        <group col="4" invisible="component_type != 'network'">
+                            <field name="ip" readonly="ocs_external_id != False"/>
+                            <field name="mac" readonly="ocs_external_id != False"/>
+                            <field name="status" readonly="ocs_external_id != False"/>
+                            <field name="speed" readonly="ocs_external_id != False"/>
+                        </group>
+                        <group col="4" invisible="component_type != 'input_device'">
+                            <field name="interface" readonly="ocs_external_id != False"/>
+                        </group>
+                        <group col="4" invisible="component_type != 'printer'">
+                            <field name="port" readonly="ocs_external_id != False"/>
+                            <field name="driver" readonly="ocs_external_id != False"/>
+                        </group>
+                        <group col="1">
+                            <label for="description"/>
+                            <field name="description" readonly="ocs_external_id != False" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_ict_computer_component_list" model="ir.ui.view">
+            <field name="name">ict.computer.component.list</field>
+            <field name="model">ict.computer.component</field>
+            <field name="arch" type="xml">
+                <list string="Equipment Component List">
+                    <field name="computer_id"/>
+                    <field name="component_type"/>
+                    <field name="manufacturer"/>
+                    <field name="manufacturer_custom"/>
+                    <field name="model"/>
+                    <field name="model_custom"/>
+                    <field name="serial_no"/>
+                    <field name="serial_no_custom"/>
+                    <!-- <field name="specific_properties_str"/> -->
+                </list>
+            </field>
+        </record>
+<!-- 
+        <record id="equipment_component_search_view" model="ir.ui.view">
+            <field name="name">Equipment's Components Search</field>
+            <field name="model">equipment.component</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <filter string="Motherboard" domain="[('component_type', '=', 'motherboard')]"/>
+                    <filter string="Microprocessor" domain="[('component_type', '=', 'microprocessor')]"/>
+                    <filter string="RAM" domain="[('component_type', '=', 'memory')]"/>
+                    <filter string="Monitor" domain="[('component_type', '=', 'monitor')]"/>
+                    <filter string="Network" domain="[('component_type', '=', 'network')]"/>
+                    <filter string="Storage" domain="[('component_type', '=', 'storage')]"/>
+                    <filter string="Video Card" domain="[('component_type', '=', 'video_card')]"/>
+                    <filter string="Sound Card" domain="[('component_type', '=', 'sound_card')]"/>
+                    <filter string="Input Device" domain="[('component_type', '=', 'input_device')]"/>
+                    <filter string="Modem" domain="[('component_type', '=', 'modem')]"/>
+                    <filter string="Printer" domain="[('component_type', '=', 'printer')]"/>
+                    <filter string="UPS" domain="[('component_type', '=', 'ups')]"/>
+                    <filter string="Fax" domain="[('component_type', '=', 'fax')]"/>
+                    <filter string="Scanner" domain="[('component_type', '=', 'scanner')]"/>
+                    <filter string="Power Source" domain="[('component_type', '=', 'power_source')]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_equipment_type" string="Equipment > Component type" domain="[]"
+                                context="{'group_by': ['equipment_id', 'component_type']}"/>
+                        <filter name="group_by_equipment" string="Equipment" domain="[]"
+                                context="{'group_by':'equipment_id'}"/>
+                        <filter name="group_by_type" string="Component Type" domain="[]"
+                                context="{'group_by':'component_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record> -->
+
+        <!-- Action ict.computer.component -->
+        <record id="action_ict_computer_component" model="ir.actions.act_window">
+            <field name="name">Computer Components</field>
+            <field name="res_model">ict.computer.component</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ICt Computer Components.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu ict.computer.component -->
+        <menuitem id="menu_computer_components"
+                name="Computer Components"
+                parent="menu_ict_configuration"
+                sequence="5"
+                action="action_ict_computer_component"/>
+    </data>
+</odoo>

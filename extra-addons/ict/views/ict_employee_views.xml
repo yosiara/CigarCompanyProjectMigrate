@@ -21,14 +21,14 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name"/>
+                            <field name="employee_id"/>
                             <field name="domain_user"/>
                             <!-- <field name="email"/> -->
                             <field name="department_id"/>
                         </group>
                         <group>
-                            <!-- <field name="phone"/> -->
-                            <!-- <field name="phone_extension"/> -->
+                            <field name="work_phone"/>
+                            <field name="mobile_phone"/>
                             <field name="position"/>
                             <field name="hire_date"/>
                         </group>
@@ -45,8 +45,8 @@
                                 </list>
                             </field>
                         </page>
-                        <!-- <page string="Phones"> -->
-                            <!-- <field name="phone_ids">
+                        <page string="Phones">
+                            <field name="phone_ids">
                                 <list>
                                     <field name="name"/>
                                     <field name="brand"/>
@@ -54,8 +54,8 @@
                                     <field name="phone_number"/>
                                     <field name="state"/>
                                 </list>
-                            </field> -->
-                        <!-- </page> -->
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
             </form>

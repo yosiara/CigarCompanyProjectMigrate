@@ -25,9 +25,9 @@ class ICTComputer(models.Model):
     # model = fields.Char(string='Model', required=True)
     # processor = fields.Char(string='Processor')
     # ram_gb = fields.Integer(string='RAM (GB)')
-    total_ram_gb = fields.Integer(string='Total RAM (GB)', compute='_compute_total_ram_gb')
+    total_ram_gb = fields.Integer(string='Total RAM (GB)', compute='_compute_components')
     # storage_gb = fields.Integer(string='Storage (GB)')
-    total_storage_gb = fields.Integer(string='Total Storage (GB)', compute='_compute_total_storage_gb')
+    total_storage_gb = fields.Integer(string='Total Storage (GB)', compute='_compute_components')
     # storage_type = fields.Selection([
     #     ('hdd', 'HDD'),
     #     ('ssd', 'SSD'),
@@ -62,8 +62,7 @@ class ICTComputer(models.Model):
                         'ict_computer_employees_rel',
                         'computer_id', 'employee_id', 'Assigned Employees'
                     )
-    responsible_id = fields.Float(string='Responsible', 
-        compute='_compute_responsible', inverse='_set_responsible',
+    responsible_id = fields.Many2one(related='equipment_id.employee_id', string='Responsible', compute='_compute_responsible',
         help=_("The first of the selected employees will be assumed as responsible for the equipment/computer and their equal in maintenance")
     )
     responsible_name = fields.Char(related='responsible_id.name')
@@ -74,7 +73,7 @@ class ICTComputer(models.Model):
     # is_a_computer = fields.Boolean('Is an ICT equipment?', default=False)
 
     # Administrative data...
-    user_name = fields.Char()
+    # user_name = fields.Char()
     # operative_system = fields.Char()
     # os_version = fields.Char()
 
@@ -93,11 +92,9 @@ class ICTComputer(models.Model):
 
     # local_id = fields.Many2one('l10n_cu_locals.local', 'Used in local')
 
-    component_ids = fields.One2many(
-        'ict.computer.component', 'computer_id', 'Component', domain=[('is_active', '=', True)]
-    )
-    component_id = fields.Many2one(comodel_name='ict.computer.component', compute='_compute_component', search='_search_computer_component', store=False)
-    component_type = fields.Char(related='component_id.type')
+    component_ids = fields.One2many('ict.computer.component', 'computer_id', 'Component', domain=[('is_active', '=', True)])
+    # component_id = fields.Many2one(comodel_name='ict.computer.component', compute='_compute_component', search='_search_computer_component', store=False)
+    processor = fields.Char(string='Processor', compute='_compute_components')
 
     # software_ids = fields.One2many('equipment.software', 'equipment_id', 'Software')
 
@@ -116,24 +113,37 @@ class ICTComputer(models.Model):
     def _compute_responsible(self):
         for rec in self:
             if rec.employee_ids:
-                rec.responsible_id = rec.employee_ids[0]
-
-    @api.onchange('responsible_id')
-    def _set_responsible(self):
-        if self.responsible_id:
-            self.equipment_id.employee_id = self.responsible_id
+                rec.responsible_id = rec.employee_ids.ids[0]
+            else:
+                rec.responsible_id = False
 
     @api.depends('component_ids')
-    def _compute_component(self):
-        component_per_computer = {
-            component.computer_id.id: component
-            for component in self.env['ict.computer.component'].search([('computer_id', 'in', self.ids)])
-        }
-        for computer in self:
-            computer.component_id = component_per_computer.get(computer.id)
+    def _compute_components(self):
+        for rec in self:
+            for component in rec.component_ids:
+                if component.component_type == 'microprocessor':
+                    rec.processor = component.type
+                elif component.component_type == 'memory':
+                    rec.total_ram_gb += component.capacity
+                elif component.component_type == 'storage':
+                    rec.total_storage_gb += component.disk_size
 
-    def _search_computer_component(self, operator, value):
-        return [('component_ids', operator, value)]
+    # @api.onchange('responsible_id')
+    # def _set_responsible(self):
+    #     if self.responsible_id:
+    #         self.equipment_id.employee_id = self.responsible_id
+
+    # @api.depends('component_ids')
+    # def _compute_component(self):
+    #     component_per_computer = {
+    #         component.computer_id.id: component
+    #         for component in self.env['ict.computer.component'].search([('computer_id', 'in', self.ids)])
+    #     }
+    #     for computer in self:
+    #         computer.component_id = component_per_computer.get(computer.id)
+
+    # def _search_computer_component(self, operator, value):
+    #     return [('component_ids', operator, value)]
 
     # @api.model
     # def get_kanban_stats(self):
@@ -190,19 +200,19 @@ class ICTComputer(models.Model):
             'by_status': by_status
         }
 
-    @api.depends('component_id.capacity')
-    def _compute_total_ram_gb(self):
-        for rec in self:
-            capacity = rec.component_id.capacity
-            if capacity:
-                rec.total_ram_gb += capacity
+    # @api.depends('component_id.capacity')
+    # def _compute_total_ram_gb(self):
+    #     for rec in self:
+    #         capacity = rec.component_id.capacity
+    #         if capacity:
+    #             rec.total_ram_gb += capacity
 
-    @api.depends('component_id.disk_size')
-    def _compute_total_storage_gb(self):
-        for rec in self:
-            disk_size = rec.component_id.disk_size
-            if disk_size:
-                rec.total_storage_gb += disk_size
+    # @api.depends('component_id.disk_size')
+    # def _compute_total_storage_gb(self):
+    #     for rec in self:
+    #         disk_size = rec.component_id.disk_size
+    #         if disk_size:
+    #             rec.total_storage_gb += disk_size
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -221,7 +231,7 @@ class ICTComputer(models.Model):
         partner_ids = []
         # subscribe employees when equipment assign to him.
         if vals.get('employee_ids'):
-            employees = self.env['ict.employee'].browse(vals['employee_ids'])
+            employees = self.env['ict.employee'].browse([t[1] for t in vals['employee_ids']])
             for employee in employees:
                 if employee.user_id:
                     partner_ids.append(employee.user_id.parent_id.id)

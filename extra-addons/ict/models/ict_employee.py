@@ -16,10 +16,10 @@ class ICTEmployee(models.Model):
     name = fields.Char(string='Name', related='employee_id.name')
     department_id = fields.Many2one(string='Department', related='employee_id.department_id')
     user_id = fields.Many2one(related='employee_id.user_id')
+    
     work_email = fields.Char(related='employee_id.work_email', readonly=False, related_sudo=False)
     work_phone = fields.Char(related='employee_id.work_phone', readonly=False, related_sudo=False)
     mobile_phone = fields.Char(related='employee_id.mobile_phone', readonly=False, related_sudo=False)
-    
     domain = fields.Char(string='Domain', required=True, tracking=True)
     domain_user = fields.Char(string='Domain Username', required=True, tracking=True)
     position = fields.Char(string='Position')
@@ -28,7 +28,7 @@ class ICTEmployee(models.Model):
     
     # Relations
     computer_ids = fields.One2many('ict.computer', 'employee_ids', string='Assigned Computers')
-    # phone_ids = fields.One2many('ict.phone', 'employee_id', string='Assigned Phones')
+    phone_ids = fields.One2many('ict.phone', 'employee_id', string='Assigned Phones')
     
     @api.depends('domain', 'domain_user')
     def _compute_email(self):
