@@ -44,6 +44,6 @@
         name="Períodos"
         sequence="60"
         action="action_calendar_periods"
-        groups="base.group_system,base.group_no_one,base.group_user"/>
+        groups="calendar_turei.group_calendar_turei_manager"/>
     
 </odoo>

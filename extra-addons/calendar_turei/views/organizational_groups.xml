@@ -46,6 +46,6 @@
         name="Grupos Organizativos"
         sequence="55"
         action="action_calendar_organizational_groups"
-        groups="base.group_system,base.group_no_one"/>
+        groups="calendar_turei.group_calendar_turei_manager"/>
 
 </odoo>

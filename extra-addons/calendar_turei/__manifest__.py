@@ -17,6 +17,7 @@ Customizing the calendar module for the Lázaro Peña Cigar Company. Holguín, C
     'depends': ['calendar', 'hr'],
     'auto_install': ['calendar'],
     'data': [
+        'security/calendar_turei_security.xml',
         'security/ir.model.access.csv',
 
         'views/calendar_views.xml',

@@ -56,12 +56,17 @@
             </xpath>
         </field>
     </record>
-
+    
     <menuitem
         id="calendar_turei_reports_menu"
         parent="calendar.mail_menu_calendar"
         name="Reportes"
         sequence="5"
         groups="base.group_user"/>
+
+    <!-- MENUS ADD GROUPS ACCESS -->
+    <record id="calendar.calendar_menu_config" model="ir.ui.menu">
+        <field name="groups_id" eval="[Command.link(ref('calendar_turei.group_calendar_turei_manager'))]"/>
+    </record>
     
 </odoo>

@@ -18,20 +18,14 @@ class Event(models.Model):
     short_name = fields.Char(string='Nombre corto', size=30, required=True)
     task_type = fields.Selection([('Plan', 'Plan'), ('Extra Plan', 'Extra Plan')], string='Tipo', default='Plan', required=True)
     priority = fields.Selection([('1', 'Normal'), ('2', 'Alta')], string='Prioridad', default='1', required=True)
-    # user_id = fields.Many2one('res.users', 'Organizer', default=False, required=True)
 
-    # @api.onchange('organizational_groups_ids')
-    # def _onchange_organizational_groups_ids(self):
-    #     partner_ids = []
-    #     if self.organizational_groups_ids:
-    #         for grupo in self.organizational_groups_ids:
-    #             for integrante in grupo.members_groups_ids:
-    #                 if integrante.employee_id.user_id:
-    #                     partner_ids.append(integrante.employee_id.user_id.partner_id.id)
-    #     self.partner_ids = self.env['res.partner'].browse(partner_ids)
-
-    # @api.onchange('user_id')
-    # def _onchange_user_id(self):
-    #     if self.user_id:
-    #         self.partner_ids += self.user_id.partner_id
+    @api.onchange('organizational_groups_ids')
+    def _onchange_organizational_groups_ids(self):
+        """Autocompletar partners/asistentes según grupos organizativos seleccionados"""
+        partner_ids = self.env['res.partner']
+        for group in self.organizational_groups_ids:
+            for member in group.members_groups_ids:
+                if member.employee_id.work_contact_id:
+                    partner_ids |= member.employee_id.work_contact_id
+        self.partner_ids = partner_ids
 
