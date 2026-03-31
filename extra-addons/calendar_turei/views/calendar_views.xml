@@ -69,4 +69,8 @@
         <field name="groups_id" eval="[Command.link(ref('calendar_turei.group_calendar_turei_manager'))]"/>
     </record>
     
+        <record id="calendar.calendar_submenu_reminders" model="ir.ui.menu">
+            <field name="groups_id" eval="[Command.link(ref('calendar_turei.group_calendar_turei_manager'))]"/>
+        </record>
+    
 </odoo>

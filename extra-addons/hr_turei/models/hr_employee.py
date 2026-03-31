@@ -21,8 +21,8 @@ class HREmployee(models.Model):
         """ Mapeo de campos no computados que sincronizarán contacto """
         return {
             'name': ('name', 'name'),
-            # 'email': ('work_email', 'email'),
-            # 'mobile': ('mobile_phone', 'mobile'),
+            'email': ('work_email', 'email'),
+            'mobile': ('mobile_phone', 'mobile'),
             'phone': ('work_phone', 'phone'),
             'job_title': ('job_title', 'function'),
             'image': ('image_1920', 'image_1920'),
@@ -153,7 +153,7 @@ class HREmployee(models.Model):
         old_partner_employee_ids.work_contact_id = None # Desvincular partner
         if without_user_partner_ids:
             without_user_partner_ids.active = False # Archivar partner
-            _logger.warning(f"Archived work contacts: {without_user_partner_ids.mapped({'id': 'name'})}")
+            _logger.warning(f"Archived work contacts: {without_user_partner_ids.mapped('name')}")
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -164,19 +164,19 @@ class HREmployee(models.Model):
                 employee.image_1920 = image_1920
         return employees
 
-    # def write(self, vals):
-    #     res = super().write(vals)
+    def write(self, vals):
+        res = super().write(vals)
 
-    #     if any(field in vals for field in self.READ_FIELDS):
-    #         for employee in self:
-    #             if employee.work_contact_id:
-    #                 partner = employee.work_contact_id
-    #                 p_vals = partner.read(employee.READ_PARTNER_FIELDS)[0]
-    #                 sync_vals = employee._sync_partner(vals, p_vals)
-    #                 if sync_vals:
-    #                     partner.write(sync_vals)
+        if any(field in vals for field in self.READ_FIELDS):
+            for employee in self:
+                if employee.work_contact_id:
+                    partner = employee.work_contact_id
+                    p_vals = partner.read(employee.READ_PARTNER_FIELDS)[0]
+                    sync_vals = employee._sync_partner(vals, p_vals)
+                    if sync_vals:
+                        partner.write(sync_vals)
         
-    #     return res
+        return res
 
     # ------------------------------------------------------------------------ #
     #                           ONCHANGE METHODS                               #
@@ -187,36 +187,3 @@ class HREmployee(models.Model):
         image_1920 = self._get_photo_from_documents(registration_number=self.registration_number)
         if image_1920 != self.image_1920:
             self.image_1920 = image_1920
-
-    """ Sincronizar datos del empleado al usuario """
-    # @api.onchange('name')
-    # def _onchange_name(self):
-    #     # 1. Name (empleado → usuario)
-    #     if self.name and self.user_id and self.name != self.user_id.name:
-    #         self.user_id.name = self.name
-
-    # @api.onchange('image_1920')
-    # def _onchange_image_1920(self):
-    #     # 2. Image (empleado → usuario)
-    #     if self.image_1920 and self.user_id and self.image_1920 != self.user_id.image_1920:
-    #         self.user_id.image_1920 = self.image_1920
-    
-    # @api.onchange('work_phone')
-    # def _onchange_work_phone(self):
-    #     # 3. Work Phone (empleado → usuario)
-    #     if self.work_phone and self.user_id and self.work_phone != self.user_id.phone:
-    #         self.user_id.phone = self.work_phone
-
-    # @api.onchange('job_id')
-    # def _onchange_job_id(self):
-    #     # 4. Job (empleado → usuario)
-    #     if self.job_id and self.user_id and self.job_id.name != self.user_id.function:
-    #         self.user_id.function = self.job_id.name
-
-    # No se ejecuta al archivar
-    # @api.onchange('active')
-    # def _onchange_active(self):
-    #     # 5. Active (empleado → usuario)
-    #     _logger.info(f"----------->> Inside Self: {self}")
-    #     if self.user_id and not self.user_id._is_admin() and self.active != self.user_id.active:
-    #         self.user_id.active = self.active

@@ -38,7 +38,7 @@
                     "/workspaces/${localWorkspaceFolderBasename}/extra-addons",
                     "/workspaces/${localWorkspaceFolderBasename}/enterprise-addons"
                 ],
-                "python.languageServer": "Pylance",
+                "python.languageServer": "None",
                 "remote.autoForwardPorts": false,
                 "remote.downloadExtensionsLocally": true,
                 "files.exclude": {
