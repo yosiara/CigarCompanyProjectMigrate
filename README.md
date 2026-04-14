@@ -1,7 +1,7 @@
 # Odoo Migration – Lázaro Peña Cigar Company
 
-**Project:** Upgrading the Odoo ERP from versions 10+ to Odoo 18+
-**Responsible:** Computer Science Specialist – IT Department
+**Project:** Upgrading the Odoo ERP from versions 10+ to Odoo 18+  
+**Responsible:** Computer Science Specialist – IT Department  
 **Technology:** Docker, Odoo 18, PostgreSQL 16
 
 ---
