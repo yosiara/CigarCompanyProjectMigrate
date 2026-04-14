@@ -1,9 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-base_cu.access_base_cu_ministry,access_base_cu_ministry,base_cu.model_base_cu_ministry,base.group_user,1,1,1,1
-base_cu.access_base_cu_branch,access_base_cu_branch,base_cu.model_base_cu_branch,base.group_user,1,1,1,1
-base_cu.access_base_cu_partner_location,access_base_cu_partner_location,base_cu.model_base_cu_partner_location,base.group_user,1,1,1,1
-base_cu.access_base_cu_municipality,access_base_cu_municipality,base_cu.model_base_cu_municipality,base.group_user,1,1,1,1
-base_cu.access_base_cu_district,access_base_cu_district,base_cu.model_base_cu_district,base.group_user,1,1,1,1
-base_cu.access_base_cu_responsibility_area,access_base_cu_responsibility_area,base_cu.model_base_cu_responsibility_area,base.group_user,1,1,1,1
-base_cu.access_base_cu_area,access_base_cu_area,base_cu.model_base_cu_area,base.group_user,1,1,1,1
-base_cu.access_base_cu_cost_center,access_base_cu_cost_center,base_cu.model_base_cu_cost_center,base.group_user,1,1,1,1

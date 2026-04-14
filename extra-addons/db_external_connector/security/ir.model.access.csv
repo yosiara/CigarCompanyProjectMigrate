@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_db_external_connector_template,access_db_external_connector_template,model_db_external_connector_template,db_external_connector.group_db_external_connector_admin,1,1,1,1
-
-
