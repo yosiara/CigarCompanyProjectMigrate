@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_maintenance_resources_consumed"
+                model="wzd.resources.consumed"
+                string="Rep. Recursos Consumidos"
+                report_type="xlsx"
+                name="turei_maintenance.resources_consumed_report"
+                file="turei_maintenance.resources_consumed_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

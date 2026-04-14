@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="docxtpl_report_view" model="ir.ui.view">
+        <field name="name">docxtpl_report_view</field>
+        <field name="model">ir.actions.report.xml</field>
+        <field name="inherit_id" ref="base.act_report_xml_view" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[@name='security']" position="before">
+                <page string="Template" name="docxtpl_tab"
+                    attrs="{'invisible': [('report_type', '!=', 'docxtpl')]}">
+
+                    <group name="docxtpl_params">
+                        <field name="docxtpl_filetype" />
+                        <field name="docxtpl_multi_in_one"/>
+                        <field name="docxtpl_template_id" />
+                        <field name="module" />
+                        <field name="docxtpl_template_fallback" />
+                    </group>
+
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="act_report_xml_search_view" model="ir.ui.view">
+        <field name="name">docxtpl_report_search_view</field>
+        <field name="model">ir.actions.report.xml</field>
+        <field name="inherit_id" ref="base.act_report_xml_search_view"/>
+        <field name="arch" type="xml">
+            <field name="model" position="after">
+                <filter name="docxtpl" string="Docx Reports"
+                    domain="[('report_type', '=', 'docxtpl')]"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

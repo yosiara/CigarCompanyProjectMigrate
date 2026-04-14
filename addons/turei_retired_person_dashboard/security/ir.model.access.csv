@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_turei_retired_person_dashboard_dashboard,access_turei_retired_person_dashboard_dashboard,model_turei_retired_person_dashboard_dashboard,hr.group_hr_user,1,0,0,0
+
+manage_turei_retired_person_dashboard_dashboard,manage_turei_retired_person_dashboard_dashboard,model_turei_retired_person_dashboard_dashboard,hr.group_hr_manager,1,1,1,1

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="update_age_range_wzd_form_view" model="ir.ui.view">
+			<field name="name">update_age_range_wzd_form_view</field>
+			<field name="model">l10n_cu_hlg_uforce.update_employee_age_range_wzd</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+                    <sheet>
+                        <div style="display: flex;">
+                            <div style="width: 200px;">
+                                <img src="/l10n_cu_hlg_uforce/static/src/img/calendar.png"/>
+                            </div>
+
+                            <div style="padding-left: 20px;">
+								<h3>Using this wizard you can update the Age Range for Employees</h3>
+                            </div>
+                        </div>
+                    </sheet>
+
+                    <footer>
+						<button name="update_employee_age_range" string="Update" type="object" class="oe_highlight"/>
+						<button special="cancel" string="Close" class="btn-secondary"/>
+                    </footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_update_age_range" model="ir.actions.act_window">
+			<field name="name">Update Age Range for Employees</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">l10n_cu_hlg_uforce.update_employee_age_range_wzd</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_update_age_range"
+                  action="action_update_age_range"
+                  groups="hr.group_hr_manager"
+                  parent="menu_uforce"
+                  sequence="7"/>
+	</data>
+</odoo>

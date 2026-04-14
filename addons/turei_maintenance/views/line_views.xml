@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- TREE VIEW -->
+        <record id="turei_maintenance_line_tree_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_line_tree_view</field>
+            <field name="model">turei_maintenance.line</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		 <field name="name"/>
+					 <field name="taller"/>
+<!--					 <field name="sequence"/>-->
+<!--					 <field name="is_module"/>-->
+<!--					<field name="special_regime"/>-->
+	            </tree>
+	        </field>
+	    </record>
+
+        <!-- FORM VIEW -->
+        <record id="turei_maintenance_line_form_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_line_form_view</field>
+            <field name="model">turei_maintenance.line</field>
+            <field name="arch" type="xml">
+            	<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="is_secundary" invisible="1"/>
+								<field name="name"/>
+					 			<field name="sequence" attrs="{'invisible': [('is_secundary', '!=', True)]}"/>
+								<field name="is_start" attrs="{'invisible': [('is_secundary', '!=', True)]}"/>
+								<field name="is_end" attrs="{'invisible': [('is_secundary', '!=', True)]}"/>
+							</group>
+							<group>
+								<field name="taller"/>
+								<field name="is_module" attrs="{'invisible': [('is_secundary', '!=', True)]}"/>
+								<field name="special_regime" attrs="{'invisible': [('is_secundary', '!=', True)]}"/>
+							</group>
+						</group>
+					</sheet>
+	            </form>
+	        </field>
+	    </record>
+
+        <!-- ACTION -->
+        <record id="turei_maintenance_line_action" model="ir.actions.act_window">
+	    	<field name="name">Gestionar Líneas</field>
+		    <field name="res_model">turei_maintenance.line</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Gestionar Líneas"
+				  id="turei_maintenance_item_line"
+				  action="turei_maintenance_line_action"
+				  parent="turei_maintenance_equipaments_menu_item"
+				  />
+
+
+    </data>
+</odoo>

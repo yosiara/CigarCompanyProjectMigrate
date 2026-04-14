@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="wzd_recruitment_modelo_msrechazada" model="ir.ui.view">
+            <field name="name">app_seleccion.wzd_msrechazada</field>
+            <field name="model">app_seleccion.wzd_msrechazada</field>
+            <field name="arch" type="xml">
+                <form string="Solicitudes Rechazadas">
+                    <sheet>
+                        <group>
+                            <group name="left">
+                                <field name="year" String="Seleccione el año"/>
+                            </group>
+                            <group name="rigth">
+
+                            </group>
+                        </group>
+
+
+                        <footer>
+                            <div>
+                                <button name="imprimir" icon="fa-lg fa-save" string="Generar Modelo" type="object"
+                                        class="oe_highlight"/>
+
+                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_recruitment_msrechazada_act_window" model="ir.actions.act_window">
+            <field name="name">Solicitudes Rechazadas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">app_seleccion.wzd_msrechazada</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_recruitment_msrechazada_act_window" name="Solicitudes rechazadas"
+                  id="menu_wzd_msrechazada_report" parent="app_seleccion.menu_reportes" sequence="4"/>
+    </data>
+</odoo>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--name="Agenda Express"-->
+        <!-- l10n_cu_calendar.sistematizadoras_list -->
+        <record id="view_sistematizadoras_list_search" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.sistematizadoras_list.search</field>
+            <field name="model">l10n_cu_calendar.sistematizadores_list</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="company_id"/>
+<!--                    <group expand="0" string="Group by">-->
+<!--                        <filter string="Parent Category" domain="[]" context="{'group_by':'parent_id'}"/>-->
+<!--                    </group>-->
+                </search>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_calendar_sistematizadoras_list_form" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.sistematizadoras_list.form</field>
+            <field name="model">l10n_cu_calendar.sistematizadores_list</field>
+            <field name="arch" type="xml">
+                <form string="Lista de Sistematizadores">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_calendar_sistematizadoras_list_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.sistematizadoras_list.tree</field>
+            <field name="model">l10n_cu_calendar.sistematizadores_list</field>
+            <field name="arch" type="xml">
+                <tree string="Lista de Sistematizadores">
+                    <field name="name"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_l10n_cu_calendar_sistematizadoras_list_view_tree" model="ir.actions.act_window">
+            <field name="name">Sistematizadoras</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_calendar.sistematizadores_list</field>
+        </record>
+
+        <menuitem id="l10n_cu_calendar_sistematizadoras_list_view_tree_menu"
+                  action="action_l10n_cu_calendar_sistematizadoras_list_view_tree" parent="l10n_cu_calendar.l10n_cu_calendar_nomenclature_menu"
+                  sequence="10"/>
+
+        <!-- HEREDANDO LA VISTA FORM DE CALENDAR -->
+        <record id="view_calendar_event_cig_fact_form_inherit" model="ir.ui.view">
+            <field name="name">calendar.event.inherit</field>
+            <field name="model">calendar.event</field>
+            <field eval="60" name="priority"/>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='needs_assurance']" position="before">
+                        <field name="notifica_puntualizacion_sist"/>
+                    </xpath>
+                    <!--<xpath expr="//field[@name='add_anyway']" position="attributes">-->
+                        <!--<attribute name="invisible">1</attribute>-->
+                    <!--</xpath>-->
+                </data>
+            </field>
+        </record>
+
+        <!--HEREDANDO VISTA TREEE-->
+        <record id="view_l10n_cu_calendar_event_cig_fact_tree" model="ir.ui.view">
+            <field name="name">calendar.event.inherit.tree</field>
+            <field name="model">calendar.event</field>
+            <field name="priority" eval="2"/>
+            <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <!--Falta ocultar los campos que no deben verse-->
+                    <field name="name" position="before">
+                        <field name="hora_gral"/>
+                    </field>
+                    <field name="name" position="after">
+                        <field name="dia"/>
+                    </field>
+                    <field name="start" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </field>
+                    <field name="stop" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </field>
+                    <field name="duration" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </field>
+                    <!--<field name="guidelines" position="attributes">-->
+                        <!--<attribute name="invisible">1</attribute>-->
+                    <!--</field>-->
+                    <!--<xpath expr="//field[@name='start']" position="attributes">-->
+                        <!--<attribute name="invisible">1</attribute>-->
+                    <!--</xpath>-->
+                    <!--<xpath expr="//field[@name='stop']" position="attributes">-->
+                        <!--<attribute name="invisible">1</attribute>-->
+                    <!--</xpath>-->
+                </data>
+            </field>
+        </record>
+
+        <!--HEREDANDO VISTA SEARCH -->
+        <record id="view_l10n_cu_calendar_event_search" model="ir.ui.view">
+            <field name="name">calendar.event.search</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='message_needaction']" position="after">
+                    <filter string="Mes Sgte." name="next_month" context="{'virtual_id': True}"
+                            domain="[('stop','&lt;=',(datetime.date.today()+relativedelta(months=2)).strftime('%%Y-%%m-01')), ('start','&gt;=',(datetime.date.today()+relativedelta(months=1)).strftime('%%Y-%%m-01'))]"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

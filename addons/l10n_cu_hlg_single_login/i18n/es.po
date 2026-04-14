@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_hlg_single_login
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-11 20:18+0000\n"
+"PO-Revision-Date: 2017-04-11 17:03-0500\n"
+"Last-Translator: Ernesto Martinez Riveron <ernestomr@hlg.desoft.cu>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.7.3\n"
+
+#. module: l10n_cu_hlg_single_login
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_single_login.view_users_form
+msgid "Sessions"
+msgstr "Sesiones"
+
+#. module: l10n_cu_hlg_single_login
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_single_login.view_users_form
+msgid "Block Multiple Sessions"
+msgstr "Bloquear sesiones múltiples"
+
+#. module: l10n_cu_hlg_single_login
+#: code:addons/l10n_cu_hlg_single_login/main.py:80
+#, python-format
+msgid "User has another active session."
+msgstr "El usuario ya tiene una sesión abierta."
+
+#. module: l10n_cu_hlg_single_login
+#: code:addons/l10n_cu_hlg_single_login/main.py:84
+#, python-format
+msgid "Wrong login/password"
+msgstr "Usuario o contraseña inválidos."

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="set_of_peaces_form" model="ir.ui.view">
+            <field name="name">set_of_peaces_form</field>
+            <field name="model">process_control.machine_set_of_peaces</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="machine_type_ids" widget="many2many_tags"/>
+                            </group>
+                            <!-- <field name="quantity" invisible="1"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="set_of_peaces_tree" model="ir.ui.view">
+            <field name="name">set_of_peaces_tree</field>
+            <field name="model">process_control.machine_set_of_peaces</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="machine_type_ids" widget="many2many_tags"/>
+                    <!-- <field name="quantity" invisible="1"/> -->
+                </tree>
+            </field>
+        </record>
+
+        <record id="set_of_peaces_action" model="ir.actions.act_window">
+            <field name="name">Subconjuntos de Piezas</field>
+            <field name="res_model">process_control.machine_set_of_peaces</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="set_of_peaces_menu" name="Subconjuntos de Piezas" parent="process_control_settings_menu" action="set_of_peaces_action" sequence="37"/>
+    </data>
+</odoo>

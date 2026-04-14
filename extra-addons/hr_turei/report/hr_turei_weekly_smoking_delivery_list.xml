@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.hr_turei_weekly_smoking_delivery_list"
+                model="hr_turei.weekly_smoking_delivery_wzd"
+                string="Registro de entrega de fuma semanal"
+                report_type="xlsx"
+                name="hr_turei.weekly_smoking_delivery_list"
+                file="hr_turei.weekly_smoking_delivery_list"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

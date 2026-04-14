@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		ROOT MENU
+		=========================================================================================== -->
+        <menuitem name="Products"
+                  id="simple_product_root_menu"
+                  web_icon="simple_product,static/description/icon.png"
+                  sequence="10"/>
+
+        <!-- ======================================================================================
+		LEFT MENU
+		=========================================================================================== -->
+        <menuitem name="Products" id="simple_product_left_menu" parent="simple_product_root_menu"/>
+    </data>
+</odoo>

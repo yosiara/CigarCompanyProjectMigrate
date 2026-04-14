@@ -1,0 +1,1065 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+        <record id="turei_enterprise_mgm_sys_process_1" model="enterprise_mgm_sys.process">
+            <field name="name">Analisis y mejora</field>
+            <field name="limit">76.92</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_1" model="cmi.indicator">
+            <field name="name">Cumplimiento del Programa de auditorías internas</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_4"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">100</field>
+            <field name="medium_limit">100</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_1" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_1"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_1"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_2" model="cmi.indicator">
+            <field name="name">Cumplimiento de las acciones de mejora y derivadas de la Revisión por la Dirección</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_4"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">90</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_2" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_1"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_2"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_3" model="cmi.indicator">
+            <field name="name">Cumplimiento de las medidas del Recorrido de inspección al ámbito organizacional (RIAO)
+            </field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_4"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">90</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_3" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_1"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_3"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+
+        <record id="turei_enterprise_mgm_sys_process_2" model="enterprise_mgm_sys.process">
+            <field name="name">Aseguramiento</field>
+            <field name="limit">86</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_4" model="cmi.indicator">
+            <field name="name">Cumplimiento del Plan de Compras</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">85</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_4" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_2"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_4"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">85</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_5" model="cmi.indicator">
+            <field name="name">Satisfacción del cliente interno con las compras</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">85</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_5" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_2"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_5"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">85</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_6" model="cmi.indicator">
+            <field name="name">Satisfacción del cliente interno con el Almacenamiento</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">95</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_6" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_2"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_6"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">95</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_7" model="cmi.indicator">
+            <field name="name">Satisfacción del cliente interno con el Transporte</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">90</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_7" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_2"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_7"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">90</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_8" model="cmi.indicator">
+            <field name="name">Coeficiente de Disponibilidad Técnica</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">90</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_8" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_2"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_8"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">90</field>
+            <field name="optimal_value">max</field>
+        </record>
+
+        <record id="turei_enterprise_mgm_sys_process_3" model="enterprise_mgm_sys.process">
+            <field name="name">Comercialización del producto</field>
+            <field name="limit">73</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_9" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_3"/>
+            <field name="indicator_id" ref="cmi_turei.cmi_turei_indicator_1"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_10" model="cmi.indicator">
+            <field name="name">Índice de satisfacción del cliente directo</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_23"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">1</field>
+            <field name="medium_limit">1</field>
+            <field name="maximum_limit">1</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_10" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_3"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_10"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">1</field>
+            <field name="optimal_value">max</field>
+        </record>
+
+
+        <record id="turei_enterprise_mgm_sys_process_4" model="enterprise_mgm_sys.process">
+            <field name="name">Gestión de Capital Humano</field>
+            <field name="limit">75</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_11" model="cmi.indicator">
+            <field name="name">Índice de Calidad de la Selección (IS)</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">60</field>
+            <field name="medium_limit">60</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_11" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_11"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">60</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_12" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="cmi_turei.cmi_turei_indicator_15"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">85</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_13" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="cmi_turei.cmi_turei_indicator_16"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">80</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_14" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="cmi_turei.cmi_turei_indicator_18"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">2.7</field>
+            <field name="optimal_value">min</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_15" model="cmi.indicator">
+            <field name="name">Índice de Completamiento de la Plantilla (ICP)</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">85</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_15" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_15"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">85</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_16" model="cmi.indicator">
+            <field name="name">Índice de Completamiento de la Plantilla (ICP)</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">90</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_16" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_16"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">90</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_17" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="cmi_turei.cmi_turei_indicator_19"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">3</field>
+            <field name="optimal_value">min</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_18" model="cmi.indicator">
+            <field name="name">Índice de Cumplimiento del Programa de Estudios de Organización y Normación del
+                Trabajo(IOT)
+            </field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">100</field>
+            <field name="medium_limit">100</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_18" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_18"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_19" model="cmi.indicator">
+            <field name="name">Índice de Cumplimiento del Programa de Atención al Hombre (ICZ)</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">75</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_19" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_19"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">75</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_20" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="cmi_turei.cmi_turei_indicator_17"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">70</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_21" model="cmi.indicator">
+            <field name="name">Gestión de la Seguridad y Salud del Trabajo</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">70</field>
+            <field name="medium_limit">70</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_21" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_4"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_21"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">70</field>
+            <field name="optimal_value">max</field>
+        </record>
+
+
+        <record id="turei_enterprise_mgm_sys_process_5" model="enterprise_mgm_sys.process">
+            <field name="name">Gestión de la Dirección</field>
+            <field name="limit">95</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_22" model="cmi.indicator">
+            <field name="name">Cumplimiento de los objetivos</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">100</field>
+            <field name="medium_limit">100</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_22" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_5"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_22"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_23" model="cmi.indicator">
+            <field name="name">Cumplimiento de los controles integrales</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">100</field>
+            <field name="medium_limit">100</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_23" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_5"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_23"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">3</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_24" model="cmi.indicator">
+            <field name="name">Cumplimiento de los acuerdos del Libro de la Gestión</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">90</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_24" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_5"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_24"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">90</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_25" model="cmi.indicator">
+            <field name="name">Cumplimiento del programa para la revisión por la dirección</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">100</field>
+            <field name="medium_limit">100</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_25" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_5"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_25"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">3</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_26" model="cmi.indicator">
+            <field name="name">Cumplimiento del Plan de Prevención de Riesgos</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">100</field>
+            <field name="medium_limit">100</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_26" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_5"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_26"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+
+        <record id="turei_enterprise_mgm_sys_process_6" model="enterprise_mgm_sys.process">
+            <field name="name">Gestión Económica</field>
+            <field name="limit">85.71</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_27" model="cmi.indicator">
+            <field name="name">Índice de liquidez</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_1"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_23"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">1</field>
+            <field name="medium_limit">1</field>
+            <field name="maximum_limit">1</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_27" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_6"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_27"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">1</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_28" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_6"/>
+            <field name="indicator_id" ref="cmi_turei.cmi_turei_indicator_31"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">1</field>
+            <field name="optimal_value">min</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_29" model="cmi.indicator">
+            <field name="name">Índice de Eficiencia energética</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_1"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">100</field>
+            <field name="medium_limit">100</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_29" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_6"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_29"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_30" model="cmi.indicator">
+            <field name="name">Cumplimiento de cronograma de proceso inversionista</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_1"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">100</field>
+            <field name="medium_limit">100</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_30" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_6"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_30"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">3</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+
+        <record id="turei_enterprise_mgm_sys_process_7" model="enterprise_mgm_sys.process">
+            <field name="name">Mtto a la Industria</field>
+            <field name="limit">80</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_31" model="cmi.indicator">
+            <field name="name">Coeficiente de Disponibilidad Técnica</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">43.99</field>
+            <field name="medium_limit">43.99</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_31" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_7"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_31"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">43.99</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_33" model="cmi.indicator">
+            <field name="name">Cumplimiento del Plan de Mantenimiento</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">100</field>
+            <field name="medium_limit">100</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_33" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_7"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_33"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_34" model="cmi.indicator">
+            <field name="name">Relación Imprevisto-Planificado</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">min</field>
+            <field name="lower_limit">1</field>
+            <field name="medium_limit">1</field>
+            <field name="maximum_limit">1</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_34" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_7"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_34"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">1</field>
+            <field name="optimal_value">min</field>
+        </record>
+
+        <record id="turei_enterprise_mgm_sys_process_8" model="enterprise_mgm_sys.process">
+            <field name="name">Realización del producto</field>
+            <field name="limit">80</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_35" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_8"/>
+            <field name="indicator_id" ref="cmi_turei.cmi_turei_indicator_52"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_36" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_8"/>
+            <field name="indicator_id" ref="cmi_turei.cmi_turei_indicator_5"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">0.76</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_37" model="cmi.indicator">
+            <field name="name">Índice de Fabricación de la Hebra</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_23"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">0.76</field>
+            <field name="medium_limit">0.76</field>
+            <field name="maximum_limit">1</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_37" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_8"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_37"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">3</field>
+            <field name="limit">0.76</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_39" model="cmi.indicator">
+            <field name="name">Cumplimiento Norma de Consumo de Tabaco</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">min</field>
+            <field name="lower_limit">0</field>
+            <field name="medium_limit">0</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_39" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_8"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_39"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">min</field>
+        </record>
+
+
+        <record id="turei_enterprise_mgm_sys_process_9" model="enterprise_mgm_sys.process">
+            <field name="name">Seguridad y Protección</field>
+            <field name="limit">76.92</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_40" model="cmi.indicator">
+            <field name="name">Vitalidad del servicio de guardia</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">90</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_40" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_9"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_40"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">90</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_41" model="cmi.indicator">
+            <field name="name">Cumplimiento del plan de revisiones a la seguridad informática</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">90</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_41" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_9"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_41"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">90</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_42" model="cmi.indicator">
+            <field name="name">Disponibilidad de medios técnicos y físicos</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">90</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_42" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_9"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_42"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">90</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_process_10" model="enterprise_mgm_sys.process">
+            <field name="name">Servicios Generales</field>
+            <field name="limit">84.21</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_43" model="cmi.indicator">
+            <field name="name">Satisfacción clientes cocina-comedor</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">90</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_43" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_10"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_43"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">90</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_44" model="cmi.indicator">
+            <field name="name">Satisfacción clientes casa infantil</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">95</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_44" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_10"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_44"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">95</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_45" model="cmi.indicator">
+            <field name="name">Satisfacción clientes servicios internos</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">95</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_45" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_10"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_45"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">95</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_46" model="cmi.indicator">
+            <field name="name">Cumplimiento del Plan de producción agrícola</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">95</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_46" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_10"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_46"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">95</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_47" model="cmi.indicator">
+            <field name="name">Cumplimiento al plan de mantenimiento de la infraestructura</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">100</field>
+            <field name="medium_limit">100</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_47" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_10"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_47"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">100</field>
+            <field name="optimal_value">max</field>
+        </record>
+
+        <record id="turei_enterprise_mgm_sys_process_11" model="enterprise_mgm_sys.process">
+            <field name="name">Teleinformática</field>
+            <field name="limit">82.35</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_48" model="cmi.indicator">
+            <field name="name">Satisfacción con los servicios informáticos</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">85</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_48" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_11"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_48"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">85</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_49" model="cmi.indicator">
+            <field name="name">Satisfacción con los servicios telefónicos</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">85</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_49" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_11"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_49"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">4</field>
+            <field name="limit">85</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_50" model="cmi.indicator">
+            <field name="name">Comunicación radial</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">60</field>
+            <field name="medium_limit">60</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_50" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_11"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_50"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">3</field>
+            <field name="limit">60</field>
+            <field name="optimal_value">max</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_51" model="cmi.indicator">
+            <field name="name">Seguridad informática</field>
+            <field name="perspective_id" ref="cmi_turei.cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">manual</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei.cmi_turei_uom_1"/>
+            <field name="optimal_value">min</field>
+            <field name="lower_limit">70</field>
+            <field name="medium_limit">70</field>
+            <field name="maximum_limit">100</field>
+        </record>
+        <record id="turei_enterprise_mgm_sys_indicator_line_51" model="enterprise_mgm_sys.process_indicator_line">
+            <field name="process_id" ref="turei_enterprise_mgm_sys_process_11"/>
+            <field name="indicator_id" ref="turei_enterprise_mgm_sys_indicator_51"/>
+            <field name="points_effective">5</field>
+            <field name="points_no_effective">2</field>
+            <field name="weight">5</field>
+            <field name="limit">70</field>
+            <field name="optimal_value">max</field>
+        </record>
+    </data>
+</odoo>

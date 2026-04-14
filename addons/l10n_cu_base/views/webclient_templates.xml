@@ -1,0 +1,9 @@
+<openerp>
+    <data>
+        <template id="assets_backend_base" name="Base assest" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link href="/l10n_cu_base/static/src/css/l10n_cu_base_styles.css" rel="stylesheet" type="text/less"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>

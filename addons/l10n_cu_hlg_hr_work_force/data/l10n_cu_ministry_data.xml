@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!--  Ministry -->
+        <record id="ministry_0" model="l10n_cu.ministry">
+            <field name="code">131</field>
+		    <field name="name">Ministerio de la Agricultura</field>
+        </record>
+
+         <!-- Organism -->
+        <record id="organism_0" model="l10n_cu_hlg_hr_work_force.organism">
+			<field name="code">13103</field>
+			<field name="name">GRUPO EMPRESARIAL DE TABACO DE CUBA</field>
+			<field name="ministry_id" ref="ministry_0"/>
+		</record>
+
+    </data>
+</openerp>

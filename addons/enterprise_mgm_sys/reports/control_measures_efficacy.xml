@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.enterprise_mgm_sys_control_measures_efficacy_report"
+                model="enterprise_mgm_sys.control_measures_efficacy"
+                string="Eficacia de las medidas de control(R-4)"
+                report_type="xlsx"
+                name="enterprise_mgm_sys.control_measures_efficacy_report"
+                file="enterprise_mgm_sys.control_measures_efficacy_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

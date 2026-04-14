@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="wzd_capacitation_wzd_cap_actions_report" model="ir.ui.view">
+            <field name="name">turei_capacitacion.wzd_cap_actions_report</field>
+            <field name="model">turei_capacitacion.wzd_cap_actions_report</field>
+            <field name="arch" type="xml">
+                <form string="Capacitation Plan">
+                    <sheet>
+                        <div style="display: flex;">
+                            <div style="width: 100px;">
+                                <img src="/turei_capacitacion/static/src/img/training_plan.jpg"/>
+                            </div>
+
+                            <div style="padding-left: 50px;">
+                                <h2>
+                                    Print Capacitations Action
+                                </h2>
+                                <!-- Report Type -->
+                                <group>
+                                    <group name="left">
+                                       <field name="reports" widget="radio" colspan="2"/>
+                                    </group>
+                                    <group name="right">
+                                       <field name="period_id"/>
+                                    </group>
+                                </group>
+
+                            </div>
+                        </div>
+
+
+                        <footer>
+                            <div>
+                                <button name="print_actions" icon="fa-lg fa-save" string="Print Plan" type="object"
+                                        class="oe_highlight"/>
+
+                                <button special="cancel" string="Cancel" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_capacitation_actions_act_window" model="ir.actions.act_window">
+            <field name="name">Capacitation Actions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">turei_capacitacion.wzd_cap_actions_report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_capacitation_actions_act_window"
+                  id="menu_wzd_capacitation_actions" parent="turei_capacitacion.menu_turei_capacitation_capacitation" sequence="5"/>
+
+    </data>
+</odoo>

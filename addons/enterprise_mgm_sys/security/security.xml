@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="module_enterprise_mgm_sys_category" model="ir.module.category">
+            <field name="name">Enterprise Management System</field>
+            <field name="sequence">99</field>
+        </record>
+
+        <record id="enterprise_mgm_sys.user" model="res.groups">
+            <field name="name">User</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">System user</field>
+            <field name="category_id" ref="module_enterprise_mgm_sys_category"/>
+        </record>
+
+        <record id="enterprise_mgm_sys.document_management_responsible" model="res.groups">
+            <field name="name">Document Management Responsible</field>
+            <field name="implied_ids" eval="[(4, ref('enterprise_mgm_sys.user'))]"/>
+            <field name="comment">In charge of Document Management data.</field>
+            <field name="category_id" ref="module_enterprise_mgm_sys_category"/>
+        </record>
+
+        <record id="enterprise_mgm_sys.systematizers" model="res.groups">
+            <field name="name">Systematizers</field>
+            <field name="implied_ids" eval="[(4, ref('enterprise_mgm_sys.user'))]"/>
+            <field name="comment">In charge of Risks, Improvement Program and No Conformities Management data.</field>
+            <field name="category_id" ref="module_enterprise_mgm_sys_category"/>
+        </record>
+
+        <record id="enterprise_mgm_sys.audit_responsible" model="res.groups">
+            <field name="name">Audit Management Responsible</field>
+            <field name="implied_ids" eval="[(4, ref('enterprise_mgm_sys.user'))]"/>
+            <field name="comment">In charge of Audit Management data.</field>
+            <field name="category_id" ref="module_enterprise_mgm_sys_category"/>
+        </record>
+
+        <record id="enterprise_mgm_sys.manager" model="res.groups">
+            <field name="name">Responsible</field>
+            <field name="implied_ids"
+                   eval="[(4, ref('enterprise_mgm_sys.document_management_responsible')), (4, ref('enterprise_mgm_sys.audit_responsible'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+            <field name="comment">In charge of Enterprise Management System configurations.</field>
+            <field name="category_id" ref="module_enterprise_mgm_sys_category"/>
+        </record>
+    </data>
+</odoo>

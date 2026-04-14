@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_employee_form_inherit" model="ir.ui.view">
+            <field name="name">employee.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field eval="60" name="priority"/>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <data>
+
+                    <xpath expr="//field[@name='notes']" position="before">
+                        <group>
+                            <group string="Smoking List">
+                                <field name="smoker"/>
+                                <field name="carries_daily_smoking" attrs="{'invisible':[('smoker','!=', True)]}"/>
+                                <field name="brand_smoke_id" attrs="{'invisible':[('smoker','!=', True)]}"/>
+                                <field name="packs_amount" attrs="{'invisible':[('smoker','!=', True)]}"/>
+                                <field name="incentive"/>
+                                <field name="smoking_prod_incentive_context"
+                                       attrs="{'invisible':[('incentive','!=', True)], 'required':[('incentive','=', True)]}"/>
+                                <field name="smoking_prod_incentive_plan_type"
+                                       attrs="{'invisible':[('incentive','!=', True)], 'required':[('incentive','=', True)]}"/>
+                                <field name="smoking_prod_incentive_reject"
+                                       attrs="{'invisible':[('incentive','!=', True)], 'required':[('incentive','=', True)]}"/>
+                            </group>
+                        </group>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_hr_turei_department_form_inherit" model="ir.ui.view">
+            <field name="name">hr.turei.hr.department.form.inherit</field>
+            <field name="model">hr.department</field>
+            <field eval="60" name="priority"/>
+            <field name="inherit_id" ref="hr.view_department_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="is_productive" position="after">
+                        <field name="smoking_type"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</odoo>

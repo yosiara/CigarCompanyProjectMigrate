@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="machine_kanban" model="ir.ui.view">
+            <field name="name">machine_kanban</field>
+            <field name="model">process_control.machine</field>
+            <field name="arch" type="xml">
+                <kanban js_class="process_control_machine_kanban">
+                    <field name="name"/>
+                    <field name="machine_type_id"/>
+                    <field name="productive_section_id"/>
+                    <field name="productive_line_id"></field>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <strong><field name="name"/></strong>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        <span class="badge rounded-pill"><t t-out="record.productive_section_id.value"/></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <strong>Type: </strong><t t-out="record.machine_type_id.value"/>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        <span class="badge rounded-pill"> <t t-out="record.productive_line_id.value"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="machine_form" model="ir.ui.view">
+            <field name="name">machine_form</field>
+            <field name="model">process_control.machine</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="line_domain" invisible="1"/>
+                        <group col="4">
+                            <group>
+                                <field name="name" placeholder="Type-Module-Line"/>
+                            </group>
+                            <group>
+                                <field name="machine_type_id"/>
+                            </group>
+                            <group>
+                                <field name="productive_section_id"/>
+                            </group>
+                            <group>
+                                <field name="productive_line_id" domain="line_domain"/>
+                            </group>
+                        </group>
+                        <group string="Conjuntos de Piezas">
+                        <field name="set_of_peaces">
+                            <tree>
+                                <field name="name"/>
+                                <field name="machine_type_ids" widget="many2many_tags"/>
+                                <!-- <field name="quantity"/> -->
+                            </tree>
+                            <form>
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <field name="name"/>
+                                        </group>
+                                        <group>
+                                            <field name="machine_type_ids" widget="many2many_tags"/>
+                                        </group>
+                                        <!-- <group colspan="1">
+                                            <field name="quantity"/>
+                                        </group> -->
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="machine_tree" model="ir.ui.view">
+            <field name="name">machine_tree</field>
+            <field name="model">process_control.machine</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="machine_type_id"/>
+                    <field name="productive_section_id"/>
+                    <field name="productive_line_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="machine_action" model="ir.actions.act_window">
+            <field name="name">Máquinas</field>
+            <field name="res_model">process_control.machine</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <menuitem id="machine_menu" parent="process_control_settings_menu" action="machine_action" sequence="35"/>
+    </data>
+</odoo>

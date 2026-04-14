@@ -1,0 +1,48 @@
+body {
+    font-size: 10px;
+}
+
+.border-table {
+    border: solid;
+    border-color: black;
+}
+
+.border-table-transparent {
+    border: hidden;
+}
+
+table {
+    text-align: center;
+}
+
+.title {
+    font-size: medium;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.font-small {
+    font-size: x-small;
+}
+
+.line-bottom {
+    border-bottom: 1px #4c4c4c solid;
+}
+
+.text_centered {
+    text-align: center;
+}
+
+.text_right {
+    text-align: right;
+}
+
+.text_left {
+    text-align: left;
+}
+
+.middle-vertical-align {
+    vertical-align: middle;
+}
+
+

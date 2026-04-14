@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="atmsys_work_order_sequence" model="ir.sequence">
+            <field name="name">Work order number</field>
+            <field name="code">atmsys.work.order</field>
+            <field name="suffix">/%(year)s</field>
+            <field name="padding">6</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+    </data>
+</odoo>

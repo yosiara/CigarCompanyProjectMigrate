@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem name="Risks Management" id="enterprise_mgm_sys_risks_main_menu"
+                  parent="enterprise_mgm_sys_root_menu"/>
+
+        <menuitem name="Summaries" id="enterprise_mgm_sys_summaries_menu"
+                  parent="enterprise_mgm_sys_risks_main_menu"/>
+
+        <record id="enterprise_mgm_sys_registryr1_form_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_registryr1.form</field>
+            <field name="model">enterprise_mgm_sys.registryr1</field>
+            <field name="arch" type="xml">
+                <form string="Registry R1">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="export_to_xls" string="Print" type="object"
+                                    class="oe_stat_button" icon="fa-print"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="area_id"/>
+                                <field name="department_id"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                        </group>
+                        <separator string="Identified Risks"/>
+                        <group col="1">
+                            <field name="line_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="risk_id"/>
+                                    <field name="objective"/>
+                                    <field name="process_id"/>
+                                    <field name="activity_id"/>
+                                    <field name="classification"/>
+                                    <field name="probability"/>
+                                    <field name="consequence"/>
+                                    <field name="level"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_registryr1_tree_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_registryr1.tree</field>
+            <field name="model">enterprise_mgm_sys.registryr1</field>
+            <field name="arch" type="xml">
+                <tree string="Registry R1">
+                    <field name="name"/>
+                    <field name="area_id"/>
+                    <field name="department_id"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_registryr1_act_window" model="ir.actions.act_window">
+            <field name="name">Registry R1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.registryr1</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Registry R1.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Registry R1" id="enterprise_mgm_sys_registryr1_menu" parent="enterprise_mgm_sys_risks_main_menu"
+                  action="enterprise_mgm_sys_registryr1_act_window"/>
+
+        <record id="enterprise_mgm_sys_risks_prevention_plan_form_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_risks_prevention_plan.form</field>
+            <field name="model">enterprise_mgm_sys.risks_prevention_plan</field>
+            <field name="arch" type="xml">
+                <form string="Risks prevention Plan">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="export_to_xls" string="Print R2" type="object"
+                                    class="oe_stat_button" icon="fa-print"/>
+                            <button name="export_r5_to_xls" string="Print R5" type="object"
+                                    class="oe_stat_button" icon="fa-print"/>
+                        </div>
+                        <group col="4">
+                            <field name="all_company"/>
+                            <field name="area_id" attrs="{'required': [('all_company', '=', False)], 'invisible': [('all_company', '=', True)]}"/>
+                            <field name="year"/>
+                            <field name="date"/>
+                        </group>
+                        <separator string="Measures"/>
+                        <group col="1">
+                            <field name="measure_ids" nolabel="1">
+                                <tree>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="objective"/>
+                                    <field name="department_id"/>
+                                    <field name="process_id"/>
+                                    <field name="activity_id"/>
+                                    <field name="risk_id"/>
+                                    <field name="measures"/>
+                                    <field name="employee_id"/>
+                                </tree>
+                                <form>
+                                    <group col="1">
+                                        <label for="measures"/>
+                                        <field name="measures" nolabel="1"/>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="objective"/>
+                                            <field name="department_id"/>
+                                            <field name="process_id"/>
+                                            <field name="activity_id"/>
+                                            <field name="employee_id"/>
+                                        </group>
+                                        <group>
+                                            <field name="risk_id"/>
+                                            <field name="classification"/>
+                                            <field name="probability"/>
+                                            <field name="consequence"/>
+                                            <field name="level"/>
+                                            <field name="sequence"/>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <field name="compliance_dates"/>
+                                    </group>
+                                    <notebook>
+                                        <page string="Possible negative manifestations">
+                                            <field name="manifestations" nolabel="1"/>
+                                        </page>
+                                        <page string="Execute">
+                                            <group>
+                                                <field name="execute_use_employees"/>
+                                                <field name="execute"
+                                                       attrs="{'invisible': [('execute_use_employees', '=', True)], 'required': [('execute_use_employees', '!=', True)]}"/>
+                                                <field name="execute_ids"
+                                                       attrs="{'invisible': [('execute_use_employees', '!=', True)], 'required': [('execute_use_employees', '=', True)]}"
+                                                       widget="many2many_tags"/>
+
+                                            </group>
+                                        </page>
+                                    </notebook>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_risks_prevention_plan_tree_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_risks_prevention_plan.tree</field>
+            <field name="model">enterprise_mgm_sys.risks_prevention_plan</field>
+            <field name="arch" type="xml">
+                <tree string="Risks prevention Plan">
+                    <field name="all_company" invisible="1"/>
+                    <field name="area_id" invisible="1"/>
+                    <field name="name"/>
+                    <field name="year"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_risks_prevention_plan_act_window" model="ir.actions.act_window">
+            <field name="name">Risks prevention Plan (R2)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.risks_prevention_plan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Risks prevention Plan.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Risks prevention Plan (R2)" id="enterprise_mgm_sys_risks_prevention_plan_menu"
+                  parent="enterprise_mgm_sys_risks_main_menu"
+                  action="enterprise_mgm_sys_risks_prevention_plan_act_window"/>
+
+        <record id="enterprise_mgm_sys_behavior_prevention_plan_form_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_behavior_prevention_plan.form</field>
+            <field name="model">enterprise_mgm_sys.behavior_prevention_plan</field>
+            <field name="arch" type="xml">
+                <form string="Risks prevention Plan Behavior">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="export_to_xls" string="Print" type="object"
+                                    class="oe_stat_button" icon="fa-print"/>
+                        </div>
+                        <group col="4">
+                            <field name="area_id"/>
+                            <field name="date"/>
+                            <field name="elaborates_id"/>
+                            <field name="approve_id"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="objectives_amount"/>
+                                <field name="objectives_met"/>
+                                <field name="objectives_unfulfilled"/>
+                                <field name="objectives_not_evaluated"/>
+                            </group>
+                            <group>
+                                <field name="measures_approved"/>
+                                <field name="measures_month"/>
+                                <field name="measures_accomplished"/>
+                                <field name="measures_unfullfilled"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Behavior">
+                                <group col="1">
+                                    <field name="line_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="objective"/>
+                                            <field name="measures_not_complied"/>
+                                            <field name="observations"/>
+                                            <field name="action"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Evaluated Incidents">
+                                <group col="1">
+                                    <field name="evaluated_incidents" nolabel="1"/>
+                                </group>
+                            </page>
+                            <page string="Change Detection">
+                                <group col="1">
+                                    <field name="change_detection" nolabel="1"/>
+                                </group>
+                            </page>
+                            <page string="Objective Foundation">
+                                <group col="1">
+                                    <field name="objective_foundation" nolabel="1"/>
+                                </group>
+                            </page>
+                            <page string="Proposed Agreements">
+                                <group col="1">
+                                    <field name="proposed_agreements" nolabel="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_behavior_prevention_plan_tree_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_behavior_prevention_plan.tree</field>
+            <field name="model">enterprise_mgm_sys.behavior_prevention_plan</field>
+            <field name="arch" type="xml">
+                <tree string="Risks prevention Plan Behavior">
+                    <field name="name"/>
+                    <field name="objectives_amount"/>
+                    <field name="measures_approved"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_behavior_prevention_plan_act_window" model="ir.actions.act_window">
+            <field name="name">Risks prevention Plan Behavior</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.behavior_prevention_plan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Risks prevention Plan Behavior(R3).
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Risks prevention Plan Behavior" id="enterprise_mgm_sys_behavior_prevention_plan_menu"
+                  parent="enterprise_mgm_sys_risks_main_menu"
+                  action="enterprise_mgm_sys_behavior_prevention_plan_act_window"/>
+
+        <record id="enterprise_mgm_sys_control_measures_efficacy_form_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_control_measures_efficacy.form</field>
+            <field name="model">enterprise_mgm_sys.control_measures_efficacy</field>
+            <field name="arch" type="xml">
+                <form string="Control Measures Efficacy">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="export_to_xls" string="Print" type="object"
+                                    class="oe_stat_button" icon="fa-print"/>
+                        </div>
+                        <group col="4">
+                            <field name="area_id"/>
+                            <field name="process_id"/>
+                            <field name="date"/>
+                        </group>
+                        <separator string="Efficacy"/>
+                        <group col="1">
+                            <field name="line_ids" nolabel="1">
+                                <tree>
+                                    <field name="objective"/>
+                                    <field name="compliance"/>
+                                    <field name="risk_id"/>
+                                    <field name="classification"/>
+                                    <field name="measures"/>
+                                    <field name="employee_id"/>
+                                    <field name="compliance_dates"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="objective"/>
+                                        <field name="measures"/>
+                                        <field name="risk_id"/>
+                                    </group>
+                                    <group col="4">
+                                        <field name="compliance"/>
+                                        <field name="classification"/>
+                                        <field name="employee_id"/>
+                                        <field name="compliance_dates"/>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="probability"/>
+                                            <field name="consequence"/>
+                                            <field name="level"/>
+                                        </group>
+                                        <group>
+                                            <field name="new_probability"/>
+                                            <field name="new_consequence"/>
+                                            <field name="new_level"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_control_measures_efficacy_tree_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_control_measures_efficacy.tree</field>
+            <field name="model">enterprise_mgm_sys.control_measures_efficacy</field>
+            <field name="arch" type="xml">
+                <tree string="Control Measures Efficacy">
+                    <field name="name"/>
+                    <field name="area_id"/>
+                    <field name="process_id"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_control_measures_efficacy_act_window" model="ir.actions.act_window">
+            <field name="name">Control Measures Efficacy</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.control_measures_efficacy</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Control Measures Efficacy(R4).
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Control Measures Efficacy" id="enterprise_mgm_sys_control_measures_efficacy_menu"
+                  parent="enterprise_mgm_sys_risks_main_menu"
+                  action="enterprise_mgm_sys_control_measures_efficacy_act_window"/>
+
+    </data>
+</odoo>

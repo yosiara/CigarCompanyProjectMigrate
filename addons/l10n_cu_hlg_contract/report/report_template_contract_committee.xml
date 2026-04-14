@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="report_template_contract_committe" model="ir.actions.report.xml">
+            <field name="name">Reporte del Comité de Contratación(docx)</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">l10n_cu_contract.contract_committee</field>
+            <field name="report_name">report_template_contract_committe</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="docxtpl_multi_in_one">True</field>
+            <field name="module">l10n_cu_hlg_contract</field>
+            <field name="docxtpl_template_fallback">report/docx/l10n_cu_hlg_contract_template_contract_commite.docx</field>
+        </record>
+        <record id="button_report_template_contract_committee" model="ir.values">
+            <field name="key2">client_print_multi</field>
+            <field name="model">l10n_cu_contract.contract_committee</field>
+            <field name="name">Reporte del Comité de Contratación(docx)</field>
+            <field name="value"
+                   eval="'ir.actions.report.xml,%d'%report_template_contract_committe"/>
+        </record>
+    </data>
+</odoo>

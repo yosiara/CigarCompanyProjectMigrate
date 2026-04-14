@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <report
+                id="employee_register_report"
+                model="hr.job"
+                string="Company Job Position (A.14)"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.employee_register"
+                file="l10n_cu_hlg_hr_contract.employee_register"
+                attachment_use="True"
+
+        />
+
+        <template id="employee_register">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>ANEXO No. 14</h2>
+                        <p>De la plantilla de cargos y el registro de trabajadores</p>
+                        <p>Cargo del que propone: _______________________________________</p>
+                        <p>Nombre: ______________________________________________________</p>
+                        <p>Firma: _______________________________________________________</p>
+                        <p>Cargo del que aprueba: _______________________________________</p>
+                        <p>Nombre: ______________________________________________________</p>
+                        <p>Firma: _______________________________________________________</p>
+
+                        <t t-if="res_company.parent_id">
+                            <p>Organo
+                                <t t-esc="res_company.parent_id.reeup_code"/>
+                                <t t-esc="res_company.parent_id.name"/>
+                            </p>
+
+                        </t>
+                        <p>Unidad organizativa:
+                            <t t-esc="res_company.reeup_code"/>
+                            <t t-esc="res_company.name"/>
+                        </p>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Categoría ocupacional</th>
+                                    <th>Cantidad de puestos</th>
+                                    <th>Nivel de preparacion</th>
+                                    <th>Grupo salarial</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="obj_model_list" t-as="doc">
+                                    <tr style="font-weight: bold;">
+                                        <td>
+                                            <t t-esc="doc.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.occupational_category_id.name"/>
+                                        </td>
+                                        <td align="center">
+                                            <t t-esc="doc.expected_employees"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.school_level_id.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.salary_group_id.salary_scale_id.name"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </template>
+        <report
+                id="by_employee_register_report"
+                model="hr.job"
+                string="Job Positions by Employee (A.14B)"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.by_employee_register"
+                file="l10n_cu_hlg_hr_contract.by_employee_register"
+                attachment_use="True"
+
+        />
+        <template id="by_employee_register">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>ANEXO No. 14.B</h2>
+                        <p>De la plantilla de cargos y el registro de trabajadores</p>
+                        <p>A)Registro de Datos Principales</p>
+                        <t t-if="res_company.parent_id">
+                            <p>Organo
+                                <t t-esc="res_company.parent_id.reeup_code"/>
+                                <t t-esc="res_company.parent_id.name"/>
+                            </p>
+
+                        </t>
+                        <p>Unidad organizativa:
+                            <t t-esc="res_company.reeup_code"/>
+                            <t t-esc="res_company.name"/>
+                        </p>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Categoría ocupacional</th>
+                                    <th>Empleados</th>
+                                    <th>Sexo</th>
+                                    <th>Carné de Identidad</th>
+                                    <th>Nivel de Escolaridad</th>
+                                    <th>Salary Group</th>
+                                    <th>Salary</th>
+                                    <t t-foreach="retributions" t-as="retrib">
+                                        <th>
+                                            <t t-esc="retrib.name"/>
+                                        </th>
+                                    </t>
+                                    <th>Total Payment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="obj_model_list" t-as="doc">
+                                    <tr style="font-weight: bold;">
+                                        <td>
+                                            <t t-esc="doc.get('contract').job_id.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.get('contract').occupational_category_id.name"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.get('contract').employee_id.name_related"/>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.get('contract').employee_id.gender"/>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.get('contract').employee_id.identification_id"/>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.get('contract').employee_id.school_level_id.name"/>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.get('contract').salary_group_id.name"/>
+                                            <br/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="doc.get('contract').wage"/>
+                                            <br/>
+                                        </td>
+                                        <t t-foreach="doc.get('retribs')" t-as="retrib">
+                                            <td>
+                                                <t t-esc="retrib_value"/>
+                                            </td>
+
+                                        </t>
+                                        <td>
+                                            <t t-esc="doc.get('contract').total_payment"/>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="category_register_report"
+                model="hr.job"
+                string="Company Category-Job Position (A.14-A)"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.by_category_register"
+                file="Category-Job Position"
+                attachment_use="True"
+
+        />
+
+        <template id="by_category_register">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>ANEXO No. 14-A</h2>
+                        <p>De la plantilla de cargos y el registro de trabajadores</p>
+                        <p>Cargo del que propone: _______________________________________</p>
+                        <p>Nombre: ______________________________________________________</p>
+                        <p>Firma: _______________________________________________________</p>
+                        <p>Cargo del que aprueba: _______________________________________</p>
+                        <p>Nombre: ______________________________________________________</p>
+                        <p>Firma: _______________________________________________________</p>
+
+                        <t t-if="res_company.parent_id">
+                            <p>Organo
+                                <t t-esc="res_company.parent_id.reeup_code"/>
+                                <t t-esc="res_company.parent_id.name"/>
+                            </p>
+
+                        </t>
+                        <p>Unidad organizativa:
+                            <t t-esc="res_company.reeup_code"/>
+                            <t t-esc="res_company.name"/>
+                        </p>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+
+                                    <th>Departamento</th>
+                                    <t t-foreach="categories" t-as="cat">
+                                        <th>
+                                            <t t-esc="cat.name"/>
+
+                                        </th>
+                                    </t>
+                                    <th>Total</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="matrix" t-as="dep">
+                                    <tr style="font-weight: bold;">
+                                        <td>
+                                            <t t-esc="dep.get('name')"/>
+                                        </td>
+                                        <t t-foreach="dep.get('values')" t-as="val">
+                                            <td>
+                                                <t t-esc="val_value  or ''"/>
+                                            </td>
+                                        </t>
+                                        <td>
+                                            <t t-esc="dep.get('total')"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+
+        <report
+                id="approved_template_report"
+                model="hr.job"
+                string="Approved template"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.approved_template"
+                file="approved_template"
+                attachment_use="True"/>
+
+        <template id="approved_template">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>Plantilla Aprobada</h2>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Categoría Ocupacional</th>
+                                    <th class="text-right">Cantidad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="total" t-value="0"/>
+                                <t t-foreach="obj_list" t-as="item">
+                                    <tr style="font-weight: bold;">
+                                        <td>
+                                            <t t-esc="item.get('name')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('cantidad')"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="total" t-value="total + item.get('cantidad')"/>
+                                </t>
+                                <tr>
+                                    <td style="font-weight: bold;">Total</td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="total"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        Este consolidado resume la cantidad de plazas existentes en el
+                                        documento primario P2 por Categoría Ocupacional.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+
+        <report
+                id="vacancies_report"
+                model="hr.job"
+                string="Vacancies"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.vacancies"
+                file="vacancies"
+                attachment_use="True"/>
+
+        <template id="vacancies">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>Plazas vacantes</h2>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Puesto</th>
+                                    <th>Cat. Ocupacional</th>
+                                    <th class="text-right">Vacantes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="depart" t-value="''"/>
+                                <t t-set="subtotal" t-value="0"/>
+                                <t t-set="total" t-value="0"/>
+                                <t t-foreach="obj_list" t-as="item">
+                                    <t t-if="item.get('department') != depart">
+                                        <t t-if="subtotal != 0">
+                                            <tr>
+                                                <td colspan="3" style="font-weight: bold;">
+                                                    sub total:
+                                                </td>
+                                                <td colspan="3" style="font-weight: bold;" align="right">
+                                                    <t t-esc="subtotal"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+
+                                        <tr>
+                                            <td colspan="4" style="font-weight: bold;">
+                                                Departamento:
+                                                <t t-esc="item.get('department')"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="subtotal" t-value="0"/>
+                                    </t>
+                                    <tr>
+                                        <td>
+                                            <t t-esc="item.get('job')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('scale')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('category')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('cantidad')"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="depart" t-value="item.get('department')"/>
+                                    <t t-set="subtotal" t-value="subtotal + item.get('cantidad')"/>
+                                    <t t-set="total" t-value="total + item.get('cantidad')"/>
+                                </t>
+                                <t t-if="subtotal != 0">
+                                    <tr>
+                                        <td colspan="3" style="font-weight: bold;">
+                                            sub total:
+                                        </td>
+                                        <td colspan="3" style="font-weight: bold;" align="right">
+                                            <t t-esc="subtotal"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td colspan="3" style="font-weight: bold;">Total</td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="total"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="approved_cover_report"
+                model="hr.job"
+                string="Approved template and cover"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.approved_cover"
+                file="approved_cover"
+                attachment_use="True"/>
+
+        <template id="approved_cover">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>Plantilla Aprobada y Cubierta por Cargos</h2>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Puesto</th>
+                                    <th>Grupo Salarial</th>
+                                    <th>Cat. Ocupacional</th>
+                                    <th class="text-right">Aprobada</th>
+                                    <th class="text-right">Cubierta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="taprobada" t-value="0"/>
+                                <t t-set="tcubierta" t-value="0"/>
+                                <t t-foreach="obj_list" t-as="item">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="item.get('job')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('scale')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('category')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('approced')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('cover')"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="taprobada" t-value="taprobada + item.get('approced')"/>
+                                    <t t-set="tcubierta" t-value="tcubierta + item.get('cover')"/>
+                                </t>
+                                <tr>
+                                    <td colspan="3" style="font-weight: bold;">Total:</td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="taprobada"/>
+                                    </td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="tcubierta"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="current_situation_report"
+                model="hr.job"
+                string="Current situation of the workforce"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.current_situation"
+                file="current_situation"
+                attachment_use="True"/>
+
+        <template id="current_situation">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>Situación actual de la plantilla</h2>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Categoría</th>
+                                    <th class="text-right">Aprobada</th>
+                                    <th class="text-right">Cubierta</th>
+                                    <th class="text-right">%</th>
+                                    <th class="text-right">Vacantes</th>
+                                    <th class="text-right">Hombres</th>
+                                    <th class="text-right">Mujeres</th>
+                                    <th class="text-right">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="taprobada" t-value="0"/>
+                                <t t-set="tcubierta" t-value="0"/>
+                                <t t-set="tvacancie" t-value="0"/>
+                                <t t-set="tmale" t-value="0"/>
+                                <t t-set="tfemale" t-value="0"/>
+                                <t t-set="porciento" t-value="0"/>
+                                <t t-set="totalG" t-value="0"/>
+                                <t t-foreach="obj_list" t-as="item">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="item.get('category')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('approced')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('cover')"/>
+                                        </td>
+                                        <t t-set="porciento" t-value="item.get('cover')/item.get('approced')*100"/>
+                                        <td align="right">
+                                            <t t-esc="porciento"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('vacancie')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('male')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('female')"/>
+                                        </td>
+                                        <t t-set="total" t-value="item.get('male') + item.get('female')"/>
+                                        <td align="right">
+                                            <t t-esc="total"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="taprobada" t-value="taprobada + item.get('approced')"/>
+                                    <t t-set="tcubierta" t-value="tcubierta + item.get('cover')"/>
+                                    <t t-set="tvacancie" t-value="tvacancie + item.get('vacancie')"/>
+                                    <t t-set="tmale" t-value="tmale + item.get('male')"/>
+                                    <t t-set="tfemale" t-value="tfemale + item.get('female')"/>
+                                    <t t-set="totalG" t-value="tmale + tfemale"/>
+                                </t>
+                                <tr>
+                                    <td style="font-weight: bold;">Total:</td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="taprobada"/>
+                                    </td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="tcubierta"/>
+                                    </td>
+                                    <td></td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="tvacancie"/>
+                                    </td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="tmale"/>
+                                    </td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="tfemale"/>
+                                    </td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="totalG"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="vacancies_total_report"
+                model="hr.job"
+                string="Vacancies total"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.vacancies_total"
+                file="vacancies_total"
+                attachment_use="True"/>
+
+        <template id="vacancies_total">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>Plazas vacantes</h2>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Puesto</th>
+                                    <th>Grupo Salarial</th>
+                                    <th>Cat. Ocupacional</th>
+                                    <th class="text-right">Vacantes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="total" t-value="0"/>
+                                <t t-foreach="obj_list" t-as="item">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="item.get('job')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('scale')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('category')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('cantidad')"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="total" t-value="total + item.get('cantidad')"/>
+                                </t>
+
+                                <tr>
+                                    <td colspan="3" style="font-weight: bold;">Total</td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="total"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="covered_by_categories_report"
+                model="hr.job"
+                string="Template summary Covered by categories"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.covered_by_categories"
+                file="covered_by_categories"
+                attachment_use="True"/>
+
+        <template id="covered_by_categories">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>Resumen de plantilla Cubierta por categorías</h2>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Categoría</th>
+                                    <th class="text-right">Hombres</th>
+                                    <th class="text-right">Mujeres</th>
+                                    <th class="text-right">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="tcubierta" t-value="0"/>
+                                <t t-set="tmale" t-value="0"/>
+                                <t t-set="tfemale" t-value="0"/>
+                                <t t-foreach="obj_list" t-as="item">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="item.get('category')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('male')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('female')"/>
+                                        </td>
+                                        <td style="font-weight: bold;" align="right">
+                                            <t t-esc="item.get('cover')"/>
+                                        </td>
+
+                                    </tr>
+                                    <t t-set="tcubierta" t-value="tcubierta + item.get('cover')"/>
+                                    <t t-set="tmale" t-value="tmale + item.get('male')"/>
+                                    <t t-set="tfemale" t-value="tfemale + item.get('female')"/>
+                                </t>
+                                <tr>
+                                    <td style="font-weight: bold;">Total:</td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="tmale"/>
+                                    </td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="tfemale"/>
+                                    </td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="tcubierta"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="qualified_workforce_report"
+                model="hr.job"
+                string="Qualified workforce"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.qualified_workforce"
+                file="qualified_workforce"
+                attachment_use="True"/>
+
+        <template id="qualified_workforce">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>Fuerza de trabajo calificada</h2>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Categoría</th>
+                                    <th style="align-text">Aprobada</th>
+                                    <th class="text-right">Cubierta</th>
+
+                                    <t t-foreach="school_level_thead" t-as="col">
+                                       <th class="text-right"> <t t-esc="col.name"/> </th>
+                                    </t>
+
+                                    <th class="text-right">%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <t t-set="tcubierta" t-value="0"/>
+                                <t t-set="tapproced" t-value="0"/>
+                                <t t-set="total[0]" t-value="0"/>
+
+
+                                <t t-foreach="obj_list" t-as="item">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="item.get('category')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('approced')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('cover')"/>
+                                        </td>
+
+                                        <t t-foreach="school_level_col" t-as="col">
+                                            <td align="right" >
+                                               <t t-esc="item.get(col)"/>
+                                            </td>
+                                        </t>
+
+
+                                        <td align="right">
+                                            <t t-esc="get_cal_porciento( item.get('approced'), item.get('cover'))"/>
+                                        </td>
+
+                                    </tr>
+                                    <t t-set="tcubierta" t-value="tcubierta + item.get('cover')"/>
+                                    <t t-set="tapproced" t-value="tapproced + item.get('approced')"/>
+
+                                </t>
+                                <tr>
+                                    <td style="font-weight: bold;">Total:</td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="tapproced"/>
+                                    </td>
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="tcubierta"/>
+                                    </td>
+                                    <t t-set="i" t-value="1"/>
+                                    <t t-foreach="school_level_col" t-as="col">
+                                         <td style="font-weight: bold;" align="right">
+                                           <t t-esc="Totals[i]"/>
+                                         </td>
+                                         <t t-set="i" t-value="i+1"/>
+                                     </t>
+
+                                    <td style="font-weight: bold;" align="right">
+                                        <t t-esc="get_cal_porciento( tapproced, tcubierta)"/>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="genaral_information_report"
+                model="hr.employee"
+                string="General Information of an Employee"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_contract.genaral_information"
+                file="genaral_information"
+                attachment_use="True"/>
+
+        <template id="genaral_information">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page" t-foreach="docs" t-as="o">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td style="font-weight: bold;">No.</td>
+                                <td><span t-field="o.code"/></td>
+                                <td style="font-weight: bold;">CARNET</td>
+                                <td><span t-field="o.identification_id"/></td>
+                                <td style="font-weight: bold;">SOLAPIN</td>
+                                <td><span t-field="o.code"/></td>
+                                <td style="font-weight: bold;">CONTRATO</td>
+                                <td><t t-esc="get_contract_type(o.contract_id.contract_type)"/></td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="8" style="font-weight: bold;">FECHAS DE ALTA (ESCRIBIR *** DIA / MES / ANO *** )</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">FECHA ALTA EN EMPRESA</td>
+                                <td><span t-field="o.date_of_admission"/></td>
+                                <td style="font-weight: bold;">FECHA ALTA ORGANISMO</td>
+                                <td><span t-field="o.date_organism"/></td>
+                                <td style="font-weight: bold;">FECHA ALTA CARGO</td>
+                                <td><span t-field="o.contract_id.date_start"/></td>
+                                <td style="font-weight: bold;">FECHA ALTA INICIO ACTIV.</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="font-weight: bold;">NOMBRES Y APELLIDOS</td>
+                                <td colspan="6"><span t-field="o.name_related"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" style="font-weight: bold;">RAZA</td>
+                                <td><span t-field="o.race"/></td>
+                                <td style="font-weight: bold;">ESTADO CIVIL</td>
+                                <td><span t-field="o.marital"/></td>
+                                <td style="font-weight: bold;">NUMERO DE HIJOS</td>
+                                <td><span t-field="o.children"/></td>
+                                <td style="font-weight: bold;">TELEFONO</td>
+                                <td><span t-field="o.mobile_phone"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" style="font-weight: bold;">DIRECCION</td>
+                                <td colspan="7">
+                                    <span t-field="o.address_home_id"
+                                          t-field-options='{"widget": "contact", "fields": ["address", "phone", "fax"], "no_marker": true}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="font-weight: bold;">PROVINCIA</td>
+                                <td><span t-field="o.address_home_id.state_id"/></td>
+                                <td colspan="2" style="font-weight: bold;">MUNICIPIO</td>
+                                <td><span t-field="o.address_home_id.municipality_id"/></td>
+                                <td style="font-weight: bold;">NACIDO EN</td>
+                                <td><span t-field="o.place_of_birth"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="font-weight: bold;">COMENZO A TRABAJAR POR PRIMERA VEZ EL DIA</td>
+                                <td colspan="4"><span t-field="o.init_work_date"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="font-weight: bold;">NOMBRE DE LA MADRE</td>
+                                <td colspan="2"><span t-field="o.mother"/></td>
+                                <td colspan="2" style="font-weight: bold;">NOMBRE DEL PADRE</td>
+                                <td colspan="2"><span t-field="o.father"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" style="font-weight: bold;">MILITANTE</td>
+                                <td colspan="1"><span t-field="o.political_affiliation"/></td>
+                                <td colspan="2" style="font-weight: bold;">MOTIVO DEL ALTA</td>
+                                <td colspan="5"></td>
+                            </tr>
+                        </table>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td colspan="1" style="font-weight: bold;">AREA PRINCIPAL</td>
+                                <td colspan="2"><span t-field="o.department_id.parent_id"/></td>
+                                <td colspan="1" style="font-weight: bold;">SUBORDINADA A</td>
+                                <td colspan="2"><span t-field="o.department_id"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="1" style="font-weight: bold;">CATEGORIA</td>
+                                <td colspan="2"><span t-field="o.job_id.occupational_category_id"/></td>
+                                <td colspan="1" style="font-weight: bold;">CARGO</td>
+                                <td colspan="2"><span t-field="o.job_id"/></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">SALARIO
+                                    <br/>
+                                    TOTAL
+                                </td>
+                                <td><span t-field="o.contract_id.total_payment"/></td>
+                                <td style="font-weight: bold;">ESCALA</td>
+                                <td><span t-field="o.job_id.position_id.salary"/></td>
+                                <td colspan="2">
+                                    <t t-foreach="o.contract_id.retributions_deductions_ids" t-as="d">
+                                        <b><span t-field="d.code"/>:</b> <span t-field="d.amount"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">NIVEL ESCOLAR</td>
+                                <td><span t-field="o.school_level_id.name"/></td>
+                                <td style="font-weight: bold;">GRADUADO DE</td>
+                                <td><t t-esc="get_academic_title(o.id)['title']"/></td>
+                                <td style="font-weight: bold;">AÑO DE GRAD.</td>
+                                <td><t t-esc="get_academic_title(o.id)['anho']"/></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">OFICIO(S)</td>
+                                <td colspan="5">
+                                    <t t-foreach="o.profession_ids" t-as="d">
+                                        <span t-field="d.profession_id"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">IDIOMA</td>
+                                <td colspan="5"></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">REGISTRO MILITAR</td>
+                                <td colspan="5"><span t-field="o.defence_location_id"/></td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+    </data>
+</openerp>

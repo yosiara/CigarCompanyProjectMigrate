@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_turei_set_employee_turn_wzd_form_view" model="ir.ui.view">
+            <field name="name">hr.turei.set.employee.turn.wzd.form</field>
+            <field name="model">hr_turei.set_employee_turn_wzd</field>
+            <field name="arch" type="xml">
+                <form string="Wizard to set turn to employees">
+                    <sheet>
+                        <group>
+                            <field name="employee_ids"/>
+                            <field name="calendar_id"/>
+                        </group>
+                        <footer>
+                            <div>
+                                <button name="execute" icon="fa-file-excel-o" string="Execute" type="object"
+                                        class="oe_highlight"/>
+                                o
+                                <button special="cancel" string="Cancel" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_turei_set_employee_turn_wzd_action" model="ir.actions.act_window">
+            <field name="name">Wizard to set turn to employees</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.set_employee_turn_wzd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="hr_turei_set_employee_turn_wzd_action"
+                  id="hr_turei_set_employee_turn_wzd_menu_item"
+                  parent="hr.menu_human_resources_configuration" sequence="100" groups="base.group_no_one"/>
+    </data>
+</odoo>

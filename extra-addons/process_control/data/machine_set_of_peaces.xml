@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="machine_set_of_peaces_1" model="process_control.machine_set_of_peaces">
+            <field name="name">Alimentación de hebra</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_2" model="process_control.machine_set_of_peaces">
+            <field name="name">Molinete y ventarola</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_3" model="process_control.machine_set_of_peaces">
+            <field name="name">Cloche mecánico</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_4" model="process_control.machine_set_of_peaces">
+            <field name="name">Cloche electromagnético</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_5" model="process_control.machine_set_of_peaces">
+            <field name="name">Variador de velocidad</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_6" model="process_control.machine_set_of_peaces">
+            <field name="name">Caja de 90º</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+        ]"/>
+        </record>
+        <record id="machine_set_of_peaces_7" model="process_control.machine_set_of_peaces">
+            <field name="name">Calentador</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+        ]"/>
+        </record>
+        <record id="machine_set_of_peaces_8" model="process_control.machine_set_of_peaces">
+            <field name="name">Espaciador espiral</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_9" model="process_control.machine_set_of_peaces">
+            <field name="name">Tambor captador</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_10" model="process_control.machine_set_of_peaces">
+            <field name="name">Retorno de la hebra</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_11" model="process_control.machine_set_of_peaces">
+            <field name="name">Ventilador-carcaza-tuberías</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_12" model="process_control.machine_set_of_peaces">
+            <field name="name">Cámara de succión</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_13" model="process_control.machine_set_of_peaces">
+            <field name="name">Cámara de formación</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_14" model="process_control.machine_set_of_peaces">
+            <field name="name">Tambores de cardas</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_15" model="process_control.machine_set_of_peaces">
+            <field name="name">Imprenta</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_16" model="process_control.machine_set_of_peaces">
+            <field name="name">Alimentación de papel</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+                (4,ref('machine_type_7')),
+                (4,ref('machine_type_9')),
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_17" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de lubricación</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_11')),
+                (4,ref('machine_type_12')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_18" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de corte</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_1')),
+                (4,ref('machine_type_6')),
+                (4,ref('machine_type_7')),
+                (4,ref('machine_type_9')),
+                (4,ref('machine_type_12')),
+                (4,ref('machine_type_13')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_19" model="process_control.machine_set_of_peaces">
+            <field name="name">Alimentación de cigarrillos</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_20" model="process_control.machine_set_of_peaces">
+            <field name="name">Detectores, Tambor de bolsas</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_21" model="process_control.machine_set_of_peaces">
+            <field name="name">Pistones de transferencia</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_22" model="process_control.machine_set_of_peaces">
+            <field name="name">Tambor de cajetines</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_23" model="process_control.machine_set_of_peaces">
+            <field name="name">Dobladores laterales</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_7')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_24" model="process_control.machine_set_of_peaces">
+            <field name="name">Dobladores de fondo</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_25" model="process_control.machine_set_of_peaces">
+            <field name="name">Carro compresor</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_26" model="process_control.machine_set_of_peaces">
+            <field name="name">Carro contra compresor</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_27" model="process_control.machine_set_of_peaces">
+            <field name="name">Botella</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_28" model="process_control.machine_set_of_peaces">
+            <field name="name">Rechazador de cajetillas</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_29" model="process_control.machine_set_of_peaces">
+            <field name="name">Dobladores de cabeza</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_30" model="process_control.machine_set_of_peaces">
+            <field name="name">Canal de 26</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_31" model="process_control.machine_set_of_peaces">
+            <field name="name">Transferidor</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_32" model="process_control.machine_set_of_peaces">
+            <field name="name">Sellero</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_33" model="process_control.machine_set_of_peaces">
+            <field name="name">Bomba de succión</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_34" model="process_control.machine_set_of_peaces">
+            <field name="name">Canal de salida</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_6')),
+                (4,ref('machine_type_11')),
+                (4,ref('machine_type_12')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_35" model="process_control.machine_set_of_peaces">
+            <field name="name">Caja 20</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_36" model="process_control.machine_set_of_peaces">
+            <field name="name">Cinematismo principal</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_6')),
+                (4,ref('machine_type_11')),
+                (4,ref('machine_type_12')),
+                (4,ref('machine_type_13')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_37" model="process_control.machine_set_of_peaces">
+            <field name="name">Panel neumático</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_38" model="process_control.machine_set_of_peaces">
+            <field name="name">Marquillero</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_40" model="process_control.machine_set_of_peaces">
+            <field name="name">Freno</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_4')),
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_58" model="process_control.machine_set_of_peaces">
+            <field name="name">Alimentación de cajetillas</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_6')),
+                (4,ref('machine_type_7')),
+                (4,ref('machine_type_12')),
+                (4,ref('machine_type_13')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_59" model="process_control.machine_set_of_peaces">
+            <field name="name">Alimentación del celofán</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_6')),
+                (4,ref('machine_type_12')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_60" model="process_control.machine_set_of_peaces">
+            <field name="name">Alimentación de fitilo</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_6')),
+                (4,ref('machine_type_12')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_62" model="process_control.machine_set_of_peaces">
+            <field name="name">Rueda estrella</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_6')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_64" model="process_control.machine_set_of_peaces">
+            <field name="name">Dobladores de cabeza y fondo</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_6')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_69" model="process_control.machine_set_of_peaces">
+            <field name="name">Guía móvil del papel</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_7')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_71" model="process_control.machine_set_of_peaces">
+            <field name="name">Dobladores superior e inferior</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_7')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_72" model="process_control.machine_set_of_peaces">
+            <field name="name">Dobladores fijos</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_7')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_73" model="process_control.machine_set_of_peaces">
+            <field name="name">Empujador de cajetillas</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_7')),
+                (4,ref('machine_type_13')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_74" model="process_control.machine_set_of_peaces">
+            <field name="name">Aplicadores de hotmel</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_7')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_75" model="process_control.machine_set_of_peaces">
+            <field name="name">Dobladores de las puntas</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_7')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_76" model="process_control.machine_set_of_peaces">
+            <field name="name">Aplicadores de cola, Sistema electroneumático</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_7')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_78" model="process_control.machine_set_of_peaces">
+            <field name="name">Detectores</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_79" model="process_control.machine_set_of_peaces">
+            <field name="name">Tambor de bolsas</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_82" model="process_control.machine_set_of_peaces">
+            <field name="name">Plegadores laterales</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_83" model="process_control.machine_set_of_peaces">
+            <field name="name">Plegadores de fondo</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_85" model="process_control.machine_set_of_peaces">
+            <field name="name">Plegadores de cabeza</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_86" model="process_control.machine_set_of_peaces">
+            <field name="name">Tambor de secado</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_92" model="process_control.machine_set_of_peaces">
+            <field name="name">Vigilancia de puntas flojas</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_93" model="process_control.machine_set_of_peaces">
+            <field name="name">Servo accionamiento expulsor</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_95" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de alimentación de pegamento</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+                (4,ref('machine_type_11')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_96" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de vacío</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+                (4,ref('machine_type_11')),
+                (4,ref('machine_type_12')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_98" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema neumático</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+                (4,ref('machine_type_11')),
+                (4,ref('machine_type_12')),
+                (4,ref('machine_type_13')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_99" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema electrónico</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+                (4,ref('machine_type_11')),
+                (4,ref('machine_type_13')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_100" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de elevación de cigarrillos</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_10')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_101" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de acumulación de cigarrillos</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_10')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_103" model="process_control.machine_set_of_peaces">
+            <field name="name">Alimentación de celofán</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_13')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_105" model="process_control.machine_set_of_peaces">
+            <field name="name">Plegador lateral</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_12')),
+                (4,ref('machine_type_13')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_106" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de Sellado</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_13')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_108" model="process_control.machine_set_of_peaces">
+            <field name="name">Plegadores de las puntas</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_13')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_113" model="process_control.machine_set_of_peaces">
+            <field name="name">Primer elevador</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_12')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_118" model="process_control.machine_set_of_peaces">
+            <field name="name">Plegadores de cabeza y fondo</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_12')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_119" model="process_control.machine_set_of_peaces">
+            <field name="name">Segundo elevador</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_12')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_125" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema eléctrónico</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_12')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_126" model="process_control.machine_set_of_peaces">
+            <field name="name">Esclusa</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_127" model="process_control.machine_set_of_peaces">
+            <field name="name">Prealimentador</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_128" model="process_control.machine_set_of_peaces">
+            <field name="name">Cinta de fondo</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_129" model="process_control.machine_set_of_peaces">
+            <field name="name">Cilindro de elevación</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_130" model="process_control.machine_set_of_peaces">
+            <field name="name">Cilindro de púas</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_131" model="process_control.machine_set_of_peaces">
+            <field name="name">Peinador de carda cilindro de elevación</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_132" model="process_control.machine_set_of_peaces">
+            <field name="name">Descenso vibrador</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_133" model="process_control.machine_set_of_peaces">
+            <field name="name">Cinta rápida</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_134" model="process_control.machine_set_of_peaces">
+            <field name="name">Retorno del esquilador</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_136" model="process_control.machine_set_of_peaces">
+            <field name="name">Rodillo liso</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_137" model="process_control.machine_set_of_peaces">
+            <field name="name">Discos escretores</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_139" model="process_control.machine_set_of_peaces">
+            <field name="name">Plancha</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_143" model="process_control.machine_set_of_peaces">
+            <field name="name">Spider</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_144" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de transmisión de cigarros por tambores</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_145" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de corte central</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_146" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de Inspección</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_147" model="process_control.machine_set_of_peaces">
+            <field name="name">Salida de cigarrillos</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_151" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de alimentación de tinta</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+        <record id="machine_set_of_peaces_152" model="process_control.machine_set_of_peaces">
+            <field name="name">Sistema de enfriamiento</field>
+            <field name="machine_type_ids" eval="[
+                (4,ref('machine_type_9')),
+            ]"/>
+        </record>
+    </data>
+</odoo>

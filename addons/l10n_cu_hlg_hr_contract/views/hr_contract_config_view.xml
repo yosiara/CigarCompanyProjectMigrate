@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+    <!-- Supplement Motive -->
+
+        <record id="view_hr_contract_supplement_motive_form" model="ir.ui.view">
+            <field name="name">Supplement Motive</field>
+            <field name="model">hr_contract.supplement_motive</field>
+            <field name="arch" type="xml">
+                <form string="Supplement Motive">
+                   <sheet>
+                       <group colspan="4" col="4">
+                           <field name="name" colspan="2"/>
+                           <field name="agreement_parts_id" colspan="2"/>
+                           <field name="type"/>
+                       </group>
+                       <group string="Description"><field name="desc" colspan="4" nolabel="1"/></group>
+                   </sheet>
+               </form>
+          </field>
+        </record>
+
+        <record id="view_hr_contract_supplement_motive_tree" model="ir.ui.view">
+			<field name="name">Supplement Motive</field>
+			<field name="model">hr_contract.supplement_motive</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Motive" >
+					<field name="name" />
+					<field name="desc" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_hr_contract_supplement_motive_search" model="ir.ui.view">
+			<field name="name">Supplement Motive</field>
+			<field name="model">hr_contract.supplement_motive</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Motive search">
+					<group>
+						<field name="name" />
+                        <field name="desc" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="action_hr_contract_supplement_motive" model="ir.actions.act_window">
+			<field name="name">Motives</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr_contract.supplement_motive</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="view_hr_contract_supplement_motive_tree" />
+			<field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new Motive.
+              </p><p>
+                With just a quick glance, you can easily find all the information
+              	you need for each Motive.
+              </p>
+            </field>
+		</record>
+
+      <!-- Payment Methods -->
+
+        <record id="contract_payment_method_view_tree" model="ir.ui.view">
+            <field name="name">Payment Methods</field>
+            <field name="model">hr_contract.payment_method</field>
+            <field name="arch" type="xml">
+                <tree string="Payment Methods">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="parent_id" string="Parent Payment Method"/>
+                    <field name="background_average"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="contract_payment_method_view_form" model="ir.ui.view">
+            <field name="name">Payment Methods</field>
+            <field name="model">hr_contract.payment_method</field>
+            <field name="arch" type="xml">
+                <form string="Payment Methods">
+                   <sheet>
+                       <group colspan="4" col="4">
+                           <field name="code" required="1" colspan="2"/>
+                           <field name="name" required="1" colspan="2"/>
+                           <field name="parent_id" string="Parent Payment Method" domain="[('parent_id','=',False)]"/>
+                           <field name="background_average"/>
+                           <field name="clasification" string="Clasification" attrs="{'invisible':[('parent_id','!=',False)],'required':[('parent_id','=',False)]}"/>
+                       </group>
+                       <group string="Description"><field name="description" colspan="4" nolabel="1"/></group>
+                   </sheet>
+               </form>
+          </field>
+        </record>
+        
+		<record id="contract_payment_method_view_action" model="ir.actions.act_window">
+			<field name="name">Payment Methods</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr_contract.payment_method</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="contract_payment_method_view_tree" />
+			<field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new Payment Methods.
+              </p><p>
+                With just a quick glance, you can easily find all the information
+              	you need for each Payment Methods.
+              </p>
+            </field>
+		</record>
+
+    </data>
+</odoo>

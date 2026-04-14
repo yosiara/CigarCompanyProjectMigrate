@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="rechazo_amf_form" model="ir.ui.view">
+            <field name="name">rechazo_amf.form</field>
+            <field name="model">process_control.rechazo_amf</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <!--***************** DOMAINS ********************* -->
+                        <field name="rechazo_id" invisible="1"/>
+                        <field name="machine_domain" invisible="1"/>
+                        <field name="line_domain" invisible="1"/>
+                        <!--***************** FIELDS ********************* -->
+                        <group>
+                            <group>
+                                <!-- <field name="turn_attendance_id" domain="[('session', '=', parent.session), ('turn_id', '=', parent.turn_id)]"/> -->
+                                <field name="productive_line_id" domain="line_domain"/>
+                                <field name="machine_id" domain="machine_domain"/>
+                            </group>
+                            <group>
+                                <field name="prod_en_cajones"/>
+                                <field name="rechazo_en_cajetillas"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="rechazo_amf_tree" model="ir.ui.view">
+            <field name="name">rechazo_amf.tree</field>
+            <field name="model">process_control.rechazo_amf</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!--***************** DOMAINS ********************* -->
+                    <field name="machine_domain" column_invisible="1"/>
+                    <field name="line_domain" column_invisible="1"/>
+                    <!--***************** FIELDS ********************* -->
+                    <!-- <field name="turn_attendance_id"/> -->
+                    <field name="productive_line_id" domain="line_domain"/>
+                    <field name="machine_id" domain="machine_domain"/>
+                    <field name="prod_en_cajones"/>
+                    <field name="rechazo_en_cajetillas"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="rechazo_amf_action" model="ir.actions.act_window">
+            <field name="name">Rechazo AMF</field>
+            <field name="res_model">process_control.rechazo_amf</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="binding_model_id" ref="model_process_control_rechazo"/> -->
+        </record>
+    </data>
+</odoo>

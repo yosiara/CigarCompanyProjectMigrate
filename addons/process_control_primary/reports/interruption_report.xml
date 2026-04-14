@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.process_control_primary_interruption_to_excel"
+                model="wzd.interruption.to.excel"
+                string="Rep. de Interrupciones"
+                report_type="xlsx"
+                name="process_control_primary.interruption_report"
+                file="process_control_primary.interruption_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

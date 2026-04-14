@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <act_window id="control_proc_machine_type_action"
+                    name="Tipo de máquinas"
+                    res_model="process_control_primary.machine_type"
+                    view_mode="tree,form"/>
+
+        <menuitem id="control_proc_machine_type_menu"
+                  name="Tipo de máquinas"
+                  parent="process_control_primary_settings_menu"
+                  action="control_proc_machine_type_action" sequence="34"/>
+
+        <record id="control_proc_machine_type_view_form" model="ir.ui.view">
+            <field name="name">control_proc_machine_type_view_form</field>
+            <field name="model">process_control_primary.machine_type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="group_top">
+                            <field name="name"/>
+                            <field name="equipo"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="control_proc_machine_type_view_tree" model="ir.ui.view">
+            <field name="name">control_proc_machine_type_view_tree</field>
+            <field name="model">process_control_primary.machine_type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="equipo"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

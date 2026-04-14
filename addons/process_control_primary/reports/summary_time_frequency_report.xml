@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.process_control_primary_summary_time_frequency_to_excel"
+                model="wzd.summary.time.frequency.to.excel"
+                string="Rep. Resumen de Tiempo y Frecuencia"
+                report_type="xlsx"
+                name="process_control_primary.summary_time_frequency_report"
+                file="process_control_primary.summary_time_frequency_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

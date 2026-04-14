@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="enterprise_mgm_sys_registry_r1_wzd_form_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys.registry_r1.wzd.form</field>
+            <field name="model">enterprise_mgm_sys.registry_r1_wzd</field>
+            <field name="arch" type="xml">
+                <form string="Registry R1">
+                    <sheet>
+                        <group col="4">
+                            <field name="all_company"/>
+                            <field name="area_id" attrs="{'invisible': [('all_company', '!=', False)], 'required': [('all_company', '=', False)]}"/>
+                            <field name="start"/>
+                            <field name="end"/>
+                            <field name="realization_date"/>
+                        </group>
+                        <footer>
+                            <div>
+                                <button name="export_to_xls" icon="fa-file-excel-o" string="Print" type="object"
+                                        class="oe_highlight"/>
+                                o
+                                <button special="cancel" string="Cancel" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_registry_r1_wzd_action" model="ir.actions.act_window">
+            <field name="name">Resume Registry R1</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.registry_r1_wzd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="enterprise_mgm_sys_registry_r1_wzd_action"
+                  id="enterprise_mgm_sys_registry_r1_wzd_menu" parent="enterprise_mgm_sys_summaries_menu" sequence="3"/>
+    </data>
+</odoo>

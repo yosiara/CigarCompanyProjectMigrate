@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		WAREHOUSE REQUEST
+		Model: warehouse.warehouse_request
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="warehouse_warehouse_request_form_view" model="ir.ui.view">
+            <field name="name">warehouse_warehouse_request_form_view</field>
+            <field name="model">warehouse.warehouse_request</field>
+            <field name="arch" type="xml">
+            	<form>
+            		<sheet>
+                        <group name="first_information">
+                            <group>
+                                <field name="code"/>
+                                <field name="warehouse_id"/>
+                            </group>
+
+                            <group>
+                                <field name="date"/>
+                            </group>
+                        </group>
+
+		           		<notebook>
+                            <page string="Requested products...">
+                                <br/>
+                                <field name="requested_product_ids" context="{'warehouse_id': warehouse_id}">
+                                    <tree editable="bottom">
+                                        <field name="warehouse_id" invisible="1"/>
+                                        <field name="product_id"
+                                               options="{'no_create': True}"
+                                               context="{'only_products_from_warehouse': True, 'warehouse_id': warehouse_id}"/>
+                                        <field name="quantity"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="Notes...">
+                                <br/>
+                                <field name="note"/>
+                            </page>
+                        </notebook>
+
+                        <group>
+                            <field name="employee"/>
+                            <field name="applicant_id" attrs="{'invisible': [('employee', '=', False)], 'required': [('employee', '=', True)]}"/>
+                            <field name="driver_id" attrs="{'invisible': [('employee', '=', True)], 'required': [('employee', '=', False)]}"/>
+                            <field name="authorize_id"/>
+                            <field name="receive_id"/>
+                        </group>
+	           		</sheet>
+	            </form>
+	        </field>
+	    </record>
+
+		<!-- TREE VIEW -->
+        <record id="warehouse_warehouse_request_tree_view" model="ir.ui.view">
+            <field name="name">warehouse_warehouse_request_tree_view</field>
+            <field name="model">warehouse.warehouse_request</field>
+            <field name="arch" type="xml">
+            	<tree>
+                    <field name="date"/>
+                    <field name="code"/>
+                    <field name="warehouse_id"/>
+
+                    <field name="applicant_id" invisible="1"/>
+                    <field name="driver_id" invisible="1"/>
+                    <field name="authorize_id" invisible="1"/>
+                    <field name="receive_id" invisible="1"/>
+	            </tree>
+	        </field>
+	    </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="warehouse_warehouse_request_search_view" model="ir.ui.view">
+            <field name="name">warehouse_warehouse_request_search_view</field>
+            <field name="model">warehouse.warehouse_request</field>
+            <field name="arch" type="xml">
+            	<search>
+                    <field name="code"/>
+                    <field name="warehouse_id"/>
+                    <field name="requested_product_ids" string="Product (Code or Name)"/>
+                    <separator/>
+
+                    <filter string="Today" name="today"
+                            domain="[('date', '&gt;=', datetime.datetime.now().replace(hour=0, minute=0, second=0)),
+                                     ('date', '&lt;=', datetime.datetime.now().replace(hour=23, minute=59, second=59))]"/>
+
+                    <filter string="Current Month"
+                            domain="[('date', '&gt;=', datetime.datetime.now().strftime('%Y-%m-01'))]"/>
+
+                    <filter string="Current Year"
+                            domain="[('date', '&gt;=', datetime.datetime.now().strftime('%Y-01-01')),
+                                     ('date', '&lt;=', datetime.datetime.now().strftime('%Y-12-31'))]"/>
+
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_date" string="Date" context="{'group_by': 'date'}"/>
+                        <filter name="group_by_warehouse" string="Warehouse" context="{'group_by': 'warehouse_id'}"/>
+                        <separator/>
+
+                        <filter name="group_by_authorize" string="Authorize" context="{'group_by': 'authorize_id'}"/>
+                        <filter name="group_by_receive" string="Receive" context="{'group_by': 'receive_id'}"/>
+                        <separator/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+		<!-- ACTION -->
+        <record id="warehouse_warehouse_request_action" model="ir.actions.act_window">
+	    	<field name="name">Requests</field>
+		    <field name="res_model">warehouse.warehouse_request</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Requests"
+				  id="warehouse_warehouse_request_left_menu"
+				  parent="warehouse_warehouse_root_menu"/>
+
+        <menuitem name="Product Requests"
+				  id="warehouse_warehouse_request_menu_item"
+				  action="warehouse_warehouse_request_action"
+				  parent="warehouse_warehouse_request_left_menu"/>
+
+        <!-- ======================================================================================
+		WAREHOUSE PRODUCT ORDER
+		Model: warehouse.product_order
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="warehouse_product_order_form_view" model="ir.ui.view">
+            <field name="name">warehouse_product_order_form_view</field>
+            <field name="model">warehouse.product_order</field>
+            <field name="arch" type="xml">
+            	<form>
+                    <sheet>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="quantity" col="2"/>
+                        </group>
+                    </sheet>
+	            </form>
+	        </field>
+	    </record>
+
+        <!-- TREE VIEW -->
+        <record id="warehouse_product_order_tree_view" model="ir.ui.view">
+            <field name="name">warehouse_product_order_tree_view</field>
+            <field name="model">warehouse.product_order</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		<field name="product_id"/>
+                    <field name="quantity"/>
+	            </tree>
+	        </field>
+	    </record>
+    </data>
+</odoo>

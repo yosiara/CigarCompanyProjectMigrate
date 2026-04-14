@@ -1,0 +1,1192 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+        <!--Unidades de medida-->
+        <record id="cmi_turei_uom_1" model="cmi.uom">
+            <field name="name">Porcientos</field>
+            <field name="abbreviated_name">%</field>
+        </record>
+        <record id="cmi_turei_uom_2" model="cmi.uom">
+            <field name="name">Cantidad de días naturales</field>
+            <field name="abbreviated_name">Días</field>
+        </record>
+        <record id="cmi_turei_uom_3" model="cmi.uom">
+            <field name="name">Hectómetros cúbicos</field>
+            <field name="abbreviated_name">Hm&lt;sup&gt;3&lt;/sup&gt;</field>
+        </record>
+        <record id="cmi_turei_uom_4" model="cmi.uom">
+            <field name="name">Kilogramos</field>
+            <field name="abbreviated_name">Kg</field>
+        </record>
+        <record id="cmi_turei_uom_5" model="cmi.uom">
+            <field name="name">Kilómetros cuadrados</field>
+            <field name="abbreviated_name">Km&lt;sup&gt;2&lt;/sup&gt;</field>
+        </record>
+        <record id="cmi_turei_uom_6" model="cmi.uom">
+            <field name="name">Kilowats</field>
+            <field name="abbreviated_name">Kw</field>
+        </record>
+        <record id="cmi_turei_uom_7" model="cmi.uom">
+            <field name="name">Litros</field>
+            <field name="abbreviated_name">L</field>
+        </record>
+        <record id="cmi_turei_uom_8" model="cmi.uom">
+            <field name="name">Miles de litros</field>
+            <field name="abbreviated_name">ML</field>
+        </record>
+        <record id="cmi_turei_uom_9" model="cmi.uom">
+            <field name="name">Miles de millones</field>
+            <field name="abbreviated_name">MM</field>
+        </record>
+        <record id="cmi_turei_uom_10" model="cmi.uom">
+            <field name="name">Millones de miles de pesos</field>
+            <field name="abbreviated_name">MMP</field>
+        </record>
+        <record id="cmi_turei_uom_11" model="cmi.uom">
+            <field name="name">Miles de Pesos</field>
+            <field name="abbreviated_name">MP</field>
+        </record>
+        <record id="cmi_turei_uom_12" model="cmi.uom">
+            <field name="name">Cantidad de meses naturales</field>
+            <field name="abbreviated_name">Meses</field>
+        </record>
+        <record id="cmi_turei_uom_13" model="cmi.uom">
+            <field name="name">Megawatts</field>
+            <field name="abbreviated_name">Mw</field>
+        </record>
+        <record id="cmi_turei_uom_14" model="cmi.uom">
+            <field name="name">Pesos</field>
+            <field name="abbreviated_name">$</field>
+        </record>
+        <record id="cmi_turei_uom_15" model="cmi.uom">
+            <field name="name">Razón o división entre dos valores</field>
+            <field name="abbreviated_name">R</field>
+        </record>
+        <record id="cmi_turei_uom_16" model="cmi.uom">
+            <field name="name">Indicados diesel tráfico</field>
+            <field name="abbreviated_name">T/mmt.km</field>
+        </record>
+        <record id="cmi_turei_uom_17" model="cmi.uom">
+            <field name="name">Toneladas Cúbica</field>
+            <field name="abbreviated_name">T&lt;sup&gt;3&lt;/sup&gt;</field>
+        </record>
+        <record id="cmi_turei_uom_18" model="cmi.uom">
+            <field name="name">Toneladas de combustible convencional por millones de pesos</field>
+            <field name="abbreviated_name">TCC/MMP</field>
+        </record>
+        <record id="cmi_turei_uom_19" model="cmi.uom">
+            <field name="name">Toneladas</field>
+            <field name="abbreviated_name">Ton</field>
+        </record>
+        <record id="cmi_turei_uom_20" model="cmi.uom">
+            <field name="name">Unidades</field>
+            <field name="abbreviated_name">U</field>
+        </record>
+        <record id="cmi_turei_uom_21" model="cmi.uom">
+            <field name="name">Metros cuadrados</field>
+            <field name="abbreviated_name">m&lt;sup&gt;2&lt;/sup&gt;</field>
+        </record>
+        <record id="cmi_turei_uom_22" model="cmi.uom">
+            <field name="name">Metros cúbicos</field>
+            <field name="abbreviated_name">m&lt;sup&gt;3&lt;/sup&gt;</field>
+        </record>
+        <record id="cmi_turei_uom_23" model="cmi.uom">
+            <field name="name">Índice</field>
+            <field name="abbreviated_name">I</field>
+        </record>
+        <record id="cmi_turei_uom_24" model="cmi.uom">
+            <field name="name">Millones de miles de unidades</field>
+            <field name="abbreviated_name">MMU</field>
+        </record>
+
+
+        <!--Perpectivas-->
+        <record id="cmi_turei_perspective_1" model="cmi.perspective">
+            <field name="name">Financiero</field>
+            <field name="priority">1</field>
+        </record>
+        <record id="cmi_turei_perspective_2" model="cmi.perspective">
+            <field name="name">Cliente</field>
+            <field name="priority">2</field>
+        </record>
+        <record id="cmi_turei_perspective_3" model="cmi.perspective">
+            <field name="name">Procesos Internos del Negocio</field>
+            <field name="priority">3</field>
+        </record>
+        <record id="cmi_turei_perspective_4" model="cmi.perspective">
+            <field name="name">Aprendizaje y Crecimiento</field>
+            <field name="priority">4</field>
+        </record>
+
+        <!--Fuentes de datos-->
+        <record id="cmi_turei_source_1" model="cmi.source">
+            <field name="name">Lotes no conforme</field>
+            <field name="model" ref="model_cmi_turei_source_lotes_no_conforme"/>
+            <field name="type">mixed_real</field>
+        </record>
+        <record id="cmi_turei_source_2" model="cmi.source">
+            <field name="name">Programa para Minimizar las emisiones de gases y partículas polvo a la atmósfera</field>
+            <field name="model" ref="model_cmi_turei_source_desempeno_atmosfera"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_3" model="cmi.source">
+            <field name="name">Cumplimiento del programa para el manejo de residuos solidos y liquidos</field>
+            <field name="model" ref="model_cmi_turei_source_desempeno_residuos"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_4" model="cmi.source">
+            <field name="name">Cumplimiento del programa de educación ambiental</field>
+            <field name="model" ref="model_cmi_turei_source_educacion_ambiental"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_5" model="cmi.source">
+            <field name="name">Cumplimiento del programa para usar eficientemente los portadores energeticos, las
+                materias primas, materiales e insumos
+            </field>
+            <field name="model" ref="model_cmi_turei_source_portadores_energeticos"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_6" model="cmi.source">
+            <field name="name">Cumplimiento de los requisitos legales aplicables a la empresa</field>
+            <field name="model" ref="model_cmi_turei_source_requisitos_legales"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_7" model="cmi.source">
+            <field name="name">Ventas Cigarrillos</field>
+            <field name="model" ref="model_cmi_turei_source_ventas_cigarrillos"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_8" model="cmi.source">
+            <field name="name">Ventas Tabaco Reconstituido</field>
+            <field name="model" ref="model_cmi_turei_source_ventas_tabaco_reconstituido"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_9" model="cmi.source">
+            <field name="name">Indice de calidad en la manufactura</field>
+            <field name="model" ref="model_cmi_turei_source_indice_calidad_manufactura"/>
+            <field name="type">mixed_real</field>
+        </record>
+        <record id="cmi_turei_source_10" model="cmi.source">
+            <field name="name">Cumplimiento del plan de Producción de cigarrillos</field>
+            <field name="model" ref="model_cmi_turei_source_plan_produccion_cigarrillos"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_11" model="cmi.source">
+            <field name="name">Cumplimiento del plan de Producción de láminas de tabaco reconstituido</field>
+            <field name="model" ref="model_cmi_turei_source_plan_tab_reconstituido"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_12" model="cmi.source">
+            <field name="name">Cumplimiento del plan de mantenimiento mecánico-electrónico</field>
+            <field name="model" ref="model_cmi_turei_source_plan_mecanico_electronico"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_13" model="cmi.source">
+            <field name="name">Coeficiente disponibilidad técnica de la industria en el taller primario</field>
+            <field name="model" ref="model_cmi_turei_source_disp_tecnica_industria_primario"/>
+            <field name="type">mixed_real</field>
+        </record>
+        <record id="cmi_turei_source_14" model="cmi.source">
+            <field name="name">Coeficiente disponibilidad técnica de la industria en el taller secundario</field>
+            <field name="model" ref="model_cmi_turei_source_disp_tecnica_industria"/>
+            <field name="type">mixed_real</field>
+        </record>
+        <record id="cmi_turei_source_15" model="cmi.source">
+            <field name="name">Índice de Cumplimiento de las acciones contempladas en el programa de dignificación
+            </field>
+            <field name="model" ref="model_cmi_turei_source_indice_programa_dignificacion"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_16" model="cmi.source">
+            <field name="name">Cumplimiento del plan de capacitación</field>
+            <field name="model" ref="model_cmi_turei_source_plan_capacitacion"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_17" model="cmi.source">
+            <field name="name">Nivel de Desempeño Individual</field>
+            <field name="model" ref="model_cmi_turei_source_desempeno_individual"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_18" model="cmi.source">
+            <field name="name">Índice de Calidad de Clima Laboral</field>
+            <field name="model" ref="model_cmi_turei_source_clima_laboral"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_19" model="cmi.source">
+            <field name="name">Índice de ausentismo</field>
+            <field name="model" ref="model_cmi_turei_source_indice_ausentismo"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_20" model="cmi.source">
+            <field name="name">Índice de Fluctuación de Personal</field>
+            <field name="model" ref="model_cmi_turei_source_indice_fluctuacion_personal"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_21" model="cmi.source">
+            <field name="name">Total de áreas que se declaran Áreas Protegidas</field>
+            <field name="model" ref="model_cmi_turei_source_areas_protegidas"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_22" model="cmi.source">
+            <field name="name">Cumplimiento del Programa Gestión de Riesgos Laborales</field>
+            <field name="model" ref="model_cmi_turei_source_control_riesgos"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_23" model="cmi.source">
+            <field name="name">Cumplimiento del programa anual de chequeos médicos</field>
+            <field name="model" ref="model_cmi_turei_source_chequeos_medicos"/>
+            <field name="type">mixed_plan</field>
+        </record>
+        <record id="cmi_turei_source_24" model="cmi.source">
+            <field name="name">Cantidad de presupuesto(CUC) en adquisición de medios de protección personal</field>
+            <field name="model" ref="model_cmi_turei_source_presp_cuc_proteccion_personal"/>
+            <field name="type">mixed_plan</field>
+        </record>
+        <record id="cmi_turei_source_25" model="cmi.source">
+            <field name="name">Cantidad de presupuesto(CUP) en adquisición de medios de protección personal</field>
+            <field name="model" ref="model_cmi_turei_source_presp_cup_proteccion_personal"/>
+            <field name="type">mixed_plan</field>
+        </record>
+        <record id="cmi_turei_source_26" model="cmi.source">
+            <field name="name">Cantidad de presupuesto(TOTAL) en adquisición de medios de protección personal</field>
+            <field name="model" ref="model_cmi_turei_source_presp_total_proteccion_personal"/>
+            <field name="type">mixed_plan</field>
+        </record>
+        <record id="cmi_turei_source_27" model="cmi.source">
+            <field name="name">Cumplimiento de planes de medidas del autocontrol</field>
+            <field name="model" ref="model_cmi_turei_source_medidas_autocontrol"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_28" model="cmi.source">
+            <field name="name">Cumplimiento de las acciones de control interno</field>
+            <field name="model" ref="model_cmi_turei_source_control_interno"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_29" model="cmi.source">
+            <field name="name">Cumplimiento de planes de medidas de los controles externos</field>
+            <field name="model" ref="model_cmi_turei_source_control_externo"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_30" model="cmi.source">
+            <field name="name">Eficacia del Plan de prevención de riesgos</field>
+            <field name="model" ref="model_cmi_turei_source_eficacia_prevencion_riesgos"/>
+            <field name="type">mixed_real</field>
+        </record>
+        <record id="cmi_turei_source_31" model="cmi.source">
+            <field name="name">Cumplimiento en valores de la inversión</field>
+            <field name="model" ref="model_cmi_turei_source_cumplimiento_inversiones"/>
+            <field name="type">mixed_real</field>
+        </record>
+        <record id="cmi_turei_source_32" model="cmi.source">
+            <field name="name">Relación Gastos Totales/Peso de Ingreso Total</field>
+            <field name="model" ref="model_cmi_turei_source_rel_gastos_ingresos"/>
+            <field name="type">mixed_real</field>
+        </record>
+        <record id="cmi_turei_source_33" model="cmi.source">
+            <field name="name">Consumo de tabaco negro</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_tabaco_negro"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_34" model="cmi.source">
+            <field name="name">Consumo de tabaco rubio</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_tabaco_rubio"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_35" model="cmi.source">
+            <field name="name">Consumo de cajas de cartón</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_cajas_carton"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_36" model="cmi.source">
+            <field name="name">Consumo de sellos</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_sellos"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_37" model="cmi.source">
+            <field name="name">Consumo de Pegamento L 1 (Cajetillas)</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_peg_linea_caj"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_38" model="cmi.source">
+            <field name="name">Consumo de Pegamento L 1 (Cigarrillos)</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_peg_linea_cig"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_39" model="cmi.source">
+            <field name="name">Consumo de Polipropileno</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_polipropileno"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_40" model="cmi.source">
+            <field name="name">Consumo de Envoltura (negro) B1</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_envoltura_b1"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_41" model="cmi.source">
+            <field name="name">Consumo de Marquilla (negro) B1</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_marquilla_b1"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_42" model="cmi.source">
+            <field name="name">Consumo de Marquillas (negros)</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_marq_negros"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_43" model="cmi.source">
+            <field name="name">Consumo de Envolturas (rubios)</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_envoltura_rubios"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_44" model="cmi.source">
+            <field name="name">Consumo de Marquillas (rubios)</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_marquillas_rubios"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_45" model="cmi.source">
+            <field name="name">Consumo de Papel cigarro velin</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_papel_velin"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_46" model="cmi.source">
+            <field name="name">Consumo de Cinta para rasgar</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_cinta_rasgar"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_47" model="cmi.source">
+            <field name="name">Consumo de Papel cigarro Berge</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_papel_berge"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_48" model="cmi.source">
+            <field name="name">Consumo de Pegamento Holt Melt</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_peg_holt_melt"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_49" model="cmi.source">
+            <field name="name">Consumo de Pegamento Acetato</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_acetato"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_50" model="cmi.source">
+            <field name="name">Consumo de Envolturas (negros)</field>
+            <field name="model" ref="model_cmi_turei_source_consumo_envoltura_negros"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_51" model="cmi.source">
+            <field name="name">Cumplimiento del plan de mantenimiento transporte</field>
+            <field name="model" ref="model_cmi_turei_source_mantenimiento_transporte"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_52" model="cmi.source">
+            <field name="name">Cumplimiento del plan de Producción de cigarrillos mensual</field>
+            <field name="model" ref="model_cmi_turei_source_plan_produccion_mensual_cigarrillos"/>
+            <field name="type">automatic</field>
+        </record>
+        <record id="cmi_turei_source_53" model="cmi.source">
+            <field name="name">Cumplimiento del plan de Producción de láminas de tabaco reconstituido mensual</field>
+            <field name="model" ref="model_cmi_turei_source_plan_tab_reconstituido_mensual"/>
+            <field name="type">automatic</field>
+        </record>
+
+        <!--Indicadores-->
+        <record id="cmi_turei_indicator_1" model="cmi.indicator">
+            <field name="name">Venta Cigarrillos</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_14"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_7"/>
+        </record>
+        <record id="cmi_turei_indicator_2" model="cmi.indicator">
+            <field name="name">Programa para Minimizar las emisiones de gases y partículas polvo a la atmósfera</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_4"/>
+            <field name="periodicity">quarterly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">line</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_2"/>
+        </record>
+        <record id="cmi_turei_indicator_3" model="cmi.indicator">
+            <field name="name">Venta de tabaco reconstituido</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_14"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_8"/>
+        </record>
+        <record id="cmi_turei_indicator_4" model="cmi.indicator">
+            <field name="name">Lotes declarados no conforme</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_real</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">min</field>
+            <field name="lower_limit">3</field>
+            <field name="medium_limit">6</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_1"/>
+        </record>
+        <record id="cmi_turei_indicator_5" model="cmi.indicator">
+            <field name="name">Indice de calidad en la manufactura</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_real</field>
+            <field name="char_type">line</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei_uom_23"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">0.85</field>
+            <field name="medium_limit">0.95</field>
+            <field name="maximum_limit">1</field>
+            <field name="source_id" ref="cmi_turei_source_9"/>
+        </record>
+        <record id="cmi_turei_indicator_6" model="cmi.indicator">
+            <field name="name">Cumplimiento acumulado hasta la fecha del plan de Producción de cigarrillos</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_10"/>
+        </record>
+        <record id="cmi_turei_indicator_7" model="cmi.indicator">
+            <field name="name">Cumplimiento acumulado hasta la fecha del plan de Producción de láminas de tabaco reconstituido</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_11"/>
+        </record>
+        <record id="cmi_turei_indicator_8" model="cmi.indicator">
+            <field name="name">Cumplimiento del plan de mantenimiento mecánico-electrónico</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_12"/>
+        </record>
+        <record id="cmi_turei_indicator_9" model="cmi.indicator">
+            <field name="name">Cumplimiento del programa de educación ambiental</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_4"/>
+            <field name="periodicity">quarterly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_4"/>
+        </record>
+        <record id="cmi_turei_indicator_10" model="cmi.indicator">
+            <field name="name">Cumplimiento del programa para el manejo de residuos solidos y liquidos</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_4"/>
+            <field name="periodicity">quarterly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_3"/>
+        </record>
+        <record id="cmi_turei_indicator_11" model="cmi.indicator">
+            <field name="name">Cumplimiento del programa para usar eficientemente los portadores energeticos, las
+                materias primas, materiales e insumos
+            </field>
+            <field name="perspective_id" ref="cmi_turei_perspective_2"/>
+            <field name="periodicity">quarterly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_5"/>
+        </record>
+        <record id="cmi_turei_indicator_12" model="cmi.indicator">
+            <field name="name">Cumplimiento de los requisitos legales aplicables a la empresa</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_2"/>
+            <field name="periodicity">quarterly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_6"/>
+        </record>
+        <record id="cmi_turei_indicator_13" model="cmi.indicator">
+            <field name="name">Coeficiente disponibilidad técnica de la industria en el taller secundario</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_real</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">50</field>
+            <field name="medium_limit">60</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_14"/>
+        </record>
+        <record id="cmi_turei_indicator_14" model="cmi.indicator">
+            <field name="name">Índice de Cumplimiento de las acciones contempladas en el programa de dignificación
+            </field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">80</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_15"/>
+        </record>
+        <record id="cmi_turei_indicator_15" model="cmi.indicator">
+            <field name="name">Cumplimiento del plan de capacitación</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_16"/>
+        </record>
+        <record id="cmi_turei_indicator_16" model="cmi.indicator">
+            <field name="name">Nivel de Desempeño Individual</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_17"/>
+        </record>
+        <record id="cmi_turei_indicator_17" model="cmi.indicator">
+            <field name="name">Índice de Calidad de Clima Laboral</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_18"/>
+        </record>
+        <record id="cmi_turei_indicator_18" model="cmi.indicator">
+            <field name="name">Índice de Fluctuación de Personal</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei_uom_1"/>
+            <field name="optimal_value">min</field>
+            <field name="lower_limit">2.7</field>
+            <field name="medium_limit">2.7</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_20"/>
+        </record>
+        <record id="cmi_turei_indicator_19" model="cmi.indicator">
+            <field name="name">Índice de Ausentismo</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei_uom_1"/>
+            <field name="optimal_value">min</field>
+            <field name="lower_limit">3</field>
+            <field name="medium_limit">3</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_19"/>
+        </record>
+        <record id="cmi_turei_indicator_20" model="cmi.indicator">
+            <field name="name">Porciento del total de áreas que se declaran Áreas Protegidas</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">quarterly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_21"/>
+        </record>
+        <record id="cmi_turei_indicator_21" model="cmi.indicator">
+            <field name="name">Cumplimiento del Programa Gestión de Riesgos Laborales</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_22"/>
+        </record>
+        <record id="cmi_turei_indicator_22" model="cmi.indicator">
+            <field name="name">Cumplimiento del programa anual de chequeos médicos</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_plan</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_23"/>
+        </record>
+        <record id="cmi_turei_indicator_23" model="cmi.indicator">
+            <field name="name">Cantidad de presupuesto(CUC) en adquisición de medios de protección personal</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_plan</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_14"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_24"/>
+        </record>
+        <record id="cmi_turei_indicator_24" model="cmi.indicator">
+            <field name="name">Cantidad de presupuesto(CUP) en adquisición de medios de protección personal</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_plan</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_14"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_25"/>
+        </record>
+        <record id="cmi_turei_indicator_25" model="cmi.indicator">
+            <field name="name">Cantidad de presupuesto(TOTAL) en adquisición de medios de protección personal</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_plan</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_14"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_26"/>
+        </record>
+        <record id="cmi_turei_indicator_26" model="cmi.indicator">
+            <field name="name">Cumplimiento de planes de medidas del autocontrol</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">quarterly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">70</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_27"/>
+        </record>
+        <record id="cmi_turei_indicator_27" model="cmi.indicator">
+            <field name="name">Cumplimiento de las acciones de control interno</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">quarterly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_28"/>
+        </record>
+        <record id="cmi_turei_indicator_28" model="cmi.indicator">
+            <field name="name">Cumplimiento de planes de medidas de los controles externos</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">quarterly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_29"/>
+        </record>
+        <record id="cmi_turei_indicator_29" model="cmi.indicator">
+            <field name="name">Eficacia del Plan de prevención de riesgos</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_real</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_30"/>
+        </record>
+        <record id="cmi_turei_indicator_30" model="cmi.indicator">
+            <field name="name">Cumplimiento en valores de la inversión</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_real</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_14"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_31"/>
+        </record>
+        <record id="cmi_turei_indicator_31" model="cmi.indicator">
+            <field name="name">Relación Gastos Totales/Peso de Ingreso Total</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_real</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_15"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">0.75</field>
+            <field name="medium_limit">0.90</field>
+            <field name="maximum_limit">1</field>
+            <field name="source_id" ref="cmi_turei_source_32"/>
+        </record>
+        <record id="cmi_turei_indicator_32" model="cmi.indicator">
+            <field name="name">Consumo de tabaco negro</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_33"/>
+        </record>
+        <record id="cmi_turei_indicator_33" model="cmi.indicator">
+            <field name="name">Consumo de tabaco rubio</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_34"/>
+        </record>
+        <record id="cmi_turei_indicator_34" model="cmi.indicator">
+            <field name="name">Consumo de cajas de cartón</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_35"/>
+        </record>
+        <record id="cmi_turei_indicator_35" model="cmi.indicator">
+            <field name="name">Consumo de sellos</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_24"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_36"/>
+        </record>
+        <record id="cmi_turei_indicator_36" model="cmi.indicator">
+            <field name="name">Consumo de Pegamento L 1 (Cajetillas)</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_37"/>
+        </record>
+        <record id="cmi_turei_indicator_37" model="cmi.indicator">
+            <field name="name">Consumo de Pegamento L 1 (Cigarrillos)</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_38"/>
+        </record>
+        <record id="cmi_turei_indicator_38" model="cmi.indicator">
+            <field name="name">Consumo de Polipropileno</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_39"/>
+        </record>
+        <record id="cmi_turei_indicator_39" model="cmi.indicator">
+            <field name="name">Consumo de Envoltura (negro) B1</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_40"/>
+        </record>
+        <record id="cmi_turei_indicator_40" model="cmi.indicator">
+            <field name="name">Consumo de Marquilla (negro) B1</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_41"/>
+        </record>
+        <record id="cmi_turei_indicator_41" model="cmi.indicator">
+            <field name="name">Consumo de Marquillas (negros)</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_42"/>
+        </record>
+        <record id="cmi_turei_indicator_42" model="cmi.indicator">
+            <field name="name">Consumo de Envolturas (rubios)</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_43"/>
+        </record>
+        <record id="cmi_turei_indicator_43" model="cmi.indicator">
+            <field name="name">Consumo de Marquillas (rubios)</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_44"/>
+        </record>
+        <record id="cmi_turei_indicator_44" model="cmi.indicator">
+            <field name="name">Consumo de Papel cigarro velin</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_45"/>
+        </record>
+        <record id="cmi_turei_indicator_45" model="cmi.indicator">
+            <field name="name">Consumo de Cinta para rasgar</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_46"/>
+        </record>
+        <record id="cmi_turei_indicator_46" model="cmi.indicator">
+            <field name="name">Consumo de Papel cigarro Berge</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_47"/>
+        </record>
+        <record id="cmi_turei_indicator_47" model="cmi.indicator">
+            <field name="name">Consumo de Pegamento Holt Melt</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_48"/>
+        </record>
+        <record id="cmi_turei_indicator_48" model="cmi.indicator">
+            <field name="name">Consumo de Pegamento Acetato</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_49"/>
+        </record>
+        <record id="cmi_turei_indicator_49" model="cmi.indicator">
+            <field name="name">Coeficiente disponibilidad técnica de la industria en el taller primario</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">monthly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">mixed_real</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">unique</field>
+            <field name="uom_id" ref="cmi_turei_uom_1"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">50</field>
+            <field name="medium_limit">60</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_13"/>
+        </record>
+        <record id="cmi_turei_indicator_50" model="cmi.indicator">
+            <field name="name">Consumo de Envolturas (negros)</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_4"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_50"/>
+        </record>
+        <record id="cmi_turei_indicator_51" model="cmi.indicator">
+            <field name="name">Cumplimiento del plan de mantenimiento transporte</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_3"/>
+            <field name="periodicity">quarterly</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">75</field>
+            <field name="medium_limit">90</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_51"/>
+        </record>
+        <record id="cmi_turei_indicator_52" model="cmi.indicator">
+            <field name="name">Cumplimiento en el mes del plan de Producción de cigarrillos</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_52"/>
+        </record>
+        <record id="cmi_turei_indicator_53" model="cmi.indicator">
+            <field name="name">Cumplimiento en el mes del plan de Producción de láminas de tabaco reconstituido</field>
+            <field name="perspective_id" ref="cmi_turei_perspective_1"/>
+            <field name="periodicity">daily</field>
+            <field name="responsible_id" ref="base.user_root"/>
+            <field name="type">automatic</field>
+            <field name="char_type">bar</field>
+            <field name="value_type">percentage</field>
+            <field name="uom_id" ref="cmi_turei_uom_20"/>
+            <field name="optimal_value">max</field>
+            <field name="lower_limit">85</field>
+            <field name="medium_limit">95</field>
+            <field name="maximum_limit">100</field>
+            <field name="source_id" ref="cmi_turei_source_53"/>
+        </record>
+
+    </data>
+</odoo>

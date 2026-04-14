@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_template_wear_officer,template_wear_officer,model_l10n_cu_hlg_hr_defense_inf_template_wear,hr.group_hr_user,1,1,1,1
+access_template_wear_user,template_wear_user,model_l10n_cu_hlg_hr_defense_inf_template_wear,base.group_user,1,0,0,0
+,,,,,,,
+access_template_invasion_officer,template_invasion_officer,model_l10n_cu_hlg_hr_defense_inf_template_invasion,hr.group_hr_user,1,1,1,1
+access_template_invasion_user,template_invasion_user,model_l10n_cu_hlg_hr_defense_inf_template_invasion,base.group_user,1,0,0,0

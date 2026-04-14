@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ========================================================================================================
+        Audit Plan
+        model: audit_plan
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="audit_plan_form_view" model="ir.ui.view">
+            <field name="name">audit_plan_form_view</field>
+            <field name="model">computers_inventory.audit_plan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                            <button name="button_planned"    type="object" states='approved' string="Planned" class="oe_highlight" />
+                            <button name="button_approved"   type="object" states='planned,done,unrealized'  string="Approved" />
+                            <button name="button_done"       type="object" states='approved' string="Done"  />
+                            <button name="button_unrealized" type="object" states='approved' string="Unrealized"  />
+                            <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="department_id"/>
+                            <field name="month"/>
+                            <field name="year"/>
+                            <field name="cause"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="audit_plan_tree_view" model="ir.ui.view">
+            <field name="name">audit_plan_tree_view</field>
+            <field name="model">computers_inventory.audit_plan</field>
+            <field name="arch" type="xml">
+                <tree edit="true" create="true" delete="true">
+                    <field name="department_id"/>
+                    <field name="month"/>
+                    <field name="year"/>
+                    <field name="cause"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+          <!-- ACTION -->
+        <record id="audit_action" model="ir.actions.act_window">
+            <field name="name">Audit plan</field>
+            <field name="res_model">computers_inventory.audit_plan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="audit_plan_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new audit.
+                </p>
+            </field>
+        </record>
+
+
+        <!-- MENU ITEM -->
+        <menuitem name="Audit plan"
+                  id="menu_item_audit_plan"
+                  parent="menu_records"
+                  action="audit_action"
+                  groups="computers_inventory_manager"
+                  sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="turei_retired_person_dashboard.dashboard">
+        <!--View-->
+        <div class="openerp oe_kanban_view hr_dash col-xs-12 col-md-12 col-lg-12 col-sm-8">
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2 style="text-align:center;color:#4b838c;">
+                           <b>TABLERO SISTEMA DE GESTIÓN JUBILADOS</b>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" style="padding-top: 16px">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                          <a href="javascript:;" class="dashboard-block contract">
+                                <div class="rotate">
+                                  <i class="fa fa-home"></i>
+                                </div>
+                                <div class="details">
+                                  <span class="title"><b>AREAS</b></span>
+
+                                </div>
+                          </a><!--/dashboard-block3-->
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                          <a href="javascript:;" class="dashboard-invoice">
+                                <div class="rotate">
+                                  <i class="fa fa-wheelchair"></i>
+                                </div>
+                                <div class="details">
+                                  <span class="title"><b>Trabajadores Jubilados</b></span>
+                                  <span class="sub"></span>
+                                </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="row">
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-cogs"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>IST</b></span>
+                                    <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.retired_data['ist_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action retired_count_ist">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-industry"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>PC</b></span>
+                                    <span class="dash-box-count">
+                                         <span class="sub"><t t-esc="widget.retired_data['pc_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action retired_count_pc">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-warning"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>SPI</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.retired_data['spi_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action retired_count_spi">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                         <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-shopping-basket"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>CA</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.retired_data['ca_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action retired_count_ca">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-truck"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>SG</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.retired_data['sg_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action retired_count_sg">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                         </div>
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-money"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>DCF</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.retired_data['dcf_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action retired_count_dcf">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-group"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>DCH</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.retired_data['dch_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action retired_count_dch">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                         </div>
+                         <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-laptop"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>DT</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.retired_data['dtd_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action retired_count_dtd">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                         </div>
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-whatsapp"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>PD</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.retired_data['pad_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action retired_count_pad">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                         </div>
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-institution"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>DE</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.retired_data['de_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action retired_count_de">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                         </div>
+
+                         <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-home"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Empresa de Cigarros</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.retired_data['de_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action retired_count_de">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                         </div>
+
+
+                        </div>
+
+
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="row">
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-2">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Fundadores</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.retired_data['founder_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action-invoice retired_count_founder">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-2">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-plus"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Fallecidos</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.retired_data['dead_retired_count']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action-invoice retired_count_dead">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-female">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-home"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Fundadoras</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.retired_data['founder_retired_count_female']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action-female retired_count_founder_female">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-female">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-plus"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Fallecidas</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.retired_data['dead_retired_count_female']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action-female retired_count_dead_female">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-male">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-home"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Fundadores</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.retired_data['founder_retired_count_male']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action-male retired_count_founder_male">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-male">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-plus"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Fallecidos</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.retired_data['dead_retired_count_male']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action-male retired_count_dead_male">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </t>
+</templates>

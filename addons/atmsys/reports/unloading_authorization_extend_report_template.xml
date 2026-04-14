@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+        UNLOADING AUTHORIZATION EXTEND
+        Model: atmsys.blind_reception
+        =========================================================================================== -->
+
+        <template id="unloading_authorization_extend_report_template">
+            <t t-foreach="docs" t-as="reception">
+                <div class="page">
+                    <link href="/atmsys/static/src/css/report_templates.css" rel="stylesheet" type="text/css"/>
+
+                    <t t-foreach="[1,2]" t-as="z">
+                        <table width="1005" border="0" cellpadding="0" cellspacing="0" class="table-border">
+                            <tr>
+                                <td height="50" colspan="15" class="cell-center-middle">
+                                    <div class="title">AUTORIZACION DE DESCARGA EN ALMACEN</div>
+                                    <div class="title">RECEPCION A CIEGAS</div>
+                                </td>
+                            </tr>
+                            <tr class="cell-center-middle">
+                                <td height="20" colspan="2" class="cell-center-middle">NO. RECEPCION</td>
+                                <td width="76" class="cell-center-middle">ALMACEN</td>
+                                <td colspan="3" class="cell-center-middle">CONTENEDOR</td>
+                                <td colspan="5" class="cell-center-middle">PROVEEDOR</td>
+                                <td colspan="2" class="cell-center-middle">FECHA</td>
+                                <td width="115" class="cell-center-middle">FACTURA</td>
+                                <td width="116" class="cell-center-middle">CHAPA</td>
+                            </tr>
+                            <tr>
+                                <td height="20" colspan="2" class="cell-center-middle">
+                                    <t t-esc="reception.code"/>
+                                </td>
+                                <td class="cell-center-middle">
+                                    <t t-esc="reception.warehouse_id.code"/>
+                                </td>
+                                <td colspan="3" class="cell-center-middle">
+                                    <t t-esc="reception.container_or_box"/>
+                                </td>
+                                <td colspan="5" class="cell-center-middle">
+                                    <t t-esc="reception.supplier_id.name"/>
+                                </td>
+                                <td colspan="2" class="cell-center-middle">
+                                    <t t-esc="reception.get_datetime_now()"/>
+                                </td>
+                                <td class="cell-center-middle">
+                                    <t t-esc="reception.invoice_number"/>
+                                </td>
+                                <td class="cell-center-middle">
+                                    <t t-esc="reception.car_plate"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="cell-center-middle">PRODUCTO</td>
+                                <td class="cell-center-middle">CANT. TOTAL</td>
+                                <td width="65" class="cell-center-middle">DEL PALLET</td>
+                                <td colspan="2" class="cell-center-middle">AL PALLET</td>
+                                <td width="73" class="cell-center-middle">PESO TOTAL</td>
+                                <td colspan="4" class="cell-center-middle">PRODUCTO</td>
+                                <td width="53" class="cell-center-middle">DEL PALLET</td>
+                                <td width="54" class="cell-center-middle">AL PALLET</td>
+                                <td class="cell-center-middle">CANT. TOTAL</td>
+                                <td class="cell-center-middle">PESO TOTAL</td>
+                            </tr>
+
+                            <t t-set="len_products" t-value="len(reception.product_ids)"/>
+                            <t t-foreach="range(0, len(reception.product_ids), 2)" t-as="x">
+                                <tr>
+                                    <td height="20" colspan="2" class="cell-left">
+                                        <t t-if="len_products > x">
+                                            <t t-esc="reception.product_ids[x].product_description"/>
+                                        </t>
+                                    </td>
+
+                                    <td class="cell-center-middle"></td>
+                                    <td class="cell-center-middle"></td>
+                                    <td colspan="2" class="cell-center-middle"></td>
+                                    <td class="cell-center-middle"></td>
+
+                                    <td colspan="4" class="cell-left">
+                                        <t t-if="len_products > x + 1">
+                                            <t t-esc="reception.product_ids[x + 1].product_description"/>
+                                        </t>
+                                    </td>
+
+                                    <td class="cell-center-middle"></td>
+                                    <td class="cell-center-middle"></td>
+                                    <td class="cell-center-middle"></td>
+                                    <td class="cell-center-middle"></td>
+                                </tr>
+                            </t>
+
+                            <tr>
+                                <td width="30" height="25" class="cell-center-middle">NO.</td>
+                                <td width="123" class="cell-center-middle">NO. PALLET</td>
+                                <td class="cell-center-middle">CANTIDAD</td>
+                                <td colspan="2" class="cell-center-middle">PESO</td>
+                                <td width="30" class="cell-center-middle">NO.</td>
+                                <td colspan="2" class="cell-center-middle">NO. PALLET</td>
+                                <td width="79" class="cell-center-middle">CANTIDAD</td>
+                                <td width="69" class="cell-center-middle">PESO</td>
+                                <td width="30" class="cell-center-middle">NO.</td>
+                                <td colspan="2" class="cell-center-middle">NO. PALLET</td>
+                                <td class="cell-center-middle">CANTIDAD</td>
+                                <td class="cell-center-middle">PESO</td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">1</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td class="cell-center-middle">15</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">29</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">2</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td class="cell-center-middle">16</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">30</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">3</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td class="cell-center-middle">17</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">31</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">4</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td class="cell-center-middle">18</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">32</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">5</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td height="20" class="cell-center-middle">19</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">33</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">6</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td height="20" class="cell-center-middle">20</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td height="20" class="cell-center-middle">34</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">7</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td height="20" class="cell-center-middle">21</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td height="20" class="cell-center-middle">35</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">8</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td height="20" class="cell-center-middle">22</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td height="20" class="cell-center-middle">36</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">9</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td class="cell-center-middle">23</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">37</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">10</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td class="cell-center-middle">24</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">38</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">11</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td class="cell-center-middle">25</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">39</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">12</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td class="cell-center-middle">26</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">40</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">13</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td class="cell-center-middle">27</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">41</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="20" class="cell-center-middle">14</td>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                                <td class="cell-center-middle">28</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                                <td class="cell-center-middle">42</td>
+                                <td colspan="2"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td height="25" colspan="2" class="cell-center-middle">Transportista</td>
+                                <td colspan="7" class="cell-left">Nombre y apellidos: <t t-esc="reception.driver_id.name"/></td>
+                                <td colspan="2" class="cell-left">No. identidad</td>
+                                <td colspan="2" class="cell-center-middle"><t t-esc="reception.driver_id.ci"/></td>
+                                <td colspan="2" class="cell-left">Firma:</td>
+                            </tr>
+                            <tr>
+                                <td height="25" colspan="2" class="cell-center-middle">Comprador</td>
+                                <td colspan="7" class="cell-left">Nombre y apellidos: <t t-esc="reception.buyer_id.name"/></td>
+                                <td colspan="2" class="cell-left">No. identidad</td>
+                                <td colspan="2" class="cell-center-middle"><t t-esc="reception.buyer_id.sudo().identification_id"/></td>
+                                <td colspan="2" class="cell-left">Firma:</td>
+                            </tr>
+                            <tr>
+                                <td height="25" colspan="2" class="cell-center-middle">Almacen</td>
+                                <td colspan="7" class="cell-left">Nombre y apellidos:</td>
+                                <td colspan="4" class="cell-left">Cargo:</td>
+                                <td colspan="2" class="cell-left">Firma:</td>
+                            </tr>
+                            <tr>
+                                <td height="25" colspan="15" class="cell-left">Autorizado por: <t t-esc="reception.approve_id.name"/></td>
+                            </tr>
+                        </table>
+
+                        <p class="spacer"/>
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

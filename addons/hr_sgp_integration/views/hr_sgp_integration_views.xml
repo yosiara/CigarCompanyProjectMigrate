@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<menuitem id="hr_sgp_integration_menu_item" name="Configuration SGP" parent="hr.menu_human_resources_configuration" sequence="10"/>
+
+		<!--tree configuracion Turno-->
+		<record id="view_hr_sgp_integration_turn_tree" model="ir.ui.view">
+			<field name="name">l10n.cu.hlg.hr.sgp.integration.turn.tree</field>
+			<field name="model">hr_sgp_integration.turn</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Turn Config">
+					<field name="sgp_name" />
+					<field name="active" />
+				</tree>
+			</field>
+		</record>
+
+		<!--form Configuracion de Turno-->
+		<record id="view_hr_sgp_integration_turn_form" model="ir.ui.view">
+			<field name="name">l10n.cu.hlg.hr.sgp.integration.turn.form</field>
+			<field name="model">hr_sgp_integration.turn</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Turn Config">
+					<sheet>
+						<group>
+					        <field name="sgp_id"/>
+							<field name="sgp_name"/>
+					        <field name="active" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!--search Configuracion de turno-->
+		<record id="view_hr_sgp_integration_turn_search" model="ir.ui.view">
+			<field name="name">l10n.cu.hlg.hr.sgp.integration.turn.search</field>
+			<field name="model">hr_sgp_integration.turn</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Turn Config">
+					<field name="sgp_name" />
+					<group expand="1" string="Group By">
+                        <filter string="Active" context="{'group_by': 'active'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!--action Configuracion de Turno -->
+		<record id="action_hr_sgp_integration_turn" model="ir.actions.act_window">
+			<field name="name">Turn Config</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr_sgp_integration.turn</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="view_hr_sgp_integration_turn_tree" />
+		</record>
+
+		<!--Menu Item Configuracion de Turno -->
+		<menuitem action="action_hr_sgp_integration_turn" id="hr_sgp_integration_turn_menu_item"
+		parent="hr_sgp_integration_menu_item" sequence="10"/>
+
+		<!--tree configuracion Modulo-->
+		<record id="view_hr_sgp_integration_module_tree" model="ir.ui.view">
+			<field name="name">l10n.cu.hlg.hr.sgp.integration.module.tree</field>
+			<field name="model">hr_sgp_integration.module</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Modules Config">
+					<field name="sgp_name" />
+					<field name="department_ids" />
+					<field name="active" />
+				</tree>
+			</field>
+		</record>
+
+		<!--form Configuracion de Modulo-->
+		<record id="view_hr_sgp_integration_module_form" model="ir.ui.view">
+			<field name="name">l10n.cu.hlg.hr.sgp.integration.module.form</field>
+			<field name="model">hr_sgp_integration.module</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Module Config">
+					<sheet>
+						<group>
+					        <field name="sgp_id"/>
+							<field name="sgp_name"/>
+							<field name="department_ids" />
+					        <field name="active" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!--search Configuracion de Modulo-->
+		<record id="view_hr_sgp_integration_module_search" model="ir.ui.view">
+			<field name="name">l10n.cu.hlg.hr.sgp.integration.module.tree</field>
+			<field name="model">hr_sgp_integration.module</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Module Config">
+					<field name="sgp_name" />
+					<group expand="1" string="Group By">
+                        <filter string="Active" context="{'group_by': 'active'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!--action Configuracion de Modulo -->
+		<record id="action_hr_sgp_integration_module" model="ir.actions.act_window">
+			<field name="name">Module Config</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr_sgp_integration.module</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="view_hr_sgp_integration_module_tree" />
+		</record>
+
+		<!--Menu Item Configuracion de Modulo -->
+		<menuitem action="action_hr_sgp_integration_module" id="hr_sgp_integration_module_menu_item"
+		parent="hr_sgp_integration_menu_item"  sequence="12"  />
+
+		<!--tree configuracion Brigade-->
+		<record id="view_hr_sgp_integration_brigade_tree" model="ir.ui.view">
+			<field name="name">l10n.cu.hlg.hr.sgp.integration.brigade.tree</field>
+			<field name="model">hr_sgp_integration.brigade</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Brigades Config">
+					<field name="sgp_name" />
+				</tree>
+			</field>
+		</record>
+
+		<!--form Configuracion de Brigade-->
+		<record id="view_hr_sgp_integration_brigade_form" model="ir.ui.view">
+			<field name="name">l10n.cu.hlg.hr.sgp.integration.brigade.form</field>
+			<field name="model">hr_sgp_integration.brigade</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Brigade Config">
+					<sheet>
+						<group>
+					        <field name="sgp_id"/>
+							<field name="sgp_name"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!--search Configuracion de Brigade-->
+		<record id="view_hr_sgp_integration_brigade_search" model="ir.ui.view">
+			<field name="name">l10n.cu.hlg.hr.sgp.integration.brigade.search</field>
+			<field name="model">hr_sgp_integration.brigade</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Brigades Config">
+					<field name="sgp_name" />
+					<group expand="1" string="Group By">
+                        <filter string="Active" context="{'group_by': 'active'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!--action Configuracion de Brigade -->
+		<record id="action_hr_sgp_integration_brigade" model="ir.actions.act_window">
+			<field name="name">Brigades Config</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr_sgp_integration.brigade</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="view_hr_sgp_integration_brigade_tree" />
+		</record>
+
+		<!--Menu Item Configuracion de Brigade -->
+		<menuitem action="action_hr_sgp_integration_brigade" id="hr_sgp_integration_brigade_menu_item"
+		parent="hr_sgp_integration_menu_item" sequence="10"/>
+
+		<!--tree configuracion Materiales-->
+		<record id="view_hr_sgp_integration_materials_tree" model="ir.ui.view">
+			<field name="name">hr_sgp_integration.materials.tree</field>
+			<field name="model">hr_sgp_integration.materials</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Materials Configuration">
+					<field name="sgp_name" />
+					<field name="active" />
+				</tree>
+			</field>
+		</record>
+
+		<!--form Configuracion de Materiales-->
+		<record id="view_hr_sgp_integration_materials_form" model="ir.ui.view">
+			<field name="name">hr_sgp_integration.materials.form</field>
+			<field name="model">hr_sgp_integration.materials</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Materials Configuration">
+					<sheet>
+						<group>
+					        <field name="sgp_id"/>
+							<field name="sgp_name"/>
+					        <field name="active" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!--search Configuracion de Materiales-->
+		<record id="view_hr_sgp_integration_materials_search" model="ir.ui.view">
+			<field name="name">hr_sgp_integration.materials.search</field>
+			<field name="model">hr_sgp_integration.materials</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Materials Configuration">
+					<field name="sgp_name" />
+					<group expand="1" string="Group By">
+                        <filter string="Active" context="{'group_by': 'active'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!--action Configuracion de Materiales -->
+		<record id="action_hr_sgp_integration_materials" model="ir.actions.act_window">
+			<field name="name">Materials Configuration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr_sgp_integration.materials</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="view_hr_sgp_integration_materials_tree" />
+		</record>
+
+		<!--Menu Item Configuracion de Materials -->
+		<menuitem action="action_hr_sgp_integration_materials" id="hr_sgp_integration_materials_menu_item"
+		parent="hr_sgp_integration_menu_item" sequence="10"/>
+
+		<!--tree configuracion Marca-->
+		<record id="view_hr_sgp_integration_brand_tree" model="ir.ui.view">
+			<field name="name">hr_sgp_integration.brand.tree</field>
+			<field name="model">hr_sgp_integration.brand</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Brand Configuration">
+					<field name="sgp_name" />
+					<field name="active" />
+				</tree>
+			</field>
+		</record>
+
+		<!--form Configuracion Marca-->
+		<record id="view_hr_sgp_integration_brand_form" model="ir.ui.view">
+			<field name="name">hr_sgp_integration.brand.form</field>
+			<field name="model">hr_sgp_integration.brand</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Brand Configuration">
+					<sheet>
+						<group>
+					        <field name="sgp_id"/>
+							<field name="sgp_name"/>
+					        <field name="active" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!--search Configuracion Brand-->
+		<record id="view_hr_sgp_integration_brand_search" model="ir.ui.view">
+			<field name="name">hr_sgp_integration.brand.search</field>
+			<field name="model">hr_sgp_integration.brand</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Brand Configuration">
+					<field name="sgp_name" />
+					<group expand="1" string="Group By">
+                        <filter string="Active" context="{'group_by': 'active'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!--action Configuracion Marca -->
+		<record id="action_hr_sgp_integration_brand" model="ir.actions.act_window">
+			<field name="name">Brand Configuration</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr_sgp_integration.brand</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="view_hr_sgp_integration_brand_tree" />
+		</record>
+
+        <!--Menu Item Configuracion Brand -->
+		<menuitem action="action_hr_sgp_integration_brand" id="hr_sgp_integration_brand_menu_item"
+		parent="hr_sgp_integration_menu_item" sequence="10"/>
+
+	</data>
+</odoo>

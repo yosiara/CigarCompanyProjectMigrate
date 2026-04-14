@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--HEREDANDO LA VISTA SEARCH DEL PARTNER -->
+        <record id="view_res_partner_filter_inerit" model="ir.ui.view">
+            <field name="name">res.partner_search_inerit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <filter name="type_person" domain="[('is_company','=',0)]" position="before">
+                        <filter string="Employees" name="type_employee" domain="[('employee','=',1)]" />
+                    </filter>
+
+                </data>
+            </field>
+        </record>
+
+        <!-- ======================================================================================
+		Bank
+		Model: res.partner.bank
+		=========================================================================================== -->
+
+        <!-- FORM VIEW INHERIT-->
+	  	<record id="view_partner_bank_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.bank.form.inherit</field>
+            <field name="model">res.partner.bank</field>
+            <field name="inherit_id" ref="base.view_partner_bank_form"/>
+            <field name="arch" type="xml">
+        		<data>
+                    <xpath expr="//field[@name='acc_number']" position="replace">
+                        <field name="acc_number" widget="mask_regex" data-inputmask-regex="([0-9]{2,20})"/>
+                    </xpath>
+		 		</data>
+            </field>
+        </record>
+
+        <!-- ======================================================================================
+		User
+		Model: res.users
+		=========================================================================================== -->
+        <record id="view_users_simple_form_inherit" model="ir.ui.view">
+            <field name="name">res.users.simplified.form.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//label[@for='login']" position="replace">
+                        <label for="login" class="oe_edit_only" string="User"/>
+                    </xpath>
+                    <xpath expr="//div[@name='button_box']" position="attributes">
+                        <attribute name="style">margin-bottom:10px</attribute>
+                    </xpath>
+                    <xpath expr="//label[@for='name']" position="attributes">
+                        <attribute name="style">margin-top:28px</attribute>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+	</data>
+</openerp>

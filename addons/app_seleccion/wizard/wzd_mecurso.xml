@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="wzd_mecurso" model="ir.ui.view">
+            <field name="name">app_seleccion.wzd_mecurso</field>
+            <field name="model">app_seleccion.wzd_mecurso</field>
+            <field name="arch" type="xml">
+                <form string="Listado de estudiantes por curso">
+                    <sheet>
+                        <group>
+                            <group name="left">
+                                <field name="curso_id" string="Escoger curso" options="{'no_create': True, 'no_open': True}" />
+                                <field name="mes" string="Escoger mes" />
+                            </group>
+                            <group name="rigth">
+                                <field name="year" string="Escoger año" />
+                            </group>
+
+                        </group>
+
+
+                        <footer>
+                            <div>
+                                <button name="imprimir" icon="fa-lg fa-save" string="Generar Modelo" type="object"
+                                        class="oe_highlight"/>
+
+                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_mecurso_act_window" model="ir.actions.act_window">
+            <field name="name">Listado de estudiantes por Curso</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">app_seleccion.wzd_mecurso</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_mecurso_act_window" name="Listado de estudiantes por Curso"
+                  id="menu_wzd_mecurso_report" parent="app_seleccion.menu_cursos" sequence="91"/>
+    </data>
+</odoo>

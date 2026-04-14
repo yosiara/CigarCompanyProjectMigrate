@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="calendar_registry_information_wzd_view_form" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.registry_information</field>
+            <field name="model">l10n_cu_calendar.registry_information</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Agenda Express Registry Information">
+                    <separator string="Agenda Express Registry Information"/>
+
+                    <p>Para disfrutar de todas las funcionalidades del Sistema <b>Agenda Express v3.0.0</b> debe
+                        completar el registro del módulo.
+                        <br/>
+                        Envíe la semilla a la siguiente dirección de correo <a
+                                href="mailto:comercial.holguin@desoft.cu?subject=Solicitud%20de%20registro"
+                                target="_blank">comercial.holguin@desoft.cu
+                        </a> y le será enviada su clave de registro.
+                    </p>
+                    <group col="2">
+                        <field name="seed"/>
+                        <field name="key"/>
+                        <field name="days_left"/>
+                    </group>
+                    <field name="state" invisible="1"/>
+                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','sinclave')]}">
+                        <p class='alert alert-warning'>Debe solicitar la clave de registro.</p>
+                    </group>
+                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','reg')]}">
+                        <p class='alert alert-success'>Su clave de registro es correcta o está en el período de pruebas.</p>
+                    </group>
+                    <group class="oe_edit_only"
+                           attrs="{'invisible': ['|',('days_left','&gt;=',30),('days_left','=',0)]}">
+                        <p class='alert alert-warning'>Su clave de registro está próxima a vencerse.</p>
+                    </group>
+                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','unreg')]}">
+                        <p class='alert alert-danger'>Su clave de registro es incorrecta.</p>
+                    </group>
+                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','exp')]}">
+                        <p class='alert alert-danger'>Su clave de registro está vencida.</p>
+                    </group>
+                    <footer>
+                        <div>
+                            <button name="save_key" string="Actualizar" type="object" class="oe_highlight"/>
+                            o
+                            <button special="cancel" string="Cerrar" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_calendar_registry_information" model="ir.actions.act_window">
+            <field name="name">Agenda Express Registry Information</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_calendar.registry_information</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="action_calendar_registry_information_menu" action="action_calendar_registry_information"
+                  groups="l10n_cu_calendar.manager" parent="l10n_cu_calendar_main_config_menu" sequence="99"/>
+
+    </data>
+</openerp>

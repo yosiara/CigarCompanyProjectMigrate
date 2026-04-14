@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_uforce_dashboard,access_uforce_dashboard,model_l10n_cu_hlg_uforce_dashboard_dashboard,hr.group_hr_manager,1,1,1,1
+
+access_uforce_dashboard_officer,access_uforce_dashboard_officer,model_l10n_cu_hlg_uforce_dashboard_dashboard,hr.group_hr_user,1,0,0,0

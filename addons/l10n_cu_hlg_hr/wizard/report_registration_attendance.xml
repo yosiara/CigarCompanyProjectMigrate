@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--<record id="paperformat_letter_lowmargin" model="report.paperformat">-->
+            <!--<field name="name">Letter</field>-->
+            <!--<field name="default" eval="True"/>-->
+            <!--<field name="format">Letter</field>-->
+            <!--<field name="page_height">0</field>-->
+            <!--<field name="page_width">0</field>-->
+            <!--<field name="orientation">Portrait</field>-->
+            <!--<field name="margin_top">5</field>-->
+            <!--<field name="margin_bottom">5</field>-->
+            <!--<field name="margin_left">5</field>-->
+            <!--<field name="margin_right">5</field>-->
+            <!--<field name="header_line" eval="True"/>-->
+            <!--<field name="header_spacing">40</field>-->
+            <!--<field name="dpi">80</field>-->
+        <!--</record>-->
+
+        <report
+                id="action_report_registration_attendance"
+                model="hr.employee"
+                string="Registration of attendance"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr.report_registration_attendance"
+                file="l10n_cu_hlg_hr.report_registration_attendance"
+                menu="False"
+        />
+
+        <template id="report_registration_attendance">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <style>
+                               .table-strong table, th, td{
+                                    border: 1px solid #000;
+                                    padding: 5px;
+                               }
+                            </style>
+
+                            <table width="100%" >
+                                <tr>
+                                    <td>REGISTRO DE ASISTENCIA</td>
+                                    <td>MES: <t t-esc="nombre_mes"/> </td>
+                                    <td>AÑO: <t t-esc="anho"/></td>
+                                </tr>
+                            </table>
+
+                            <table width="100%" class="table-strong">
+                                <tr >
+                                    <td colspan="2">NUMERO:
+                                        <span t-field="o.code"/>
+                                    </td>
+                                    <td colspan="3">AREA DE TRABAJO</td>
+                                    <td colspan="9">
+                                        <span t-field="o.department_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">NOMBRE Y APELLIDOS</td>
+                                    <td colspan="4">
+                                        <span t-field="o.name"/>
+                                    </td>
+                                    <td colspan="3">CARGO</td>
+                                    <td colspan="4">
+                                        <span t-field="o.job_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="4%"></td>
+                                    <td colspan="3">SESION MAÑANA</td>
+                                    <td colspan="3">SESION TARDE</td>
+                                    <td width="3%"></td>
+                                    <td colspan="3">SESION MAÑANA</td>
+                                    <td colspan="3">SESION TARDE</td>
+                                </tr>
+                                <tr>
+                                    <td>DIA</td>
+                                    <td width="6%">ENTRADA</td>
+                                    <td width="7%">SALIDA</td>
+                                    <td width="7%">FIRMA</td>
+                                    <td width="7%">ENTRADA</td>
+                                    <td width="7%">SALIDA</td>
+                                    <td width="8%">FIRMA</td>
+                                    <td>DIA</td>
+                                    <td width="6%">ENTRADA</td>
+                                    <td width="7%">SALIDA</td>
+                                    <td width="6%">FIRMA</td>
+                                    <td width="7%">ENTRADA</td>
+                                    <td width="7%">SALIDA</td>
+                                    <td width="8%">FIRMA</td>
+                                </tr>
+                                <tr t-foreach="o.getAttendanceCard(anho, mes, shows_sat_sun)" t-as="day" style="height:10;">
+                                    <td>
+                                        <t t-esc="day['dias1']"/>
+                                    </td>
+                                    <t t-if="day['valors1'] == '' ">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </t>
+                                    <t t-if="day['valors1'] != '' ">
+                                        <td colspan="6" style="text-align:center;"> <t t-esc="day['valors1']"/></td>
+                                    </t>
+                                    <td>
+                                        <t t-esc="day['dias2']"/>
+                                    </td>
+                                    <t t-if="day['valors2'] == '' ">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </t>
+                                    <t t-if="day['valors2'] != '' ">
+                                        <td colspan="6" style="text-align:center;"> <t t-esc="day['valors2']"/> </td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <td height="140" colspan="14">
+                                        NOTA ACLARATORIA SOBRE VACACIONES, CAMBIO DE TURNO, CERTIFICADO MEDICO, LICENCIAS, ETC
+                                    </td>
+                                </tr>
+                            </table>
+                            <p></p>
+                            <p></p>
+                            <p> _____________________________________</p>
+                            <p>Aprobado por:<span t-field="o.parent_id.name"/></p>
+
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

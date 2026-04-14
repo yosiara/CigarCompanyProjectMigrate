@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <template id="alternative_theme_web_menu_secondary_inherit" inherit_id="web.menu_secondary">
+            <xpath expr="//div[@class='o_sub_menu_footer']" position="replace"/>
+        </template>
+    </data>
+</odoo>

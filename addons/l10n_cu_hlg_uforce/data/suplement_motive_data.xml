@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+
+		<record id="suplement_motive_0" model="l10n_cu_hlg_hr.employee_school_level">
+			<field name="code">0</field>
+			<field name="name">6to grado</field>
+		</record>
+		
+		
+
+	</data>
+</odoo>

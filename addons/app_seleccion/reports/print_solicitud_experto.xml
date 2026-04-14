@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="report_solicitud_experto" model="ir.actions.report.xml">
+            <field name="name">Solicitud al Comité de Expertos</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">app_seleccion.solicitud_expertos</field>
+            <field name="report_name">report_solicitud_experto</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="docxtpl_multi_in_one">True</field>
+            <field name="module">app_seleccion</field>
+            <field name="docxtpl_template_fallback">reports/docx/app_seleccion_solicitud_experto.docx</field>
+        </record>
+        <record id="button_report_solicitu_experto" model="ir.values">
+            <field name="key2">client_print_multi</field>
+            <field name="model">app_seleccion.solicitud_expertos</field>
+            <field name="name">Solicitud al Comité de Expertos</field>
+            <field name="value"
+                   eval="'ir.actions.report.xml,%d'%report_solicitud_experto"/>
+        </record>
+    </data>
+</odoo>

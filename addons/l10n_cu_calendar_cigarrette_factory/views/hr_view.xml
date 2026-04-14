@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		
+<!--	HEREDANDO LA VISTA FORM DE employee-->
+	<record id="l10n_cu_calendar_view_employee_filter_inerit" model="ir.ui.view">
+            <field name="name">hr.hr.employee.view.search_inerit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <filter name="message_needaction" position="before">
+                        <filter string="Subordinates" name="subordinates" domain="['|','|','|','|',('user_id.id','=',uid),
+                                                                            ('parent_id.user_id.id','=',uid),
+                                                                            ('parent_id.parent_id.user_id.id','=',uid),
+                                                                            ('parent_id.parent_id.parent_id.user_id.id','=',uid),
+                                                                            ('parent_id.parent_id.parent_id.parent_id.user_id.id','=',uid)]"/>
+                    </filter>
+                </data>
+            </field>
+        </record>
+
+    <!--	HEREDANDO LA VISTA KANBAN DE employee-->
+	<record id="l10n_cu_calendar_hr_kanban_view_employees_inerit" model="ir.ui.view">
+            <field name="name">HR - Employess Kanban_inerit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+            <field name="arch" type="xml">
+                <data>
+                <field name="last_login" position = "after">
+                        <field name="visible" />
+                </field>
+                    <field name="name" position = "after"> <field name="visible" invisible="True"/></field>
+                <xpath expr="//div/div[@class='o_kanban_button']" position="before">
+                    <button name="%(action_calendar_print_individual_plan)d" type="action" help="Print individual plan" attrs="{'invisible':[('visible','=',False)]}">Print</button>
+                    <button name="view_calendar" type="object" help="View employee's calendar" attrs="{'invisible':[('visible','=',False)]}">View</button>
+                </xpath>
+                </data>
+            </field>
+        </record>
+	</data>
+</openerp>

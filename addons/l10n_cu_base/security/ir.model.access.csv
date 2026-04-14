@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_l10n_cu_base_municipality,access_l10n_cu_base_municipality,model_l10n_cu_base_municipality,base.group_user,1,1,1,1
+access_l10n_cu_base_district,access_l10n_cu_base_district,model_l10n_cu_base_district,base.group_user,1,1,1,1
+access_l10n_cu_hlg_partner_location,access_l10n_cu_hlg_partner_location,model_l10n_cu_hlg_partner_location,base.group_user,1,1,1,1
+access_l10n_cu_ministry,access_l10n_cu_ministry,model_l10n_cu_ministry,base.group_user,1,0,0,0
+access_l10n_cu_branch,access_l10n_cu_branch,model_l10n_cu_branch,base.group_user,1,0,0,0
+access_l10n_cu_base_authorized_signature.employee,l10n_cu_base_authorized_signature.employee,model_l10n_cu_base_authorized_signature,base.group_user,1,0,0,0
+access_l10n_cu_base_reg,access_l10n_cu_base_reg,model_l10n_cu_base_reg,base.group_user,1,1,1,1

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+       
+
+       <!-- MENU ITEM -->
+        <menuitem name="Transportista"
+				  id="atmsys_employee_driver_menu_item"
+				  action="warehouse.warehouse_employee_driver_action"
+				  parent="atmsys_blind_reception_left_menu"/>
+    </data>
+</odoo>

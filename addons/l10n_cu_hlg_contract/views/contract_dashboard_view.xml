@@ -1,0 +1,261 @@
+<odoo>
+    <record id="dashboard_commercial" model="ir.ui.view">
+        <field name="name">dashboard_commercial</field>
+        <field name="model">dashboard.commercial</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard o_account_kanban" create="false">
+                <field name="color"/>
+                <field name="name"/>
+                <field name="total"/>
+                <field name="kanban_dashboard"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{kanban_color(0)}">
+                            <t t-value="JSON.parse(record.kanban_dashboard.raw_value)" t-set="dashboard"/>
+                            <t t-value="record.name.raw_value" t-set="name"/>
+                            <t t-value="record.total.raw_value" t-set="total"/>
+
+                            <t t-call="DashboardTop"/>
+                            <div class="container o_kanban_card_content o_visible">
+                                <div class="row">
+                                    <t t-call="CommercialBodySalePurchase"/>
+                                </div>
+                                <t t-call="DashboardGraph"/>
+                            </div>
+                        </div>
+                    </t>
+
+                    <!-- Comenzando las plantillas para llamar luego -->
+                    <t t-name="DashboardTop">
+                        <div class="o_kanban_card_header">
+                            <div class="o_kanban_card_header_title">
+                                <div class="o_primary">
+                                    <a>
+                                        <t t-if="(name == 'customer')">Sale</t>
+                                        <t t-if="(name == 'supplier')">Purchase</t>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--<div class="o_kanban_manage_button_section">-->
+                            <!--<a class="o_kanban_manage_toggle_button" href="#">More-->
+                            <!--<i class="fa fa-caret-down"/>-->
+                            <!--</a>-->
+                            <!--</div>-->
+                        </div>
+                    </t>
+
+                    <t t-name="CommercialBodySalePurchase">
+                        <div class="col-xs-4 o_kanban_primary_left o_commercial_dashboard">
+                            <div class="o_primary">
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <td class="o_text">
+                                            <div class="o_highlight">TOTAL</div>
+                                        </td>
+                                        <td class="o_main">
+                                            <a>
+                                                <span class="o_highlight">
+                                                    <t>
+                                                        <t t-esc="total"/>
+                                                    </t>
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <br></br>
+                            <br></br>
+
+                            <div>
+                                <t t-if="name == 'customer'">
+                                    <button type="action"
+                                            name="%(l10n_cu_hlg_contract.action_l10n_cu_contract_contract)d"
+                                            class="btn btn-primary btn-sm o_invoice_new">
+                                        <span>New</span>
+                                    </button>
+                                </t>
+                                <t t-if="name == 'supplier'">
+                                    <button type="action"
+                                            name="%(l10n_cu_hlg_contract.action_l10n_cu_contract_contract_purchase)d"
+                                            class="btn btn-primary btn-sm">
+                                        <span>New</span>
+                                    </button>
+                                </t>
+                            </div>
+                            <div>
+                                <t t-esc="type"/>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-8 o_kanban_primary_right">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <a type="object" name="open_action" context="{'search_default_draft': '1'}">
+                                        <span title="Contract draft">
+                                            <t t-esc="dashboard.number_draft"/>
+                                            Contract draft
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <span>
+                                        <t t-esc="dashboard.sum_draft"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <a type="object" name="open_action" context="{'search_default_pending_dict': '1'}">
+                                        <span title="Contract pending dict.">
+                                            <t t-esc="dashboard.number_pend_dict"/>
+                                            Contract pending dict.
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <span>
+                                        <t t-esc="dashboard.sum_pend_dict"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <a type="object" name="open_action" context="{'search_default_pending_appro': '1'}">
+                                        <span title="Contract pending appro.">
+                                            <t t-esc="dashboard.number_pend_ap"/>
+                                            Contract pending appro.
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <span>
+                                        <t t-esc="dashboard.sum_pend_ap"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <a type="object" name="open_action" context="{'search_default_rejected': '1'}">
+                                        <span title="Contract rejected">
+                                            <t t-esc="dashboard.number_reje"/>
+                                            Contract rejected
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <span>
+                                        <t t-esc="dashboard.sum_reje"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <a type="object" name="open_action" context="{'search_default_approval': '1'}">
+                                        <span title="Contract approval">
+                                            <t t-esc="dashboard.number_app"/>
+                                            Contract approval
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <span>
+                                        <t t-esc="dashboard.sum_app"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <a type="object" name="open_action"
+                                       context="{'search_default_pending_signed': '1'}">
+                                        <span title="Contract pending signed">
+                                            <t t-esc="dashboard.number_pend_sing"/>
+                                            Contract pending signed
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <span>
+                                        <t t-esc="dashboard.sum_pend_sing"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <a type="object" name="open_action" context="{'search_default_open': '1'}">
+                                        <span title="Contract in action">
+                                            <t t-esc="dashboard.number_open"/>
+                                            Contract in action
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <span>
+                                        <t t-esc="dashboard.sum_open"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <a type="object" name="open_action" context="{'search_default_close': '1'}">
+                                        <span title="Contract close">
+                                            <t t-esc="dashboard.number_close"/>
+                                            Contract close
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <span>
+                                        <t t-esc="dashboard.sum_close"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <a type="object" name="open_action" context="{'search_default_cancelled': '1'}">
+                                        <span title="Contract cancelled">
+                                            <t t-esc="dashboard.number_can"/>
+                                            Contract cancelled
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <span>
+                                        <t t-esc="dashboard.sum_can"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+
+                    <t t-name="DashboardGraph">
+                        <p><b>Vencimiento por semanas</b></p>
+                        <div class="o_kanban_graph_section">
+                            <field name="kanban_dashboard_graph_contract" t-att-graph_type="'bar'" t-att-test="name"
+                                   widget="commercial_dashboard_graph"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="open_contract_dashboard_kanban" model="ir.actions.act_window">
+        <field name="name">Contract Dashboard</field>
+        <field name="res_model">dashboard.commercial</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban, form</field>
+        <field name="usage">menu</field>
+        <field name="context">{'search_default_dashboard':1}</field>
+        <field name="domain"></field>
+        <field name="help" type="html">
+            <p>
+
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_board_contract_1" name="Dashboard" action="open_contract_dashboard_kanban"
+              parent="menu_commercial"
+              sequence="0"/>
+</odoo>

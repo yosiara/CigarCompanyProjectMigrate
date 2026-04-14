@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Contract Line-->
+        <record id="view_l10n_cu_contract_line_milestone_payment_form" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.line_milestone_payment.form</field>
+            <field name="model">l10n_cu_contract.line_milestone_payment</field>
+            <field name="arch" type="xml">
+                <form string="Lines">
+                    <sheet>
+                        <field name="active_id" invisible="True"/>
+                        <field name="lines_milestone_payment">
+                            <tree string="Lines" editable="bottom">
+                                <field name="contract_lines_ids" context="{'active_id': parent.active_id}"/>
+                                <field name="description"/>
+                                <field name="amount"/>
+                                <field name="amount_payment_contract_line"/>
+                                <field name="amount_payment"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Contract -->
+        <record id="view_l10n_cu_contract_contract_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.contract.tree</field>
+            <field name="model">l10n_cu_contract.contract</field>
+            <field name="arch" type="xml">
+                <tree string="Contract Type">
+                    <field name="complete_number"/>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="internal_number_contract"/>
+                    <field name="contract_type"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="hco"/>
+                    <field name="amount_total"/>
+                    <field name="amount_invoice"/>
+                    <field name="validity_date_progress" widget="progressbar"/>
+                    <field name="percentage_execution" widget="progressbar"/>
+                    <field name="days" invisible="True"/>
+                    <field name="state"/>
+		    <field name="dst"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_contract_contract_form" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.contract.form</field>
+            <field name="model">l10n_cu_contract.contract</field>
+            <field name="arch" type="xml">
+                <form string="Contract">
+                    <header>
+                        <button string="Pending Dict" name="set_pending_dict" type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|',('state','!=','draft'),('required_judgment','=', False)]}"
+                                groups="l10n_cu_hlg_contract.group_contract_manager"/>
+                        <button string="Pending Signed" name="set_pending_signed" type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|',('state','!=','draft'),('required_judgment','!=', False)]}"
+                                groups="l10n_cu_hlg_contract.group_contract_manager"/>
+                        <button string="Pending Signed" name="set_pending_signed" type="object" class="oe_highlight"
+                                attrs="{'invisible': [('state','!=','approval')]}"
+                                groups="l10n_cu_hlg_contract.group_contract_manager"/>
+                        <button string="Pending Approve" name="set_pending_approv" states="pending_dict" type="object"
+                                class="oe_highlight"
+                                groups="l10n_cu_hlg_contract.group_contract_manager"/>
+                        <button string="Reject" name="set_rejected" states="pending_appro" type="object"
+                                class="oe_highlight"
+                                groups="l10n_cu_hlg_contract.group_contract_manager"/>
+                        <button string="Approved" name="set_approval" states="pending_appro" type="object"
+                                class="oe_highlight"
+                                groups="l10n_cu_hlg_contract.group_contract_manager"/>
+                        <button string="Draft" name="set_new" states="rejected" type="object" class="oe_highlight"
+                                groups="l10n_cu_hlg_contract.group_contract_manager"/>
+                        <button string="In Progress" name="set_open" states="pending_signed" type="object"
+                                class="oe_highlight"/>
+                        <button string="In Progress" name="set_open2" states="close" type="object"
+                                class="oe_highlight"
+                                groups="l10n_cu_hlg_contract.group_contract_manager"/>
+                        <button string="Cancel" name="set_cancel" states="open" type="object" class="oe_highlight"
+                                groups="l10n_cu_hlg_contract.group_contract_manager"/>
+                        <button string="Close" name="set_close" type="object" class="oe_highlight"
+                                states="open"
+                                groups="l10n_cu_hlg_contract.group_contract_manager"/>
+                        <button string="Draft" name="set_draft" type="object" class="oe_highlight"
+                                states="pending_dict,pending_appro,rejected,approval,pending_signed,open,close,cancelled"
+                                groups="l10n_cu_hlg_contract.group_contract_master"/>
+                        <button string="Print" name="print_contract" type="object" class="oe_highlight"
+                                groups="l10n_cu_hlg_contract.group_contract_user"/>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Objeto del contrato"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="contract_type" domain="[('flow', '=', flow)]"
+                                       options="{'no_create': True}"/>
+                                <field name="flow" invisible="True"/>
+                                <field name="required_parent" invisible="True"/>
+                                <field name="required_judgment" invisible="True"/>
+                                <field name="required_lines" invisible="True"/>
+                                <field name="required_milestone_payment" invisible="True"/>
+                                <field name="required_parent_id" invisible="True"/>
+                                <field name="committee" invisible="True"/>
+
+                                <field name="partner_id" attrs="{'readonly': [('state', '!=', 'draft')]}"
+                                       domain="[(flow, '=', True)]"/>
+                                <field name="parent_id" attrs="{'invisible': [('required_parent', '!=', True)],
+                                                                'required': [('required_parent', '=', True)]}"
+                                       domain="[('state', 'in', ['open','pending_signed']),('contract_type', '=', required_parent_id),
+                                       ('partner_id', '=', partner_id)]"
+                                       options="{'no_create': True}"/>
+                                <field name="municipality_id"
+                                       attrs="{'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                <field name="hco"
+                                       attrs="{'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                <field name="revision"
+                                       attrs="{'readonly': [('state', 'in', ['close','cancelled'])]}"/>
+                                <field name="year"
+                                       attrs="{'invisible': [('revision', '=', False)]}"/>
+                            </group>
+                            <group>
+                                <field name="number_readonly" invisible="1"/>
+                                <field name="number"
+                                       attrs="{'readonly': ['|',('number_readonly', '=', True),('state', 'in', ['open','close','cancelled'])]}"/>
+
+                                <field name="internal_number_contract" />
+				                <field name="dst"/>
+                                <field name="tcp"/>
+                                <field name="date_send_signed"
+                                       attrs="{'required': [('state', 'in', ['approval','pending_signed'])],
+                                                'readonly': [('state', 'in', ['pending_signed','open','close','cancelled'])]}"/>
+                                <field name="date_start"
+                                       attrs="{'required': [('state', 'in', ['pending_signed','open','close','cancelled'])],
+                                                'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                <field name="date_end"
+                                       attrs="{'required': [('state', 'in', ['pending_signed','open','close','cancelled']),
+                                                            ('hco', '=', False)],
+                                                'readonly': [('state', 'in', ['open','close','cancelled'])],
+                                                'invisible': [('hco', '=', True)]}"/>
+
+                                <field name="amount_bool"
+                                       attrs="{'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                <field name="update_date"
+                                       attrs="{'invisible': [('required_parent', '=', False)],
+                                                'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                <field name="update_lines"
+                                       attrs="{'invisible': [('required_parent', '=', False)],
+                                                'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                <field name="option_select"
+                                       attrs="{'invisible': [('update_lines', '=', False)],
+                                                'required': [('update_lines', '=', True)]}"/>
+                                <field name="validity_date_progress" widget="progressbar"/>
+                                <field name="percentage_execution" widget="progressbar"/>
+                                <field name="company_id" groups="base.group_multi_company"
+                                       options="{'no_create': True}"/>
+                            </group>
+                        </group>
+                        <group class="oe_subtotal_footer oe_right">
+                            <field name="amount_total"/>
+                            <field name="amount_invoice"/>
+                            <field name="amount_rest" class="oe_subtotal_footer_separator"/>
+                        </group>
+
+                        <notebook colspan="4">
+                            <page string="Product Lines" attrs="{'invisible':[('required_lines', '!=', True)]}">
+                                <field name="line_ids" attrs="{'readonly':[('state', '!=', 'draft')]}"
+                                       options="{'no_open': True}">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="product_id"/>
+                                        <field name="description"/>
+                                        <field name="account_analytic_id" groups="analytic.group_analytic_accounting"
+                                               domain="[('company_id', '=', parent.company_id)]"/>
+                                        <field name="quantity"/>
+                                        <field name="quantity_invoice"/>
+                                        <field name="price"/>
+                                        <field name="amount"/>
+                                        <field name="amount_payment"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Milestone Payments"
+                                  attrs="{'invisible':['|',('required_milestone_payment', '!=', True),
+                                                ('state', 'not in', ['pending_signed','open','close','cancelled'])]}">
+                                <button string="Clear" name="clear_milestone" type="object" class="oe_highlight"/>
+                                <field name="milestone_payment_ids"
+                                       attrs="{'readonly':[('state', 'in', ['open','close','cancelled'])]}"
+                                       options="{'no_open': True}">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="date"/>
+                                        <field name="line_ids" domain="[('id', '=', 0)]"
+                                               context="{'active_id': parent.id}"/>
+                                        <field name="notes"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Childs" attrs="{'invisible':[('required_parent', '=', True)]}">
+                                <field name="child_ids" readonly="True"
+                                       options="{'no_open': True}">
+                                    <tree>
+                                        <field name="complete_number"/>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="contract_type"/>
+                                        <field name="date_start"/>
+                                        <field name="date_end"/>
+                                        <field name="amount_total"/>
+                                        <field name="amount_invoice"/>
+                                        <field name="validity_date_progress" widget="progressbar"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Judgment" attrs="{'invisible':[('required_judgment', '!=', True)]}">
+                                <field name="judgment_ids"
+                                       attrs="{'readonly':[('state', 'not in', ['pending_dict'])]}">
+                                    <tree editable="bottom">
+                                        <field name="date_judgment"/>
+                                        <field name="judgment" filename="judgment_file_name"/>
+                                        <field name="judgment_file_name" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="Information">
+                                <group>
+                                    <!--<field name="employee_id"-->
+                                           <!--attrs="{'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>-->
+                                    <group>
+                                        <field name="employee_id" readonly="True" invisible="1"/>
+                                        <field name="responsible_employee_id"
+                                               attrs="{'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                        <field name="department_responsible_employee_id"
+                                               attrs="{'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                        <field name="payment_method_id"
+                                               attrs="{'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+
+                                    </group>
+                                    <group>
+                                        <field name="related_employee_id"
+                                               attrs="{'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                        <field name="department_id"
+                                               attrs="{'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                        <field name="property_payment_term_id"
+                                               attrs="{'readonly': [('state', 'in', ['open','close','cancelled'])]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Invoices" readonly="True">
+                                <group>
+                                    <field name="invoice_ids" readonly="True" nolabel="1">
+                                        <tree>
+                                            <field name="number"/>
+                                            <field name="reference"/>
+                                            <field name="date_invoice"/>
+                                            <field name="amount_total_signed" string="Total" sum="Total"/>
+                                            <field name="residual_signed" string="Amount Due" sum="Amount Due"/>
+                                            <field name="state"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Claim">
+                                <field name="reclamation_ids">
+                                    <tree editable="bottom" string="Reclamation">
+                                        <field name="dateR" colspan="1"/>
+                                        <field name="observation" colspan="3" filename="judgment_file_name"/>
+                                        <field name="contract_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Notes">
+                                <group>
+                                    <field name="note" placeholder="Informaciones adicionales de los contratos"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="contract_view_graph" model="ir.ui.view">
+            <field name="name">contract.graph</field>
+            <field name="model">l10n_cu_contract.contract</field>
+            <field name="arch" type="xml">
+                <graph string="Contract" type="bar" stacked="True">
+                    <field name="name" type="row"/>
+                    <field name="amount_total" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="contract_view_pivot" model="ir.ui.view">
+            <field name="name">contract.pivot</field>
+            <field name="model">l10n_cu_contract.contract</field>
+            <field name="arch" type="xml">
+                <pivot string="Contract Analysis" disable_linking="True">
+                    <field name="create_date" interval="month" type="col"/>
+                    <field name="partner_id" type="row"/>
+                    <field name="amount_total" type="measure"/>
+                    <field name="amount_invoice" type="measure"/>
+                    <field name="quantity" type="measure"/>
+                    <field name="quantity_invoice" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="contract_view_search" model="ir.ui.view">
+            <field name="name">contract.search</field>
+            <field name="model">l10n_cu_contract.contract</field>
+            <field name="arch" type="xml">
+                <search string="Contracts">
+                    <field name="name"/>
+                    <field name="number"/>
+                    <field name="complete_number"/>
+                    <field name="partner_id"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="date_send_signed"/>
+                    <field name="state"/>
+                    <field name="contract_type"/>
+                    <field name="number_archive_partner"/>
+		    <field name="dst"/>	
+
+                    <filter string="Draft" name="draft" domain="[('state','in', ['draft'])]"/>
+                    <filter string="Pending Dict." name="pending_dict" domain="[('state','in', ['pending_dict'])]"/>
+                    <filter string="Pending Appro." name="pending_appro" domain="[('state','in', ['pending_appro'])]"/>
+                    <filter string="Rejected" name="rejected" domain="[('state','in', ['rejected'])]"/>
+                    <filter string="Approved" name="approval" domain="[('state','in', ['approval'])]"/>
+                    <filter string="Pending Signed" name="pending_signed"
+                            domain="[('state','in', ['pending_signed'])]"/>
+                    <filter string="In Action" name="open" domain="[('state','in', ['open'])]"/>
+                    <filter string="Closed" name="close" domain="[('state','in', ['close'])]"/>
+                    <filter string="Cancelled" name="cancelled" domain="[('state','in', ['cancelled'])]"/>
+
+                    <filter string="Not Close" name="not_close" domain="[('state','not in', ['close','cancelled'])]"/>
+                    <filter string="Review at the beginning of the year" name="revision"
+                            domain="[('revision', '=', True)]"/>
+                    <filter string="Monetary execution" name="revision"
+                            domain="[('percentage_execution', '&gt;=', 75)]"/>
+
+                    <filter name="groupby_month" context="{'group_by': 'date_start:month'}" string="Month"/>
+                    <filter name="groupby_year" context="{'group_by': 'date_start:year'}" string="Year"/>
+                    <filter name="groupby_state" context="{'group_by': 'state'}" string="State"/>
+                    <group expand="0" string="Group By">
+                        <filter name="groupby_contract_type" context="{'group_by' : 'contract_type'}"
+                                string="Contract Type"/>
+                        <filter name="groupby_department_id" context="{'group_by' : 'department_id'}"
+                                string="Department"/>
+                        <filter name="groupby_customer_id" context="{'group_by' : 'partner_id'}"
+                                string="Customer"/>
+                        <filter name="groupby_year" string="Year of revision"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_l10n_cu_contract_contract" model="ir.actions.act_window">
+            <field name="name">Contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('flow', '=', 'customer')]</field>
+            <field name="context">{'default_flow': 'customer', 'flow': 'customer',
+                'search_default_not_close':1}
+            </field>
+            <field name="help"></field>
+            <field name="view_id" ref="view_l10n_cu_contract_contract_tree"/>
+        </record>
+
+        <menuitem action="action_l10n_cu_contract_contract"
+                  id="menu_contract" parent="menu_sale_commercial"
+                  sequence="15"
+        />
+
+        <record id="action_l10n_cu_contract_contract_purchase" model="ir.actions.act_window">
+            <field name="name">Contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('flow', '=', 'supplier')]</field>
+            <field name="context">{'default_flow': 'supplier', 'flow': 'supplier',
+                'search_default_not_close':1}
+            </field>
+            <field name="help"></field>
+        </record>
+
+        <menuitem action="action_l10n_cu_contract_contract_purchase"
+                  id="menu_contract_purchase" parent="l10n_cu_hlg_contract.menu_purchase_commercial"
+                  sequence="15"
+        />
+
+        <record id="contract_action_contract_type" model="ir.actions.act_window">
+            <field name="name">Contract</field>
+            <field name="res_model">l10n_cu_contract.contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain"></field>
+            <field name="context">{
+                'search_default_contract_type': [active_id],
+                'default_contract_type': active_id,
+                }
+            </field>
+            <field name="search_view_id" ref="contract_view_search"/>
+        </record>
+
+        <record id="contract_action_contract_type_draft" model="ir.actions.act_window">
+            <field name="name">Contract</field>
+            <field name="res_model">l10n_cu_contract.contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain"></field>
+            <field name="context">{
+                'search_default_contract_type': [active_id],
+                'default_contract_type': active_id,
+                'search_default_draft': 1,
+                }
+            </field>
+            <field name="search_view_id" ref="contract_view_search"/>
+        </record>
+
+        <record id="contract_action_contract_type_process" model="ir.actions.act_window">
+            <field name="name">Contract</field>
+            <field name="res_model">l10n_cu_contract.contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain"></field>
+            <field name="context">{
+                'search_default_contract_type': [active_id],
+                'default_contract_type': active_id,
+                'search_default_pending_dict': 1,
+                'search_default_pending_appro': 1,
+                'search_default_rejected': 1,
+                'search_default_approval': 1,
+                'search_default_pending_signed': 1,
+                }
+            </field>
+            <field name="search_view_id" ref="contract_view_search"/>
+        </record>
+
+        <record id="contract_action_contract_type_progress" model="ir.actions.act_window">
+            <field name="name">Contract</field>
+            <field name="res_model">l10n_cu_contract.contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain"></field>
+            <field name="context">{
+                'search_default_contract_type': [active_id],
+                'default_contract_type': active_id,
+                'search_default_open': 1,
+                }
+            </field>
+            <field name="search_view_id" ref="contract_view_search"/>
+        </record>
+
+        <record id="contract_action_type" model="ir.actions.act_window">
+            <field name="name">Contract</field>
+            <field name="res_model">l10n_cu_contract.contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain"></field>
+            <field name="search_view_id" ref="contract_view_search"/>
+        </record>
+
+        <record id="view_l10n_cu_contract_contract_tree_parent" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.contract.tree.parent</field>
+            <field name="model">l10n_cu_contract.contract</field>
+            <field name="field_parent">child_ids</field>
+            <field eval="20" name="priority"/>
+            <field name="arch" type="xml">
+                <tree string="Contract Type">
+                    <field name="complete_number"/>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="contract_type"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="hco"/>
+                    <field name="amount_total"/>
+                    <field name="amount_invoice"/>
+                    <field name="validity_date_progress" widget="progressbar"/>
+                    <field name="days" invisible="True"/>
+                    <field name="state"/>
+		            <field name="dst"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_l10n_cu_contract_contract_tree_parent"
+                model="ir.actions.act_window">
+            <field name="name">Contract Parent</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.contract</field>
+            <field name="domain">[('parent_id','=',False),('flow', '=', 'customer'),('state', '=', 'open')]</field>
+            <field name="view_type">tree</field>
+            <field name="view_id" ref="view_l10n_cu_contract_contract_tree_parent"/>
+        </record>
+
+        <menuitem action="action_l10n_cu_contract_contract_tree_parent"
+                  id="menu_contract_parent" parent="menu_sale_commercial"
+                  sequence="20"
+        />
+
+        <menuitem action="account.action_invoice_tree1" id="menu_sale_invoice" parent="menu_sale_commercial"
+                  sequence="25"/>
+
+        <record id="action_l10n_cu_contract_contract_tree_parent_purchase"
+                model="ir.actions.act_window">
+            <field name="name">Contract Parent</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.contract</field>
+            <field name="domain">[('parent_id','=',False),('flow', '=', 'supplier'), ('state', '=', 'open')]</field>
+            <field name="view_type">tree</field>
+            <field name="view_id" ref="view_l10n_cu_contract_contract_tree_parent"/>
+        </record>
+
+        <menuitem action="action_l10n_cu_contract_contract_tree_parent_purchase"
+                  id="menu_contract_parent_purchase" parent="menu_purchase_commercial"
+                  sequence="20"
+        />
+
+        <menuitem action="account.action_invoice_tree2" id="menu_purchase_invoice" parent="menu_purchase_commercial"
+                  sequence="25"/>
+
+    </data>
+</odoo>

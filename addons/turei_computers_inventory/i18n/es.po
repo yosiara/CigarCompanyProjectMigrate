@@ -1,0 +1,450 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* turei_computers_inventory
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20200610\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-23 01:23+0000\n"
+"PO-Revision-Date: 2021-08-22 21:25-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.3\n"
+"Language: es_ES\n"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b># Sello</b>"
+msgstr "<b># Sello</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Bocinas</b>"
+msgstr "<b>Bocinas</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Chasis</b>"
+msgstr "<b>Chasis</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Departamento</b>"
+msgstr "<b>Departamento</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Disco Duro</b>"
+msgstr "<b>Disco Duro</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Disp. lectura Óptico</b>"
+msgstr "<b>Disp. lectura Óptico</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Expediente de máquina No:</b>"
+msgstr "<b>Expediente de máquina No:</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Expediente de máquina</b>"
+msgstr "<b>Expediente de máquina</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Fax</b>"
+msgstr "<b>Fax</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Fecha:</b>"
+msgstr "<b>Fecha:</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Fuente</b>"
+msgstr "<b>Fuente</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Historial de cambios</b>"
+msgstr "<b>Historial de cambios</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Impresora</b>"
+msgstr "<b>Impresora</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Marca</b>"
+msgstr "<b>Marca</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Memoria RAM</b>"
+msgstr "<b>Memoria RAM</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Microprocesador</b>"
+msgstr "<b>Microprocesador</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Modelo</b>"
+msgstr "<b>Modelo</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Monitor</b>"
+msgstr "<b>Monitor</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Motherboard</b>"
+msgstr "<b>Motherboard</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Mouse</b>"
+msgstr "<b>Mouse</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "<b>ORDEN DE TRABAJO</b>"
+msgstr "<b>ORDEN DE TRABAJO</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Scanner</b>"
+msgstr "<b>Scanner</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Serie</b>"
+msgstr "<b>Serie</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>Teclado</b>"
+msgstr "<b>Teclado</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "<b>UPS</b>"
+msgstr "<b>UPS</b>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid ""
+"<span style=\"padding-right: 64px;\">_________________________________________</span><br/>\n"
+"                                            <span style=\"padding-right: 96px;\">Firma</span>"
+msgstr ""
+"<span style=\"padding-right: 64px;\">_________________________________________</span><br/>\n"
+"                                            <span style=\"padding-right: 96px;\">Firma</span>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid ""
+"<span>Equipo Listo para el Trabajo</span>\n"
+"                                    <br/>"
+msgstr ""
+"<span>Equipo Listo para el Trabajo</span>\n"
+"                                    <br/>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid ""
+"<span>Fecha de Cierre</span>\n"
+"                                    <br/>"
+msgstr ""
+"<span>Fecha de Cierre</span>\n"
+"                                    <br/>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid ""
+"<span>Sí</span>\n"
+"                                        <span style=\"text-decoration: underline\"> X </span>  <span>\n"
+"                                        No\n"
+"                                    </span>\n"
+"                                        <span style=\"text-decoration: underline\">   </span>"
+msgstr ""
+"<span>Sí</span>\n"
+"                                        <span style=\"text-decoration: underline\"> X </span>  <span>\n"
+"                                        No\n"
+"                                    </span>\n"
+"                                        <span style=\"text-decoration: underline\">   </span>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid ""
+"<span>Sí</span>\n"
+"                                        <span style=\"text-decoration: underline\">   </span>  <span>\n"
+"                                        No\n"
+"                                    </span>\n"
+"                                        <span style=\"text-decoration: underline\"> X </span>"
+msgstr ""
+"<span>Sí</span>\n"
+"                                        <span style=\"text-decoration: underline\">   </span>  <span>\n"
+"                                        No\n"
+"                                    </span>\n"
+"                                        <span style=\"text-decoration: underline\"> X </span>"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "C. Costo"
+msgstr "C. Costo"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "Capacidad"
+msgstr "Capacidad"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "Cargo:"
+msgstr "Cargo:"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "Componente"
+msgstr "Componente"
+
+#. module: turei_computers_inventory
+#: model:ir.model,name:turei_computers_inventory.model_computers_inventory_work_order
+msgid "Computers Inventory Work Order"
+msgstr "Inventario computadoras orden de trabajo"
+
+#. module: turei_computers_inventory
+#: model:ir.model.fields,field_description:turei_computers_inventory.field_computers_inventory_work_order_cost_center
+msgid "Cost Center"
+msgstr "Centro de Costo"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "Descripción:"
+msgstr "Descripción:"
+
+#. module: turei_computers_inventory
+#: model:ir.model.fields,field_description:turei_computers_inventory.field_report_turei_computers_inventory_report_equipment_file_view_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "Ejecutor"
+msgstr "Ejecutor"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "Empleado"
+msgstr "Empleado"
+
+#. module: turei_computers_inventory
+#: model:ir.actions.report.xml,name:turei_computers_inventory.report_equipment_file
+msgid "Equipment File"
+msgstr "Expediente de equipo"
+
+#. module: turei_computers_inventory
+#: model:ir.actions.report.xml,name:turei_computers_inventory.report_equipment_file_preview
+msgid "Equipment File Preview"
+msgstr "Previsualizar expediente de equipo"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "Equipo y No."
+msgstr "Equipo y No."
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "Fecha de Inicio"
+msgstr "Fecha de Inicio"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "Fecha de Solicitud"
+msgstr "Fecha de Solicitud"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "Firma del Informático"
+msgstr "Firma del Informático"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "Firma del Usuario"
+msgstr "Firma del Usuario"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "Firma:"
+msgstr "Firma:"
+
+#. module: turei_computers_inventory
+#: model:ir.model.fields,field_description:turei_computers_inventory.field_report_turei_computers_inventory_report_equipment_file_view_id
+msgid "ID"
+msgstr "ID"
+
+#. module: turei_computers_inventory
+#: model:ir.model.fields,field_description:turei_computers_inventory.field_report_turei_computers_inventory_report_equipment_file_view___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "No."
+msgstr "No."
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "No. Inventario:"
+msgstr "No. Inventario:"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "No. de Inventario."
+msgstr "No. de Inventario."
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "Nombre del Responsable"
+msgstr "Nombre del Responsable"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "Observaciones"
+msgstr "Observaciones"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid ""
+"Por medio de la presente me hago responsable de que el equipo al cual\n"
+"                                                hace\n"
+"                                                mención este expediente cuenta con los medios antes mencionados, además\n"
+"                                                de\n"
+"                                                asumir el cuidado externo e interno en cuanto a Software Instalados, así\n"
+"                                                como\n"
+"                                                reportar cualquier tipo de violación de la Seguridad Informática, la\n"
+"                                                pérdida\n"
+"                                                o\n"
+"                                                rotura de algún componente del equipo o del sello de seguridad y velar\n"
+"                                                por\n"
+"                                                el\n"
+"                                                cuidado y conservación de este expediente."
+msgstr ""
+"Por medio de la presente me hago responsable de que el equipo al cual\n"
+"                                                hace\n"
+"                                                mención este expediente cuenta con los medios antes mencionados, además\n"
+"                                                de\n"
+"                                                asumir el cuidado externo e interno en cuanto a Software Instalados, así\n"
+"                                                como\n"
+"                                                reportar cualquier tipo de violación de la Seguridad Informática, la\n"
+"                                                pérdida\n"
+"                                                o\n"
+"                                                rotura de algún componente del equipo o del sello de seguridad y velar\n"
+"                                                por\n"
+"                                                el\n"
+"                                                cuidado y conservación de este expediente."
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "Responsable(s):       Nombre:"
+msgstr "Responsable(s):       Nombre:"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "Sello"
+msgstr "Sello"
+
+#. module: turei_computers_inventory
+#: code:addons/turei_computers_inventory/reports/equipment_file_report.py:20
+#, python-format
+msgid "This report is only available to equipment of information technology..."
+msgstr "This report is only available to equipment of information technology..."
+
+#. module: turei_computers_inventory
+#: code:addons/turei_computers_inventory/reports/equipment_file_report.py:16
+#, python-format
+msgid "This report is only available to select only one equipment..."
+msgstr "This report is only available to select only one equipment..."
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "Tiempo"
+msgstr "Tiempo"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "Trabajo"
+msgstr "Trabajo"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid ""
+"Versión: 01\n"
+"                                <br/>\n"
+"                                Fecha de aprobación: 27/11/2018\n"
+"                                <br/>\n"
+"                                Código: DT-UEBSPI-00-R-10\n"
+"                                <br/>"
+msgstr ""
+"Versión: 01\n"
+"                                <br/>\n"
+"                                Fecha de aprobación: 27/11/2018\n"
+"                                <br/>\n"
+"                                Código: DT-UEBSPI-00-R-10\n"
+"                                <br/>"
+
+#. module: turei_computers_inventory
+#: model:ir.actions.report.xml,name:turei_computers_inventory.report_work_order
+msgid "Work Order"
+msgstr "Orden de trabajo"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "__________"
+msgstr "__________"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid ""
+"__________<br/>\n"
+"                                                Firma"
+msgstr ""
+"__________<br/>\n"
+"                                                Firma"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_work_order_view
+msgid "______________"
+msgstr "______________"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "_________________________________"
+msgstr "_________________________________"
+
+#. module: turei_computers_inventory
+#: model:ir.ui.view,arch_db:turei_computers_inventory.report_equipment_file_view
+msgid "_____________________________________________"
+msgstr "_____________________________________________"
+
+#. module: turei_computers_inventory
+#: model:ir.model,name:turei_computers_inventory.model_report_turei_computers_inventory_report_equipment_file_view
+msgid "report.turei_computers_inventory.report_equipment_file_view"
+msgstr "report.turei_computers_inventory.report_equipment_file_view"

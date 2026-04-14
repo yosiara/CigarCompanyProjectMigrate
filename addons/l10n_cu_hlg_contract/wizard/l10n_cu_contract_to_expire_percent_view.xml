@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="contract_to_expire_percent_wzd_view_form" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.to_expire_percent</field>
+            <field name="model">l10n_cu_contract.to_expire_percent</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Print">
+                    <group>
+                            <group col="2">
+                                <field name="percent"/>
+                            </group>
+                            <group col="2">
+                                <field name="type"/>
+                                <field name="flow" invisible="1"/>
+                            </group>
+                    </group>
+                    <footer>
+                        <div>
+                            <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_contract_to_expire_percent" model="ir.actions.act_window">
+            <field name="name">Print contracts according to budget execution percentage</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.to_expire_percent</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">{'default_flow': 'customer', 'flow': 'customer'}</field>
+        </record>
+
+
+        <menuitem id="menu_report_contract_to_expire_percent_sale" parent="menu_contract_report_sales"
+                  sequence="10" action="action_contract_to_expire_percent" groups="group_contract_manager"/>
+
+        <record id="action_contract_to_expire_purchase_percent" model="ir.actions.act_window">
+            <field name="name">Print contracts according to budget execution percentage</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.to_expire_percent</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">{'default_flow': 'supplier', 'flow': 'supplier'}</field>
+        </record>
+
+
+        <menuitem id="menu_report_contract_to_expire_percent_purchase" parent="menu_contract_report_buy"
+                  sequence="10" action="action_contract_to_expire_purchase_percent" groups="group_contract_manager"/>
+
+
+
+    </data>
+</openerp>

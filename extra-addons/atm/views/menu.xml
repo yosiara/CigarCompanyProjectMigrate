@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+
+        <!-- ======================================================================================
+		ROOT MENU
+		=========================================================================================== -->
+
+        <menuitem name="ATM"
+                  id="atm_root_menu"
+                  web_icon="atm,static/description/icon.png"
+                  sequence="2"/>
+
+        <menuitem name="Products" 
+                  id="atm_product_product_root_menu"/>
+
+        <!-- ======================================================================================
+		MENU ITEMS
+		=========================================================================================== -->
+
+        <menuitem name="Work Orders"
+				  id="atm_work_order_type_left_menu"
+				  parent="atm_root_menu"
+                  sequence="10"/>
+
+        <menuitem name="Receptions"
+				  id="atm_blind_reception_left_menu"
+				  parent="atm_root_menu"
+                  sequence="20"/>
+
+        <menuitem name="General Elements"
+                  id="atm_general_elements_left_menu"
+                  parent="atm_root_menu"
+                  sequence="30"/>
+
+        <menuitem name="Areas"
+                  id="atm_area_menu_item"
+                  parent="atm_general_elements_left_menu"
+                  action="base_cu.base_cu_area_action"
+                  sequence="30"/>
+
+        <menuitem name="Cost Centers"
+                  id="atm_cost_enter_menu_item"
+                  parent="atm_general_elements_left_menu"
+                  action="base_cu.base_cu_cost_center_action"
+                  sequence="20"/>
+
+        <menuitem name="Responsibility Areas"
+                  id="atm_responsibility_area_menu_item"
+                  parent="atm_general_elements_left_menu"
+                  action="base_cu.base_cu_responsibility_area_action"
+                  sequence="10"/>
+
+        <menuitem name="Suppliers"
+                  id="atm_suppliers_menu_item"
+                  parent="atm_general_elements_left_menu"
+                  action="base.action_partner_supplier_form"
+                  sequence="15"/>
+
+        <menuitem name="Informes"
+                  id="atm_reports_menu"
+                  parent="atm_root_menu"
+                  sequence="50"
+        />
+    </data>
+</odoo>

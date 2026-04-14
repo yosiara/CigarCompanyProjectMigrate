@@ -1,0 +1,189 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_report_docxtpl
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20171122\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-26 21:20+0000\n"
+"PO-Revision-Date: 2019-09-26 17:25-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.7.3\n"
+
+#. module: l10n_cu_report_docxtpl
+#: code:addons/l10n_cu_report_docxtpl/models/ir_actions_report_xml.py:36
+#, python-format
+msgid "(Native)"
+msgstr "(Nativo)"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_report_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_template_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_report_create_date
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_template_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_report_docxtpl
+#: selection:docxtpl.template,filetype:0
+msgid "DOCX Text Document"
+msgstr "Documento de texto DOCX"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_report_display_name
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_template_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.ui.menu,name:l10n_cu_report_docxtpl.docxtpl_config_menu
+msgid "Docx"
+msgstr "Docx"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.ui.view,arch_db:l10n_cu_report_docxtpl.act_report_xml_search_view
+msgid "Docx Reports"
+msgstr "Reportes Docx"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.actions.act_window,name:l10n_cu_report_docxtpl.docxtpl_template_configuration_action
+#: model:ir.ui.menu,name:l10n_cu_report_docxtpl.docxtpl_template_configuration_menu
+#: model:ir.ui.view,arch_db:l10n_cu_report_docxtpl.docxtpl_template_configuration_form_view
+#: model:ir.ui.view,arch_db:l10n_cu_report_docxtpl.docxtpl_template_configuration_search_view
+#: model:ir.ui.view,arch_db:l10n_cu_report_docxtpl.docxtpl_template_configuration_tree_view
+msgid "Docx Templates"
+msgstr "Plantillas Docx"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_ir_act_report_xml_docxtpl_template_fallback
+msgid "Fallback"
+msgstr "Fallback"
+
+#. module: l10n_cu_report_docxtpl
+#: code:addons/l10n_cu_report_docxtpl/models/ir_actions_report_xml.py:25
+#, python-format
+msgid "Field 'Output Format' is required for Docx report"
+msgstr "El campo 'Formato de salida' es requerido por Reportes Docx"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.ui.view,arch_db:l10n_cu_report_docxtpl.docxtpl_template_configuration_search_view
+msgid "File Type"
+msgstr "Tipo de archivo"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.ui.view,arch_db:l10n_cu_report_docxtpl.docxtpl_template_configuration_search_view
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_report_id
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_template_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,help:l10n_cu_report_docxtpl.field_ir_act_report_xml_docxtpl_template_fallback
+msgid "If the user does not provide a template this will be used it should be a relative path to root of YOUR module or an absolute path on your server."
+msgstr "If the user does not provide a template this will be used it should be a relative path to root of YOUR module or an absolute path on your server."
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,help:l10n_cu_report_docxtpl.field_ir_act_report_xml_docxtpl_multi_in_one
+msgid "If you execute a report on several records, by default Odoo will generate a ZIP file that contains as many files as selected records. If you enable this option, Odoo will generate instead a single report for the selected records."
+msgstr "If you execute a report on several records, by default Odoo will generate a ZIP file that contains as many files as selected records. If you enable this option, Odoo will generate instead a single report for the selected records."
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_report_ir_actions_report_xml_id
+msgid "Ir actions report xml id"
+msgstr "Ir actions report xml id"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_report___last_update
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_template___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_report_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_template_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_report_write_date
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_template_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_ir_act_report_xml_module
+msgid "Module"
+msgstr "Módulo"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_ir_act_report_xml_docxtpl_multi_in_one
+msgid "Multiple Records in a Single Report"
+msgstr "Multiples Registros en un solo Reporte"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_template_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_report_docxtpl
+#: code:addons/l10n_cu_report_docxtpl/models/docxtpl_report.py:178
+#, python-format
+msgid "No template found. Aborting."
+msgstr "Plantilla no encontrada. Abortando"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_ir_act_report_xml_docxtpl_filetype
+msgid "Output Format"
+msgstr "Formato de salida"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model,name:l10n_cu_report_docxtpl.model_report
+msgid "Report"
+msgstr "Informe"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model,name:l10n_cu_report_docxtpl.model_docxtpl_report
+msgid "Report Docx"
+msgstr "Reporte Docx"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_template_docxtpl_template_data
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_ir_act_report_xml_docxtpl_template_id
+#: model:ir.ui.view,arch_db:l10n_cu_report_docxtpl.docxtpl_report_view
+msgid "Template"
+msgstr "Plantilla"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,field_description:l10n_cu_report_docxtpl.field_docxtpl_template_filetype
+msgid "Template File Type"
+msgstr "Tipo de archivo de la plantilla"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model.fields,help:l10n_cu_report_docxtpl.field_ir_act_report_xml_module
+msgid "The implementer module that provides this report"
+msgstr "The implementer module that provides this report"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model,name:l10n_cu_report_docxtpl.model_docxtpl_template
+msgid "docxtpl.template"
+msgstr "docxtpl.template"
+
+#. module: l10n_cu_report_docxtpl
+#: model:ir.model,name:l10n_cu_report_docxtpl.model_ir_actions_report_xml
+msgid "ir.actions.report.xml"
+msgstr "ir.actions.report.xml"

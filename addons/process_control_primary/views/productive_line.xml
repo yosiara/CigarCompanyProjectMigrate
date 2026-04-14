@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <act_window id="control_proc_productive_line_action"
+                    name="Productive Line"
+                    res_model="process_control_primary.productive_line"
+                    view_mode="tree,form"/>
+
+        <menuitem id="control_proc_productive_line_menu"
+                  name="Líneas Productivas"
+                  parent="process_control_primary_settings_menu"
+                  action="control_proc_productive_line_action"
+                  sequence="30"
+        />
+
+        <record id="control_proc_productive_line_view_form" model="ir.ui.view">
+            <field name="name">process_control_primary_productive_line_view_form</field>
+            <field name="model">process_control_primary.productive_line</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="codigo"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="machine_type_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- To-Do Task List view -->
+        <record id="control_proc_productive_line_view_tree" model="ir.ui.view">
+            <field name="name">process_control_primary_productive_line_view_tree</field>
+            <field name="model">process_control_primary.productive_line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="machine_type_ids"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+</odoo>

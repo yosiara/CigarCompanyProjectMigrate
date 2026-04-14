@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		<record id="age_range_0" model="l10n_cu_hlg_hr_work_force.age_range">
+			<field name="code">2920</field>
+			<field name="name">Menores de 31 años</field>
+		</record>
+
+		<record id="age_range_1" model="l10n_cu_hlg_hr_work_force.age_range">
+			<field name="code">2921</field>
+			<field name="name">De 31 a 50 años</field>
+		</record>
+
+		<record id="age_range_2" model="l10n_cu_hlg_hr_work_force.age_range">
+			<field name="code">2922</field>
+			<field name="name">De 51 a 60 años</field>
+		</record>
+
+		<record id="age_range_3" model="l10n_cu_hlg_hr_work_force.age_range">
+			<field name="code">2923</field>
+			<field name="name">Mayores de 60 años</field>
+		</record>
+
+	</data>
+</odoo>

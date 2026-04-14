@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.process_control_tobacco_efficiency_ltr_to_excel"
+                model="wzd.efficiency.ltr.to.excel"
+                string="Rep. de Eficiencia del Dpto. Tabaco Reconstituido"
+                report_type="xlsx"
+                name="process_control_tobacco.efficiency_ltr_report"
+                file="process_control_tobacco.efficiency_ltr_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

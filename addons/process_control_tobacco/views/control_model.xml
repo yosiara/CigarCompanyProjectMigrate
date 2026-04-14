@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="process_control_tobacco_interrupciones_view_search" model="ir.ui.view">
+            <field name="name">Control tobacco model search view</field>
+            <field name="model">process_control_tobacco.tecnolog_control_model</field>
+            <field name="arch" type="xml">
+                <search string="Modelo de control">
+                    <field name="date"/>
+                    <field name="turn"/>
+                    <filter name="group_year" string="Por año"
+                            context="{'group_by': 'year_char'}"
+                    />
+                    <filter name="group_date1" string="Por fecha"
+                            context="{'group_by': 'date'}"
+                    />
+
+                </search>
+            </field>
+        </record>
+
+        <act_window id="process_control_tobacco_interruptiones_action"
+                    name="Control Tecnológico Tabaco Reconsituido"
+                    res_model="process_control_tobacco.tecnolog_control_model"
+                    view_mode="tree,form"
+                    context="{'search_default_group_year': 1, 'search_default_group_date1': 1}"
+        />
+
+        <menuitem id="process_control_tobacco_interruptiones_menu"
+                  name="Ingreso Inter/producción"
+                  parent="process_control_tobacco_control_tec"
+                  action="process_control_tobacco_interruptiones_action"
+                  sequence="10"
+        />
+
+        <record id="process_control_tobacco_interrupciones_view_tree" model="ir.ui.view">
+            <field name="name">process_control_tobacco_interrupciones_view_tree</field>
+            <field name="model">process_control_tobacco.tecnolog_control_model</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_char" invisible="1"/>
+                    <field name="day_char" invisible="1"/>
+                    <field name="date"/>
+                    <field name="turn"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="process_control_tobacco_interrupciones_view_form" model="ir.ui.view">
+            <field name="name">process_control_tobacco_interrupciones_view_form</field>
+            <field name="model">process_control_tobacco.tecnolog_control_model</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="turn" options="{'no_create_edit': True}" domain="[('active', '=', True)]"/>
+
+                            </group>
+                            <group>
+                                <field name="attendance_id" domain="[('calendar_id', '=', turn)]"
+                                       options="{'no_create_edit': True}"/>
+                            </group>
+                            <group>
+                                <field name="productive_capacity"/>
+                            </group>
+                            <group>
+                                <field name="plan_time"/>
+                            </group>
+                            <group>
+                                <field name="execution_time_l100"/>
+                            </group>
+                            <group>
+                                <field name="quantity_vena_polvo"/>
+                            </group>
+                            <group>
+                                <field name="execution_time_l300"/>
+                            </group>
+                            <group>
+                                <field name="reconstituted_produced"/>
+                            </group>
+
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Interrupciones">
+                                    <field name="interruptions">
+                                        <tree editable="bottom">
+                                            <field name="machine_type_id"/>
+                                            <field name="interruption_type"/>
+                                            <field name="time" widget="xls_formula"/>
+                                            <field name="frequency" widget="xls_formula"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Producción Horaria">
+                                    <group>
+                                        <field name="production_in_proccess_control"/>
+                                    </group>
+                                    <field name="production_by_hours_ids"
+                                           attrs="{'readonly': [('attendance_id','=', False)]}">
+                                        <tree editable="bottom">
+                                            <field name="hour_production"/>
+                                            <field name="production_count" widget="xls_formula"/>
+                                        </tree>
+                                    </field>
+                                </page>
+
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

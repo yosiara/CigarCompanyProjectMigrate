@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <act_window id="turei_process_interruptions_action"
+                    name="Interrupciones"
+                    res_model="process_control_primary.interruption"
+                    view_mode="tree,form"/>
+
+        <!--<menuitem id="turei_process_interruptions_menu"-->
+                  <!--name="Listado de interrupciones"-->
+                  <!--parent="process_control_primary_control_tec"-->
+                  <!--action="turei_process_interruptions_action"-->
+                  <!--sequence="11"-->
+        <!--/>-->
+
+        <record id="process_control_primary_interrupciones_view_tree" model="ir.ui.view">
+            <field name="name">control_proc_interruption_view_tree</field>
+            <field name="model">process_control_primary.interruption</field>
+            <field name="arch" type="xml">
+                <tree create="0" delete="0">
+                    <field name="name"/>
+
+                    <field name="interruption_type"/>
+                    <field name="machine_type_id"/>
+                    <field name="time"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="audit_plan_wzd_form" model="ir.ui.view">
+            <field name="name">audit_plan_wzd</field>
+            <field name="model">computers_inventory.audit_plan_wzd</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <separator string="Complete the requested information and click Print button to obtain the report of audit plan."/>
+                        <group col="4">
+                            <field name="year"/>
+                            <field name="elaborates_id"/>
+                            <field name="approved_id"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <div>
+                            <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                            o
+                            <button special="cancel" string="Close" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_audit_plan_wzd" model="ir.actions.act_window">
+            <field name="name">Audit Plan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">computers_inventory.audit_plan_wzd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_audit_plan_wzd"
+                  id="menu_audit_plan_wzd_form"
+                  parent="menu_reports"
+                  sequence="1"/>
+    </data>
+</openerp>

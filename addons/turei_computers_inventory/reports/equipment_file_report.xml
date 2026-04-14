@@ -1,0 +1,1121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <report string="Inventory"
+                id="l10n_cu_hlg_computers_inventory.action_report_inventory"
+                model="maintenance.equipment"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_computers_inventory.report_inventory"
+                file="l10n_cu_hlg_computers_inventory.report_inventory"
+                paperformat="l10n_cu_hlg_computers_inventory.paper_format_inventory"
+                menu="False"/>
+
+        <report id="l10n_cu_hlg_computers_inventory.action_report_inventory_docx"
+                string="Inventory(DOCX)"
+                model="maintenance.equipment"
+                name="l10n_cu_hlg_computers_inventory.report_inventory_docx"
+                report_type="docxtpl"
+                menu="False"/>
+
+        <report
+                id="report_equipment_file"
+                model="maintenance.equipment"
+                string="Equipment File"
+                name="turei_computers_inventory.report_equipment_file_view"
+                file="turei_computers_inventory.report_equipment_file_view"
+                paperformat="turei_computers_inventory.turei_computers_inventory_wo_paper_format"
+                report_type="qweb-pdf"/>
+
+        <report
+                id="report_equipment_file_preview"
+                model="maintenance.equipment"
+                string="Equipment File Preview"
+                name="turei_computers_inventory.report_equipment_file_view"
+                file="turei_computers_inventory.report_equipment_file_view"
+                paperformat="turei_computers_inventory.turei_computers_inventory_wo_paper_format"
+                report_type="qweb-html"/>
+
+        <template id="report_equipment_file_view">
+            <t t-call="report.html_container">
+                <div class="page">
+                    <table width="100%">
+                        <colgroup>
+                            <col width="22%"></col>
+                            <col width="8%"></col>
+                            <col width="15%"></col>
+                            <col width="22%"></col>
+                            <col width="33%"></col>
+                        </colgroup>
+                        <tr>
+                            <td colspan="2"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <img src="/turei_computers_inventory/static/img/logo.png"
+                                     style="width: 225px; height: auto;"/>
+                            </td>
+                            <td colspan="2" class="text-center"
+                                style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <b>Expediente de máquina</b>
+                            </td>
+                            <td
+                                    style="font-size:11pt; padding: 2px;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                Versión: 01
+                                <br/>
+                                Fecha de aprobación: 27/11/2018
+                                <br/>
+                                Código: DT-UEBSPI-00-R-10
+                                <br/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <b>Expediente de máquina No:</b>
+                                <span t-field="docs.inventory_number"/>
+                            </td>
+                            <td colspan="2"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <b>Fecha:</b>
+                                <span t-esc="date"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <b>Departamento</b>
+                            </td>
+                            <td colspan="4"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <t t-if="docs.equipment_assign_to == 'employee'">
+                                    <span t-field="docs.employee_id.department_id"/>
+                                </t>
+                                <t t-elif="docs.equipment_assign_to == 'employees' and docs.employee_ids">
+                                    <span t-field="docs.employee_ids[0].department_id"/>
+                                </t>
+                                <t t-else="">
+                                    <span t-field="docs.department_id"/>
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <b>Chasis</b>
+                            </td>
+                            <td colspan="2"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                No. Inventario:
+                                <span t-field="docs.inventory_number"/>
+                            </td>
+                            <td colspan="2"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                Descripción:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <b>Microprocesador</b>
+                            </td>
+                            <td colspan="4"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <span t-field="micros[0].name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                -
+                            </td>
+                            <td colspan="2"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <b>Marca</b>
+                            </td>
+                            <td
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <b>Modelo</b>
+                            </td>
+                            <td
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <b>Serie</b>
+                            </td>
+                        </tr>
+
+                        <t t-foreach="mother" t-as="m">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Motherboard</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.manufacturer_custom">
+                                        <span t-field="m.manufacturer_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.manufacturer"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.model_custom">
+                                        <span t-field="m.model_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.model"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.serial_no_custom">
+                                        <span t-field="m.serial_no_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.serial_no"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-foreach="rams" t-as="m">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Memoria RAM</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.manufacturer_custom">
+                                        <span t-field="m.manufacturer_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.manufacturer"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.model_custom">
+                                        <span t-field="m.model_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.model"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.serial_no_custom">
+                                        <span t-field="m.serial_no_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.serial_no"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Capacidad
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <span t-esc="('%.0fGB') % (float(m.capacity)/1024)"/>
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-foreach="storages" t-as="m">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Disco Duro</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.manufacturer_custom">
+                                        <span t-field="m.manufacturer_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.manufacturer"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.model_custom">
+                                        <span t-field="m.model_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.model"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.serial_no_custom">
+                                        <span t-field="m.serial_no_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.serial_no"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Capacidad
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <span t-esc="('%.0fGB') % (float(m.disk_size)/1024)"/>
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-if="len(optical_drive)">
+                            <t t-foreach="optical_drive" t-as="m">
+                                <tr>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <b>Disp. lectura Óptico</b>
+                                    </td>
+                                    <td colspan="2"
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.manufacturer_custom">
+                                            <span t-field="m.manufacturer_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.manufacturer"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.model_custom">
+                                            <span t-field="m.model_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.model"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.serial_no_custom">
+                                            <span t-field="m.serial_no_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.serial_no"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Disp. lectura Óptico</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No. de Inventario.
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-if="len(power_source)">
+                            <t t-foreach="power_source" t-as="m">
+                                <tr>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <b>Fuente</b>
+                                    </td>
+                                    <td colspan="2"
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.manufacturer_custom">
+                                            <span t-field="m.manufacturer_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.manufacturer"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.model_custom">
+                                            <span t-field="m.model_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.model"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.serial_no_custom">
+                                            <span t-field="m.serial_no_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.serial_no"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Fuente</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-if="len(mouse)">
+                            <t t-foreach="mouse" t-as="m">
+                                <tr>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <b>Mouse</b>
+                                    </td>
+                                    <td colspan="2"
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.manufacturer_custom">
+                                            <span t-field="m.manufacturer_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.manufacturer"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.model_custom">
+                                            <span t-field="m.model_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.model"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.serial_no_custom">
+                                            <span t-field="m.serial_no_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.serial_no"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Mouse</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No. de Inventario.
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-if="len(keyboard)">
+                            <t t-foreach="keyboard" t-as="m">
+                                <tr>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <b>Teclado</b>
+                                    </td>
+                                    <td colspan="2"
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.manufacturer_custom">
+                                            <span t-field="m.manufacturer_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.manufacturer"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.model_custom">
+                                            <span t-field="m.model_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.model"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.serial_no_custom">
+                                            <span t-field="m.serial_no_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.serial_no"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Teclado</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No. de Inventario.
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-if="len(speaker)">
+                            <t t-foreach="speaker" t-as="m">
+                                <tr>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <b>Bocinas</b>
+                                    </td>
+                                    <td colspan="2"
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.manufacturer_custom">
+                                            <span t-field="m.manufacturer_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.manufacturer"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.model_custom">
+                                            <span t-field="m.model_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.model"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.serial_no_custom">
+                                            <span t-field="m.serial_no_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.serial_no"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Bocinas</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-foreach="monitors" t-as="m">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Monitor</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.manufacturer_custom">
+                                        <span t-field="m.manufacturer_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.manufacturer"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.model_custom">
+                                        <span t-field="m.model_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.model"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.serial_no_custom">
+                                        <span t-field="m.serial_no_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.serial_no"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No. de Inventario.
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <span t-field="m.inventory_number"/>
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-if="len(ups)">
+                            <t t-foreach="ups" t-as="m">
+                                <tr>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <b>UPS</b>
+                                    </td>
+                                    <td colspan="2"
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.manufacturer_custom">
+                                            <span t-field="m.manufacturer_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.manufacturer"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.model_custom">
+                                            <span t-field="m.model_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.model"/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="m.serial_no_custom">
+                                            <span t-field="m.serial_no_custom"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="m.serial_no"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        No. de Inventario.
+                                    </td>
+                                    <td colspan="4"
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <span t-field="m.inventory_number"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>UPS</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No. de Inventario.
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-if="len(printer)">
+                            <t t-set="m" t-value="printer[0]"/>
+                            <t t-foreach="range(0,2)" t-as="i">
+                                <t t-if="i &lt; len(printer)">
+                                    <tr>
+                                        <td
+                                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                            <b>Impresora</b>
+                                        </td>
+                                        <td colspan="2"
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                            <t t-if="m.manufacturer_custom">
+                                                <span t-field="m.manufacturer_custom"/>
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="m.manufacturer"/>
+                                            </t>
+                                        </td>
+                                        <td
+                                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                            <t t-if="m.model_custom">
+                                                <span t-field="m.model_custom"/>
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="m.model"/>
+                                            </t>
+                                        </td>
+                                        <td
+                                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                            <t t-if="m.serial_no_custom">
+                                                <span t-field="m.serial_no_custom"/>
+                                            </t>
+                                            <t t-else="">
+                                                <span t-field="m.serial_no"/>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                            No. de Inventario.
+                                        </td>
+                                        <td colspan="4"
+                                            style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                            <span t-field="m.inventory_number"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Impresora</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No. de Inventario.
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-if="len(fax)">
+                            <t t-set="m" t-value="fax[0]"/>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Fax</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.manufacturer_custom">
+                                        <span t-field="m.manufacturer_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.manufacturer"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.model_custom">
+                                        <span t-field="m.model_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.model"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.serial_no_custom">
+                                        <span t-field="m.serial_no_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.serial_no"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No. de Inventario.
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <span t-field="m.inventory_number"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Fax</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No. de Inventario.
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </t>
+
+                        <t t-if="len(scanner)">
+                            <t t-set="m" t-value="scanner[0]"/>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Scanner</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.manufacturer_custom">
+                                        <span t-field="m.manufacturer_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.manufacturer"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.model_custom">
+                                        <span t-field="m.model_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.model"/>
+                                    </t>
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <t t-if="m.serial_no_custom">
+                                        <span t-field="m.serial_no_custom"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="m.serial_no"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No. de Inventario.
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <span t-field="m.inventory_number"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>Scanner</b>
+                                </td>
+                                <td colspan="2"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td
+                                        style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No. de Inventario.
+                                </td>
+                                <td colspan="4"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </t>
+
+                        <tr>
+                            <td
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <b># Sello</b>
+                            </td>
+                            <td colspan="4"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <span t-field="docs.seal"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="5"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                &#160;
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="5"
+                                style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                <table width="100%" style="padding: 2px;font-size:12pt;">
+                                    <tr class="text-center">
+                                        <td width="45">
+                                            <p>Responsable(s):&#160;&#160;&#160;&#160;&#160;&#160;&#160;Nombre:</p>
+                                        </td>
+                                        <td width="35%">
+                                            <p>Cargo:</p>
+                                        </td>
+                                        <td width="20%">
+                                            <p>Firma:</p>
+                                        </td>
+                                    </tr>
+                                    <t t-if="docs.equipment_assign_to == 'employee'">
+                                        <tr class="text-center">
+                                            <td width="45">
+                                                <p>
+                                                    <span t-field="docs.employee_id"
+                                                          style="text-decoration: underline"/>
+                                                </p>
+                                            </td>
+                                            <td width="35%">
+                                                <p>
+                                                    <span t-field="docs.employee_id.job_id"
+                                                          style="text-decoration: underline"/>
+                                                </p>
+                                            </td>
+                                            <td width="20%">
+                                                <p>__________</p>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-elif="docs.equipment_assign_to == 'employees' and docs.employee_ids">
+                                        <t t-foreach="docs.employee_ids" t-as="e">
+                                            <tr class="text-center">
+                                                <td width="45">
+                                                    <p>
+                                                        <span t-field="e.name"
+                                                              style="text-decoration: underline"/>
+                                                    </p>
+                                                </td>
+                                                <td width="35%">
+                                                    <p>
+                                                        <span t-field="e.job_id"
+                                                              style="text-decoration: underline"/>
+                                                    </p>
+                                                </td>
+                                                <td width="20%">
+                                                    <p>__________</p>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-foreach="range(0,3)" t-as="i">
+                                            <tr class="text-center">
+                                                <td width="45">
+                                                    <p>_____________________________________________</p>
+                                                </td>
+                                                <td width="35%">
+                                                    <p>_________________________________</p>
+                                                </td>
+                                                <td width="20%">
+                                                    <p>__________</p>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                    <tr class="text-justify">
+                                        <td colspan="3" style="padding: 5px;">
+                                            <p>Por medio de la presente me hago responsable de que el equipo al cual
+                                                hace
+                                                mención este expediente cuenta con los medios antes mencionados, además
+                                                de
+                                                asumir el cuidado externo e interno en cuanto a Software Instalados, así
+                                                como
+                                                reportar cualquier tipo de violación de la Seguridad Informática, la
+                                                pérdida
+                                                o
+                                                rotura de algún componente del equipo o del sello de seguridad y velar
+                                                por
+                                                el
+                                                cuidado y conservación de este expediente.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <p class="text-center" style="page-break-before: always;">
+                        <b>Historial de cambios</b>
+                    </p>
+                    <table width="100%">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="text-center" width="10%"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Sello
+                                </th>
+                                <th class="text-center" width="60%"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Componente
+                                </th>
+                                <th class="text-center" width="10%"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Firma del Usuario
+                                </th>
+                                <th class="text-center" width="10%"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Firma del Informático
+                                </th>
+                                <th class="text-center" width="10%"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Fecha
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="range(0,39)" t-as="i">
+                                <td width="10%"
+                                    style="padding: 2px;font-size:14pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td width="60%"
+                                    style="padding: 2px;font-size:14pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td width="10%"
+                                    style="padding: 2px;font-size:14pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td width="10%"
+                                    style="padding: 2px;font-size:14pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                                <td width="10%"
+                                    style="padding: 2px;font-size:14pt;vertical-align:middle;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    &#160;
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <br/>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

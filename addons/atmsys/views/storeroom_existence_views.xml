@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+        STOREROOM EXISTENCE
+        Model: atmsys.storeroom_existence
+        =========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_storeroom_existence_view_form" model="ir.ui.view">
+            <field name="name">atmsys_storeroom_existence_view_form</field>
+            <field name="model">atmsys.storeroom_existence</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <div>
+                                <field name="record_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="group_product"/>
+                                        <field name="quantity_last_day"/>
+                                        <field name="quantity"/>
+                                        <field name="date" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="atmsys_storeroom_existence_tree_view" model="ir.ui.view">
+            <field name="name">atmsys_storeroom_existence_tree_view</field>
+            <field name="model">atmsys.storeroom_existence</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atmsys_storeroom_existence_action" model="ir.actions.act_window">
+            <field name="name">Existencia en pañol</field>
+            <field name="res_model">atmsys.storeroom_existence</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new <b>Storeroom Existence</b>...
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem id="atmsys_storeroom_existence_menu_item"
+                  name="Existencia en pañol"
+                  parent="atmsys_general_elements_left_menu"
+                  action="atmsys_storeroom_existence_action"
+                  sequence="1"/>
+    </data>
+</odoo>

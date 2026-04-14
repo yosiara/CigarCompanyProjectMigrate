@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.enterprise_mgm_sys_behavior_prevention_plan_report"
+                model="enterprise_mgm_sys.behavior_prevention_plan"
+                string="Comportamiento Plan de prevención de riesgos(R3)"
+                report_type="xlsx"
+                name="enterprise_mgm_sys.behavior_prevention_plan_report"
+                file="enterprise_mgm_sys.behavior_prevention_plan_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

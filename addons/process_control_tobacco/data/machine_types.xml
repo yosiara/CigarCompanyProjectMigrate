@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mac_type_1" model="process_control_tobacco.machine_type">
+            <field name="name">VCC-48-101</field>
+            <field name="equipo">VOLTEADOR DE CAJA C-48</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_2" model="process_control_tobacco.machine_type">
+            <field name="name">TT-102</field>
+            <field name="equipo">TRANSPORTADOR DE TORNILLO I-102</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_3" model="process_control_tobacco.machine_type">
+            <field name="name">TVCVS-103</field>
+            <field name="equipo">TRANSPORTADOR VIBRANTE TIPO CVS</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_4" model="process_control_tobacco.machine_type">
+            <field name="name">MM-104</field>
+            <field name="equipo">MOLINO DE MARTILLO</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_5" model="process_control_tobacco.machine_type">
+            <field name="name">TN01DCG-10</field>
+            <field name="equipo">TRANSPORTADOR NEUMÁTICO CON DETECTOR DE CHISPAS "GRECON" I-105</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_6" model="process_control_tobacco.machine_type">
+            <field name="name">TSAI-106</field>
+            <field name="equipo">TORNILLO SECADOR DE ALTA INTENSIDAD</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_7" model="process_control_tobacco.machine_type">
+            <field name="name">MMCR-107</field>
+            <field name="equipo">MOLINO MICRONIZADOR</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_8" model="process_control_tobacco.machine_type">
+            <field name="name">TN02DCG-10</field>
+            <field name="equipo">TRANSPORTADOR NEUMÁTICO CON DETECTOR DE CHISPAS "GRECON" I-108</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_9" model="process_control_tobacco.machine_type">
+            <field name="name">TTI-109</field>
+            <field name="equipo">TRANSPORTADOR DE TORNILLO INCLINADO I-109</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_10" model="process_control_tobacco.machine_type">
+            <field name="name">TTI-110</field>
+            <field name="equipo">TRANSPORTADOR DE TORNILLO INCLINADO I-110</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_11" model="process_control_tobacco.machine_type">
+            <field name="name">TTR-111</field>
+            <field name="equipo">TRANSPORTADOR DE TORNILLO REVERSIBLE</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_12" model="process_control_tobacco.machine_type">
+            <field name="name">SMRB-112</field>
+            <field name="equipo">SILOS MEZCLADOR TIPO RB I-112</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_13" model="process_control_tobacco.machine_type">
+            <field name="name">SMRB-113</field>
+            <field name="equipo">SILOS MEZCLADOR TIPO RB I-113</field>
+            <field name="linea">Línea 100</field>
+        </record>
+        <record id="mac_type_14" model="process_control_tobacco.machine_type">
+            <field name="name">CG-203</field>
+            <field name="equipo">CONTENEDOR DE GLYCERINE</field>
+            <field name="linea">Línea 200</field>
+        </record>
+        <record id="mac_type_15" model="process_control_tobacco.machine_type">
+            <field name="name">CPG-202</field>
+            <field name="equipo">CONTENEDOR DE PROPYLENE GLYCOL</field>
+            <field name="linea">Línea 200</field>
+        </record>
+        <record id="mac_type_16" model="process_control_tobacco.machine_type">
+            <field name="name">CA-201</field>
+            <field name="equipo">CONTENEDOR DE AGUA</field>
+            <field name="linea">Línea 200</field>
+        </record>
+        <record id="mac_type_17" model="process_control_tobacco.machine_type">
+            <field name="name">CS-204</field>
+            <field name="equipo">CONTENEDOR DE SOLUCIÓN</field>
+            <field name="linea">Línea 200</field>
+        </record>
+        <record id="mac_type_18" model="process_control_tobacco.machine_type">
+            <field name="name">TT-301</field>
+            <field name="equipo">TRANSPORTADOR DE TORNILLO I-301</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_19" model="process_control_tobacco.machine_type">
+            <field name="name">TT-302</field>
+            <field name="equipo">TRANSPORTADOR DE TORNILLO I-302</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_20" model="process_control_tobacco.machine_type">
+            <field name="name">TT-303</field>
+            <field name="equipo">TRANSPORTADOR DE TORNILLO I-303</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_21" model="process_control_tobacco.machine_type">
+            <field name="name">TTI-304</field>
+            <field name="equipo">TRANSPORTADOR DE TORNILLO INCLINADO</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_22" model="process_control_tobacco.machine_type">
+            <field name="name">BPM-305</field>
+            <field name="equipo">BALANZA PESADORAS MESTRE (TOBACO SUBPRODUCTO)</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_23" model="process_control_tobacco.machine_type">
+            <field name="name">TT-306</field>
+            <field name="equipo">TRANSPORTADOR DE TORNILLO I-306</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_24" model="process_control_tobacco.machine_type">
+            <field name="name">BPE-307</field>
+            <field name="equipo">BALANZA PESADORA ESCLAVA (CMC)</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_25" model="process_control_tobacco.machine_type">
+            <field name="name">TT-308</field>
+            <field name="equipo">TRANSPORTADOR DE TORNILLO I-308</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_26" model="process_control_tobacco.machine_type">
+            <field name="name">MAIS-309</field>
+            <field name="equipo">MEZCLADOR DE ALTA INTENSIDAD (SECO)</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_27" model="process_control_tobacco.machine_type">
+            <field name="name">MAIH-310</field>
+            <field name="equipo">MEZCLADOR DE ALTA INTENSIDAD (HUMEDO)</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_28" model="process_control_tobacco.machine_type">
+            <field name="name">TBI-311</field>
+            <field name="equipo">TRANSPORTADOR DE BANDA INCLINADO</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_29" model="process_control_tobacco.machine_type">
+            <field name="name">MHTM-312</field>
+            <field name="equipo">MEDIDOR DE HUMEDAD TIPO TM710E MT</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_30" model="process_control_tobacco.machine_type">
+            <field name="name">TBV-313</field>
+            <field name="equipo">TRANSPORTADOR DE BANDA (CARRO)</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_31" model="process_control_tobacco.machine_type">
+            <field name="name">LTR-314</field>
+            <field name="equipo">LAMINADOR DE TRES RODILLOS</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_32" model="process_control_tobacco.machine_type">
+            <field name="name">SCFAC-315</field>
+            <field name="equipo">SECADOR CONTINUO CON FLUJO DE AIRE CALIENTE</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_33" model="process_control_tobacco.machine_type">
+            <field name="name">TBI-316</field>
+            <field name="equipo">TRANSPORTADOR DE BANDA INCLINADO</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_34" model="process_control_tobacco.machine_type">
+            <field name="name">MHTM-317</field>
+            <field name="equipo">MEDIDOR DE HUMEDAD TIPO TM710E MT</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_35" model="process_control_tobacco.machine_type">
+            <field name="name">MCHSH-318.01</field>
+            <field name="equipo">MÁQUINA CORTADORA DE LÁMINA TIPO CHEVRON</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_36" model="process_control_tobacco.machine_type">
+            <field name="name">TBI-319</field>
+            <field name="equipo">TRANSPORTADOR DE BANDA INCLINADO</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_37" model="process_control_tobacco.machine_type">
+            <field name="name">TRACV-321</field>
+            <field name="equipo">TRANSPORTADOR DE RODILLOS (ALIMENTACIÓN CAJA VACÍA)</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_38" model="process_control_tobacco.machine_type">
+            <field name="name">TRCCCP-322</field>
+            <field name="equipo">TRANSPORTADOR DE RODILLOS CON CÉLULAS DE CARGA</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_39" model="process_control_tobacco.machine_type">
+            <field name="name">TR-323</field>
+            <field name="equipo">TRANSPORTADOR DE RODILLOS I-323</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_40" model="process_control_tobacco.machine_type">
+            <field name="name">TRCECC-324</field>
+            <field name="equipo">TRANSPORTADOR DE RODILLOS CON ESTRUCTURA PARA CERRAR CAJAS</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_41" model="process_control_tobacco.machine_type">
+            <field name="name">TRIAC-326</field>
+            <field name="equipo">TRANSPORTADOR DE RODILLOS INCLINADOS ACUMULADOR DE LAS CAJAS</field>
+            <field name="linea">Línea 300</field>
+        </record>
+        <record id="mac_type_42" model="process_control_tobacco.machine_type">
+            <field name="name">DV-LTR</field>
+            <field name="equipo">DISTRIBUIDOR DE VAPOR LTR</field>
+            <field name="linea"></field>
+        </record>
+
+    </data>
+</odoo>

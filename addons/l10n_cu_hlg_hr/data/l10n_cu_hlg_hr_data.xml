@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data noupdate="1">
+        <record model="l10n_cu_hlg_hr.occupational_category" id="category_admin">
+            <field name="code">ADM</field>
+            <field name="name">Administrativo</field>
+            <field name="order">5</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.occupational_category" id="category_tec">
+            <field name="code">TEC</field>
+            <field name="name">Técnico</field>
+            <field name="order">4</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.occupational_category" id="category_oper">
+            <field name="code">OP</field>
+            <field name="name">Operario</field>
+            <field name="order">7</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.occupational_category" id="category_serv">
+            <field name="code">SER</field>
+            <field name="name">Servicio</field>
+            <field name="order">6</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_I">
+            <field name="name">I</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_II">
+            <field name="name">II</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_III">
+            <field name="name">III</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_IV">
+            <field name="name">IV</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_V">
+            <field name="name">V</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_VI">
+            <field name="name">VI</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_VII">
+            <field name="name">VII</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_VIII">
+            <field name="name">VIII</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_IX">
+            <field name="name">IX</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_X">
+            <field name="name">X</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XI">
+            <field name="name">XI</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XII">
+            <field name="name">XII</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XIII">
+            <field name="name">XIII</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XIV">
+            <field name="name">XIV</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XV">
+            <field name="name">XV</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XVI">
+            <field name="name">XVI</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XVII">
+            <field name="name">XVII</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XIII">
+            <field name="name">XIII</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XIX">
+            <field name="name">XIX</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XX">
+            <field name="name">XX</field>
+        </record>
+
+        <record model="l10n_cu_hlg_hr.salary_scale" id="scale_XXI">
+            <field name="name">XXI</field>
+        </record>
+    </data>
+</odoo>

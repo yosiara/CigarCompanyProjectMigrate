@@ -1,0 +1,789 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_hlg_hr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-28 17:54+0000\n"
+"PO-Revision-Date: 2018-08-28 14:04-0400\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.view_hr_employee_config_settings
+msgid "<span>(*) This configuration is related to the company you're logged into.</span>"
+msgstr "<span>(*) Esta configuración está relacionada con la compañía en la que está conectado</span>"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "AREA DE TRABAJO"
+msgstr "AREA DE TRABAJO"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Abril"
+msgstr "Abril"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.l10n_cu_hr_view_employee_form_inherit
+msgid "Academic Information"
+msgstr "Información"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.view_hr_employee_config_settings
+msgid "Additional Features"
+msgstr "Características Adicionales"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_admission_date
+msgid "Admission Date"
+msgstr "Fecha de admisión"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_date_organism
+msgid "Admission date in organism"
+msgstr "Fecha de admisión en el organismo"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_age
+msgid "Age"
+msgstr "Edad"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Agosto"
+msgstr "Agosto"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr.l10n_cu_hlg_hr_reporting_action
+msgid "Analysis"
+msgstr "Análisis"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.view_hr_employee_config_settings
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "Aprobado por:"
+msgstr "Aprobado por:"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "AÑO:"
+msgstr "AÑO:"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_bank_secondary_account_id
+msgid "Bank secondary account id"
+msgstr "Cuenta secundaria del banco"
+
+#. module: l10n_cu_hlg_hr
+#: selection:hr.employee,race:0
+msgid "Black"
+msgstr "Negro"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "CARGO"
+msgstr "CARGO"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.view_hr_employee_config_settings
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.view_registration_attendance_wzd_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,help:l10n_cu_hlg_hr.field_hr_department_is_productive
+msgid "Check this box if department is productive."
+msgstr "Marque esta casilla si el departamento es productivo."
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_defence_location_type_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_school_level_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr.action_hr_employee_config
+msgid "Configure Employee"
+msgstr "Configurar Empleados"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_defence_location_type_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_school_level_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_scale_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_defence_location_type_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_school_level_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_scale_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "DIA"
+msgstr "DIA"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_defence_location_id
+msgid "Defence Location"
+msgstr "Ubicación en la Defensa "
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_l10n_cu_hlg_hr_employee_defence_location_type
+msgid "Defence Location Type"
+msgstr "Tipo de ubicación de la defensa"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.l10n_cu_hr_view_employee_form_inherit
+msgid "Defense Location"
+msgstr "Ubicación en la defensa"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd_department_id
+msgid "Department"
+msgstr "Departamento"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,help:l10n_cu_hlg_hr.field_hr_department_short_name
+msgid "Department short name."
+msgstr "Nombre corto."
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Diciembre"
+msgstr "Diciembre"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_defence_location_type_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_school_level_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_scale_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_l10n_cu_hlg_hr_report_registration_attendance_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_hlg_hr
+#: selection:hr.employee,political_affiliation:0
+msgid "Doble Militancia"
+msgstr "Doble Militancia"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "ENTRADA"
+msgstr "ENTRADA"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Asistente de redacción de correo electrónico."
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_l10n_cu_hlg_hr_occupational_category
+msgid "Employee Occupational Category"
+msgstr "Categoría ocupacional"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_l10n_cu_hlg_hr_employee_school_level
+msgid "Employee School Level"
+msgstr "Nivel escolar"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd_employee_ids
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_res_partner_employee_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.l10n_cu_hlg_hr_view_graph
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.l10n_cu_hlg_hr_view_pivot
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.l10n_cu_hr_job_form
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.l10n_cu_hr_view_employee_form_inherit
+msgid "Employment Information"
+msgstr "Información de Empleo"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Enero"
+msgstr "Enero"
+
+#. module: l10n_cu_hlg_hr
+#: code:addons/l10n_cu_hlg_hr/models/hr.py:68
+#, python-format
+msgid "Error! You cannot create recursive hierarchy of Employee(s)."
+msgstr "Error! You cannot create recursive hierarchy of Employee(s)."
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_defence_location_type_external_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_school_level_external_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category_external_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group_external_id
+msgid "External id"
+msgstr "External id"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "FIRMA"
+msgstr "FIRMA"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Febrero"
+msgstr "Febrero"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.view_registration_attendance_wzd_form
+msgid "Generate Report"
+msgstr "Generar informe"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_hr_department
+msgid "Hr Department"
+msgstr "Departamento de Recursos Humanos"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_defence_location_type_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_school_level_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_scale_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_l10n_cu_hlg_hr_report_registration_attendance_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_init_work_date
+msgid "Init Work Date"
+msgstr "Fecha comenzó a trabajar"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_resource_calendar_init_date
+msgid "Init date"
+msgstr "Fecha de inicio"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_is_indispensable_employee
+msgid "Is Indispensable Employee?"
+msgstr "¿Es Impresindible?"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_department_is_productive
+msgid "Is productive?"
+msgstr "Es productivo?"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd_shows_sat_sun
+msgid "It shows Saturdays and Sundays"
+msgstr "Muestra los Sábados y Domingos"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_job_is_by_appointment
+msgid "Job By Appointment?"
+msgstr "¿Trabajo por nombramiento?"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_hr_job
+msgid "Job Position"
+msgstr "Puesto de trabajo"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr.hr_job_action
+msgid "Job Positions"
+msgstr "Plazas"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.hr_jobs_menu_item
+msgid "Jobs"
+msgstr "Plazas"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Julio"
+msgstr "Julio"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Junio"
+msgstr "Junio"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_defence_location_type___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_school_level___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_scale___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_l10n_cu_hlg_hr_report_registration_attendance___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_defence_location_type_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_school_level_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_scale_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_defence_location_type_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_school_level_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_scale_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_defence_location_type_name
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "MES:"
+msgstr "MES:"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings_module_l10n_cu_hlg_hr_travels
+msgid "Manage Employee Travels"
+msgstr "Administrar Viajes del Empleado"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings_module_l10n_cu_hlg_hr_uniforms
+msgid "Manage Employee uniforms"
+msgstr "Administrar Uniformes del Empleado"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_config_settings_module_l10n_cu_hlg_hr_driving_license
+msgid "Manage driving license per employee"
+msgstr "Administrar Licencia de Conducción del Empleado"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Marzo"
+msgstr "Marzo"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Mayo"
+msgstr "Mayo"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_report_registration_attendance_wzd_mes
+msgid "Mes"
+msgstr "Mes"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_mail_message
+msgid "Message"
+msgstr "Mensaje"
+
+#. module: l10n_cu_hlg_hr
+#: selection:hr.employee,race:0
+msgid "Mixed"
+msgstr "Mestizo"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_res_company_nit_code
+msgid "NIT Code"
+msgstr "Código NIT"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "NOMBRE Y APELLIDOS"
+msgstr "NOMBRE Y APELLIDOS"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "NOTA ACLARATORIA SOBRE VACACIONES, CAMBIO DE TURNO, CERTIFICADO MEDICO, LICENCIAS, ETC"
+msgstr "NOTA ACLARATORIA SOBRE VACACIONES, CAMBIO DE TURNO, CERTIFICADO MEDICO, LICENCIAS, ETC"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "NUMERO:"
+msgstr "NUMERO:"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_employee_school_level_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_hlg_hr
+#: code:addons/l10n_cu_hlg_hr/models/hr.py:39
+#: selection:hr.employee,political_affiliation:0
+#, python-format
+msgid "None"
+msgstr "None"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Noviembre"
+msgstr "Noviembre"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr.l10n_cu_hlg_hr_job_occupational_category_action
+msgid "Occupational Categor"
+msgstr "Categoría ocupacional"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.hr_job_occupational_category_menu_item
+msgid "Occupational Categories"
+msgstr "Categorías ocupacionales"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_occupational_category_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_job_occupational_category_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_occupational_category_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group_occupational_category_id
+msgid "Occupational Category"
+msgstr "Categoría ocupacional"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Octubre"
+msgstr "Octubre"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_occupational_category_order
+msgid "Order"
+msgstr "Order"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.l10n_cu_hr_job_form
+msgid "Other Information"
+msgstr "Otra información"
+
+#. module: l10n_cu_hlg_hr
+#: selection:hr.employee,political_affiliation:0
+msgid "PCC"
+msgstr "PCC"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_place_of_birth
+msgid "Place of Birth"
+msgstr "Lugar de nacimiento"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_political_affiliation
+msgid "Political Affiliation"
+msgstr "Afiliación política"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_l10n_cu_hlg_hr_position
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_job_position_id
+msgid "Position"
+msgstr "Cargo"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_name
+msgid "Position Title"
+msgstr "Nombre"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr.action_l10n_cu_hlg_hr_position_view_tree
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.l10n_cu_hlg_hr_position_menu
+msgid "Positions"
+msgstr "Cargos"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_res_company_reeup_code
+msgid "REEUP code"
+msgstr "Código REEUP"
+
+#. module: hr
+#: model:ir.ui.view,arch_db:hr.view_employee_form
+msgid "Related User"
+msgstr "Usuario"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "REGISTRO DE ASISTENCIA"
+msgstr "REGISTRO DE ASISTENCIA"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr.action_registration_attendance_wzd
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr.action_report_registration_attendance
+#: model:ir.model,name:l10n_cu_hlg_hr.model_report_registration_attendance_wzd
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.registration_attendance_rpt_menu
+msgid "Registration of attendance"
+msgstr "Registro de Asistencia"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.menu_l10n_cu_hlg_hr_reporting
+msgid "Reports"
+msgstr "Informes"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_resource_calendar
+msgid "Resource Calendar"
+msgstr "Calendario recurso"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_resource_resource
+msgid "Resource Detail"
+msgstr "Detalle recurso"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_resource_calendar_attendance_rest_time
+msgid "Rest time"
+msgstr "Tiempo de descanso"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "SALIDA"
+msgstr "SALIDA"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "SESION MAÑANA"
+msgstr "SESION MAÑANA"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "SESION TARDE"
+msgstr "SESION TARDE"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_salary
+msgid "Salary"
+msgstr "Salario"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_l10n_cu_hlg_hr_salary_group
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_job_salary_group_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_salary_group_id
+msgid "Salary Group"
+msgstr "Grupo salarial"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr.l10n_cu_hlg_hr_salary_group_action
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.l10n_cu_hlg_hr_salary_group_menu_item
+msgid "Salary Groups"
+msgstr "Grupos salariales"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_l10n_cu_hlg_hr_salary_scale
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group_salary_scale_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_scale_name
+msgid "Salary Scale"
+msgstr "Salario escala"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr.l10n_cu_hlg_hr_salary_scale_action
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.l10n_cu_hlg_hr_salary_scale_menu_item
+msgid "Salary Scales"
+msgstr "Salario escala"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.l10n_cu_hlg_hr_salary_group_tree_view
+msgid "Salary groups"
+msgstr "Grupos salariales"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_salary_group_scale_salary
+msgid "Scale Salary"
+msgstr "Escala salarial"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr.l10n_cu_hlg_hr_employee_school_level_action
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_school_level_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_job_school_level_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_l10n_cu_hlg_hr_position_school_level_id
+msgid "School Level"
+msgstr "Nivel escolar"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.hr_employee_school_level_menu_item
+msgid "School Levels"
+msgstr "Nivel escolar"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.l10n_cu_hr_view_employee_form_inherit
+msgid "Secundary Bank Account Number"
+msgstr "Cuenta bancaria secundaria"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,help:l10n_cu_hlg_hr.field_hr_employee_is_indispensable_employee
+msgid "Selected if the employee is indispensable in his company..."
+msgstr "Seleccionado si el empleado es imprecindible en su empresa ...?"
+
+#. module: l10n_cu_hlg_hr
+#: selection:report.registration_attendance.wzd,mes:0
+msgid "Septiembre"
+msgstr "Septiembre"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.menu_hr_employee_general_settings
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_department_short_name
+msgid "Short name"
+msgstr "Nombre corto"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_defence_situation
+msgid "Situation"
+msgstr "Situación"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_race
+msgid "Skin color"
+msgstr "Color de piel"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.l10n_cu_hr_desoft_staff_menu
+msgid "Staff"
+msgstr "Plantilla"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.menu_l10n_cu_hlg_hr_reporting_action
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr.menu_statistical_reporting
+msgid "Statistical"
+msgstr "Estadístico"
+
+#. module: l10n_cu_hlg_hr
+#: sql_constraint:l10n_cu_hlg_hr.occupational_category:0
+msgid "The code must be unique!"
+msgstr "El codigo debe ser único!"
+
+#. module: l10n_cu_hlg_hr
+#: sql_constraint:resource.resource:0
+msgid "The code of the employee must be unique per company !"
+msgstr "El código del empleado debe ser unico por compañia !"
+
+#. module: l10n_cu_hlg_hr
+#: code:addons/l10n_cu_hlg_hr/models/hr.py:83
+#, python-format
+msgid "The identification number must has 11 digits!"
+msgstr "El número de identificación debe tener 11 dígitos!"
+
+#. module: l10n_cu_hlg_hr
+#: sql_constraint:l10n_cu_hlg_hr.salary_group:0
+msgid "The name and occupational category  must be unique!"
+msgstr "El nombre y la categoría ocupacional deben ser únicos!"
+
+#. module: l10n_cu_hlg_hr
+#: sql_constraint:l10n_cu_hlg_hr.salary_scale:0
+msgid "The name must be unique!"
+msgstr "El nombre debe ser único!"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,help:l10n_cu_hlg_hr.field_hr_employee_bank_secondary_account_id
+msgid "This account is used to secundary currency payment"
+msgstr "Esta cuenta se utiliza para el pago en moneda secundaria"
+
+#. module: l10n_cu_hlg_hr
+#: selection:hr.employee,political_affiliation:0
+msgid "UJC"
+msgstr "UJC"
+
+#. module: l10n_cu_hlg_hr
+#: code:addons/l10n_cu_hlg_hr/models/hr.py:281
+#, python-format
+msgid "Unable to send email, please configure the sender's email address."
+msgstr "Imposible mandar el correo, por favor configure el correo de envío."
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_date_defence_location_update
+msgid "Updated"
+msgstr "Actualizado"
+
+#. module: l10n_cu_hlg_hr
+#: selection:hr.employee,race:0
+msgid "White"
+msgstr "Blanco"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr "Detalle del trabajo"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr.field_hr_employee_years_worked
+msgid "Years worked"
+msgstr "Años de trabajo"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.report_registration_attendance
+msgid "_____________________________________"
+msgstr "_____________________________________"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_hr_employee_config_settings
+msgid "hr.employee.config.settings"
+msgstr "hr.employee.config.settings"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.model,name:l10n_cu_hlg_hr.model_report_l10n_cu_hlg_hr_report_registration_attendance
+msgid "report.l10n_cu_hlg_hr.report_registration_attendance"
+msgstr "report.l10n_cu_hlg_hr.report_registration_attendance"
+
+#. module: l10n_cu_hlg_hr
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr.view_registration_attendance_wzd_form
+msgid "training list"
+msgstr "training list"

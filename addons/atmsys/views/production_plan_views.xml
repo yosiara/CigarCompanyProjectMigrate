@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+        PRODUCTION PLAN
+        Model: atmsys.production_plan
+        =========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_production_plan_view_form" model="ir.ui.view">
+            <field name="name">atmsys_production_plan_view_form</field>
+            <field name="model">atmsys.production_plan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="year"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <div>
+                                <field name="record_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="destiny_id"/>
+                                        <field name="plan01"/>
+                                        <field name="plan02"/>
+                                        <field name="plan03"/>
+                                        <field name="plan04"/>
+                                        <field name="plan05"/>
+                                        <field name="plan06"/>
+                                        <field name="plan07"/>
+                                        <field name="plan08"/>
+                                        <field name="plan09"/>
+                                        <field name="plan10"/>
+                                        <field name="plan11"/>
+                                        <field name="plan12"/>
+                                    </tree>
+                                </field>
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atmsys_production_plan_action" model="ir.actions.act_window">
+            <field name="name">Production Plan</field>
+            <field name="res_model">atmsys.production_plan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new <b>Production Plan</b>...
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem id="atmsys_production_plan_menu_item"
+                  name="Production Plan"
+                  parent="atmsys_general_elements_left_menu"
+                  action="atmsys_production_plan_action"
+                  sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_l10n_cu_calendar_config_settings" model="ir.ui.view">
+            <field name="name">calendar settings</field>
+            <field name="model">calendar.config.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure Calendar" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                        <field name="tasks_postponed_only" />
+                        <field name="chief_signature_on_resume" />
+                        <field name="include_obj_cat_monthly_plan" />
+                        <field name="show_jobs_on_plan" />
+                        <field name="show_observation_column" />
+                        <field name="show_annual_observation_column" />
+                        <field name="individual_plan_one_week_per_page" />
+                        <field name="individual_plan_one_page" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_l10n_cu_calendar_general_settings" model="ir.actions.act_window">
+            <field name="name">Configure Calendar</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">calendar.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="l10n_cu_calendar_menu_general_settings" name="Settings" parent="l10n_cu_calendar_main_config_menu"
+            sequence="1" action="action_l10n_cu_calendar_general_settings" groups="l10n_cu_calendar.officer"/>
+    </data>
+</odoo>

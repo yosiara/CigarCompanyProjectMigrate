@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Contract Type -->
+        <record id="view_l10n_cu_contract_contract_type_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.contract_type.tree</field>
+            <field name="model">l10n_cu_contract.contract_type</field>
+            <field name="arch" type="xml">
+                <tree string="Contract Type">
+                    <field name="name"/>
+                    <field name="flow"/>
+                    <field name="format"/>
+                    <field name="required_judgment"/>
+                    <field name="required_lines"/>
+                    <field name="required_milestone_payment"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_contract_contract_type_form" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.contract_type.form</field>
+            <field name="model">l10n_cu_contract.contract_type</field>
+            <field name="arch" type="xml">
+                <form string="Contract Type">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1"
+                                       placeholder="Example: Contracts for the provision of services"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="sequence_id" attrs="{'invisible': [('flow', '=', 'purchase')]}"/>
+                                <field name="flow" readonly='1'/>
+                                <field name="term"/>
+                            </group>
+                            <group>
+                                <field name="format" attrs="{'invisible': [('flow', '=', 'purchase')]}"/>
+                                <field name="template_data" filename="filename"/>
+                                <field name="filename" invisible="1"/>
+                                <field name="company_id" groups="base.group_multi_company"
+                                       options="{'no_create': True}"/>
+                            </group>
+                            <group>
+                                <field name="required_parent"/>
+                                <field name="parent_consecutive"
+                                       attrs="{'invisible': [('required_parent', '=', False)]}"/>
+                                <field name="required_judgment"/>
+                                <field name="required_lines"
+                                />
+                                <field name="required_milestone_payment"/>
+                            </group>
+                            <group>
+                                <field name="check_lines"
+                                       attrs="{'invisible': [('required_lines', '=', False)],
+                                       'readonly': [('check_quantity_lines', '=', True)]}"/>
+                                <field name="check_quantity_lines"
+                                       attrs="{'invisible': [('required_lines', '=', False)]}"/>
+                                <field name="check_general_amount"
+                                       attrs="{'invisible': [('required_lines', '=', False)]}"/>
+                            </group>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Contract Types" attrs="{'invisible':[('required_parent', '!=', True)]}">
+                                <group>
+                                    <field name="parent_id"
+                                           domain="[('flow','=', flow)]"
+                                           attrs="{'required':[('required_parent', '=', True)]}"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="contract_type_kanban" model="ir.ui.view">
+            <field name="name">contract.type.kanban</field>
+            <field name="model">l10n_cu_contract.contract_type</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey o_kanban_dashboard o_stock_kanban" create="1">
+                    <field name="color"/>
+                    <field name="name"/>
+                    <field name="flow"/>
+                    <field name="count_contract_draft"/>
+                    <field name="count_contract_in_progress"/>
+                    <field name="count_contract_in_process"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div name="contract_type">
+                                <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                                    <div class="o_kanban_card_header">
+                                        <div class="o_kanban_card_header_title">
+                                            <div class="o_primary">
+                                                <a type="object" name="get_contract_action_contract_type">
+                                                    <field name="name"/>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="o_kanban_manage_button_section">
+                                            <a class="o_kanban_manage_toggle_button" href="#">More
+                                                <i class="fa fa-caret-down"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="container o_kanban_card_content o_visible">
+                                        <div class="row">
+                                            <div class="col-xs-6 o_kanban_primary_left">
+                                                <button class="btn btn-primary"
+                                                        name="get_contract_action_contract_type_draft"
+                                                        type="object">
+                                                    <span>
+                                                        <t t-esc="record.count_contract_draft.value"/>
+                                                        <t/>
+                                                        Draft
+                                                    </span>
+                                                </button>
+                                                <br></br>
+                                                <br></br>
+                                                <button class="btn btn-primary"
+                                                        name="get_contract_action_contract_type_process"
+                                                        type="object">
+                                                    <span>
+                                                        <t t-esc="record.count_contract_in_process.value"/>
+                                                        <t/>
+                                                        In process
+                                                    </span>
+                                                </button>
+                                                <br></br>
+                                                <br></br>
+                                                <button class="btn btn-primary"
+                                                        name="get_contract_action_contract_type_progress"
+                                                        type="object">
+                                                    <span>
+                                                        <t t-esc="record.count_contract_in_progress.value"/>
+                                                        <t/>
+                                                        In progress
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <!--<div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_new">-->
+                                            <!--<div class="o_kanban_card_manage_title">-->
+                                            <!--<span>New</span>-->
+                                            <!--</div>-->
+                                            <!--<div>-->
+                                            <!--<t t-if="flow == 'Sale'">-->
+                                            <!--<a type="object" name="contract_type_customer">Create</a>-->
+                                            <!--</t>-->
+                                            <!--<t t-else="">-->
+                                            <!--<a type="object" name="contract_type_supplier">Create</a>-->
+                                            <!--</t>-->
+
+                                            <!--</div>-->
+                                            <!--</div>-->
+                                        </div>
+                                    </div>
+                                    <div class="container o_kanban_card_manage_pane o_invisible">
+                                        <div t-if="widget.editable" class="o_kanban_card_manage_settings row">
+                                            <div class="col-xs-8">
+                                                <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                            </div>
+                                            <div class="col-xs-4 text-right">
+                                                <a type="edit">Settings</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="action_l10n_cu_contract_contract_type" model="ir.actions.act_window">
+            <field name="name">Contract Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.contract_type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <field name="domain">[('flow', '=', 'customer')]</field>
+            <field name="context">{'default_flow': 'customer', 'flow': 'customer', 'default_color': 5, 'color': 5}
+            </field>
+            <field name="help"></field>
+        </record>
+
+        <menuitem name="Sale"
+                  id="menu_sale_commercial" parent="menu_commercial"
+                  sequence="1"/>
+
+        <delete model="ir.ui.menu" id="l10n_cu_hlg_contract.menu_partner_mentor"/>
+        <menuitem action="base.action_partner_form"
+                  id="menu_partner_mentor" parent="l10n_cu_hlg_contract.menu_sale_commercial"
+                  sequence="5"/>
+
+        <delete model="ir.ui.menu" id="l10n_cu_hlg_contract.menu_contract_type"/>
+        <menuitem action="action_l10n_cu_contract_contract_type"
+                  id="menu_contract_type" parent="l10n_cu_hlg_contract.menu_sale_commercial"
+                  sequence="10"/>
+
+        <record id="action_l10n_cu_contract_contract_type_purchase" model="ir.actions.act_window">
+            <field name="name">Contract Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.contract_type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <field name="domain">[('flow', '=', 'supplier')]</field>
+            <field name="context">{'default_flow': 'supplier', 'flow': 'supplier', 'default_color': 2, 'color': 2}
+            </field>
+            <field name="help"></field>
+        </record>
+
+        <menuitem name="Purchase"
+                  id="menu_purchase_commercial" parent="menu_commercial"
+                  sequence="2"/>
+
+        <delete model="ir.ui.menu" id="l10n_cu_hlg_contract.menu_partner_supplier_mentor"/>
+        <menuitem action="base.action_partner_supplier_form"
+                  id="menu_partner_supplier_mentor" parent="l10n_cu_hlg_contract.menu_purchase_commercial"
+                  sequence="5"/>
+
+        <delete model="ir.ui.menu" id="l10n_cu_hlg_contract.menu_contract_type_purchase"/>
+        <menuitem action="action_l10n_cu_contract_contract_type_purchase"
+                  id="menu_contract_type_purchase" parent="l10n_cu_hlg_contract.menu_purchase_commercial"
+                  sequence="10"/>
+
+    </data>
+</odoo>

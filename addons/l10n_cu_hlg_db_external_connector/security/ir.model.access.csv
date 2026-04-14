@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_db_external_connector_template,access_db_external_connector_template,model_db_external_connector_template,base.group_user,1,0,0,0
+
+

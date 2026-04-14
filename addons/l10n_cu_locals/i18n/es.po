@@ -1,0 +1,173 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_locals
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e-20180630\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-11 19:14+0000\n"
+"PO-Revision-Date: 2018-12-11 14:15-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_child_ids
+msgid "Child Locals"
+msgstr "Locales Hijos"
+
+#. module: l10n_cu_locals
+#: model:ir.actions.act_window,help:l10n_cu_locals.action_df_locals_local
+msgid "Click to add a new local."
+msgstr "Clic para añadir un nuevo local"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_hr_employee_local_id
+msgid "Current Local"
+msgstr "Local"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_locals
+#: model:ir.model,name:l10n_cu_locals.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,help:l10n_cu_locals.field_hr_employee_local_id
+msgid "Employee locals work."
+msgstr "Local de trabajo de los empleados"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_employee_ids
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_employee_list
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,help:l10n_cu_locals.field_l10n_cu_locals_local_employee_list
+msgid "Employees list"
+msgstr "Lista"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_ext
+msgid "Ext."
+msgstr "Ext."
+
+#. module: l10n_cu_locals
+#: model:ir.ui.menu,name:l10n_cu_locals.df_fisical_structure_menu_item
+msgid "Fisical Structure"
+msgstr "Estructura Física"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_locals
+#: model:ir.ui.view,arch_db:l10n_cu_locals.view_df_locals_local_form
+msgid "Local"
+msgstr "Local"
+
+#. module: l10n_cu_locals
+#: model:ir.actions.act_window,name:l10n_cu_locals.action_df_locals_local
+#: model:ir.ui.menu,name:l10n_cu_locals.df_locals_local_menu_item
+#: model:ir.ui.view,arch_db:l10n_cu_locals.view_df_locals_local_architecture
+#: model:ir.ui.view,arch_db:l10n_cu_locals.view_df_locals_local_tree
+msgid "Locals"
+msgstr "Locales"
+
+#. module: l10n_cu_locals
+#: model:ir.actions.act_window,name:l10n_cu_locals.action_df_locals_local_architecture
+#: model:ir.ui.menu,name:l10n_cu_locals.df_locals_local_architecture_menu_item
+msgid "Locals architecture"
+msgstr "Arquitectura de los locales"
+
+#. module: l10n_cu_locals
+#: model:ir.ui.view,arch_db:l10n_cu_locals.view_df_locals_local_search
+msgid "Locals search"
+msgstr "Buscar"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,field_description:l10n_cu_locals.field_l10n_cu_locals_local_parent_id
+msgid "Parent Local"
+msgstr "Local Superior"
+
+#. module: l10n_cu_locals
+#: model:ir.model,name:l10n_cu_locals.model_l10n_cu_locals_local
+msgid "Physical structure that belongs to the company."
+msgstr "Estructura física de la empresa."
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,help:l10n_cu_locals.field_l10n_cu_locals_local_code
+msgid "The Local code in 10 chars."
+msgstr "Código del local en 10 caracteres."
+
+#. module: l10n_cu_locals
+#: model:ir.model.fields,help:l10n_cu_locals.field_l10n_cu_locals_local_ext
+msgid "The Local extension in 3 numbers."
+msgstr "Extención telefónica del local."
+
+#. module: l10n_cu_locals
+#: code:addons/l10n_cu_locals/models/l10n_cu_locals.py:43
+#: sql_constraint:l10n_cu_locals.local:0
+#, python-format
+msgid "The local code must be unique."
+msgstr "El código del local debe ser único."
+
+#. module: l10n_cu_locals
+#: model:ir.actions.act_window,help:l10n_cu_locals.action_df_locals_local
+msgid ""
+"With just a quick glance on the Odoo locals screen, you\n"
+"                can easily find all the information you need for each locals;\n"
+"                code, name and parent."
+msgstr "Con solo un clic en la pantalla de los locales usted puede fácilmente encontrar toda la información relacionada como código, nombre o local al que pertenece."
+
+#. module: l10n_cu_locals
+#: model:res.groups,name:base.group_structure_manager
+msgid "Structure Manager"
+msgstr "Administrador de Estructura"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.xls_report_comparaciones"
+                model="app_seleccion.xls_report_comparaciones"
+                string="Comportamiento de Selección de Personal por años en graficos de barras"
+                report_type="xlsx"
+                name="app_seleccion.xls_report_comparaciones"
+                file="app_seleccion.xls_report_comparaciones"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

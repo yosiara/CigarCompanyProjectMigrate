@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Sales Team -->
+        <record id="crm_team_salesteams_view_form_inherit" model="ir.ui.view">
+            <field name="name">crm.team.form</field>
+            <field name="model">crm.team</field>
+            <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="before">
+                    <field name="type"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="sales_team_form_view_in_crm_inherit" model="ir.ui.view">
+            <field name="name">crm.team.form</field>
+            <field name="model">crm.team</field>
+            <field name="inherit_id" ref="crm.sales_team_form_view_in_crm"/>
+            <field name="arch" type="xml">
+                <label for="use_opportunities" position="after">
+                    <field name="legal"/>
+                    <label for="legal"/>
+                </label>
+            </field>
+        </record>
+
+        <record id="sales_team.crm_team_act" model="ir.actions.act_window">
+            <field name="name">Sales Teams</field>
+            <field name="res_model">crm.team</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="sales_team.crm_team_view_tree"/>
+            <field name="context">{'default_type': 'sale', 'type': 'sale'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click here to define a new sales team.
+                </p>
+                <p>
+                    Use sales team to organize your different salespersons or
+                    departments into separate teams. Each team will work in
+                    its own list of opportunities.
+                </p>
+            </field>
+        </record>
+
+        <record id="sales_team.sales_team_config_action" model="ir.actions.act_window">
+            <field name="name">Sales Teams</field>
+            <field name="res_model">crm.team</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_type': 'sale', 'type': 'sale'}</field>
+            <field name="domain">[('type','=','sale')]</field>
+            <field name="view_id" ref="sales_team.crm_team_salesteams_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click here to define a new sales team.
+                </p>
+                <p>
+                    Use sales team to organize your different salespersons or
+                    departments into separate teams. Each team will work in
+                    its own list of opportunities.
+                </p>
+            </field>
+        </record>
+
+        <record id="sales_team_purchase_config_action" model="ir.actions.act_window">
+            <field name="name">Purchase Teams</field>
+            <field name="res_model">crm.team</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_type': 'purchase', 'type': 'purchase'}</field>
+            <field name="domain">[('type','=','purchase')]</field>
+            <field name="view_id" ref="sales_team.crm_team_salesteams_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click here to define a new sales team.
+                </p>
+                <p>
+                    Use sales team to organize your different salespersons or
+                    departments into separate teams. Each team will work in
+                    its own list of opportunities.
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+                action="sales_team_purchase_config_action" id="menu_purchase_sales_team"
+                parent="menu_contract_configuration" sequence="2"/>
+
+        <menuitem
+                action="sales_team.sales_team_config_action" id="menu_sale_sales_team"
+                parent="menu_contract_configuration" sequence="1"/>
+
+        <menuitem
+                action="product.product_template_action" id="menu_product_template_sales"
+                parent="l10n_cu_hlg_contract.menu_sale_commercial" sequence="35" name="Productos Vendibles"/>
+
+        <menuitem
+                action="purchase.product_normal_action_puchased" id="menu_product_template_puchase"
+                parent="l10n_cu_hlg_contract.menu_purchase_commercial" sequence="35" name="Catálogos de Compras" />
+
+        <!-- Sale Order -->
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="payment_term_id" position="before">
+                        <field name="external_create" invisible="True"/>
+                        <field name="contract_id" attrs="{'readonly':[('external_create','=',True)]}"
+                               domain="[('partner_id','=',partner_id),('state','=','open')]"
+                               options="{'no_create': True}"/>
+                        <field name="department_id"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <!-- Account Invoice -->
+        <record id="invoice_form_inherit_inherit" model="ir.ui.view">
+            <field name="name">account.invoice.form.inherit.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="partner_id" position="replace">
+                        <field string="Customer" name="partner_id"
+                               context="{'search_default_customer':1, 'show_address': 1, 'contract': True}"
+                               options='{"always_reload": True}'
+                               domain="[('customer', '=', True)]"/>
+                    </field>
+                    <field name="user_id" position="after">
+                        <field name="contract_id" required="True" attrs="{'readonly':[('external_create','=',True)]}"
+                               domain="[('partner_id','=',partner_id),('state','=','open')]"
+                               options="{'no_create': True}"/>
+                        <field name="external_create" invisible="True"/>
+                    </field>
+                    <field name="product_id" position="replace">
+                        <field name="product_id"
+                               context="{'contract': parent.contract_id}"/>
+                    </field>
+                    <field name="external_create" invisible="True"/>
+                </data>
+            </field>
+        </record>
+
+        <record id="invoice_supplier_form_inherit_inherit" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form.inherit.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="partner_id" position="replace">
+                        <field string="Vendor" name="partner_id"
+                               context="{'default_customer': 0, 'search_default_supplier': 1, 'default_supplier': 1, 'contract': True}"
+                               domain="[('supplier', '=', True)]"/>
+                    </field>
+                    <field name="date_due" position="after">
+                        <field name="contract_id" required="True" attrs="{'readonly':[('external_create','=',True)]}"
+                               domain="[('partner_id','=',partner_id),('state','=','open')]"
+                               options="{'no_create': True}"/>
+                        <field name="external_create" invisible="True"/>
+                    </field>
+                    <field name="product_id" position="replace">
+                        <field name="product_id"
+                               context="{'partner_id': parent.partner_id, 'contract': parent.contract_id}"/>
+                    </field>
+                    <field name="external_create" invisible="True"/>
+                    <!--<xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='currency_id']" position="replace">-->
+                    <!--<field name="currency_id" readonly="False"/>-->
+                    <!--</xpath>-->
+                </data>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

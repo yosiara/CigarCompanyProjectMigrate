@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		ACCOUNT
+		Model: versat_integration.account
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="versat_integration_account_form_view" model="ir.ui.view">
+            <field name="name">versat_integration_account_form_view</field>
+            <field name="model">versat_integration.account</field>
+            <field name="arch" type="xml">
+            	<form>
+            		<sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="name"/>
+                            </group>
+                            <group/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="versat_integration_account_tree_view" model="ir.ui.view">
+            <field name="name">versat_integration_account_tree_view</field>
+            <field name="model">versat_integration.account</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		<field name="code"/>
+                    <field name="name"/>
+	            </tree>
+	        </field>
+	    </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="versat_integration_account_search_view" model="ir.ui.view">
+            <field name="name">versat_integration_account_search_view</field>
+            <field name="model">versat_integration.account</field>
+            <field name="arch" type="xml">
+            	<search>
+                    <field name="code"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="versat_integration_account_action" model="ir.actions.act_window">
+	    	<field name="name">Accounts</field>
+		    <field name="res_model">versat_integration.account</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Accounts"
+				  id="versat_integration_account_menu_item"
+				  action="versat_integration_account_action"
+				  parent="warehouse.warehouse_warehouse_left_menu"/>
+    </data>
+</odoo>

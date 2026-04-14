@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+         Annual Periods
+         Current Year
+        <record id="period_0" model="l10n_cu_period.period">
+            <field name="name" eval="time.strftime('%Y')"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="time.strftime('%Y') + '-01-01'"/>
+            <field name="date_stop" eval="time.strftime('%Y') + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 1 -->
+        <record id="period_1" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 1)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 1) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 1) + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 2 -->
+        <record id="period_2" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 2)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 2) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 2) + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 3 -->
+        <record id="period_3" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 3)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 3) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 3) + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 4 -->
+        <record id="period_4" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 4)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 4) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 4) + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 5 -->
+        <record id="period_5" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 5)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 5) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 5) + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 6 -->
+        <record id="period_6" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 6)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 6) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 6) + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 7 -->
+        <record id="period_7" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 7)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 7) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 7) + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 8 -->
+        <record id="period_8" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 8)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 8) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 8) + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 9 -->
+        <record id="period_9" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 9)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 9) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 9) + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 10 -->
+        <record id="period_10" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 10)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 10) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 10) + '-12-31'"/>
+        </record>
+
+        <!-- Current Year + 11 -->
+        <record id="period_11" model="l10n_cu_period.period">
+            <field name="name" eval="str(int(time.strftime('%Y')) + 11)"/>
+            <field name="annual" eval="True"/>
+            <field name="date_start" eval="str(int(time.strftime('%Y')) + 11) + '-01-01'"/>
+            <field name="date_stop" eval="str(int(time.strftime('%Y')) + 11) + '-12-31'"/>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cmi_indicator_user,cmi.indicator_user,model_cmi_indicator,base.group_user,1,0,0,0
+access_cmi_uom_user,cmi.uom_user,model_cmi_uom,base.group_user,1,0,0,0
+access_cmi_source_user,cmi.source_user,model_cmi_source,base.group_user,1,0,0,0
+access_cmi_perspective_user,cmi.perspective_user,model_cmi_perspective,base.group_user,1,0,0,0
+access_cmi_indicator_line_user,cmi.indicator_line_user,model_cmi_indicator_line,base.group_user,1,0,0,0
+access_cmi_dashboard_user,cmi.dashboard_user,model_cmi_dashboard,base.group_user,1,0,0,0
+access_cmi_indicator_indicator_manager,cmi.indicator_indicator_manager,model_cmi_indicator,cmi.indicator_manager,1,1,0,0
+access_cmi_indicator_line_indicator_manager,cmi.indicator_line_indicator_manager,model_cmi_indicator_line,cmi.indicator_manager,1,1,1,1
+access_cmi_indicator_manager,cmi.indicator_manager,model_cmi_indicator,cmi.manager,1,1,1,1
+access_cmi_uom_manager,cmi.uom_manager,model_cmi_uom,cmi.manager,1,1,1,1
+access_cmi_source_manager,cmi.source_manager,model_cmi_source,cmi.manager,1,1,1,1
+access_cmi_perspective_manager,cmi.perspective_manager,model_cmi_perspective,cmi.manager,1,1,1,1
+access_cmi_indicator_line_manager,cmi.indicator_line_manager,model_cmi_indicator_line,cmi.manager,1,1,1,1
+access_cmi_dashboard_manager,cmi.dashboard_manager,model_cmi_dashboard,cmi.manager,1,1,1,1

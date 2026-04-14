@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="l10n_cu_hlg_uforce_dashboard.dashboard">
+        <!--View-->
+        <div class="openerp oe_kanban_view hr_dash col-xs-12 col-md-12 col-lg-12 col-sm-8">
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2 style="text-align:center;color:#4b838c;">
+                           <b>UFORCE DASHBOARD</b>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" style="padding-top: 16px">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                          <a href="javascript:;" class="dashboard-block contract">
+                            <div class="rotate">
+                              <i class="fa fa-fw fa-mortar-board"></i>
+                            </div>
+                            <div class="details">
+                              <span class="title"><b>School Level</b></span>
+
+                            </div>
+                          </a><!--/dashboard-block3-->
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                          <a href="javascript:;" class="dashboard-invoice">
+                            <div class="rotate">
+                              <i class="fa fa-calendar"></i>
+                            </div>
+                            <div class="details">
+                              <span class="title"><b>Age Range</b></span>
+                              <span class="sub"></span>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="row">
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-fw fa-mortar-board"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Nine Grade</b></span>
+                                    <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['nine_grade_level_count']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action uforce_count_nine_grade">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-fw fa-mortar-board"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Twelve Grade</b></span>
+                                    <span class="dash-box-count">
+                                         <span class="sub"><t t-esc="widget.uforce_data['twelve_grade_level_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action uforce_count_twelve_grade">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-fw fa-mortar-board"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Tecnical Level Grade</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.uforce_data['tecnical_grade_level_count']"/></span>
+                                    </span>
+                                </div>
+                                    <div class="dash-box-action uforce_count_tecnical_grade">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-mortar-board"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>University Level</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['university_grade_level_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action uforce_count_university_grade">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="row">
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-2">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-child"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Under 31</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.uforce_data['age_range_one_count']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action-invoice uforce_age_range_one_count">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-2">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-male"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>31 to 50</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.uforce_data['age_range_two_count']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action-invoice uforce_age_range_two_count">
+                                    <button>See</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-2">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-male"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>51 to 60</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.uforce_data['age_range_three_count']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action-invoice uforce_age_range_three_count">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-2">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-wheelchair"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>More 60</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.uforce_data['age_range_four_count']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action-invoice uforce_age_range_four_count">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-12" style="padding-top: 16px">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                          <a href="javascript:;" class="dashboard-block contract">
+                            <div class="rotate">
+                               <i class="fa fa-intersex"></i>
+                            </div>
+                            <div class="details">
+                              <span class="title"><b>School Level By Sex</b></span>
+
+                            </div>
+                          </a><!--/dashboard-block3-->
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                          <a href="javascript:;" class="dashboard-invoice">
+
+                            <div class="rotate">
+                               <i class="fa fa-intersex"></i>
+                            </div>
+
+                            <div class="details">
+                              <span class="title"><b>Age Range By Sex</b></span>
+                              <span class="sub"></span>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="row">
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-female">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-female"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Nine Grade Female</b></span>
+                                    <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['nine_grade_level_count_female']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action-female uforce_count_nine_grade_female">
+                                    <button>See</button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-female">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-female"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Twelve Grade Female</b></span>
+                                    <span class="dash-box-count">
+                                         <span class="sub"><t t-esc="widget.uforce_data['twelve_grade_level_count_female']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action-female uforce_count_twelve_grade_female">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-female">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-female"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Tecnical Level Grade Female</b></span>
+                                    <span class="dash-box-count">
+                                        <span class="sub"><t t-esc="widget.uforce_data['tecnical_grade_level_count_female']"/></span>
+                                    </span>
+                                </div>
+                                 <div class="dash-box-action-female uforce_count_tecnical_grade_female">
+                                    <button>See</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-female">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-female"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>University Female</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['university_grade_level_count_female']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action-female uforce_count_university_grade_female">
+                                    <button>See</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-male">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-male"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Nine Grade Male</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['nine_grade_level_count_male']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action-male uforce_count_nine_grade_male">
+                                    <button>See</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="dash-box dash-box-color-male">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-male"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Twelve Grade Male</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['twelve_grade_level_count_male']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action-male uforce_count_twelve_grade_male">
+                                    <button>See</button>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="col-md-3">
+                            <div class="dash-box dash-box-color-male">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-male"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Tecnical Grade Male</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['tecnical_grade_level_count_male']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action-male uforce_count_tecnical_grade_male">
+                                    <button>See</button>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="col-md-3">
+                            <div class="dash-box dash-box-color-male">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-male"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>University Male</b></span>
+                                     <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['university_grade_level_count_male']"/></span>
+                                    </span>
+                                </div>
+                                <div class="dash-box-action-male uforce_count_university_grade_male">
+                                    <button>See</button>
+                                </div>
+                            </div>
+                        </div>
+
+                                <div class="row">
+                                    <div class="panel">
+                                          <div class="panel-heading">
+                                              <h3 class="panel-title" style="color:#4b838c;">Top Five Degree</h3>
+                                          </div>
+                                          <div class="panel-body">
+                                                <canvas id="myChartTopFiveDegree"/>
+                                          </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="dash-box dash-box-color-female">
+                                        <div class="dash-box-icon">
+                                            <i class="fa fa-female"></i>
+                                        </div>
+                                        <div class="dash-box-body">
+                                            <span class="dash-box-title"><b>Under 31 Female</b></span>
+                                            <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['age_range_one_count_female']"/></span>
+                                            </span>
+                                        </div>
+                                         <div class="dash-box-action-female uforce_age_range_one_count_female">
+                                            <button>See</button>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="dash-box dash-box-color-female">
+                                        <div class="dash-box-icon">
+                                            <i class="fa fa-female"></i>
+                                        </div>
+                                        <div class="dash-box-body">
+                                            <span class="dash-box-title"><b>31 to 50 Female</b></span>
+                                            <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['age_range_two_count_female']"/></span>
+                                            </span>
+                                        </div>
+                                         <div class="dash-box-action-female uforce_age_range_two_count_female">
+                                            <button>See</button>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="dash-box dash-box-color-female">
+                                        <div class="dash-box-icon">
+                                            <i class="fa fa-female"></i>
+                                        </div>
+                                        <div class="dash-box-body">
+                                            <span class="dash-box-title"><b>51 to 60 Female</b></span>
+                                            <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['age_range_three_count_female']"/></span>
+                                            </span>
+                                        </div>
+                                         <div class="dash-box-action-female uforce_age_range_three_count_female">
+                                            <button>See</button>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="dash-box dash-box-color-female">
+                                        <div class="dash-box-icon">
+                                            <i class="fa fa-female"></i>
+                                        </div>
+                                        <div class="dash-box-body">
+                                            <span class="dash-box-title"><b>More 60 Female</b></span>
+                                            <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['age_range_four_count_female']"/></span>
+                                         </span>
+                                        </div>
+                                         <div class="dash-box-action-female uforce_age_range_four_count_female">
+                                            <button>See</button>
+                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="dash-box dash-box-color-male">
+                                        <div class="dash-box-icon">
+                                            <i class="fa fa-male"></i>
+                                        </div>
+                                        <div class="dash-box-body">
+                                            <span class="dash-box-title"><b>Under 31 Male</b></span>
+                                            <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['age_range_one_count_male']"/></span>
+                                         </span>
+                                        </div>
+                                         <div class="dash-box-action-male uforce_age_range_one_count_male">
+                                            <button>See</button>
+                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="dash-box dash-box-color-male">
+                                        <div class="dash-box-icon">
+                                            <i class="fa fa-male"></i>
+                                        </div>
+                                        <div class="dash-box-body">
+                                            <span class="dash-box-title"><b>31 to 50 Male</b></span>
+                                            <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['age_range_two_count_male']"/></span>
+                                         </span>
+                                        </div>
+                                        <div class="dash-box-action-male uforce_age_range_two_count_male">
+                                            <button>See</button>
+                                         </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="dash-box dash-box-color-male">
+                                        <div class="dash-box-icon">
+                                            <i class="fa fa-male"></i>
+                                        </div>
+                                        <div class="dash-box-body">
+                                            <span class="dash-box-title"><b>51 to 60 Male</b></span>
+                                            <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['age_range_three_count_male']"/></span>
+                                         </span>
+                                        </div>
+                                        <div class="dash-box-action-male uforce_age_range_three_count_male">
+                                            <button>See</button>
+                                         </div>
+                                    </div>
+                                </div>
+
+                                 <div class="col-md-3">
+                                    <div class="dash-box dash-box-color-male">
+                                        <div class="dash-box-icon">
+                                            <i class="fa fa-male"></i>
+                                        </div>
+                                        <div class="dash-box-body">
+                                            <span class="dash-box-title"><b>More 60 Male</b></span>
+                                            <span class="dash-box-count">
+                                            <span class="sub"><t t-esc="widget.uforce_data['age_range_four_count_male']"/></span>
+                                         </span>
+                                        </div>
+                                        <div class="dash-box-action-male uforce_age_range_four_count_male">
+                                            <button>See</button>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="panel">
+                                          <div class="panel-heading">
+                                              <h3 class="panel-title" style="color:#f49c2c;">Categorys Occupational</h3>
+                                          </div>
+                                          <div class="panel-body">
+                                                <canvas id="myChartOcuppationalCategory"/>
+                                          </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </t>
+</templates>

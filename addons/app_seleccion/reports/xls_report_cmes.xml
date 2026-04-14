@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.xls_report_cmes"
+                model="app_seleccion.xls_report_cmes"
+                string="Comportamiento de Selección de Personal por mes, datos en Excel"
+                report_type="xlsx"
+                name="app_seleccion.xls_report_cmes"
+                file="app_seleccion.xls_report_cmes"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

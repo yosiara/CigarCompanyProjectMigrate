@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		WAREHOUSE REQUEST INHERIT
+		Model: warehouse.warehouse_request
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_warehouse_request_form_view_inherit" model="ir.ui.view">
+            <field name="name">atmsys_warehouse_request_form_view_inherit</field>
+            <field name="inherit_id" ref="warehouse.warehouse_warehouse_request_form_view"/>
+            <field name="model">warehouse.warehouse_request</field>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='first_information']" position="before">
+                    <field name="is_exceeded_budget" invisible="1"/>
+                    <field name="is_exceeded_assingment" invisible="1"/>
+                    <field name="warning_message" invisible="1"/>
+
+                    <div attrs="{'invisible': [('is_exceeded_budget', '!=', True)]}"
+                         class="oe_form_box_info oe_text_center"
+                         style="margin-bottom: 10px; margin-top: 10px;">
+
+                        <h4 class="text-muted">
+                            Con estas operaciones usted esta <b>excediendo</b> el presupuesto asignado al
+                            centro de costo referido en esta Solicitud de Salida...
+                        </h4>
+                    </div>
+
+                    <div attrs="{'invisible': [('is_exceeded_assingment', '!=', True)]}"
+                         class="oe_form_box_info oe_text_center"
+                         style="margin-bottom: 10px; margin-top: 10px;">
+
+                        <h4 class="text-muted">
+                            Con estas operaciones usted esta <b>excediendo</b> la cantidad de producto permitido
+                            según asignación para el area o grupo especificado...
+                        </h4>
+                    </div>
+
+                    <div attrs="{'invisible': [('warning_message', '=', '')]}"
+                         class="oe_form_box_info oe_text_center oe_edit_only"
+                         style="margin-bottom: 10px; margin-top: 10px;">
+
+                        <h4 class="text-muted">
+                            <field name="warning_message" readonly="1"/>
+                        </h4>
+                    </div>
+                </xpath>
+
+                <xpath expr="//group[@name='first_information']" position="after">
+                    <group>
+                        <group>
+                            <field name="work_order_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="area_id">
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="code"/>
+                                            <field name="name"/>
+                                            <field name="abbreviation"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </group>
+
+                        <group>
+                            <field name="responsibility_area_id"/>
+                            <field name="cost_center_id"
+                                   context="{'responsibility_area_id': responsibility_area_id, 'restricted': True}"/>
+                        </group>
+                    </group>
+                </xpath>
+
+                <field name="requested_product_ids" position="replace">
+                    <field name="requested_product_ids" context="{'warehouse_id': warehouse_id}">
+                        <tree editable="bottom">
+                            <field name="product_id"
+                                   options="{'no_create': True}"
+                                   context="{'only_products_from_warehouse': True, 'warehouse_id': warehouse_id}"/>
+                            <field name="warehouse_id" invisible="1"/>
+                            <field name="uom_id"/>
+                            <field name="stock"/>
+                            <field name="stock_validation" string="According System"/>
+                            <field name="quantity"/>
+                        </tree>
+                    </field>
+                </field>
+
+                <xpath expr="//field[@name='receive_id']" position="attributes">
+                    <attribute name="attrs">{'required': [('required_field_receive_id', '=', True)]}</attribute>
+                </xpath>
+
+                <field name="receive_id" position="after">
+                    <field name="required_field_receive_id" invisible="1"/>
+                </field>
+	        </field>
+	    </record>
+
+		<!-- TREE VIEW -->
+        <record id="atmsys_warehouse_request_tree_view_inherit" model="ir.ui.view">
+            <field name="name">atmsys_warehouse_request_tree_view_inherit</field>
+            <field name="inherit_id" ref="warehouse.warehouse_warehouse_request_tree_view"/>
+            <field name="model">warehouse.warehouse_request</field>
+            <field name="arch" type="xml">
+            	<field name="warehouse_id" position="after">
+                    <field name="work_order_id"/>
+                    <field name="responsibility_area_id"/>
+                    <field name="cost_center_id"/>
+                    <field name="area_id"/>
+                </field>
+	        </field>
+	    </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="atmsys_warehouse_request_search_view_inherit" model="ir.ui.view">
+            <field name="name">atmsys_warehouse_request_search_view_inherit</field>
+            <field name="inherit_id" ref="warehouse.warehouse_warehouse_request_search_view"/>
+            <field name="model">warehouse.warehouse_request</field>
+            <field name="arch" type="xml">
+            	<filter name="group_by_warehouse" position="after">
+                    <filter name="group_by_work_order" string="Work Order" context="{'group_by': 'work_order_id'}"/>
+                    <filter name="group_by_responsibility_area" string="Responsibility Area" context="{'group_by': 'responsibility_area_id'}"/>
+                    <filter name="group_by_cost_center" string="Cost Center" context="{'group_by': 'cost_center_id'}"/>
+                    <filter name="group_by_area" string="Area" context="{'group_by': 'area_id'}"/>
+                    <separator/>
+                </filter>
+	        </field>
+	    </record>
+    </data>
+</odoo>

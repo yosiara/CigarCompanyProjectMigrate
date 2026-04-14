@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		WIZARD TO IMPORT INFORMATION FROM VERSAT
+		Model: versat.import_wizard
+		=========================================================================================== -->
+
+		<!-- FORM VIEW -->
+		<record id="versat_import_wizard_form_view" model="ir.ui.view">
+            <field name="name">versat_import_wizard_form_view</field>
+            <field name="model">versat.import_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            	<form>
+                    <sheet>
+                        <div attrs="{'invisible': [('action', '!=', 'only_new_products')]}">
+                            <p>
+                                Al seleccionar la opción <b>"Actualizar lista de productos..."</b>, el sistema
+                                actualizará la lista de productos importando aquellos, que no han sido
+                                importados con anterioridad. Serán importados los almacenes y actualizadas las
+                                ubicaciones de cada producto...
+                            </p>
+                        </div>
+
+                        <div attrs="{'invisible': [('action', '!=', 'update_all_products')]}">
+                            <p>
+                                Al seleccionar la opción <b>"Actualizar todos los productos..."</b>, el sistema
+                                actualizará completamente la lista de productos actualizando toda la información
+                                referente a los productos...
+                            </p>
+                        </div>
+
+                        <div attrs="{'invisible': [('action', '!=', 'specific_product')]}">
+                            <p>
+                                Al seleccionar la opción <b>"Actualizar un producto específico..."</b>, el sistema
+                                actualizará la información referente al producto seleccionado...
+                            </p>
+                        </div>
+
+                        <div attrs="{'invisible': [('action', '!=', 'warehouses')]}">
+                            <p>
+                                Al seleccionar la opción <b>"Actualizar almacenes..."</b>, el sistema
+                                actualizará los movimientos de productos y la existencia en cada almacén. Todos los
+                                movimientos afectarán la existencia según Versat y, aquellos movimientos cuyo
+                                concepto tenga marcada la opción: <b>"¿Importar?"</b> afectarán la existencia según
+                                sistema...
+                            </p>
+
+                            <p>
+                                Si desea acelerar el proceso de actualización de existencias de cada producto, marque
+                                la opción <b>Importar según fecha determinada?</b> con lo cual deberá especificar la
+                                fecha a partir de la cual importar los movimientos...
+                            </p>
+                        </div>
+
+                        <div attrs="{'invisible': [('action', '!=', 'specific_product_movements')]}">
+                            <p>
+                                Al seleccionar la opción <b>"Actualizar movimientos de un producto específico..."</b>,
+                                el sistema actualizará los movimientos del producto y la existencia de cada uno en cada
+                                almacén. Esta opción es útil para aquellos casos cuando al actualizar los almacenes, por
+                                algún motivo no fue importado un movimiento. Todos los movimientos afectarán la
+                                existencia según Versat y, aquellos movimientos cuyo concepto tenga marcada la opción:
+                                <b>"¿Importar?"</b> afectarán la existencia según sistema...
+                            </p>
+                        </div>
+
+                        <div attrs="{'invisible': [('action', '!=', 'synchronize_product_movements')]}">
+                            <p>
+                                Al seleccionar la opción <b>"Sincronizar movimientos de un producto específico..."</b>,
+                                el sistema eliminará aquellos movimientos sobre el producto seleccionado que por algún
+                                motivo fueron eliminados en el sistema Versat...
+                            </p>
+                        </div>
+
+                        <group string="Configuration..." col="8">
+                            <group col="4" colspan="4">
+                                <field name="action" colspan="4"/>
+                                <field name="connector_id" colspan="4"/>
+                                <field name="product_id" colspan="4"
+                                       attrs="{'invisible': [('action', 'not in', ['specific_product', 'specific_product_movements', 'synchronize_product_movements'])],
+                                               'required': [('action', 'in', ['specific_product', 'specific_product_movements', 'synchronize_product_movements'])]}"/>
+                            </group>
+
+                            <group col="4" colspan="4" class="o_label_nowrap">
+                                <field name="limit_operations" colspan="4" invisible="0"
+                                       attrs="{'invisible': [('action', 'not in', ['warehouses', 'specific_product_movements', 'action_update_all_product_movementes'])]}"/>
+
+                                <field name="date_to_limit" colspan="4"
+                                       attrs="{'invisible': [('limit_operations', '!=', True)],
+                                               'required': [('limit_operations', '=', True)]}"/>
+
+                                <div colspan="4"
+                                     attrs="{'invisible': ['|', ('action', 'not in', ['warehouses', 'specific_product_movements', 'action_update_all_product_movementes']),
+                                                                ('limit_operations', '!=', True)]}">
+                                    <p>
+                                        Especifique la <b>fecha</b> a partir la cual solo se tendrán en cuenta para
+                                        actualizar el inventario según sistema aquellos movimientos cuyo
+                                        concepto tenga marcada la opción: <b>"¿Importar?"</b>...
+                                    </p>
+                                </div>
+
+                                <field name="import_after_specified_date" colspan="4"
+                                       attrs="{'invisible': [('action', '!=', 'warehouses')]}"/>
+
+                                <field name="date" colspan="4"
+                                       attrs="{'invisible': ['|', ('import_after_specified_date', '!=', True),
+                                                             ('action', 'in', ['specific_product_movements'])],
+                                               'required': [('import_after_specified_date', '=', True),
+                                                            ('action', 'not in', ['specific_product_movements'])]}"/>
+
+                                <div colspan="4"
+                                     attrs="{'invisible': ['|', ('action', '!=', 'warehouses'),
+                                                                ('import_after_specified_date', '!=', True)]}">
+                                    <p>
+                                        Especifique la <b>fecha</b> desde la cual se importarán los movimientos de
+                                        productos...
+                                    </p>
+                                </div>
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <button name="action_import" string="Import..." type="object" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="versat_import_wizard_action" model="ir.actions.act_window">
+            <field name="name">Wizard to import data...</field>
+            <field name="res_model">versat.import_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Wizard" id="versat_integration_left_menu" parent="warehouse.warehouse_warehouse_root_menu"/>
+
+        <menuitem name="Data Import..."
+                  id="versat_integration_wizard_menu_item"
+                  action="versat_import_wizard_action"
+                  parent="versat_integration_left_menu"/>
+    </data>
+</odoo>

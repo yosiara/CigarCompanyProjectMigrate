@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_process_control_efficiency_cdt_excel"
+                model="turei_process_control.interruption"
+                string="Rep. Eficiencia y CDT"
+                report_type="xlsx"
+                name="turei_process_control.efficiency_cdt_excel_report"
+                file="turei_process_control.efficiency_cdt_excel_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

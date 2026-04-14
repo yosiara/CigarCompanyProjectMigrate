@@ -1,0 +1,2644 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* enterprise_mgm_sys
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20200610\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-16 22:38+0000\n"
+"PO-Revision-Date: 2021-10-16 18:39-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.7.3\n"
+
+#. module: enterprise_mgm_sys
+#: model:mail.template,body_html:enterprise_mgm_sys.email_template_obligations
+msgid ""
+"\n"
+"<p>Dear employee, today is the deadline for compliance with the following obligations of the ${ctx['internal_agreement']} internal Agreement.</p>\n"
+"    % for obligation in ctx['obligations']:\n"
+"        <li>\n"
+"            <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:white};\"></div>\n"
+"             <span style=\"margin-left:5px\">${obligation}</span>\n"
+"        </li>\n"
+"    % endfor\n"
+"<p>Greetings</p>\n"
+msgstr ""
+"\n"
+"<p>Estimado empleado, hoy es la fecha límite para el cumplimiento de las siguientes obligaciones de el convenio interno ${ctx['internal_agreement']}.</p>\n"
+"    % for obligation in ctx['obligations']:\n"
+"        <li>\n"
+"            <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:white};\"></div>\n"
+"             <span style=\"margin-left:5px\">${obligation}</span>\n"
+"        </li>\n"
+"    % endfor\n"
+"<p>Saludos</p>\n"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "01"
+msgstr "01"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "02"
+msgstr "02"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "03"
+msgstr "03"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "04"
+msgstr "04"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "05"
+msgstr "05"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "06"
+msgstr "06"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "07"
+msgstr "07"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "08"
+msgstr "08"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "09"
+msgstr "09"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "10"
+msgstr "10"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "11"
+msgstr "11"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.month,number:0
+msgid "12"
+msgstr "12"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_apr
+msgid "ABR"
+msgstr "ABR"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_aug
+msgid "AGO"
+msgstr "AGO"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,level:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,new_level:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,level:0
+#: selection:enterprise_mgm_sys.registryr1_line,level:0
+msgid "Acceptable"
+msgstr "Aceptable"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.no_conformity,state:0
+msgid "Accomplish"
+msgstr "Cumplida"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_type
+msgid "Action Type"
+msgstr "Tipo de acción"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_action
+msgid "Action to develop"
+msgstr "Acción a desarrollar"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_action_action
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_action_ids
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_action_ids
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_actions_menu
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_improvement_program_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_no_conformity_view_form
+msgid "Actions"
+msgstr "Acciones"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_no_conformity_view_form
+msgid "Actions Result"
+msgstr "Resultados de las acciones"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_audit_activity_line_ids
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_audit_view_form
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_activity
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_activity_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_activity_id
+msgid "Activity"
+msgstr "Actividad"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_cmi_source_aggregation
+msgid "Aggregation"
+msgstr "Agregación"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_agreement_number
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_agreement_number
+msgid "Agreement Number"
+msgstr "Número de acuerdo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_all_company
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_all_company
+msgid "All Company"
+msgstr "Toda la empresa"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_approve_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_approve_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_approve
+msgid "Approve"
+msgstr "Aprueba"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_approved_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_approved_date
+msgid "Approved Date"
+msgstr "Fecha aprobado"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "April"
+msgstr "Abril"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_area
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_department_id
+msgid "Area"
+msgstr "Área"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_source_area
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_source_area
+msgid "Area that complies"
+msgstr "Área que cumple"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_destiny_area
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_destiny_area
+msgid "Area that evaluates"
+msgstr "Área que evalúa"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_audit_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_audit_id
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_audit_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_audit_view_tree
+msgid "Audit"
+msgstr "Auditoría"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/quality.py:231
+#, python-format
+msgid "Audit %s - %s"
+msgstr "Auditoría %s - %s"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_audit_criteria
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_audit_criteria
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_view_form
+msgid "Audit Criteria"
+msgstr "Criterio de auditoría"
+
+#. module: enterprise_mgm_sys
+#: model:res.groups,name:enterprise_mgm_sys.audit_responsible
+msgid "Audit Management Responsible"
+msgstr "Responsable gestión de auditorías"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_audit_methods
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_audit_methods
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_view_form
+msgid "Audit Methods"
+msgstr "Métodos de auditoría"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_audit_action
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_audit_menu
+msgid "Audit Plan"
+msgstr "Plan de Auditoría"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.report.xml,name:enterprise_mgm_sys.action_report_audit_planning_docx
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_audit_planning
+msgid "Audit Planning"
+msgstr "Planificación de auditoría"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_audited
+msgid "Audited"
+msgstr "Auditados"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.audit_resp_line,function:0
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_auditor_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_auditor_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_auditor_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_auditor_id
+msgid "Auditor"
+msgstr "Auditor"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_auditor_annual_eval_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_auditor_annual_eval_view_tree
+msgid "Auditor Annual Evaluation"
+msgstr "Evaluación anual de auditor"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_auditor_annual_eval_action
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_auditor_annual_eval_menu
+msgid "Auditor Annual Evaluations"
+msgstr "Evaluaciones anuales de auditores"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_auditor_leader
+msgid "Auditor Leader"
+msgstr "Auditor Líder"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.auditor_leader_eval_view_form
+msgid "Auditor Leader Evaluation"
+msgstr "Evaluación de Auditor Líder"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/quality.py:401
+#, python-format
+msgid "Auditor Leader Evaluation %s date %s"
+msgstr "Evaluación de auditor líder %s fecha %s"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_auditor_leader_eval_action
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_auditor_leader_eval_menu
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_auditor_leader_eval_view_tree
+msgid "Auditor Leader Evaluations"
+msgstr "Evaluaciones de Auditor Líder"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.report.xml,name:enterprise_mgm_sys.action_report_auditor_leader_evaluation_docx
+msgid "Auditor leader evaluation"
+msgstr "Evaluación de auditor líder"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_auditors
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_auditor_ids
+msgid "Auditors"
+msgstr "Auditores"
+
+#. module: enterprise_mgm_sys
+#. openerp-web
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:128
+#, python-format
+msgid "Auditorías"
+msgstr "Auditorías"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "August"
+msgstr "Agosto"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,consequence:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,new_consequence:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,new_probability:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,probability:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,consequence:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,probability:0
+#: selection:enterprise_mgm_sys.registryr1_line,consequence:0
+#: selection:enterprise_mgm_sys.registryr1_line,probability:0
+msgid "Average"
+msgstr "Medio"
+
+#. module: enterprise_mgm_sys
+#: selection:cmi.source,aggregation:0
+msgid "Avg"
+msgstr "Promedio"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/internal_agreement.py:36
+#: code:addons/enterprise_mgm_sys/models/quality.py:384
+#: code:addons/enterprise_mgm_sys/models/quality.py:456
+#, python-format
+msgid "Bad"
+msgstr "Mal"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_line_ids
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_form_view
+msgid "Behavior"
+msgstr "Comportamiento"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_wzd_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registry_r1_wzd_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_cancellation_date
+msgid "Cancellation Date"
+msgstr "Fecha de cancelación"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_cause
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_no_conformity_view_form
+msgid "Cause"
+msgstr "Causa"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_form_view
+msgid "Change Detection"
+msgstr "Detección de cambios"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_change_detection
+msgid "Change detection"
+msgstr "Detección de cambios"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_ids
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registry_form_view
+msgid "Changes"
+msgstr "Cambios"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_classification
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_classification
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_classification
+msgid "Classification"
+msgstr "Clasificación"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_closed_date
+msgid "Closed Date"
+msgstr "Fecha de cierre"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_code
+msgid "Code"
+msgstr "Código"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_communication
+msgid "Communication with the audit client and the audited"
+msgstr "Comunicación con el cliente de la auditoría y el auditado"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_cmi_indicator
+msgid "Company's performance indicator"
+msgstr "Indicador de desempeño de la compañía"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_compliance
+msgid "Compliance"
+msgstr "Cumplimiento"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_compliance_date
+msgid "Compliance Date"
+msgstr "Fecha de cumplimiento"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_compliance_dates
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_compliance_dates
+msgid "Compliance Dates"
+msgstr "Fechas de cumplimiento"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_complies_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_complies_id
+msgid "Complies"
+msgstr "Cumple"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_conducting
+msgid "Conducting the audit team to reach the audit conclusions"
+msgstr "Comunicación con el cliente de la auditoría y el auditado"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_configuration_root_menu
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_conflict_prev_res
+msgid "Conflict prevention and resolution"
+msgstr "Prevención y solución de conflictos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_consequence
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_consequence
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_consequence
+msgid "Consequence"
+msgstr "Consecuencia"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_control_id
+msgid "Control"
+msgstr "Control"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_control_measures_efficacy_act_window
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_control_measures_efficacy_menu
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_control_measures_efficacy_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_control_measures_efficacy_tree_view
+msgid "Control Measures Efficacy"
+msgstr "Control de la eficacia de las medidas"
+
+#. module: enterprise_mgm_sys
+#. openerp-web
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:60
+#, python-format
+msgid "Convenios"
+msgstr "Convenios"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.action,type:0
+msgid "Corrective"
+msgstr "Correctiva"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_activities_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_dashboard_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_pro_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_wzd_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_month_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_obligation_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risk_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_system_create_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_work_area_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_activities_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_dashboard_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_pro_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_wzd_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_month_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_obligation_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risk_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_system_create_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_work_area_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_creation_date
+msgid "Creation Date"
+msgstr "Fecha de Creación"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_dec
+msgid "DIC"
+msgstr "DIC"
+
+#. module: enterprise_mgm_sys
+#. openerp-web
+#: code:addons/enterprise_mgm_sys/static/src/js/dashboard.js:20
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.action_enterprise_mgm_sys_dashboard
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_dashboard_configuration_action
+#: model:ir.ui.menu,name:enterprise_mgm_sys.menu_enterprise_mgm_sys_dashboard
+#: model:ir.ui.menu,name:enterprise_mgm_sys.menu_enterprise_mgm_sys_dashboard_configuration
+#, python-format
+msgid "Dashboard"
+msgstr "Tablero"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,help:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_compliance_dates
+msgid "Dates list separated by comma for example '25/12/2019,05/07/2020'."
+msgstr "Lista de fechas separadas por coma por ejemplo '25/12/2019,05/07/2020'."
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,help:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_compliance_dates
+msgid "Dates list separated by comma."
+msgstr "Lista de fechas separadas por coma."
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_day
+msgid "Day"
+msgstr "Día"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "December"
+msgstr "Diciembre"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.beh_prev_plan_line,action:0
+msgid "Delete"
+msgstr "Eliminar"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_information
+msgid "Delivered the collected information on time"
+msgstr "Entregó en tiempo la información recopilada"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_description
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_actions_result
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_observations
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,help:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_measures_not_complied
+msgid "Description of the measures not complied"
+msgstr "Descripción de las medidas no cumplidas"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_activities_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_dashboard_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_pro_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_wzd_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_month_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_obligation_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risk_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_system_display_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_work_area_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,help:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_sequence
+#: model:ir.model.fields,help:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_sequence
+msgid "Display order"
+msgstr "Orden de visualización"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registry_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registry_tree_view
+msgid "Document"
+msgstr "Documento"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_registry_main_menu
+msgid "Document Management"
+msgstr "Gestión documental"
+
+#. module: enterprise_mgm_sys
+#: model:res.groups,name:enterprise_mgm_sys.document_management_responsible
+msgid "Document Management Responsible"
+msgstr "Responsable gestión documental"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_registry_act_window
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_registry_menu
+msgid "Documents"
+msgstr "Lista Matriz de Documentación"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registry_tree_view
+msgid "Download"
+msgstr "Descargar"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/registry.py:62
+#: code:addons/enterprise_mgm_sys/models/registry.py:69
+#, python-format
+msgid "Download File"
+msgstr "Descargar archivo"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.audit,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_duration
+msgid "Duration"
+msgstr "Duración"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_ene
+msgid "ENE"
+msgstr "ENE"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.process_efficacy,efficacy:0
+msgid "Efficacious"
+msgstr "Eficaz"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_efficacy
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_line_ids
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_efficacy
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_control_measures_efficacy_form_view
+msgid "Efficacy"
+msgstr "Eficacia"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_elaborates_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_elaborates_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_elaborates_id
+msgid "Elaborates"
+msgstr "Elabora"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_date
+msgid "Elaboration Date"
+msgstr "Fecha de elaboración"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_employee_id
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_search_view
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_end
+msgid "End"
+msgstr "Final"
+
+#. module: enterprise_mgm_sys
+#: model:ir.module.category,name:enterprise_mgm_sys.module_enterprise_mgm_sys_category
+msgid "Enterprise Management System"
+msgstr "Sistema de Gestión Empresarial"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_root_menu
+msgid "Enterprise management system"
+msgstr "Sistema de gestión empresarial"
+
+#. module: enterprise_mgm_sys
+#. openerp-web
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:161
+#, python-format
+msgid "Evaluaciones"
+msgstr "Evaluaciones"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_evaluated_incidents
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_form_view
+msgid "Evaluated Incidents"
+msgstr "Incidencias Evaluadas"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_evaluates_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_evaluates_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_evaluates_id
+msgid "Evaluates"
+msgstr "Evalúa"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_line_ids
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_evaluation
+msgid "Evaluation"
+msgstr "Evaluación"
+
+#. module: enterprise_mgm_sys
+#. openerp-web
+#: code:addons/enterprise_mgm_sys/static/src/js/dashboard.js:95
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_ids
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_menu
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_form_view
+#, python-format
+msgid "Evaluations"
+msgstr "Evaluaciones"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/quality.py:378
+#: code:addons/enterprise_mgm_sys/models/quality.py:450
+#, python-format
+msgid "Excellent"
+msgstr "Excelente"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_execute_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_execute
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_execute_ids
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_risks_prevention_plan_form_view
+msgid "Execute"
+msgstr "Ejecuta"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_expedition_date
+msgid "Expedition date"
+msgstr "Fecha expedición"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,classification:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,classification:0
+#: selection:enterprise_mgm_sys.registryr1_line,classification:0
+msgid "External"
+msgstr "Externo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_external_url
+msgid "External url"
+msgstr "Url Externa"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_feb
+msgid "FEB"
+msgstr "FEB"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "February"
+msgstr "Febrero"
+
+#. module: enterprise_mgm_sys
+#. openerp-web
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:160
+#, python-format
+msgid "Ficha"
+msgstr "Ficha"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.registry_line,link_type:0
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_file
+msgid "File"
+msgstr "Archivo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_final_evaluation
+msgid "Final Evaluation"
+msgstr "Evaluación Final"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.audit,state:0
+msgid "Finished"
+msgstr "Finalizado"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.preventive_plan_measure,state:0
+msgid "Fulfilled"
+msgstr "Cumplido"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_function
+msgid "Function"
+msgstr "Función"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_audit_view_form
+msgid "General"
+msgstr "General"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_generic
+msgid "Generic"
+msgstr "Genérico"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/internal_agreement.py:36
+#: code:addons/enterprise_mgm_sys/models/quality.py:380
+#: code:addons/enterprise_mgm_sys/models/quality.py:452
+#, python-format
+msgid "Good"
+msgstr "Bien"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_search_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_search_view
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_guidance
+msgid "Guidance to auditors in training"
+msgstr "Orientación a los auditores en formación"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,consequence:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,new_consequence:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,new_probability:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,probability:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,consequence:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,probability:0
+#: selection:enterprise_mgm_sys.registryr1_line,consequence:0
+#: selection:enterprise_mgm_sys.registryr1_line,probability:0
+msgid "High"
+msgstr "Alto"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_audits_historical
+msgid "Historical total number of audits performed"
+msgstr "Cantidad histórica total de auditorías realizadas"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_activities_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_dashboard_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_pro_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_wzd_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_month_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_obligation_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risk_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_system_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_work_area_id
+msgid "ID"
+msgstr "ID"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registryr1_form_view
+msgid "Identified Risks"
+msgstr "Riesgos identificados"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,level:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,new_level:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,level:0
+#: selection:enterprise_mgm_sys.registryr1_line,level:0
+msgid "Important"
+msgstr "Importante"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_impose_on
+msgid "Impose On"
+msgstr "Impuesta a"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_imposed_by
+msgid "Imposed By"
+msgstr "Impuesta por"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_improvement_opportunity_ids
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_audit_view_form
+msgid "Improvement Opportunities"
+msgstr "Oportunidades de mejora"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_improvement_program_action
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_improvement_program_id
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_improvement_program_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_improvement_program_view_tree
+msgid "Improvement Program"
+msgstr "Programa de mejoras"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/quality.py:64
+#, python-format
+msgid "Improvement Program %s - %s"
+msgstr "Programa de mejoras %s - %s"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_improvement_program_menu
+msgid "Improvement Programs"
+msgstr "Programas de mejoras"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.audit,state:0
+#: selection:enterprise_mgm_sys.no_conformity,state:0
+msgid "In Progress"
+msgstr "En progreso"
+
+#. module: enterprise_mgm_sys
+#: model:res.groups,comment:enterprise_mgm_sys.audit_responsible
+msgid "In charge of Audit Management data."
+msgstr "A cargo de gestionar la información de auditoría."
+
+#. module: enterprise_mgm_sys
+#: model:res.groups,comment:enterprise_mgm_sys.document_management_responsible
+msgid "In charge of Document Management data."
+msgstr "A cargo de gestionar la información de la Lista matriz de documentación."
+
+#. module: enterprise_mgm_sys
+#: model:res.groups,comment:enterprise_mgm_sys.manager
+msgid "In charge of Enterprise Management System configurations."
+msgstr "In charge of Enterprise Management System configurations."
+
+#. module: enterprise_mgm_sys
+#: model:res.groups,comment:enterprise_mgm_sys.systematizers
+msgid "In charge of Risks, Improvement Program and No Conformities Management data."
+msgstr "A cargo de la gestión de riesgos, programa de mejoras y no conformidades."
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.beh_prev_plan_line,action:0
+msgid "Incorporate new"
+msgstr "Incorporar nueva"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_indicator_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_indicator_id
+msgid "Indicator"
+msgstr "Indicador"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_ids
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_form_view
+msgid "Indicators"
+msgstr "Indicadores"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,classification:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,classification:0
+#: selection:enterprise_mgm_sys.registryr1_line,classification:0
+msgid "Internal"
+msgstr "Interno"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_tree_view
+msgid "Internal Agreement"
+msgstr "Convenio interno"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.report.xml,name:enterprise_mgm_sys.action_report_internal_agreement_evaluation_docx
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_tree_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_wzd_form_view
+msgid "Internal Agreement Evaluation"
+msgstr "Evaluación de convenio interno"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_act_window
+msgid "Internal Agreement Evaluations"
+msgstr "Evaluaciones de convenios internos"
+
+#. module: enterprise_mgm_sys
+#: model:mail.template,subject:enterprise_mgm_sys.email_template_obligations
+msgid "Internal Agreement Obligations"
+msgstr "Obligaciones de convenio interno"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_act_window
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_main_menu
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_menu
+msgid "Internal Agreements"
+msgstr "Convenios internos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_wzd_action
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_wzd_menu
+msgid "Internal Agreements Evaluations Resume"
+msgstr "Resumen de evaluaciones de convenios internos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_view_tree
+msgid "Internal Audit Program"
+msgstr "Programa de autoría interna"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/quality.py:304
+#, python-format
+msgid "Internal Audit Program year %s"
+msgstr "Programa de autoría interna año %s"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_action
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_menu
+msgid "Internal Audit Programs"
+msgstr "Programas de autoría interna"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/quality.py:478
+#, python-format
+msgid "Internal Auditor Annual Evaluation %s year %s"
+msgstr "Evaluación anual de auditor interno %s año %s"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.report.xml,name:enterprise_mgm_sys.action_report_internal_auditor_annual_evaluation_docx
+msgid "Internal Auditor Annual evaluation"
+msgstr "Evaluación anual de auditor interno"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_auditor_eval_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.internal_auditor_eval_view_tree
+msgid "Internal Auditor Evaluation"
+msgstr "Evaluación de auditores internos"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/quality.py:337
+#, python-format
+msgid "Internal Auditor Evaluation %s date %s"
+msgstr "Evaluación de auditor interno %s fecha %s"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_internal_auditor_eval_action
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_internal_auditor_eval_menu
+msgid "Internal Auditor Evaluations"
+msgstr "Evaluaciones de auditores internos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_internal_agreement_evaluation_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_internal_agreement_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_internal_agreement_id
+msgid "Internal agreement"
+msgstr "Convenio interno"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.report.xml,name:enterprise_mgm_sys.action_report_internal_audit_program_docx
+msgid "Internal audit program"
+msgstr "Programa de auditorías internas"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.report.xml,name:enterprise_mgm_sys.action_report_internal_auditor_eval_docx
+msgid "Internal auditor evaluation"
+msgstr "Evaluación de auditor interno"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_coherence_concordance
+msgid "It showed coherence, concordance and good writing"
+msgstr "Mostró coherencia, concordancia y buena redacción"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_jul
+msgid "JUL"
+msgstr "JUL"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_jun
+msgid "JUN"
+msgstr "JUN"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "January"
+msgstr "Enero"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "July"
+msgstr "Julio"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "June"
+msgstr "Junio"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.beh_prev_plan_line,action:0
+msgid "Keep"
+msgstr "Mantener"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_activities___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_dashboard___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_pro_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_wzd___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_month___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_obligation___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risk___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_system___last_update
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_work_area___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_activities_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_dashboard_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_pro_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_wzd_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_month_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_obligation_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risk_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_system_write_uid
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_work_area_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_activities_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_dashboard_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_pro_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_wzd_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_month_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_obligation_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risk_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_system_write_date
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_work_area_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_search_view
+msgid "Last year"
+msgstr "Año anterior"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.audit_resp_line,function:0
+msgid "Leader"
+msgstr "Líder"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_level
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_level
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_level
+msgid "Level"
+msgstr "Nivel"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_limit
+msgid "Limit"
+msgstr "Límite"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_link_type
+msgid "Link type"
+msgstr "Tipo de vínculo"
+
+#. module: enterprise_mgm_sys
+#. openerp-web
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:27
+#, python-format
+msgid "Lista Matriz de Documentación"
+msgstr "Lista Matriz de Documentación"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,consequence:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,new_consequence:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,new_probability:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,probability:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,consequence:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,probability:0
+#: selection:enterprise_mgm_sys.registryr1_line,consequence:0
+#: selection:enterprise_mgm_sys.registryr1_line,probability:0
+msgid "Low"
+msgstr "Bajo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_limit
+msgid "Lower Limit"
+msgstr "Límite inferior"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_mar
+msgid "MAR"
+msgstr "MAR"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_may
+msgid "MAY"
+msgstr "MAY"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.registry,type:0
+msgid "Manual"
+msgstr "Manual"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "March"
+msgstr "Marzo"
+
+#. module: enterprise_mgm_sys
+#: selection:cmi.source,aggregation:0
+msgid "Max"
+msgstr "Máximo"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.process_indicator_line,optimal_value:0
+msgid "Maximum Possible"
+msgstr "Máximo Posible"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "May"
+msgstr "Mayo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_measures
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_measures
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_measure_ids
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_risks_prevention_plan_form_view
+msgid "Measures"
+msgstr "Medidas"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_measures_accomplished
+msgid "Measures accomplished"
+msgstr "Medidas cumplidas"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_measures_approved
+msgid "Measures approved"
+msgstr "Medidas aprobadas"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,help:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_measures_approved
+msgid "Measures approved in the risk prevention and management plan"
+msgstr "Medidas aprobadas en el plan de gestión y prevención de riesgos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_measures_month
+msgid "Measures for the month"
+msgstr "Medidas para el mes"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_measures_not_complied
+msgid "Measures not complied"
+msgstr "Medidas no cumplidas"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,help:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_measures_month
+msgid "Measures to be carried out in the month"
+msgstr "Medidas a ser cumplidas en el mes"
+
+#. module: enterprise_mgm_sys
+#: selection:cmi.source,aggregation:0
+msgid "Min"
+msgstr "Mínimo"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.process_indicator_line,optimal_value:0
+msgid "Minimum Possible"
+msgstr "Mínimo Posible"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,level:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,new_level:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,level:0
+#: selection:enterprise_mgm_sys.registryr1_line,level:0
+msgid "Moderate"
+msgstr "Moderado"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.beh_prev_plan_line,action:0
+msgid "Modify"
+msgstr "Modificar"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_wzd_month
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_month
+msgid "Month"
+msgstr "Mes"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_search_view
+msgid "Month > Process"
+msgstr "Mes > Proceso"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_pro_line_months
+msgid "Months"
+msgstr "Meses"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_nov
+msgid "NOV"
+msgstr "NOV"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_activities_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_dashboard_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_month_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_obligation_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risk_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_system_name
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_work_area_name
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_obligation_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_form_view
+msgid "Name"
+msgstr "Nombre"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_resources
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_resources
+msgid "Necessary Resources"
+msgstr "Recursos necesarios"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.preventive_plan_measure,state:0
+msgid "New"
+msgstr "Nuevo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_new_consequence
+msgid "New Consequence"
+msgstr "Nueva Consecuencia"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_new_level
+msgid "New Level"
+msgstr "Nueva Evaluación"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_new_probability
+msgid "New Probability"
+msgstr "Nueva Probabilidad"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,compliance:0
+msgid "No"
+msgstr "No"
+
+#. module: enterprise_mgm_sys
+#. openerp-web
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:94
+#, python-format
+msgid "No Conformidades"
+msgstr "No Conformidades"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_no_conformity_action
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_no_conformity_ids
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_no_conformity_menu
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_audit_view_form
+msgid "No Conformities"
+msgstr "No Conformidades"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_c_view_tree
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_no_conformity_view_form
+msgid "No Conformity"
+msgstr "No Conformidad"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_no_conformity_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_no_conformity
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_no_conformity_view_form
+msgid "No conformity"
+msgstr "No conformidad"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.process_efficacy,efficacy:0
+msgid "No efficacious"
+msgstr "No Eficaz"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/internal_agreement.py:36
+#, python-format
+msgid "Not Applicable"
+msgstr "No Aplicable"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "November"
+msgstr "Noviembre"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_month_number
+msgid "Number"
+msgstr "Número Archivo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_audits_carried_out
+msgid "Number of Audits carried out in the year"
+msgstr "Cantidad de auditorías realizadas en el año"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_audits_planned
+msgid "Number of Audits planned in the year"
+msgstr "Cantidad auditorias planificadas en el año"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,help:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_objectives_not_evaluated
+msgid "Number of Objectives not evaluated to date"
+msgstr "Número de objetivos no evaluados hasta la fecha"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_oct
+msgid "OCT"
+msgstr "OCT"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_objective
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_objective
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_objective
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_objective
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_objective
+msgid "Objective"
+msgstr "Objetivo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_objective_foundation
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_form_view
+msgid "Objective Foundation"
+msgstr "Fundamentación de los Objetivos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_objectives
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_view_form
+msgid "Objectives"
+msgstr "Objetivos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_objectives_amount
+msgid "Objectives approved for the year"
+msgstr "Objetivos aprobados para el año"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_objectives_met
+msgid "Objectives met"
+msgstr "Objetivos cumplidos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,help:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_objectives_met
+msgid "Objectives met to date"
+msgstr "Objetivos cumplidos hasta la fecha"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_objectives_not_evaluated
+msgid "Objectives not evaluated"
+msgstr "Objetivos no evaluados"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_obligation_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_line_obligation_id
+msgid "Obligation"
+msgstr "Obligación"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_obligation_act_window
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_obligation_ids
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_obligation_menu
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_obligation_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_obligation_tree_view
+msgid "Obligations"
+msgstr "Obligaciones"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_observations
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_observations
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_observations
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_observations
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_auditor_eval_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_no_conformity_view_form
+msgid "Observations"
+msgstr "Observaciones"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "October"
+msgstr "Octubre"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.action,type:0
+msgid "Opportunity for improvement"
+msgstr "Oportunidad de mejora"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_optimal_value
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_optimal_value
+msgid "Optimal Value"
+msgstr "Valor óptimo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_optimal_value
+msgid "Optimal value"
+msgstr "Valor óptimo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_organization
+msgid "Organization and Direction of the audit team members "
+msgstr "Organización y dirección de los miembros del equipo Auditor"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.report.xml,name:enterprise_mgm_sys.action_report_no_conformity_registry_docx
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_no_conformity_view_form
+msgid "PE-DTD-07-R-28"
+msgstr "PE-DTD-07-R-28"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_participate
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_participate_ids
+msgid "Participate"
+msgstr "Participa"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_place
+msgid "Place"
+msgstr "Lugar"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_beh_prev_plan_line_plan_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_plan_id
+msgid "Plan"
+msgstr "Plan"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_plan_date
+msgid "Planned Closing Date"
+msgstr "Fecha de cierre planificada"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_line_ids
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_view_form
+msgid "Planning"
+msgstr "Planificación"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_points_effective
+msgid "Points effective"
+msgstr "Puntos efectivo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_points_no_effective
+msgid "Points no effective"
+msgstr "Puntos no efectivo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_manifestations
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_risks_prevention_plan_form_view
+msgid "Possible negative manifestations"
+msgstr "Posible manifestaciones negativas"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_audit_report
+msgid "Preparation and completion of the audit report"
+msgstr "Preparación y completamiento del informe de auditoría"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.action,type:0
+msgid "Preventive"
+msgstr "Preventiva"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.auditor_leader_eval_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_audit_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_auditor_annual_eval_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_control_measures_efficacy_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_improvement_program_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_wzd_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_internal_auditor_eval_view_form
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registry_r1_wzd_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registryr1_form_view
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_risks_prevention_plan_form_view
+msgid "Print R2"
+msgstr "Imprimir R2"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_risks_prevention_plan_form_view
+msgid "Print R5"
+msgstr "Imprimir R5"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_probability
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_probability
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_probability
+msgid "Probability"
+msgstr "Probabilidad"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.registry,type:0
+msgid "Procedure"
+msgstr "Procedimiento"
+
+#. module: enterprise_mgm_sys
+#. openerp-web
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:159
+#, python-format
+msgid "Proceso"
+msgstr "Proceso"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_process_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_process_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_pro_line_process_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_process_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_process_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_process_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_process_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_process_id
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_search_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_tree_view
+msgid "Process"
+msgstr "Proceso"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_act_window
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_menu
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_graph_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_pivot_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_search_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_tree_view
+msgid "Process Efficacy Evaluation"
+msgstr "Evaluación de eficacia de proceso"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.registry,type:0
+msgid "Process File"
+msgstr "Ficha de proceso"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_dashboard_process_map
+msgid "Process Map"
+msgstr "Mapa de procesos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_process_file
+msgid "Process file"
+msgstr "Ficha de proceso"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_process_efficacy_id
+msgid "Process_efficacy_id"
+msgstr "Process_efficacy_id"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_process_act_window
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_leader_eval_area
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_area
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_process_main_menu
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_process_menu
+msgid "Processes"
+msgstr "Procesos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_pro_line_program_id
+msgid "Program"
+msgstr "Programa"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_form_view
+msgid "Proposed Agreements"
+msgstr "Acuerdos propuestos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_proposed_agreements
+msgid "Proposed agreements"
+msgstr "Acuerdos propuestos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_punctuation
+msgid "Punctuation"
+msgstr "Puntuación"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_quality_main_menu
+msgid "Quality"
+msgstr "Calidad"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_cmi_source_question_ids
+msgid "Questions"
+msgstr "Preguntas"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.process_indicator_line,optimal_value:0
+msgid "Range"
+msgstr "Rango"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_real_value
+msgid "Real value"
+msgstr "Valor real"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_realization_date
+msgid "Realization Date"
+msgstr "Fecha de realización"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_registry_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_registry_id
+msgid "Registry"
+msgstr "Registro"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_registryr1_act_window
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_registryr1
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_registryr1_menu
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registry_r1_wzd_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registryr1_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registryr1_tree_view
+msgid "Registry R1"
+msgstr "Registro R1"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/risks.py:86
+#, python-format
+msgid "Registry R1 %s date %s"
+msgstr "Registro R1 %s fecha %s"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/risks.py:84
+#, python-format
+msgid "Registry R1 %s-%s date %s"
+msgstr "Registro R1 %s-%s fecha %s"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/risks.py:173
+#, python-format
+msgid "Registry R2 Enterprise year %s"
+msgstr "Registro R2 Empresa año %s"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/risks.py:175
+#, python-format
+msgid "Registry R2 area %s year %s"
+msgstr "Registro R2 area %s año %s"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/risks.py:261
+#, python-format
+msgid "Registry R3 %s date %s"
+msgstr "Registro R3 %s fecha %s"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/risks.py:348
+#, python-format
+msgid "Registry R4 %s date %s"
+msgstr "Registro R4 %s fecha %s"
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/internal_agreement.py:36
+#: code:addons/enterprise_mgm_sys/models/quality.py:382
+#: code:addons/enterprise_mgm_sys/models/quality.py:454
+#, python-format
+msgid "Regular"
+msgstr "Regular"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_reports_menu
+msgid "Reports"
+msgstr "Informes"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_cmi_source
+msgid "Represent a model responsible for calculating the values of an indicator"
+msgstr "Representa un modelo responsable del cálculo de los valores de un indicador."
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_activity_line_representative
+msgid "Representative"
+msgstr "Representante"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_resolution_number
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_resolution_number
+msgid "Resolution number"
+msgstr "Número resolución"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_view_form
+msgid "Resources"
+msgstr "Recursos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_audit_resp_line_ids
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_resp_line_responsibilities
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_audit_view_form
+msgid "Responsibilities"
+msgstr "Responsabilidades"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_responsible_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_employee_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_employee_id
+#: model:res.groups,name:enterprise_mgm_sys.manager
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_results
+msgid "Results"
+msgstr "Resultados"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_registry_r1_wzd_action
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_registry_r1_wzd_menu
+msgid "Resume Registry R1"
+msgstr "Resumen Registro R1"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_ctrl_measures_efficacy_line_risk_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_risk_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_risk_id
+msgid "Risk"
+msgstr "Riesgo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_ids
+msgid "Risks"
+msgstr "Riesgos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_risks_main_menu
+msgid "Risks Management"
+msgstr "Gestión de riesgos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_risks_prevention_plan_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_risks_prevention_plan_tree_view
+msgid "Risks prevention Plan"
+msgstr "Plan de prevención de riesgos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_risks_prevention_plan_act_window
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_risks_prevention_plan_menu
+msgid "Risks prevention Plan (R2)"
+msgstr "Plan de prevención de riesgos (R2)"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_act_window
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_menu
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_form_view
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_tree_view
+msgid "Risks prevention Plan Behavior"
+msgstr "Comportamiento del plan de prevención de riesgos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_agrnt_eval_line_eval_sept
+msgid "SEPT"
+msgstr "SEPT"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_school_level_id
+msgid "School Level"
+msgstr "Nivel escolar"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_scope
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_scope
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_int_audit_program_view_form
+msgid "Scope"
+msgstr "Alcance"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_area_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_control_measures_efficacy_area_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_area_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_area_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_area_id
+msgid "Segment or Unit"
+msgstr "Segmento o Unidad"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.internal_agreement_eval_wzd,month:0
+#: selection:enterprise_mgm_sys.process_efficacy,month:0
+msgid "September"
+msgstr "Septiembre"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_sequence
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_line_sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_diplomacy
+msgid "Showed diplomacy and self-assurance"
+msgstr "Mostró diplomacia y seguridad de sí mismo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_r1_wzd_start
+msgid "Start"
+msgstr "Iniciar"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_state
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_state
+msgid "State"
+msgstr "Estado"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_state
+msgid "Status"
+msgstr "Estado"
+
+#. module: enterprise_mgm_sys
+#: selection:cmi.source,aggregation:0
+msgid "Sum"
+msgstr "Suma"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_summaries_menu
+msgid "Summaries"
+msgstr "Resúmenes"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_cmi_source_survey_id
+msgid "Survey"
+msgstr "Encuesta"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_system_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_audit_system_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_system_id
+msgid "System"
+msgstr "Sistema"
+
+#. module: enterprise_mgm_sys
+#: model:res.groups,comment:enterprise_mgm_sys.user
+msgid "System user"
+msgstr "Usuario del sistema"
+
+#. module: enterprise_mgm_sys
+#: model:res.groups,name:enterprise_mgm_sys.systematizers
+msgid "Systematizers"
+msgstr "Sistematizadores"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,name:enterprise_mgm_sys.enterprise_mgm_sys_system_action
+#: model:ir.ui.menu,name:enterprise_mgm_sys.enterprise_mgm_sys_systems_menu
+msgid "Systems"
+msgstr "Sistemas"
+
+#. module: enterprise_mgm_sys
+#: sql_constraint:enterprise_mgm_sys.activities:0
+msgid "The activity you are trying to add already exists."
+msgstr "La actividad que esta tratando de adicionar ya existe."
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/risks.py:247
+#, python-format
+msgid "The amount of objectives and measures planned have to be greater than zero."
+msgstr "La cantidad de objetivos y medidas tienen que ser mayor que cero."
+
+#. module: enterprise_mgm_sys
+#: sql_constraint:enterprise_mgm_sys.risk:0
+msgid "The risk you are trying to add already exists."
+msgstr "El riesgo que esta tratando de adicionar ya existe."
+
+#. module: enterprise_mgm_sys
+#: code:addons/enterprise_mgm_sys/models/cmi.py:125
+#, python-format
+msgid "There are no companies with the specified code"
+msgstr "There are no companies with the specified code"
+
+#. module: enterprise_mgm_sys
+#: sql_constraint:enterprise_mgm_sys.risks_prevention_plan:0
+msgid "There is already a prevention plan for this area this year."
+msgstr "Ya existe un plan de prevención para esta área en este año."
+
+#. module: enterprise_mgm_sys
+#: sql_constraint:enterprise_mgm_sys.internal_agreement_eval:0
+msgid "There is already an evaluation for this Internal Agreement this year!"
+msgstr "Ya existe una evaluación para este convenio interno este año!"
+
+#. module: enterprise_mgm_sys
+#: sql_constraint:enterprise_mgm_sys.registryr1_line:0
+msgid "There is already an evaluation for this risk!"
+msgstr "Ya existe una evaluación para este riesgo!"
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,help:enterprise_mgm_sys.enterprise_mgm_sys_control_measures_efficacy_act_window
+msgid "There is no examples click here to add new Control Measures Efficacy(R4)."
+msgstr "No hay ejemplos click aquí para añadir un nuevo Control de eficacia de las Medidas(R4)."
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,help:enterprise_mgm_sys.enterprise_mgm_sys_registry_act_window
+msgid "There is no examples click here to add new Document."
+msgstr "Click aquí para agregar un nuevo Documento."
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,help:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_eval_act_window
+msgid "There is no examples click here to add new Internal Agreement Evaluation."
+msgstr "No hay ejemplos click aquí para añadir una nueva Evaluación de Convenio Interno."
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,help:enterprise_mgm_sys.enterprise_mgm_sys_internal_agreement_act_window
+msgid "There is no examples click here to add new Internal Agreement."
+msgstr "Click aquí para agregar un nuevo Convenio Interno."
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,help:enterprise_mgm_sys.enterprise_mgm_sys_obligation_act_window
+msgid "There is no examples click here to add new Obligation."
+msgstr "Click aquí para agregar una nueva Obligación."
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,help:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_act_window
+msgid "There is no examples click here to add new Process Efficacy Evaluation."
+msgstr "Click aquí para agregar una nueva Evaluación de eficacia de proceso."
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,help:enterprise_mgm_sys.enterprise_mgm_sys_process_act_window
+msgid "There is no examples click here to add new Process."
+msgstr "Click aquí para agregar un nuevo Proceso."
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,help:enterprise_mgm_sys.enterprise_mgm_sys_registryr1_act_window
+msgid "There is no examples click here to add new Registry R1."
+msgstr "Click aquí para agregar un nuevo Registro R1."
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,help:enterprise_mgm_sys.enterprise_mgm_sys_behavior_prevention_plan_act_window
+msgid "There is no examples click here to add new Risks prevention Plan Behavior(R3)."
+msgstr "No hay ejemplos click aquí para añadir un nuevo Comportamiento de plan de prevención de riesgos(R3)."
+
+#. module: enterprise_mgm_sys
+#: model:ir.actions.act_window,help:enterprise_mgm_sys.enterprise_mgm_sys_risks_prevention_plan_act_window
+msgid "There is no examples click here to add new Risks prevention Plan."
+msgstr "Click aquí para agregar un nuevo Plan de prevención de riesgos."
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_complaint
+msgid "There was any complaint by the auditee"
+msgstr "Existió alguna queja por parte del auditado "
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_process_efficacy_search_view
+msgid "This year"
+msgstr "Este año"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_total
+msgid "Total(%)"
+msgstr "Total(%)"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,level:0
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,new_level:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,level:0
+#: selection:enterprise_mgm_sys.registryr1_line,level:0
+msgid "Trivial"
+msgstr "Trivial"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.no_conformity,state:0
+#: selection:enterprise_mgm_sys.preventive_plan_measure,state:0
+msgid "Unfulfilled"
+msgstr "Imcumplido"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_unfulfilled_requirements
+msgid "Unfulfilled Requirements"
+msgstr "Requisitos Incumplidos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_objectives_unfulfilled
+msgid "Unfulfilled objectives"
+msgstr "Objetivos incumplidos"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,help:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_objectives_unfulfilled
+msgid "Unfulfilled objectives to date"
+msgstr "Objetivos incumplidos hasta la fecha"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_behavior_prevention_plan_measures_unfullfilled
+msgid "Unfullfilled Measures"
+msgstr "Medidas incumplidas"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_execute_use_employees
+msgid "Use employees on execute field"
+msgstr "Usar empleados en campo ejecuta"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_action_participate_use_employees
+msgid "Use employees on participate field"
+msgstr "Usar empleados en campo participa"
+
+#. module: enterprise_mgm_sys
+#: model:res.groups,name:enterprise_mgm_sys.user
+msgid "User"
+msgstr "Usuario"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_value_reached
+msgid "Value Reached"
+msgstr "Valor alcanzado"
+
+#. module: enterprise_mgm_sys
+#. openerp-web
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:38
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:71
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:105
+#: code:addons/enterprise_mgm_sys/static/src/xml/dashboard.xml:139
+#, python-format
+msgid "Ver detalles"
+msgstr "Ver detalles"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_no_conformity_responsible_id
+msgid "Verification Responsible"
+msgstr "Responsable de verificación"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_line_version
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registry_version
+msgid "Version"
+msgstr "Versión"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_auditor_eval_objectives
+msgid "Was able to audit all assigned targets"
+msgstr "Logró auditar la totalidad de los objetivos asignados"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.registry_line,link_type:0
+msgid "Web"
+msgstr "Web"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_line_weight
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_indicator_line_weight
+msgid "Weight"
+msgstr "Peso"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_preventive_plan_measure_department_id
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_registryr1_department_id
+msgid "Work Area"
+msgstr "Área de trabajo"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.registry,type:0
+msgid "Work Document"
+msgstr "Documento de trabajo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_work_experience
+msgid "Work Experience"
+msgstr "Experiencia Laboral"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.registry,type:0
+msgid "Work Instruction"
+msgstr "Instrucción de trabajo"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_auditor_annual_eval_year
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_improvement_program_year
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_int_audit_program_year
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_wzd_year
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_year
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_process_efficacy_year
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_risks_prevention_plan_year
+msgid "Year"
+msgstr "Año"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.ctrl_measures_efficacy_line,compliance:0
+msgid "Yes"
+msgstr "Sí"
+
+#. module: enterprise_mgm_sys
+#: selection:enterprise_mgm_sys.no_conformity,state:0
+msgid "draft"
+msgstr "Borrador"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_action
+msgid "enterprise_mgm_sys.action"
+msgstr "enterprise_mgm_sys.action"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_activities
+msgid "enterprise_mgm_sys.activities"
+msgstr "enterprise_mgm_sys.activities"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_audit
+msgid "enterprise_mgm_sys.audit"
+msgstr "enterprise_mgm_sys.audit"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_audit_activity_line
+msgid "enterprise_mgm_sys.audit_activity_line"
+msgstr "enterprise_mgm_sys.audit_activity_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_audit_resp_line
+msgid "enterprise_mgm_sys.audit_resp_line"
+msgstr "enterprise_mgm_sys.audit_resp_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_auditor_annual_eval
+msgid "enterprise_mgm_sys.auditor_annual_eval"
+msgstr "enterprise_mgm_sys.auditor_annual_eval"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_auditor_leader_eval
+msgid "enterprise_mgm_sys.auditor_leader_eval"
+msgstr "enterprise_mgm_sys.auditor_leader_eval"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_beh_prev_plan_line
+msgid "enterprise_mgm_sys.beh_prev_plan_line"
+msgstr "enterprise_mgm_sys.beh_prev_plan_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_behavior_prevention_plan
+msgid "enterprise_mgm_sys.behavior_prevention_plan"
+msgstr "enterprise_mgm_sys.behavior_prevention_plan"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_control_measures_efficacy
+msgid "enterprise_mgm_sys.control_measures_efficacy"
+msgstr "enterprise_mgm_sys.control_measures_efficacy"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_ctrl_measures_efficacy_line
+msgid "enterprise_mgm_sys.ctrl_measures_efficacy_line"
+msgstr "enterprise_mgm_sys.ctrl_measures_efficacy_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_dashboard
+msgid "enterprise_mgm_sys.dashboard"
+msgstr "enterprise_mgm_sys.dashboard"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_improvement_program
+msgid "enterprise_mgm_sys.improvement_program"
+msgstr "enterprise_mgm_sys.improvement_program"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_int_agrnt_eval_line
+msgid "enterprise_mgm_sys.int_agrnt_eval_line"
+msgstr "enterprise_mgm_sys.int_agrnt_eval_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_int_audit_pro_line
+msgid "enterprise_mgm_sys.int_audit_pro_line"
+msgstr "enterprise_mgm_sys.int_audit_pro_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_int_audit_program
+msgid "enterprise_mgm_sys.int_audit_program"
+msgstr "enterprise_mgm_sys.int_audit_program"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_internal_agreement
+msgid "enterprise_mgm_sys.internal_agreement"
+msgstr "enterprise_mgm_sys.internal_agreement"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_internal_agreement_eval
+msgid "enterprise_mgm_sys.internal_agreement_eval"
+msgstr "enterprise_mgm_sys.internal_agreement_eval"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_internal_agreement_eval_wzd
+msgid "enterprise_mgm_sys.internal_agreement_eval_wzd"
+msgstr "enterprise_mgm_sys.internal_agreement_eval_wzd"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_internal_agreement_line
+msgid "enterprise_mgm_sys.internal_agreement_line"
+msgstr "enterprise_mgm_sys.internal_agreement_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_internal_auditor_eval
+msgid "enterprise_mgm_sys.internal_auditor_eval"
+msgstr "enterprise_mgm_sys.internal_auditor_eval"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_month
+msgid "enterprise_mgm_sys.month"
+msgstr "enterprise_mgm_sys.month"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_no_conformity
+msgid "enterprise_mgm_sys.no_conformity"
+msgstr "enterprise_mgm_sys.no_conformity"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_obligation
+msgid "enterprise_mgm_sys.obligation"
+msgstr "enterprise_mgm_sys.obligation"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_preventive_plan_measure
+msgid "enterprise_mgm_sys.preventive_plan_measure"
+msgstr "enterprise_mgm_sys.preventive_plan_measure"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_process
+msgid "enterprise_mgm_sys.process"
+msgstr "enterprise_mgm_sys.process"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_process_efficacy
+msgid "enterprise_mgm_sys.process_efficacy"
+msgstr "enterprise_mgm_sys.process_efficacy"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_process_efficacy_line
+msgid "enterprise_mgm_sys.process_efficacy_line"
+msgstr "enterprise_mgm_sys.process_efficacy_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_process_indicator_line
+msgid "enterprise_mgm_sys.process_indicator_line"
+msgstr "enterprise_mgm_sys.process_indicator_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_registry
+msgid "enterprise_mgm_sys.registry"
+msgstr "enterprise_mgm_sys.registry"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_registry_line
+msgid "enterprise_mgm_sys.registry_line"
+msgstr "enterprise_mgm_sys.registry_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_registry_r1_wzd
+msgid "enterprise_mgm_sys.registry_r1_wzd"
+msgstr "enterprise_mgm_sys.registry_r1_wzd"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_registryr1_line
+msgid "enterprise_mgm_sys.registryr1_line"
+msgstr "enterprise_mgm_sys.registryr1_line"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_risk
+msgid "enterprise_mgm_sys.risk"
+msgstr "enterprise_mgm_sys.risk"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_risks_prevention_plan
+msgid "enterprise_mgm_sys.risks_prevention_plan"
+msgstr "enterprise_mgm_sys.risks_prevention_plan"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_system
+msgid "enterprise_mgm_sys.system"
+msgstr "enterprise_mgm_sys.system"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model,name:enterprise_mgm_sys.model_enterprise_mgm_sys_work_area
+msgid "enterprise_mgm_sys.work_area"
+msgstr "enterprise_mgm_sys.work_area"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_action_view_form
+msgid "enterprise_mgm_sys_action_form"
+msgstr "enterprise_mgm_sys_action_form"
+
+#. module: enterprise_mgm_sys
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_action_view_tree
+msgid "enterprise_mgm_sys_action_tree"
+msgstr "enterprise_mgm_sys_action_tree"
+
+#. module: enterprise_mgm_sys
+#: model:ir.model.fields,field_description:enterprise_mgm_sys.field_enterprise_mgm_sys_internal_agreement_eval_name
+#: model:ir.ui.view,arch_db:enterprise_mgm_sys.enterprise_mgm_sys_registry_form_view
+msgid "name"
+msgstr "Nombre"

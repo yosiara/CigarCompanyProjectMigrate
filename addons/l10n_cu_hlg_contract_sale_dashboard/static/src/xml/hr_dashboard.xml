@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="l10n_cu_hlg_contract_sale_dashboard.dashboard">
+        <!--View-->
+        <div class="openerp oe_kanban_view hr_dash col-xs-12 col-md-12 col-lg-12 col-sm-8">
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <h2 style="text-align:center;color:#4b838c;">
+                           <b>TABLERO DE VENTAS</b>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" style="padding-top: 16px">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                          <a href="javascript:;" class="dashboard-block contract">
+                            <div class="rotate">
+                              <i class="fa fa-fw fa-book"></i>
+                            </div>
+                            <div class="details">
+                              <span class="title"><b>Contratos</b></span>
+                              <span class="sub"><t t-esc="widget.sale_contract_data['contract_count']"/></span>
+                            </div>
+                          </a><!--/dashboard-block3-->
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                          <a href="javascript:;" class="dashboard-invoice">
+                            <div class="rotate">
+                              <i class="fa fa-money"></i>
+                            </div>
+                            <div class="details">
+                              <span class="title"><b>Facturas</b></span>
+                              <span class="sub"><t t-esc="widget.sale_contract_data['invoice_count']"/> </span>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="row">
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-fw fa-book"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Nuevos</b></span>
+                                    <span class="dash-box-count">
+                                        <t t-esc="widget.sale_contract_data['contract_count_draft']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action contract_count_draft">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-fw fa-book"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Pendientes a Dictamen</b></span>
+                                    <span class="dash-box-count">
+                                     <t t-esc="widget.sale_contract_data['contract_count_pending_dict']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action contract_count_pending_dict">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-fw fa-book"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Pendientes a Aprobar</b></span>
+                                    <span class="dash-box-count">
+                                        <t t-esc="widget.sale_contract_data['contract_count_pending_appro']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action contract_count_pending_appro">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-book"/>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Aprobados</b></span>
+                                     <span class="dash-box-count">
+                                         <t t-esc="widget.sale_contract_data['contract_count_approval']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action contract_count_approval">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                            <div class="row" style="position:relative;">
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-fw fa-book"></i>
+                                </div>
+                                <div class="dash-box-body">
+
+                                    <span class="dash-box-title"><b>Pendientes de Firma</b></span>
+                                    <span class="dash-box-count">
+                                        <t t-esc="widget.sale_contract_data['contract_count_pending_signed']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action contract_count_pending_signed">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-fw fa-book"></i>
+                                </div>
+                                <div class="dash-box-body">
+
+                                    <span class="dash-box-title"><b>En Proceso</b></span>
+                                    <span class="dash-box-count">
+                                         <t t-esc="widget.sale_contract_data['contract_count_open']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action contract_count_open">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-fw fa-book"></i>
+                                </div>
+                                <div class="dash-box-body">
+
+                                    <span class="dash-box-title"><b>Cancelados</b></span>
+                                    <span class="dash-box-count">
+                                        <t t-esc="widget.sale_contract_data['contract_count_cancelled']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action contract_count_cancelled">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-1">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-fw fa-book"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Cerrados</b></span>
+                                     <span class="dash-box-count">
+                                         <t t-esc="widget.sale_contract_data['contract_count_close']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action contract_count_close">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                            <div class="row">
+                            <h4 style="color:#4b838c;">Contratos próximos a vencer (Fecha)</h4>
+                            <table class="table table-condensed" widht="95%">
+                                <thead>
+                                    <tr style="background-color:#4b838c;color:white;">
+                                        <th style="text-align:center;vertical-align:middle;">Número</th>
+                                        <th style="text-align:center;vertical-align:middle;">Nombre</th>
+                                        <th style="text-align:center;vertical-align:middle;">Cliente</th>
+                                        <th style="text-align:center;vertical-align:middle;">Tipo de Contrato</th>
+                                        <th style="text-align:center;vertical-align:middle;">Fecha de vencimiento</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="background-color:#87d2e2;color:#4b838c;">
+                                    <tr t-foreach="widget.sale_contract_data['contract_table']" t-as="e">
+                                            <td><span t-esc="e['number']"/></td>
+                                            <td><span t-esc="e['name']"/></td>
+                                            <td><span t-esc="e['partner']"/></td>
+                                            <td><span t-esc="e['type']"/></td>
+                                            <td><span t-esc="e['date']"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h4 style="color:#4b838c;">Contratos próximos a vencer (Ejecución de Presupuesto)</h4>
+                            <table class="table table-condensed" widht="95%">
+                                <thead>
+                                    <tr style="background-color:#4b838c;color:white;">
+                                        <th style="text-align:center;vertical-align:middle;">Número</th>
+                                        <th style="text-align:center;vertical-align:middle;">Nombre</th>
+                                        <th style="text-align:center;vertical-align:middle;">Cliente</th>
+                                        <th style="text-align:center;vertical-align:middle;">Total</th>
+                                        <th style="text-align:center;vertical-align:middle;">Ejecutado</th>
+                                        <th style="text-align:center;vertical-align:middle;">No Ejecutado</th>
+                                        <th style="text-align:center;vertical-align:middle;">%</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="background-color:#87d2e2;color:#4b838c;">
+                                    <tr t-foreach="widget.sale_contract_data['contract_table_1']" t-as="e">
+                                            <td><span t-esc="e['number']"/></td>
+                                            <td><span t-esc="e['name']"/></td>
+                                            <td><span t-esc="e['partner']"/></td>
+                                            <td style="text-align:right;vertical-align:middle;"><span t-esc="e['total']"/></td>
+                                            <td style="text-align:right;vertical-align:middle;"><span t-esc="e['execute']"/></td>
+                                            <td style="text-align:right;vertical-align:middle;"><span t-esc="e['residual']"/></td>
+                                            <td style="text-align:center;vertical-align:middle;"><span t-esc="e['percent']"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="row">
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-2">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Nuevas</b></span>
+                                    <span class="dash-box-count">
+                                       <t t-esc="widget.sale_contract_data['invoice_count_draft']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action-invoice invoice_count_draft">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-2">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Abiertas</b></span>
+                                    <span class="dash-box-count">
+                                        <t t-esc="widget.sale_contract_data['invoice_count_open']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action-invoice invoice_count_open">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-2">
+                                <div class="dash-box-icon">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Pagadas</b></span>
+                                    <span class="dash-box-count">
+                                        <t t-esc="widget.sale_contract_data['invoice_count_paid']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action-invoice invoice_count_paid">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                                <div class="col-md-3">
+                            <div class="dash-box dash-box-color-2">
+                                <div class="dash-box-icon">
+                                     <i class="fa fa-money"></i>
+                                </div>
+                                <div class="dash-box-body">
+                                    <span class="dash-box-title"><b>Canceladas</b></span>
+                                    <span class="dash-box-count">
+                                        <t t-esc="widget.sale_contract_data['invoice_count_cancelled']"/>
+                                    </span>
+                                </div>
+
+                                <div class="dash-box-action-invoice invoice_count_cancelled">
+                                    <button>Ver</button>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="panel">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title" style="color:#f49c2c;">Facturación por Mes</h3>
+                              </div>
+                              <div class="panel-body">
+                                    <canvas id="myChartProductionMonth"/>
+                              </div>
+                          </div>
+                            </div>
+                            <div class="row">
+                                <div class="panel">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title" style="color:#f49c2c;">Cantidad de Facturas por Mes</h3>
+                              </div>
+                              <div class="panel-body">
+                                    <canvas id="myChartInvoiceMonth"/>
+                              </div>
+                          </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

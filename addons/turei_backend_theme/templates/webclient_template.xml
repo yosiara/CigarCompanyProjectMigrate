@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="assets_backend_turei_backend_theme_custom_abstract_web_client" inherit_id="web.assets_backend">
+            <xpath expr='//script[@src="/web/static/src/js/abstract_web_client.js"]' position="replace">
+                <script type="text/javascript"
+                        src="/turei_backend_theme/static/src/js/custom_abstract_web_client.js"></script>
+            </xpath>
+            <xpath expr='//script[@src="/web/static/src/js/framework/crash_manager.js"]' position="replace">
+                <script type="text/javascript" src="/turei_backend_theme/static/src/js/custom_crash_manager.js"></script>
+            </xpath>
+            <xpath expr='//script[@src="/web/static/src/js/widgets/user_menu.js"]' position="replace">
+                <script type="text/javascript"
+                        src="/turei_backend_theme/static/src/js/widgets/custom_user_menu.js"></script>
+            </xpath>
+
+            <xpath expr='//script[@src="/web/static/src/js/apps.js"]' position="replace">
+                <script type="text/javascript" src="/turei_backend_theme/static/src/js/custom_apps.js"></script>
+            </xpath>
+
+        </template>
+
+        <template id="assets_common_turei_backend_theme" inherit_id="web.assets_common">
+            <xpath expr="//script[@src='/web/static/src/js/framework/dialog.js']" position="replace">
+                <script type="text/javascript"
+                        src="/turei_backend_theme/static/src/js/framework/custom_dialog.js"></script>
+            </xpath>
+        </template>
+
+        <template id="assets_backend_turei_backend_theme" inherit_id="web.assets_backend" priority="20">
+            <xpath expr="." position="inside">                
+                <script type="text/javascript" src="/turei_backend_theme/static/src/js/menu.js"></script>
+            </xpath>
+
+            <!--Custom web settings dashboard-->
+            <xpath expr="//script[@src='/web_settings_dashboard/static/src/js/dashboard.js']" position="replace">
+                <script type="text/javascript" src="/turei_backend_theme/static/src/js/custom_dashboard.js"></script>
+            </xpath>
+
+        </template>
+
+        <!-- Title Web Site -->
+
+        <template id="custom_title" inherit_id="web.layout" name="change_title_turei">
+            <xpath expr="//title" position="replace">
+                <title>Desoft S.A</title>
+            </xpath>
+            <xpath expr="//link[@rel='shortcut icon']" position="replace">
+                <t t-if="x_icon">
+                    <link rel="icon" t-att="['href',x_icon]" type="image/x-icon"/>
+                </t>
+                <t t-else="">
+                    <link rel="shortcut icon" href="/turei_backend_theme/static/description/favicon.png"
+                          type="image/x-icon"/>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>

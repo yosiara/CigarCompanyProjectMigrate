@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="contract_close_expired_view_form" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.close_expired</field>
+            <field name="model">l10n_cu_contract.close_expired</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Close">
+                    <separator string="Wizard to print close expired contract"/>
+                    <footer>
+                        <div>
+                            <button name="close_expired_contract" string="Close expired contract" type="object"
+                                    class="oe_highlight"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_contract_close_expired" model="ir.actions.act_window">
+            <field name="name">Close expired contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.close_expired</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem id="l10n_cu_hlg_contract_close_expired" sequence="100" name="Cerrar Contratos según Fecha de Finalización" parent="l10n_cu_hlg_contract.menu_contract_configuration" action="action_contract_close_expired"/>
+
+
+    </data>
+</openerp>

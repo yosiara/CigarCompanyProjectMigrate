@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		PRODUCT
+		Model: simple_product.product
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="versat_integration_simple_product_product_form_view" model="ir.ui.view">
+            <field name="name">versat_integration_simple_product_product_form_view</field>
+            <field name="inherit_id" ref="simple_product.simple_product_product_form_view"/>
+            <field name="model">simple_product.product</field>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[last()]" position="after">
+                    <page string="Movements...">
+                        <group>
+                            <div style="padding-right: 5px;">
+                            <group string="Movimientos de entrada...">
+                                <field name="movement_in_ids" nolabel="1">
+                                    <tree>
+                                        <field name="warehouse_id"/>
+                                        <field name="description"/>
+                                        <field name="quantity"/>
+                                        <field name="date"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            </div>
+
+                            <div style="padding-left: 5px;">
+                                <group string="Movimientos de salida...">
+                                    <field name="movement_out_ids" nolabel="1">
+                                        <tree>
+                                            <field name="warehouse_id"/>
+                                            <field name="description"/>
+                                            <field name="quantity"/>
+                                            <field name="date"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </div>
+                        </group>
+                    </page>
+
+                    <page string="Out requests...">
+                        <field name="out_request_ids">
+                            <tree>
+                                <field name="warehouse_id"/>
+                                <field name="quantity"/>
+                                <field name="request_date"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="versat_integration_warehouse_product_form_view_inherit" model="ir.ui.view">
+            <field name="name">warehouse_product_form_view_inherit</field>
+            <field name="inherit_id" ref="warehouse.warehouse_product_form_view_inherit"/>
+            <field name="model">simple_product.product</field>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='stock']" position="replace">
+                    <page string="Stock...">
+                        <br/>
+                        <group>
+                            <group>
+                                <field name="product_control_ids" nolabel="1">
+                                    <tree>
+                                        <field name="warehouse_id"/>
+                                        <field name="quantity"/>
+                                        <field name="quantity_system"/>
+                                    </tree>
+                                </field>
+                            </group>
+
+                            <group class="oe_subtotal_footer oe_right" colspan="2">
+                                <field name="quantity_by_movements_in"/>
+                                <field name="quantity_by_movements_out"/>
+                                <field name="quantity_by_out_requests"/>
+
+                                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                    <label for="total" />
+                                </div>
+
+                                <field name="total" nolabel="1" class="oe_subtotal_footer_separator"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

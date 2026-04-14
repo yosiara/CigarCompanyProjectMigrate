@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <act_window id="process_control_tobacco_turn_action"
+                    name="Turno"
+                    res_model="process_control_tobacco.turno"
+                    view_mode="tree,form"/>
+
+        <menuitem id="process_control_tobacco_turn_menu"
+                  name="Turno"
+                  parent="process_control_tobacco_settings_menu"
+                  action="process_control_tobacco_turn_action"
+                  sequence="30"
+        />
+
+        <record id="process_control_tobacco_turn_view_form" model="ir.ui.view">
+            <field name="name">process_control_tobacco_turn_view_form</field>
+            <field name="model">process_control_tobacco.turno</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="turn"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- To-Do Task List view -->
+        <record id="process_control_tobacco_turn_view_tree" model="ir.ui.view">
+            <field name="name">process_control_tobacco_turn_view_tree</field>
+            <field name="model">process_control_tobacco.turno</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="turn"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+
+</odoo>

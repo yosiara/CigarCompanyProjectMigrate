@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_cu_hlg_hr_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-20 16:42+0000\n"
+"PO-Revision-Date: 2017-09-20 16:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_l10n_cu_hr_import_import_employee_wizard_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_l10n_cu_hr_import_import_employee_wizard_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_l10n_cu_hr_import_import_employee_wizard_connector_id
+msgid "Database"
+msgstr "Base de Datos"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_l10n_cu_hr_import_import_employee_wizard_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model,name:l10n_cu_hlg_hr_import.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_import.hr_import_employee
+msgid "Import Employees"
+msgstr "Importar empleados"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_hr_department_external_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_hr_job_external_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_l10n_cu_hlg_hr_position_external_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_resource_calendar_attendance_external_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_resource_calendar_external_id
+msgid "External Id"
+msgstr "Identificador externo"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model,name:l10n_cu_hlg_hr_import.model_hr_department
+msgid "Hr Department"
+msgstr "Departamento de Recursos Humanos"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_l10n_cu_hr_import_import_employee_wizard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_import.hr_import
+msgid "Fastos Integration"
+msgstr "Integración Fastos"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_import.import_employee_wizard_form_view
+msgid "Import"
+msgstr "Importar"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_import.import_employee_wizard_form_view
+msgid "In order to import the <b>Employees</b>, from the Fastos database you must select\n"
+"                                    the correct connection to use..."
+msgstr "El siguiente asistente le permitirá importar el <b> directorio de empleados</b>, desde la base de datos del\n"
+"                                    sistema Fastos. Asegurese de seleccionar correctamente la conexión a usar...\n"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model,name:l10n_cu_hlg_hr_import.model_hr_job
+msgid "Job Position"
+msgstr "Puesto de trabajo"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_l10n_cu_hr_import_import_employee_wizard___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_l10n_cu_hr_import_import_employee_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_import.field_l10n_cu_hr_import_import_employee_wizard_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model,name:l10n_cu_hlg_hr_import.model_l10n_cu_hlg_hr_position
+msgid "Position"
+msgstr "Cargo"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model,name:l10n_cu_hlg_hr_import.model_resource_calendar
+msgid "Resource Calendar"
+msgstr "Calendario"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_import.action_import_employee_wizard_form_view
+msgid "Wizard to import information..."
+msgstr "Asistente para importación..."
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model,name:l10n_cu_hlg_hr_import.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr "Detalle del trabajo"
+
+#. module: l10n_cu_hlg_hr_import
+#: model:ir.model,name:l10n_cu_hlg_hr_import.model_l10n_cu_hr_import_import_employee_wizard
+msgid "l10n_cu_hr_import.import_employee_wizard"
+msgstr "l10n_cu_hr_import.import_employee_wizard"
+

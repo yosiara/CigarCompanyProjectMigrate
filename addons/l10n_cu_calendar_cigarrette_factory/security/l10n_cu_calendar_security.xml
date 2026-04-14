@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0">
+	<record id="l10n_cu_calendar.officer" model="res.groups">
+        <field name="name">Calendar Officer</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+        <field name="comment">El usuario realiza y aprueba los planes de trabajos de los grupos.</field>
+    </record>
+ 	<record id="l10n_cu_calendar.manager" model="res.groups">
+        <field name="name">Calendar Manager</field>
+        <field name="implied_ids" eval="[(4, ref('l10n_cu_calendar.officer')),
+                                         (4, ref('base.group_erp_manager')),
+                                         (4, ref('base.group_partner_manager'))]"/>
+        <field name="comment">El usuario tiene acceso a t y aprueba los planes de trabajos de los grupos.</field>
+    </record>
+    <record id="l10n_cu_calendar.limited_manager" model="res.groups">
+        <field name="name">Limited Calendar Manager</field>
+        <field name="implied_ids" eval="[(4, ref('l10n_cu_calendar.officer')),
+                                         (4, ref('base.group_erp_manager'))]"/>
+        <field name="comment">El usuario tiene acceso a todo y aprueba los planes de trabajos de los grupos.</field>
+    </record>
+</data>
+
+    <data noupdate="1">
+        <!--Empleado-->
+        <record id="property_rule_l10n_cu_calendar_employee_reset" model="ir.rule">
+            <field name="name">Reset access over employee for the Calendar Manager</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('l10n_cu_calendar.manager'))]"/>
+        </record>
+        <!--Org Groups-->
+        <!--Para los empleados se muestras todos los grupos al que pertencen-->
+        <record id="property_rule_l10n_cu_calendar_org_group" model="ir.rule">
+            <field name="name">Regla Org Groups</field>
+            <field name="model_id" ref="model_l10n_cu_calendar_org_group"/>
+            <field name="domain_force">['|','|','|',('partner_group_ids','in',user.partner_id.id),
+                ('partner_id.boss_id.id','=',user.partner_id.id),
+                ('partner_id.boss_id.boss_id.id','=',user.partner_id.id),
+                ('partner_id.boss_id.boss_id.boss_id.id','=',user.partner_id.id)]
+            </field>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+        <!--Para los planificadores generales se muestras todos los grupos-->
+        <record id="property_rule_l10n_cu_calendar_org_group_reset" model="ir.rule">
+            <field name="name">Reset access over Org Groups for the Calendar Manager</field>
+            <field name="model_id" ref="model_l10n_cu_calendar_org_group"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('l10n_cu_calendar.manager')), (4,ref('l10n_cu_calendar.limited_manager'))]"/>
+        </record>
+
+        <!--calendar event-->
+        <!--Los empleados pueden ver sus tareas y las tareas de sus subordinados-->
+        <!--Esto se hace a traves de la vista de empleado-->
+        <!--    <record id="property_rule_l10n_cu_calendar_event" model="ir.rule">
+                <field name="name">Regla Calendar event</field>
+                <field name="model_id" ref="model_calendar_event"/>
+                <field name="domain_force">['|','|',('partner_ids','in',user.partner_id.id),('partner_ids','in',user.partner_id.boss_id.id),('partner_ids','in',user.partner_id.boss_id.boss_id.id)]</field>
+                <field name="groups" eval="[(4,ref('base.group_user'))]" />
+            </record>-->
+        <!--calendar event-->
+        <!--Los empleados puden editar las tareas que son Responsible-->
+        <record id="property_rule_l10n_cu_calendar_event_my_owns" model="ir.rule">
+            <field name="name">Regla write my owns Calendar event</field>
+            <field name="model_id" ref="model_calendar_event"/>
+            <field name="domain_force">[('user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+            <field name="perm_write" eval="True"/>
+        </record>
+        <!--Reset regla my owns events-->
+        <record id="reset_property_rule_l10n_cu_calendar_event_my_owns" model="ir.rule">
+            <field name="name">Reset Regla write my owns Calendar event</field>
+            <field name="model_id" ref="model_calendar_event"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('l10n_cu_calendar.manager')), (4,ref('l10n_cu_calendar.limited_manager'))]"/>
+        </record>
+
+        <!--Los empleados puden editar las tareas que son Responsible-->
+        <record id="property_rule_l10n_cu_calendar_attendee" model="ir.rule">
+            <field name="name">Regla write my owns Calendar attendee</field>
+            <field name="model_id" ref="calendar.model_calendar_attendee"/>
+            <field name="domain_force">
+                ['|','|',('partner_id.id','=',user.partner_id.id),('partner_id.boss_id.id','=',user.partner_id.id),('partner_id.boss_id.boss_id.id','=',user.partner_id.id)]
+            </field>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+        </record>
+        <!--Reset regla my owns events-->
+        <record id="reset_property_rule_l10n_cu_calendar_attendee" model="ir.rule">
+            <field name="name">Reset Regla write my owns Calendar attendee</field>
+            <field name="model_id" ref="calendar.model_calendar_attendee"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('l10n_cu_calendar.manager'))]"/>
+        </record>
+        <!--Reset regla my owns events-->
+        <record id="reset_property_rule_l10n_cu_calendar_attendee_officer" model="ir.rule">
+            <field name="name">Reset Regla write my owns Calendar attendee</field>
+            <field name="model_id" ref="calendar.model_calendar_attendee"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('l10n_cu_calendar.officer'))]"/>
+        </record>
+        <!--Reset regla my owns events-->
+        <record id="reset_property_rule_l10n_cu_calendar_attendee_limited" model="ir.rule">
+            <field name="name">Reset Regla write my owns Calendar attendee</field>
+            <field name="model_id" ref="calendar.model_calendar_attendee"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('l10n_cu_calendar.limited_manager'))]"/>
+        </record>
+
+        <!--Reglas para objetivos-->
+        <record id="rule_calendar_manager_objective_task_all" model="ir.rule">
+            <field name="name">Acceso completo a objetivos para calendar manager</field>
+            <field name="model_id" ref="model_l10n_cu_calendar_objective_task"/>
+            <field name="groups" eval="[(4,ref('l10n_cu_calendar.manager')), (4,ref('l10n_cu_calendar.limited_manager'))]"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+        <record id="rule_calendar_officer_objective_task_my_area" model="ir.rule">
+            <field name="name">Regla permitir crear y modificar objetivos al jefe de area</field>
+            <field name="model_id" ref="model_l10n_cu_calendar_objective_task"/>
+            <field name="groups" eval="[(4,ref('l10n_cu_calendar.officer'))]"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="domain_force">[('group_id.partner_id.id','=',user.partner_id.id)]</field>
+        </record>
+
+        <record id="rule_calendar_officer_objective_task_not_my_area" model="ir.rule">
+            <field name="name">Restringir modificar objetivos a los que no son el jefe de area</field>
+            <field name="model_id" ref="model_l10n_cu_calendar_objective_task"/>
+            <field name="groups" eval="[(4,ref('l10n_cu_calendar.officer'))]"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[('group_id.partner_id.id','!=',user.partner_id.id)]</field>
+        </record>
+
+    </data>
+</openerp>

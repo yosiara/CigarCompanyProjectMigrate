@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <record id="l10n_cu_hr_view_resource_calendar_attendance_tree_view_inherit" model="ir.ui.view">
+            <field name="name">l10n_cu_hr_view_resource_calendar_attendance_tree_view_inherit</field>
+            <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree"/>
+            <field name="model">resource.calendar.attendance</field>
+            <field name="arch" type="xml">
+                <field name="hour_to" position="after">
+                    <field name="rest_time" widget="float_time"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

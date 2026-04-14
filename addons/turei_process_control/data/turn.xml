@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="suinli_timesheet_group1" model="resource.calendar">
+            <field name="name">Turno 1(7:00AM-3:00PM)</field>
+            <field name="description">Turno de 07:00AM a 03:00 PM</field>
+        </record>
+        <record id="suinli_timesheet_group2" model="resource.calendar">
+            <field name="name">Turno 2(3:00PM-11:00PM)</field>
+            <field name="description">Turno de 03:00PM a 11:00PM</field>
+        </record>
+    </data>
+</odoo>

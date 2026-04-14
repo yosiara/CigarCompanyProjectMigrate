@@ -1,0 +1,1276 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data noupdate="1">
+		<record id="res_country_state_0" model="res.country.state">
+			<field name="code">21</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Pinar del Río</field>
+		</record>
+
+		<record id="res_country_state_1" model="res.country.state">
+			<field name="code">22</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Artemisa</field>
+		</record>
+
+		<record id="res_country_state_2" model="res.country.state">
+			<field name="code">23</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">La Habana</field>
+		</record>
+
+		<record id="res_country_state_3" model="res.country.state">
+			<field name="code">24</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Mayabeque</field>
+		</record>
+
+		<record id="res_country_state_4" model="res.country.state">
+			<field name="code">25</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Matanzas</field>
+		</record>
+
+		<record id="res_country_state_5" model="res.country.state">
+			<field name="code">26</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Villa Clara</field>
+		</record>
+
+		<record id="res_country_state_6" model="res.country.state">
+			<field name="code">27</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Cienfuegos</field>
+		</record>
+
+		<record id="res_country_state_7" model="res.country.state">
+			<field name="code">28</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Sancti Spíritus</field>
+		</record>
+
+		<record id="res_country_state_8" model="res.country.state">
+			<field name="code">29</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Ciego de Ávila</field>
+		</record>
+
+		<record id="res_country_state_9" model="res.country.state">
+			<field name="code">30</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Camagüey</field>
+		</record>
+
+		<record id="res_country_state_10" model="res.country.state">
+			<field name="code">31</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Las Tunas</field>
+		</record>
+
+		<record id="res_country_state_11" model="res.country.state">
+			<field name="code">32</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Holguín</field>
+		</record>
+
+		<record id="res_country_state_12" model="res.country.state">
+			<field name="code">33</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Granma</field>
+		</record>
+
+		<record id="res_country_state_13" model="res.country.state">
+			<field name="code">34</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Santiago de Cuba</field>
+		</record>
+
+		<record id="res_country_state_14" model="res.country.state">
+			<field name="code">35</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Guantánamo</field>
+		</record>
+
+		<record id="res_country_state_15" model="res.country.state">
+			<field name="code">401</field>
+			<field name="country_id" ref="base.cu"/>
+			<field name="name">Isla de la Juventud</field>
+		</record>
+		
+		<record id="res_state_municipality_0" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">17</field>
+			<field name="name">Sandino</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_1" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">18</field>
+			<field name="name">Mantua</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_2" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">19</field>
+			<field name="name">Minas de Matahambre</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_3" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">20</field>
+			<field name="name">Viñales</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_4" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">21</field>
+			<field name="name">La Palma</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_5" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">22</field>
+			<field name="name">Los Palacios</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_6" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">23</field>
+			<field name="name">Consolación del Sur</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_7" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">24</field>
+			<field name="name">Pinar del Río</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_8" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">25</field>
+			<field name="name">San Luis</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_9" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">26</field>
+			<field name="name">San Juan Y Martínez</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_10" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_0"/>
+			<field name="code">27</field>
+			<field name="name">Guane</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_11" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">28</field>
+			<field name="name">Bahía Honda</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_12" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">29</field>
+			<field name="name">Mariel</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_13" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">30</field>
+			<field name="name">Guanajay</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_14" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">31</field>
+			<field name="name">Caimito</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_15" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">32</field>
+			<field name="name">Bauta</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_16" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">33</field>
+			<field name="name">San Antonio de los Baños</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_17" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">34</field>
+			<field name="name">Güira de Melena</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_18" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">35</field>
+			<field name="name">Alquízar</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_19" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">36</field>
+			<field name="name">Artemisa</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_20" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">37</field>
+			<field name="name">Candelária</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_21" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_1"/>
+			<field name="code">38</field>
+			<field name="name">San Cristobal</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_22" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">39</field>
+			<field name="name">Playa</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_23" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">40</field>
+			<field name="name">Plaza de la Revolución</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_24" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">41</field>
+			<field name="name">Centro Habana</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_25" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">42</field>
+			<field name="name">La Habana Vieja</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_26" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">43</field>
+			<field name="name">Regla</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_27" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">44</field>
+			<field name="name">La Habana del Este</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_28" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">45</field>
+			<field name="name">Guanabacoa</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_29" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">46</field>
+			<field name="name">San Miguel del Padrón</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_30" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">47</field>
+			<field name="name">Diez de Octubre</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_31" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">48</field>
+			<field name="name">Cerro</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_32" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">49</field>
+			<field name="name">Marianao</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_33" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">50</field>
+			<field name="name">La Lisa</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_34" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">51</field>
+			<field name="name">Boyeros</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_35" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">52</field>
+			<field name="name">Arroyo Naranjo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_36" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_2"/>
+			<field name="code">53</field>
+			<field name="name">Cotorro</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_37" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">54</field>
+			<field name="name">Bejucal</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_38" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">55</field>
+			<field name="name">San José de las Lajas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_39" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">56</field>
+			<field name="name">Jaruco</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_40" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">57</field>
+			<field name="name">Santa Cruz del Norte</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_41" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">58</field>
+			<field name="name">Madruga</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_42" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">59</field>
+			<field name="name">Nueva Paz</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_43" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">60</field>
+			<field name="name">San Nicolás</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_44" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">61</field>
+			<field name="name">Güines</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_45" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">62</field>
+			<field name="name">Melena del Sur</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_46" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">63</field>
+			<field name="name">Batabano</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_47" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_3"/>
+			<field name="code">64</field>
+			<field name="name">Quivicán</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_48" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">65</field>
+			<field name="name">Matanzas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_49" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">66</field>
+			<field name="name">Cárdenas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_50" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">67</field>
+			<field name="name">Martí</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_51" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">68</field>
+			<field name="name">Colón</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_52" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">69</field>
+			<field name="name">Perico</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_53" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">70</field>
+			<field name="name">Jovellanos</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_54" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">71</field>
+			<field name="name">Pedro Betancourt</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_55" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">72</field>
+			<field name="name">Limonar</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_56" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">73</field>
+			<field name="name">Unión de Reyes</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_57" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">74</field>
+			<field name="name">Cienaga de Zapata</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_58" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">75</field>
+			<field name="name">Jagüey Grande</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_59" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">76</field>
+			<field name="name">Calimete</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_60" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_4"/>
+			<field name="code">77</field>
+			<field name="name">Los Arabos</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_61" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">78</field>
+			<field name="name">Corralillo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_62" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">79</field>
+			<field name="name">Quemado de Güines</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_63" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">80</field>
+			<field name="name">Sagua la Grande</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_64" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">81</field>
+			<field name="name">Encrucijada</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_65" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">82</field>
+			<field name="name">Camajuaní</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_66" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">83</field>
+			<field name="name">Caibarién</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_67" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">84</field>
+			<field name="name">Remedios</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_68" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">85</field>
+			<field name="name">Placetas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_69" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">86</field>
+			<field name="name">Santa Clara</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_70" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">87</field>
+			<field name="name">Cifuentes</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_71" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">88</field>
+			<field name="name">Santo Domingo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_72" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">89</field>
+			<field name="name">Ranchuelo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_73" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_5"/>
+			<field name="code">90</field>
+			<field name="name">Manicaragua</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_74" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_6"/>
+			<field name="code">91</field>
+			<field name="name">Aguada de Pasajeros</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_75" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_6"/>
+			<field name="code">92</field>
+			<field name="name">Rodas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_76" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_6"/>
+			<field name="code">93</field>
+			<field name="name">Palmira</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_77" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_6"/>
+			<field name="code">94</field>
+			<field name="name">Lajas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_78" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_6"/>
+			<field name="code">95</field>
+			<field name="name">Cruces</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_79" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_6"/>
+			<field name="code">96</field>
+			<field name="name">Cumanayagua</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_80" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_6"/>
+			<field name="code">97</field>
+			<field name="name">Cienfuegos</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_81" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_6"/>
+			<field name="code">98</field>
+			<field name="name">Abreus</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_82" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_7"/>
+			<field name="code">99</field>
+			<field name="name">Yaguajay</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_83" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_7"/>
+			<field name="code">100</field>
+			<field name="name">Jatibonico</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_84" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_7"/>
+			<field name="code">101</field>
+			<field name="name">Taguasco</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_85" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_7"/>
+			<field name="code">102</field>
+			<field name="name">Cabaiguán</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_86" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_7"/>
+			<field name="code">103</field>
+			<field name="name">Fomento</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_87" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_7"/>
+			<field name="code">104</field>
+			<field name="name">Trinidad</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_88" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_7"/>
+			<field name="code">105</field>
+			<field name="name">Sancti Spiritus</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_89" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_7"/>
+			<field name="code">106</field>
+			<field name="name">La Sierpe</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_90" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_8"/>
+			<field name="code">107</field>
+			<field name="name">Chambas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_91" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_8"/>
+			<field name="code">108</field>
+			<field name="name">Morón</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_92" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_8"/>
+			<field name="code">109</field>
+			<field name="name">Bolivia</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_93" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_8"/>
+			<field name="code">110</field>
+			<field name="name">Primero de Enero</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_94" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_8"/>
+			<field name="code">111</field>
+			<field name="name">Ciro Redondo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_95" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_8"/>
+			<field name="code">112</field>
+			<field name="name">Florencia</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_96" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_8"/>
+			<field name="code">113</field>
+			<field name="name">Majagua</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_97" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_8"/>
+			<field name="code">114</field>
+			<field name="name">Ciego de Ávila</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_98" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_8"/>
+			<field name="code">115</field>
+			<field name="name">Venezuela</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_99" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_8"/>
+			<field name="code">116</field>
+			<field name="name">Baraguá</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_100" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">117</field>
+			<field name="name">Carlos Manuel de Céspedes</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_101" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">118</field>
+			<field name="name">Esmeralda</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_102" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">119</field>
+			<field name="name">Sierra de Cubitas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_103" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">120</field>
+			<field name="name">Minas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_104" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">121</field>
+			<field name="name">Nuevitas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_105" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">122</field>
+			<field name="name">Guáimaro</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_106" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">123</field>
+			<field name="name">Sibanicú</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_107" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">124</field>
+			<field name="name">Camagüey</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_108" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">125</field>
+			<field name="name">Florida</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_109" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">126</field>
+			<field name="name">Vertientes</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_110" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">127</field>
+			<field name="name">Jimaguayú</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_111" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">128</field>
+			<field name="name">Najasa</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_112" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_9"/>
+			<field name="code">129</field>
+			<field name="name">Santa Cruz del Sur</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_113" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_10"/>
+			<field name="code">130</field>
+			<field name="name">Manatí</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_114" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_10"/>
+			<field name="code">131</field>
+			<field name="name">Puerto Padre</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_115" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_10"/>
+			<field name="code">132</field>
+			<field name="name">Jesús Menéndez</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_116" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_10"/>
+			<field name="code">133</field>
+			<field name="name">Majibacoa</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_117" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_10"/>
+			<field name="code">134</field>
+			<field name="name">Las Tunas</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_118" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_10"/>
+			<field name="code">135</field>
+			<field name="name">Jobabo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_119" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_10"/>
+			<field name="code">136</field>
+			<field name="name">Colombia</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_120" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_10"/>
+			<field name="code">137</field>
+			<field name="name">Amancio</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_121" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">138</field>
+			<field name="name">Gibara</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_122" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">139</field>
+			<field name="name">Rafael Freyre</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_123" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">140</field>
+			<field name="name">Banes</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_124" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">141</field>
+			<field name="name">Antilla</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_125" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">142</field>
+			<field name="name">Baguanos</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_126" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">143</field>
+			<field name="name">Holguín</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_127" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">144</field>
+			<field name="name">Calixto García</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_128" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">145</field>
+			<field name="name">Cacocúm</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_129" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">146</field>
+			<field name="name">Urbano Noris</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_130" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">147</field>
+			<field name="name">Cueto</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_131" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">148</field>
+			<field name="name">Mayarí</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_132" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">149</field>
+			<field name="name">Frank País</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_133" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">150</field>
+			<field name="name">Sagua de Tánamo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_134" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_11"/>
+			<field name="code">151</field>
+			<field name="name">Moa</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_135" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">152</field>
+			<field name="name">Río Cauto</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_136" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">153</field>
+			<field name="name">Cauto Cristo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_137" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">154</field>
+			<field name="name">Jiguaní</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_138" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">155</field>
+			<field name="name">Bayamo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_139" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">156</field>
+			<field name="name">Yara</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_140" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">157</field>
+			<field name="name">Manzanillo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_141" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">158</field>
+			<field name="name">Campechuela</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_142" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">159</field>
+			<field name="name">Media Luna</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_143" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">160</field>
+			<field name="name">Niquero</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_144" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">161</field>
+			<field name="name">Pilón</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_145" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">162</field>
+			<field name="name">Bartolomé Masó</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_146" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">163</field>
+			<field name="name">Buey Arriba</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_147" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_12"/>
+			<field name="code">164</field>
+			<field name="name">Guisa</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_148" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_13"/>
+			<field name="code">165</field>
+			<field name="name">Contramaestre</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_149" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_13"/>
+			<field name="code">166</field>
+			<field name="name">Mella</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_150" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_13"/>
+			<field name="code">167</field>
+			<field name="name">San Luis</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_151" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_13"/>
+			<field name="code">168</field>
+			<field name="name">Segundo Frente</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_152" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_13"/>
+			<field name="code">169</field>
+			<field name="name">Songo - la Maya</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_153" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_13"/>
+			<field name="code">170</field>
+			<field name="name">Santiago de Cuba</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_154" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_13"/>
+			<field name="code">171</field>
+			<field name="name">Palma Soriano</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_155" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_13"/>
+			<field name="code">172</field>
+			<field name="name">Tercer Frente</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_156" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_13"/>
+			<field name="code">173</field>
+			<field name="name">Guamá</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_157" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_14"/>
+			<field name="code">174</field>
+			<field name="name">El Salvador</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_158" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_14"/>
+			<field name="code">175</field>
+			<field name="name">Manuel Tames</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_159" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_14"/>
+			<field name="code">176</field>
+			<field name="name">Yateras</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_160" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_14"/>
+			<field name="code">177</field>
+			<field name="name">Baracoa</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_161" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_14"/>
+			<field name="code">178</field>
+			<field name="name">Maisí</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_162" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_14"/>
+			<field name="code">179</field>
+			<field name="name">Imias</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_163" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_14"/>
+			<field name="code">180</field>
+			<field name="name">San Antonio del Sur</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_164" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_14"/>
+			<field name="code">181</field>
+			<field name="name">Caimanera</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_165" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_14"/>
+			<field name="code">182</field>
+			<field name="name">Guantánamo</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_166" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_14"/>
+			<field name="code">183</field>
+			<field name="name">Niceto Pérez</field>
+		</record>
+	 
+	 
+		<record id="res_state_municipality_167" model="l10n_cu_base.municipality">
+			<field name="state_id" ref="res_country_state_15"/>
+			<field name="code">184</field>
+			<field name="name">Isla de la Juventud</field>
+		</record>
+	</data>
+</odoo>

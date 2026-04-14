@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_process_control_production_rejection_to_excel"
+                model="wzd.production.rejection.to.excel"
+                string="Rep. Control de Producción y Rechazo "
+                report_type="xlsx"
+                name="turei_process_control.production_rejection_report"
+                file="turei_process_control.production_rejection_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

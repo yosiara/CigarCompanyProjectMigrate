@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<delete model="ir.ui.menu" search="[('name','=','Equipments')]"/>
+		<delete model="ir.ui.menu" id="maintenance.menu_maintenance_teams"/>
+		<delete model="ir.ui.menu" id="maintenance.menu_maintenance_cat"/>
+		<delete model="ir.ui.menu" id="maintenance.menu_maintenance_stage_configuration"/>
+		<delete model="ir.ui.menu" id="maintenance.menu_maintenance_configuration"/>
+
+		<menuitem name="Equipos"
+				  id="turei_maintenance_equipaments_menu_item"
+				  parent="maintenance.menu_maintenance_title"
+                  sequence="2"/>
+
+        <menuitem name="Orden de Trabajo"
+				  id="turei_maintenance_work_order_menu_item"
+				  parent="maintenance.menu_maintenance_title"
+                  sequence="50"/>
+
+        <menuitem name="Informes"
+				  id="turei_maintenance_work_order_menu_informes"
+				  parent="turei_maintenance_work_order_menu_item"
+                  sequence="20"/>
+
+		<menuitem name="Asistente"
+				  id="turei_maintenance_work_order_menu_asistente"
+				  parent="turei_maintenance_work_order_menu_item"
+                  sequence="30"/>
+
+		<menuitem name="Informes"
+				  id="turei_maintenance_equipment_menu_informes"
+				  parent="turei_maintenance_equipaments_menu_item"
+                  sequence="20"/>
+
+		<menuitem name="Informes"
+				  id="turei_maintenance_mtto_menu_informes"
+				  parent="maintenance.menu_m_request"
+                  sequence="20"/>
+
+<!--        <menuitem name="Configuración"-->
+<!--				  id="turei_maintenance_config_menu"-->
+<!--				  parent="maintenance.menu_maintenance_title"-->
+<!--                  sequence="60"/>-->
+
+    </data>
+</odoo>

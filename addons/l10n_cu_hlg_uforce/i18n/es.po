@@ -1,0 +1,1374 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_hlg_uforce
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-07 02:54+0000\n"
+"PO-Revision-Date: 2020-10-06 21:59-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_action_type
+msgid "Action to do"
+msgstr "Realizar acción"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:297
+#, python-format
+msgid "Administrative"
+msgstr "Administrativos"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Admission Date"
+msgstr "Fecha de alta"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_age_range_employee_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_age_range_hire_drop_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+#: selection:l10n_cu_hlg_uforce.report_wzd,employee_filter:0
+#: selection:l10n_cu_hlg_uforce.report_wzd,hire_drop_filter:0
+msgid "Age Range"
+msgstr "Rango de edad"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_hr_employee_age_range_code
+msgid "Age Range Code"
+msgstr "Código del Rango de Edad"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_hr_employee_age_range_id
+msgid "Age Range from Gforza"
+msgstr "Rangos de edad desde Geforza"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_age_range
+msgid "Age range for Gforza Export"
+msgstr "Rango de edad para GeForza"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.report_wzd,degree_filter:0
+msgid "All"
+msgstr "Todos"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_branch_science_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_branch_science_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_l10n_cu_hr_uforce_degree_search
+#: selection:l10n_cu_hlg_uforce.report_wzd,degree_filter:0
+msgid "Branch Science"
+msgstr "Rama de la ciencia"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_branch_science
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_branch_science
+msgid "Branch of Science"
+msgstr "Rama de la ciencia"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.report_wzd_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_center_study
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_center_study
+msgid "Center Study"
+msgstr "Centro de estudios"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_child_ids
+msgid "Childs Degrees"
+msgstr "Carreras hijas"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.import_employee_excel_wzd_form_view
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.import_hire_drop_wizard_form_view
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.update_age_range_wzd_form_view
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.update_dpa_wzd_form_view
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.update_from_gforza_wizard_form_view
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Coach"
+msgstr "Monitor"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_hr_contract_supplement_motive_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_age_range_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_branch_science_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_hr_type_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_type_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_employment_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_organism_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_specialty_family_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_ministry_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_code_ftc3
+msgid "Code for FTC3"
+msgstr "Código para FTC3"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_code_ftc4
+msgid "Code for FTC4"
+msgstr "Código para FTC4"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_employment_company_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_company_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_hr_employee_contract_hr_type_id
+msgid "Contract HR Type"
+msgstr "Tipo de contrato RRHH"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_contract_type
+msgid "Contract Type for Gforza Export"
+msgstr "Tipo de contrato para GeForza"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_res_country_state
+msgid "Country state"
+msgstr "Provincia"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_age_range_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_branch_science_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_center_study_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_hr_type_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_type_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_employment_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_employee_excel_wizard_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_hire_drop_wizard_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_organism_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_specialty_family_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_dpa_wzd_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_employee_age_range_wzd_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_age_range_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_branch_science_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_center_study_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_hr_type_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_type_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_employment_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_employee_excel_wizard_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_hire_drop_wizard_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_organism_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_specialty_family_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_dpa_wzd_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_employee_age_range_wzd_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_hire_drop_wizard_connector_id
+msgid "Database"
+msgstr "Base de Datos"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information_days_left
+msgid "Days left"
+msgstr "Días restantes"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_degree
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_hr_employee_degree_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_degree_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_degree_id
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_degree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_graduates_demand_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_l10n_cu_hr_uforce_degree_form
+#: selection:l10n_cu_hlg_uforce.report_wzd,demand_filter:0
+#: selection:l10n_cu_hlg_uforce.report_wzd,reports:0
+msgid "Degree"
+msgstr "Carrera"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_branch_science_degree_level_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_degree_level_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_specialty_family_degree_level_id
+msgid "Degree Level"
+msgstr "Nivel de carrera"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:68
+#, python-format
+msgid "Degree List"
+msgstr "Lista de carreras"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.report_wzd,degree_filter:0
+msgid "Degree Parent"
+msgstr "Carrera padre"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_uforce.print_by_wzd_degree_report
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_uforce.print_degree_report
+msgid "Degree Report"
+msgstr "Informe de carreras"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:71
+#, python-format
+msgid "Degree list by Science branch: "
+msgstr "Lista de carreras por rama de la ciencia: "
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:74
+#, python-format
+msgid "Degree list by family of specialities : "
+msgstr "Lista de carreras por familia de especialidades: "
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:77
+#, python-format
+msgid "Degree list by parent degree: "
+msgstr "Lista de carreras por carrera padre: "
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_parent_id
+msgid "Degree parent"
+msgstr "Carrera padre"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_l10n_cu_hr_uforce_degree_tree
+msgid "Degrees"
+msgstr "Carreras"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/models/uforce.py:167
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_demand_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_ids
+#, python-format
+msgid "Demand"
+msgstr "Demanda"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_uforce.print_demand_degree_report
+msgid "Demand Degree Report"
+msgstr "Informe de la demanda por carrera"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_uforce.print_demand_year_report
+msgid "Demand Year Report"
+msgstr "Informe de la demanda por año"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_graduates_demand_form
+msgid "Demand per year"
+msgstr "Demanda por año"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_demands
+msgid "Demands Graduates"
+msgstr "Demanda"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,help:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_demands
+msgid "Demands Graduates Projection"
+msgstr "Demanda y proyección de los graduados"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Department"
+msgstr "Departamento"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.uforce_department_menu_item
+msgid "Departments"
+msgstr "Departamentos"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:296
+#, python-format
+msgid "Directive"
+msgstr "Cuadros"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_age_range_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_branch_science_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_center_study_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_hr_type_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_type_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_employment_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_employee_excel_wizard_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_hire_drop_wizard_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_organism_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_specialty_family_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_dpa_wzd_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_employee_age_range_wzd_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.hire_drop_record,record_type:0
+msgid "Drop"
+msgstr "Baja"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_hire_drop_record_search
+msgid "Drops"
+msgstr "Bajas"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,help:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_hire_drop
+msgid "Drops Fluctuation"
+msgstr "Fluctuación de las bajas"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_hr_employee
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_employee_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_hire_drop_record_search
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_contract_hr_type
+msgid "Employee Contract HR Type"
+msgstr "Tipo de contrato RRHH del empleado"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,help:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_employees
+msgid "Employee Existence"
+msgstr "Existencia de empleados"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_uforce.employee_report
+msgid "Employee Report"
+msgstr "Informe de los empleados"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:342
+#, python-format
+msgid "Employee hire and drop by %s age range"
+msgstr "Fluctuación laboral para el rango de edad %s"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:357
+#, python-format
+msgid "Employee hire and drop by %s gender"
+msgstr "Fluctuación laboral para el sexo %s"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:372
+#, python-format
+msgid "Employee hire and drop by %s motive"
+msgstr "Fluctuación laboral por el motivo %s"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.uforce_employee_menu
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.uforce_employee_menu_item
+#: selection:l10n_cu_hlg_uforce.report_wzd,reports:0
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_employees
+msgid "Employees Existence"
+msgstr "Empleados"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_employment
+msgid "Employment for Gforza Export"
+msgstr "Empleados para exportar al Geforza"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_entity
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_entity_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_company_id
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_entity
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_graduates_demand_search
+msgid "Entity"
+msgstr "Entidad"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_res_company_gforza_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_res_partner_gforza_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_res_users_gforza_code
+msgid "Entity Code"
+msgstr "Código de la entidad"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:2454
+#, python-format
+msgid "Error: the XML file not have employees !!"
+msgstr "Error: el archivo XML no contiene empleados!"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:2397
+#, python-format
+msgid "Error: you must select options to export !!"
+msgstr "Error: debe seleccionar las opciones correctas para exportar!"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:103
+#, python-format
+msgid "Error: you must select the XML file to import!!"
+msgstr "Error: debe seleccionar el archivo XML a importar!"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.registry_information,state:0
+msgid "Expired"
+msgstr "Vencida"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.update_from_gforza_wizard_form_view
+msgid "Export"
+msgstr "Exportar"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.update_from_gforza_wizard,action_type:0
+msgid "Export All Data in XML to Gforza"
+msgstr "Exportar XML para actualizar el GeForza"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_base_municipality_external_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_res_country_state_external_id
+msgid "External ID"
+msgstr "ID externo"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_hr_type_external_id
+msgid "External id"
+msgstr "External id"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.report_wzd,gender:0
+msgid "Female"
+msgstr "Femenino"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_employee_excel_wizard_file_name
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_file_export
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_file_xls_export
+msgid "File to Export"
+msgstr "Archivo a exportar"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_file
+msgid "File to Import"
+msgstr "Archivo a importar"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_filename
+msgid "Filename"
+msgstr "Nombre Archivo"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_filename_export
+msgid "Filename export"
+msgstr "Nombre del archivo"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_filename_xls_export
+msgid "Filename xls export"
+msgstr "Nombre de XLS a exportar"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_degree_filter
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_demand_filter
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_employee_filter
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_hire_drop_filter
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_hire_drop_record_search
+msgid "Filter by"
+msgstr "Filtrar por"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_hr_employee_first_name
+msgid "First name"
+msgstr "Nombre"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_period_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_graduates_demand_search
+msgid "Fiscal year"
+msgstr "Año fiscal"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_update_from_gforza
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.hr_uforce_update_from_gforza
+msgid "GForza Integration"
+msgstr "Integración con GeForza"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_gender
+#: selection:l10n_cu_hlg_uforce.report_wzd,hire_drop_filter:0
+msgid "Gender"
+msgstr "Sexo"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_graduates_demand
+msgid "Graduates Demand"
+msgstr "Demanda de graduados"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_graduates_demand_line
+msgid "Graduates Demand Line"
+msgstr "Linea de Demanda de Graduados"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_graduates_demand
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_graduates_demand
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_graduates_demand_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_graduates_demand_tree
+#: selection:l10n_cu_hlg_uforce.report_wzd,reports:0
+msgid "Graduates demand"
+msgstr "Demanda de graduados"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:186
+#, python-format
+msgid "Graduates demand of degree: "
+msgstr "Demanda de graduados de la carrera: "
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:94
+#, python-format
+msgid "Graduates demand of year: "
+msgstr "Demanda de graduados del año: "
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_graduates_demand_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_hire_drop_record_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_organism_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_l10n_cu_hr_uforce_degree_search
+msgid "Group by"
+msgstr "Agrupar por"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.hire_drop_record,record_type:0
+msgid "Hire"
+msgstr "Alta"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_hire_drop_record
+msgid "Hire and Drop Record"
+msgstr "Registro de altas y bajas"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_uforce.hire_drop_report
+msgid "Hire and Drop Report"
+msgstr "Informe de la fluctuación laboral"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_hire_drop
+msgid "Hire and Drops"
+msgstr "Fluctuación"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_hire_drop_record
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_hire_drop_record
+msgid "Hire and drop record"
+msgstr "Registro de altas y bajas"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_hire_drop_record_tree
+msgid "Hire and drop records"
+msgstr "Registro de altas y bajas"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.report_wzd,reports:0
+msgid "Hired Drop"
+msgstr "Fluctuación laboral"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_hire_drop_record_search
+msgid "Hires"
+msgstr "Altas"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_age_range_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_branch_science_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_center_study_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_hr_type_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_type_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_employment_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_employee_excel_wizard_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_hire_drop_wizard_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_organism_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_specialty_family_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_dpa_wzd_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_employee_age_range_wzd_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.import_employee_excel_wzd_form_view
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.import_hire_drop_wizard_form_view
+msgid "Import"
+msgstr "Importar"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_import_employee_excel
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_import_employee_excel
+msgid "Import employee from Excel"
+msgstr "Importar empleados desde Excel"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.import_hire_drop_wizard_form_view
+msgid "In order to import the <b>Employees Fluctuation</b>, from the Fastos database you must select the correct connection to use."
+msgstr "Con el objetivo de importar la <b>Fluctuación laboral</b>, desde la base de datos de Fastos, debe seleccionar la conexión correcta."
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_center_study_initial_letters
+msgid "Initial Letters"
+msgstr "Siglas"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_res_partner_is_gfroza_entity
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_res_users_is_gfroza_entity
+msgid "Is a Entity"
+msgstr "Es una entidad"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Job"
+msgstr "Puesto"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information_key
+msgid "Key"
+msgstr "Clave"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_age_range___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_branch_science___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_center_study___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_hr_type___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_type___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_employment___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_employee_excel_wizard___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_hire_drop_wizard___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_organism___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_specialty_family___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_dpa_wzd___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_employee_age_range_wzd___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_age_range_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_branch_science_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_center_study_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_hr_type_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_type_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_employment_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_employee_excel_wizard_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_hire_drop_wizard_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_organism_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_specialty_family_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_dpa_wzd_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_employee_age_range_wzd_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_age_range_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_branch_science_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_center_study_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_hr_type_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_type_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_employment_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_employee_excel_wizard_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_hire_drop_wizard_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_organism_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_specialty_family_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_dpa_wzd_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_employee_age_range_wzd_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_hr_employee_last_name
+msgid "Last name"
+msgstr "Primer apellido"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:323
+#, python-format
+msgid "List of employees in the %s age range"
+msgstr "Lista de empleados en el rango de edad %s"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:307
+#, python-format
+msgid "List of employees that has the %s category"
+msgstr "Lista de empleados de la categoría %s"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.report_wzd,gender:0
+msgid "Male"
+msgstr "Masculino"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_ministry_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_organism_ministry_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_res_company_ministry_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.uforce_res_partner_filter_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_graduates_demand_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_organism_search
+msgid "Ministry"
+msgstr "Ministerio"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_motive_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_motive_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_hire_drop_record_search
+#: selection:l10n_cu_hlg_uforce.report_wzd,hire_drop_filter:0
+msgid "Motive"
+msgstr "Motivo"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_municipality_id
+msgid "Municipality"
+msgstr "Municipio"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_age_range_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_branch_science_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_center_study_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_hr_type_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_contract_type_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_employment_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_organism_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_specialty_family_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_occupational_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+#: selection:l10n_cu_hlg_uforce.report_wzd,employee_filter:0
+msgid "Occupational Category"
+msgstr "Categoría ocupacional"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.uforce_occupational_category_menu_item
+msgid "Occupational category"
+msgstr "Categoría ocupacional"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_organism
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_organism_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_res_company_organism_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_res_partner_organism_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_res_users_organism_id
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_organism
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.uforce_res_partner_filter_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_graduates_demand_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_l10n_cu_hr_uforce_organism_form
+msgid "Organism"
+msgstr "Organismo"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_parent_id
+msgid "Parent"
+msgstr "Padre"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_parent_code
+msgid "Parent Code"
+msgstr "Código externo del padre"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_l10n_cu_hr_uforce_degree_search
+msgid "Parent Degree"
+msgstr "Carrera padre"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:190
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:708
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:724
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:918
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:1090
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:1263
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:1642
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:1994
+#, python-format
+msgid "Please, check the entity settings!"
+msgstr "Por favor, revise los datos de la Entidad!"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_employee_excel_wizard.py:62
+#, python-format
+msgid "Please, select the correct employees template!"
+msgstr "Por favor, seleccione la plantilla de empleados correcta!"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_employee_excel_wizard.py:56
+#, python-format
+msgid "Please, select the correct file!"
+msgstr "Por favor, seleccione el archivo correcto!"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Political Affiliation"
+msgstr "Afiliación política"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_action
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_menu
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+msgid "Qualify Work Force Registry Information"
+msgstr "Información del registro uFORCE"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.report_wzd_form
+msgid "Qualify Work Force Reports"
+msgstr "Sobre la Fuerza de Trabajo Calificada"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Race"
+msgstr "Raza"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_record_date
+msgid "Record date"
+msgstr "Fecha de registro"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.registry_information,state:0
+msgid "Registered"
+msgstr "Registrado"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.report_wzd_form
+msgid "Report"
+msgstr "Reporte"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.report_wzd_act_window
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_reports
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_report_uforce
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_report_wzd
+msgid "Reports"
+msgstr "Reportes"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "School Level"
+msgstr "Nivel escolar"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_hr_employee_school_level_name
+msgid "School Level Name"
+msgstr "Nombre de nivel escolar"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.uforce_school_level_menu_item
+msgid "School level"
+msgstr "Nivel escolar"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_hr_employee_second_last_name
+msgid "Second last name"
+msgstr "Segundo apellido"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information_seed
+msgid "Seed"
+msgstr "Semilla"
+
+#. module: l10n_cu_hlg_uforce
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce/static/src/xml/binary_file.xml:6
+#, python-format
+msgid "Select"
+msgstr "Seleccione"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_import_employee_excel_wizard_file_data
+msgid "Select template"
+msgstr "Seleccione la plantilla"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:299
+#, python-format
+msgid "Service"
+msgstr "Servicios"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_uforce_setting
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Sexo"
+msgstr "Sexo"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_degree_specialty_family_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_specialty_family_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_l10n_cu_hr_uforce_degree_search
+#: selection:l10n_cu_hlg_uforce.report_wzd,degree_filter:0
+msgid "Specialty Family"
+msgstr "Familia de especialidades"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_specialty_family
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_specialty_family
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_l10n_cu_hr_uforce_specialty_family_form
+msgid "Specialty family"
+msgstr "Familia de especialidades"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_state_id
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:301
+#, python-format
+msgid "Student"
+msgstr "Estudiantes"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:298
+#, python-format
+msgid "Technician"
+msgstr "Técnicos"
+
+#. module: l10n_cu_hlg_uforce
+#: sql_constraint:l10n_cu_hlg_uforce.age_range:0
+#: sql_constraint:l10n_cu_hlg_uforce.contract_type:0
+#: sql_constraint:l10n_cu_hlg_uforce.degree:0
+#: sql_constraint:l10n_cu_hlg_uforce.employment:0
+#: sql_constraint:l10n_cu_hlg_uforce.specialty_family:0
+msgid "The code must be unique!"
+msgstr "El código debe ser único!"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/models/uforce.py:194
+#: sql_constraint:l10n_cu_hlg_uforce.graduates_demand:0
+#, python-format
+msgid "The code_ftc3 must be unique!"
+msgstr "El código ftc3 debe ser único!"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/models/uforce.py:196
+#: sql_constraint:l10n_cu_hlg_uforce.graduates_demand:0
+#, python-format
+msgid "The code_ftc4 must be unique!"
+msgstr "El código ftc4 debe ser único!"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/models/uforce.py:192
+#: sql_constraint:l10n_cu_hlg_uforce.graduates_demand:0
+#, python-format
+msgid "The demand must be unique per degree, entity and year!"
+msgstr "La demanda debe ser única para la carrera y la entidad en el año!"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_wizard.py:263
+#, python-format
+msgid ""
+"The operation has not been completed. Please, check the connection of the Database\n"
+"                                  and make sure to select the correct one..."
+msgstr ""
+"The operation has not been completed. Please, check the connection of the Database\n"
+"                                  and make sure to select the correct one..."
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_wizard.py:88
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_wizard.py:135
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_wizard.py:227
+#, python-format
+msgid ""
+"The operation has not been completed. Please, check the connection of the Database\n"
+"                                 and make sure to select the correct one..."
+msgstr ""
+"The operation has not been completed. Please, check the connection of the Database\n"
+"                                 and make sure to select the correct one..."
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:191
+#, python-format
+msgid "There is not graduates demand for this degree!"
+msgstr "No existe demanda de graduados para esta carrera!"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:99
+#, python-format
+msgid "There is not graduates demand for this year!"
+msgstr "No existe demanda de graduados para este año!"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+msgid ""
+"To enjoy all features of the System <b>Qualify Work Force</b> you must complete the module\n"
+"                        register.\n"
+"                        <br/>\n"
+"                        Send the seed to the following email address"
+msgstr ""
+"Para disfrutar de todas las funcionalidades del  Sistema <b>uFORCE</b> debe completar el registro del módulo.\n"
+"                        <br/>\n"
+"                        Envíe la semilla al siguiente correo electrónico"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_hire_drop_record_record_type
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_hr_uforce_hire_drop_record_search
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_registry_information_state
+msgid "UEB Desoft"
+msgstr "UEB Desoft"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.registry_information,state:0
+msgid "Unregistered"
+msgstr "No registrado"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.update_age_range_wzd_form_view
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.update_dpa_wzd_form_view
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.update_from_gforza_wizard_form_view
+msgid "Update"
+msgstr "Actualizar"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_update_age_range
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_update_age_range
+msgid "Update Age Range for Employees"
+msgstr "Actualizar rango de edad para los empleados"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_update_dpa
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_update_dpa
+msgid "Update DPA"
+msgstr "Actualizar DPA"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.update_from_gforza_wizard_form_view
+msgid "Update and Export XMLs from Gforza System"
+msgstr "Actualizar y exportar XMLs desde el GeForza"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce.action_import_hire_drop
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.hr_uforce_import_hire_drop
+msgid "Update employees"
+msgstr "Actualizar Empleados"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.update_from_gforza_wizard,action_type:0
+msgid "Update from GForza"
+msgstr "Actualizar desde XML generado en GeForza"
+
+#. module: l10n_cu_hlg_uforce
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce/static/src/xml/binary_file.xml:6
+#, python-format
+msgid "Upload the file"
+msgstr "Seleccione el archivo"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.import_employee_excel_wzd_form_view
+msgid "Using this wizard you can import the employee information from an Excel template"
+msgstr "Usando este asistente podrá importar la información de los empleados desde una plantilla Excel"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.update_age_range_wzd_form_view
+msgid "Using this wizard you can update the Age Range for Employees"
+msgstr "Usando este asistente podrá actualizar el campo rango de edad para cada empleado de acuerdo a los rangos de edades del Gforza."
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.update_dpa_wzd_form_view
+msgid "Using this wizard you can update the States and Municipalities with the GeForza ID."
+msgstr "Usando este asistente podrá actualizar las provincias y municipios con el identificador del sistema Gforza."
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_uforce
+msgid "Work force"
+msgstr "Fuerza de trabajo"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:300
+#, python-format
+msgid "Workman"
+msgstr "Obrero"
+
+#. module: l10n_cu_hlg_uforce
+#: selection:l10n_cu_hlg_uforce.update_from_gforza_wizard,template:0
+msgid "XML"
+msgstr "XML"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_update_from_gforza_wizard_template
+msgid "XML files"
+msgstr "Archivos XML"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_graduates_demand_line_period_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce.field_l10n_cu_hlg_uforce_report_wzd_period_id
+#: selection:l10n_cu_hlg_uforce.report_wzd,demand_filter:0
+msgid "Year"
+msgstr "Año"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.view_employee_filter_inherit
+msgid "Years Worked"
+msgstr "Años trabajados"
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_employee_excel_wizard.py:13
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_wizard.py:15
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:12
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_dpa_data.py:11
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_employee_age_range.py:11
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:36
+#, python-format
+msgid "You are using a expired key. Please contact the support center for a new one."
+msgstr "Debe solicitar una clave de registro. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_employee_excel_wizard.py:12
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_employee_excel_wizard.py:14
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_wizard.py:14
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_wizard.py:16
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:11
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:13
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_dpa_data.py:10
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_dpa_data.py:12
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_employee_age_range.py:10
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_employee_age_range.py:12
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:35
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:37
+#, python-format
+msgid "You are using a invalid key. Please contact the support center for a new one."
+msgstr "Está utilizando una clave inválida. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+
+#. module: l10n_cu_hlg_uforce
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_employee_excel_wizard.py:11
+#: code:addons/l10n_cu_hlg_uforce/wizards/import_wizard.py:13
+#: code:addons/l10n_cu_hlg_uforce/wizards/report_wzd.py:10
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_dpa_data.py:9
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_employee_age_range.py:9
+#: code:addons/l10n_cu_hlg_uforce/wizards/update_from_gforza_wizard.py:34
+#, python-format
+msgid "You must request a registry key. Please contact the support center for a new one."
+msgstr "Está utilizando una clave caducada. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+msgid "You must request your register key."
+msgstr "Debe solicitar una clave de registro."
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+msgid "Your register key is expired."
+msgstr "Está utilizando una clave caducada."
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+msgid "Your register key is invalid."
+msgstr "Está utilizando una clave inválida."
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+msgid "Your register key is valid or you are in trial period."
+msgstr "Su clave de registro es válida o se encuentra en periodo de prueba."
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+msgid "Your register key will be expired in the next days."
+msgstr "Su clave de registro caducará en los próximos días."
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+msgid "and we will send to you the register key."
+msgstr "y le enviaremos su clave de registro."
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce.l10n_cu_hlg_uforce_registry_information_wzd_view_form
+msgid "comercial.holguin@desoft.cu"
+msgstr "comercial.holguin@desoft.cu"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_hr_contract_supplement_motive
+msgid "hr_contract.supplement_motive"
+msgstr "hr_contract.supplement_motive"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_ministry
+msgid "l10n_cu.ministry"
+msgstr "l10n_cu.ministry"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_base_municipality
+msgid "l10n_cu_base.municipality"
+msgstr "l10n_cu_base.municipality"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_branch_science
+msgid "l10n_cu_hlg_uforce.branch_science"
+msgstr "l10n_cu_hlg_uforce.branch_science"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_center_study
+msgid "l10n_cu_hlg_uforce.center_study"
+msgstr "l10n_cu_hlg_uforce.center_study"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_degree
+msgid "l10n_cu_hlg_uforce.degree"
+msgstr "l10n_cu_hlg_uforce.degree"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_import_employee_excel_wizard
+msgid "l10n_cu_hlg_uforce.import_employee_excel_wizard"
+msgstr "l10n_cu_hlg_uforce.import_employee_excel_wizard"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_import_hire_drop_wizard
+msgid "l10n_cu_hlg_uforce.import_hire_drop_wizard"
+msgstr "l10n_cu_hlg_uforce.import_hire_drop_wizard"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_organism
+msgid "l10n_cu_hlg_uforce.organism"
+msgstr "l10n_cu_hlg_uforce.organism"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_registry_information
+msgid "l10n_cu_hlg_uforce.registry_information"
+msgstr "l10n_cu_hlg_uforce.registry_information"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_report_wzd
+msgid "l10n_cu_hlg_uforce.report_wzd"
+msgstr "l10n_cu_hlg_uforce.report_wzd"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_specialty_family
+msgid "l10n_cu_hlg_uforce.specialty_family"
+msgstr "l10n_cu_hlg_uforce.specialty_family"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_update_dpa_wzd
+msgid "l10n_cu_hlg_uforce.update_dpa_wzd"
+msgstr "l10n_cu_hlg_uforce.update_dpa_wzd"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_update_employee_age_range_wzd
+msgid "l10n_cu_hlg_uforce.update_employee_age_range_wzd"
+msgstr "l10n_cu_hlg_uforce.update_employee_age_range_wzd"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.model,name:l10n_cu_hlg_uforce.model_l10n_cu_hlg_uforce_update_from_gforza_wizard
+msgid "l10n_cu_hlg_uforce.update_from_gforza_wizard"
+msgstr "l10n_cu_hlg_uforce.update_from_gforza_wizard"
+
+#. module: l10n_cu_hlg_uforce
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce.menu_uforce_root
+msgid "uForce"
+msgstr "uForce"

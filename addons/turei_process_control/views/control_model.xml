@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="turei_process_control_interrupciones_view_search" model="ir.ui.view">
+            <field name="name">Control model search view</field>
+            <field name="model">turei_process_control.tecnolog_control_model</field>
+            <field name="arch" type="xml">
+                <search string="Modelo de control">
+                    <field name="date"/>
+                    <field name="productive_section"/>
+                    <field name="turn"/>
+                    <filter name="group_year" string="Por año"
+                            context="{'group_by': 'year_char'}"
+                    />
+                    <filter name="group_date1" string="Por fecha"
+                            context="{'group_by': 'date'}"
+                    />
+                    <filter name="group_day" string="Por día"
+                            context="{'group_by': 'day_char'}"
+                    />
+                    <filter name="group_seccion" string="Por sección productiva"
+                        context="{'group_by': 'productive_section'}"
+                    />
+                </search>
+            </field>
+        </record>
+
+        <act_window id="turei_process_control_interruptiones_action"
+                    name="Control tecnológico"
+                    res_model="turei_process_control.tecnolog_control_model"
+                    view_mode="tree,form"
+                    context="{'search_default_group_year': 1, 'search_default_group_date1': 1, 'search_default_group_day': 1}"
+        />
+
+        <menuitem id="turei_process_control_interruptiones_menu"
+                  name="Ingreso Inter/producción"
+                  parent="turei_process_control_control_tec"
+                  action="turei_process_control_interruptiones_action"
+                  sequence="10"
+        />
+
+        <record id="turei_process_control_interrupciones_view_tree" model="ir.ui.view">
+            <field name="name">control_proc_interruption_type_view_tree</field>
+            <field name="model">turei_process_control.tecnolog_control_model</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_char" invisible="1"/>
+                    <field name="day_char" invisible="1"/>
+                    <field name="date"/>
+                    <field name="productive_section"/>
+                    <field name="turn"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="control_proc_interruptiones_view_form" model="ir.ui.view">
+            <field name="name">turei_process_control_interrupciones_view_form</field>
+            <field name="model">turei_process_control.tecnolog_control_model</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="productive_section"/>
+                            </group>
+                            <group>
+                                <field name="turn" options="{'no_create_edit': True}"/>
+                                <field name="tec_model_type" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="attendance_id" 
+                                       options="{'no_create_edit': True}"/>
+                            </group>
+                            <group>
+                                <field name="productive_capacity"/>
+                            </group>
+                            <group>
+                                <field name="plan_time"/>
+                            </group>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Interrupciones">
+                                    <field name="interruptions">
+                                        <tree editable="bottom">
+                                            <field name="productive_line_id"
+                                                   domain="[('productive_section_id', '=', parent.productive_section)]"/>
+                                            <field name="machine_id"/>
+                                            <field name="interruption_type"/>
+                                            <field name="set_of_peaces_id"/>
+                                            <field name="time" widget="xls_formula"/>
+                                            <field name="frequency" widget="xls_formula"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Producción Horaria">
+                                    <group>
+                                        <field name="production_in_production_system"/>
+                                        <field name="production_in_proccess_control"/>
+                                    </group>
+                                    <field name="production_by_hours_ids"
+                                           attrs="{'readonly': [('attendance_id','=', False)]}">
+                                        <tree editable="bottom">
+                                            <field name="hour_production"/>
+                                            <field name="production_count" widget="xls_formula"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Producción y rechazo">
+                                    <field name="rechazo_nano_sbo_src"
+                                           attrs="{'invisible': ['|', ('tec_model_type', '=', 'mod'),  ('productive_section', '=', False)]}">
+                                        <div class="alert alert-info">
+                                            <strong>Información:</strong>
+                                            Se capta la producción y rechazo de las máquinas 'NANO', 'SBO', 'SRC'
+                                        </div>
+
+                                        <tree editable="bottom">
+                                            <field name="productive_line_id"
+                                                   domain="[('productive_section_id', '=', parent.productive_section)]"/>
+                                            <field name="machine_id"/>
+                                            <field name="machine_type_id" invisible="1"/>
+                                            <field name="machine_type_name" invisible="1"/>
+                                            <field name="produccion_en_cigarrillos"
+                                                   attrs="{'invisible': ['|', ('machine_type_name', '!=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                            <field name="rechazo_en_cigarrillos"
+                                                   attrs="{'invisible': ['|',('machine_type_name', '!=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                            <field name="produccion_en_cajones"
+                                                   attrs="{'invisible': ['|',('machine_type_name', '=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                            <field name="rechazo_en_cajetillas"
+                                                   attrs="{'invisible': ['|',('machine_type_name', '=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                        </tree>
+
+                                        <form>
+                                            <group col="8">
+                                                <group colspan="4">
+                                                    <field name="productive_line_id"
+                                                           domain="[('productive_section_id', '=', parent.productive_section)]"/>
+                                                </group>
+                                                <group colspan="4">
+                                                    <field name="machine_id"/>
+                                                    <field name="machine_type_id" invisible="1"/>
+                                                    <field name="machine_type_name" invisible="1"/>
+                                                </group>
+                                            </group>
+                                            <group col="8">
+                                                <group colspan="4">
+                                                    <field name="produccion_en_cigarrillos"
+                                                           attrs="{'readonly': ['|', ('machine_type_name', '!=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                    <field name="rechazo_en_cigarrillos"
+                                                           attrs="{'readonly': ['|',('machine_type_name', '!=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                </group>
+                                                <group colspan="4">
+                                                    <field name="produccion_en_cajones"
+                                                           attrs="{'readonly': ['|',('machine_type_name', '=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                    <field name="rechazo_en_cajetillas"
+                                                           attrs="{'readonly': ['|',('machine_type_name', '=', 'NANO'), ('machine_type_name', '=', False)]}" widget="xls_formula"/>
+                                                </group>
+                                            </group>
+                                        </form>
+                                    </field>
+                                    <field name="rechazo_amf"
+                                           attrs="{'invisible': ['|', ('tec_model_type', '=', 'mod1'), ('productive_section', '=', False)]}">
+                                        <div class="alert alert-info">
+                                            <strong>Información:</strong>
+                                            Se capta la producción y rechazo de las AMF
+                                        </div>
+                                        <tree editable="bottom">
+                                            <field name="productive_line_id"
+                                                   domain="[('productive_section_id', '=', parent.productive_section)]"/>
+                                            <field name="machine_id"/>
+                                            <field name="machine_type_id" invisible="1"/>
+                                            <field name="produccion_en_cajones" widget="xls_formula"/>
+                                            <field name="rechazo_en_cajetijas" widget="xls_formula"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

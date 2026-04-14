@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="email_template_indicators_state" model="mail.template">
+            <field name="name">Indicators State - Send by Email</field>
+            <field name="email_from">${object.email}</field>
+            <field name="subject">Indicators State</field>
+            <field name="model_id" ref="cmi.model_res_company"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_template" ref="report_indicators_state"/>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+<p>Dear Employee</p>
+Here is the indicators state for the day
+
+<p>Greetings</p>
+]]></field>
+        </record>
+
+    </data>
+</odoo>

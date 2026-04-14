@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mac_type_1" model="process_control_primary.machine_type">
+            <field name="name">NTP-2 TRA 2</field>
+            <field name="equipo">Transportador-Banda, inclinado-Antes de Silos Blend</field>
+        </record>
+        <record id="mac_type_2" model="process_control_primary.machine_type">
+            <field name="name">NTP-1 VIB 2</field>
+            <field name="equipo">Transportador-Vibrador-Entrada al abridor</field>
+        </record>
+        <record id="mac_type_3" model="process_control_primary.machine_type">
+            <field name="name">NTP-1 TRA 1</field>
+            <field name="equipo">Transportador-Banda, inclinado-Antes del abridor</field>
+        </record>
+        <record id="mac_type_4" model="process_control_primary.machine_type">
+            <field name="name">NTP-1 VIB 1</field>
+            <field name="equipo">Transportador-Vibrador-Salida de la guillotina</field>
+        </record>
+        <record id="mac_type_5" model="process_control_primary.machine_type">
+            <field name="name">NGUI-TRA 1</field>
+            <field name="equipo">Transportador-Banda-Alimentación de guillotina</field>
+        </record>
+        <record id="mac_type_6" model="process_control_primary.machine_type">
+            <field name="name">NGUI-TRA 2</field>
+            <field name="equipo">Transportador-Banda, inclinado-Antes de gallegos</field>
+        </record>
+        <record id="mac_type_7" model="process_control_primary.machine_type">
+            <field name="name">NTP-2 TRA 1</field>
+            <field name="equipo">Transportador-Banda-Salida del abridor</field>
+        </record>
+        <record id="mac_type_8" model="process_control_primary.machine_type">
+            <field name="name">NTP-2 TRA 3</field>
+            <field name="equipo">Transportador-Banda-Luego del transportador inclinado</field>
+        </record>
+        <record id="mac_type_9" model="process_control_primary.machine_type">
+            <field name="name">NTP-2 TRA 4</field>
+            <field name="equipo">Transportador-Banda-Alimentación de Silos Blend</field>
+        </record>
+        <record id="mac_type_10" model="process_control_primary.machine_type">
+            <field name="name">NGUI</field>
+            <field name="equipo">Guillotina</field>
+        </record>
+        <record id="mac_type_11" model="process_control_primary.machine_type">
+            <field name="name">NC01</field>
+            <field name="equipo">Cilindro abridor</field>
+        </record>
+        <record id="mac_type_12" model="process_control_primary.machine_type">
+            <field name="name">SEAE01</field>
+            <field name="equipo">Sistema de aplicación de salsa</field>
+        </record>
+        <record id="mac_type_13" model="process_control_primary.machine_type">
+            <field name="name">NEVCA01</field>
+            <field name="equipo">Extractor de gases cilindro abridor</field>
+        </record>
+        <record id="mac_type_14" model="process_control_primary.machine_type">
+            <field name="name">VCC-ADIC LAM</field>
+            <field name="equipo">Adicionador de tabaco reconstituido</field>
+        </record>
+         <record id="mac_type_15" model="process_control_primary.machine_type">
+            <field name="name">NSL01</field>
+            <field name="equipo">Silo Blend 1</field>
+        </record>
+        <record id="mac_type_16" model="process_control_primary.machine_type">
+            <field name="name">NSL02</field>
+            <field name="equipo">Silo Blend 2</field>
+        </record>
+        <record id="mac_type_17" model="process_control_primary.machine_type">
+            <field name="name">NPT 01</field>
+            <field name="equipo">Grúa de polipasto</field>
+        </record>
+
+        <record id="mac_type_18" model="process_control_primary.machine_type">
+            <field name="name">STP-4 TRA 1</field>
+            <field name="equipo">Transportador-Banda, inclinado-Salida del silo pulmón</field>
+        </record>
+        <record id="mac_type_19" model="process_control_primary.machine_type">
+            <field name="name">STP-6 TRA 1</field>
+            <field name="equipo">Transportador-Banda-Salida del presecador</field>
+        </record>
+        <record id="mac_type_20" model="process_control_primary.machine_type">
+            <field name="name">STP-5 TRA 1</field>
+            <field name="equipo">Transportador-Banda, inclinado-Antes del presecador</field>
+        </record>
+        <record id="mac_type_21" model="process_control_primary.machine_type">
+            <field name="name">STP-5 VIB 1</field>
+            <field name="equipo">Transportador-Vibrador, inclinado-Antes del presecador</field>
+        </record>
+        <record id="mac_type_22" model="process_control_primary.machine_type">
+            <field name="name">STP-5 VIB 2</field>
+            <field name="equipo">Transportador-Vibrador-Entrada al presecador</field>
+        </record>
+        <record id="mac_type_23" model="process_control_primary.machine_type">
+            <field name="name">STP-6 VIB 2</field>
+            <field name="equipo">Transportador-Vibrador-Entrada al secador</field>
+        </record>
+        <record id="mac_type_24" model="process_control_primary.machine_type">
+            <field name="name">STP-6 VIB 1</field>
+            <field name="equipo">Transportador-Vibrador, inclinado-Antes del secador</field>
+        </record>
+        <record id="mac_type_25" model="process_control_primary.machine_type">
+            <field name="name">STP-8 TRA 1</field>
+            <field name="equipo">Transportador-Banda, inclinado-Salida del enfriador</field>
+        </record>
+        <record id="mac_type_26" model="process_control_primary.machine_type">
+            <field name="name">STP-8 VIB 1</field>
+            <field name="equipo">Transportador-Vibrador-Salida del enfriador</field>
+        </record>
+        <record id="mac_type_27" model="process_control_primary.machine_type">
+            <field name="name">STP-3 TRA 1</field>
+            <field name="equipo">Transportador-Banda, inclinado-Salida de las cortadoras</field>
+        </record>
+        <record id="mac_type_28" model="process_control_primary.machine_type">
+            <field name="name">SSL1 TRA 1</field>
+            <field name="equipo">Transportador-Banda-Silo pulmón</field>
+        </record>
+        <record id="mac_type_29" model="process_control_primary.machine_type">
+            <field name="name">STP-5 TRA 2</field>
+            <field name="equipo">Transportador-Banda, inclinado-Salida del presecador</field>
+        </record>
+        <record id="mac_type_30" model="process_control_primary.machine_type">
+            <field name="name">STP-7 TRA 1</field>
+            <field name="equipo">Transportador-Banda-Salidda del secador</field>
+        </record>
+        <record id="mac_type_31" model="process_control_primary.machine_type">
+            <field name="name">STP-8 TRA 2</field>
+            <field name="equipo">Transportador-Banda-Alimentación de pesas</field>
+        </record>
+        <record id="mac_type_32" model="process_control_primary.machine_type">
+            <field name="name">STP-8 TRA 3</field>
+            <field name="equipo">Transportador-Banda, reversible-Alimentación de pesas</field>
+        </record>
+        <record id="mac_type_33" model="process_control_primary.machine_type">
+            <field name="name">STP-7 TRA 2</field>
+            <field name="equipo">Transportador-Banda, inclinado-Antes del enfriador</field>
+        </record>
+        <record id="mac_type_34" model="process_control_primary.machine_type">
+            <field name="name">STP-1 TRA 3</field>
+            <field name="equipo">Transportador-Banda-Detector de metales</field>
+        </record>
+        <record id="mac_type_35" model="process_control_primary.machine_type">
+            <field name="name">STP-1 TRA 2</field>
+            <field name="equipo">Transportador-Banda, inclinado-Salida de los silos Blend</field>
+        </record>
+        <record id="mac_type_36" model="process_control_primary.machine_type">
+            <field name="name">STP-1 TRA 1</field>
+            <field name="equipo">Transportador-Banda-Salida de los silos Blend</field>
+        </record>
+        <record id="mac_type_37" model="process_control_primary.machine_type">
+            <field name="name">STP-2 TRA 1</field>
+            <field name="equipo">Transportador-Banda-Luego del detector de metales</field>
+        </record>
+        <record id="mac_type_38" model="process_control_primary.machine_type">
+            <field name="name">STP-2 TRA 2</field>
+            <field name="equipo">Transportador-Banda, inclinado-Alimentación de cortadoras</field>
+        </record>
+        <record id="mac_type_39" model="process_control_primary.machine_type">
+            <field name="name">STP-3 VIB 1</field>
+            <field name="equipo">Transportador-Vibrador-Salida de cortadoras</field>
+        </record>
+        <record id="mac_type_40" model="process_control_primary.machine_type">
+            <field name="name">DETECTOR MET</field>
+            <field name="equipo">Detector de metales</field>
+        </record>
+        <record id="mac_type_41" model="process_control_primary.machine_type">
+            <field name="name">FLEX50</field>
+            <field name="equipo">Cortadora de tabaco 50</field>
+        </record>
+        <record id="mac_type_42" model="process_control_primary.machine_type">
+            <field name="name">FLEX70</field>
+            <field name="equipo">Cortadora de tabaco 70</field>
+        </record>
+        <record id="mac_type_43" model="process_control_primary.machine_type">
+            <field name="name">SSEC01</field>
+            <field name="equipo">Cilindro presecador</field>
+        </record>
+        <record id="mac_type_44" model="process_control_primary.machine_type">
+            <field name="name">SSEC02</field>
+            <field name="equipo">Cilindro secador</field>
+        </record>
+        <record id="mac_type_45" model="process_control_primary.machine_type">
+            <field name="name">VCC-ADIC GRAN</field>
+            <field name="equipo">Adicionador de granza</field>
+        </record>
+        <record id="mac_type_46" model="process_control_primary.machine_type">
+            <field name="name">SCE01</field>
+            <field name="equipo">Cilindro enfriador</field>
+        </record>
+        <record id="mac_type_47" model="process_control_primary.machine_type">
+            <field name="name">SSL01</field>
+            <field name="equipo">Silo pulmón</field>
+        </record>
+        <record id="mac_type_48" model="process_control_primary.machine_type">
+            <field name="name">SBA 01</field>
+            <field name="equipo">Balanza dosificadora</field>
+        </record>
+        <record id="mac_type_49" model="process_control_primary.machine_type">
+            <field name="name">SPAH 1</field>
+            <field name="equipo">Pesa 1</field>
+        </record>
+        <record id="mac_type_50" model="process_control_primary.machine_type">
+            <field name="name">SPAH 2</field>
+            <field name="equipo">Pesa 2</field>
+        </record>
+        <record id="mac_type_51" model="process_control_primary.machine_type">
+            <field name="name">SFCS01</field>
+            <field name="equipo">Extractor de polvo y gases</field>
+        </record>
+        <record id="mac_type_52" model="process_control_primary.machine_type">
+            <field name="name">SFCE01</field>
+            <field name="equipo">Extractor de polvo cilindro enfriador</field>
+        </record>
+    </data>
+</odoo>

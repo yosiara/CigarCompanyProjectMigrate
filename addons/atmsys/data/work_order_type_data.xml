@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<odoo>
+	<data noupdate="1">
+		<record id="work_order_type_a" model="atmsys.work_order.type">
+            <field name="name">A</field>
+        </record>
+
+        <record id="work_order_type_p" model="atmsys.work_order.type">
+            <field name="name">P</field>
+        </record>
+
+        <record id="work_order_type_ac" model="atmsys.work_order.type">
+            <field name="name">AC</field>
+        </record>
+
+        <record id="work_order_type_ap" model="atmsys.work_order.type">
+            <field name="name">AP</field>
+        </record>
+
+        <record id="work_order_type_pc" model="atmsys.work_order.type">
+            <field name="name">PC</field>
+        </record>
+
+        <record id="work_order_type_ai" model="atmsys.work_order.type">
+            <field name="name">AI</field>
+        </record>
+
+        <record id="work_order_type_pi" model="atmsys.work_order.type">
+            <field name="name">PI</field>
+        </record>
+
+        <record id="work_order_type_t" model="atmsys.work_order.type">
+            <field name="name">T</field>
+        </record>
+
+        <record id="work_order_type_i" model="atmsys.work_order.type">
+            <field name="name">I</field>
+        </record>
+	</data>
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="web_community.FormStatusIndicator" t-inherit="web.FormStatusIndicator" t-inherit-mode="primary">
+        <!-- Form Button Container -->
+        <xpath expr="//div[hasclass('o_form_status_indicator_buttons')]" position="attributes">
+            <attribute name="class">o_form_status_indicator_buttons d-flex gap-1</attribute>
+        </xpath>
+        
+        <!-- Form Button Save -->
+        <xpath expr="//button[contains(@class, 'o_form_button_save')]" position="attributes">
+            <attribute name="class">o_form_button_save btn btn-primary</attribute>
+        </xpath>
+        <xpath expr="//button[contains(@class, 'o_form_button_save')]/i" position="replace">
+            <span><i class="fa fa-cloud-upload fa-fw"/> Guardar</span>
+        </xpath>
+
+        <!-- Form Button Cancel -->
+        <xpath expr="//button[contains(@class, 'o_form_button_cancel')]" position="attributes">
+            <attribute name="class">o_form_button_cancel btn btn-secondary</attribute>
+        </xpath>
+        <xpath expr="//button[contains(@class, 'o_form_button_cancel')]/i" position="replace">
+            <span><i class="fa fa-undo fa-fw"/> Descartar</span>
+        </xpath>
+    </t>
+</templates>

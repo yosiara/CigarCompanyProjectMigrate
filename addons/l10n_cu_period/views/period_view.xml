@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+	<record id="view_l10n_cu_period_period_form" model="ir.ui.view">
+	    <field name="name">l10n_cu_period.period.form</field>
+	    <field name="model">l10n_cu_period.period</field>
+	    <field name="arch" type="xml">
+	        <form string="Period">
+				 <header>
+					<button name="button_open" type="object" states='draft' string="Open" class="oe_highlight" />
+					<button name="button_close" type="object" states='open' string="Close" class="oe_highlight" />
+					<button name="button_reset_draft" type="object" states='closed' string="Reset to draft"  />
+					<field name="state" widget="statusbar" statusbar_visible="draft,open,closed" />
+				</header>
+	            <sheet>
+	                <group col="4">
+	                    <field name="name" widget="mask_regex" data-inputmask-regex="([A-Za-z0-9- /ÁÉÓÍÚÑáéóíúñ]{1,32})"/>
+	                    <field name="annual"/>
+                      	<field name="date_start"/>
+                      	<field name="date_stop"/>
+	                </group>
+	            </sheet>
+	        </form>
+	    </field>
+	</record>
+
+	<record id="view_l10n_cu_period_period_tree" model="ir.ui.view">
+	    <field name="name">l10n_cu_period.period.tree</field>
+	    <field name="model">l10n_cu_period.period</field>
+	    <field name="arch" type="xml">
+	        <tree string="Periods">
+	            <field name="name" />
+             	<field name="annual"/>
+              	<field name="date_start"/>
+              	<field name="date_stop"/>
+              	<field name="state"/>
+	        </tree>
+	    </field>
+	</record>
+
+	<record id="action_l10n_cu_period_period_view_tree" model="ir.actions.act_window">
+		<field name="name">Periods</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">l10n_cu_period.period</field>
+	</record>
+
+	<menuitem id="l10n_cu_period_period_view_tree_menu" action="action_l10n_cu_period_period_view_tree" parent="base.menu_administration" sequence="11"/>
+
+
+
+    </data>
+</odoo>

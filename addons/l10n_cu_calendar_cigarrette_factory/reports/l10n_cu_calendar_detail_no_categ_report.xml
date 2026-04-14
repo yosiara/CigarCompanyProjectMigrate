@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="l10n_cu_calendar.report_detail_no_categ_report">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <p align="center">
+                                <b>PROPUESTA DE ACTIVIDADES QUE SE PUNTUALIZAN PARA EL MES DE <span t-esc="o['period']"/></b>
+                            </p>
+                            <p align="center">
+                                <b>ORGANIZACION: <span t-esc="o['name']"/></b>
+                            </p>
+
+                            <br/>
+
+                            <table width="100%" cellpadding="4" cellspacing="0">
+                                <tr valign="middle" style="border-top: 1px solid #000000">
+                                    <td width="5%"
+                                        style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none">
+                                        <p align="center">
+                                            <b>No</b>
+                                        </p>
+                                    </td>
+                                    <td width="40%"
+                                        style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none">
+                                        <p align="center">
+                                            <b>Actividades (Lugar)</b>
+                                        </p>
+                                    </td>
+                                    <td width="12%"
+                                        style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none">
+                                        <p align="center">
+                                            <b>Fecha y hora planificada</b>
+                                        </p>
+                                    </td>
+                                    <td width="12%"
+                                        style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none">
+                                        <p align="center">
+                                            <b>Fecha y hora puntualizada</b>
+                                        </p>
+                                    </td>
+                                    <td width="15%"
+                                        style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none">
+                                        <p align="center">
+                                            <b>Dirigente</b>
+                                        </p>
+                                    </td>
+                                    <td width="16%"
+                                        style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;">
+                                        <p align="center">
+                                            <b>Participantes</b>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <t t-if="o['modified_task_list']">
+                                    <table width="100%" cellpadding="4" cellspacing="0">
+                                        <t t-set="i" t-value="0"/>
+                                        <t t-foreach="o['modified_task_list']" t-as="task">
+                                            <t t-set="i" t-value="i + 1"/>
+                                            <tr valign="top">
+                                                <td width="5%"
+                                                    style="border:1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+                                                    <p align="center">
+                                                        <span t-esc="i"/>
+                                                    </p>
+                                                </td>
+                                                <td width="40%"
+                                                    style="border:1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+                                                    <p align="left">
+                                                        <span t-esc="task['name']"/>
+                                                        <span t-if="task['local']">
+                                                            , <span t-esc="task['local']"/>
+                                                        </span>
+                                                    </p>
+                                                </td>
+                                                <td width="12%"
+                                                    style="border:1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+                                                    <p align="center">
+                                                        <span t-esc="task['date']"/>
+                                                    </p>
+                                                </td>
+                                                <td width="12%"
+                                                    style="border:1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+                                                    <p align="center">
+                                                        <span t-esc="task['new_date']"/>
+                                                    </p>
+                                                </td>
+                                                <td width="15%"
+                                                    style="border:1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+                                                    <p align="center">
+                                                        <span t-esc="task['directed_for']"/>
+                                                    </p>
+                                                </td>
+                                                <td width="16%"
+                                                    style="border:1px solid #000000; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+                                                    <p align="center">
+                                                        <span t-esc="task['participants_char']"/>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </t>
+
+                            <p style="margin-bottom: 0in">
+                                <br/>
+                            </p>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

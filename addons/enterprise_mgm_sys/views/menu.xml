@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <menuitem sequence="" name="Enterprise management system" id="enterprise_mgm_sys_root_menu" web_icon="enterprise_mgm_sys,static/src/img/logo.png"/>
+       <menuitem sequence="99" name="Configuration" id="enterprise_mgm_sys_configuration_root_menu" parent="enterprise_mgm_sys_root_menu"/>
+
+    </data>
+</odoo>

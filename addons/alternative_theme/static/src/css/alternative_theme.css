@@ -1,0 +1,84 @@
+.o_sub_menu {
+    background: #424F59;
+    border-right: 1px solid #424f59;
+    text-shadow: none;
+}
+
+.o_web_client > .o_main .o_sub_menu .o_sub_menu_content .oe_secondary_menu_section {
+    font-weight: bold;
+    margin-left: 8px;
+    color: #cbcbcf;
+}
+
+.o_web_client > .o_main .o_sub_menu .o_sub_menu_content .oe_secondary_submenu > li:not(.active) > a {
+    color: #ada9a9 !important;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #6f7478;
+}
+
+.o_web_client .nav-pills > li.active > a,
+.o_web_client a.list-group-item.active > a {
+    background-color: #717175;
+    border-left: 3px sandybrown solid;
+    border-right: 3px sandybrown solid;
+    padding-left: 15px !important;
+    font-weight: bold;
+    color: white;
+    border-radius: 0;
+}
+
+.o_web_client .oe_secondary_menu_section {
+    font-weight: bold;
+    margin-left: 8px;
+    color: #959599;
+}
+
+.o_web_client .nav-pills li > a {
+    color: #babbbc;
+    border-radius: 0;
+}
+
+.o_web_client .oe_view_manager_current > .oe_view_manager_header {
+    border-bottom: 1px solid #cacaca;
+    background-color: none;
+}
+
+#oe_main_menu_navbar li a, #oe_main_menu_navbar li button {
+    padding: 8px 8px 8px 8px;
+    margin-top: 2px;
+    font-size: 13px;
+}
+
+#oe_main_menu_navbar {
+    min-height: 40px;
+    z-index: 1001;
+    border-radius: 0;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #6F7478;
+}
+
+.oe_menu_leaf {
+    color: #cbcbcf !important;
+}
+
+.o_web_client > .o_main .o_sub_menu .o_sub_menu_content .oe_secondary_submenu .oe_menu_toggler::before {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    content: "&darr";
+    opacity: 0.5;
+    text-indent: -99999px;
+    vertical-align: top;
+    margin-left: -12px;
+    margin-top: 4px;
+    margin-right: 4px;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid #cbcbcf;
+}

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="process_control_primary_interrupciones_view_search" model="ir.ui.view">
+            <field name="name">Control primary model search view</field>
+            <field name="model">process_control_primary.tecnolog_control_model</field>
+            <field name="arch" type="xml">
+                <search string="Modelo de control">
+                    <field name="date"/>
+                    <field name="productive_line"/>
+                    <field name="turn"/>
+                    <filter name="group_year" string="Por año"
+                            context="{'group_by': 'year_char'}"
+                    />
+                    <filter name="group_date1" string="Por fecha"
+                            context="{'group_by': 'date'}"
+                    />
+                    <filter name="group_day" string="Por día"
+                            context="{'group_by': 'day_char'}"
+                    />
+                    <filter name="group_line" string="Por linea productiva"
+                        context="{'group_by': 'productive_line'}"
+                    />
+                </search>
+            </field>
+        </record>
+
+        <act_window id="process_control_primary_interruptiones_action"
+                    name="Control Tecnológico Taller Primario"
+                    res_model="process_control_primary.tecnolog_control_model"
+                    view_mode="tree,form"
+                    context="{'search_default_group_year': 1, 'search_default_group_date1': 1, 'search_default_group_day': 1}"
+        />
+
+        <menuitem id="process_control_primary_interruptiones_menu"
+                  name="Ingreso Inter/producción"
+                  parent="process_control_primary_control_tec"
+                  action="process_control_primary_interruptiones_action"
+                  sequence="10"
+        />
+
+        <record id="process_control_primary_interrupciones_view_tree" model="ir.ui.view">
+            <field name="name">process_control_primary_interrupciones_view_tree</field>
+            <field name="model">process_control_primary.tecnolog_control_model</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year_char" invisible="1"/>
+                    <field name="day_char" invisible="1"/>
+                    <field name="date"/>
+                    <field name="productive_line"/>
+                    <field name="turn"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="process_control_primary_interrupciones_view_form" model="ir.ui.view">
+            <field name="name">process_control_primary_interrupciones_view_form</field>
+            <field name="model">process_control_primary.tecnolog_control_model</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="productive_line"/>
+                            </group>
+                            <group>
+                                <field name="turn" options="{'no_create_edit': True}"/>
+
+                            </group>
+                            <group>
+                                <field name="attendance_id" domain="[('calendar_id', '=', turn)]"
+                                       options="{'no_create_edit': True}"/>
+                            </group>
+                            <group>
+                                <field name="productive_capacity"/>
+                            </group>
+                            <group>
+                                <field name="plan_time"/>
+                            </group>
+                            <group>
+                                <field name="execution_time"/>
+                            </group>
+                            <group>
+                               <label for="production_in_production_system" string="Pesaje Final" attrs="{'invisible': [('productive_line', '=', 1)]}"/>
+                                <field name="production_in_production_system" nolabel="1"/>
+                                <label for="production_in_production_system" string="Repeso" attrs="{'invisible': [('productive_line', '!=', 1)]}"/>
+
+                            </group>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Interrupciones">
+                                    <field name="interruptions">
+                                        <tree editable="bottom">
+                                            <field name="productive_line_id" domain="[('id', '=', parent.productive_line)]" options="{'no_create_edit': True}"/>
+                                            <field name="machine_type_id"/>
+                                            <field name="interruption_type"/>
+                                            <field name="time" widget="xls_formula"/>
+                                            <field name="frequency" widget="xls_formula"/>
+                                        </tree>
+                                    </field>
+                                </page>
+
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

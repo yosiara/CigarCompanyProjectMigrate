@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.process_control_time_use_to_excel"
+                model="process_control.interruption"
+                string="Rep. Utilización del tiempo"
+                report_type="xlsx"
+                name="process_control.time_use_to_excel_report"
+                file="process_control.time_use_to_excel_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

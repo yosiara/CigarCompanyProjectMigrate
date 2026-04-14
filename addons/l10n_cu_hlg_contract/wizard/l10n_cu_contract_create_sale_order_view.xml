@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="contract_create_sale_order_view_form" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.create_sale_order</field>
+            <field name="model">l10n_cu_contract.create_sale_order</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Create">
+                    <separator string="Wizard to print create sale order"/>
+                    <footer>
+                        <div>
+                            <button name="create_sale_order" string="Create Sale Order" type="object"
+                                    class="oe_highlight"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_contract_create_sale_order" model="ir.actions.act_window">
+            <field name="name">Create Sale Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.create_sale_order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">{}</field>
+        </record>
+
+
+        <!--<menuitem name="Create Sale Order" id="menu_report_contract_create_sale_order" parent="menu_contract_report"-->
+                  <!--sequence="3" action="action_contract_create_sale_order" groups="group_contract_manager"/>-->
+
+
+
+    </data>
+</openerp>

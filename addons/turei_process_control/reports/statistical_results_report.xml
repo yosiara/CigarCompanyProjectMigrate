@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_process_control_statistical_results_to_excel"
+                model="wzd.statistical.results.to.excel"
+                string="Rep. Resultados Estadisticos"
+                report_type="xlsx"
+                name="turei_process_control.statistical_results_report"
+                file="turei_process_control.statistical_results_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

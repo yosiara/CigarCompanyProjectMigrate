@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="wzd_retired_person_reports" model="ir.ui.view">
+            <field name="name">turei_retired_person.wzd_retired_person_reports</field>
+            <field name="model">turei_retired_person.wzd_retired_person_reports</field>
+            <field name="arch" type="xml">
+                <form string="Retired Person Reports">
+                    <sheet>
+                        <group col="2">
+                           <field name="reports" widget="radio" colspan="2"/>
+                        </group>
+
+                        <!-- Retired Person reports -->
+                        <group attrs="{'invisible':[('reports','!=', 'retired')]}">
+                            <group name="left">
+                                <field name="retired_person_filter" attrs="{'required':[('reports','=', 'retired')]}"/>
+                            </group>
+                            <group name="right">
+                                <field name="retired_year"
+                                   attrs="{'invisible':[('retired_person_filter','!=', 'retired_year')],
+                                           'required': [('reports','=', 'retired'), ('retired_person_filter','=', 'retired_year')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="birth_month"
+                                   attrs="{'invisible':[('retired_person_filter','!=', 'birth_month')],
+                                           'required': [('reports','=', 'retired'), ('retired_person_filter','=', 'birth_month')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="retired_gender"
+                                   attrs="{'invisible':[('retired_person_filter','!=', 'gender')],
+                                           'required': [('reports','=', 'retired'), ('retired_person_filter','=', 'gender')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="ueb_id"
+                                   attrs="{'invisible':[('retired_person_filter','!=', 'ueb')],
+                                           'required': [('reports','=', 'retired'), ('retired_person_filter','=', 'ueb')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="job_id"
+                                   attrs="{'invisible':[('retired_person_filter','!=', 'job')],
+                                           'required': [('reports','=', 'retired'), ('retired_person_filter','=', 'job')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="degree_id"
+                                   attrs="{'invisible':[('retired_person_filter','!=', 'degree')],
+                                           'required': [('reports','=', 'retired'), ('retired_person_filter','=', 'degree')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+
+                            </group>
+                        </group>
+
+                        <group attrs="{'invisible':[('reports','!=', 'article')]}">
+                            <group name="left">
+                                <field name="retired_article_filter" attrs="{'required':[('reports','=', 'article')]}"/>
+                            </group>
+                            <group name="right">
+                                <field name="year"
+                                   attrs="{'invisible':[('retired_article_filter','!=', 'year')],
+                                           'required': [('reports','=', 'article'), ('retired_article_filter','=', 'year')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="article_id"
+                                   attrs="{'invisible':[('retired_article_filter','!=', 'article')],
+                                           'required': [('reports','=', 'article'),('retired_article_filter','=', 'article')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="article_type_id"
+                                   attrs="{'invisible':[('retired_article_filter','!=', 'article_type')],
+                                           'required': [('reports','=', 'article'),('retired_article_filter','=', 'article_type')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+
+                            </group>
+                        </group>
+
+                        <group attrs="{'invisible':[('reports','!=', 'employee')]}">
+                            <group name="left">
+                                <field name="employee_filter" attrs="{'required':[('reports','=', 'employee')]}"/>
+                            </group>
+                            <group name="right">
+                                <field name="arrival_year"
+                                   attrs="{'invisible':[('employee_filter','!=', 'year')],
+                                           'required': [('reports','=', 'employee'), ('employee_filter','=', 'year')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="start_year"
+                                   attrs="{'invisible':[('employee_filter','!=', 'period')],
+                                           'required': [('reports','=', 'employee'), ('employee_filter','=', 'period')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="end_year"
+                                   attrs="{'invisible':[('employee_filter','!=', 'period')],
+                                           'required': [('reports','=', 'employee'), ('employee_filter','=', 'period')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            </group>
+                        </group>
+
+                        <group attrs="{'invisible':[('reports','!=', 'dead')]}">
+                            <group name="left">
+                                <field name="dead_filter" attrs="{'required':[('reports','=', 'dead')]}"/>
+                            </group>
+                            <group name="right">
+                                <field name="dead_year"
+                                   attrs="{'invisible':[('dead_filter','!=', 'year')],
+                                           'required': [('reports','=', 'dead'), ('dead_filter','=', 'year')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="start_dead_year"
+                                   attrs="{'invisible':[('dead_filter','!=', 'period')],
+                                           'required': [('reports','=', 'dead'), ('dead_filter','=', 'period')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="end_dead_year"
+                                   attrs="{'invisible':[('dead_filter','!=', 'period')],
+                                           'required': [('reports','=', 'dead'), ('dead_filter','=', 'period')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            </group>
+                        </group>
+
+                        <footer>
+                            <div>
+                                <button name="print_retired_person_reports" icon="fa-lg fa-save" string="Print Report" type="object"
+                                        class="oe_highlight"/>
+
+                                <button special="cancel" string="Cancel" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_retired_person_reports_act_window" model="ir.actions.act_window">
+            <field name="name">Retired Person Reports</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">turei_retired_person.wzd_retired_person_reports</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_retired_person_reports_act_window"
+                  id="menu_wzd_retired_person_reports" parent="turei_retired_person.menu_retired_person_reports" sequence="4"/>
+
+    </data>
+</odoo>

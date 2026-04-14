@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="computers_inventory_configuration" model="computers_inventory.configuration">
+            <field name="send_notification">False</field>
+            <field name="email">info@yourcompany.com</field>
+            <field name="message"><![CDATA[<p>Create...</p>]]></field>
+        </record>
+
+        <record id="computer_inventory_template_security_incident" model="mail.template">
+            <field name="name">Computer Inventory: Security Incident</field>
+            <field name="subject">New Security Incident</field>
+            <field name="email_from">${ctx['email_from']}</field>
+            <field name="model_id" ref="model_computers_inventory_security_incident"/>
+            <field name="email_to">${ctx['email_to']}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;background: #FFFFFF repeat top /100%;color:#777777">
+<h2><b>New Security Incident</b></h2>
+<span style="font-weight: bold;">Code : </span><span>${object.id_code}</span><br/>
+<span style="font-weight: bold;">Detection date : </span><span>${object.detection_date}</span><br/>
+<span style="font-weight: bold;">Equipment : </span><span>${object.equipment_id.name}</span><br/>
+<span style="font-weight: bold;">Person who detects : </span><span>${object.detector.name}</span><br/>
+<span style="font-weight: bold;">Incident detected : </span><span>${object.incident}</span><br/><br/>
+<p>Reciba un cordial saludo</p>
+</div>]]></field>
+        </record>
+        <record id="computer_inventory_template_secure_deletion" model="mail.template">
+            <field name="name">Computer Inventory: Secure Deletion Requested</field>
+            <field name="subject">Secure Deletion Requested</field>
+            <field name="email_from">${ctx['email_from']}</field>
+            <field name="model_id" ref="model_computers_inventory_secure_deletion"/>
+            <field name="email_to">${ctx['email_to']}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;background: #FFFFFF repeat top /100%;color:#777777">
+<h2><b>Secure Deletion Requested</b></h2>
+<span style="font-weight: bold;">Resource : </span><span>${object.resource_id.name}</span><br/>
+<span style="font-weight: bold;">Department : </span><span>${object.department_id.name}</span><br/>
+<span style="font-weight: bold;">Capacity : </span><span>${object.capacity}</span><br/>
+<span style="font-weight: bold;">Executor : </span><span>${object.executor_id.name}</span><br/>
+<span style="font-weight: bold;">Erasing tool : </span><span>${object.erasing_tool}</span><br/><br/>
+<p>Reciba un cordial saludo</p>
+</div>]]></field>
+        </record>
+        <record id="computer_inventory_template_system_service_request" model="mail.template">
+            <field name="name">Computer Inventory: System/Service Application</field>
+            <field name="subject">System/Service Requested</field>
+            <field name="email_from">${ctx['email_from']}</field>
+            <field name="model_id" ref="model_computers_inventory_system_service_application"/>
+            <field name="email_to">${ctx['email_to']}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;background: #FFFFFF repeat top /100%;color:#777777">
+<h2><b>System/Service Requested</b></h2>
+<span style="font-weight: bold;">Name : </span><span>${object.name}</span><br/>
+<span style="font-weight: bold;">Applicant : </span><span>${object.applicant_id.name}</span><br/>
+<span style="font-weight: bold;">Benefited : </span><span>${object.benefited_id.name}</span><br/>
+<span style="font-weight: bold;">Type : </span><span>${object.type}</span><br/>
+<span style="font-weight: bold;">Systems : </span><span>${object.system_string()}</span><br/>
+<span style="font-weight: bold;">Services : </span><span>${object.services_string()}</span><br/><br/>
+<p>Reciba un cordial saludo</p>
+</div>]]></field>
+        </record>
+        <record id="computer_inventory_template_secure_deletion_executed" model="mail.template">
+            <field name="name">Computer Inventory: Secure Deletion Executed</field>
+            <field name="subject">Secure Deletion Executed</field>
+            <field name="email_from">${ctx['email_from']}</field>
+            <field name="model_id" ref="model_computers_inventory_secure_deletion"/>
+            <field name="email_to">${ctx['email_to']}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+<div style="padding:0px;width:600px;background: #FFFFFF repeat top /100%;color:#777777">
+<h2><b>Secure Deletion Executed</b></h2>
+<span style="font-weight: bold;">Resource : </span><span>${object.resource_id.name}</span><br/>
+<span style="font-weight: bold;">Department : </span><span>${object.department_id.name}</span><br/>
+<span style="font-weight: bold;">Capacity : </span><span>${object.capacity}</span><br/>
+<span style="font-weight: bold;">Executor : </span><span>${object.executor_id.name}</span><br/>
+<span style="font-weight: bold;">Erasing tool : </span><span>${object.erasing_tool}</span><br/><br/>
+<p>Reciba un cordial saludo</p>
+</div>]]></field>
+        </record>
+    </data>
+</odoo>

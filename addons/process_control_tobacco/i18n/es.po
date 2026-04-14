@@ -1,0 +1,668 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* process_control_primary
+# 	* turei_web_login
+# 	* turei_backend_theme
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-05 12:10+0000\n"
+"PO-Revision-Date: 2017-09-05 07:34-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:92
+#, python-format
+msgid ""
+"%\n"
+"                Implementation"
+msgstr ""
+"%\n"
+"                Implementación"
+
+#. module: turei_web_login
+#: model:ir.ui.view,arch_db:turei_web_login.login_layout
+msgid "<b>TUREI CONTROL DE PROCES0</b>"
+msgstr "<b>TUREI CONTROL DE PROCES0</b>"
+
+#. module: turei_backend_theme
+#: model:ir.ui.view,arch_db:turei_backend_theme.turei_backend_theme_menu
+msgid "<i class=\"fa fa-lg fa-chevron-left\" style=\"padding-right: 10px;\"/>Back"
+msgstr "<i class=\"fa fa-lg fa-chevron-left\" style=\"padding-right: 10px;\"/>Atras"
+
+#. module: turei_backend_theme
+#: model:ir.ui.view,arch_db:turei_backend_theme.turei_backend_theme_webclient_bootstrap
+msgid ""
+"<span class=\"sr-only\">Toggle navigation</span>\n"
+"                                <span class=\"icon-bar\"/>\n"
+"                                <span class=\"icon-bar\"/>\n"
+"                                <span class=\"icon-bar\"/>"
+msgstr ""
+"<span class=\"sr-only\">Navegación</span>\n"
+"                                <span class=\"icon-bar\"/>\n"
+"                                <span class=\"icon-bar\"/>\n"
+"                                <span class=\"icon-bar\"/>"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:22
+#, python-format
+msgid "Access Denied"
+msgstr "Access Denegado"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:18
+#, python-format
+msgid "Access Error"
+msgstr "Error de acceso"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:169
+#, python-format
+msgid "Activate the developer mode"
+msgstr "Activar el modo desarrollador"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:171
+#, python-format
+msgid "Activate the developer mode (with assets)"
+msgstr "Activar el modo desarrollador (con recursos)"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:58
+#, python-format
+msgid "Active User"
+msgstr "Usuario Activo"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:59
+#, python-format
+msgid "Active Users"
+msgstr "Usuarios Activos"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/framework/custom_dialog.js:172
+#, python-format
+msgid "Alert"
+msgstr "Alerta"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:44
+#, python-format
+msgid "App store"
+msgstr "Tienda"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_apps.js:198
+#, python-format
+msgid "Apps will be available soon"
+msgstr "La aplicación estará disponible pronto."
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:41
+#, python-format
+msgid "Browse Apps"
+msgstr "Buscar Apps"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:104
+#, python-format
+msgid "Browse the documentation."
+msgstr "Buscar la documentación."
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:174
+#: code:addons/turei_backend_theme/static/src/js/framework/custom_dialog.js:186
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_abstract_web_client.js:128
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:127
+#, python-format
+msgid "Client Error"
+msgstr "Error en el cliente"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:133
+#, python-format
+msgid "Comparta con los amigos"
+msgstr "Comparta con los amigos"
+
+#. module: process_control_primary
+#: model:ir.ui.menu,name:process_control_primary.process_control_primary_settings_menu
+msgid "Configuración"
+msgstr "Configuración"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/framework/custom_dialog.js:197
+#, python-format
+msgid "Confirmation"
+msgstr "Confirmación"
+
+#. module: process_control_primary
+#: model:ir.model,name:process_control_primary.model_process_control_primary_machine_set_of_peaces
+msgid "Conjunto de piezas"
+msgstr "Conjunto de piezas"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_abstract_web_client.js:224
+#, python-format
+msgid "Connection lost"
+msgstr "Conexión Perdida"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_abstract_web_client.js:233
+#, python-format
+msgid "Connection restored"
+msgstr "Conexión restablecida"
+
+#. module: process_control_primary
+#: model:ir.ui.menu,name:process_control_primary.menu_proccess_control
+msgid "Control de proceso"
+msgstr "Control de proceso"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:158
+#, python-format
+msgid "Copyright © 2004-2017"
+msgstr "Copyright © 2004-2017"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_create_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_create_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_nomenclature_create_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_type_create_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_line_create_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_create_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_lines_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_create_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_create_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_nomenclature_create_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_type_create_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_line_create_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_create_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_lines_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:173
+#, python-format
+msgid "Deactivate the developer mode"
+msgstr "Desactivar el modo desarrollador"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_resource_calendar_description
+msgid "Descripción"
+msgstr "Descripción"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:150
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:158
+#, python-format
+msgid "Desoft."
+msgstr "Desoft."
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_display_name
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_display_name
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_nomenclature_display_name
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_type_display_name
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_line_display_name
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_display_name
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_lines_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:135
+#, python-format
+msgid "El grupo turei S.A también puede ser útil para sus amigos!"
+msgstr "El grupo turei S.A también puede ser útil para sus amigos!"
+
+#. module: process_control_primary
+#: sql_constraint:process_control_primary.productive_line:0
+msgid "El nombre de la línea productiva debe ser único."
+msgstr "El nombre de la línea productiva debe ser único."
+
+#. module: process_control_primary
+#: sql_constraint:process_control_primary.productive_section:0
+msgid "El nombre de la sección productiva debe ser único."
+msgstr "El nombre de la sección productiva debe ser único."
+
+#. module: process_control_primary
+#: sql_constraint:resource.calendar:0
+msgid "El turno de trabajo ya existe."
+msgstr "El turno de trabajo ya existe."
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:68
+#, python-format
+msgid "Enter e-mail addresses (one per line)"
+msgstr "Escriba dirección email(una por línea)"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:96
+#, python-format
+msgid "Follow these implementation guides to get the most out of Odoo."
+msgstr "Siga la guía de implementació. Para obtener el máximo de Odoo."
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:184
+#, python-format
+msgid "Get more features with the Enterprise Edition!"
+msgstr "Get more features with the Enterprise Edition!"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:21
+#, python-format
+msgid "Global Business Error"
+msgstr "Global Business Error"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_id
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_id
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_nomenclature_id
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_type_id
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_line_id
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_id
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_lines_id
+msgid "ID"
+msgstr "ID"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:33
+#, python-format
+msgid "Installed App"
+msgstr "Installed App"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:34
+#, python-format
+msgid "Installed Apps"
+msgstr "Installed Apps"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:69
+#, python-format
+msgid "Invite"
+msgstr "Invite"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:67
+#, python-format
+msgid "Invite new users:"
+msgstr "Invite new users:"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine___last_update
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces___last_update
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_nomenclature___last_update
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_type___last_update
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_line___last_update
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section___last_update
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_lines___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_nomenclature_write_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_write_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_type_write_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_write_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_line_write_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_lines_write_uid
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_nomenclature_write_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_write_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_type_write_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_write_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_line_write_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_lines_write_date
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: turei_web_login
+#: model:ir.ui.view,arch_db:turei_web_login.login
+msgid "Log in"
+msgstr "Iniciar Sesión"
+
+#. module: process_control_primary
+#: model:ir.model,name:process_control_primary.model_process_control_primary_productive_line
+msgid "Línea Productiva"
+msgstr "Línea Productiva"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_lines_productive_line
+msgid "Línea Produtiva"
+msgstr "Línea Produtiva"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_productive_line_id
+msgid "Línea productiva"
+msgstr "Línea productiva"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_productive_line_ids
+#: model:ir.ui.menu,name:process_control_primary.control_proc_productive_line_menu
+msgid "Líneas Productivas"
+msgstr "Líneas Productivas"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:63
+#, python-format
+msgid "Manage access rights"
+msgstr "Manage access rights"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:19
+#, python-format
+msgid "Missing Record"
+msgstr "Missing Record"
+
+#. module: turei_backend_theme
+#: model:ir.ui.view,arch_db:turei_backend_theme.turei_backend_theme_menu
+msgid ""
+"More\n"
+"                                    <b class=\"caret\"/>"
+msgstr ""
+"More\n"
+"                                    <b class=\"caret\"/>"
+
+#. module: turei_backend_theme
+#: model:ir.ui.view,arch_db:turei_backend_theme.turei_backend_theme_menu_secondary
+msgid ""
+"More\n"
+"                                <b class=\"caret\"/>"
+msgstr ""
+"More\n"
+"                                <b class=\"caret\"/>"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_machine_id
+msgid "Máquina"
+msgstr "Máquina"
+
+#. module: process_control_primary
+#: model:ir.actions.act_window,name:process_control_primary.control_proc_machine_action
+#: model:ir.model,name:process_control_primary.model_process_control_primary_machine
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_line_machine_ids
+#: model:ir.ui.menu,name:process_control_primary.control_proc_machine_menu
+msgid "Máquinas"
+msgstr "Máquinas"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:103
+#, python-format
+msgid "Need more help?"
+msgstr "Need more help?"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:36
+#, python-format
+msgid "No app installed"
+msgstr "No app installed"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_name
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_name_id
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_line_name
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_name
+msgid "Nombre"
+msgstr "Nombre"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces_nomenclature_name
+msgid "Nombre del conjunto"
+msgstr "Nombre del conjunto"
+
+#. module: process_control_primary
+#: model:ir.model,name:process_control_primary.model_process_control_primary_machine_set_of_peaces_nomenclature
+msgid "Nombres de conjunto de piezas"
+msgstr "Nombres de conjunto de piezas"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:183
+#, python-format
+msgid "Odoo Enterprise"
+msgstr "Odoo Enterprise"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/framework/custom_dialog.js:44
+#: code:addons/turei_backend_theme/static/src/js/framework/custom_dialog.js:162
+#: code:addons/turei_backend_theme/static/src/js/framework/custom_dialog.js:180
+#, python-format
+msgid "Ok"
+msgstr "Ok"
+
+#. module: turei_web_login
+#: model:ir.ui.view,arch_db:turei_web_login.login
+msgid "Password..."
+msgstr "Password..."
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:75
+#, python-format
+msgid "Pending invitations:"
+msgstr "Pending invitations:"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_dashboard.js:111
+#, python-format
+msgid "Please provide valid email addresses"
+msgstr "Please provide valid email addresses"
+
+#. module: process_control_primary
+#: model:ir.actions.act_window,name:process_control_primary.control_proc_productive_line_action
+msgid "Productive Line"
+msgstr "Productive Line"
+
+#. module: process_control_primary
+#: model:ir.model,name:process_control_primary.model_resource_calendar
+msgid "Resource Calendar"
+msgstr "Calendario recurso"
+
+#. module: process_control_primary
+#: model:ir.ui.view,arch_db:process_control_primary.resource_calendar_form
+msgid "Responsible"
+msgstr "Responsible"
+
+#. module: process_control_primary
+#: model:ir.ui.view,arch_db:process_control_primary.resource_calendar_search
+msgid "Search Working Time"
+msgstr "Buscar horario de trabajo"
+
+#. module: process_control_primary
+#: model:ir.model,name:process_control_primary.model_process_control_primary_productive_section
+msgid "Sección Productiva"
+msgstr "Sección Productiva"
+
+#. module: process_control_primary
+#: model:ir.actions.act_window,name:process_control_primary.process_control_primary_productive_section_action
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_productive_section_lines_productive_section_id
+#: model:ir.ui.menu,name:process_control_primary.process_control_primary_productive_section_menu
+msgid "Sección productiva"
+msgstr "Sección productiva"
+
+#. module: turei_web_login
+#: model:ir.ui.view,arch_db:turei_web_login.login
+msgid ""
+"Select\n"
+"                                <i class=\"fa fa-database\"/>"
+msgstr ""
+"Seleccionar\n"
+"                                <i class=\"fa fa-database\"/>"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_apps.js:198
+#, python-format
+msgid "Showing locally available modules"
+msgstr "Showing locally available modules"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_set_of_peaces
+msgid "Subconjuntos de piezas"
+msgstr "Subconjuntos de piezas"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:45
+#, python-format
+msgid "Theme store"
+msgstr "Tienda de temas."
+
+#. module: process_control_primary
+#: model:ir.model,name:process_control_primary.model_process_control_primary_machine_type
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_type_name
+msgid "Tipo de Máquina"
+msgstr "Tipo de Máquina"
+
+#. module: process_control_primary
+#: model:ir.model.fields,field_description:process_control_primary.field_process_control_primary_machine_machine_type_id
+msgid "Tipo de máquina"
+msgstr "Tipo de máquina"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_abstract_web_client.js:130
+#, python-format
+msgid "Traceback:"
+msgstr "Traceback:"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_abstract_web_client.js:225
+#, python-format
+msgid "Trying to reconnect..."
+msgstr "Intentando reconectar..."
+
+#. module: process_control_primary
+#: model:ir.ui.view,arch_db:process_control_primary.resource_calendar_search
+msgid "Turno de trabajo"
+msgstr "Turno de trabajo"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:187
+#, python-format
+msgid "Upgrade Now"
+msgstr "Actualizar ahora"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:20
+#, python-format
+msgid "Validation Error"
+msgstr "Error de Validación"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:16
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:17
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:111
+#, python-format
+msgid "Warning"
+msgstr "Alerta"
+
+#. module: process_control_primary
+#: model:ir.ui.menu,name:process_control_primary.menu_turei_resource_calendar
+msgid "Working Time"
+msgstr "Horario de trabajo"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_abstract_web_client.js:234
+#, python-format
+msgid "You are back online"
+msgstr "Ya estas online"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:111
+#, python-format
+msgid "You need to install some apps first."
+msgstr "You need to install some apps first."
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/custom_crash_manager.js:61
+#, python-format
+msgid "Your turei session expired. Please refresh the current web page."
+msgstr "La session a expirado. Por favor actualize la página."
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/xml/dashboard.xml:81
+#, python-format
+msgid "more"
+msgstr "mas"
+
+#. module: turei_backend_theme
+#. openerp-web
+#: code:addons/turei_backend_theme/static/src/js/framework/custom_dialog.js:40
+#, python-format
+msgid "turei"
+msgstr "turei"
+
+#. module: process_control_primary
+#: model:ir.model,name:process_control_primary.model_process_control_primary_productive_section_lines
+msgid "process_control_primary.productive_section_lines"
+msgstr "process_control_primary.productive_section_lines"

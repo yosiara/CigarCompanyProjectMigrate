@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="action_leaves" model="ir.actions.act_window">
+            <field name="name">Leaves</field>
+            <field name="res_model">resource.calendar.leaves</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_calendar_id': [active_id], 'default_calendar_id': active_id}</field>
+            <field name="domain">[('calendar_id','=',active_id)]</field>
+        </record>
+
+        <record id="resource_calendar_form" model="ir.ui.view">
+            <field name="name">resource.calendar.form</field>
+            <field name="model">resource.calendar</field>
+            <field name="inherit_id" ref="resource.resource_calendar_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="leave_ids" context="{'default_calendar_id': id}" position="replace"/>
+                    <xpath expr="//sheet//group" position="before">
+                        <div class="oe_button_box" name="button_box">
+                            <field name="leave_ids" invisible="1"/>
+                            <button name="%(action_leaves)d"
+                                    type="action"
+                                    icon="fa-calendar"
+                                    class="oe_stat_button"
+                                    context="{'default_calendar_id': active_id}">
+                                <field string="Leaves" name="leave_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <separator/>
+                    </xpath>
+                    <field name="name" position="after">
+                        <field name="rotating_calendar" colspan="2"/>
+                        <field name="turn_process_control" colspan="2"/>
+                        <field name="initial_rotation" colspan="2"
+                               attrs="{'invisible': [('rotating_calendar', '!=', True)], 'required': [('rotating_calendar', '=', True)]}"/>
+                        <field name="calendar_date_from" colspan="2"
+                               attrs="{'invisible': [('rotating_calendar', '!=', True)], 'required': [('rotating_calendar', '=', True)]}"/>
+                        <field name="sgp_turn_id"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+
+        <record id="view_resource_calendar_attendance_tree" model="ir.ui.view">
+            <field name="name">resource.calendar.attendance.tree</field>
+            <field name="model">resource.calendar.attendance</field>
+            <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="name" position="before">
+                        <field name="rotation"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

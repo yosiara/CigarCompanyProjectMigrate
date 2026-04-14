@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		Job Salary Group
+		Model: l10n_cu_hlg_hr.salary_group
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="l10n_cu_hlg_hr_salary_group_form_view" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_hr_salary_group_form_view</field>
+            <field name="model">l10n_cu_hlg_hr.salary_group</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="4">
+                            <field name="salary_scale_id"/>
+                            <field name="occupational_category_id"/>
+                            <field name="scale_salary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="l10n_cu_hlg_hr_salary_group_tree_view" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_hr_salary_group_tree_view</field>
+            <field name="model">l10n_cu_hlg_hr.salary_group</field>
+            <field name="arch" type="xml">
+                <tree string="Salary groups">
+                    <field name="salary_scale_id"/>
+                    <field name="occupational_category_id"/>
+                    <field name="scale_salary"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="l10n_cu_hlg_hr_salary_group_action" model="ir.actions.act_window">
+            <field name="name">Salary Groups</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_hlg_hr.salary_group</field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Salary Groups"
+                  id="l10n_cu_hlg_hr_salary_group_menu_item"
+                  action="l10n_cu_hlg_hr_salary_group_action"
+                  parent="l10n_cu_hr_desoft_staff_menu"
+                  groups="hr.group_hr_user"
+                  sequence="50"/>
+
+        <!-- ======================================================================================
+		Salary Scale
+		Model: l10n_cu_hlg_hr.salary_scale
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="l10n_cu_hlg_hr_salary_scale_form_view" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_hr_salary_scale_form_view</field>
+            <field name="model">l10n_cu_hlg_hr.salary_scale</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_hlg_hr_salary_scale_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_hr_salary_scale.tree</field>
+            <field name="model">l10n_cu_hlg_hr.salary_scale</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="l10n_cu_hlg_hr_salary_scale_action" model="ir.actions.act_window">
+            <field name="name">Salary Scales</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_hlg_hr.salary_scale</field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Salary Scales"
+                  id="l10n_cu_hlg_hr_salary_scale_menu_item"
+                  action="l10n_cu_hlg_hr_salary_scale_action"
+                  parent="l10n_cu_hr_desoft_staff_menu"
+                  groups="hr.group_hr_user"
+                  sequence="50"/>
+    </data>
+</odoo>

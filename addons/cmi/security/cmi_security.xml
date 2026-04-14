@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="cmi.indicator_manager" model="res.groups">
+            <field name="name">CMI Indicator Manager</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">In charge of some CMI indicator data.</field>
+        </record>
+        <record id="cmi.manager" model="res.groups">
+            <field name="name">CMI Responsible</field>
+            <field name="implied_ids" eval="[(4, ref('cmi.indicator_manager'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+            <field name="comment">In charge of CMI configurations.</field>
+        </record>
+    </data>
+    <data noupdate="0">
+        <record id="indicator_comp_rule" model="ir.rule">
+            <field name="name">Indicator multi-company</field>
+            <field name="model_id" ref="model_cmi_indicator"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+        <record id="dashboard_comp_rule" model="ir.rule">
+            <field name="name">Dashboard multi-company</field>
+            <field name="model_id" ref="model_cmi_dashboard"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+        <record id="perspective_comp_rule" model="ir.rule">
+            <field name="name">Perspective multi-company</field>
+            <field name="model_id" ref="model_cmi_perspective"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+        <record id="indicator_rule_cmi_manager" model="ir.rule">
+            <field name="name">Indicator cmi manager rule</field>
+            <field name="model_id" ref="model_cmi_indicator"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('cmi.manager'))]"/>
+        </record>
+        <record id="indicator_rule_responsible" model="ir.rule">
+            <field name="name">Indicator responsible rule</field>
+            <field name="model_id" ref="model_cmi_indicator"/>
+            <field name="domain_force">[('responsible_id','=',user.id)]</field>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4,ref('cmi.indicator_manager'))]"/>
+        </record>
+        <record id="indicator_line_rule_cmi_manager" model="ir.rule">
+            <field name="name">Indicator line cmi manager rule</field>
+            <field name="model_id" ref="model_cmi_indicator_line"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('cmi.manager'))]"/>
+        </record>
+        <record id="indicator_line_rule_responsible" model="ir.rule">
+            <field name="name">Indicator line responsible rule</field>
+            <field name="model_id" ref="model_cmi_indicator_line"/>
+            <field name="domain_force">[('indicator_id.responsible_id','=',user.id)]</field>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4,ref('cmi.indicator_manager'))]"/>
+        </record>
+    </data>
+</odoo>

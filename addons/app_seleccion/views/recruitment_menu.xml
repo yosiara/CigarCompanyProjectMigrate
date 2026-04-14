@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+    <odoo>
+    <!-- Action to open To-do task list -->
+
+    <!-- Menu item to open To-do task list -->
+    <menuitem id="menu_recruitment" name="Reportes" parent="hr_recruitment.menu_hr_recruitment_root" sequence="" />
+    <menuitem id="menu_hr_recruitment_configuration" name="Configuration" parent="menu_hr_recruitment_root"
+        sequence="100" />
+    </odoo>

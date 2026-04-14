@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="l10n_cu_calendar.report_individual_plan_one_page">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <table width="100%" cellpadding="0" cellspacing="0" style="page-break-before: always">
+                                <tr valign="top">
+                                    <td width="10%" style="border: none; padding: 0cm">
+                                        <p>
+                                            <br/>
+
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <font face="Verdana, sans-serif">
+                                                <b>
+                                                    <span t-esc="o['manager_job']"/>
+                                                </b>
+                                            </font>
+                                        </p>
+                                    </td>
+                                    <td width="60%" style="border: none; padding: 0cm">
+                                        <p>
+
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="10%" style="border: none; padding: 0cm">
+                                        <p>
+                                            <font face="Verdana, sans-serif">Aprobado:</font>
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p>
+
+                                        </p>
+                                    </td>
+                                    <td width="60%" style="border: none; padding: 0cm">
+                                        <p align="right">
+                                            <font face="Verdana, sans-serif">
+                                                <b>Modelo Nro. 3</b>
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="10%" style="border: none; padding: 0cm">
+                                        <p>
+                                            <br/>
+
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <font face="Verdana, sans-serif">
+                                                <b>
+                                                    <span t-esc="o['manager_name']"/>
+                                                </b>
+                                            </font>
+                                        </p>
+                                    </td>
+                                    <td width="60%" style="border: none; padding: 0cm">
+                                        <p>
+                                            <br/>
+
+                                        </p>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                                <br/>
+
+                            <p align="center">
+                                <font face="Verdana, sans-serif">
+                                    <b>PLAN DE TRABAJO INDIVIDUAL PARA EL MES
+                                        <span t-esc="o['mes']"/>
+                                    </b>
+                                </font>
+                            </p>
+                            <p align="center">
+                                <font face="Verdana, sans-serif">
+                                    <font size="3" style="font-size: 12pt">
+                                        <span lang="es-ES">
+                                            <b>ACTIVIDADES PRINCIPALES</b>
+                                        </span>
+                                    </font>
+                                </font>
+                            </p>
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr valign="top">
+                                    <td width="24%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <br/>
+
+                                        </p>
+                                    </td>
+                                    <td width="53%" style="border: none; padding: 0cm">
+                                        <ol>
+                                            <t t-foreach="o['main_task_list']" t-as="t">
+                                                <li>
+                                                    <p align="left">
+                                                        <font face="Arial" style="font-size: 13pt">
+                                                            <span t-esc="t"/>
+                                                        </font>
+                                                    </p>
+                                                </li>
+                                            </t>
+                                        </ol>
+                                    </td>
+                                    <td width="24%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <br/>
+
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                <br/>
+
+
+                                <br/>
+                            <!--<p style="page-break-before:always;"></p>-->
+                            <t t-set="flag" t-value="0"/>
+                            <t t-foreach="o['calendar']" t-as="week">
+                                <t t-if="user.company_id.individual_plan_one_week_per_page">
+                                    <t t-if="flag">
+                                        <div style="page-break-before:always"></div>
+                                    </t>
+                                    <t t-set="flag" t-value="1"/>
+                                </t>
+                                <table width="100%" cellpadding="4" cellspacing="0" style="page-break-inside:avoid">
+
+                                    <tr valign="top">
+                                        <td width="15%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[0]['dia']">
+                                                <font face="Verdana, sans-serif">
+                                                    <b>Lunes
+                                                        <span t-esc="week[0]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="15%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[1]['dia']">
+                                                <font face="Verdana, sans-serif">
+                                                    <b>Martes
+                                                        <span t-esc="week[1]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="15%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[2]['dia']">
+                                                <font face="Verdana, sans-serif">
+                                                    <b>Miercoles
+                                                        <span t-esc="week[2]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="15%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[3]['dia']">
+                                                <font face="Verdana, sans-serif">
+                                                    <b>Jueves
+                                                        <span t-esc="week[3]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="14%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[4]['dia']">
+                                                <font face="Verdana, sans-serif">
+                                                    <b>Viernes
+                                                        <span t-esc="week[4]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="12%" align="center"
+                                            style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <t t-if="week[5]['dia']">
+                                                <font face="Verdana, sans-serif">
+                                                    <b>Sabado
+                                                        <span t-esc="week[5]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                        <td width="12%" align="center" style="border: 1px double #000000; padding: 0cm">
+                                            <t t-if="week[6]['dia']">
+                                                <font face="Verdana, sans-serif">
+                                                    <b>Domingo
+                                                        <span t-esc="week[6]['dia']"/>
+                                                    </b>
+                                                </font>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr valign="top">
+                                        <td width="14%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <t t-foreach="week[0]['task']" t-as="task">
+                                                    <span t-esc="task['hour_start']"/>-
+                                                    <span t-esc="task['name']"/>
+                                                    <t t-if="task['local']">
+                                                        <span t-esc="task['local']"/>
+                                                    </t>
+                                                    <br/>
+                                                </t>
+                                            </p>
+                                        </td>
+                                        <td width="14%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <t t-foreach="week[1]['task']" t-as="task">
+                                                    <span t-esc="task['hour_start']"/>-
+                                                    <span t-esc="task['name']"/>
+                                                    <t t-if="task['local']">
+                                                        <span t-esc="task['local']"/>
+                                                    </t>
+                                                    <br/>
+
+                                                </t>
+                                            </p>
+                                        </td>
+                                        <td width="14%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <t t-foreach="week[2]['task']" t-as="task">
+                                                    <span t-esc="task['hour_start']"/>-
+                                                    <span t-esc="task['name']"/>
+                                                    <t t-if="task['local']">
+                                                        <span t-esc="task['local']"/>
+                                                    </t>
+                                                    <br/>
+
+                                                </t>
+                                            </p>
+                                        </td>
+                                        <td width="14%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <t t-foreach="week[3]['task']" t-as="task">
+                                                    <span t-esc="task['hour_start']"/>-
+                                                    <span t-esc="task['name']"/>
+                                                    <t t-if="task['local']">
+                                                        <span t-esc="task['local']"/>
+                                                    </t>
+                                                    <br/>
+
+                                                </t>
+                                            </p>
+                                        </td>
+                                        <td width="14%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <t t-foreach="week[4]['task']" t-as="task">
+                                                    <span t-esc="task['hour_start']"/>-
+                                                    <span t-esc="task['name']"/>
+                                                    <t t-if="task['local']">
+                                                        <span t-esc="task['local']"/>
+                                                    </t>
+                                                    <br/>
+
+                                                </t>
+                                            </p>
+                                        </td>
+                                        <td width="14%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                            <p>
+                                                <t t-foreach="week[5]['task']" t-as="task">
+                                                    <span t-esc="task['hour_start']"/>-
+                                                    <span t-esc="task['name']"/>
+                                                    <t t-if="task['local']">
+                                                        <span t-esc="task['local']"/>
+                                                    </t>
+                                                    <br/>
+
+                                                </t>
+                                            </p>
+                                        </td>
+                                        <td width="14%"
+                                            style="border-top: none; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: 1px double #000000; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                            <p>
+                                                <t t-foreach="week[6]['task']" t-as="task">
+                                                    <span t-esc="task['hour_start']"/>-
+                                                    <span t-esc="task['name']"/>
+                                                    <t t-if="task['local']">
+                                                        <span t-esc="task['local']"/>
+                                                    </t>
+                                                    <br/>
+
+                                                </t>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </t>
+                            <p align="center">
+                                <br/>
+                                <br/>
+
+                            </p>
+                            <table style="page-break-inside: avoid" width="100%" cellpadding="0" cellspacing="0">
+
+                                <tr valign="top">
+                                    <td width="40%" style="border: none; padding: 0cm">
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <br/>
+
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <font face="Verdana, sans-serif">
+                                                <b>
+                                                    <span t-esc="o['job']"/>
+                                                </b>
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="40%" style="border: none; padding: 0cm">
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="right">
+                                            <font face="Verdana, sans-serif">
+                                            </font>
+                                        </p>
+                                        <p align="center">
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="40%" style="border: none; padding: 0cm">
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <br/>
+
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <font face="Verdana, sans-serif">
+                                                <b>
+                                                    <span t-esc="o['name']"/>
+                                                </b>
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</openerp>

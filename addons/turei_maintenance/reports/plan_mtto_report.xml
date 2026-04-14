@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_maintenance_plan_mtto_parts"
+                model="wzd.plan.mtto"
+                string="Rep. Plan de Mantenimiento"
+                report_type="xlsx"
+                name="turei_maintenance.plan_mtto_report"
+                file="turei_maintenance.plan_mtto_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

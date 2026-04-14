@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="l10n_cu_hlg_contract.report_contract_template_dual">
+            <t t-call="report.html_container">
+                <t t-if="not o and doc">
+                    <t t-set="o" t-value="doc"/>
+                </t>
+                <t t-if="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id"></t>
+                </t>
+                <t t-if="not o or not 'company_id' in o">
+                    <t t-set="company" t-value="res_company"></t>
+                </t>
+               <div class="header">
+                    <div class="col-xs-12">
+                     <div class="col-xs-4">
+                            <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="vertical-align:middle;border-radius:15px;height:150px;width:150px;"/>
+                        </div>
+                    <div class="col-xs-8 text-right" style="position:relative;top:65px;">
+                        <h3>REGISTRO ÚNICO DE CONTRATO DE<t t-if="data['flow']=='customer'">
+                                VENTAS
+                                </t>
+                                <t t-if="data['flow']=='supplier'">
+                                COMPRAS
+                                </t></h3>
+                    </div>
+                    </div>
+                </div>
+                <div class="page">
+                    <div class="col-xs-12">
+                    <table class="table table-hover table-condensed ">
+                        <thead>
+                            <tr>
+                                <th>Exp No.</th>
+                                <th>Número</th>
+                                <t t-if="data['flow']=='customer'">
+                                <th>Cliente</th>
+                                </t>
+                                <t t-if="data['flow']=='supplier'">
+                                <th>Proveedor</th>
+                                </t>
+                                <th>Denominación</th>
+                                <th>Importe CUP</th>
+                                <th>Importe CUC</th>
+                                <th>Importe Total</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Término</th>
+                                <th>Especialista</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text_left">
+                            <t t-foreach="docs" t-as="o">
+<!--                                    <t t-if="len(o.line_ids)==0">-->
+                                        <tr class="border-table-transparent ">
+                                            <!--Número del expediente-->
+                                            <td class="">
+                                                <t t-esc="o.partner_id.archive_nro"/>
+                                            </td>
+                                            <!--Número del contrato-->
+                                            <td class="">
+                                                <t t-esc="o.number"/>
+                                            </td>
+                                            <!--Nombre del cliente o proveedor-->
+                                            <td class="">
+                                                <t t-esc="o.partner_id.name"/>
+                                            </td>
+                                            <!--Denominación del producto o servicio-->
+                                            <td>
+                                                <span t-field="o.name"/>
+                                            </td>
+                                            <!-- Importe CUP-->
+                                             <td style="text-align:right;vertical-align:middle;">
+                                                <span t-field="'{0:.2f}'.format(o.total_cup).replace('.',',')"/>
+                                            </td>
+                                            <!-- Importe CUC-->
+                                             <td style="text-align:right;vertical-align:middle;">
+                                                <span t-field="'{0:.2f}'.format(o.total_cuc).replace('.',',')"/>
+                                            </td>
+                                            <!--Importe-->
+                                            <td style="text-align:right;vertical-align:middle;">
+                                                <span t-field="'{0:.2f}'.format(o.amount_total).replace('.',',')"/>
+                                            </td>
+                                            <!--Fecha de inicio del contrato-->
+                                            <td style="text-align:center;vertical-align:middle;">
+                                                <t t-esc="o.date_start"/>
+                                            </td>
+                                            <!--Fecha de término del contrato-->
+                                            <td style="text-align:center;vertical-align:middle;">
+                                                <t t-esc="o.date_end"/>
+                                            </td>
+                                            <!--Nombre del especialista responsable del contrato-->
+                                            <td class="">
+                                                <t t-esc="o.employee_id.name"/>
+                                            </td>
+
+                                        </tr>
+<!--                                    </t>-->
+<!--                                    <t t-set="lines_span" t-value="len(o.line_ids)"/>-->
+<!--                                    <t t-set="counter" t-value="0"/>-->
+
+<!--                                    <t t-foreach="o.line_ids" t-as="line_ids">-->
+<!--                                        <t t-set="counter" t-value="counter+1"/>-->
+<!--                                        <tr class="border-table-transparent ">-->
+<!--                                            &lt;!&ndash;Número del expediente&ndash;&gt;-->
+<!--                                            <td class="">-->
+<!--                                                <t t-if="counter == 1">-->
+<!--                                                    <t t-esc="o.partner_id.archive_nro"/>-->
+<!--                                                </t>-->
+<!--                                            </td>-->
+<!--                                            &lt;!&ndash;Número del contrato&ndash;&gt;-->
+<!--                                            <td class="">-->
+<!--                                                <t t-if="counter == 1">-->
+<!--                                                    <t t-esc="o.number"/>-->
+<!--                                                </t>-->
+<!--                                            </td>-->
+<!--                                            &lt;!&ndash;Nombre del cliente o proveedor&ndash;&gt;-->
+<!--                                            <td class="">-->
+<!--                                                <t t-if="counter == 1">-->
+<!--                                                    <t t-esc="o.partner_id.name"/>-->
+<!--                                                </t>-->
+<!--                                            </td>-->
+<!--                                            &lt;!&ndash;Denominación del producto o servicio&ndash;&gt;-->
+<!--                                            <td class="text_left">-->
+<!--                                                <t t-esc="line_ids.product_id.name"/>-->
+<!--                                            </td>-->
+<!--                                            <td class="text_left">-->
+<!--                                                &lt;!&ndash;Cantidad de producto o servicio&ndash;&gt;-->
+<!--                                                <t t-esc="line_ids.quantity"/>-->
+<!--                                            </td>-->
+<!--                                            &lt;!&ndash;Importe&ndash;&gt;-->
+<!--                                            <td class="text_left">-->
+<!--                                                <t t-esc="line_ids.price"/>-->
+<!--                                            </td>-->
+
+<!--                                            &lt;!&ndash;Importe total&ndash;&gt;-->
+<!--                                            <td class="text_left">-->
+<!--                                                <t t-esc="line_ids.amount"/>-->
+<!--                                            </td>-->
+
+<!--                                            &lt;!&ndash;Importe&ndash;&gt;-->
+<!--                                            <td class="text_left">-->
+<!--                                                <t t-esc="line_ids.price_cuc"/>-->
+<!--                                            </td>-->
+
+<!--                                            &lt;!&ndash;Importe total&ndash;&gt;-->
+<!--                                            <td class="text_left">-->
+<!--                                                <t t-esc="line_ids.amount_cuc"/>-->
+<!--                                            </td>-->
+
+<!--                                            &lt;!&ndash;Fecha de inicio del contrato&ndash;&gt;-->
+<!--                                            <td class="">-->
+<!--                                                <t t-if="counter == 1">-->
+<!--                                                    <t t-esc="o.date_start"/>-->
+<!--                                                </t>-->
+<!--                                            </td>-->
+<!--                                            &lt;!&ndash;Fecha de término del contrato&ndash;&gt;-->
+<!--                                            <td class="">-->
+<!--                                                <t t-if="counter == 1">-->
+<!--                                                    <t t-esc="o.date_end"/>-->
+<!--                                                </t>-->
+<!--                                            </td>-->
+<!--                                            &lt;!&ndash;Nombre del especialista responsable del contrato&ndash;&gt;-->
+<!--                                            <td class="">-->
+<!--                                                <t t-if="counter == 1">-->
+<!--                                                    <t t-esc="o.employee_id.name"/>-->
+<!--                                                </t>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        <t t-set="lines_span" t-value="len(o.line_ids)-1"/>-->
+<!--                                    </t>-->
+
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <!--Encabezado Inferior-->
+                    <table class="table table-hover table-condensed ">
+                        <thead>
+                            <tr>
+                                <th>Etapa</th>
+                                <th>Cargo</th>
+                                <th>Nombres y apellidos</th>
+                                <th>Firma</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th>Revisión</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>Aprobación</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                        </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.process_control_primary_efficiency_dph_to_excel"
+                model="wzd.efficiency.dhp.to.excel"
+                string="Rep. de Eficiencia"
+                report_type="xlsx"
+                name="process_control_primary.efficiency_dph_report"
+                file="process_control_primary.efficiency_dph_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

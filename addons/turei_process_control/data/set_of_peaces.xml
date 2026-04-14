@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <!--MK8-->
+        <record id="set_of_peace_1" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de hebra</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_2" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Molinete y ventarola</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_3" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cloche mecánico</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_4" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cloche electromagnético</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_5" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Variador de velocidad</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_6" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Caja de 90º</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_7" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Calentador</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_8" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Espaciador espiral</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_9" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Tambor captador</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_10" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Retorno de la hebra</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_11" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Ventilador-carcaza-tuberías</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_12" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cámara de succión</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_13" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cámara de formación</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_14" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Tambores de cardas</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_15" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Imprenta</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_16" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de papel</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_17" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de lubricación</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <record id="set_of_peace_18" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de corte</field>
+            <field name="machine_type_id" ref="mac_type_1"/>
+        </record>
+        <!--AMF-->
+        <record id="set_of_peace_19" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de cigarrillos</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_20" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Detectores, Tambor de bolsas</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_21" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Pistones de transferencia</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_22" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Tambor de cajetines</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_23" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Dobladores laterales</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_24" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Dobladores de fondo</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_25" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Carro compresor</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_26" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Carro contra compresor</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_27" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Botella</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_28" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Rechazador de cajetillas</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_29" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Dobladores de cabeza</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_30" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Canal de 26</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_31" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Transferidor</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_32" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sellero</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_33" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Bomba de succión</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_34" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Canal de salida</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_35" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Caja 20</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_36" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cinematismo principal</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_37" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Panel neumático</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_38" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Marquillero</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_39" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de lubricación</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+        <record id="set_of_peace_40" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Freno</field>
+            <field name="machine_type_id" ref="mac_type_4"/>
+        </record>
+
+        <record id="set_of_peace_58" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de cajetillas</field>
+            <field name="machine_type_id" ref="mac_type_6"/>
+        </record>
+        <record id="set_of_peace_59" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación del celofán</field>
+            <field name="machine_type_id" ref="mac_type_6"/>
+        </record>
+        <record id="set_of_peace_60" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de fitilo</field>
+            <field name="machine_type_id" ref="mac_type_6"/>
+        </record>
+        <record id="set_of_peace_61" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de corte</field>
+            <field name="machine_type_id" ref="mac_type_6"/>
+        </record>
+        <record id="set_of_peace_62" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Rueda estrella</field>
+            <field name="machine_type_id" ref="mac_type_6"/>
+        </record>
+        <record id="set_of_peace_63" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Canal de salida</field>
+            <field name="machine_type_id" ref="mac_type_6"/>
+        </record>
+        <record id="set_of_peace_64" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Dobladores de cabeza y fondo</field>
+            <field name="machine_type_id" ref="mac_type_6"/>
+        </record>
+        <record id="set_of_peace_65" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cinematismo principal</field>
+            <field name="machine_type_id" ref="mac_type_6"/>
+        </record>
+
+        <record id="set_of_peace_66" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de cajetillas</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_67" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de papel</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_68" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de corte</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_69" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Guía móvil del papel</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_70" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Dobladores laterales</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_71" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Dobladores superior e inferior</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_72" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Dobladores fijos</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_73" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Empujador de cajetillas</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_74" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Aplicadores de hotmel</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_75" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Dobladores de las puntas</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_76" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Aplicadores de cola, Sistema electroneumático</field>
+            <field name="machine_type_id" ref="mac_type_7"/>
+        </record>
+        <record id="set_of_peace_77" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de cigarrillos</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_78" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Detectores</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_79" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Tambor de bolsas</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_80" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Pistones de transferencia</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_81" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Tambor de cajetines</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_82" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Plegadores laterales</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_83" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Plegadores de fondo</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_84" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de papel</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_85" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Plegadores de cabeza</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_86" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Tambor de secado</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+         <record id="set_of_peace_87" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Rechazador de cajetillas</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_88" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Dobladores de cabeza</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_89" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sellero</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_90" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Canal de salida</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+         <record id="set_of_peace_91" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Freno</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_92" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Vigilancia de puntas flojas</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_93" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Servo accionamiento expulsor</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_94" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cinematismo principal</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_95" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de alimentación de pegamento</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_96" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de vacío</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_97" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de lubricación</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_98" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema neumático</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_99" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema electrónico</field>
+            <field name="machine_type_id" ref="mac_type_11"/>
+        </record>
+        <record id="set_of_peace_100" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de elevación de cigarrillos</field>
+            <field name="machine_type_id" ref="mac_type_10"/>
+        </record>
+        <record id="set_of_peace_101" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de acumulación de cigarrillos</field>
+            <field name="machine_type_id" ref="mac_type_10"/>
+        </record>
+        <record id="set_of_peace_102" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de cajetillas</field>
+            <field name="machine_type_id" ref="mac_type_13"/>
+        </record>
+        <record id="set_of_peace_103" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de celofán</field>
+            <field name="machine_type_id" ref="mac_type_13"/>
+        </record>
+        <record id="set_of_peace_104" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de corte</field>
+            <field name="machine_type_id" ref="mac_type_13"/>
+        </record>
+        <record id="set_of_peace_105" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Plegador lateral</field>
+            <field name="machine_type_id" ref="mac_type_13"/>
+        </record>
+        <record id="set_of_peace_106" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de Sellado</field>
+            <field name="machine_type_id" ref="mac_type_13"/>
+        </record>
+        <record id="set_of_peace_107" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Empujador de cajetillas</field>
+            <field name="machine_type_id" ref="mac_type_13"/>
+        </record>
+        <record id="set_of_peace_108" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Plegadores de las puntas</field>
+            <field name="machine_type_id" ref="mac_type_13"/>
+        </record>
+        <record id="set_of_peace_109" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cinematismo principal</field>
+            <field name="machine_type_id" ref="mac_type_13"/>
+        </record>
+        <record id="set_of_peace_110" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema neumático</field>
+            <field name="machine_type_id" ref="mac_type_13"/>
+        </record>
+        <record id="set_of_peace_111" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema electrónico</field>
+            <field name="machine_type_id" ref="mac_type_13"/>
+        </record>
+        <record id="set_of_peace_112" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de cajetillas</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_113" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Primer elevador</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_114" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Plegador lateral</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_115" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación del celofán</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_116" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de fitilo</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_117" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de corte</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_118" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Plegadores de cabeza y fondo</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_119" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Segundo elevador</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_120" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Canal de salida</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_121" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cinematismo principal</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_122" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de vacío</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_123" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de lubricación</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_124" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema neumático</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_125" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema eléctrónico</field>
+            <field name="machine_type_id" ref="mac_type_12"/>
+        </record>
+        <record id="set_of_peace_126" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Esclusa</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_127" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Prealimentador</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_128" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cinta de fondo</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_129" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cilindro de elevación</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_130" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cilindro de púas</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_131" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Peinador de carda cilindro de elevación</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_132" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Descenso vibrador</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_133" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cinta rápida</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_134" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Retorno del esquilador</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_135" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cámara de succión</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_136" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Rodillo liso</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_137" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Discos escretores</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_138" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Cámara de formación</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_139" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Plancha</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_140" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Imprenta</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_141" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Alimentación de papel</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_142" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de corte</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_143" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Spider</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_144" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de transmisión de cigarros por tambores</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_145" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de corte central</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_146" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de Inspección</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_147" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Salida de cigarrillos</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_148" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema neumático</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_149" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de vacío</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_150" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de alimentación de pegamento</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_151" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de alimentación de tinta</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_152" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema de enfriamiento</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+        <record id="set_of_peace_153" model="turei_process_control.machine_set_of_peaces_nomenclature">
+            <field name="name">Sistema electrónico</field>
+            <field name="machine_type_id" ref="mac_type_9"/>
+        </record>
+    </data>
+</odoo>

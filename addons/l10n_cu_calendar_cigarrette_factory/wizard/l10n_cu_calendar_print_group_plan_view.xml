@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="calendar_print_group_plan_wzd_view_form" model="ir.ui.view">
+			<field name="name">l10n_cu_calendar.print_group_plan</field>
+			<field name="model">l10n_cu_calendar.print_group_plan</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Print">
+					<separator string="Wizard to print organization plan related reports"/>
+					<label string="Using this Wizard you can print Annual activities plan and Monthly organization work plan.
+					You can also print the annual and monthly compliance summaries." colspan="4"/>
+					<group col="4">
+                        <field name="type"/>
+                        <field name="period_id" options='{"no_create":true,"no_open":true}' attrs="{'required': ['|', ('type', '=', 'annual'), ('custom_period', '=', False)], 'invisible': [('custom_period', '=', True)]}"/>
+						<field name="format"/>
+						<field name="custom_period" attrs="{'invisible': [('type', 'not in', ('monthly', 'resume_monthly', 'detail'))]}"/>
+                    </group>
+					<group col="4">
+						<field name="date_start" attrs="{'invisible': [('custom_period', '=', True)]}"/>
+						<field name="date_end" attrs="{'invisible': [('custom_period', '=', True)]}"/>
+						<field name="date_start_custom" attrs="{'invisible': [('custom_period', '=', False)], 'required': [('custom_period', '=', True)]}"/>
+						<field name="date_end_custom" attrs="{'invisible': [('custom_period', '=', False)], 'required': [('custom_period', '=', True)]}"/>
+						<label for="text" colspan="4" attrs="{'invisible': [('type','in',('monthly','annual','detail'))]}"/>
+						<field name="text" colspan="4" attrs="{'invisible': [('type','in',('monthly','annual','detail'))]}" nolabel="1"/>
+					</group>
+					<group attrs="{'invisible': [('type','in',('resume_annual','resume_monthly','detail'))]}" >
+                        <field name="behave"/>
+                    </group>
+                    <group col="4" attrs="{'invisible':['|',('behave','=',False),('type','in',('resume_annual','resume_monthly','detail'))],'readonly':[('edit','=',False)]}">
+                        <field name="elaborated_by"/>
+                        <field name="approved_by"/>
+                    </group>
+					<p attrs="{'invisible': [('type','in',('resume_annual','resume_monthly','detail'))]}" groups="l10n_cu_calendar.officer">If you want approve the task for this group in this period, select the next checkbox <field name="confirmed"/>.</p>
+					<p attrs="{'invisible': [('type','in',('resume_annual','resume_monthly','detail'))]}" groups="l10n_cu_calendar.officer">This action will convert all the recurring tasks of the period into non-recurring ones. Remember all tasks must be <b>non-recurring</b> to proceed with the task evaluation.</p>
+
+                    <footer>
+                        <div>
+                            <button name="print_group_plan" string="Print" type="object" class="oe_highlight"/> o
+                            <button special="cancel" string="Close" class="oe_link"/>
+                        </div>
+                    </footer>
+				</form>
+			</field>
+		</record>
+		
+
+    <record id="action_calendar_print_group_plan" model="ir.actions.act_window">
+		<field name="name">Print group plan</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">l10n_cu_calendar.print_group_plan</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+
+        
+        
+	</data>
+</openerp>

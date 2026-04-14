@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="enterprise_mgm_sys_action_view_form" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_action_view_form</field>
+            <field name="model">enterprise_mgm_sys.action</field>
+            <field name="arch" type="xml">
+                <form string="enterprise_mgm_sys_action_form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="improvement_program_id" invisible="1"/>
+                            <field name="no_conformity_id" invisible="1"/>
+                            <field name="audit_id" invisible="1"/>
+                        </group>
+                        <group col="4">
+                            <field name="area"
+                                   attrs="{'invisible': [('improvement_program_id', '=', False)], 'required': [('improvement_program_id', '!=', False)]}"/>
+                            <field name="system_id"
+                                   attrs="{'invisible': [('improvement_program_id', '=', False)], 'required': [('improvement_program_id', '!=', False)]}"/>
+                            <field name="compliance_date"/>
+                            <field name="responsible_id"
+                                   attrs="{'invisible': [('no_conformity_id', '=', False), ('audit_id', '=', False)], 'required': ['|',('no_conformity_id', '!=', False), ('audit_id', '!=', False)]}"/>
+                            <field name="execute_id" attrs="{'required': True}"/>
+                            <field name="participate_use_employees"
+                                   attrs="{'invisible': [('improvement_program_id', '=', False)]}"/>
+                            <field name="participate"
+                                   attrs="{'invisible': ['|',('participate_use_employees', '=', True), ('improvement_program_id', '=', False)], 'required': [('participate_use_employees', '!=', True), ('improvement_program_id', '!=', False)]}"/>
+                            <field name="participate_ids"
+                                   attrs="{'invisible': ['|',('participate_use_employees', '!=', True), ('improvement_program_id', '=', False)], 'required': [('participate_use_employees', '=', True),('improvement_program_id', '!=', False)]}"
+                                   widget="many2many_tags"/>
+                            <field name="type"/>
+                        </group>
+                        <group col="1">
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_action_view_tree" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_action_view_tree</field>
+            <field name="model">enterprise_mgm_sys.action</field>
+            <field name="arch" type="xml">
+                <tree string="enterprise_mgm_sys_action_tree" create="0" delete="0">
+                    <field name="name"/>
+                    <field name="compliance_date"/>
+                    <field name="execute_id"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_action_action" model="ir.actions.act_window">
+            <field name="name">Actions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.action</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="enterprise_mgm_sys_system_action" model="ir.actions.act_window">
+            <field name="name">Systems</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.system</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Quality" id="enterprise_mgm_sys_quality_main_menu" parent="enterprise_mgm_sys_root_menu"/>
+        <menuitem name="Actions" id="enterprise_mgm_sys_actions_menu" parent="enterprise_mgm_sys_quality_main_menu"
+                  action="enterprise_mgm_sys_action_action" sequence="99"/>
+        <menuitem name="Systems" id="enterprise_mgm_sys_systems_menu" parent="enterprise_mgm_sys_quality_main_menu"
+                  action="enterprise_mgm_sys_system_action" sequence="99"/>
+
+        <record id="enterprise_mgm_sys_improvement_program_view_form" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_improvement_program_view_form</field>
+            <field name="model">enterprise_mgm_sys.improvement_program</field>
+            <field name="arch" type="xml">
+                <form string="Improvement Program">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="export_to_xls" string="Print" type="object"
+                                    class="oe_stat_button" icon="fa-print"/>
+                        </div>
+                        <group col="4">
+                            <field name="year"/>
+                            <field name="approve_id"/>
+                            <field name="elaborates_id"/>
+                            <field name="process_id"/>
+                        </group>
+                        <separator string="Actions"/>
+                        <group col="1">
+                            <field name="action_ids" nolabel="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="area"/>
+                                    <field name="compliance_date"/>
+                                    <field name="execute_id"/>
+                                    <field name="system_id"/>
+                                    <field name="type"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="name"/>
+                                        </group>
+                                        <group col="2">
+                                            <group col="2">
+                                                <field name="area" attrs="{'required': True}"/>
+                                                <field name="system_id" attrs="{'required': True}"/>
+                                                <field name="type"/>
+                                                <field name="compliance_date"/>
+                                            </group>
+                                            <group col="">
+                                                <field name="execute_id" attrs="{'required': True}"/>
+                                                <field name="participate_use_employees"/>
+                                                <field name="participate"
+                                                       attrs="{'invisible': [('participate_use_employees', '=', True)], 'required': [('participate_use_employees', '!=', True)]}"/>
+                                                <field name="participate_ids"
+                                                       attrs="{'invisible': [('participate_use_employees', '!=', True)], 'required': [('participate_use_employees', '=', True)]}"
+                                                       widget="many2many_tags"/>
+                                            </group>
+                                        </group>
+                                        <group col="1">
+                                            <field name="description"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="enterprise_mgm_sys_improvement_program_view_tree" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_improvement_program_view_tree</field>
+            <field name="model">enterprise_mgm_sys.improvement_program</field>
+            <field name="arch" type="xml">
+                <tree string="Improvement Program">
+                    <field name="name"/>
+                    <field name="process_id"/>
+                    <field name="elaborates_id"/>
+                    <field name="approve_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="enterprise_mgm_sys_improvement_program_action" model="ir.actions.act_window">
+            <field name="name">Improvement Program</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.improvement_program</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Improvement Programs" id="enterprise_mgm_sys_improvement_program_menu"
+                  parent="enterprise_mgm_sys_quality_main_menu"
+                  action="enterprise_mgm_sys_improvement_program_action"/>
+
+        <record id="enterprise_mgm_sys_no_conformity_view_form" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_no_conformity_view_form</field>
+            <field name="model">enterprise_mgm_sys.no_conformity</field>
+            <field name="arch" type="xml">
+                <form string="No Conformity">
+                    <header>
+                        <button name="export_to_xls" string="PE-DTD-07-R-28" type="object" icon="fa-print"/>
+                        <field name="state" widget="statusbar" clickable="True"/>
+                    </header>
+                    <sheet>
+                        <group col="1">
+                            <label for="no_conformity"/>
+                            <field name="no_conformity" nolabel="1"/>
+                            <label for="cause"/>
+                            <field name="cause" nolabel="1"/>
+                        </group>
+
+                        <group col="4">
+                            <field name="department_id"/>
+                            <field name="system_id"/>
+                            <field name="generic"/>
+                            <field name="unfulfilled_requirements"/>
+                            <field name="date"/>
+                            <field name="plan_date"/>
+                            <field name="closed_date"/>
+                            <field name="impose_on"/>
+                            <field name="imposed_by"/>
+                            <field name="responsible_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Actions">
+                                <field name="action_ids" nolabel="1">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="compliance_date"/>
+                                        <field name="responsible_id" attrs="{'required': True}"/>
+                                        <field name="execute_id" attrs="{'required': True}"/>
+                                        <field name="type"/>
+                                    </tree>
+                                    <form>
+                                        <sheet>
+                                            <group>
+                                                <field name="name"/>
+                                            </group>
+                                            <group col="4">
+                                                <field name="compliance_date"/>
+                                                <field name="responsible_id" attrs="{'required': True}"/>
+                                                <field name="execute_id" attrs="{'required': True}"/>
+                                                <field name="type"/>
+                                            </group>
+                                            <group col="1">
+                                                <field name="description"/>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Actions Result">
+                                <field name="actions_result" nolabel="1"/>
+                            </page>
+                            <page string="Observations">
+                                <field name="observations" nolabel="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_c_view_tree" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_no_conformity_view_tree</field>
+            <field name="model">enterprise_mgm_sys.no_conformity</field>
+            <field name="arch" type="xml">
+                <tree string="No Conformity">
+                    <field name="no_conformity"/>
+                    <field name="department_id"/>
+                    <field name="system_id"/>
+                    <field name="date"/>
+                    <field name="plan_date"/>
+                    <field name="impose_on"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_no_conformity_action" model="ir.actions.act_window">
+            <field name="name">No Conformities</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.no_conformity</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="No Conformities" id="enterprise_mgm_sys_no_conformity_menu"
+                  parent="enterprise_mgm_sys_quality_main_menu"
+                  action="enterprise_mgm_sys_no_conformity_action"/>
+
+        <record id="enterprise_mgm_sys_audit_view_form" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_audit_view_form</field>
+            <field name="model">enterprise_mgm_sys.audit</field>
+            <field name="arch" type="xml">
+                <form string="Audit">
+                    <header>
+                        <button name="export_to_xls" string="Print" type="object" icon="fa-print"/>
+                        <field name="state" widget="statusbar" clickable="True"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="date"/>
+                            <field name="system_id"/>
+                            <field name="auditor_leader"/>
+                            <field name="auditors" widget="many2many_tags"/>
+                            <field name="audited" widget="many2many_tags"/>
+                        </group>
+                        <notebook>
+                            <page string="General">
+                                <group>
+                                    <field name="objective"/>
+                                    <field name="scope"/>
+                                    <field name="audit_criteria"/>
+                                    <field name="audit_methods"/>
+                                </group>
+                            </page>
+                            <page string="Activities">
+                                <group col="1">
+                                    <field name="audit_activity_line_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="activity"/>
+                                            <field name="date"/>
+                                            <field name="duration" widget="float_time"/>
+                                            <field name="place"/>
+                                            <field name="representative"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Responsibilities">
+                                <group col="1">
+                                    <field name="audit_resp_line_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="auditor_id"/>
+                                            <field name="function"/>
+                                            <field name="responsibilities"/>
+                                            <field name="resources"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="No Conformities">
+                                <group>
+                                    <field nolabel="1" name="no_conformity_ids" widget="one2many_list"/>
+                                </group>
+                            </page>
+                            <page string="Improvement Opportunities">
+                                <group>
+                                    <field nolabel="1" name="improvement_opportunity_ids">
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="compliance_date"/>
+                                            <field name="responsible_id" attrs="{'required': True}"/>
+                                            <field name="execute_id" attrs="{'required': True}"/>
+                                            <field name="type"/>
+                                        </tree>
+                                        <form>
+                                            <sheet>
+                                                <group>
+                                                    <field name="name"/>
+                                                </group>
+                                                <group col="4">
+                                                    <field name="compliance_date"/>
+                                                    <field name="responsible_id" attrs="{'required': True}"/>
+                                                    <field name="execute_id" attrs="{'required': True}"/>
+                                                    <field name="type"/>
+                                                </group>
+                                                <group col="1">
+                                                    <field name="description"/>
+                                                </group>
+                                            </sheet>
+                                        </form>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_audit_view_tree" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_audit_view_tree</field>
+            <field name="model">enterprise_mgm_sys.audit</field>
+            <field name="arch" type="xml">
+                <tree string="Audit">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="system_id"/>
+                    <field name="auditor_leader"/>
+                    <field name="audited"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_audit_action" model="ir.actions.act_window">
+            <field name="name">Audit Plan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.audit</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Audit Plan" id="enterprise_mgm_sys_audit_menu"
+                  parent="enterprise_mgm_sys_quality_main_menu"
+                  action="enterprise_mgm_sys_audit_action"/>
+
+        <record id="enterprise_mgm_sys_int_audit_program_view_form" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_int_audit_program_view_form</field>
+            <field name="model">enterprise_mgm_sys.int_audit_program</field>
+            <field name="arch" type="xml">
+                <form string="Internal Audit Program">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="export_to_xls" string="Print" type="object"
+                                    class="oe_stat_button" icon="fa-print"/>
+                        </div>
+                        <group col="4">
+                            <field name="year"/>
+                            <field name="elaborates_id"/>
+                            <field name="approve"/>
+                            <field name="auditor_ids" widget="many2many_tags"/>
+                        </group>
+                        <separator string="Objectives"/>
+                        <field name="objectives"/>
+                        <notebook>
+                            <page string="Scope">
+                                <field name="scope" nolabel="1"/>
+                            </page>
+                            <page string="Audit Criteria">
+                                <field name="audit_criteria" nolabel="1"/>
+                            </page>
+                            <page string="Audit Methods">
+                                <field name="audit_methods" nolabel="1"/>
+                            </page>
+                            <page string="Resources">
+                                <field name="resources" nolabel="1"/>
+                            </page>
+                            <page string="Planning">
+                                <field name="line_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="process_id"/>
+                                        <field name="months" widget="many2many_tags"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_int_audit_program_view_tree" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_int_audit_program_view_tree</field>
+            <field name="model">enterprise_mgm_sys.int_audit_program</field>
+            <field name="arch" type="xml">
+                <tree string="Internal Audit Program">
+                    <field name="name"/>
+                    <field name="year"/>
+                    <field name="elaborates_id"/>
+                    <field name="approve"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_int_audit_program_action" model="ir.actions.act_window">
+            <field name="name">Internal Audit Programs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.int_audit_program</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Internal Audit Programs" id="enterprise_mgm_sys_int_audit_program_menu"
+                  parent="enterprise_mgm_sys_quality_main_menu"
+                  action="enterprise_mgm_sys_int_audit_program_action"/>
+
+        <record id="enterprise_mgm_sys_internal_auditor_eval_view_form" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_internal_auditor_eval_view_form</field>
+            <field name="model">enterprise_mgm_sys.internal_auditor_eval</field>
+            <field name="arch" type="xml">
+                <form string="Internal Auditor Evaluation">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="export_to_xls" string="Print" type="object"
+                                    class="oe_stat_button" icon="fa-print"/>
+                        </div>
+                        <group col="2">
+                            <group>
+                                <field name="auditor_id"/>
+                                <field name="date"/>
+                                <field name="area" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                        <group col="4">
+                            <label for="objectives" colspan="3"/>
+                            <field name="objectives" nolabel="1"/>
+                            <label for="information" colspan="3"/>
+                            <field name="information" nolabel="1"/>
+                            <label for="coherence_concordance" colspan="3"/>
+                            <field name="coherence_concordance" nolabel="1"/>
+                            <label for="diplomacy" colspan="3"/>
+                            <field name="diplomacy" nolabel="1"/>
+                            <label for="complaint" colspan="3"/>
+                            <field name="complaint" nolabel="1"/>
+                        </group>
+                        <separator string="Observations"/>
+                        <field name="observations"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys.internal_auditor_eval_view_tree" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys.internal_auditor_eval_view_tree</field>
+            <field name="model">enterprise_mgm_sys.internal_auditor_eval</field>
+            <field name="arch" type="xml">
+                <tree string="Internal Auditor Evaluation">
+                    <field name="name"/>
+                    <field name="auditor_id"/>
+                    <field name="date"/>
+                    <field name="area"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_internal_auditor_eval_action" model="ir.actions.act_window">
+            <field name="name">Internal Auditor Evaluations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.internal_auditor_eval</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Internal Auditor Evaluations" id="enterprise_mgm_sys_internal_auditor_eval_menu"
+                  parent="enterprise_mgm_sys_quality_main_menu"
+                  action="enterprise_mgm_sys_internal_auditor_eval_action"/>
+
+
+        <record id="enterprise_mgm_sys.auditor_leader_eval_view_form" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys.auditor_leader_eval_view_form</field>
+            <field name="model">enterprise_mgm_sys.auditor_leader_eval</field>
+            <field name="arch" type="xml">
+                <form string="Auditor Leader Evaluation">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="export_to_xls" string="Print" type="object"
+                                    class="oe_stat_button" icon="fa-print"/>
+                        </div>
+                        <group col="2">
+                            <field name="auditor_id"/>
+                            <field name="date"/>
+                            <field name="area" widget="many2many_tags"/>
+                        </group>
+                        <group col="4">
+                            <label for="audit_planning" colspan="3"/>
+                            <field name="audit_planning" nolabel="1"/>
+                            <label for="communication" colspan="3"/>
+                            <field name="communication" nolabel="1"/>
+                            <label for="organization" colspan="3"/>
+                            <field name="organization" nolabel="1"/>
+                            <label for="guidance" colspan="3"/>
+                            <field name="guidance" nolabel="1"/>
+                            <label for="conducting" colspan="3"/>
+                            <field name="conducting" nolabel="1"/>
+                            <label for="conflict_prev_res" colspan="3"/>
+                            <field name="conflict_prev_res" nolabel="1"/>
+                            <label for="audit_report" colspan="3"/>
+                            <field name="audit_report" nolabel="1"/>
+                        </group>
+                        <group>
+                            <field name="observations"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_auditor_leader_eval_view_tree" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_auditor_leader_eval_view_tree</field>
+            <field name="model">enterprise_mgm_sys.auditor_leader_eval</field>
+            <field name="arch" type="xml">
+                <tree string="Auditor Leader Evaluations">
+                    <field name="name"/>
+                    <field name="auditor_id"/>
+                    <field name="date"/>
+                    <field name="area"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_auditor_leader_eval_action" model="ir.actions.act_window">
+            <field name="name">Auditor Leader Evaluations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.auditor_leader_eval</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Auditor Leader Evaluations" id="enterprise_mgm_sys_auditor_leader_eval_menu"
+                  parent="enterprise_mgm_sys_quality_main_menu"
+                  action="enterprise_mgm_sys_auditor_leader_eval_action"/>
+
+
+        <record id="enterprise_mgm_sys_auditor_annual_eval_view_form" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_auditor_annual_eval_view_form</field>
+            <field name="model">enterprise_mgm_sys.auditor_annual_eval</field>
+            <field name="arch" type="xml">
+                <form string="Auditor Annual Evaluation">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="export_to_xls" string="Print" type="object"
+                                    class="oe_stat_button" icon="fa-print"/>
+                        </div>
+                        <group col="4">
+                            <field name="auditor_id"/>
+                            <field name="year"/>
+                            <field name="school_level_id"/>
+                            <field name="work_experience"/>
+                            <field name="evaluates_id"/>
+                        </group>
+                        <group col="4">
+                            <label for="audits_planned" colspan="3"/>
+                            <field name="audits_planned" nolabel="1"/>
+                            <label for="audits_carried_out" colspan="3"/>
+                            <field name="audits_carried_out" nolabel="1"/>
+                            <label for="audits_historical" colspan="3"/>
+                            <field name="audits_historical" nolabel="1"/>
+                        </group>
+                        <group>
+                            <field name="results"/>
+                            <field name="final_evaluation"/>
+                            <field name="observations"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_auditor_annual_eval_view_tree" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_auditor_annual_eval_view_tree</field>
+            <field name="model">enterprise_mgm_sys.auditor_annual_eval</field>
+            <field name="arch" type="xml">
+                <tree string="Auditor Annual Evaluation">
+                    <field name="name"/>
+                    <field name="auditor_id"/>
+                    <field name="school_level_id"/>
+                    <field name="work_experience"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_auditor_annual_eval_action" model="ir.actions.act_window">
+            <field name="name">Auditor Annual Evaluations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.auditor_annual_eval</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Auditor Annual Evaluations" id="enterprise_mgm_sys_auditor_annual_eval_menu"
+                  parent="enterprise_mgm_sys_quality_main_menu"
+                  action="enterprise_mgm_sys_auditor_annual_eval_action"/>
+
+    </data>
+</odoo>

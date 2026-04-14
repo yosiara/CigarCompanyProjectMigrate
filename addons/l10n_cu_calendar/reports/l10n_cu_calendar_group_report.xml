@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	
+<template id="l10n_cu_calendar.report_group">
+	<t t-call="report.html_container">   
+        <t t-foreach="docs" t-as="o">
+			<!-- Primera pagina-->
+            <t t-call="report.external_layout">
+                <div class="page">
+				
+				<p align="center"><b>REPORTE DE INTEGRANTES POR GRUPOS ORGANIZATIVOS</b></p>
+				<table width="100%" cellpadding="4" cellspacing="0" style="page-break-inside: avoid">
+
+					<tr valign="top">
+						<td width="50%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p><font size="2" style="font-size: 10pt"><b>NOMBRE GRUPO:</b> <span  t-esc="o.name"/></font></p>
+						</td>
+						<td width="50%" style="border: 1px double #808080; padding: 0.1cm">
+							<p><font size="2" style="font-size: 10pt"><b>JEFE DE GRUPO:</b><span  t-esc="o.partner_id.name"/></font></p>
+						</td>
+					</tr>
+				</table>
+				<p><font size="2" style="font-size: 10pt">INTEGRANTES</font></p>
+				<table width="100%" cellpadding="4" cellspacing="0" style="page-break-inside: avoid">
+					 <thead>
+					<tr valign="top">
+						<td width="33%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p><font size="2" style="font-size: 10pt"><b>NOMBRE</b></font>
+							</p>
+						</td>
+						<td width="33%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p><font size="2" style="font-size: 10pt"><b>DEPARTAMENTO</b></font></p>
+						</td>
+						<td width="33%" style="border: 1px double #808080; padding: 0.1cm">
+							<p><font size="2" style="font-size: 10pt"><b>CARGO</b></font></p>
+						</td>
+					</tr>
+					 </thead>
+				<!--	-->
+				 <tbody>
+				<t t-foreach="o.partner_group_ids" t-as="partner">
+					<tr valign="top">
+						<td width="33%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p><font size="2" style="font-size: 10pt"><span  t-esc="partner.name"/> </font>
+							</p>
+						</td>
+						<td width="33%" style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<p><span  t-esc="partner.department_id.name"/></p>
+						</td>
+						<td width="33%" style="border: 1px double #808080; padding: 0.1cm">
+							<p><font size="2" style="font-size: 10pt"><span  t-esc="partner.function"/></font></p>
+						</td>
+					</tr>
+					</t>
+					 </tbody>
+				</table>
+				<p><br/>
+				<br/>
+
+				</p>
+				</div>
+				</t>		
+        </t>
+    </t>
+</template>
+
+	</data>
+</openerp>

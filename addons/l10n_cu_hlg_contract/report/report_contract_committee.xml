@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="l10n_cu_hlg_contract.report_contract_committee">
+            <t t-call="report.html_container">
+                <t t-set="data_report_margin_top" t-value="12"/>
+                <t t-set="data_report_header_spacing" t-value="9"/>
+                <t t-set="data_report_dpi" t-value="110"/>
+                    <t t-foreach="docs" t-as="o">
+                    <t t-call="report.internal_layout">
+                        <div class="page" >
+                            <h3 align="center">Comité de Contratación</h3>
+
+                            <table class="table table-hover table-condensed">
+                                <thead>
+                                    <tr style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: 1px double #000000; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                        <th colspan="2" style="border-right:1px solid black; text-align: center">Nro Comité: <span t-esc="o.nro_committee"/></th>
+                                    </tr>
+                                    <tr style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: 1px double #000000; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                        <th colspan="1" style="border-right:1px solid black; text-align: center">Responsable</th>
+                                        <th colspan="1" style="border-right:1px solid black; text-align: center">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: 1px double #000000;">
+                                        <td colspan="1" style="border-right: 1px double #000000; text-align: center" ><span t-esc="o.manager_id.name_related"/></td>
+                                        <td colspan="1" style="border-right: 1px double #000000; text-align: center"><span t-esc="o.date_committee"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover table-condensed">
+                                <thead>
+                                    <tr style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: 1px double #000000; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                        <th colspan="2" style="border-right:1px solid black; text-align: center;">Participan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.employee_ids" t-as="i" style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: 1px double #000000; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                        <td colspan="2" style="border-right: 1px double #000000; text-align: center;"><span t-esc="i.name_related"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-hover table-condensed">
+                                <thead>
+                                    <tr style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: 1px double #000000; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                        <th colspan="1" style="border-right:1px solid black; text-align: center">Contratos a evaluar</th>
+                                        <th colspan="1" style="border-right:1px solid black; text-align: center">Acuerdos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.line_contract_ids" t-as="i" style="border-top: 1px double #000000; border-bottom: 1px double #000000; border-left: 1px double #000000; border-right: 1px double #000000; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                        <td colspan="1" style="border-right:1px solid black"><span t-esc="i.contract_id.number"/> - <span t-esc="i.contract_id.name"/></td>
+                                        <td colspan="1" style="border-right:1px solid black; text-align: center"><span t-esc="i.contract_id.name"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

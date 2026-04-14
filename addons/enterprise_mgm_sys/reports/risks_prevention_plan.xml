@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.enterprise_mgm_sys_risks_prevention_plan_report"
+                model="enterprise_mgm_sys.risks_prevention_plan"
+                string="Plan de prevención de riesgos"
+                report_type="xlsx"
+                name="enterprise_mgm_sys.risks_prevention_plan_report"
+                file="enterprise_mgm_sys.risks_prevention_plan_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

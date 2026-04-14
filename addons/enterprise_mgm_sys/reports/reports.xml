@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_report_no_conformity_registry_docx" model="ir.actions.report.xml">
+            <field name="name">PE-DTD-07-R-28</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">enterprise_mgm_sys.no_conformity</field>
+            <field name="report_name">enterprise_mgm_sys.no_conformity_registry_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">enterprise_mgm_sys</field>
+            <field name="docxtpl_template_fallback">reports/docx/no_conformity_registry.docx</field>
+        </record>
+
+        <record id="action_report_audit_planning_docx" model="ir.actions.report.xml">
+            <field name="name">Audit Planning</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">enterprise_mgm_sys.audit</field>
+            <field name="report_name">enterprise_mgm_sys.audit_planning_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">enterprise_mgm_sys</field>
+            <field name="docxtpl_template_fallback">reports/docx/audit_planning.docx</field>
+        </record>
+
+        <record id="action_report_internal_audit_program_docx" model="ir.actions.report.xml">
+            <field name="name">Internal audit program</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">enterprise_mgm_sys.int_audit_program</field>
+            <field name="report_name">enterprise_mgm_sys.internal_audit_program_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">enterprise_mgm_sys</field>
+            <field name="docxtpl_template_fallback">reports/docx/internal_audit_program.docx</field>
+        </record>
+
+        <record id="action_report_internal_auditor_eval_docx" model="ir.actions.report.xml">
+            <field name="name">Internal auditor evaluation</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">enterprise_mgm_sys.internal_auditor_eval</field>
+            <field name="report_name">enterprise_mgm_sys.internal_auditor_evaluation_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">enterprise_mgm_sys</field>
+            <field name="docxtpl_template_fallback">reports/docx/internal_auditor_evaluation.docx</field>
+        </record>
+
+        <record id="action_report_auditor_leader_evaluation_docx" model="ir.actions.report.xml">
+            <field name="name">Auditor leader evaluation</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">enterprise_mgm_sys.auditor_leader_eval</field>
+            <field name="report_name">enterprise_mgm_sys.auditor_leader_evaluation_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">enterprise_mgm_sys</field>
+            <field name="docxtpl_template_fallback">reports/docx/auditor_leader_evaluation.docx</field>
+        </record>
+
+        <record id="action_report_internal_auditor_annual_evaluation_docx" model="ir.actions.report.xml">
+            <field name="name">Internal Auditor Annual evaluation</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">enterprise_mgm_sys.auditor_annual_eval</field>
+            <field name="report_name">enterprise_mgm_sys.internal_auditor_annual_evaluation_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">enterprise_mgm_sys</field>
+            <field name="docxtpl_template_fallback">reports/docx/internal_auditor_annual_evaluation.docx</field>
+        </record>
+
+        <record id="action_report_internal_agreement_evaluation_docx" model="ir.actions.report.xml">
+            <field name="name">Internal Agreement Evaluation</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">enterprise_mgm_sys.internal_agreement_eval</field>
+            <field name="report_name">enterprise_mgm_sys.internal_agreement_eval_docx</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">enterprise_mgm_sys</field>
+            <field name="docxtpl_template_fallback">reports/docx/internal_agreement_eval.docx</field>
+        </record>
+
+    </data>
+</odoo>

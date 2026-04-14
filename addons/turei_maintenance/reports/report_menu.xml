@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <report id="turei_maintenance_work_order_report"
+				name="turei_maintenance.work_order_report_template"
+				file="turei_maintenance.work_order_report_template"
+ 				model="turei_maintenance.work_order"
+ 				string="Orden de Trabajo"
+                paperformat="turei_maintenance.turei_maintenance_paper_format_letter"
+    			report_type="qweb-pdf"
+    			menu="True"/>
+
+		<report id="turei_maintenance_equipment_report"
+				name="turei_maintenance.equipment_report_template"
+				file="turei_maintenance.equipment_report_template"
+ 				model="maintenance.equipment"
+ 				string="Ficha Técnica"
+                paperformat="turei_maintenance.turei_maintenance_paper_format_letter"
+    			report_type="qweb-pdf"
+    			menu="True"/>
+    </data>
+</odoo>

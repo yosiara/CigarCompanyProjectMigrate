@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <!-- Scientific category -->
+    <record id="hr_science_degree_category_view_form" model="ir.ui.view">
+        <field name="name">hr.science.degree.category.form</field>
+        <field name="model">hr.science.degree.category</field>
+        <field name="arch" type="xml">
+            <form string="Scientific category">
+                <group>
+                    <field name="code" required="1"/>
+                    <field name="name" required="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_science_degree_category_tree" model="ir.ui.view">
+        <field name="name">hr.science.degree.category.tree</field>
+        <field name="model">hr.science.degree.category</field>
+        <field name="arch" type="xml">
+            <tree string="Scientific category">
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_view_science_degree_category_action" model="ir.actions.act_window">
+        <field name="name">Scientific category</field>
+        <field name="res_model">hr.science.degree.category</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--<menuitem action="open_view_science_degree_category_action" id="menu_hr_science_degree_category_view_form"
+              parent="hr.menu_human_resources_configuration" sequence="1" groups="base.group_no_one"/>-->
+
+    <!-- employee.science.degree tree-->
+    <record model="ir.ui.view" id="view_employee_science_degree_tree">
+        <field name="name">hr.employee.science.degree.tree</field>
+        <field name="model">hr.employee.science.degree</field>
+        <field name="arch" type="xml">
+            <tree string="Scientific grade">
+                <field name="science_degree_id" string="Scientific grade"/>
+                <field name="employee_id"/>
+                <field name="partner_id" string="Institution"/>
+                <field name="start_date"/>
+                <field name="end_date"/> 
+            </tree>
+        </field>
+    </record>
+     <!-- employee.science.degree form-->
+    <record model="ir.ui.view" id="view_employee_science_degree_form">
+        <field name="name">hr.employee.science.degree.form</field>
+        <field name="model">hr.employee.science.degree</field>
+        <field name="arch" type="xml">
+            <form string="Scientific grade">
+                <sheet>
+                    <group name="main" col="4">
+                        <field name="employee_id"/>
+                        <field name="science_degree_id"/>
+                        <separator string="Dates" colspan="4"/>
+                        <field name="start_date"/>
+                        <field name="end_date" />
+                        <separator string="Partner" colspan="4"/>
+                        <field name="partner_id"/>
+                        <separator string="Additional Information" colspan="4"/>
+                        <field name="description" colspan="4" nolabel="1"/>
+                        <field name="category" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+      </field>
+    </record>
+    <!-- Menu -->
+    <record model="ir.actions.act_window" id="open_view_science_degree_categories_form">
+        <field name="name">Scientific grade</field>
+        <field name="res_model">hr.employee.science.degree</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--<menuitem name="Scientific grade"
+              parent="menu_hr_experience"
+              id="menu_open_view_science_degree_categories_form"
+              action="open_view_science_degree_categories_form"/>-->
+
+</odoo>

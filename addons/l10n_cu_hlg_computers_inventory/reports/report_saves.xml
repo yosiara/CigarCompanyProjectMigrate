@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="l10n_cu_hlg_computers_inventory.report_saves">
+            <t t-call="report.html_container">
+                <t t-call="l10n_cu_hlg_computers_inventory.external_layout">
+                    <div class="page">
+                        <h3 align="center">REGISTRO DE PLANIFICACIÓN DE SALVAS</h3>
+
+                        <table width="100%" class="table table-hover table-condensed">
+                            <thead>
+                                <tr valign="top">
+                                    <td width="4%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>No.</b>
+                                        </font>
+                                    </td>
+                                    <td width="15%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Área</b>
+                                        </font>
+                                    </td>
+                                    <td width="10%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Fecha</b>
+                                        </font>
+                                    </td>
+                                    <td width="5%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Tamaño del archivo</b>
+                                        </font>
+                                    </td>
+                                    <td width="20%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Sistema/software o Información salvada</b>
+                                        </font>
+                                    </td>
+                                    <td width="10%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Soporte</b>
+                                        </font>
+                                    </td>
+                                    <td width="15%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Lugar de Conservación</b>
+                                        </font>
+                                    </td>
+                                    <td width="5%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Frecuencia</b>
+                                        </font>
+                                    </td>
+                                    <td width="15%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Persona que realiza la Salva</b>
+                                        </font>
+                                    </td>
+                                    <td width="4%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Firma</b>
+                                        </font>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="cont" t-value="0"/>
+                                <tr t-foreach="docs" t-as="o" valign="top">
+                                    <t t-set="cont" t-value="cont + 1"/>
+                                    <td align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="cont"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="o.department_id.name"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="o.planned_date"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="o.file_size"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="o.information"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="o.support"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="o.place"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span>every </span><span t-esc="o.frequency"/><span> hours</span>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="o.responsible_id.name_related"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="row mt64 text-center">
+                            <div class="col-xs-6">
+                                <p>_____________________</p>
+                                <p>
+                                    <span t-field="elaborates_id.name"/>
+                                </p>
+                                <p>
+                                    <span t-field="elaborates_id.job_id"/>
+                                </p>
+                                <p>
+                                    <b>Elaborates</b>
+                                </p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p>_____________________</p>
+                                <p>
+                                    <span t-field="approved_id.name"/>
+                                </p>
+                                <p>
+                                    <span t-field="approved_id.job_id"/>
+                                </p>
+                                <p>
+                                    <b>Approve</b>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report id="saves"
+                model="computers_inventory.planning_saves"
+                name="l10n_cu_hlg_computers_inventory.report_saves"
+                string="Record of save planning"
+                report_type="qweb-pdf"
+                file="l10n_cu_hlg_computers_inventory.report_saves"
+                menu="False"
+        />
+        <record id="saves" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="paperformat_horizontal"/>
+        </record>
+    </data>
+</odoo>
+
+

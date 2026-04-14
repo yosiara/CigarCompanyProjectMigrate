@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- SEARCH VIEW -->
+		<record id="turei_maintenance_incident_plan_view_search" model="ir.ui.view">
+            <field name="name">Incident plan search view</field>
+            <field name="model">turei_maintenance.incident_plan</field>
+            <field name="arch" type="xml">
+                <search string="Modelo de control">
+                    <field name="date_start"/>
+                    <filter name="group_year" string="Por año"
+                            context="{'group_by': 'year_char'}"
+                    />
+                </search>
+            </field>
+        </record>
+
+		<!-- TREE VIEW -->
+        <record id="turei_maintenance_incident_plan_tree_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_incident_plan_tree_view</field>
+            <field name="model">turei_maintenance.incident_plan</field>
+            <field name="arch" type="xml">
+            	<tree>
+					<field name="year_char" invisible="1"/>
+            		 <field name="date_start"/>
+					 <field name="date_end"/>
+					 <field name="description"/>
+	            </tree>
+	        </field>
+	    </record>
+
+        <!-- FORM VIEW -->
+        <record id="turei_maintenance_incident_plan_form_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_incident_plan_form_view</field>
+            <field name="model">turei_maintenance.incident_plan</field>
+            <field name="arch" type="xml">
+            	<form>
+					<sheet>
+						<group>
+							<group>
+								 <field name="date_start"/>
+							</group>
+							<group>
+								 <field name="date_end"/>
+							</group>
+						</group>
+						<group>
+							<field name="description"/>
+						</group>
+					</sheet>
+	            </form>
+	        </field>
+	    </record>
+
+        <!-- ACTION -->
+        <record id="turei_maintenance_incident_plan_action" model="ir.actions.act_window">
+	    	<field name="name">Incidencias Plan Mantenimiento</field>
+		    <field name="res_model">turei_maintenance.incident_plan</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context">{'search_default_group_year': 1}</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Incidencias Plan de Mantenimiento"
+				  id="turei_maintenance_item_incident_plan"
+				  action="turei_maintenance_incident_plan_action"
+				  parent="maintenance.menu_m_request"
+				  />
+    </data>
+</odoo>

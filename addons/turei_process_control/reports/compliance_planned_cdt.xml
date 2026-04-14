@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="compliance_planned_cdt_action"
+                string="Rep. Cumplimiento del CDT planificado"
+                model="wzd.compliance.planned.cdt.excel"
+                report_type="xlsx"
+                file="turei_process_control.compliance_planned_cdt"
+                name="turei_process_control.compliance_planned_cdt"/>
+    </data>
+</odoo>

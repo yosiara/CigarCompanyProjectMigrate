@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	<record id="ir_mail_server_form_inherit" model="ir.ui.view">
+            <field name="name">ir_mail_server_form.inherit</field>
+            <field name="model">ir.mail_server</field>
+            <field name="inherit_id" ref="base.ir_mail_server_form"/>
+            <field name="arch" type="xml">
+                <data>
+                     <field name="name" position="replace">
+                        <field name="name" widget="mask_regex" data-inputmask-regex="([A-Za-z0-9- /ÁÉÓÍÚÑáéóíúñ\.]{1,64})"/>
+                    </field>
+                    <field name="sequence" position="replace">
+                        <field name="sequence" widget="mask_regex" data-inputmask-regex="([0-9]{1,4})"/>
+                    </field>
+                    <field name="smtp_port" position="replace">
+                        <field name="smtp_port" widget="mask_regex" data-inputmask-regex="([0-9]{1,6})"/>
+                    </field>
+                    <field name="smtp_host" position="replace">
+                        <field name="smtp_host" widget="mask_regex" placeholder="http://yourcompany.stmp.com" data-inputmask-regex="([a-z0-9-_/:\.]{1,64})"/>
+                    </field>
+                    <!--<xpath expr="//form//group[2]" position="attributes">-->
+                       <!--<attribute name="string">Preferencias de mensajes</attribute>-->
+                    <!--</xpath>-->
+                </data>
+            </field>
+        </record>
+	</data>
+</openerp>

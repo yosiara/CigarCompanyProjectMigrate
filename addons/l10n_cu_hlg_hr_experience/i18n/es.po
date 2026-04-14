@@ -1,0 +1,620 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_hlg_hr_experience
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-04 15:39+0000\n"
+"PO-Revision-Date: 2017-10-05 15:10-0400\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "# Certificate"
+msgstr "# Certificado"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "# Certification"
+msgstr "# Certificación"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_academic_title_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_hr_professions_tree
+msgid "Aacdemic Titles"
+msgstr "Títulos Académicos"
+
+#. module: l10n_cu_hlg_hr_experience
+#: selection:hr.curriculum,category:0
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Academic"
+msgstr "Académico"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Academic Experience"
+msgstr "Experiencia academica"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Academic Experiences"
+msgstr "Experiencias academica"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Academic Information"
+msgstr "Información"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.hr_academic_title_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Academic Title"
+msgstr "Título Académico"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_experience.open_view_academic_title_action
+msgid "Academic Titles"
+msgstr "Títulos Académicos"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_academic_form
+msgid "Academic experience"
+msgstr "Experiencia academica"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_experience.open_view_academic_form
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_academic_ids
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_academic_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_academic_tree
+msgid "Academic experiences"
+msgstr "Experiencia academica"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_academic_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_profession_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_science_degree_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_teaching_form
+msgid "Additional Information"
+msgstr "Información adicional"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_category
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_category
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_category
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_category
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_category
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_category
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_category
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_academic_category
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_certification_category
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_curriculum_category
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_professions_category
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_category
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_category
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_experience_category
+msgid "Category"
+msgstr "Categoría"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_professional_form
+msgid "Cause of the Change"
+msgstr "Causa del cambio"
+
+#. module: l10n_cu_hlg_hr_experience
+#: selection:hr.curriculum,category:0
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Certification"
+msgstr "Certificación"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_certification
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_certification_certification
+msgid "Certification Number"
+msgstr "Numero"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_form
+msgid "Certification information"
+msgstr "Certification information"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_experience.open_view_certification_form
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_certification_ids
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_certification_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Certifications"
+msgstr "Certificaciones"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_science_degree_category_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_teaching_category_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_titles_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_professions_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_science_degree_category_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_teaching_category_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_titles_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_professions_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_science_degree_category_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_teaching_category_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_curriculum_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_curriculum_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_curriculum_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_curriculum_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_curriculum_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_curriculum_id
+msgid "Curriculum"
+msgstr "Curriculum"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_academic_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_profession_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_science_degree_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_teaching_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_professional_form
+msgid "Dates"
+msgstr "Fechas"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_description
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_description
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_description
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_description
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_description
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_description
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_description
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Description"
+msgstr "Descripción"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_titles_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_professions_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_science_degree_category_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_teaching_category_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_employee
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_employee_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_employee_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_employee_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_employee_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_employee_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_employee_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_employee_id
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_curriculum
+msgid "Employee's Curriculum"
+msgstr "Currículum del empleado"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_professional_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_professional_tree
+msgid "Employer"
+msgstr "Empleador"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_academic_partner_id
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_certification_partner_id
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_curriculum_partner_id
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_professions_partner_id
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_partner_id
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_partner_id
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_experience_partner_id
+msgid "Employer, School, University, Certification Authority"
+msgstr "Empleador, Escuela, Universidad, Autoridad de Certificación"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_end_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_end_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_end_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_end_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_end_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_end_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_end_date
+msgid "End date"
+msgstr "Fecha fin"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Experience"
+msgstr "Experiencia"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Experiences"
+msgstr "Experiencias"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_folio
+msgid "Folio"
+msgstr "Folio"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_titles_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_professions_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_science_degree_category_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_teaching_category_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_academic_form
+msgid "Information"
+msgstr "Información"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_academic_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_profession_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_science_degree_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_teaching_tree
+msgid "Institution"
+msgstr "Institución"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Issued By"
+msgstr "Emitido por"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_titles___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_professions___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_science_degree_category___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_teaching_category___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_titles_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_professions_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_science_degree_category_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_teaching_category_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_titles_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_professions_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_science_degree_category_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_teaching_category_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_titles_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_professions_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_science_degree_category_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_teaching_category_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_partner_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_partner_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_partner_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_partner_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_partner_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_partner_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_partner_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_academic_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_profession_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_science_degree_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_teaching_form
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_professional_form
+msgid "Partner information"
+msgstr "Información del socio"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_professional_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_professional_tree
+msgid "Position"
+msgstr "Cargo"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_principal
+msgid "Principal"
+msgstr "Principal"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Profession"
+msgstr "Profesión"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_profession_id
+msgid "Profession id"
+msgstr "Profesión"
+
+#. module: l10n_cu_hlg_hr_experience
+#: selection:hr.curriculum,category:0
+msgid "Professional"
+msgstr "Profesional"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_professional_form
+msgid "Professional Experience"
+msgstr "Experiencia profesional"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_experience.open_view_professional_form
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_experience_ids
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_experience_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_professional_tree
+msgid "Professional Experiences"
+msgstr "Experiencias profesional"
+
+#. module: l10n_cu_hlg_hr_experience
+#: selection:hr.curriculum,category:0
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_experience.open_view_hr_professions_action
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_experience.open_view_profession_form
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_profession_ids
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_profession_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.hr_professions_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_profession_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_profession_tree
+msgid "Professions"
+msgstr "Profesiones"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_registration_date
+msgid "Registration date"
+msgstr "Fecha de Registro "
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_science_degree_id
+msgid "Science degree id"
+msgstr "ID grado científico"
+
+#. module: l10n_cu_hlg_hr_experience
+#: selection:hr.curriculum,category:0
+msgid "Scientific"
+msgstr "Científico"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_experience.open_view_science_degree_category_action
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.hr_science_degree_category_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_science_degree_category_tree
+msgid "Scientific category"
+msgstr "Categoría científica"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_experience.open_view_science_degree_categories_form
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_scientific_ids
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_scientific_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_science_degree_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_science_degree_tree
+msgid "Scientific grade"
+msgstr "Grado científico"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_start_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_certification_start_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_curriculum_start_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_professions_start_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_science_degree_start_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_start_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_experience_start_date
+msgid "Start date"
+msgstr "Fecha Inicio"
+
+#. module: l10n_cu_hlg_hr_experience
+#: selection:hr.curriculum,category:0
+msgid "Teacher"
+msgstr "Profesor"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Teaching"
+msgstr "Docente"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_experience.open_view_teaching_categories_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_teaching_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_teaching_tree
+msgid "Teaching Categories"
+msgstr "Categorías docente"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_experience.open_view_teaching_category_action
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teacher_ids
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_experience.field_hr_employee_teacher_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.hr_teaching_category_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_teaching_category_tree
+msgid "Teaching category"
+msgstr "Categoría docente"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_employee_teaching_teaching_id
+msgid "Teaching id"
+msgstr "Id docente"
+
+#. module: l10n_cu_hlg_hr_experience
+#: sql_constraint:hr.science.degree.category:0
+#: sql_constraint:hr.teaching.category:0
+msgid "The code must be unique!"
+msgstr "¡El código debe ser único!"
+
+#. module: l10n_cu_hlg_hr_experience
+#: sql_constraint:hr.professions:0 sql_constraint:hr.science.degree.category:0
+#: sql_constraint:hr.teaching.category:0
+msgid "The name must be unique!"
+msgstr "¡El nombre debe ser único!"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_academic_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_profession_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_teaching_tree
+msgid "Title"
+msgstr "Título"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_title_id
+msgid "Title id"
+msgstr "ID del título"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_experience.field_hr_academic_tome
+msgid "Tome"
+msgstr "Tomo"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_employee_form_inherit
+msgid "Trajectory"
+msgstr "Trayectoria"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_form
+msgid "certification"
+msgstr "Certificación"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_experience.view_certification_tree
+msgid "certifications"
+msgstr "Certificaciones"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_academic
+msgid "hr.academic"
+msgstr "hr.academic"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_academic_titles
+msgid "hr.academic.titles"
+msgstr "hr.academic.titles"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_certification
+msgid "hr.certification"
+msgstr "hr.certification"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_employee_professions
+msgid "hr.employee.professions"
+msgstr "hr.employee.professions"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_employee_science_degree
+msgid "hr.employee.science.degree"
+msgstr "hr.employee.science.degree"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_employee_teaching
+msgid "hr.employee.teaching"
+msgstr "hr.employee.teaching"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_experience
+msgid "hr.experience"
+msgstr "hr.experience"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_professions
+msgid "hr.professions"
+msgstr "hr.professions"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_science_degree_category
+msgid "hr.science.degree.category"
+msgstr "hr.science.degree.category"
+
+#. module: l10n_cu_hlg_hr_experience
+#: model:ir.model,name:l10n_cu_hlg_hr_experience.model_hr_teaching_category
+msgid "hr.teaching.category"
+msgstr "hr.teaching.category"

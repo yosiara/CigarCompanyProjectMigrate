@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		VERSAT CONCEPT
+		Model: versat.concept
+		=========================================================================================== -->
+        
+        <!-- TREE VIEW -->
+		<record id="versat_concept_tree_view" model="ir.ui.view">
+            <field name="name">versat_concept_tree_view</field>
+            <field name="model">versat.concept</field>
+            <field name="arch" type="xml">
+            	<tree editable="bottom">
+                    <field name="to_import"/>
+                    <field name="is_out_operation"/>
+                    <field name="idconcepto"/>
+                    <field name="idregdocum"/>
+                    <field name="idcriterio"/>
+                    <field name="codigo"/>
+                    <field name="description"/>
+                    <field name="idcategoria"/>
+                    <field name="activo"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="versat_concept_action" model="ir.actions.act_window">
+            <field name="name">Versat Concepts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">versat.concept</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Versat Concepts"
+                  id="versat_concept_menu_item"
+                  action="versat_concept_action"
+                  parent="warehouse.warehouse_warehouse_left_menu"
+                  sequence="100"/>
+    </data>
+</odoo>

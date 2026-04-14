@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.process_control_primary_flow_by_lines_to_excel"
+                model="wzd.flow.by.lines.to.excel"
+                string="Rep. de Eficiencia, CDT y Flujo por Líneas"
+                report_type="xlsx"
+                name="process_control_primary.flow_by_lines_report"
+                file="process_control_primary.flow_by_lines_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

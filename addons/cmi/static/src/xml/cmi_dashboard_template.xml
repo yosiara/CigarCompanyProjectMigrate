@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="CmiDashboardContainer">
+        <div id="cmi_dashboard_container" class="row cmi_dashboard">
+
+        </div>
+    </t>
+    <t t-name="CmiFilterSelection">
+        <select
+                class="o_form_input"
+                t-att-name="widget.name"
+                t-att-tabindex="widget.node.attrs.tabindex"
+                t-att-autofocus="widget.node.attrs.autofocus"
+                t-att-id="widget.id_for_label"/>
+    </t>
+</templates>
+

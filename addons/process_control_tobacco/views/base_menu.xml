@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <menuitem id="menu_proccess_control_tobacco" name="Control Proceso Reconstituido" sequence="12"
+                  web_icon="process_control_tobacco,static/src/img/logo_hoja.png"/>
+
+        <menuitem id="process_control_tobacco_settings_menu" name="Configuración" parent="menu_proccess_control_tobacco" sequence="99"/>
+
+        <menuitem id="process_control_tobacco_control_tec" name="Control Tecnológico" parent="menu_proccess_control_tobacco" sequence="0"/>
+
+        <menuitem id="process_control_tobacco_informes_xls" name="Informes XLS" parent="menu_proccess_control_tobacco" sequence="2"/>
+    </data>
+</odoo>

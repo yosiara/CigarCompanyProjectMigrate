@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+
+         <record id="view_l10n_cu_hlg_hr_defense_template_wear_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_hr_defense_template_wear.tree</field>
+            <field name="model">l10n_cu_hlg_hr_defense_inf.template_wear</field>
+            <field name="arch" type="xml">
+                <tree string="Template wear">
+                    <field name="position_id"/>
+                    <field name="number_of_places"/>
+                    <field name="time_in_days"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_hlg_hr_defense_template_wear_form" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_hr_defense_template_wear.form</field>
+            <field name="model">l10n_cu_hlg_hr_defense_inf.template_wear</field>
+            <field name="arch" type="xml">
+                <form string="Template wear">
+                    <sheet>
+                        <group>
+                        	<field name="position_id"/>
+                            <field name="number_of_places"/>
+                           <field name="time_in_days"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_l10n_cu_hlg_hr_defense_template_wear" model="ir.actions.act_window">
+			<field name="name">Template wear</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">l10n_cu_hlg_hr_defense_inf.template_wear</field>
+		</record>
+
+        <!--invasion-->
+        <record id="view_l10n_cu_hlg_hr_defense_template_invasion_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_hr_defense_template_invasion.tree</field>
+            <field name="model">l10n_cu_hlg_hr_defense_inf.template_invasion</field>
+            <field name="arch" type="xml">
+                <tree string="Template invasion">
+                    <field name="position_id"/>
+                    <field name="number_of_places"/>
+                    <field name="time_in_days"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_hlg_hr_defense_template_invasion_form" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_hr_defense_template_invasion.form</field>
+            <field name="model">l10n_cu_hlg_hr_defense_inf.template_invasion</field>
+            <field name="arch" type="xml">
+                <form string="Template invasion">
+                    <sheet>
+                        <group>
+                        	<field name="position_id"/>
+                            <field name="number_of_places"/>
+                           <field name="time_in_days"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_l10n_cu_hlg_hr_defense_template_invasion" model="ir.actions.act_window">
+			<field name="name">Template invasion</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">l10n_cu_hlg_hr_defense_inf.template_invasion</field>
+		</record>
+
+        <menuitem id="l10n_cu_hr_defense_menu"
+                  name="Defense"
+                  parent="hr.menu_hr_root"
+                  sequence="98" groups="base.group_user,hr.group_hr_user"/>
+
+        <menuitem name="Template wear"
+                  id="hr_defense_template_wear_menu_item"
+                  action="action_l10n_cu_hlg_hr_defense_template_wear"
+                  parent="l10n_cu_hr_defense_menu"
+                  groups="hr.group_hr_user"/>
+
+        <menuitem name="Template invasion"
+                  id="hr_defense_template_invasion_menu_item"
+                  action="action_l10n_cu_hlg_hr_defense_template_invasion"
+                  parent="l10n_cu_hr_defense_menu"
+                  groups="hr.group_hr_user"/>
+
+    </data>
+</odoo>

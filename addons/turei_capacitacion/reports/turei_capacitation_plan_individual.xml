@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="report_capacitation_plan_indidivual" model="ir.actions.report.xml">
+            <field name="name">Individual Plan</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">turei_capacitacion.capacitation_need</field>
+            <field name="report_name">report_capacitation_plan_indidivual</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="docxtpl_multi_in_one">True</field>
+            <field name="module">turei_capacitacion</field>
+            <field name="docxtpl_template_fallback">reports/docx/turei_capacitacion_plan_individual.docx</field>
+        </record>
+        <record id="button_report_capacitation_plan_indidivual" model="ir.values">
+            <field name="key2">client_print_multi</field>
+            <field name="model">turei_capacitacion.capacitation_need</field>
+            <field name="name">Individual Plan</field>
+            <field name="value"
+                   eval="'ir.actions.report.xml,%d'%report_capacitation_plan_indidivual"/>
+        </record>
+    </data>
+</odoo>

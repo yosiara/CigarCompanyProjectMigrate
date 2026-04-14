@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="assets_backend" name="Enterprise Management System assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/enterprise_mgm_sys/static/src/js/dashboard.js"/>
+                <link rel="stylesheet" href="/enterprise_mgm_sys/static/src/less/enterprise_mgm_sys.less"/>
+            </xpath>
+        </template>
+
+</odoo>

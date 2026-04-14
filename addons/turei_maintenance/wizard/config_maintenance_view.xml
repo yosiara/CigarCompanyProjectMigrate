@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+
+		<!-- FORM VIEW -->
+		<record id="turei_maintenance_config_maintenance_form_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_config_maintenance_form_view</field>
+            <field name="model">turei_maintenance.config_maintenance</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            	<form>
+                    <sheet>
+                        <div>
+                            <p>
+                                Seleccione la opción deseada ....
+                            </p>
+                        </div>
+
+
+                        <group string="Configuración..." col="8">
+                            <group col="4" colspan="4">
+                                <field name="action" colspan="4"/>
+                            </group>
+                            <group col="4" colspan="4">
+                                <field name="number" attrs="{'invisible': [('action', '!=', 'upload_work_order')], 'required': [('action', '=', 'upload_work_order')]}" colspan="4"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <button name="action_import" string="Ejecutar..." type="object" class="oe_highlight"/>
+                        o
+                        <button special="cancel" string="Cancelar" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="turei_maintenance_config_maintenance_action" model="ir.actions.act_window">
+            <field name="name">Asistente para carga inicial al sistema...</field>
+            <field name="res_model">turei_maintenance.config_maintenance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- MENU ITEM -->
+
+        <menuitem name="Carga inicial..."
+                  id="turei_maintenance_config_maintenance_menu_item"
+                  action="turei_maintenance_config_maintenance_action"
+                  parent="turei_maintenance_integration_left_menu"
+                  sequence="15"/>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="cmi_source_form_view_inherit" model="ir.ui.view">
+            <field name="name">cmi.source.form.view.inherit</field>
+            <field name="model">cmi.source</field>
+            <field name="inherit_id" ref="cmi.cmi_source_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='model']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('type', '=', 'survey')], 'required': [('type', '!=',
+                        'survey')]}
+                    </attribute>
+                </xpath>
+                <xpath expr="//field[@name='model']" position="after">
+                    <field name="survey_id"
+                           attrs="{'invisible': [('type', '!=', 'survey')], 'required': [('type', '=', 'survey')]}"/>
+                    <field name="aggregation"
+                           attrs="{'invisible': [('type', '!=', 'survey')], 'required': [('type', '=', 'survey')]}"/>
+                </xpath>
+                <xpath expr="//group[1]" position="after">
+                    <group attrs="{'invisible': [('type', '!=', 'survey')]}">
+                        <field name="question_ids" mode="tree" attrs="{'invisible': [('type', '!=', 'survey')], 'required': [('type', '=', 'survey')]}">
+                            <tree>
+                                <field name="question"/>
+                                <field name="type"/>
+                                <field name="constr_mandatory"/>
+                            </tree>
+                        </field>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

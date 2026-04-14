@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="l10n_cu_hlg_computers_inventory.report_control">
+            <t t-call="report.html_container">
+                <t t-call="l10n_cu_hlg_computers_inventory.external_layout">
+                    <div class="page">
+                        <h3 align="center">REGISTRO DE CONTROL DE LAS APLICACIONES</h3>
+
+                        <table width="100%" class="table table-hover table-condensed">
+                            <thead>
+                                <tr valign="top">
+                                    <td width="5%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>No.</b>
+                                        </font>
+                                    </td>
+                                    <td width="25%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Nombres y Apellidos</b>
+                                        </font>
+                                    </td>
+                                    <td width="15%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Usuario</b>
+                                        </font>
+                                    </td>
+                                    <td width="10%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Aplicación</b>
+                                        </font>
+                                    </td>
+                                    <td width="10%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Permisos</b>
+                                        </font>
+                                    </td>
+                                    <td width="10%" align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <b>Aprobado</b>
+                                        </font>
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="cont" t-value="0"/>
+                                <tr t-foreach="docs" t-as="o" valign="top">
+                                    <t t-set="cont" t-value="cont + 1"/>
+                                    <td align="center"
+                                        style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="cont"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="o.applicant_id.name_related"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="o.applicant_id.user_id.login"/>
+                                        </font>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <ul style="list-style: none;">
+                                            <li t-foreach="o.software_line_ids" t-as="software">
+                                                <t t-esc="software.software_id.name"/>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <ul style="list-style: none;">
+                                            <li t-foreach="o.software_line_ids" t-as="permissions">
+                                                <li t-foreach="permissions.permissions_ids" t-as="permission">
+                                                    <t t-esc="permission.name"/>
+                                                </li>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td style="border-bottom: 1px double; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                        <font face="Arial, sans-serif" style="font-size: 12pt">
+                                            <span t-esc="o.approve_by_id.name_related"/>
+                                        </font>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="row mt64 text-center">
+                            <div class="col-xs-6">
+                                <p>_____________________</p>
+                                <p>
+                                    <span t-field="elaborates_id.name"/>
+                                </p>
+                                <p>
+                                    <span t-field="elaborates_id.job_id"/>
+                                </p>
+                                <p>
+                                    <b>Elaborates</b>
+                                </p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p>_____________________</p>
+                                <p>
+                                    <span t-field="approved_id.name"/>
+                                </p>
+                                <p>
+                                    <span t-field="approved_id.job_id"/>
+                                </p>
+                                <p>
+                                    <b>Approve</b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <report id="control_applications"
+                model="l10n_cu_hlg_computers_inventory.control_applications"
+                name="l10n_cu_hlg_computers_inventory.report_control"
+                string="Registro de Control de las Aplicaciones"
+                report_type="qweb-pdf"
+                file="l10n_cu_hlg_computers_inventory.report_control"
+        />
+        <record id="control_applications" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="paperformat_horizontal"/>
+        </record>
+    </data>
+</odoo>
+
+

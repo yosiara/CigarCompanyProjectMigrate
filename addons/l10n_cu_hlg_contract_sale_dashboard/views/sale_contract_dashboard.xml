@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+<!--        <record id="view_l10n_cu_contract_contract_dashboard_tree" model="ir.ui.view">-->
+<!--            <field name="name">l10n_cu_contract.contract.dashboard.sale.tree</field>-->
+<!--            <field name="model">l10n_cu_contract.contract</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree>-->
+<!--                    <field name="complete_number"/>-->
+<!--                    <field name="name"/>-->
+<!--                    <field name="partner_id"/>-->
+<!--                    <field name="contract_type"/>-->
+<!--                    <field name="date_start"/>-->
+<!--                    <field name="date_end"/>-->
+<!--                    <field name="amount_total"/>-->
+<!--                    <field name="amount_invoice"/>-->
+<!--                    <field name="days" invisible="True"/>-->
+<!--                    <field name="state" invisible="1"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+        <record id="invoice_tree_dashboard_sale" model="ir.ui.view">
+            <field name="name">account.invoice.dashboard.sale.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="state == 'draft'" decoration-muted="state == 'cancel'" string="Invoice">
+                    <field name="partner_id" string="Partner"/>
+                    <field name="date_invoice"/>
+                    <field name="number"/>
+                    <field name="user_id"/>
+                    <field name="date_due"/>
+                    <field name="origin"/>
+                    <field name="amount_total_signed" string="Total" sum="Total"/>
+                    <field name="residual_signed" string="Amount Due" sum="Amount Due"/>
+                    <field name="state" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_sale_contract_dashboard" model="ir.actions.act_window">
+            <field name="name">Tablero</field>
+            <field name="res_model">contract.sale.dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">sale_contract_dashboard_view</field>
+            <field name="context">{
+            'sale_contract_dashboard_view_view_ref' : 'l10n_cu_hlg_contract_sale_dashboard.sale_contract_dashboard_view'
+            }</field>
+        </record>
+        <record model="ir.ui.view" id="sale_contract_dashboard_view">
+            <field name="name">Tablero</field>
+            <field name="model">contract.sale.dashboard</field>
+            <field name="arch" type="xml">
+                <kanban>
+
+                </kanban>
+            </field>
+        </record>
+        <menuitem id="menu_sale_contract_dashboard"
+                  name="Dashboard"
+                  action="action_sale_contract_dashboard"
+                  parent="l10n_cu_hlg_contract.menu_sale_commercial"
+                  sequence="1"/>
+
+        <template id="assets_backend" name="Contract assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/src/js/hr_dashboard.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/src/js/hr_dashboard_purchase.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/charts/Chart.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/charts/Chart.bundle.min.js"/>
+                <!-- Datatable scripts -->
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/datatables.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/dataTables.buttons.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/buttons.flash.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/buttons.html5.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/buttons.print.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/pdfmake.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/vfs_fonts.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/jszip.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/buttons.bootstrap.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/buttons.bootstrap4.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/buttons.colVis.min.js"/>
+                <!-- Scripts to export html to pdf -->
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/jsPdf/jspdf.min.js"/>
+                <script type="text/javascript" src="/l10n_cu_hlg_contract_sale_dashboard/static/lib/jsPdf/jspdf.debug.js"/>
+                <!-- Css scripts for dashboard view and table -->
+                <link rel="stylesheet" href="/l10n_cu_hlg_contract_sale_dashboard/static/src/css/dashboard.css"/>
+                <link rel="stylesheet" href="/l10n_cu_hlg_contract_sale_dashboard/static/src/css/dashboard_purchase.css"/>
+                <link rel="stylesheet" href="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/datatables.min.css"/>
+                <link rel="stylesheet" href="/l10n_cu_hlg_contract_sale_dashboard/static/lib/dataTables/buttons.dataTables.min.css"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

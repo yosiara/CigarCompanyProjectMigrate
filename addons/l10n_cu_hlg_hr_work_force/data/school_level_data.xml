@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+
+		<record id="school_level_0" model="l10n_cu_hlg_hr.employee_school_level">
+			<field name="code">0</field>
+			<field name="name">6to grado</field>
+		</record>
+		
+		<record id="school_level_1" model="l10n_cu_hlg_hr.employee_school_level">
+			<field name="code">1</field>
+			<field name="name">9no grado</field>
+		</record>
+		
+		<record id="school_level_2" model="l10n_cu_hlg_hr.employee_school_level">
+			<field name="code">2020</field>
+			<field name="name">Obrero Calificado</field>
+		</record>
+		
+		<record id="school_level_3" model="l10n_cu_hlg_hr.employee_school_level">
+			<field name="code">3</field>
+			<field name="name">12 grado</field>
+		</record>
+		
+		<record id="school_level_4" model="l10n_cu_hlg_hr.employee_school_level">
+			<field name="code">2021</field>
+			<field name="name">Técnico Medio</field>
+		</record>
+		
+		<record id="school_level_5" model="l10n_cu_hlg_hr.employee_school_level">
+			<field name="code">2023</field>
+			<field name="name">Universitario</field>
+		</record>
+
+		<record id="specialty_family_0" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9810</field>
+			<field name="name">TM Familia Mecánica</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_1" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9811</field>
+			<field name="name">TM Familia Transporte</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_2" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9812</field>
+			<field name="name">TM Familia Eléctrica</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_3" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9813</field>
+			<field name="name">TM Familia Construcción</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_4" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9814</field>
+			<field name="name">TM Familia Geodesia y Cartografía</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_5" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9815</field>
+			<field name="name">TM Familia Química Azú Biológica y Alimentos</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_6" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9816</field>
+			<field name="name">TM Familia Informática y Comunicaciones</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_7" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9817</field>
+			<field name="name">TM Familia Agroindustrial</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_8" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9818</field>
+			<field name="name">TM Familia Economía</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_9" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9819</field>
+			<field name="name">TM Familia Servicios</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_10" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9820</field>
+			<field name="name">TM Familia Servicios Sociales</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_11" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9821</field>
+			<field name="name">TM Familia Petróleo</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_12" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9822</field>
+			<field name="name">TM Familia Industria Ligera</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_13" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9823</field>
+			<field name="name">TM Familia Especialidades formadas por el MINSAP</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_14" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9824</field>
+			<field name="name">TM Familia Especialidades formadas por el MINCULT</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_15" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9825</field>
+			<field name="name">TM Familia Especialidades formadas por el INDER</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_16" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9826</field>
+			<field name="name">TM Familia Personal Docente</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_17" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9827</field>
+			<field name="name">OC Familia Mecánica</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_18" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9828</field>
+			<field name="name">OC Familia Transporte</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_19" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9829</field>
+			<field name="name">OC Familia Eléctrica</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_20" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9830</field>
+			<field name="name">OC Familia Construcción</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_21" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9831</field>
+			<field name="name">OC Familia Agroindustrial</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_22" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9832</field>
+			<field name="name">OC Familia Servicios</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_23" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9833</field>
+			<field name="name">OC Familia Industrial Ligera</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_24" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9834</field>
+			<field name="name">OC Familia Química Azú Biológica y Alimentos</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_25" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9835</field>
+			<field name="name">OC Familia Petróleo</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_26" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9836</field>
+			<field name="name">Trabajo por Cuenta Propia</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_27" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9837</field>
+			<field name="name">OC Familia del MINSAP</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_28" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9890</field>
+			<field name="name">Actividad de Trabajo por Cuenta Propia</field>
+			<field name="degree_level_id" ref="school_level_4"/>
+		</record>
+
+		<record id="specialty_family_29" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9896</field>
+			<field name="name">TM Otras Profesiones</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="specialty_family_30" model="l10n_cu_hlg_hr_work_force.specialty_family">
+			<field name="code">9897</field>
+			<field name="name">OC Otras Profesiones</field>
+			<field name="degree_level_id" ref="school_level_2"/>
+		</record>
+
+		<record id="branch_science_0" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7731</field>
+			<field name="name">Carreras de Arte</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_1" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7724</field>
+			<field name="name">Ciencias Técnicas</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_2" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7725</field>
+			<field name="name">Ciencias Naturales y Matemáticas</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_3" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7729</field>
+			<field name="name">Ciencias Médicas</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_4" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7726</field>
+			<field name="name">Ciencias Agropecuarias</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_5" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7727</field>
+			<field name="name">Ciencias Económicas</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_6" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7728</field>
+			<field name="name">Ciencias Sociales y Humanísticas</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_7" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7735</field>
+			<field name="name">Carreras de Relaciones Internacionales</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_8" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7730</field>
+			<field name="name">Ciencias Pedagógicas</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_9" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7740</field>
+			<field name="name">Defensa</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_10" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7732</field>
+			<field name="name">Cultura Física</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+		<record id="branch_science_11" model="l10n_cu_hlg_hr_work_force.branch_science">
+			<field name="code">7799</field>
+			<field name="name">Otras Carreras de Nivel Superior</field>
+			<field name="degree_level_id" ref="school_level_5"/>
+		</record>
+
+	</data>
+</odoo>

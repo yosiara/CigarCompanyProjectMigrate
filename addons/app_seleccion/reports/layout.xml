@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="paperformat_reporte_vertical" model="report.paperformat">
+            <field name="name">Configuración de Reportes Vertical</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">25</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_reporte_horizontal" model="report.paperformat">
+            <field name="name">Configuración de Reportes Horizontal</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">25</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <template id="app_seleccion.external_layout">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+
+            <t t-call="app_seleccion.external_layout_header"/>
+            <t t-raw="0"/>
+            <t t-call="app_seleccion.external_layout_footer"/>
+        </template>
+
+        <template id="app_seleccion.external_layout_header">
+            <div class="header">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <img src="/app_seleccion/static/src/img/logo.png" style="max-height: 45px;"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="external_layout_footer">
+            <div class="footer">
+
+                <div class="text-center" style="border-top: 1px solid black;">
+                    <div class="col-xs-12" style="height: 50px; line-height: 20px">
+                        <table>
+                            <tr>
+                                <td colspan="7">
+                                    <span t-esc="user.company_id.partner_id.name"/>
+                                </td>
+                            </tr>
+                            <br/>
+                            <tr>
+                                <td colspan="7">
+                                    <span>
+                                        <b>Dirección: </b>
+                                        <span t-esc="user.company_id.partner_id.street"/>
+                                        <span t-esc="user.company_id.partner_id.street2"/>,
+                                        <span t-esc="user.company_id.partner_id.city"/>,
+                                        <span t-esc="user.company_id.partner_id.country_id.name"/>.
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <span>
+                                        <b>Teléfono: </b>
+                                        <span t-esc="user.company_id.partner_id.phone"/>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td colspan="4">
+                                    <span>
+                                        <b>E-mail: </b>
+                                        <span t-esc="user.company_id.partner_id.email"/>
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                        <ul class="list-inline">
+                            <li>Page:</li>
+                            <li>
+                                <span class="page"/>
+                            </li>
+                            <li>/</li>
+                            <li>
+                                <span class="topage"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+    </data>
+</openerp>

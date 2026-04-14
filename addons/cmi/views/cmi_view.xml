@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Indicator-->
+        <record id="cmi_indicator_form_view" model="ir.ui.view">
+            <field name="name">cmi.indicator.form.view</field>
+            <field name="model">cmi.indicator</field>
+            <field name="arch" type="xml">
+                <form string="Indicator">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="value_type"/>
+                            <field name="optimal_value"/>
+                            <field name="consolidated"/>
+                            <field name="aggregation"/>
+                            <field name="periodicity"/>
+                            <field name="perspective_id"/>
+                            <field name="char_type"
+                                   attrs="{'required': [('value_type', '!=', 'yes_no')], 'invisible': [('value_type', '=', 'yes_no')]}"/>
+                            <field name="uom_id"
+                                   attrs="{'required': [('value_type', '!=', 'yes_no')], 'invisible': [('value_type', '=', 'yes_no')]}"/>
+                            <field name="lower_limit"
+                                   attrs="{'required': [('value_type', '!=', 'yes_no')], 'invisible': [('value_type', '=', 'yes_no')]}"/>
+                            <field name="medium_limit"
+                                   attrs="{'required': [('value_type', '!=', 'yes_no')], 'invisible': [('value_type', '=', 'yes_no')]}"/>
+                            <field name="maximum_limit"
+                                   attrs="{'required': [('value_type', '!=', 'yes_no')], 'invisible': [('value_type', '=', 'yes_no')]}"/>
+                            <field name="source_id"
+                                   attrs="{'invisible': [('type', '=', 'manual')], 'required': [('type', '!=', 'manual')]}"/>
+                            <field name="responsible_id" groups="cmi.manager"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <separator string="Last Values"/>
+                        <group col="1">
+                            <field name="line_ids" nolabel="1" context="{'default_indicator_id': id}">
+                                <tree limit="10">
+                                    <field name="periodicity" invisible="1"/>
+                                    <field name="indicator_id" invisible="1"/>
+                                    <field name="year" invisible="1"/>
+                                    <field name="month" invisible="1"/>
+                                    <field name="trimester" invisible="1"/>
+                                    <field name="semester" invisible="1"/>
+                                    <field name="date" invisible="1"/>
+                                    <field name="date_string"/>
+                                    <field name="value"/>
+                                    <field name="plan"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="cmi_indicator_tree_view" model="ir.ui.view">
+            <field name="name">cmi.indicator.tree.view</field>
+            <field name="model">cmi.indicator</field>
+            <field name="arch" type="xml">
+                <tree string="Indicator">
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="type"/>
+                    <field name="value_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cmi_indicator_search_view" model="ir.ui.view">
+            <field name="name">cmi.indicator.tree.search</field>
+            <field name="model">cmi.indicator</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="value_type"/>
+                    <field name="perspective_id"/>
+                    <filter string="Today" name="today" domain="[('date','=',datetime.date.today().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="yesterday"
+                            domain="[('date','=',(datetime.date.today() - relativedelta(days=1)).strftime('%Y-%m-%d'))]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Value Type" domain="[]" context="{'group_by': 'value_type'}"/>
+                        <filter string="Type" domain="[]" context="{'group_by': 'type'}"/>
+                        <filter string="Perspective" domain="[]" context="{'group_by': 'perspective_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="cmi_indicator_kanban_view" model="ir.ui.view">
+            <field name="name">Indicators</field>
+            <field name="model">cmi.indicator</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey o_kanban_dashboard o_cmi_kanban" quick_create="false"
+                        default_group_by="perspective_id" group_create="false" group_delete="false" group_edit="false">
+                    <field name="message_is_follower"/>
+                    <field name="last_value"/>
+                    <field name="lower_limit"/>
+                    <field name="medium_limit"/>
+                    <field name="maximum_limit"/>
+                    <field name="name"/>
+                    <field name="color"/>
+                    <field name="value"/>
+                    <field name="plan"/>
+                    <field name="real"/>
+                    <field name="uom_id"/>
+                    <field name="uom_abbreviated_name"/>
+                    <field name="value_type"/>
+                    <field name="gauge_uom"/>
+                    <field name="date_string"/>
+                    <field name="second_zone_limit"/>
+                    <field name="first_zone_limit"/>
+                    <field name="optimal_value"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="o_cmi_kanban_main">
+                                    <div class="o_kanban_card_content o_visible">
+                                        <div class="o_kanban_primary_left">
+                                            <div class="o_primary">
+                                                <p>
+                                                    <t t-esc="record.name.value"/>
+                                                </p>
+
+                                            </div>
+                                            <div class="" t-if="record.last_value">
+                                                <t t-if="record.value_type.raw_value == 'yes_no'">
+                                                    <strong class="">
+                                                        <t t-if="record.value.raw_value &gt; 0">
+                                                            Certified
+                                                        </t>
+                                                        <t t-else="">
+                                                            No Certified
+                                                        </t>
+                                                    </strong>
+                                                </t>
+                                                <t t-else="">
+                                                    <p class="">
+                                                        <strong>Plan</strong>
+                                                        <strong class="">
+                                                            <t t-esc="record.plan.value"/>
+                                                            <t t-raw="record.uom_abbreviated_name.value"/>
+                                                        </strong>
+                                                        <br/>
+                                                        <strong class="">Real</strong>
+                                                        <strong class="">
+                                                            <t t-esc="record.real.value"/>
+                                                            <t t-raw="record.uom_abbreviated_name.value"/>
+                                                        </strong>
+                                                        <!--<strong class="">-->
+                                                        <!--<t t-esc="record.value.value"/>-->
+                                                        <!--<t t-if="record.value_type.raw_value == 'unique'">-->
+                                                        <!--<t t-raw="record.uom_abbreviated_name.value"/>-->
+                                                        <!--</t>-->
+                                                        <!--<t t-else="">-->
+                                                        <!--%-->
+                                                        <!--</t>-->
+                                                        <!--</strong>-->
+                                                    </p>
+                                                </t>
+                                            </div>
+                                        </div>
+                                        <div class="o_kanban_button">
+                                            <button t-if="record.message_is_follower.raw_value"
+                                                    name="action_unfollow" type="object"
+                                                    class="o_follow_btn o_following btn btn-sm btn-default">
+                                                <span class="o_unfollow">Unfollow</span>
+                                                <span class="o_following">Following</span>
+                                            </button>
+                                            <button t-if="!record.message_is_follower.raw_value"
+                                                    name="action_follow" type="object"
+                                                    class="o_follow_btn o_follow btn btn-sm btn-primary">Follow
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="o_cmi_kanban_boxes text-center">
+                                    <div class="o_cmi_kanban_primary_box">
+                                        <span class="o_value">
+                                            <t t-esc="record.date_string.value"></t>
+                                        </span>
+                                    </div>
+                                    <field name="last_value" widget="cmi_gauge"
+                                           style="width: 120px;height:120px;cursor:pointer;"
+                                           options="{'max_field': 'maximum_limit', 'first_zone_limit_field': 'first_zone_limit', 'second_zone_limit_field': 'second_zone_limit', 'optimal_value_field': 'optimal_value', 'value_field': 'value', 'uom_field': 'gauge_uom'}">
+                                    </field>
+                                    <div t-if="record.color.value == 'red'" class="o-led-box">
+                                        <div class="o-led-red"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="cmi_indicator_menu_action" model="ir.actions.act_window">
+            <field name="name">Indicator</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cmi.indicator</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{"search_default_today":1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!--Perspective-->
+        <record id="cmi_perspective_form_view" model="ir.ui.view">
+            <field name="name">cmi.perspective.form.view</field>
+            <field name="model">cmi.perspective</field>
+            <field name="arch" type="xml">
+                <form string="Perspective">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="priority"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cmi_perspective_tree_view" model="ir.ui.view">
+            <field name="name">cmi.perspective.tree.view</field>
+            <field name="model">cmi.perspective</field>
+            <field name="arch" type="xml">
+                <tree string="Perspective">
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cmi_perspective_search_view" model="ir.ui.view">
+            <field name="name">cmi.perspective.tree.search</field>
+            <field name="model">cmi.perspective</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="cmi_perspective_menu_action" model="ir.actions.act_window">
+            <field name="name">Perspective</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cmi.perspective</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!--Indicator Line-->
+        <record id="cmi_indicator_line_form_view" model="ir.ui.view">
+            <field name="name">cmi.indicator.line.form.view</field>
+            <field name="model">cmi.indicator.line</field>
+            <field name="arch" type="xml">
+                <form string="Indicator Line">
+                    <sheet>
+                        <field name="indicator_id" invisible="1"/>
+                        <!--<field name="value_type" readonly="1" invisible="1"/>-->
+                        <field name="type" invisible="1"/>
+                        <field name="periodicity" invisible="1"/>
+                        <field name="date_string" invisible="1"/>
+                        <group col="2">
+                            <field name="date"
+                                   attrs="{'invisible': [('periodicity', '!=', 'daily')], 'readonly': [('type', '!=', 'manual')]}"/>
+                            <field name="year"
+                                   attrs="{'invisible': [('periodicity', '=', 'daily')], 'readonly': [('type', '!=', 'manual')]}"/>
+                            <field name="month"
+                                   attrs="{'invisible': [('periodicity', '!=', 'monthly')], 'readonly': [('type', '!=', 'manual')]}"/>
+                            <field name="trimester"
+                                   attrs="{'invisible': [('periodicity', '!=', 'quarterly')], 'readonly': [('type', '!=', 'manual')]} "/>
+                            <field name="semester"
+                                   attrs="{'invisible': [('periodicity', '!=', 'semiannual')], 'readonly': [('type', '!=', 'manual')]}"/>
+                        </group>
+                        <group col="4">
+                            <field name="value" attrs="{'readonly': [('type', 'in', ('automatic', 'mixed_real'))]}"/>
+                            <field name="plan" attrs="{'readonly': [('type', 'in', ('automatic', 'mixed_plan'))]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cmi_indicator_line_tree_view" model="ir.ui.view">
+            <field name="name">cmi.indicator.line.tree.view</field>
+            <field name="model">cmi.indicator.line</field>
+            <field name="arch" type="xml">
+                <tree string="Indicator Line">
+                    <field name="indicator_id"/>
+                    <field name="value"/>
+                    <field name="plan"/>
+                    <field name="date_string"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cmi_indicator_line_search_view" model="ir.ui.view">
+            <field name="name">cmi.indicator.line.tree.search</field>
+            <field name="model">cmi.indicator.line</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="indicator_id"/>
+                    <field name="month"/>
+                    <field name="trimester"/>
+                    <field name="semester"/>
+                    <field name="year"/>
+                    <field name="date"/>
+                </search>
+            </field>
+        </record>
+
+        <!--Indicator UOM-->
+        <record id="cmi_uom_form_view" model="ir.ui.view">
+            <field name="name">cmi.uom.form.view</field>
+            <field name="model">cmi.uom</field>
+            <field name="arch" type="xml">
+                <form string="Unit of Measure">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="abbreviated_name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cmi_uom_tree_view" model="ir.ui.view">
+            <field name="name">cmi.uom.tree.view</field>
+            <field name="model">cmi.uom</field>
+            <field name="arch" type="xml">
+                <tree string="Unit of Measure">
+                    <field name="name"/>
+                    <field name="abbreviated_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cmi_uom_search_view" model="ir.ui.view">
+            <field name="name">cmi.uom.search.view</field>
+            <field name="model">cmi.uom</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="abbreviated_name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="cmi_uom_menu_action" model="ir.actions.act_window">
+            <field name="name">Unit of Measure</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cmi.uom</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!--Indicator Source-->
+        <record id="cmi_source_form_view" model="ir.ui.view">
+            <field name="name">cmi.source.form.view</field>
+            <field name="model">cmi.source</field>
+            <field name="arch" type="xml">
+                <form string="Source">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="model"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cmi_source_tree_view" model="ir.ui.view">
+            <field name="name">cmi.source.tree.view</field>
+            <field name="model">cmi.source</field>
+            <field name="arch" type="xml">
+                <tree string="Source">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="model"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cmi_source_search_view" model="ir.ui.view">
+            <field name="name">cmi.source.search.view</field>
+            <field name="model">cmi.source</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="model"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Type" domain="[]" context="{'group_by': 'type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="cmi_source_menu_action" model="ir.actions.act_window">
+            <field name="name">Source</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cmi.source</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!--Dashboard-->
+        <record id="cmi_dashboard_form_editable_view" model="ir.ui.view">
+            <field name="name">cmi.dashboard.form.editable.view</field>
+            <field name="model">cmi.dashboard</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <form string="Dashboard">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group col="1">
+                            <field name="indicator_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cmi_dashboard_form_chart_view" model="ir.ui.view">
+            <field name="name">cmi.dashboard.form.chart.view</field>
+            <field name="model">cmi.dashboard</field>
+            <field name="priority">2</field>
+            <field name="headless">1</field>
+            <field name="arch" type="xml">
+                <form string="Dashboard">
+                    <sheet>
+                        <div class="row text-center cmi_dashboard_filters">
+                            <div class="col-xs-12 text-center">
+                                <span class="o_primary mr4">
+                                    <b>Year</b>
+                                </span>
+                                <span class="mr8">
+                                    <field name="year" widget="cmi_filter_selection"/>
+                                </span>
+                                <span class="o_primary mr4">
+                                    <b>Month</b>
+                                </span>
+                                <span class="">
+                                    <field name="month" widget="cmi_filter_selection"/>
+                                </span>
+                            </div>
+                        </div>
+                        <field name="indicator_ids" invisible="1"/>
+                        <field name="dashboard" widget="cmi_dashboard"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cmi_dashboard_tree_view" model="ir.ui.view">
+            <field name="name">cmi.dashboard.tree.view</field>
+            <field name="model">cmi.dashboard</field>
+            <field name="arch" type="xml">
+                <tree string="Dashboard">
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cmi_dashboard_search_view" model="ir.ui.view">
+            <field name="name">cmi.dashboard.search.view</field>
+            <field name="model">cmi.dashboard</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="cmi_dashboard_configuration_menu_action" model="ir.actions.act_window">
+            <field name="name">Dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cmi.dashboard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <record id="cmi_dashboard_show_menu_action" model="ir.actions.act_window">
+            <field name="name">Dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cmi.dashboard</field>
+            <field name="target">fullscreen</field>
+            <field name="view_type">form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree'}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('cmi_dashboard_form_chart_view')})]"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

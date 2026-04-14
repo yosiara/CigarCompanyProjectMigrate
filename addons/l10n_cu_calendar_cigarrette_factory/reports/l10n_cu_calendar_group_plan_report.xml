@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="l10n_cu_calendar.report_group_plan">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <!-- Primera pagina-->
+                    <t t-call="report.external_layout">
+                        <style>
+                            .page {
+                            font-family: Arial, Verdana, sans-serif !important;
+                            }
+                            .page *{
+                            font-family: inherit !important;
+                            }
+                        </style>
+                        <div class="page">
+                            <p align="center">
+                                <br/>
+                                <br/>
+                            </p>
+                            <table width="100%" cellpadding="0" cellspacing="0" style="">
+                                <tr valign="top">
+                                    <td width="10%" style="border: none; padding: 0cm">
+
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm; font-size: 11pt;">
+                                        <p align="center">
+                                            <font face="Arial, sans-serif">
+                                                <b t-esc="o['approved_function']"/>
+                                            </font>
+                                        </p>
+                                    </td>
+                                    <td width="60%" style="border: none; padding: 0cm">
+                                        <p align="right">
+                                            <font color="#000000" face="Arial, sans-serif" style="font-size: 9pt">
+                                                <b>
+                                                    Modelo No. 2
+                                                </b>
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="10%" style="border: none; padding: 0cm; font-size: 11pt;">
+                                        <p>
+                                            <font face="Arial, sans-serif">Aprobado:</font>
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm">
+
+                                    </td>
+                                    <td width="60%" style="border: none; padding: 0cm">
+                                        <p>
+                                            <br/>
+
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="10%" style="border: none; padding: 0cm">
+
+                                    </td>
+                                    <td width="30%" style="border: none; padding: 0cm; font-size: 11pt;">
+                                        <p align="center">
+                                            <font face="Arial, sans-serif">
+                                                <b t-esc="o['approved_by']"/>
+                                            </font>
+                                        </p>
+                                    </td>
+                                    <td width="60%" style="border: none; padding: 0cm">
+                                        <p>
+                                            <br/>
+
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p align="center" style="margin-top: 20px;">
+                                <font color="#000000">
+                                    <font face="Arial">
+                                        <font size="5" style="font-size: 18pt">
+                                            <b>PLAN
+                                                DE TRABAJO PARA EL MES DE
+                                                <span t-esc="o['periodo']"/>
+                                            </b>
+                                        </font>
+                                    </font>
+                                </font>
+                            </p>
+                            <p align="center">
+                                <font color="#000000" face="Arial" style="font-size: 18pt">
+                                    <b>
+                                        <span t-esc="o['name']"/>
+                                    </b>
+                                </font>
+                            </p>
+                            <p align="center">
+                                <font color="#000000"></font>
+                            </p>
+                            <p align="center">
+                                <font color="#000000">
+                                    <font face="Arial">
+                                        <font size="5" style="font-size: 18pt">
+                                            <b>TAREAS
+                                                PRINCIPALES
+                                            </b>
+                                        </font>
+                                    </font>
+                                </font>
+                            </p>
+                            <table width="100%" cellpadding="0" cellspacing="0">
+
+                                <tr valign="top">
+                                    <td width="19%" style="border: none; padding: 0cm">
+
+                                    </td>
+                                    <td width="64%" style="border: none; padding: 0cm">
+                                        <ol>
+                                            <t t-foreach="o['principal_task_list']" t-as="t">
+                                                <li>
+                                                    <p align="left">
+                                                        <font face="Arial" style="font-size: 11pt">
+                                                            <span t-esc="t['name']"/>
+                                                        </font>
+                                                    </p>
+                                                </li>
+                                            </t>
+                                        </ol>
+                                    </td>
+                                    <td width="18%" style="border: none; padding: 0cm">
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="page-break-before:always;"></p>
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <thead>
+                                    <tr valign="top">
+                                        <td width="5%" align="center"
+                                            style="vertical-align: middle; border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <b style="display: inline-block; font-size: 11pt">Nro</b>
+                                        </td>
+                                        <td t-att-width="'30%' if user.company_id.show_observation_column else '40%'"
+                                            align="center"
+                                            style="vertical-align: middle; border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <b style="display: inline-block; font-size: 11pt">Actividad hora y lugar</b>
+                                        </td>
+                                        <td t-att-width="'12%' if user.company_id.show_observation_column else '15%'"
+                                            align="center"
+                                            style="vertical-align: middle; border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <b style="display: inline-block; font-size: 11pt">Fecha</b>
+                                        </td>
+                                        <td t-att-width="'18%' if user.company_id.show_observation_column else '20%'"
+                                            align="center"
+                                            style="vertical-align: middle; border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            <b style="display: inline-block; font-size: 11pt">Dirige</b>
+                                        </td>
+                                        <td t-att-width="'18%' if user.company_id.show_observation_column else '20%'"
+                                            style="vertical-align: middle; border: 1px double #808080; padding: 0.1cm"
+                                            align="center">
+                                            <b style="display: inline-block; font-size: 11pt">Participa</b>
+                                        </td>
+                                        <td width="17%"
+                                            style="vertical-align: middle; border: 1px double #808080; padding: 0.1cm"
+                                            align="center"
+                                            t-if="user.company_id.show_observation_column">
+                                            <b style="display: inline-block; font-size: 11pt">Observaciones sobre el
+                                                cumplimiento
+                                            </b>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o['task_list']" t-as="t">
+                                        <tr valign="top" style="page-break-inside: avoid; font-size: 11pt;">
+                                            <td width="5%" align="center"
+                                                style="vertical-align: middle; border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none;  padding: 2px;">
+                                                <span style="display: inline-block;" t-esc="t['no']"/>
+                                            </td>
+                                            <td t-att-width="'30%' if user.company_id.show_observation_column else '40%'"
+                                                align="left"
+                                                style="vertical-align: middle; border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding: 2px;">
+                                                <span style="display: inline-block;" t-esc="t['name']"/>
+                                                <span style="display: inline-block;" t-esc="t['hour']"/>
+                                                <span style="display: inline-block;" t-if="t['local']">
+                                                    <span style="display: inline-block;" t-esc="t['local']"/>
+                                                </span>
+                                            </td>
+                                            <td t-att-width="'12%' if user.company_id.show_observation_column else '15%'"
+                                                align="center"
+                                                style="vertical-align: middle; border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding: 2px;">
+                                                <t t-set="date_list" t-value="t['date']"/>
+                                                <t t-foreach="date_list" t-as="d">
+                                                    <span style="display: inline-block;" t-esc="d"/>
+                                                </t>
+                                            </td>
+                                            <td t-att-width="'18%' if user.company_id.show_observation_column else '20%'"
+                                                align="center"
+                                                style="vertical-align: middle; border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none;  padding: 2px;">
+                                                <span style="display: inline-block;" t-esc="t['directed_for']"/>
+                                            </td>
+                                            <td t-att-width="'18%' if user.company_id.show_observation_column else '20%'"
+                                                align="center"
+                                                style="vertical-align: middle; border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080;  padding: 2px;">
+                                                <span style="display: inline-block;" t-esc="t['participants_char']"/>
+                                            </td>
+                                            <td width="17%" align="center"
+                                                t-if="user.company_id.show_observation_column"
+                                                style="vertical-align: middle; border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0cm; padding-right: 0cm">
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                            <p align="center">
+                                <br/>
+                                <br/>
+                            </p>
+
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tr valign="top">
+                                    <td width="59%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <br/>
+                                        </p>
+                                    </td>
+                                    <td width="13%" style="border: none; padding: 0cm">
+
+                                    </td>
+                                    <td width="28%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <font face="Arial, sans-serif" style="font-size: 11pt">
+                                                <b t-esc="o['group_chief_job']"/>
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="59%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <br/>
+                                        </p>
+                                    </td>
+                                    <td width="13%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <font face="Arial, sans-serif" size="3" style="font-size: 11pt">
+
+                                            </font>
+                                        </p>
+                                    </td>
+                                    <td width="28%" style="border: none; padding: 0cm"/>
+                                </tr>
+                                <tr valign="top">
+                                    <td width="59%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <br/>
+                                        </p>
+                                    </td>
+                                    <td width="13%" style="border: none; padding: 0cm">
+
+                                    </td>
+                                    <td width="28%" style="border: none; padding: 0cm">
+                                        <p align="center">
+                                            <font face="Arial, sans-serif" style="font-size: 11pt">
+                                                <b t-esc="o['group_chief']"/>
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p align="center">
+                                <br/>
+                                <br/>
+                            </p>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</openerp>

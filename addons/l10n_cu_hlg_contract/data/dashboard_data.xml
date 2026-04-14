@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record model="dashboard.commercial" id="sale">
+            <field name='name'>customer</field>
+        </record>
+
+        <record model="dashboard.commercial" id="purchase">
+            <field name='name'>supplier</field>
+        </record>
+    </data>
+</odoo>

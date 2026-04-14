@@ -1,0 +1,432 @@
+<?xml version="1.0"?>
+<odoo>
+   <data>
+
+          <!-- Solicitudes -->
+       <act_window id="action_solicitudes"
+         name="Solicitudes"
+         res_model="hr.applicant"
+         view_mode="tree,form,kanban,calendar,graph,pivot"/>
+
+          <menuitem
+            name="Solicitudes"
+            parent="hr_recruitment.menu_hr_recruitment_root"
+            id="hr_recruitment.menu_crm_case_categ0_act_job"
+            action="app_seleccion.action_solicitudes"
+            groups="base.default_user"
+            sequence="1" />
+
+        <menuitem parent="hr_recruitment.menu_hr_recruitment_root" id="hr_recruitment.menu_hr_job_position" action="hr_recruitment.action_hr_job" sequence="2"/>
+
+       <!-- View tree de los solicitantes -->
+       <record id="app_seleccion_applicant_tree_inherit" model="ir.ui.view">
+            <field name="name">app_seleccion_applicant_tree_inherit</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_tree_view_job"/>
+            <field name="model">hr.applicant</field>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='create_date']" position="replace">
+                    <field name="fecha_inicio_proceso"/>
+                </xpath>
+                <xpath expr="//field[@name='email_from']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_phone']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='priority']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                 <xpath expr="//field[@name='job_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='medium_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='source_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_name']" position="before">
+                    <field name="sequence_name"/>
+                    <field name="ci"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_name']" position="after">
+                    <field name="school_level_id"/>
+                    <field name="degree_id"/>
+                    <field name="experiencia_laboral"/>
+                    <field name="job_id"/>
+                    <field name="curso_habilitacion"/>
+
+                </xpath>
+                <xpath expr="//field[@name='stage_id']" position="after">
+                    <field name="estado"/>
+                </xpath>
+
+
+            </field>
+        </record>
+       <!-- View form de los solicitantes -->
+       <record id="app_seleccion_applicant_form_inherit" model="ir.ui.view">
+            <field name="name">app_seleccion_applicant_form_inherit</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_form_view_job"/>
+            <field name="model">hr.applicant</field>
+            <field name="arch" type="xml">
+
+               <data>
+                   <xpath expr="/form/sheet/group/group[1]" position="attributes">
+                      <attribute name="string">Datos Personales</attribute>
+                   </xpath>
+                   <xpath expr="/form/sheet/group/group[2]" position="attributes">
+                      <attribute name="invisible">True</attribute>
+                   </xpath>
+                   <xpath expr="/form/sheet/group/group[3]" position="attributes">
+                      <attribute name="string">Datos Puesto de Trabajo</attribute>
+                   </xpath>
+                   <xpath expr="//label[@for='name']" position="attributes">
+                     <attribute name="invisible">True</attribute>
+                   </xpath>
+                   <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                   </xpath>
+                   <xpath expr="//label[@for='partner_name']" position="attributes">
+                     <attribute name="invisible">True</attribute>
+                   </xpath>
+                   <xpath expr="//field[@name='partner_name']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                   </xpath>
+
+                   <xpath expr="//field[@name='partner_phone']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                   </xpath>
+
+                   <xpath expr="//field[@name='partner_mobile']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                   </xpath>
+
+                   <xpath expr="//field[@name='email_from']" position="replace">
+                    <field name="applicant_email"/>
+                   </xpath>
+
+                   <field name="applicant_email" position="before">
+                        <field name="sequence_name" String="Código del candidato"/>
+                        <field name="fecha_inicio_proceso"/>
+                        <field name="name" String="Nombre del Candidato" />
+                        <field widget="mask" data-inputmask="'mask': '9', 'repeat': 11, 'greedy' : false" name="ci" />
+                        <field name="direccion_particular"/>
+                        <field name="reparto_id"/>
+                        <field name="municipality_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="state_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="country_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="applicant_phone"/>
+                        <field name="applicant_mobile"/>
+                        <field name="estudent_id" invisible="1"/>
+                   </field>
+
+                   <xpath expr="//button[@name='create_employee_from_applicant']" position="attributes">
+                     <attribute name="invisible">True</attribute>
+                   </xpath>
+
+                   <xpath expr="//button[@name='archive_applicant']" position="attributes">
+                     <attribute name="invisible">True</attribute>
+                   </xpath>
+
+                   <xpath expr="//button[@name='archive_applicant']" position="after">
+                    <button string="Crear Estudiante" name="create_estudent_from_applicant" type="object"
+                        class="oe_highlight" attrs="{'invisible': ['|','|',('active', '=', 'false'),('estudent_id', '!=', False),('estado', '!=', 'curso')]}"/>
+                   </xpath>
+
+                   <xpath expr="//button[@name='action_get_created_employee']" position="after">
+                     <button name="action_get_created_estudent"
+                        class="oe_stat_button"
+                        icon="fa-user"
+                        type="object"
+                        attrs="{'invisible': [('estudent_id', '=', False)]}">
+                        <field name="name" widget="statinfo" string="Estudiante"/>
+                    </button>
+                   </xpath>
+
+
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='type_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='medium_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='source_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='reference']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                <xpath expr="//label[@for='categ_ids']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='categ_ids']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='job_id']" position="replace">
+                    <field name="job_id" options="{'no_create': True, 'no_open': True}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='job_id']" position="after">
+                    <field name="area" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="ubicacion_laboral_actual"/>
+                    <field name="direccion_laboral_actual"/>
+                    <field name="school_level_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="degree_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field widget="mask" data-inputmask="'mask': '9', 'repeat': 2, 'greedy' : false" name="experiencia_laboral" />
+                    <field name="curso_habilitacion" options="{'no_create': True, 'no_open': True}"/>
+
+
+                    <label for="title_action"/>
+                        <div>
+                            <field name="date_action"/>
+                            <field name="title_action" class="oe_inline" placeholder="e.j. Entrevista de conocimientos"/>
+                        </div>
+                        <field name="priority" widget="priority"/>
+                </xpath>
+
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+
+                 <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+
+                </xpath>
+                   <xpath expr="//field[@name='title_action']" position="attributes">
+                       <attribute name="invisible">True</attribute>
+                  </xpath>
+
+
+
+                <xpath expr="/form/sheet/group/group[4]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='description']" position="after">
+                    <group string="Gestionar Estado de la Solicitud">
+                       <group>
+                        <field name="estado"/>
+                       </group>
+                      <group>
+
+                      </group>
+                    </group>
+                </xpath>
+
+                </data>
+            </field>
+        </record>
+
+
+       <record id="applicant_view_search" model="ir.ui.view">
+            <field name="name">applicant.search</field>
+            <field name="model">hr.applicant</field>
+            <field name="arch" type="xml">
+                <search string="Candidatos">
+                    <field name="partner_name"/>
+                    <field name="ci"/>
+                    <field name="sequence_name"/>
+                    <field name="job_id"/>
+                        <filter string="En Proceso" name="in_progress" domain="[('estado', '=', 'proceso')]"/>
+                        <filter string="Aprobado para Puesto de Trabajo" name="accepted" domain="[('estado', '=', 'aprobado')]"/>
+                        <filter string="Aprobado para Curso" name="course" domain="[('estado', '=', 'curso')]"/>
+                        <filter string="Aprobado para Reserva" name="reserve" domain="[('estado', '=', 'reserva')]"/>
+                        <filter string="No Aprobado" name="rejected" domain="[('estado', '=', 'rechazado')]"/>
+                    <group expand="0" string="Group By">
+                            <filter string="Puesto de Trabajo" domain="[]" context="{'group_by':'job_id'}"/>
+                            <filter string="Área" domain="[]" context="{'group_by':'area_code'}"/>
+                            <filter string="Curso de Habilitación" domain="[('curso_habilitacion', '!=', False)]" context="{'group_by':'curso_habilitacion'}"/>
+                            <filter string="Nivel Escolar" domain="[('school_level_id', '!=', False)]" context="{'group_by':'school_level_id'}"/>
+                            <filter string="Carrera" domain="[('degree_id', '!=', False)]" context="{'group_by':'degree_id'}"/>
+                            <filter string="Experiencia Laboral" domain="[]" context="{'group_by':'experiencia_laboral'}"/>
+                            <filter string="Etapa" domain="[('stage_id', '!=', False)]" context="{'group_by':'stage_id'}"/>
+                            <filter string="Fecha de inicio del proceso" context="{'group_by':'fecha_inicio_proceso'}"/>
+                            <filter string="Año de Solicitud" context="{'group_by':'year'}"/>
+                            <filter string="Mes de Solicitud" context="{'group_by':'mes_nombre'}"/>
+                            <filter string="Sexo" context="{'group_by':'sexo'}"/>
+                            <filter string="Edad" context="{'group_by':'edad'}"/>
+                            <filter string="Reparto o Comunidad" domain="[('reparto_id', '!=', False)]" context="{'group_by':'reparto_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="crm_case_pivot_view_job_inherited">
+          <field name="name">Jobs - Recruitment</field>
+          <field name="inherit_id" ref="hr_recruitment.crm_case_pivot_view_job"/>
+          <field name="model">hr.applicant</field>
+          <field name="arch" type="xml">
+              <xpath expr="//field[@name='job_id']" position="replace">
+                    <field name="estado" type="row"/>
+              </xpath>
+              <xpath expr="//field[@name='stage_id']" position="replace">
+                    <field name="year" type="col"/>
+              </xpath>
+
+          </field>
+        </record>
+       <record model="ir.ui.view" id="crm_case_graph_view_job_inherited">
+          <field name="name">Jobs - Recruitment Graph</field>
+          <field name="inherit_id" ref="hr_recruitment.crm_case_graph_view_job"/>
+          <field name="model">hr.applicant</field>
+          <field name="arch" type="xml">
+             <xpath expr="//field[@name='stage_id']" position="replace">
+                    <field name="estado" type="row" stacked="True" interval="month"/>
+             </xpath>
+
+          </field>
+        </record>
+
+
+       <record id="view_estudent_filter" model="ir.ui.view">
+            <field name="name">app_seleccion.estudiante_search</field>
+            <field name="model">app_seleccion.estudiante</field>
+            <field name="arch" type="xml">
+                <search string="Estudiantes">
+                   <field name="name"/>
+                   <field name="ci"/>
+                   <field name="curso"/>
+                     <filter string="No evaluados" name="no_evaluados" domain="[('evaluado', '=', False)]"/>
+                     <filter string="Evaluados" name="evaluados" domain="[('evaluado', '=', True)]"/>
+                     <group expand="0" string="Group By">
+                            <filter string="Curso" domain="[]" context="{'group_by':'curso'}"/>
+                            <filter string="Año" domain="[]" context="{'group_by':'year_curso'}"/>
+                            <filter string="Mes" domain="[]" context="{'group_by':'mes_curso_nombre'}"/>
+                     </group>
+                </search>
+             </field>
+         </record>
+
+
+       <record id="open_view_estudent_list" model="ir.actions.act_window">
+            <field name="name">Estudiantes</field>
+            <field name="res_model">app_seleccion.estudiante</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_estudent_filter"/>
+        </record>
+
+
+
+
+
+
+        <!-- Reportes Menu -->
+        <menuitem id="menu_reportes"
+        name="Reportes"
+        parent="hr_recruitment.menu_hr_recruitment_root"
+        sequence="95"
+        groups="group_app_seleccion_manager"
+        />
+
+         <!--Gestionar Cursos -->
+        <act_window id="action_gestion_cursos"
+         name="Gestionar Estudiantes"
+         res_model="app_seleccion.estudiante"
+         view_mode="tree,form"/>
+
+        <menuitem id="menu_cursos"
+        name="Estudiantes"
+        parent="hr_recruitment.menu_hr_recruitment_root"
+        sequence="89"
+        />
+        <menuitem id="menu_gestion_estudiantes"
+        name="Gestionar estudiantes"
+        parent="app_seleccion.menu_cursos"
+        action="action_gestion_cursos"
+        sequence="90"
+
+        />
+       <!-- View tree de los estudiantes -->
+        <record id="app_seleccion_estudiante_tree" model="ir.ui.view">
+            <field name="name">app_seleccion_estudiante_tree</field>
+            <field name="model">app_seleccion.estudiante</field>
+            <field name="arch" type="xml">
+
+                <tree string="Listado de estudiantes">
+                     <field name="name"/>
+                     <field name="ci"/>
+                     <field name="curso"/>
+                     <field name="fecha_inicio"/>
+                     <field name="fecha_fin"/>
+                     <field name="evaluacion_final"/>
+                </tree>
+
+            </field>
+        </record>
+
+
+       <!-- View form de los estudiantes en curso -->
+        <record id="app_seleccion_estudiante_form" model="ir.ui.view">
+            <field name="name">app_seleccion_estudiante_form</field>
+            <field name="model">app_seleccion.estudiante</field>
+            <field name="arch" type="xml">
+                 <form String="Cursos">
+                     <sheet>
+
+                      <group>
+                          <group>
+                              <field name="name"/>
+                              <field name="curso" options="{'no_create': True, 'no_open': True}"/>
+                              <field name="horas" widget="mask" data-inputmask="'mask': '9', 'repeat': 4, 'greedy' : false"/>
+                              <field name="evaluacion_id" attrs="{'invisible': [('curso', '=', False)]}" >
+                                <tree editable="bottom" string="Evaluaciones">
+                                    <field name="aspecto_evaluar_id" string="Aspecto a evaluar" options="{'no_create': True, 'no_open': True}" />
+                                    <field name="evaluacion" widget="mask" data-inputmask="'mask': '9', 'repeat': 3, 'greedy' : false"/>
+                                </tree>
+                            </field>
+                            <field name="evaluacion_final" attrs="{'invisible': [('curso', '=', False)]}"/>
+                            <field name="valoracion_cualitativa" attrs="{'invisible': [('curso', '=', False)]}"/>
+                          </group>
+                          <group>
+                            <field name="ci" widget="mask" data-inputmask="'mask': '9', 'repeat': 11, 'greedy' : false"/>
+                            <field name="fecha_inicio"/>
+                            <field name="fecha_fin"/>
+
+                          </group>
+                       </group>
+
+                       <button name="imprimir_registro_evaluacion" string="Imprimir Registro Evaluación" class="btn-primary" type="object" attrs="{'invisible': [('curso', '=', False)]}"/>
+                       </sheet>
+                       </form>
+            </field>
+        </record>
+
+
+
+        <!-- Gestionar Modelos -->
+        <menuitem id="menu_modelos"
+        name="Modelos"
+        parent="hr_recruitment.menu_hr_recruitment_root"
+        sequence="90"
+        groups="group_app_seleccion_manager"
+        />
+        <menuitem name="Reports" id="hr_recruitment.report_hr_recruitment" parent="hr_recruitment.menu_hr_recruitment_root"
+       sequence="99" groups="base.group_no_one" />
+
+
+
+
+   </data>
+
+</odoo>

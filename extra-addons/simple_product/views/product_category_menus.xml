@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		PRODUCT CATEGORY
+		Model: product.category
+		=========================================================================================== -->
+
+        <!-- MENU ITEM -->
+        <menuitem name="Product Categories"
+                  id="versat_uom_menu_item"
+                  action="product.product_category_action_form"
+                  parent="simple_product_left_menu"
+                  sequence="10"/>
+    </data>
+</odoo>

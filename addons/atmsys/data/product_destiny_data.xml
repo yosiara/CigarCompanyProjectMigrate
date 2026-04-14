@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+	<data noupdate="1">
+		<record id="product_destiny_cvl" model="atmsys.product_destiny">
+            <field name="code">CVL</field>
+            <field name="name">Fabricación de cigarrillos criollos en la vieja línea</field>
+        </record>
+
+        <record id="product_destiny_cnl" model="atmsys.product_destiny">
+            <field name="code">CNL</field>
+            <field name="name">Fabricación de cigarrillos criollos en la nueva línea</field>
+        </record>
+
+        <record id="product_destiny_tc" model="atmsys.product_destiny">
+            <field name="code">TC</field>
+            <field name="name">Fabricación total de cigarrillos criollos</field>
+        </record>
+
+        <record id="product_destiny_a" model="atmsys.product_destiny">
+            <field name="code">A</field>
+            <field name="name">Fabricación de cigarrillos Aromas</field>
+        </record>
+
+        <record id="product_destiny_tcig" model="atmsys.product_destiny">
+            <field name="code">TCIG</field>
+            <field name="name">Fabricación total de cigarrillos</field>
+        </record>
+
+        <record id="product_destiny_tr" model="atmsys.product_destiny">
+            <field name="code">TR</field>
+            <field name="name">Fabricación de tabaco reconstituido</field>
+        </record>
+	</data>
+</odoo>

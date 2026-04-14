@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Reglas de seguridad -->
+        <record id="contract_type_rule" model="ir.rule">
+            <field name="name">Contract Type Company Rule</field>
+            <field name="model_id" ref="model_l10n_cu_contract_contract_type"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="contract_rule" model="ir.rule">
+            <field name="name">Contract Company Rule</field>
+            <field name="model_id" ref="model_l10n_cu_contract_contract"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
+        <record id="contract_committee_rule" model="ir.rule">
+            <field name="name">Contract Committee Company Rule</field>
+            <field name="model_id" ref="model_l10n_cu_contract_contract_committee"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+        <!--<record id="contract_user_update_rule" model="ir.rule">-->
+            <!--<field name="name">Contract User Rule: see only owner</field>-->
+            <!--<field name="model_id" ref="model_l10n_cu_contract_contract"/>-->
+            <!--<field name="groups" eval="[(4, group_contract_manager)]"/>-->
+            <!--<field name="perm_read" eval="False"/>-->
+            <!--<field name="perm_create" eval="True"/>-->
+            <!--<field name="perm_write" eval="True"/>-->
+            <!--<field name="perm_unlink" eval="True"/>-->
+            <!--<field name="domain_force">[('create_uid', '=', user.id)]</field>-->
+        <!--</record>-->
+        <!-- Fin de las reglas de seguridad -->
+
+    </data>
+</odoo>

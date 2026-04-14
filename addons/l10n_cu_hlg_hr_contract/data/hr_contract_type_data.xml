@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+    <!-- Contract Types -->
+
+<!--        <record id="hr_contract_type_none" model="hr.contract.type"> -->
+       <record id="hr_contract.hr_contract_type_emp" model="hr.contract.type">
+            <field name="name">None</field>
+            <field name="extras_hours" eval="0"></field>
+            <field name="night_hours" eval="0"></field>
+            <field name="code">None</field>
+        </record>
+
+<!--         <record id="hr_contract_type_ext" model="hr.contract.type"> -->
+        <record id="hr_contract.hr_contract_type_sub" model="hr.contract.type">
+            <field name="name">Extras Hours</field>
+            <field name="extras_hours" eval="1"></field>
+            <field name="night_hours" eval="0"></field>
+            <field name="code">EXT</field>
+        </record>
+
+<!--         <record id="hr_contract_type_nig" model="hr.contract.type"> -->
+        <record id="hr_contract.hr_contract_type_wrkr" model="hr.contract.type">
+            <field name="name">Night Working</field>
+            <field name="extras_hours" eval="0"></field>
+            <field name="night_hours" eval="1"></field>
+            <field name="code">NOC</field>
+        </record>
+
+        <record id="hr_contract_type_sub_both" model="hr.contract.type">
+            <field name="name">Extras Hours and Nocturnity</field>
+            <field name="type_id"/>
+            <field name="extras_hours" eval="1"></field>
+            <field name="night_hours" eval="1"></field>
+            <field name="code">ext-noc</field>
+        </record>
+<!--         <delete id="hr_contract.hr_contract_type_emp" model="hr.contract.type"/> -->
+<!--         <delete id="hr_contract.hr_contract_type_sub" model="hr.contract.type"/> -->
+<!--         <delete id="hr_contract.hr_contract_type_wrkr" model="hr.contract.type"/> -->
+        <!-- CONTRIBUTION-->
+          <record id="cont_Maestria" model="hr_contract.retributions_deductions">
+                <field name="code">Ms.C.</field>
+                <field name="name">Maestría</field>
+                <field name="type">more</field>
+                <field name="amount">80.00</field>
+          </record>
+
+          <record id="cont_Doctorado" model="hr_contract.retributions_deductions">
+                <field name="code">Dr.</field>
+                <field name="name">Doctorado</field>
+                <field name="type">more</field>
+                <field name="amount">140.00</field>
+          </record>
+
+          <record id="cont_tec" model="hr_contract.retributions_deductions">
+                <field name="code">T</field>
+                <field name="name">Tecnico</field>
+                <field name="type">more</field>
+                <field name="amount">30.00</field>
+          </record>
+    </data>
+</openerp>

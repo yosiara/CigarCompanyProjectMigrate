@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="enterprise_mgm_sys_dashboard.dashboard">
+        <!--View-->
+        <div class="openerp oe_kanban_view enterprise_mgm_sys_dashboard col-xs-12 col-md-12 col-lg-12 col-sm-8">
+            <div class="col-md-12">
+                <div class="container-fluid">
+                    <div class="row text-center">
+                        <h1 class="o_primary">
+                           <b t-esc="widget.enterprise_mgm_sys_data.name"></b>
+                        </h1>
+                    </div>
+                    <div class="row mt16">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-5x fa-pencil-square-o"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div class="huge">
+                                            <span t-esc="widget.enterprise_mgm_sys_data.docs"></span>
+                                            </div>
+                                            <div>
+                                            <span>
+                                            <h5>
+                                            Lista Matriz de Documentación
+                                            </h5>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a href="#" class="enterprise_mgm_sys_docs_action">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Ver detalles</span>
+                                        <span class="pull-right">
+                                            <i class="fa fa-arrow-circle-right"></i>
+                                        </span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="panel panel-red">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-5x fa-group"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div class="huge">
+                                            <span t-esc="widget.enterprise_mgm_sys_data.agreements"></span>
+                                            </div>
+                                            <div>
+                                            <span>
+                                            <h5>
+                                            Convenios
+                                            </h5>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a href="#" class="enterprise_mgm_sys_agreement_action">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Ver detalles</span>
+                                        <span class="pull-right">
+                                            <i class="fa fa-arrow-circle-right"></i>
+                                        </span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-5x fa-gears"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div class="huge">
+                                            <span t-esc="widget.enterprise_mgm_sys_data.no_conformities">
+                                            </span>
+                                            </div>
+                                            <div>
+                                            <span>
+                                            <h5>
+                                            No Conformidades
+                                            </h5>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a href="#" class="enterprise_mgm_sys_no_conf_action">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Ver detalles</span>
+                                        <span class="pull-right">
+                                            <i class="fa fa-arrow-circle-right"></i>
+                                        </span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="panel panel-red">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="fa fa-5x fa-check"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div class="huge">
+                                            <span t-esc="widget.enterprise_mgm_sys_data.audits">
+                                            </span>
+                                            </div>
+                                            <div>
+                                            <span>
+                                            <h5>
+                                            Auditorías
+                                            </h5>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a href="#" class="enterprise_mgm_sys_audit_action">
+                                    <div class="panel-footer">
+                                        <span class="pull-left">Ver detalles</span>
+                                        <span class="pull-right">
+                                            <i class="fa fa-arrow-circle-right"></i>
+                                        </span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img class="img-responsive"
+                                 t-att-src="'data:image/png;base64,' + widget.enterprise_mgm_sys_data.process_map"/>
+                        </div>
+                        <div class="col-md-6" style="padding-left: 64px; padding-right: 64px;">
+                            <div class="table-responsive">
+                              <table class="table table-striped">
+                                  <thead>
+                                      <tr class="o_primary">
+                                         <td><b>Proceso</b></td>
+                                          <td class="text-center"><b>Ficha</b></td>
+                                          <td class="text-center"><b>Evaluaciones</b></td>
+                                     </tr>
+                                  </thead>
+                                  <tbody style="color: black;">
+                                      <tr t-foreach="widget.enterprise_mgm_sys_data.processes" t-as="p">
+                                          <td><span t-esc="p['name']"/></td>
+                                          <td class="text-center">
+                                              <t t-if="p['process_file_id']">
+                                                  <a class="enterprise_mgm_sys_process_file"
+                                                     t-att-data-process_file_id="p['process_file_id']"
+                                                     href="javascript:void(0)"
+                                                     style="cursor: pointer;">
+                                                      <b class="fa fa-download"></b>
+                                                  </a>
+                                              </t>
+                                              <t t-if="p['href']">
+                                                  <a class="" target="new"
+                                                     t-att-href="p['href']"
+                                                     style="cursor: pointer;">
+                                                      <b class="fa fa-download"></b>
+                                                  </a>
+                                              </t>
+                                          </td>
+                                          <td class="text-center">
+                                              <a class="enterprise_mgm_sys_process_evaluations"
+                                                 href="javascript:void(0)"
+                                                 t-att-data-process_id="p['id']"
+                                                 style="cursor: pointer;">
+                                                  <b class="fa fa-play-circle-o"></b>
+                                              </a>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

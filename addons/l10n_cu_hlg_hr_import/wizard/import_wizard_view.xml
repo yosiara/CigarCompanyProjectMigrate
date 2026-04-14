@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		<record id="import_employee_wizard_form_view" model="ir.ui.view">
+			<field name="name">import_employee_wizard_form_view</field>
+			<field name="model">l10n_cu_hr_import.import_employee_wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<br/><br/>
+                    <sheet>
+                        <div style="display: flex;">
+                            <div style="width: 200px;">
+                                <img src="/l10n_cu_hlg_hr_import/static/src/img/search.jpg"/>
+                            </div>
+
+                            <div style="padding-left: 20px;padding-top: 20px;">
+                                <p/>
+                                <p>
+                                    In order to import the <b>Employees</b>, from the Fastos database you must select
+                                    the correct connection to use...
+                                </p>
+
+                                <group>
+                                    <group class="o_label_nowrap">
+                                        <field name="connector_id"/>
+                                    </group>
+                                    <group></group>
+                                </group>
+                            </div>
+                        </div>
+                    </sheet>
+
+                    <footer>
+						<button name="action_import" string="Import" type="object" class="oe_highlight"/>
+                    </footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_import_employee_wizard_form_view" model="ir.actions.act_window">
+			<field name="name">Wizard to import information...</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">l10n_cu_hr_import.import_employee_wizard</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem name="Fastos Integration"
+                  id="hr_import"
+                  parent="hr.menu_hr_root"
+                  sequence="90"/>
+
+		<menuitem name="Import Employees"
+                  id="hr_import_employee"
+                  action="action_import_employee_wizard_form_view"
+                  parent="hr_import" groups="hr.group_hr_user"
+                  sequence="1"/>
+	</data>
+</odoo>

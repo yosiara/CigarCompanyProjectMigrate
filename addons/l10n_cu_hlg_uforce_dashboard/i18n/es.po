@@ -1,0 +1,524 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_hlg_uforce_dashboard
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-24 23:16+0000\n"
+"PO-Revision-Date: 2020-09-25 00:28+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:147
+#, python-format
+msgid "31 to 50"
+msgstr "De 31 a 50"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:419
+#, python-format
+msgid "31 to 50 Female"
+msgstr "De 31 a 50 Femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:485
+#, python-format
+msgid "31 to 50 Male"
+msgstr "De 31 a 50 Masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:165
+#, python-format
+msgid "51 to 60"
+msgstr "De 51 a 60"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:435
+#, python-format
+msgid "51 to 60 Female"
+msgstr "De 51 a 60 Femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:502
+#, python-format
+msgid "51 to 60 Male"
+msgstr "De 51 a 60 Masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:35
+#, python-format
+msgid "Age Range"
+msgstr "Rango de edades"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:226
+#, python-format
+msgid "Age Range By Sex"
+msgstr "Rango de edades por género"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:532
+#, python-format
+msgid "Categorys Occupational"
+msgstr "Categorías Ocupacionales"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce_dashboard.field_l10n_cu_hlg_uforce_dashboard_dashboard_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce_dashboard.field_l10n_cu_hlg_uforce_dashboard_dashboard_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:17
+#: model:ir.actions.act_window,name:l10n_cu_hlg_uforce_dashboard.action_uforce_dashboard
+#: model:ir.ui.menu,name:l10n_cu_hlg_uforce_dashboard.menu_uforce_dashboard
+#, python-format
+msgid "Dashboard"
+msgstr "Tablero"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce_dashboard.field_l10n_cu_hlg_uforce_dashboard_dashboard_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce_dashboard.field_l10n_cu_hlg_uforce_dashboard_dashboard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_uforce_dashboard.uforce_tree_dashboard
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce_dashboard.field_l10n_cu_hlg_uforce_dashboard_dashboard___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce_dashboard.field_l10n_cu_hlg_uforce_dashboard_dashboard_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce_dashboard.field_l10n_cu_hlg_uforce_dashboard_dashboard_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:382
+#, python-format
+msgid "List 31 to 50"
+msgstr "Listado de empleados con edad de 31 a 50"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:450
+#, python-format
+msgid "List 31 to 50 Female"
+msgstr "Listado de empleados con edad de 31 a 50 del sexo femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:517
+#, python-format
+msgid "List 31 to 50 Male"
+msgstr "Listado de empleados con edad de 31 a 50 del sexo masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:399
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:466
+#, python-format
+msgid "List 51 to 60"
+msgstr "Listado de empleados con edad de 51 a 60"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:534
+#, python-format
+msgid "List 51 to 60 Male"
+msgstr "Listado de empleados con edad de 51 a 60 del sexo masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:416
+#, python-format
+msgid "List More 60"
+msgstr "Listado de empleados con edad de mas de 60"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:483
+#, python-format
+msgid "List More 60 Female"
+msgstr "Listado de empleados con mas de 60 del sexo femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:551
+#, python-format
+msgid "List More 60 Male"
+msgstr "Listado de empleados con mas de 60 del sexo masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:365
+#, python-format
+msgid "List Under 31"
+msgstr "Listado de empleados con edad menor de 31"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:433
+#, python-format
+msgid "List Under 31 Female"
+msgstr "Listado de empleados con edad menor de 31 del sexo femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:500
+#, python-format
+msgid "List Under 31 Male"
+msgstr "Listado de empleados con edad menor de 31 del sexo masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:182
+#, python-format
+msgid "More 60"
+msgstr "Más de 60"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:451
+#, python-format
+msgid "More 60 Female"
+msgstr "Más de 60 Femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:519
+#, python-format
+msgid "More 60 Male"
+msgstr "Más de 60 Masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model.fields,field_description:l10n_cu_hlg_uforce_dashboard.field_l10n_cu_hlg_uforce_dashboard_dashboard_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:54
+#, python-format
+msgid "Nine Grade"
+msgstr "9no Grado"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:245
+#, python-format
+msgid "Nine Grade Female"
+msgstr "9no Grado Femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:212
+#, python-format
+msgid "Nine Grade List Female"
+msgstr "Listado de empleados con nivel escolar 9no grado del sexo femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:317
+#, python-format
+msgid "Nine Grade Male"
+msgstr "9no Grado Masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:297
+#, python-format
+msgid "Nine List Grade Male"
+msgstr "Listado de empleados con nivel escolar 9no grado del sexo masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:127
+#, python-format
+msgid "Nine grade list"
+msgstr "Listado de empleados con nivel escolar 9no grado"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model,name:l10n_cu_hlg_uforce_dashboard.model_contract_purchase_dashboard
+msgid "Purchase Contract Dashboard"
+msgstr "Purchase Contract Dashboard"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model,name:l10n_cu_hlg_uforce_dashboard.model_contract_sale_dashboard
+msgid "Sale Contract Dashboard"
+msgstr "Sale Contract Dashboard"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:24
+#, python-format
+msgid "School Level"
+msgstr "Nivel Escolar"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:213
+#, python-format
+msgid "School Level By Sex"
+msgstr "Nivel Escolar por Género"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:60
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:77
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:94
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:113
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:136
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:153
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:171
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:188
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:251
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:269
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:286
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:305
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:323
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:340
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:357
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:374
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:409
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:425
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:441
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:457
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:474
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:491
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:508
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:525
+#, python-format
+msgid "See"
+msgstr "Ver"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:195
+#, python-format
+msgid "Six Grade List Female"
+msgstr "Listado de empleados con nivel escolar 6to grado del sexo femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:280
+#, python-format
+msgid "Six Grade List Male"
+msgstr "Listado de empleados con nivel escolar 6to grado del sexo masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:110
+#, python-format
+msgid "Six grade list"
+msgstr "Listado de empleados con nivel escolar 6to grado"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:246
+#, python-format
+msgid "Tecnical Grade List Female"
+msgstr "Listado de empleados con nivel escolar Técnico Medio del sexo femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:331
+#, python-format
+msgid "Tecnical Grade List Male"
+msgstr "Listado de empleados con nivel escolar Técnico Medio del sexo masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:351
+#, python-format
+msgid "Tecnical Grade Male"
+msgstr "Técnico Medio Masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:88
+#, python-format
+msgid "Tecnical Level Grade"
+msgstr "Técnico Medio"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:280
+#, python-format
+msgid "Tecnical Level Grade Female"
+msgstr "Técnico Medio Femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:161
+#, python-format
+msgid "Tecnical list"
+msgstr "Listado de empleados con nivel escolar Técnico Medio"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:382
+#, python-format
+msgid "Top Five Degree"
+msgstr "Las 5 carreras con más empleados"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:71
+#, python-format
+msgid "Twelve Grade"
+msgstr "12 Grado"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:263
+#, python-format
+msgid "Twelve Grade Female"
+msgstr "12 Grado Femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:229
+#, python-format
+msgid "Twelve Grade List Female"
+msgstr "Listado de empleados con nivel escolar 12 grado del sexo femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:334
+#, python-format
+msgid "Twelve Grade Male"
+msgstr "12 Grado Masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:314
+#, python-format
+msgid "Twelve List Grade Male"
+msgstr "Listado de empleados con nivel escolar 12 grado del sexo masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:144
+#, python-format
+msgid "Twelve grade list"
+msgstr "Listado de empleados con nivel escolar 12 grado"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:10
+#, python-format
+msgid "UFORCE DASHBOARD"
+msgstr "TABLERO UFORCE"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:94
+#, python-format
+msgid "UForce"
+msgstr "UForce"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#: model:ir.model,name:l10n_cu_hlg_uforce_dashboard.model_l10n_cu_hlg_uforce_dashboard
+#: model:ir.model,name:l10n_cu_hlg_uforce_dashboard.model_l10n_cu_hlg_uforce_dashboard_dashboard
+msgid "Uforce Dashboard"
+msgstr "Tablero UForce"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:130
+#, python-format
+msgid "Under 31"
+msgstr "Menos de 31"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:403
+#, python-format
+msgid "Under 31 Female"
+msgstr "Menos de 31 Femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:468
+#, python-format
+msgid "Under 31 Male"
+msgstr "Menos de 31 Masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:299
+#, python-format
+msgid "University Female"
+msgstr "Universitario Femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:263
+#, python-format
+msgid "University Grade List Female"
+msgstr "Listado de empleados con nivel escolar Universitario del sexo femenino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:348
+#, python-format
+msgid "University Grade List Male"
+msgstr "Listado de empleados con nivel escolar Universitario del sexo masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:107
+#, python-format
+msgid "University Level"
+msgstr "Universitario"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/xml/uforce_dashboard.xml:368
+#, python-format
+msgid "University Male"
+msgstr "Universitario Masculino"
+
+#. module: l10n_cu_hlg_uforce_dashboard
+#. openerp-web
+#: code:addons/l10n_cu_hlg_uforce_dashboard/static/src/js/uforce_dashboard.js:178
+#, python-format
+msgid "University list"
+msgstr "Listado de empleados con nivel escolar Universitario"

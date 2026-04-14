@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="wzd_generate_plan_mtto_report_form" model="ir.ui.view">
+            <field name="name">wzd.generate.plan.mtto.report.form</field>
+            <field name="model">wzd.generate.plan.mtto</field>
+            <field name="arch" type="xml">
+                <form string="Generar Plan de Mantenimiento">
+                    <sheet>
+                        <div style="display: flex;">
+                            <div style="width: 300px;">
+                                <img src="/maintenance_turei/static/src/img/mantenimiento.png"/>
+                            </div>
+
+                            <div style="margin: 50px;">
+                                <p/>
+                                <p>
+                                    Seleccione el año y el taller para generar el Plan de Mantenimiento, tenga en cuenta que antes
+                                    debe haber introducido al sistema las incidencias...
+                                </p>
+
+                                <group class="o_label_nowrap">
+                                    <field name="category_id" options="{'no_create': True, 'no_edit': True}"/>
+                                    <field name="year"/>
+                                </group>
+                            </div>
+                        </div>
+                        </sheet>
+
+                        <footer>
+                            <div>
+                                <button name="generate_plan_mtto" icon="fa-file-excel-o" string="Generar" type="object"
+                                        class="oe_highlight"/>
+                                o
+                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                            </div>
+                        </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_generate_plan_mtto_report_act_window" model="ir.actions.act_window">
+            <field name="name">Generar Plan de Mantenimiento</field>
+            <field name="res_model">wzd.generate.plan.mtto</field>
+            <!-- <field name="binding_view_types">form</field> -->
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_generate_plan_mtto_report_act_window"
+                  id="wzd_generate_plan_mtto_report_report"
+                  parent="maintenance.menu_m_request"
+                  groups="maintenance_turei.group_manager_user"
+                  sequence="5"/>
+    </data>
+</odoo>

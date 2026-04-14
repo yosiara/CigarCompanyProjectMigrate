@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="update_retired_form_view" model="ir.ui.view">
+            <field name="name">update_retired_from_hr_wzd_form</field>
+            <field name="model">turei_retired_person.update_retired_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div style="display: flex;">
+                            <div style="width: 200px;">
+                                <img src="/turei_retired_person/static/src/img/search.jpg"/>
+                            </div>
+
+                            <div style="padding-left: 20px;">
+                                <p>
+                                    <h2>
+                                        Using this wizard you can import the retired person information from HR Data Base
+                                    </h2>
+                                </p>
+                                <group>
+
+                                </group>
+                            </div>
+                        </div>
+                    </sheet>
+
+                    <footer>
+                        <button name="action_update_retired" string="Update" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Close" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_update_retired" model="ir.actions.act_window">
+            <field name="name">Update Retired Person from HR Database</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">turei_retired_person.update_retired_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_update_retired"
+                  action="action_update_retired"
+                  groups="hr.group_hr_manager"
+                  parent="menu_retired_person_config"
+                  sequence="4"/>
+    </data>
+</odoo>

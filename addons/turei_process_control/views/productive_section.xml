@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <act_window id="turei_process_control_productive_section_action"
+                    name="Sección productiva"
+                    res_model="turei_process_control.productive_section"
+                    view_mode="tree,form"/>
+
+        <menuitem id="turei_process_control_productive_section_menu"
+                  name="Sección productiva"
+                  parent="turei_process_control_settings_menu"
+                  action="turei_process_control_productive_section_action"
+                  sequence="20"
+        />
+
+        <record id="turei_process_control_productive_section_view_form" model="ir.ui.view">
+            <field name="name">turei_process_control_productive_section_view_form</field>
+            <field name="model">turei_process_control.productive_section</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="name"/>
+                                <field name="production_id"/>
+                            </group>
+                            <group>
+                                <field name="tec_model_type"/>
+                                <field name="productive_section_plan"/>
+                            </group>
+                            <field name="productive_line_ids" widget="many2many_tags">
+                                <tree editable="bottom">
+                                    <field name="productive_line" context="{'productive_section':'1'}"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="turei_process_control_productive_section_view_tree" model="ir.ui.view">
+            <field name="name">turei_process_control_productive_section_view_tree</field>
+            <field name="model">turei_process_control.productive_section</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="tec_model_type"/>
+                    <field name="productive_line_ids"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

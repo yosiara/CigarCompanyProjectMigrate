@@ -1,0 +1,515 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* versat_integration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20161124\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-12 13:49+0000\n"
+"PO-Revision-Date: 2017-06-12 13:49+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_activo
+msgid "Activo"
+msgstr "Activo"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Al seleccionar la opción <b>\"Actualizar almacenes...\"</b>, el sistema\n"
+"                                actualizará los movimientos de productos y la existencia en cada almacén. Todos los\n"
+"                                movimientos afectarán la existencia según Versat y, aquellos movimientos cuyo\n"
+"                                concepto tenga marcada la opción: <b>\"¿Importar?\"</b> afectarán la existencia según\n"
+"                                sistema..."
+msgstr "Al seleccionar la opción <b>\"Actualizar almacenes...\"</b>, el sistema\n"
+"                                actualizará los movimientos de productos y la existencia en cada almacén. Todos los\n"
+"                                movimientos afectarán la existencia según Versat y, aquellos movimientos cuyo\n"
+"                                concepto tenga marcada la opción: <b>\"¿Importar?\"</b> afectarán la existencia según\n"
+"                                sistema..."
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Al seleccionar la opción <b>\"Actualizar lista de productos...\"</b>, el sistema\n"
+"                                actualizará la lista de productos importando aquellos, que no han sido\n"
+"                                importados con anterioridad. Serán importados los almacenes y actualizadas las\n"
+"                                ubicaciones de cada producto..."
+msgstr "Al seleccionar la opción <b>\"Actualizar lista de productos...\"</b>, el sistema\n"
+"                                actualizará la lista de productos importando aquellos, que no han sido\n"
+"                                importados con anterioridad. Serán importados los almacenes y actualizadas las\n"
+"                                ubicaciones de cada producto..."
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Al seleccionar la opción <b>\"Actualizar movimientos de un producto específico...\"</b>,\n"
+"                                el sistema actualizará los movimientos del producto y la existencia de cada uno en cada\n"
+"                                almacén. Esta opción es útil para aquellos casos cuando al actualizar los almacenes, por\n"
+"                                algún motivo no fue importado un movimiento. Todos los movimientos afectarán la\n"
+"                                existencia según Versat y, aquellos movimientos cuyo concepto tenga marcada la opción:\n"
+"                                <b>\"¿Importar?\"</b> afectarán la existencia según sistema..."
+msgstr "Al seleccionar la opción <b>\"Actualizar movimientos de un producto específico...\"</b>,\n"
+"                                el sistema actualizará los movimientos del producto y la existencia de cada uno en cada\n"
+"                                almacén. Esta opción es útil para aquellos casos cuando al actualizar los almacenes, por\n"
+"                                algún motivo no fue importado un movimiento. Todos los movimientos afectarán la\n"
+"                                existencia según Versat y, aquellos movimientos cuyo concepto tenga marcada la opción:\n"
+"                                <b>\"¿Importar?\"</b> afectarán la existencia según sistema..."
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Al seleccionar la opción <b>\"Actualizar todos los productos...\"</b>, el sistema\n"
+"                                actualizará completamente la lista de productos actualizando toda la información\n"
+"                                referente a los productos..."
+msgstr "Al seleccionar la opción <b>\"Actualizar todos los productos...\"</b>, el sistema\n"
+"                                actualizará completamente la lista de productos actualizando toda la información\n"
+"                                referente a los productos..."
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Al seleccionar la opción <b>\"Actualizar un producto específico...\"</b>, el sistema\n"
+"                                actualizará la información referente al producto seleccionado..."
+msgstr "Al seleccionar la opción <b>\"Actualizar un producto específico...\"</b>, el sistema\n"
+"                                actualizará la información referente al producto seleccionado..."
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Al seleccionar la opción <b>\"Sincronizar movimientos de un producto específico...\"</b>,\n"
+"                                el sistema eliminará aquellos movimientos sobre el producto seleccionado que por algún\n"
+"                                motivo fueron eliminados en el sistema Versat..."
+msgstr "Al seleccionar la opción <b>\"Sincronizar movimientos de un producto específico...\"</b>,\n"
+"                                el sistema eliminará aquellos movimientos sobre el producto seleccionado que por algún\n"
+"                                motivo fueron eliminados en el sistema Versat..."
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom_name
+msgid "Code"
+msgstr "Código"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_codigo
+msgid "Codigo"
+msgstr "Codigo"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Configuration..."
+msgstr "Configuración..."
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_create_uid
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_create_uid
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_create_uid
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_create_date
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_create_date
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_create_date
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_product_movement_search_view
+msgid "Current Month"
+msgstr "Mes actual"
+
+#. module: versat_integration
+#: model:ir.ui.menu,name:versat_integration.versat_integration_wizard_menu_item
+msgid "Data Import..."
+msgstr "Importación..."
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_connector_id
+msgid "Database"
+msgstr "Base de Datos"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_date
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_date_to_limit
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_description
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_description
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom_description
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_product_movement_search_view
+msgid "Description"
+msgstr "Descripción"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_display_name
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_display_name
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_display_name
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: versat_integration
+#: selection:versat_integration.product_movement,type:0
+msgid "Entrada"
+msgstr "Entrada"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Especifique la <b>fecha</b> a partir la cual solo se tendrán en cuenta para\n"
+"                                        actualizar el inventario según sistema aquellos movimientos cuyo\n"
+"                                        concepto tenga marcada la opción: <b>\"¿Importar?\"</b>..."
+msgstr "Especifique la <b>fecha</b> a partir la cual solo se tendrán en cuenta para\n"
+"                                        actualizar el inventario según sistema aquellos movimientos cuyo\n"
+"                                        concepto tenga marcada la opción: <b>\"¿Importar?\"</b>..."
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Especifique la <b>fecha</b> desde la cual se importarán los movimientos de\n"
+"                                        productos..."
+msgstr "Especifique la <b>fecha</b> desde la cual se importarán los movimientos de\n"
+"                                        productos..."
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_product_category_external_id
+#: model:ir.model.fields,field_description:versat_integration.field_simple_product_product_external_id
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_external_id
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom_external_id
+#: model:ir.model.fields,field_description:versat_integration.field_warehouse_warehouse_external_id
+msgid "External id"
+msgstr "External id"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_product_movement_search_view
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_id
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_id
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_id
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom_id
+msgid "ID"
+msgstr "ID"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_idcategoria
+msgid "Idcategoria"
+msgstr "Idcategoria"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_idconcepto
+msgid "Idconcepto"
+msgstr "Idconcepto"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_idcriterio
+msgid "Idcriterio"
+msgstr "Idcriterio"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_idregdocum
+msgid "Idregdocum"
+msgstr "Idregdocum"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_action
+msgid "Import"
+msgstr "Importar"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_import_after_specified_date
+msgid "Import after specified date?"
+msgstr "Importar según fecha determinada?"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Import..."
+msgstr "Importar..."
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_to_import
+msgid "Import?"
+msgstr "¿Importar?"
+
+#. module: versat_integration
+#: code:addons/versat_integration/models/product_movement.py:20
+#, python-format
+msgid "In"
+msgstr "Entrada"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_is_out_operation
+msgid "Is out operation?"
+msgstr "¿Operación Salida?"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept___last_update
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard___last_update
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement___last_update
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_write_uid
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_write_uid
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_write_uid
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_concept_write_date
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_write_date
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_write_date
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_limit_operations
+msgid "Limit operations?"
+msgstr "¿Limitar operaciones?"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_product_movement_search_view
+msgid "Month"
+msgstr "Mes"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_movement_concept
+msgid "Movement concept"
+msgstr "Concepto de movimiento"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_simple_product_product_movement_in_ids
+msgid "Movements in"
+msgstr "Movimientos de entrada"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_simple_product_product_movement_out_ids
+msgid "Movements out"
+msgstr "Movimientos de salida"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_simple_product_product_form_view
+msgid "Movements..."
+msgstr "Movimientos..."
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_simple_product_product_form_view
+msgid "Movimientos de entrada..."
+msgstr "Movimientos de entrada..."
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_simple_product_product_form_view
+msgid "Movimientos de salida..."
+msgstr "Movimientos de salida..."
+
+#. module: versat_integration
+#: model:ir.actions.act_window,help:versat_integration.versat_integration_product_movement_action
+msgid "Nothing to show..."
+msgstr "Nada que mostrar..."
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_product_movement_search_view
+msgid "Operation"
+msgstr "Operación"
+
+#. module: versat_integration
+#: code:addons/versat_integration/models/product_movement.py:20
+#, python-format
+msgid "Out"
+msgstr "Salida"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_simple_product_product_out_request_ids
+msgid "Out requests"
+msgstr "Solicitudes de salida"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_simple_product_product_form_view
+msgid "Out requests..."
+msgstr "Solicitudes de salida..."
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_import_wizard_product_id
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_product_id
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_product_movement_search_view
+msgid "Product"
+msgstr "Producto"
+
+#. module: versat_integration
+#: model:ir.model,name:versat_integration.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: versat_integration
+#: model:ir.actions.act_window,name:versat_integration.versat_integration_product_movement_action
+#: model:ir.ui.menu,name:versat_integration.versat_integration_product_movement_menu_item
+msgid "Product Movements"
+msgstr "Movimiento de productos"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_quantity
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_simple_product_product_quantity_by_movements_in
+msgid "Quantity by movements in"
+msgstr "Cantidad según entradas"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_simple_product_product_quantity_by_movements_out
+msgid "Quantity by movements out"
+msgstr "Cantidad según salidas"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_simple_product_product_quantity_by_out_requests
+msgid "Quantity by out requests"
+msgstr "Según solicitudes de salida"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_uom_uom_id
+msgid "Reference uom"
+msgstr "UM de referencia"
+
+#. module: versat_integration
+#: selection:versat_integration.product_movement,type:0
+msgid "Salida"
+msgstr "Salida"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_import_wizard_form_view
+msgid "Si desea acelerar el proceso de actualización de existencias de cada producto, marque\n"
+"                                la opción <b>Importar según fecha determinada?</b> con lo cual deberá especificar la\n"
+"                                fecha a partir de la cual importar los movimientos..."
+msgstr "Si desea acelerar el proceso de actualización de existencias de cada producto, marque\n"
+"                                la opción <b>Importar según fecha determinada?</b> con lo cual deberá especificar la\n"
+"                                fecha a partir de la cual importar los movimientos..."
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_warehouse_product_form_view_inherit
+msgid "Stock..."
+msgstr "Existencia..."
+
+#. module: versat_integration
+#: selection:versat.import_wizard,action:0
+msgid "Synchronize specific product movements"
+msgstr "Sincronizar movimientos de un producto específico"
+
+#. module: versat_integration
+#: sql_constraint:product.category:0
+#: sql_constraint:simple_product.product:0
+#: sql_constraint:warehouse.warehouse:0
+msgid "The external identifier must be unique!"
+msgstr "¡El identificador externo debe ser único!"
+
+#. module: versat_integration
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_product_movement_search_view
+msgid "Today"
+msgstr "Hoy"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_simple_product_product_total
+msgid "Total"
+msgstr "Total"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: versat_integration
+#: model:ir.actions.act_window,name:versat_integration.versat_uom_action
+msgid "Unit of Measure"
+msgstr "Unidad de Medida"
+
+#. module: versat_integration
+#: model:ir.ui.menu,name:versat_integration.versat_uom_menu_item
+msgid "Units of Measure Integration"
+msgstr "Integración (Unidades de Medida)"
+
+#. module: versat_integration
+#: selection:versat.import_wizard,action:0
+msgid "Update all products..."
+msgstr "Actualizar todos los productos..."
+
+#. module: versat_integration
+#: selection:versat.import_wizard,action:0
+msgid "Update product list..."
+msgstr "Actualizar lista de productos..."
+
+#. module: versat_integration
+#: selection:versat.import_wizard,action:0
+msgid "Update specific product movements..."
+msgstr "Actualizar movimientos de producto específico..."
+
+#. module: versat_integration
+#: selection:versat.import_wizard,action:0
+msgid "Update specific product..."
+msgstr "Actualizar un producto específico..."
+
+#. module: versat_integration
+#: selection:versat.import_wizard,action:0
+msgid "Update warehouses..."
+msgstr "Actualizar almacenes..."
+
+#. module: versat_integration
+#: model:ir.actions.act_window,name:versat_integration.versat_concept_action
+#: model:ir.ui.menu,name:versat_integration.versat_concept_menu_item
+msgid "Versat Concepts"
+msgstr "Conceptos Versat"
+
+#. module: versat_integration
+#: model:ir.model.fields,field_description:versat_integration.field_versat_integration_product_movement_warehouse_id
+#: model:ir.ui.view,arch_db:versat_integration.versat_integration_product_movement_search_view
+msgid "Warehouse"
+msgstr "Almacén"
+
+#. module: versat_integration
+#: model:ir.ui.menu,name:versat_integration.versat_integration_left_menu
+msgid "Wizard"
+msgstr "Asistente"
+
+#. module: versat_integration
+#: model:ir.actions.act_window,name:versat_integration.versat_import_wizard_action
+msgid "Wizard to import data..."
+msgstr "Asistente de importación de datos..."
+
+#. module: versat_integration
+#: model:ir.model,name:versat_integration.model_simple_product_product
+msgid "simple_product.product"
+msgstr "simple_product.product"
+
+#. module: versat_integration
+#: model:ir.model,name:versat_integration.model_versat_concept
+msgid "versat.concept"
+msgstr "versat.concept"
+
+#. module: versat_integration
+#: model:ir.model,name:versat_integration.model_versat_import_wizard
+msgid "versat.import_wizard"
+msgstr "versat.import_wizard"
+
+#. module: versat_integration
+#: model:ir.model,name:versat_integration.model_versat_uom
+msgid "versat.uom"
+msgstr "versat.uom"
+
+#. module: versat_integration
+#: model:ir.model,name:versat_integration.model_versat_integration_product_movement
+msgid "versat_integration.product_movement"
+msgstr "versat_integration.product_movement"
+
+#. module: versat_integration
+#: model:ir.model,name:versat_integration.model_warehouse_warehouse
+msgid "warehouse.warehouse"
+msgstr "warehouse.warehouse"
+

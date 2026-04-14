@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_process_control_resume_time_frecuencyn"
+                model="wzd.resume.time.frequencyn.excel"
+                string="Rep. Resumen de tiempo y frecuencia"
+                report_type="xlsx"
+                name="turei_process_control.resume_time_frequencyn_report"
+                file="turei_process_control.resume_time_frequencyn_report"
+                attachment_use="False"
+        />
+
+        <report
+                id="report.resume_time_frequencyn_by_line_report"
+                model="wzd.resume.time.frequencyn.excel"
+                string="Rep. Resumen de tiempo y frecuencia por línea"
+                report_type="xlsx"
+                name="turei_process_control.resume_time_frequencyn_by_line_report"
+                file="turei_process_control.resume_time_frequencyn_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

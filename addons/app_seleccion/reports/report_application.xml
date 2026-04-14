@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<odoo>
+<data>
+       <report
+        id="app_seleccion_solicitudes"
+        model="hr.applicant"
+        string="Solicitudes"
+        report_type="qweb-pdf"
+        name="app_seleccion.report_application"
+        file="app_seleccion.report_application"
+        />
+        <record id="app_seleccion_solicitudes" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="app_seleccion.paperformat_reporte_vertical"/>
+        </record>
+
+         <template id="report_application">
+            <t t-call="report.html_container">
+                <t t-call="app_seleccion.external_layout">
+
+                        <div class="page" style="text-align: justify;">
+                            <table width="100%" class="table">
+                                    <thead>
+                                        <tr valign="top">
+                                            <td width="60%" align="center" colspan="2"
+                                                style="padding: 2px; border-left: 1px double; border-right: 1px double; border-top: 1px double">
+                                                <font face="Arial, sans-serif" style="font-size: 10pt">
+                                                    <b>Datos del Candidato</b>
+                                                </font>
+                                            </td>
+
+                                        </tr>
+                                    <t t-foreach="docs" t-as="o">
+                                        <tr valign="top">
+                                            <td width="60%" colspan="2"
+                                                style="padding: 2px; border-left: 1px double; border-right: 1px double">
+                                                <font face="Arial, sans-serif" style="font-size: 10pt">
+                                                    <b>Nombre del candidato:</b>
+                                                    <span t-field="o.partner_name"/>
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="60%" colspan="2"
+                                                style="padding: 2px; border-left: 1px double; border-right: 1px double">
+                                                <font face="Arial, sans-serif" style="font-size: 10pt">
+                                                    <b>CI:</b>
+                                                    <span t-field="o.ci"/>
+                                                </font>
+                                            </td>
+                                        </tr>
+
+                                     </t>
+
+                                    </thead>
+
+                                </table>
+                           </div>
+
+
+                </t>
+            </t>
+         </template>
+ </data>
+</odoo>

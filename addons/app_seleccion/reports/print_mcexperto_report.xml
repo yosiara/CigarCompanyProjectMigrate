@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="app_seleccion.print_mcexpertos_report" model="ir.actions.report.xml">
+            <field name="name">Plantilla de Reporte de candidatos en proceso en Comité de Expertos</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.applicant</field>
+            <field name="report_name">app_seleccion.print_mcexperto_report</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">app_seleccion</field>
+            <field name="docxtpl_template_fallback">reports/docx/app_seleccion_mcexperto.docx</field>
+        </record>
+    </data>
+</odoo>

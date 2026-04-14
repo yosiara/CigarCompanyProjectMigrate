@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ========================================================================================================
+        Wizard to update Equipment and Components
+        model: computers_inventory.import_computers_wizard
+        ========================================================================================================= -->
+
+        <record id="import_computers_inventory_wizard_form_view" model="ir.ui.view">
+            <field name="name">import_computers_inventory_wizard_form_view</field>
+            <field name="model">computers_inventory.import_computers_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div style="display: flex;">
+                            <div style="width: 200px;">
+                                <img src="/l10n_cu_hlg_computers_inventory/static/src/img/search.jpg"/>
+                            </div>
+
+                            <div style="padding-left: 20px;padding-top: 20px;">
+                                <p/>
+                                <p>
+                                    Select the correct database's connection in order to import the computers and their components
+                                </p>
+
+                                <group>
+                                    <group class="o_label_nowrap">
+                                        <field name="connector_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="import_software"/>
+                                    </group>
+                                </group>
+                            </div>
+                        </div>
+                    </sheet>
+
+                    <footer>
+                        <button name="action_import" string="Update" type="object" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_import_computers_inventory_wizard_form_view" model="ir.actions.act_window">
+            <field name="name">Wizard to import computers...</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">computers_inventory.import_computers_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem name="Update equipments..."
+                  id="computers_inventory_import_wizard"
+                  action="action_import_computers_inventory_wizard_form_view"
+                  parent="menu_computers_inventory_root"
+                  groups="computers_inventory_manager"
+                  sequence="130"
+        />
+    </data>
+</odoo>

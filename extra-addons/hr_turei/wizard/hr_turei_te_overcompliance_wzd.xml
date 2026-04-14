@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_turei_te_overcompliance_wzd_form_view" model="ir.ui.view">
+            <field name="name">hr.turei.te.overcompliance.wzd.form</field>
+            <field name="model">hr_turei.te_overcompliance_wzd</field>
+            <field name="arch" type="xml">
+                <form string="Overcompliance plan te">
+                    <sheet>
+                        <style>
+                            td.o_td_label
+                            {
+                                min-width:88px !important;
+                            }
+                        </style>
+                        <group col="4">
+                            <field name="connection_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="turn_id"/>
+                            <field name="module_id"/>
+                            <field name="plan"/>
+                            <field name="real"/>
+                            <field name="percent"/>
+                        </group>
+
+                        <footer>
+                            <div>
+                                <button name="calculate" string="Calculate" type="object"
+                                        class="oe_highlight"/>
+                                o
+                                <button special="cancel" string="Cancel" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_turei_te_overcompliance_wzd_action" model="ir.actions.act_window">
+            <field name="name">Overcompliance plan te</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.te_overcompliance_wzd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="hr_turei_te_overcompliance_wzd_action"
+                  id="hr_turei_te_overcompliance_wzd_menu_item" parent="hr_turei_smoking_wizards_menu_item" sequence="3"/>
+    </data>
+</odoo>

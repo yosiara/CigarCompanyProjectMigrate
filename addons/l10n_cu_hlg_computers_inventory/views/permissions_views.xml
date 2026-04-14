@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ========================================================================================================
+        Permissions
+        model: permissions_software_module
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="permissions_software_module_form_view" model="ir.ui.view">
+            <field name="name">permissions_software_module_form_view</field>
+            <field name="model">computers_inventory.permissions_software_module</field>
+            <field name="arch" type="xml">
+
+                <form create="true" edit="true" delete="true">
+                    <sheet>
+                        <group col="2">
+                            <field name="name" placeholder="Permission"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="permissions_software_module_tree_view" model="ir.ui.view">
+            <field name="name">permissions_software_module_tree_view</field>
+            <field name="model">computers_inventory.permissions_software_module</field>
+            <field name="arch" type="xml">
+                <tree edit="true" create="true" delete="true">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="permissions_software_module_action" model="ir.actions.act_window">
+            <field name="name">Permissions software module</field>
+            <field name="res_model">computers_inventory.permissions_software_module</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="permissions_software_module_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Permissions software module.
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Permissions software module"
+                  id="menu_item_permissions_software_module"
+                  parent="menu_nomenclator_root"
+                  action="permissions_software_module_action"
+                  groups="computers_inventory_manager"
+                  sequence="1"/>
+
+        <!-- ========================================================================================================
+        Permissions
+        model: software_module
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="software_module_form_view" model="ir.ui.view">
+            <field name="name">software_module_form_view</field>
+            <field name="model">computers_inventory.software_module</field>
+            <field name="arch" type="xml">
+
+                <form create="true" edit="true" delete="true">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="software_id"/>
+                            <field name="permissions_module_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="software_module_tree_view" model="ir.ui.view">
+            <field name="name">software_module_tree_view</field>
+            <field name="model">computers_inventory.software_module</field>
+            <field name="arch" type="xml">
+                <tree edit="true" create="true" delete="true">
+                    <field name="name"/>
+                    <field name="software_id"/>
+                    <field name="permissions_module_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="software_module_action" model="ir.actions.act_window">
+            <field name="name">Software module</field>
+            <field name="res_model">computers_inventory.software_module</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="software_module_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Software module.
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Software module"
+                  id="menu_item_software_module"
+                  parent="menu_nomenclator_root"
+                  action="software_module_action"
+                  groups="computers_inventory_manager"
+                  sequence="2"/>
+
+        <!-- ========================================================================================================
+        Permissions
+        model: software
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="software_form_view" model="ir.ui.view">
+            <field name="name">software_form_view</field>
+            <field name="model">computers_inventory.software</field>
+            <field name="arch" type="xml">
+
+                <form string="Software" create="true" edit="true" delete="true">
+                    <header>
+                        <button class="oe_highlight" name="action_requested" string="Requested" type="object"
+                                states="draft"/>
+                        <button class="oe_highlight" name="action_approved" string="Approved" type="object"
+                                states="requested"/>
+                        <button class="oe_highlight" name="action_obsolete" string="Obsolete"
+                                type="object" states="approved"/>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group col="4" colsoan="4">
+                            <field name="name"/>
+                            <field name="version"/>
+                            <field name="os"/>
+                            <field name="installation_mode"/>
+                            <field name="manufacturer"/>
+                            <field name="orientation"/>
+                            <field name="is_modular"/>
+                        </group>
+                        <group col="1">
+                            <field name="module_ids" attrs="{'invisible':[('is_modular','==',False)]}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="permissions_module_ids" widget="many2many_tags"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="permissions_module_ids" widget="many2many_tags"
+                                                   create="False"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="software_tree_view" model="ir.ui.view">
+            <field name="name">software_tree_view</field>
+            <field name="model">computers_inventory.software</field>
+            <field name="arch" type="xml">
+                <tree edit="true" create="true" delete="true">
+                    <field name="name"/>
+                    <field name="version"/>
+                    <field name="os"/>
+                    <field name="installation_mode"/>
+                    <field name="manufacturer"/>
+                    <field name="orientation"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="software_action" model="ir.actions.act_window">
+            <field name="name">Software</field>
+            <field name="res_model">computers_inventory.software</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="software_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new software.
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Software"
+                  id="menu_item_software"
+                  parent="menu_nomenclator_root"
+                  action="software_action"
+                  groups="computers_inventory_manager"
+                  sequence="4"/>
+
+        <!-- ========================================================================================================
+        Permissions
+        model: authorized_software
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="authorized_software_form_view" model="ir.ui.view">
+            <field name="name">authorized_software_form_view</field>
+            <field name="model">computers_inventory.authorized_software</field>
+            <field name="arch" type="xml">
+
+                <form string="Authorized software" create="true" edit="true" delete="true">
+                    <header>
+                        <button class="oe_highlight" name="action_requested" string="Requested" type="object"
+                                states="new" groups="l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                        <button class="oe_highlight" name="action_approved" string="Approved" type="object"
+                                states="requested"
+                                groups="l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                        <button class="oe_highlight" name="action_rejected" string="Rejected"
+                                type="object" states="requested"
+                                groups="l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                        <button class="oe_highlight" name="action_executed" string="Executed"
+                                type="object" states="approved,rejected"
+                                groups="l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="everyone"/>
+                            <field name="date"/>
+                            <field name="resource_ids" colspan="4" attrs="{'invisible':[('everyone','==',True)]}" widget="many2many_tags"></field>
+                            <field name="applicant_id"/>
+                            <field name="department_id"/>
+                            <field name="objective"/>
+                            <field name="approve_by_id" groups="l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                        </group>
+                        <field name="software_line_ids">
+                            <tree editable='bottom' string="Software">
+                                <field name="software_id" placeholder="Software"/>
+                                <field name="version" placeholder="Version"/>
+                                <field name="valid" placeholder="Valid"/>
+                                <field name="module_id" placeholder="Module"/>
+                                <field name="permissions_ids" placeholder="Permissions" widget="many2many_tags"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="authorized_software_tree_view" model="ir.ui.view">
+            <field name="name">authorized_software_tree_view</field>
+            <field name="model">computers_inventory.authorized_software</field>
+            <field name="arch" type="xml">
+                <tree edit="true" create="true" delete="true">
+                    <field name="everyone"/>
+                    <field name="applicant_id"/>
+                    <field name="department_id"/>
+                    <field name="date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="authorized_software_action" model="ir.actions.act_window">
+            <field name="name">Authorized software</field>
+            <field name="res_model">computers_inventory.authorized_software</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="authorized_software_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new authorized software.
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Authorized software"
+                  id="menu_item_authorized_software"
+                  parent="menu_records"
+                  action="authorized_software_action"
+                  sequence="10"/>
+
+        <!-- ========================================================================================================
+        Permissions
+        model: nomenclator_orientation
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="nomenclator_orientation_form_view" model="ir.ui.view">
+            <field name="name">nomenclator_orientation_form_view</field>
+            <field name="model">computers_inventory.nomenclator_orientation</field>
+            <field name="arch" type="xml">
+
+                <form create="true" edit="true" delete="true">
+                    <sheet>
+                        <group col="2">
+                            <field name="orientation" placeholder="Orientation"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="nomenclator_orientation_tree_view" model="ir.ui.view">
+            <field name="name">nomenclator_orientation_tree_view</field>
+            <field name="model">computers_inventory.nomenclator_orientation</field>
+            <field name="arch" type="xml">
+                <tree edit="true" create="true" delete="true">
+                    <field name="orientation"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="nomenclator_orientation_action" model="ir.actions.act_window">
+            <field name="name">Orientation</field>
+            <field name="res_model">computers_inventory.nomenclator_orientation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="nomenclator_orientation_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Orientation.
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Orientation"
+                  id="menu_item_nomenclator_orientation"
+                  parent="menu_nomenclator_root"
+                  action="nomenclator_orientation_action"
+                  groups="computers_inventory_manager"
+                  sequence="10"/>
+
+        <!-- ========================================================================================================
+        Permissions
+        model: secure_deletion
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="secure_deletion_form_view" model="ir.ui.view">
+            <field name="name">secure_deletion_form_view</field>
+            <field name="model">computers_inventory.secure_deletion</field>
+            <field name="arch" type="xml">
+
+                <form string="Secure deletion" create="true" edit="true" delete="true">
+                    <header>
+                        <button class="oe_highlight" name="action_requested" string="Requested" type="object"
+                                states="new"
+                                groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                        <button class="oe_highlight" name="action_approved" string="Approved" type="object"
+                                states="requested"
+                                groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                        <button class="oe_highlight" name="action_executed" string="Executed"
+                                type="object" states="approved"
+                                groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="external"/>
+                            <field name="capacity"/>
+                            <field name="resource_id"/>
+                            <field name="executor_id"/>
+                            <field name="department_id"/>
+                            <field name="erasing_tool"/>
+                            <field name="observations"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="secure_deletion_tree_view" model="ir.ui.view">
+            <field name="name">secure_deletion_tree_view</field>
+            <field name="model">computers_inventory.secure_deletion</field>
+            <field name="arch" type="xml">
+                <tree edit="true" create="true" delete="true">
+                    <field name="external"/>
+                    <field name="capacity"/>
+                    <field name="resource_id"/>
+                    <field name="executor_id"/>
+                    <field name="department_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="secure_deletion_action" model="ir.actions.act_window">
+            <field name="name">Secure deletion</field>
+            <field name="res_model">computers_inventory.secure_deletion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="secure_deletion_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new secure deletion.
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Secure deletion"
+                  id="menu_item_secure_deletion"
+                  parent="menu_records"
+                  action="secure_deletion_action"
+                  groups="computers_inventory_executor,computers_inventory_manager"
+                  sequence="10"/>
+
+        <!-- ========================================================================================================
+        Permissions
+        model: planning_saves
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="planning_saves_form_view" model="ir.ui.view">
+            <field name="name">planning_saves_form_view</field>
+            <field name="model">computers_inventory.planning_saves</field>
+            <field name="arch" type="xml">
+
+                <form string="Planning saves" create="true" edit="true" delete="true">
+                    <sheet>
+                        <group col="4">
+                            <field name="department_id"/>
+                            <field name="planned_date"/>
+                            <field name="file_size"/>
+                            <field name="responsible_id"/>
+                            <field name="place"/>
+                            <label for="frequency"/>
+                            <div class="o_row" name="frequency">
+                                <span>every</span>
+                                <field name="frequency"/>
+                                <span>hours</span>
+                            </div>
+                            <field name="support"/>
+                            <field name="information"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="planning_saves_tree_view" model="ir.ui.view">
+            <field name="name">planning_saves_tree_view</field>
+            <field name="model">computers_inventory.planning_saves</field>
+            <field name="arch" type="xml">
+                <tree edit="true" create="true" delete="true">
+                    <field name="department_id"/>
+                    <field name="planned_date"/>
+                    <field name="file_size"/>
+                    <field name="responsible_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="planning_saves_action" model="ir.actions.act_window">
+            <field name="name">Planning saves</field>
+            <field name="res_model">computers_inventory.planning_saves</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="planning_saves_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new planning saves.
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Planning saves"
+                  id="menu_item_planning_saves"
+                  parent="menu_records"
+                  action="planning_saves_action"
+                  groups="computers_inventory_manager"
+                  sequence="10"/>
+
+        <!-- ========================================================================================================
+        Permissions
+        model: network_license
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="network_license_form_view" model="ir.ui.view">
+            <field name="name">network_license_form_view</field>
+            <field name="model">computers_inventory.network_license</field>
+            <field name="arch" type="xml">
+
+                <form string="Network license" create="true" edit="true" delete="true">
+                    <sheet>
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="validity"/>
+                            <field name="days_left"/>
+                            <field name="image"/>
+                            <field name="responsible_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="network_license_tree_view" model="ir.ui.view">
+            <field name="name">network_license_tree_view</field>
+            <field name="model">computers_inventory.network_license</field>
+            <field name="arch" type="xml">
+                <tree edit="true" create="true" delete="true">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="validity"/>
+                    <field name="days_left"/>
+                    <field name="responsible_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="network_license_action" model="ir.actions.act_window">
+            <field name="name">Network license</field>
+            <field name="res_model">computers_inventory.network_license</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="network_license_tree_view"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new network license.
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Network license"
+                  id="menu_item_network_license"
+                  parent="menu_records"
+                  action="network_license_action"
+                  groups="computers_inventory_manager"
+                  sequence="10"/>
+
+        <record id="system_service_application_view_form" model="ir.ui.view">
+            <field name="name">system_service_application_view_form</field>
+            <field name="model">computers_inventory.system_service_application</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button class="oe_highlight" name="action_requested" string="Requested" type="object"
+                                states="new"
+                                groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                        <button class="oe_highlight" name="action_approved" string="Approved" type="object"
+                                states="requested"
+                                groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                        <button class="oe_highlight" name="action_executed" string="Executed"
+                                type="object" states="approved"
+                                groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="type"/>
+                            <field name="date"/>
+                            <field name="applicant_id"/>
+                            <field name="benefited_id"/>
+                            <field name="approve_by_id" groups="l10n_cu_hlg_computers_inventory.computers_inventory_executor,l10n_cu_hlg_computers_inventory.computers_inventory_manager"/>
+                        </group>
+                        <group col="1">
+                            <separator string="Systems"/>
+                            <field name="system_line_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="software_id"/>
+                                    <field name="module_id"/>
+                                    <field name="permissions_ids" widget="many2many_tags"/>
+                                    <field name="justification"/>
+                                </tree>
+                            </field>
+                            <separator string="Telematics Services"/>
+                            <field name="service_line_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="service_id"/>
+                                    <field name="justification"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="system_service_application_view_tree" model="ir.ui.view">
+            <field name="name">system_service_application_view_tree</field>
+            <field name="model">computers_inventory.system_service_application</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="applicant_id"/>
+                    <field name="benefited_id"/>
+                    <field name="approve_by_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="system_service_application_action" model="ir.actions.act_window">
+            <field name="name">System/Service Applications</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">computers_inventory.system_service_application</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="system_service_application_menu_action" parent="menu_records"
+                  action="system_service_application_action" sequence="99"/>
+
+        <!-- ACTION -->
+        <record id="telematics_service_action" model="ir.actions.act_window">
+            <field name="name">Telematics Service</field>
+            <field name="res_model">computers_inventory.telematics_service</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new telematics service.
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Telematics Service"
+                  id="menu_item_telematics_service"
+                  parent="menu_nomenclator_root"
+                  action="telematics_service_action"
+                  groups="computers_inventory_manager"
+                  sequence="4"/>
+
+    </data>
+</odoo>

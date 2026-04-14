@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <!-- HEREDANDO LA VISTA FORM DE JOURNAL -->
+	<record id="view_users_form_simple_modif_inherit" model="ir.ui.view">
+            <field name="name">l10n_cu.res.company.form.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="email" position="replace">
+                        <field name="email" widget="mask_regex" readonly="0" placeholder="info@yourcompany.example.com" data-inputmask-regex="([a-z0-9-_+@\.]{1,64})"/>
+                    </field>
+
+                    <xpath expr="//form//group[2]" position="attributes">
+                       <attribute name="string">Preferencias de mensajes</attribute>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+
+	</data>
+</openerp>

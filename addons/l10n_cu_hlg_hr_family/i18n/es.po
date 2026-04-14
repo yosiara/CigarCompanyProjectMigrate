@@ -1,0 +1,169 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_hlg_hr_family
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-13 17:49+0000\n"
+"PO-Revision-Date: 2017-08-04 10:18-0400\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: l10n_cu_hlg_hr_family
+#: selection:hr.employee.family,kindred:0
+msgid "Brother"
+msgstr "Hermano"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_coexistence
+msgid "Coexistence"
+msgstr "Coexistence"
+
+#. module: l10n_cu_hlg_hr_family
+#: selection:hr.employee.family,kindred:0
+msgid "Cousin"
+msgstr "Prima"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_date_of_birth
+msgid "Date of Birth"
+msgstr "Fecha de nacimiento"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model,name:l10n_cu_hlg_hr_family.model_hr_employee
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_employee_id
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_family.hr_family_view_tree
+msgid "Employee family"
+msgstr "Familiares"
+
+#. module: l10n_cu_hlg_hr_family
+#: selection:hr.employee.family,kindred:0
+msgid "Epouse"
+msgstr "Epouse"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_family.hr_employee_view_form
+msgid "Family"
+msgstr "Familia"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_ids
+msgid "Familys"
+msgstr "Familiares"
+
+#. module: l10n_cu_hlg_hr_family
+#: selection:hr.employee.family,kindred:0
+msgid "Father"
+msgstr "Padre"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_father
+msgid "Father's Name"
+msgstr "Nombre del padre"
+
+#. module: l10n_cu_hlg_hr_family
+#: selection:hr.employee.family,gender:0
+msgid "Female"
+msgstr "Femenino"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_gender
+msgid "Gender"
+msgstr "Sexo"
+
+#. module: l10n_cu_hlg_hr_family
+#: selection:hr.employee.family,kindred:0
+msgid "Grandfather"
+msgstr "Abuelo"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model,name:l10n_cu_hlg_hr_family.model_hr_employee_family
+msgid "HR Employee famyly"
+msgstr "Famiiliares del empleado"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_hlg_hr_family
+#: selection:hr.employee.family,gender:0
+msgid "Male"
+msgstr "Masculino"
+
+#. module: l10n_cu_hlg_hr_family
+#: selection:hr.employee.family,kindred:0
+msgid "Mother"
+msgstr "Madre"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_mother
+msgid "Mother's Name"
+msgstr "Nombre de la madre"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_family.hr_employee_view_form
+msgid "Parents"
+msgstr "Familiares"
+
+#. module: l10n_cu_hlg_hr_family
+#: selection:hr.employee.family,kindred:0
+msgid "Son"
+msgstr "Hijo"
+
+#. module: l10n_cu_hlg_hr_family
+#: selection:hr.employee.family,kindred:0
+msgid "Uncle"
+msgstr "Tío"
+
+#. module: l10n_cu_hlg_hr_family
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_family.field_hr_employee_family_kindred
+msgid "kindred"
+msgstr "Parientes"

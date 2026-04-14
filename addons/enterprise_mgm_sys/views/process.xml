@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="enterprise_mgm_sys_process_form_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_process.form</field>
+            <field name="model">enterprise_mgm_sys.process</field>
+            <field name="arch" type="xml">
+                <form string="Process">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Name"/>
+                            </h1>
+                        </div>
+                            <group col="4">
+                                <field name="employee_id"/>
+                                <field name="limit"/>
+                                <field name="process_file"/>
+                            </group>
+                            <group col="1">
+                                <field name="indicator_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="indicator_id"/>
+                                        <field name="optimal_value"/>
+                                        <field name="weight"/>
+                                        <field name="points_effective"/>
+                                        <field name="points_no_effective"/>
+                                        <field name="limit"/>
+                                    </tree>
+                                </field>
+                            </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_process_tree_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_process.tree</field>
+            <field name="model">enterprise_mgm_sys.process</field>
+            <field name="arch" type="xml">
+                <tree string="Process">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_process_search_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_process.search</field>
+            <field name="model">enterprise_mgm_sys.process</field>
+            <field name="arch" type="xml">
+                <search string="Process">
+                    <group expand="1" string="Group By">
+                        <filter string="Employee" name="employee_group" domain="[]"
+                                context="{'group_by':'employee_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_process_act_window" model="ir.actions.act_window">
+            <field name="name">Processes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.process</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Process.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Processes" id="enterprise_mgm_sys_process_main_menu" parent="enterprise_mgm_sys_root_menu"/>
+        <menuitem name="Processes" id="enterprise_mgm_sys_process_menu" parent="enterprise_mgm_sys_process_main_menu" action="enterprise_mgm_sys_process_act_window"/>
+
+    </data>
+</odoo>

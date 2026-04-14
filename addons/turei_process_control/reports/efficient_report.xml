@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="efficient_report">
+            <t t-call="report.html_container">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-2 text-left" style="margin:0 0 0 0; padding:0 0 0 15px">
+                            <img src="/turei_process_control/static/src/img/logo_hoja.png"/>
+                        </div>
+                        <div class="col-xs-10 text-center" style="padding:35px">
+                            <h4>
+                                <b>Reporte de Eficiencia del Departamento de Producción de Cigarrillos</b>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="page">
+                    <!--<t t-foreach="data" t-as="p_section">-->
+                    <table class="table table-bordered table-condensed text-center" style="page-break-inside: avoid;">
+                            <tr style="color:white;background-color:gray;">
+                                <td colspan="2">
+                                    <b>Desde</b>
+                                </td>
+                                <td colspan="2">
+                                    <b>Hasta</b>
+                                </td>
+                                <td colspan="2">
+                                    <b>Sección Productiva</b>
+                                </td>
+                                <td colspan="2">
+                                    <b>Turno</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <t t-raw="date_start"/>
+                                </td>
+                                <td colspan="2">
+                                    <t t-raw="date_end"/>
+                                </td>
+                                <td colspan="2">
+                                    <t t-if="productive_section">
+                                        <t t-raw="productive_section.name"/>
+                                    </t>
+                                    <t t-else="">
+                                        Todas
+                                    </t>
+                                </td>
+                                <td colspan="2">
+                                    <t t-if="turn">
+                                        <t t-raw="turn.name"/>
+                                    </t>
+                                    <t t-else="">
+                                        Todos
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="8" class="text-center">
+                                    <b>INTERRUPCIONES POR CAUSAS ENDÓGENAS (Internas)</b>
+                                </td>
+                            </tr>
+                            <tr style="color:white;background-color:gray;">
+                                <td colspan="2">
+                                    <b>Interrupción</b>
+                                </td>
+                                <td>
+                                    <b>Máquina</b>
+                                </td>
+                                <td>
+                                    <b>Subconjunto</b>
+                                </td>
+                                <td>
+                                    <b>Frecuencia</b>
+                                </td>
+                                <td>
+                                    <b>Tiempo (min)</b>
+                                </td>
+                                <td>
+                                    <b>% Frecuencia</b>
+                                </td>
+                                <td>
+                                    <b>% Tiempo</b>
+                                </td>
+                            </tr>
+
+                            <t t-set="total_interruptions_time_endo" t-value="0"/>
+                            <t t-set="count_exogena_endo" t-value="0"/>
+                            <t t-set="count_endogena" t-value="0"/>
+
+                            <t t-set="key_aux" t-value="-1"/>
+
+
+                            <tr t-foreach="records" t-as="line">
+                                <t t-if="line['cause'] == 'endogena'">
+                                    <t t-set="total_interruptions_time_endo" t-value="total_interruptions_time_endo + line['time']"/>
+                                    <t t-set="count_endogena" t-value="count_endogena + 1"/>
+                                    <td colspan="2">
+                                        <t t-esc="line['interruption_name']"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="line['machine_name']"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="line['set_of_peace']">
+                                            <t t-esc="line['set_of_peace']"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-esc="line['frequency']"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="line['productive_line']">
+                                            <t t-esc="line['time']"/>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-set="count_lines_tmp" t-value="len(model.env['turei_process_control.productive_section'].search([('id', '=', line['productive_section'])]).productive_line_ids)"/>
+                                            <t t-esc="line['time']"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-esc="round((line['frequency']*100)/sum_frequency_endo, 2)"/>
+                                    </td> <!--% Frecuencia-->
+                                    <td>
+                                        <t t-esc="round((line['time']*100)/sum_time_endo, 2)"/>
+                                    </td><!--% % Tiempo-->
+                                </t>
+
+                            </tr>
+
+                            <tr>
+                                <td colspan="4" class="text-right">
+                                    TOTAL DE INTERRUPCIONES POR CAUSAS ENDÓGENAS:
+                                </td>
+                                <td>
+                                    <t t-esc="round(sum_frequency_endo, 2)"/>
+                                </td>
+                                <td>
+                                    <t t-esc="sum_time_endo"/>
+                                </td>
+                                <td> </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="8" class="text-center">
+                                    <b>INTERRUPCIONES POR CAUSAS EXÓGENAS (Externas)</b>
+                                </td>
+                            </tr>
+
+                            <tr style="color:white;background-color:gray;">
+                                <td colspan="2">
+                                    <b>Interrupción</b>
+                                </td>
+                                <td>
+                                    <b>Máquina</b>
+                                </td>
+                                <td>
+                                    <b>Subconjunto</b>
+                                </td>
+                                <td>
+                                    <b>Frecuencia</b>
+                                </td>
+                                <td>
+                                    <b>Tiempo</b>
+                                </td>
+                                <td>
+                                    <b>% Frecuencia</b>
+                                </td>
+                                <td>
+                                    <b>%Tiempo</b>
+                                </td>
+                            </tr>
+
+                            <t t-set="total_interruptions_time_exogena" t-value="0"/>
+                            <t t-set="count_exogena_exogena" t-value="0"/>
+                            <t t-set="count_exogena" t-value="0"/>
+
+                            <tr t-foreach="records" t-as="line">
+                                <t t-if="line['cause'] == 'exogena'">
+                                    <t t-set="total_interruptions_time_exogena" t-value="total_interruptions_time_exogena + line['time']"/>
+
+                                    <t t-set="count_exogena" t-value="count_exogena + 1"/>
+                                    <td colspan="2">
+                                        <t t-esc="line['interruption_name']"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="line['machine_name']"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="line['set_of_peace']">
+                                            <t t-esc="line['set_of_peace']"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-esc="line['frequency']"/>
+                                    </td>
+                                    <td>
+                                        <t t-if="line['productive_line']">
+                                            <t t-esc="line['time']"/>
+                                        </t>
+                                        <t t-else="">
+                                            <t t-set="count_lines_tmp" t-value="len(model.env['turei_process_control.productive_section'].search([('id', '=', line['productive_section'])]).productive_line_ids)"/>
+                                            <t t-esc="line['time']"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-esc="round((line['frequency']*100)/sum_frequency_exogena, 2)"/>
+                                    </td> <!--% Frecuencia-->
+                                    <td>
+                                        <t t-esc="round((line['time']*100)/sum_time_exogena, 2)"/>
+                                    </td><!--% % Tiempo-->
+                                </t>
+
+                            </tr>
+
+                            <tr>
+                                <td colspan="4" class="text-right">
+                                    TOTAL DE INTERRUPCIONES POR CAUSAS EXÓGENAS:
+                                </td>
+                                <td>
+                                    <t t-esc="round(sum_frequency_exogena, 2)"/>
+                                </td>
+                                <td>
+                                    <t t-esc="sum_time_exogena"/>
+                                </td>
+                                <td> </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="8" class="text-center">
+                                    <b>TOTAL SECCIÓN PRODUCTIVA</b>
+                                </td>
+                            </tr>
+                            <t t-set="total_interruptions_time_hours" t-value="round((total_interruptions_time_exogena+total_interruptions_time_endo) / 60.00, 2)"/>
+                            <tr>
+                                <td colspan="3" align="left">Turnos trabajados:</td>
+                                <td colspan="1">
+                                    <t t-esc="turnos_trabajados"/>
+                                </td>
+                                <td colspan="3" align="left">Eficiencia real (%):</td>
+                                <!--Producción realizada*10000 / (Tiempo Total Planificado) * Capacidad productiva) * 100-->
+                                <td colspan="1">
+                                    <t t-esc="round(((sum_production_done*10000.00) /  productividad_real) * 100.00, 2)"/>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="3" align="left">Producción Terminada(cajones):</td>
+                                <td colspan="1"><t t-esc="sum_production_done"/></td>
+                                <td colspan="3" align="left">Eficiencia operativa (%):</td>
+                                <!-- Producción realizada*10000 / (Tiempo Total Planificado - Tiempo de Interrupciones por causas exógenas) * Capacidad productiva) * 100-->
+                                <td colspan="1">
+                                    <t t-esc="round(((sum_production_done*10000.00) /  productividad_operativa) * 100.00, 2)"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" align="left">Promedio de cajones por turnos:</td>
+                                <td colspan="1">
+                                    <t t-if="turnos_trabajados > 0">
+                                        <t t-esc="round((float(sum_production_done) / turnos_trabajados), 4)"/>
+                                    </t>
+                                </td>
+                                <td colspan="3" align="left">Coeficiente de Disponibilidad Técnica Real (CDT):</td>
+                                <!--Tiempo Total Planificado - Tiempo Total de Interrupciones / Tiempo Total Planificado * 100-->
+                                <td colspan="1">
+                                    <t t-if="sum_plan_time > 0.00">
+                                        <t t-esc="round( ((sum_plan_time - ((sum_time_exogena+sum_time_endo) / count_lines)) / sum_plan_time) * 100, 2)"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"> </td>
+                                <td colspan="1"> </td>
+                                <td colspan="3" align="left">Coeficiente de Disponibilidad Técnica Operativa (CDT):</td>
+                                <!--Tiempo Total Planificado - Tiempo de Interrupciones por causas endógenas / Tiempo Total Planificado * 100-->
+                                <td colspan="1">
+                                    <t t-if="sum_plan_time">
+                                        <t t-esc="round( ((sum_plan_time - (sum_time_endo / count_lines)) / sum_plan_time) * 100, 2)"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="8" class="text-center">
+                                    <b>ANÁLISIS DE UTILIZACIÓN DEL TIEMPO</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"></td>
+                                <td colspan="2" align="center">Tiempo (horas)</td>
+                                <td colspan="2" align="center">%</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">Tiempo total planificado(horas):</td>
+                                <td colspan="2" align="center"><t t-esc="round(sum_plan_time/60.0, 2)"/></td>
+                                <td colspan="2" align="center">100</td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">Tiempo total de interrupciones(horas):</td>
+                                <td colspan="2" align="center">
+                                    <t t-esc="round((sum_time_exogena+sum_time_endo+sum_time_total)/ count_lines / 60.0, 2)"/>
+                                </td>
+                                <td colspan="2" align="center">
+                                    <t t-if="sum_plan_time > 0">
+                                        <t t-esc="round(((sum_time_exogena+sum_time_endo)/ count_lines /sum_plan_time) * 100, 2)"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">Tiempo real de producción(horas):</td>
+                                <!--= Producción realizada*10000 / Capacidad productiva) / 60 minutos-->
+                                <td colspan="2" align="center"><t t-esc="round(real_produccion_time, 2)"/> </td>
+                                <td colspan="2" align="center">
+                                    <t t-if="sum_plan_time > 0">
+                                        <t t-esc="round( (real_produccion_time / (sum_plan_time / 60.0) ) * 100, 2)"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">Tiempo no justificado(horas):</td>
+                                <!--Tiempo Total Planificado – (Tiempo Real de Producción + Tiempo Total de Interrupciones) / 60 min-->
+                                <td colspan="2" align="center">
+                                    <t t-set="tiempo_no_justificado" t-value="(sum_plan_time - ((real_produccion_time*60.0) + ((sum_time_exogena+sum_time_endo)/ count_lines))) / 60.0"/>
+                                    <t t-esc="round(tiempo_no_justificado, 2)"/>
+                                </td>
+                                <td colspan="2" align="center">
+                                    <t t-if="sum_plan_time > 0">
+                                        <t t-esc="round( tiempo_no_justificado/(sum_plan_time / 60.0) * 100, 2)"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                    <!--</t>-->
+                </div>
+
+            </t>
+        </template>
+        <report id="efficient_report_action"
+                string="Reporte de Eficiencia"
+                model="wzd.efficient.report"
+                report_type="qweb-pdf"
+                file="turei_process_control.efficient_report"
+                name="turei_process_control.efficient_report"/>
+
+        <record id="turei_paperformat_euro_a4_portrait" model="report.paperformat">
+            <field name="name">Turei European A4 portrait</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">13</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">40</field>
+            <field name="dpi">120</field>
+        </record>
+
+        <record id="efficient_report_action" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="turei_paperformat_euro_a4_portrait"/>
+        </record>
+    </data>
+</odoo>

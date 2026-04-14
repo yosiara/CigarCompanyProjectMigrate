@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cmi_config_settings" model="ir.ui.view">
+            <field name="name">cmi settings</field>
+            <field name="model">cmi.config.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure Cmi" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <group>
+                        <field name="company_id" invisible="1"/>
+                        <field name="dw_conn_id" />
+                        <field name="job_dir" />
+                        <field name="pdi_dir" />
+                        <field name="email_list" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cmi_config" model="ir.actions.act_window">
+            <field name="name">Configure Cmi</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cmi.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="menu_cmi_config" name="Settings" parent="cmi_configuration"
+            sequence="0" action="action_cmi_config" groups="base.group_system"/>
+    </data>
+</odoo>

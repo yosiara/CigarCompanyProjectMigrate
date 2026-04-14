@@ -1,0 +1,11 @@
+<openerp>
+    <data>
+
+        <template id="assets_backend_session" name="session assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" 
+                src="/l10n_cu_hlg_single_login/static/src/js/customize_session.js"></script>
+            </xpath>
+        </template>
+    </data>
+</openerp>

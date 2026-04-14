@@ -1,0 +1,154 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* turei_resource_calendar
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20200610\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-21 20:48+0000\n"
+"PO-Revision-Date: 2020-07-21 16:49-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.7.3\n"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "10ma"
+msgstr "10ma"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "11na"
+msgstr "11na"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "12va"
+msgstr "12va"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "13ra"
+msgstr "13ra"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "14ta"
+msgstr "14ta"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "1ra"
+msgstr "1ra"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "2da"
+msgstr "2da"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "3ra"
+msgstr "3ra"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "4ta"
+msgstr "4ta"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "5ta"
+msgstr "5ta"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "6ta"
+msgstr "6ta"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "7ma"
+msgstr "7ma"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "8va"
+msgstr "8va"
+
+#. module: turei_resource_calendar
+#: selection:resource.calendar,initial_rotation:0
+#: selection:resource.calendar.attendance,rotation:0
+msgid "9na"
+msgstr "9na"
+
+#. module: turei_resource_calendar
+#: model:ir.model.fields,field_description:turei_resource_calendar.field_resource_calendar_calendar_date_from
+msgid "Calendar date from"
+msgstr "Fecha Inicio Calendario"
+
+#. module: turei_resource_calendar
+#: model:ir.model.fields,field_description:turei_resource_calendar.field_resource_calendar_initial_rotation
+msgid "Initial Rotation"
+msgstr "Rotación Inicial"
+
+#. module: turei_resource_calendar
+#: model:ir.actions.act_window,name:turei_resource_calendar.action_leaves
+#: model:ir.model.fields,field_description:turei_resource_calendar.field_resource_calendar_leave_count
+#: model:ir.ui.view,arch_db:turei_resource_calendar.resource_calendar_form
+msgid "Leaves"
+msgstr "Ausencias"
+
+#. module: turei_resource_calendar
+#: model:ir.model,name:turei_resource_calendar.model_resource_calendar
+msgid "Resource Calendar"
+msgstr "Calendario"
+
+#. module: turei_resource_calendar
+#: model:ir.model.fields,field_description:turei_resource_calendar.field_resource_calendar_rotating_calendar
+msgid "Rotating calendar"
+msgstr "Calendario Rotativo"
+
+#. module: turei_resource_calendar
+#: model:ir.model.fields,field_description:turei_resource_calendar.field_resource_calendar_attendance_rotation
+msgid "Rotation"
+msgstr "Rotación"
+
+#. module: turei_resource_calendar
+#: model:ir.model.fields,field_description:turei_resource_calendar.field_resource_calendar_attendance_rotation_integer
+msgid "Rotation Integer"
+msgstr "Número Rotación"
+
+#. module: turei_resource_calendar
+#: model:ir.model.fields,field_description:turei_resource_calendar.field_resource_calendar_sgp_turn_id
+msgid "Sgp turn id"
+msgstr "Turno en SGP"
+
+#. module: turei_resource_calendar
+#: model:ir.model,name:turei_resource_calendar.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr "Detalle del trabajo"
+
+#. module: turei_resource_calendar
+#: model:ir.model.fields,help:turei_resource_calendar.field_resource_calendar_calendar_date_from
+msgid "Working calendar start date. Used to calculate the shift exact date."
+msgstr "Fecha inicial de calendario. Utilizado para calcular la fecha exacta del turno."

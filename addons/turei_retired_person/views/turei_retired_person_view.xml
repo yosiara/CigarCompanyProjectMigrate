@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Turei Retired Person -->
+        <menuitem id="menu_retired_person_root"
+                  name="Retired"
+                  web_icon="turei_retired_person,static/description/icon.png"
+                  sequence="98"/>
+
+
+        <act_window id="action_retired_person"
+                    name="Retired Person"
+                    res_model="turei_retired_person.retired_person"
+                    view_mode="tree,form"/>
+
+
+        <menuitem id="menu_retired_person_item"
+                  name="Retired Person"
+                  parent="menu_retired_person_root"
+                  sequence="2"
+                  action="action_retired_person"/>
+
+
+        <!-- Tree View retired person -->
+        <record id="view_turei_retired_person_retired_person_tree" model="ir.ui.view">
+            <field name="name">Tree View Retired Person</field>
+            <field name="model">turei_retired_person.retired_person</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="identification_id" class="oe_title"/>
+                    <field name="name"/>
+                    <field name="address" class="oe_title"/>
+                    <field name="neighborhood_id" class="oe_title"/>
+                    <field name="state_id" class="oe_title"/>
+                    <field name="municipality_id" class="oe_title"/>
+                    <field name="house_phone" class="oe_title"/>
+                    <field name="cell_phone" class="oe_title"/>
+                    <field name="email" class="oe_title"/>
+                    <field name="retired_date" class="oe_title"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search View retired person -->
+        <record id="view_turei_retired_person_retired_person_search" model="ir.ui.view">
+            <field name="name">Search View Retired Person</field>
+            <field name="model">turei_retired_person.retired_person</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="identification_id"/>
+                    <field name="name"/>
+                    <field name="neighborhood_id"/>
+                    <field name="municipality_id"/>
+                    <group expand="0" string="Group by">
+                        <filter string="Neighborhood" domain="[]" context="{'group_by':'neighborhood_id'}"/>
+                        <filter string="Retired Year" domain="[]" context="{'group_by':'retired_year'}"/>
+                        <filter string="Founder Description" domain="[]" context="{'group_by':'founder_description'}"/>
+                        <filter string="UEB" domain="[]" context="{'group_by':'ueb_id'}"/>
+                        <filter string="Retired Job" domain="[('retired_job_id', '!=', False)]" context="{'group_by':'retired_job_id'}"/>
+                        <filter string="Degree" domain="[('degree_id', '!=', False)]" context="{'group_by':'degree_id'}"/>
+                        <filter string="Gender" domain="[]" context="{'group_by':'gender'}"/>
+                        <filter string="Birth Month" domain="[]" context="{'group_by':'birth_month_name'}"/>
+                        <filter string="Dead Person Description" domain="[]" context="{'group_by':'dead_person_description'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Form View retired person -->
+        <record id="view_turei_retired_person_retired_person_form" model="ir.ui.view">
+            <field name="name">Form View Retired Person</field>
+            <field name="model">turei_retired_person.retired_person</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group name="group_left" string="Personal Data">
+                                <field name="identification_id" class="oe_title"/>
+                                <field name="name" class="oe_title"/>
+                                <field name="born_date" class="oe_title"/>
+                                <field name="gender_choice" widget="radio" class="oe_title"/>
+                                <field name="address" class="oe_title"/>
+                                <field name="neighborhood_id" class="oe_title"/>
+                                <field name="state_id" class="oe_title"/>
+                                <field name="municipality_id" class="oe_title"/>
+                                <field name="house_phone" class="oe_title"/>
+                                <field name="cell_phone" class="oe_title"/>
+                                <field name="email" class="oe_title"/>
+                                <field name="dead_person" class="oe_title"/>
+                                <field name="dead_date" class="oe_title" attrs="{'invisible':[('dead_person','!=', True)]}"/>
+                            </group>
+                            <group name="group_right" string="Job Data">
+                                <field name="retired_date" class="oe_title"/>
+                                <field name="ueb_id" class="oe_title"/>
+                                <field name="retired_job_id" class="oe_title"/>
+                                <field name="founder" class="oe_title"/>
+                                <field name="degree_id" class="oe_title"/>
+                                <field name="in_service" class="oe_title"/>
+                            </group>
+                        </group>
+                        <group name="group_articles" string="Articles Requested">
+                            <field name="article_request_id" class="oe_title" readonly="1">
+                                <tree>
+                                    <field name="article_id"/>
+                                    <field name="date_request"/>
+                                    <field name="assigned"/>
+                                </tree>
+                            </field>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+         <menuitem id="menu_retired_person_config"
+                  name="Setting"
+                  parent="menu_retired_person_root"
+                  sequence="5"/>
+
+         <act_window id="action_retired_person_article_type"
+                    name="Article Type"
+                    res_model="turei_retired_person.article_to_retired_type"
+                    view_mode="tree,form"/>
+
+
+        <menuitem id="menu_retired_person_config_article_type"
+                  name="Setting Article Type"
+                  parent="menu_retired_person_config"
+                  sequence="3"
+                  action="action_retired_person_article_type"/>
+
+         <!-- Tree View article type -->
+        <record id="view_turei_retired_article_to_retired_type_tree" model="ir.ui.view">
+            <field name="name">Tree View Article Type</field>
+            <field name="model">turei_retired_person.article_to_retired_type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code" class="oe_title"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View article type -->
+        <record id="view_turei_retired_article_to_retired_type_form" model="ir.ui.view">
+            <field name="name">Form View Article Type</field>
+            <field name="model">turei_retired_person.article_to_retired_type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group name="group_left">
+                                <field name="code" class="oe_title"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="name" class="oe_title"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <act_window id="action_retired_person_article"
+                    name="Article"
+                    res_model="turei_retired_person.article_to_retired"
+                    view_mode="tree,form"/>
+
+
+        <menuitem id="menu_retired_person_config_article"
+                  name="Setting Article"
+                  parent="menu_retired_person_config"
+                  sequence="4"
+                  action="action_retired_person_article"/>
+
+        <!-- Tree View article  -->
+        <record id="view_turei_retired_article_to_retired_tree" model="ir.ui.view">
+            <field name="name">Tree View Article Type</field>
+            <field name="model">turei_retired_person.article_to_retired</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="article_to_retired_type_id" class="oe_title"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View article -->
+        <record id="view_turei_retired_article_to_retired_form" model="ir.ui.view">
+            <field name="name">Form View Article Type</field>
+            <field name="model">turei_retired_person.article_to_retired</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group name="group_left">
+                                <field name="article_to_retired_type_id" class="oe_title"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="name" class="oe_title"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <act_window id="action_retired_person_article_request"
+                    name="Request"
+                    res_model="turei_retired_person.article_request"
+                    view_mode="tree,form"/>
+
+
+        <menuitem id="menu_retired_person_article_request"
+                  name="Article Request"
+                  parent="menu_retired_person_root"
+                  sequence="3"
+                  action="action_retired_person_article_request"/>
+
+        <!-- Tree View Article Request  -->
+        <record id="view_turei_retired_person_article_request_tree" model="ir.ui.view">
+            <field name="name">Tree View Article Request</field>
+            <field name="model">turei_retired_person.article_request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="retired_person_id" class="oe_title"/>
+                    <field name="article_id"/>
+                    <field name="date_request"/>
+                    <field name="assigned" class="oe_title"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search View Article Request -->
+        <record id="view_turei_retired_person_article_request_search" model="ir.ui.view">
+            <field name="name">Search View Article Request</field>
+            <field name="model">turei_retired_person.article_request</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="retired_person_id"/>
+                    <field name="article_id"/>
+                    <field name="date_request"/>
+                    <field name="assigned"/>
+                    <group expand="0" string="Group by">
+                        <filter string="Request Year" domain="[('request_year', '!=', '0')]" context="{'group_by':'request_year'}"/>
+                        <filter string="Article" context="{'group_by':'article_id'}"/>
+                        <filter string="Article Type" context="{'group_by':'article_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Form View Request -->
+        <record id="view_turei_retired_person_request_form" model="ir.ui.view">
+            <field name="name">Form View Article Request</field>
+            <field name="model">turei_retired_person.article_request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group name="group_left">
+                                <field name="retired_person_id" class="oe_title"/>
+                                <field name="article_id" class="oe_title"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="date_request" class="oe_title"/>
+                                <field name="assigned" class="oe_title"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <menuitem id="menu_retired_person_reports"
+                  name="Retired Person Reports"
+                  parent="menu_retired_person_root"
+                  sequence="4"
+                  />
+
+    </data>
+</openerp>

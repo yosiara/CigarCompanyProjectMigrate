@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="interruptions_by_section_report">
+            <t t-call="report.html_container">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-2 text-left" style="margin:0 0 0 0; padding:0 0 0 15px">
+                            <img src="/turei_process_control/static/src/img/logo_hoja.png"/>
+                        </div>
+                        <div class="col-xs-10 text-center" style="padding:35px">
+                            <h4>
+                                <b>Reporte de Interrupciones por Secciones Productivas</b>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page">
+                    <table class="table-bordered table">
+                        <tr>
+                            <td class="text-left">
+                                <b>Período: </b>
+                                <t t-esc="date_start"/> - 
+                                <t t-esc="date_end"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Sección productiva</th>
+                                        <th>Tipo de Interrupción</th>
+                                        <th>Cantidad</th>
+                                        <th>Tiempo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="total_cantidad" t-value="0"/>
+                                    <t t-set="total_tiempo" t-value="0"/>
+                                    <t t-foreach="docs" t-as="seccion">
+                                        <t t-set="interruption_type_count" t-value="len(docs[seccion])"/>
+                                        <t t-set="first" t-value="1"/>
+                                        <t t-set="total_seccion_cantidad" t-value="0"/>
+                                        <t t-set="total_seccion_tiempo" t-value="0"/>
+                                        <tr t-foreach="docs[seccion]" t-as="tipo">
+                                            <t t-if="first==1">
+                                                <td t-att-rowspan="interruption_type_count">
+                                                    <t t-raw="seccion"/>
+                                                </td>
+                                                <t t-set="first" t-value="0"/>
+                                            </t>
+                                            <td>
+                                                <t t-raw="tipo"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="docs[seccion][tipo]['cantidad']"/>
+                                                <t t-set="total_seccion_cantidad" t-value="total_seccion_cantidad+docs[seccion][tipo]['cantidad']"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="docs[seccion][tipo]['tiempo']"/>
+                                                <t t-set="total_seccion_tiempo" t-value="total_seccion_tiempo+docs[seccion][tipo]['tiempo']"/>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" align="right">Subtotal
+                                                <t t-esc="seccion"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="total_seccion_cantidad"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="total_seccion_tiempo"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="total_cantidad" t-value="total_cantidad+total_seccion_cantidad"/>
+                                        <t t-set="total_tiempo" t-value="total_tiempo+total_seccion_tiempo"/>
+                                    </t>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th class="text-right" align="right" colspan="2">Total</th>
+                                        <th>
+                                            <t t-esc="total_cantidad"/>
+                                        </th>
+                                        <th>
+                                            <t t-esc="total_tiempo"/>
+                                        </th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </template>
+
+        <report id="interruptions_by_section_report_action"
+                string="Rep. Interrupciones por secciones productivas"
+                model="turei_process_control.interruptions_by_section_report"
+                report_type="qweb-pdf"
+                file="turei_process_control.interruptions_by_section_report"
+                name="turei_process_control.interruptions_by_section_report"/>
+
+        <record id="paperformat_interruptions_by_section_report" model="report.paperformat">
+            <field name="name">Interrupciones por secciones productivas A4 Portrait</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">30</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">120</field>
+        </record>
+
+        <record id="interruptions_by_section_report_action" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="paperformat_interruptions_by_section_report"/>
+        </record>
+    </data>
+</odoo>

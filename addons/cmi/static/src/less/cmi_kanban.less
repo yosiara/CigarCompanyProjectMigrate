@@ -1,0 +1,212 @@
+.o_kanban_view.o_kanban_dashboard.o_cmi_kanban {
+
+    .o_kanban_record {
+        .o-flex-display();
+        position: relative;
+        margin: 5px;
+        min-height: 150px;
+        .o_kanban_button > button {
+            right: auto;
+        }
+    }
+
+    .o_cmi_kanban_main {
+        .o-flex(0, 0, auto);
+        padding: @odoo-horizontal-padding;
+        width: 60%; // for IE11 overflow issue
+
+        // give space for manage section at the bottom
+        margin-bottom: @odoo-horizontal-padding/2 + 19px;
+
+        .o_kanban_card_content {
+            font-size: 12px;
+            .o_primary {
+                font-size: small;
+            }
+        }
+    }
+
+    .o_dashboard_star {
+            font-size: 16px;
+
+            &.fa-star-o {
+                color: @odoo-main-color-muted;
+                &:hover {
+                    color: gold;
+                }
+            }
+            &.fa-star {
+                color: gold;
+            }
+        }
+
+    .o_cmi_kanban_boxes {
+        width: 40%;
+        .o-flex(0, 0, auto);
+
+        .o-flex-display();
+        .o-flex-flow(column, nowrap);
+
+        > a:hover {
+            text-decoration: none;
+        }
+
+        .o_value {
+            color: white;
+            display: block;
+        }
+        .o_label {
+            color: white;
+        }
+        .o_needaction{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: white;
+            font-size: small;
+            opacity: 0.5;
+            &:hover{
+                opacity:1;
+            }
+            &::before {
+                content: "\f086";
+                font: normal normal normal 14px/1 FontAwesome;
+            }
+        }
+
+        .o_cmi_kanban_box {
+            position: relative;
+            text-align: center;
+            padding: 0 0 0 0;
+            .o-flex(1, 1, auto);
+            .o-flex-display();
+            .o-flex-flow(column, nowrap);
+            .o-justify-content(center);
+        }
+
+        .o_cmi_kanban_primary_box {
+            background-color: @brand-primary !important;
+        }
+    }
+
+    .o_kanban_group .o_kanban_header{
+        color: @brand-primary;
+    }
+
+    .o_kanban_group:nth-child(odd){
+        background-color: transparent;
+    }
+
+    .o_kanban_group {
+        background-color: transparent;
+    }
+
+    .o_follow_btn {
+        background-color: @brand-primary !important;
+        border-color: @brand-primary !important;
+    }
+
+    .o_follow_btn.o_following {
+        .o_unfollow {
+            display: none;
+        }
+
+        &:hover {
+            .o_following {
+                display: none;
+            }
+
+            .o_unfollow {
+                color: white;
+                display: inline;
+            }
+        }
+    }
+
+    .o-led-box {
+        position: absolute;
+        bottom: 0px;
+        //text-align: center;
+        right: 0px;
+        //width: 100%;
+        height: 24px;
+        padding: 0px 5px;
+    }
+
+    .o-led-red {
+      display: inline-block;
+      margin: 0 auto;
+      width: 20px;
+      height: 20px;
+      background-color: #ff1919;
+      border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #841b1b 0 -1px 9px, rgba(255, 25, 25, 0.5) 0 2px 12px;
+      -webkit-animation: blinkRed 2s infinite;
+      -moz-animation: blinkRed 1s infinite;
+      -ms-animation: blinkRed 1s infinite;
+      -o-animation: blinkRed 1s infinite;
+      animation: blinkRed 1s infinite;
+    }
+
+    @-webkit-keyframes blinkRed {
+        from {
+            background-color: #FF1919;
+        }
+        50% {
+            background-color: #aa2323;
+            box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #841b1b 0 -1px 9px, rgba(255, 25, 25, 0.5) 0 2px 0;
+        }
+        to {
+            background-color: #FF1919;
+        }
+    }
+    @-moz-keyframes blinkRed {
+        from {
+            background-color: #FF1919;
+        }
+        50% {
+            background-color: #aa2323;
+            box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #841b1b 0 -1px 9px, rgba(255, 25, 25, 0.5) 0 2px 0;
+        }
+        to {
+            background-color: #FF1919;
+        }
+    }
+    @-ms-keyframes blinkRed {
+        from {
+            background-color: #FF1919;
+        }
+        50% {
+            background-color: #aa2323;
+            box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #841b1b 0 -1px 9px, rgba(255, 25, 25, 0.5) 0 2px 0;
+        }
+        to {
+            background-color: #FF1919;
+        }
+    }
+    @-o-keyframes blinkRed {
+        from {
+            background-color: #FF1919;
+        }
+        50% {
+            background-color: #aa2323;
+            box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #841b1b 0 -1px 9px, rgba(255, 25, 25, 0.5) 0 2px 0;
+        }
+        to {
+            background-color: #FF1919;
+        }
+    }
+    @keyframes blinkRed {
+        from {
+            background-color: #FF1919;
+        }
+        50% {
+            background-color: #aa2323;
+            box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #841b1b 0 -1px 9px, rgba(255, 25, 25, 0.5) 0 2px 0;
+        }
+        to {
+            background-color: #FF1919;
+        }
+    }
+
+}

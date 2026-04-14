@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+	
+		<record id="contract_type_0" model="l10n_cu_hlg_hr_work_force.contract_type">
+			<field name="code">3401</field>
+			<field name="name">Indeterminado</field>
+		</record>
+
+		<record id="contract_type_1" model="l10n_cu_hlg_hr_work_force.contract_type">
+			<field name="code">3402</field>
+			<field name="name">Determinado</field>
+		</record>
+
+		<record id="contract_type_2" model="l10n_cu_hlg_hr_work_force.contract_type">
+			<field name="code">3403</field>
+			<field name="name">Determinado en cumplimiento del servicio social</field>
+		</record>
+
+		<record id="contract_type_3" model="l10n_cu_hlg_hr_work_force.contract_type">
+			<field name="code">3404</field>
+			<field name="name">Reserva Científica con contrato indeterminado</field>
+		</record>
+
+		<record id="contract_type_4" model="l10n_cu_hlg_hr_work_force.contract_type">
+			<field name="code">3405</field>
+			<field name="name">Reserva Científica con contrato determinado</field>
+		</record>
+
+		<record id="contract_type_5" model="l10n_cu_hlg_hr_work_force.contract_type">
+			<field name="code">3406</field>
+			<field name="name">Determinado ICRT y MINCULT</field>
+		</record>
+
+
+
+	</data>
+</odoo>

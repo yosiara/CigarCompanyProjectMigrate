@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data noupdate="1">
+        <record id="atmsys_report_configuration" model="atmsys.report_configuration">
+            <field name="report_one_product_ids">[]</field>
+        </record>
+    </data>
+</odoo>

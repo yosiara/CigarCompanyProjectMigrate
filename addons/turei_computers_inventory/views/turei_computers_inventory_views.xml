@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="turei_computers_inventory_work_order_form_inherit" model="ir.ui.view">
+            <field name="name">turei.computers.inventory.work.order.form.inherit</field>
+            <field name="model">computers_inventory.work_order</field>
+            <field name="inherit_id" ref="l10n_cu_hlg_computers_inventory.computers_inventory_work_order_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='number']" position="after">
+                    <field name="cost_center"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<template id="assets_backend" name="muk_dms_assets" inherit_id="web.assets_backend">
+	<xpath expr="//script[last()]" position="after">
+		<script type="text/javascript" src="/tree_formula_parser/static/lib/formula-parser.min.js" />
+		<!--<script type="text/javascript" src="/tree_formula_parser/static/src/js/tree_formula_parser.js" />-->
+		<script type="text/javascript" src="/tree_formula_parser/static/src/js/xls_formula_widget.js" />
+	</xpath>
+</template>
+
+</odoo>

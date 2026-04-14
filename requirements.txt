@@ -1,0 +1,6 @@
+debugpy
+pymssql
+mysql.connector
+pymysql
+XlsxWriter
+pysftp==0.2.9

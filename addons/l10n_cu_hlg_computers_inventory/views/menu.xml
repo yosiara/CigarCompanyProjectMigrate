@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <menuitem name="Informatics"
+                  id="menu_computers_inventory_root"
+                  web_icon="l10n_cu_hlg_computers_inventory,static/description/logo.jpg"
+                  sequence="100"/>
+
+        <menuitem name="Configuration"
+                  id="computers_inventory_configuration_menu_item"
+                  parent="menu_computers_inventory_root"
+                  groups="computers_inventory_manager"
+                  sequence="200"/>
+
+        <menuitem name="Equipment"
+                  id="computers_inventory_equipment_menu_item"
+                  parent="menu_computers_inventory_root"
+                  groups="computers_inventory_applicant,computers_inventory_executor,computers_inventory_manager"
+                  sequence="110"/>
+
+        <menuitem name="Nomenclators"
+                  id="menu_nomenclator_root"
+                  parent="computers_inventory_configuration_menu_item"
+                  groups="computers_inventory_manager"
+                  sequence="100"/>
+    </data>
+</odoo>

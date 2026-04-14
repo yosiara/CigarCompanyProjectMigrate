@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="wzd_orders_pending_report_form" model="ir.ui.view">
+            <field name="name">wzd.orders.pending.report.form</field>
+            <field name="model">wzd.orders.pending</field>
+            <field name="arch" type="xml">
+                <form string="Rep. Ordenes Pendientes">
+                    <sheet>
+                        <style>
+                            td.o_td_label
+                            {
+                                min-width:88px !important;
+                            }
+                        </style>
+                        <group col="2">
+<!--                            <field name="date_start"/>-->
+                            <field name="date_end"/>
+                        </group>
+                        <footer>
+                            <div>
+                                <button name="export_to_xls" icon="fa-file-excel-o" string="Imprimir" type="object"
+                                        class="oe_highlight"/>
+                                o
+                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_orders_pending_report_act_window" model="ir.actions.act_window">
+            <field name="name">Rep. Ordenes Pendientes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wzd.orders.pending</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_orders_pending_report_act_window"
+                  id="wzd_orders_pending_report_report" parent="turei_maintenance_work_order_menu_informes" sequence="40"/>
+    </data>
+</odoo>

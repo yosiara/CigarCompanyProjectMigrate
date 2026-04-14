@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_maintenance_equipment_parts"
+                model="wzd.equipment.parts"
+                string="Rep. Piezas x Equipos"
+                report_type="xlsx"
+                name="turei_maintenance.equipment_parts_report"
+                file="turei_maintenance.equipment_parts_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		DATABASE EXTERNAL CONNECTOR
+		Model: db_external_connector.template
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="db_external_connector_form_view" model="ir.ui.view">
+            <field name="name">db_external_connector_form_view</field>
+            <field name="model">db_external_connector.template</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Test Connection" name="action_test_connection" type="object" class="oe_highlight"/>
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" placeholder="name"/>
+                                <field name="connector"/>
+                                <field name="server"/>
+                                <field name="port"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                            </group>
+
+                            <group>
+                                <field name="dbname"/>
+                                <field name="user"/>
+                                <field name="pwd" password="1"/>
+                                <field name="application"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="db_external_connector_tree_view" model="ir.ui.view">
+            <field name="name">db_external_connector_tree_view</field>
+            <field name="model">db_external_connector.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="server"/>
+                    <field name="port"/>
+                    <field name="user"/>
+                    <field name="dbname"/>
+                    <field name="connector"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="db_external_connector_action" model="ir.actions.act_window">
+            <field name="name">External Connections</field>
+            <field name="res_model">db_external_connector.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem  id="db_external_connector_menu_item"
+                   action="db_external_connector_action"
+                   parent="db_external_connector_left_menu"/>
+    </data>
+</odoo>

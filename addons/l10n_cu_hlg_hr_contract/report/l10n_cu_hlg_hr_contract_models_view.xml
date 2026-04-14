@@ -1,0 +1,1161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="paperformat_contract_model_landscape" model="report.paperformat">
+		    <field name="name">Contract</field>
+		    <field name="default" eval="True"/>
+		    <field name="format">A4</field>
+		    <field name="orientation">Landscape</field>
+		    <field name="header_line" eval="True"/>
+		</record>
+
+        <template id="report_indeterminate_contract">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <h4 style="text-align:center"><strong>CONTRATO DE TRABAJO POR TIEMPO INDETERMINADO</strong></h4>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td colspan="4"><p>Al efecto de suscribir el presente contrato de trabajo, el que tiene toda la fuerza legal que en derecho se requiere, comparecen:</p></td>
+                                </tr>
+                                <tr>
+                                    <td width="15%"><strong>DE UNA PARTE:</strong></td>
+                                    <td width="85%" style="border-bottom:solid 1px;text-align:center" colspan="3"><span t-esc="authorized_signature(self,data['emp_aut_sig_id']).name"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="20%" colspan="2">que ocupa el cargo de:</td>
+                                    <td width="60%" style="border-bottom:solid 1px;text-align:center"><span t-esc="authorized_signature(self,data['emp_aut_sig_id']).job_id.position_id.name"/></td>
+                                    <td width="20%" style="border-bottom:hidden;text-align:right">a nombre y en repres.</td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td width="20%">de la entidad denominada:</td>
+                                    <td width="80%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">que en lo sucesivo, a los efectos del presente contrato, se denominará  El EMPLEADOR, cuyos datos fundamentales de identificación son los siguientes:</td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td colspan="2">Organismo al que pertenece:</td>
+                                    <td colspan="2" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.partner_id.ministry_id.name"/></td>
+                                    <td width="11%">Dirección:</td>
+                                    <td style="border-bottom:solid 1px;text-align:center">
+                                        <t t-if="o.company_id.street"><span t-esc="o.company_id.street"/>,</t><t t-if="o.company_id.street2"><span t-esc="o.company_id.street2"/>,</t><t t-if="o.company_id.zip"><span t-esc="o.company_id.zip"/></t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="9%">Provincia:</td>
+                                    <td width="17%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.state_id.name"/></td>
+                                    <td width="10%">Municipio:</td>
+                                    <td style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.city"/></td>
+                                    <td width="8%">Rama:</td>
+                                    <td width="33%" align="center" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.partner_id.branch_id.name"/></td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td width="20%">Código REEUP:</td>
+                                    <td width="30%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.partner_id.reeup_code"/></td>
+                                    <td width="25%"></td>
+                                    <td width="25%"></td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0" >
+                                <tr>
+                                    <td colspan="2"><strong>Y DE OTRA PARTE</strong></td>
+                                    <td colspan="4" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">Quien concurre por su propio derecho y cuyos datos personales son:</td>
+                                </tr>
+                                <tr>
+                                    <td width="18%" colspan="2">No. Carné de Identidad:</td>
+                                    <td width="29%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.identification_id"/></td>
+                                    <td width="18%">Fecha de nacimiento:</td>
+                                    <td width="35%" colspan="2" style="border-bottom:solid 1px;text-align:center">
+                                        <t t-if="o.employee_id.birthday"><span t-esc="get_date(o.employee_id.birthday)"/></t>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td colspan="2" width="16%">Profesión u oficio:</td>
+                                    <td colspan="4" style="border-bottom:solid 1px;text-align:center"><span t-esc="get_academic_title(self,o.employee_id.academic_ids)"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="6%">Dirección:</td>
+                                    <td colspan="3" style="border-bottom:solid 1px;text-align:center">
+                                        <t t-if="o.employee_id.address_home_id.street"><span t-esc="o.employee_id.address_home_id.street"/>,</t><t t-if="o.employee_id.address_home_id.street2"><span t-esc="o.employee_id.address_home_id.street2"/>,</t><t t-if="o.job_id.company_id.zip"><span t-esc="o.job_id.company_id.zip"/></t>
+                                    </td>
+                                    <td width="8%">Municipio:</td>
+                                    <td width="30%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.address_home_id.city"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Provincia:</td>
+                                    <td colspan="2" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.address_home_id.state_id.name"/></td>
+                                    <td width="18%">No. Expediente laboral:</td>
+                                    <td colspan="2" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.identification_id"/></td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                 <tr>
+                                    <td width="7%">Teléfono:</td>
+                                    <td width="25%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.work_phone"/></td>
+                                    <td></td>
+                                    <td></td>
+                                 </tr>
+                                 <tr>
+                                    <td colspan="4">Que en lo sucesivo y a los efectos del presente documento se denominará el TRABAJADOR.</td>
+                                 </tr>
+                                 <tr>
+                                    <td colspan="4">Ambas partes, libre y voluntariamente.</td>
+                                 </tr>
+                            </table>
+                            <h4 style="text-align:center"><strong>CONVIENEN:</strong></h4>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td colspan="8"><strong>PRIMERO:</strong> El trabajador prestará sus servicios al Empleador bajo las condiciones siguientes:</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">a) Desempañará la ocupación o cargo denominado:</td>
+                                    <td colspan="4" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.job_id.position_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="23%">que corresponde al grupo</td>
+                                    <td colspan="3" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.job_id.position_id.salary_group_id.salary_scale_id.name"/></td>
+                                    <td colspan="3">de la Escala Salarial y la categoría ocupacional de:</td>
+                                    <td width="20%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.job_id.position_id.salary_group_id.occupational_category_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="8">cuyo contenido de trabajo es el siguiente:</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="8" style="border-bottom:solid 1px;text-align:justify"><span t-esc="o.employee_id.job_id.description"/></td>
+                                </tr>
+                                <tr>
+                                    <td>b)El trabajo será ejecutado en:</td>
+                                    <td colspan="7" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.job_id.company_id.name"/>/<span t-esc="o.employee_id.department_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="7" style="text-align:center">(Consignar lugar o lugares de trabajo)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">c) Vienen obligado a laborar una jornada de trabajo de:</td>
+                                    <td width="12%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.working_hours.work_hours_average"/></td>
+                                    <td width="15%">horas semanales y</td>
+                                    <td width="11%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.working_hours.monthly_average"/></td>
+                                    <td>horas mensuales.</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="8">El horario de trabajo que está establecido es:<![CDATA[&nbsp;&nbsp;]]><span t-esc="o.working_hours.name"/></td>
+                                </tr>
+                            </table>
+                            <table  class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                      <th align="left">Turno</th>
+                                      <th style="text-align:center">Inicio</th>
+                                      <th style="text-align:center">Fin</th>
+                                      <th style="text-align:center">Horas de trabajo</th>
+                                      <th style="text-align:center">Minutos p/Almuerzo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="get_attendances(o.working_hours.attendance_ids)" t-as="a">
+                                        <tr>
+                                           <td align="left"><span t-esc="a.name"/></td>
+                                           <td style="text-align:center"><t t-esc="'%02d:%02d' % (int(a.hour_from), a.hour_from % 1 * 60)" /></td>
+                                           <td style="text-align:center"><t t-esc="'%02d:%02d' % (int(a.hour_to), a.hour_to % 1 * 60)" /></td>
+                                           <td style="text-align:center"><span t-esc="get_working_hours_shift(a)"/></td>
+                                           <td style="text-align:center"><t t-esc="'%02d:%02d' % (int(a.rest_time), a.rest_time % 1 * 60)" /></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <table class="table-condensed" border="0">
+                              <tr>
+                                  <td colspan="6">d) El puesto de trabajo tiene las condiciones de seguridad y salud siguientes:</td>
+                              </tr>
+                              <tr>
+                                  <td colspan="6"><span t-esc="o.job_id.conditions_security_health"/></td>
+                              </tr>
+                              <tr>
+                                  <td width="10%"><strong>SEGUNDO:</strong></td>
+                                  <td colspan="5">El Empleador abonará al trabajador un salario que se ajustará a alguna de las siguientes formas de pagos establecidas en la legislación vigente:</td>
+                              </tr>
+                              <t t-foreach="get_payment_method" t-as="pay_method">
+                                  <tr>
+                                    <td></td>
+                                    <td colspan="5">
+                                        <t t-if="o.payment_method_id.parent_id.name == pay_method.name">__X__<span t-esc="pay_method.name"/>:<span t-esc="description"/></t>
+                                        <t t-if="o.payment_method_id.parent_id.name != pay_method.name">_____<span t-esc="pay_method.name"/></t>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td></td>
+                                    <td colspan="5">
+                                        <t t-foreach="pay_method.child_ids" t-as="child">
+                                            <t t-if="o.payment_method_id.name == child.name"><span t-esc="child.name"/>__X__</t>
+                                            <t t-if="o.payment_method_id.name != child.name"><span t-esc="child.name"/>_____</t>
+                                        </t>
+                                    </td>
+                                  </tr>
+                                  </t>
+                              <tr>
+                                <td></td>
+                                <td colspan="5">El trabajador tendrá asignado un salario de acuerdo a su ocupación y cargo:</td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td colspan="5">
+                                    <t t-foreach="o.retributions_deductions_ids" t-as="ret_ded">
+                                        <strong><span t-esc="ret_ded.name"/></strong>:<span t-esc="ret_ded.amount"/><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]>
+                                    </t>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td width="30%"></td>
+                                <td width="15%"></td>
+                                <td width="15%"></td>
+                                <td width="15%"><strong>Salario Total:</strong></td>
+                                <td width="15%" align="left"><span t-esc="o.total_payment"/></td>
+                              </tr>
+                              <tr>
+                                  <td></td>
+                                  <td colspan="5" align="left">Frecuencia de pago:<![CDATA[&nbsp;&nbsp;]]><span t-esc="SCHEDULE_PAY[o.schedule_pay]"/></td>
+                              </tr>
+                              <tr>
+                                  <td><strong>TERCERO:</strong></td>
+                                  <td colspan="5">El presente contrato se suscribe por tiempo: <span t-esc="CONTRACT_TYPE[o.contract_type]"/>_____Para labores continuas  _____Para Labores discontinuas o ciclicas</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>CUARTO:</strong></td>
+                                  <td colspan="5" style="text-align:justify">El Trabajador, durante el desempeño de su cargo, disfrutará de los beneficios de las vacaciones anuales pagadas y de la seguridad social, siempre que en ambos casos se cumpla los requisitos establecidos por las disposiciones vigentes sobre estas materias, y tendrá los demás derechos laborales enmarcados en la legislación vigente.</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>QUINTO:</strong></td>
+                                  <td colspan="5" style="text-align:justify">El Trabajador se compromete a cumplir con el contenido de trabajo que aparece descrito en este contrato, a obedecer las órdenes que le sean impartidas por los superiores que estén debidamente facultados para ellos y para acatar el Convenio Colectivo de Trabajo y el Reglamento Interno de la Entidad, así como las demás disposiciones vigentes que rigen las materias de organización del trabajo y seguridad y salud en el trabajo.</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>SEXTO:</strong></td>
+                                  <td colspan="5" style="text-align:justify">El Empleador se compromete a abonar al Trabajador su salario en la forma establecida en el presente contrato y a cumplir las normas de seguridad y salud y la de seguridad social, vacaciones anuales pagadas y las disposiciones vigentes en materia laboral.</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>SEPTIMO:</strong></td>
+                                  <td colspan="5" style="text-align:justify">La modificación de este contrato y la suspensión de la relación de trabajo quedan sujetas a lo dispuesto en los artículos 42, 43 y 44 de la Ley No. 116/2013 (Código de Trabajo), y en los artículos 33 y 34 del Decreto No. 326/2014 (Reglamento del Código de Trabajo).</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>OCTAVO:</strong></td>
+                                  <td colspan="5">La terminación del contrato de trabajo y la consiguiente conclusión de la relación de trabajo quedan sujetas a lo dispuesto en los artículos 45,46,47,48,49,50 y 52 de la Ley No. 116/2013 (Código de Trabajo)</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>NOVENO:</strong></td>
+                                  <td colspan="5" style="text-align:justify">Ambas partes convienen en lo expresado en el presente documento, comprometiéndose a su más estricto cumplimiento.</td>
+                              </tr>
+                              <tr>
+                                <td colspan="6" style="text-align:justify">Y PARA QUE CONSTE, se extiende el presente Contrato de trabajo, que suscriben las partes de común acuerdo, en original y dos copias, en el municipio ____________________________</td>
+                              </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td width="9%">a los</td>
+                                    <td width="22%" style="border-bottom:solid 1px;text-align:center"><span t-esc="get_datedaymonthyear(o.create_date).day"/></td>
+                                    <td width="20%">días del mes de</td>
+                                    <td width="22%" style="border-bottom:solid 1px;text-align:center"><span t-esc="get_month(o.create_date)"/></td>
+                                    <td width="5%">del</td>
+                                    <td width="22%" style="border-bottom:solid 1px;text-align:center"><span t-esc="get_datedaymonthyear(o.create_date).year"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6"><br/><br/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="border-bottom:solid 1px"></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="border-bottom:solid 1px"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align:left"><strong><span t-esc="authorized_signature(self,data['emp_aut_sig_id']).name"/></strong></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="text-align:left"><strong><span t-esc="o.employee_id.name"/></strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align:left"><strong><span t-esc="authorized_signature(self,data['emp_aut_sig_id']).job_id.position_id.name"/></strong></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="text-align:left"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align:left"><strong><span t-esc="authorized_signature(self,data['emp_aut_sig_id']).company_id.name"/></strong></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="text-align:left"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align:left"><strong>El Empleador</strong></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="text-align:left"><strong>El Trabajador</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_determinate_contract">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <h4 style="text-align:center"><strong>CONTRATO DE TRABAJO POR TIEMPO DETERMINADO</strong></h4>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td colspan="4"><p>Al efecto de suscribir el presente contrato de trabajo, el que tiene toda la fuerza legal que en derecho se requiere, comparecen:</p></td>
+                                </tr>
+                                <tr>
+                                    <td width="15%"><strong>DE UNA PARTE:</strong></td>
+                                    <td width="85%" style="border-bottom:solid 1px;text-align:center" colspan="3"><span t-esc="authorized_signature(self,data['emp_aut_sig_id']).name"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="20%" colspan="2">que ocupa el cargo de:</td>
+                                    <td width="60%" style="border-bottom:solid 1px;text-align:center"><span t-esc="authorized_signature(self,data['emp_aut_sig_id']).job_id.position_id.name"/></td>
+                                    <td width="20%" style="border-bottom:hidden;text-align:right">a nombre y en repres.</td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td width="20%">de la entidad denominada:</td>
+                                    <td width="80%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">que en lo sucesivo, a los efectos del presente contrato, se denominará  El EMPLEADOR, cuyos datos fundamentales de identificación son los siguientes:</td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td colspan="2">Organismo al que pertenece:</td>
+                                    <td colspan="2" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.partner_id.ministry_id.name"/></td>
+                                    <td width="11%">Dirección:</td>
+                                    <td style="border-bottom:solid 1px;text-align:center">
+                                        <t t-if="o.company_id.street"><span t-esc="o.company_id.street"/>,</t><t t-if="o.company_id.street2"><span t-esc="o.company_id.street2"/>,</t><t t-if="o.company_id.zip"><span t-esc="o.company_id.zip"/></t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="9%">Provincia:</td>
+                                    <td width="17%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.state_id.name"/></td>
+                                    <td width="10%">Municipio:</td>
+                                    <td style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.city"/></td>
+                                    <td width="8%">Rama:</td>
+                                    <td width="33%" align="center" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.partner_id.branch_id.name"/></td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td width="20%">Código REEUP:</td>
+                                    <td width="30%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.company_id.partner_id.reeup_code"/></td>
+                                    <td width="25%"></td>
+                                    <td width="25%"></td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0" >
+                                <tr>
+                                    <td colspan="2"><strong>Y DE OTRA PARTE</strong></td>
+                                    <td colspan="4" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">Quien concurre por su propio derecho y cuyos datos personales son:</td>
+                                </tr>
+                                <tr>
+                                    <td width="18%" colspan="2">No. Carné de Identidad:</td>
+                                    <td width="29%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.identification_id"/></td>
+                                    <td width="18%">Fecha de nacimiento:</td>
+                                    <td width="35%" colspan="2" style="border-bottom:solid 1px;text-align:center">
+                                        <t t-if="o.employee_id.birthday"><span t-esc="get_date(o.employee_id.birthday)"/></t>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td colspan="2" width="16%">Profesión u oficio:</td>
+                                    <td colspan="4" style="border-bottom:solid 1px;text-align:center"><span t-esc="get_academic_title(self,o.employee_id.academic_ids)"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="6%">Dirección:</td>
+                                    <td colspan="3" style="border-bottom:solid 1px;text-align:center">
+                                        <t t-if="o.employee_id.address_home_id.street"><span t-esc="o.employee_id.address_home_id.street"/>,</t><t t-if="o.employee_id.address_home_id.street2"><span t-esc="o.employee_id.address_home_id.street2"/>,</t><t t-if="o.job_id.company_id.zip"><span t-esc="o.job_id.company_id.zip"/></t>
+                                    </td>
+                                    <td width="8%">Municipio:</td>
+                                    <td width="30%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.address_home_id.city"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Provincia:</td>
+                                    <td colspan="2" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.address_home_id.state_id.name"/></td>
+                                    <td width="18%">No. Expediente laboral:</td>
+                                    <td colspan="2" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.identification_id"/></td>
+                                </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                 <tr>
+                                    <td width="7%">Teléfono:</td>
+                                    <td width="25%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.work_phone"/></td>
+                                    <td></td>
+                                    <td></td>
+                                 </tr>
+                                 <tr>
+                                    <td colspan="4">Que en lo sucesivo y a los efectos del presente documento se denominará el TRABAJADOR.</td>
+                                 </tr>
+                                 <tr>
+                                    <td colspan="4">Ambas partes, libre y voluntariamente.</td>
+                                 </tr>
+                            </table>
+                            <h4 style="text-align:center"><strong>CONVIENEN:</strong></h4>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td colspan="8"><strong>PRIMERO:</strong> El trabajador prestará sus servicios al Empleador bajo las condiciones siguientes:</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">a) Desempañará la ocupación o cargo denominado:</td>
+                                    <td colspan="4" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.job_id.position_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="23%">que corresponde al grupo</td>
+                                    <td colspan="3" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.job_id.position_id.salary_group_id.salary_scale_id.name"/></td>
+                                    <td colspan="3">de la Escala Salarial y la categoría ocupacional de:</td>
+                                    <td width="20%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.job_id.position_id.salary_group_id.occupational_category_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="8">cuyo contenido de trabajo es el siguiente:</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="8" style="border-bottom:solid 1px;text-align:justify"><span t-esc="o.employee_id.job_id.description"/></td>
+                                </tr>
+                                <tr>
+                                    <td>b)El trabajo será ejecutado en:</td>
+                                    <td colspan="7" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.employee_id.job_id.company_id.name"/>/<span t-esc="o.employee_id.department_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="7" style="text-align:center">(Consignar lugar o lugares de trabajo)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">c) Vienen obligado a laborar una jornada de trabajo de:</td>
+                                    <td width="12%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.working_hours.work_hours_average"/></td>
+                                    <td width="15%">horas semanales y</td>
+                                    <td width="11%" style="border-bottom:solid 1px;text-align:center"><span t-esc="o.working_hours.monthly_average"/></td>
+                                    <td>horas mensuales.</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="8">El horario de trabajo que está establecido es:<![CDATA[&nbsp;&nbsp;]]><span t-esc="o.working_hours.name"/></td>
+                                </tr>
+                            </table>
+                            <table  class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                      <th align="left">Turno</th>
+                                      <th style="text-align:center">Inicio</th>
+                                      <th style="text-align:center">Fin</th>
+                                      <th style="text-align:center">Horas de trabajo</th>
+                                      <th style="text-align:center">Minutos p/Almuerzo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.working_hours.attendance_ids" t-as="a">
+                                        <tr>
+                                           <td align="left"><span t-esc="a.name"/></td>
+                                           <td style="text-align:center"><t t-esc="'%02d:%02d' % (int(a.hour_from), a.hour_from % 1 * 60)" /></td>
+                                           <td style="text-align:center"><t t-esc="'%02d:%02d' % (int(a.hour_to), a.hour_to % 1 * 60)" /></td>
+                                           <td style="text-align:center"><span t-esc="get_working_hours_shift(a)"/></td>
+                                           <td style="text-align:center"><t t-esc="'%02d:%02d' % (int(a.rest_time), a.rest_time % 1 * 60)" /></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <table class="table-condensed" border="0">
+                              <tr>
+                                  <td colspan="6">d) El puesto de trabajo tiene las condiciones de seguridad y salud siguientes:</td>
+                              </tr>
+                              <tr>
+                                  <td colspan="6"><span t-esc="o.job_id.conditions_security_health"/></td>
+                              </tr>
+                              <tr>
+                                  <td width="10%"><strong>SEGUNDO:</strong></td>
+                                  <td colspan="5">El Empleador abonará al trabajador un salario que se ajustará a alguna de las siguientes formas de pagos establecidas en la legislación vigente:</td>
+                              </tr>
+                              <t t-foreach="get_payment_method" t-as="pay_method">
+                                  <tr>
+                                    <td></td>
+                                    <td colspan="5">
+                                        <t t-if="o.payment_method_id.parent_id.name == pay_method.name">__X__<span t-esc="pay_method.name"/>:<span t-esc="description"/></t>
+                                        <t t-if="o.payment_method_id.parent_id.name != pay_method.name">_____<span t-esc="pay_method.name"/></t>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td></td>
+                                    <td colspan="5">
+                                        <t t-foreach="pay_method.child_ids" t-as="child">
+                                            <t t-if="o.payment_method_id.name == child.name"><span t-esc="child.name"/>__X__</t>
+                                            <t t-if="o.payment_method_id.name != child.name"><span t-esc="child.name"/>_____</t>
+                                        </t>
+                                    </td>
+                                  </tr>
+                                  </t>
+                              <tr>
+                                <td></td>
+                                <td colspan="5">El trabajador tendrá asignado un salario de acuerdo a su ocupación y cargo:</td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td colspan="5">
+                                    <t t-foreach="o.retributions_deductions_ids" t-as="ret_ded">
+                                        <strong><span t-esc="ret_ded.name"/></strong>:<span t-esc="ret_ded.amount"/><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]>
+                                    </t>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td></td>
+                                <td width="30%"></td>
+                                <td width="15%"></td>
+                                <td width="15%"></td>
+                                <td width="15%"><strong>Salario Total:</strong></td>
+                                <td width="15%" align="left"><span t-esc="o.total_payment"/></td>
+                              </tr>
+                              <tr>
+                                  <td></td>
+                                  <td colspan="5" align="left">Frecuencia de pago:<![CDATA[&nbsp;&nbsp;]]><span t-esc="SCHEDULE_PAY[o.schedule_pay]"/></td>
+                              </tr>
+                              <tr>
+                                  <td><strong>TERCERO:</strong></td>
+                                  <td colspan="5">Establecer una relación de trabajo mediante contrato determinado o para la ejecución de un trabajo u obra con el objetivo siguiente:</td>
+                              </tr>
+                              <tr>
+                                  <td></td>
+                                  <td colspan="5">____<![CDATA[&nbsp;&nbsp;]]>Realizar labores eventuales o emergentes.</td>
+                              </tr>
+                              <tr>
+                                  <td></td>
+                                  <td colspan="5">____<![CDATA[&nbsp;&nbsp;]]>Cumplimiento del servicio social.</td>
+                              </tr>
+                              <tr>
+                                  <td></td>
+                                  <td colspan="5">____<![CDATA[&nbsp;&nbsp;]]>Período de prueba.</td>
+                              </tr>
+                              <tr>
+                                  <td></td>
+                                  <td colspan="5">____<![CDATA[&nbsp;&nbsp;]]>Sustituir temporalmente a trabajadores ausentes por causas justificadas amparadas en la legislación.</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>CUARTO:</strong></td>
+                                  <td style="text-align:justify">La duración de este contrato es de</td>
+                                  <td style="border-bottom:solid 1px;text-align:center"><span t-esc="get_days_duration(o.date_start,o.date_end)"/></td>
+                                  <td style="text-align:justify" colspan="3">días a partir de la fecha de confección y firma.</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>QUINTO:</strong></td>
+                                  <td colspan="5" style="text-align:justify">El Trabajador se compromete a cumplir con el contenido de trabajo que aparece descrito en este contrato, a obedecer las órdenes que le sean impartidas por los superiores que estén debidamente facultados para ellos y para acatar el Convenio Colectivo de Trabajo y el Reglamento Interno de la Entidad, así como las demás disposiciones vigentes que rigen las materias de organización del trabajo y seguridad y salud en el trabajo.</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>SEXTO:</strong></td>
+                                  <td colspan="5" style="text-align:justify">El Empleador se compromete a abonar al Trabajador su salario en la forma establecida en el presente contrato y a cumplir las normas de seguridad y salud y la de seguridad social, vacaciones anuales pagadas y las disposiciones vigentes en materia laboral.</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>SEPTIMO:</strong></td>
+                                  <td colspan="5" style="text-align:justify">La modificación de este contrato y la suspensión de la relación de trabajo quedan sujetas a lo dispuesto en los artículos 42, 43 y 44 de la Ley No. 116/2013 (Código de Trabajo), y en los artículos 33 y 34 del Decreto No. 326/2014 (Reglamento del Código de Trabajo).</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>OCTAVO:</strong></td>
+                                  <td colspan="5">La terminación del contrato de trabajo y la consiguiente conclusión de la relación de trabajo quedan sujetas a lo dispuesto en los artículos 45,46,47,48,49,50 y 52 de la Ley No. 116/2013 (Código de Trabajo)</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>NOVENO:</strong></td>
+                                  <td colspan="5" style="text-align:justify">Ambas partes convienen en lo expresado en el presente documento, comprometiéndose a su más estricto cumplimiento.</td>
+                              </tr>
+                              <tr>
+                                <td colspan="6" style="text-align:justify">Y PARA QUE CONSTE, se extiende el presente Contrato de trabajo, que suscriben las partes de común acuerdo, en original y dos copias, en el municipio ____________________________</td>
+                              </tr>
+                            </table>
+                            <table class="table-condensed" border="0">
+                                <tr>
+                                    <td width="9%">a los</td>
+                                    <td width="22%" style="border-bottom:solid 1px;text-align:center"><span t-esc="get_datedaymonthyear(o.create_date).day"/></td>
+                                    <td width="20%">días del mes de</td>
+                                    <td width="22%" style="border-bottom:solid 1px;text-align:center"><span t-esc="get_month(o.create_date)"/></td>
+                                    <td width="5%">del</td>
+                                    <td width="22%" style="border-bottom:solid 1px;text-align:center"><span t-esc="get_datedaymonthyear(o.create_date).year"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6"><br/><br/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="border-bottom:solid 1px"></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="border-bottom:solid 1px"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align:left"><strong><span t-esc="authorized_signature(self,data['emp_aut_sig_id']).name"/></strong></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="text-align:left"><strong><span t-esc="o.employee_id.name"/></strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align:left"><strong><span t-esc="authorized_signature(self,data['emp_aut_sig_id']).job_id.position_id.name"/></strong></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="text-align:left"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="text-align:left"><strong>El Empleador</strong></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2" style="text-align:left"><strong>El Trabajador</strong></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_supplement_contract">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                         <t t-call="report.external_layout">
+                            <div class="container">
+                                <div class="page">
+                                    <div class="row">
+                                        <h4 style="text-align:center"><strong>MODIFICACIÓN AL CONTRATO DE TRABAJO LEY 116/213 CÓDIGO DE TRABAJO</strong></h4>
+                                        <h4 style="text-align:center"><strong>SUPLEMENTO AL CONTRATO DE TRABAJO</strong></h4>
+                                        <h4 style="text-align:center"><strong>CAPÍTULO III CONTRATO DE TRABAJO, SECCIÓN SÉPTIMA.  </strong></h4>
+                                        <h4 style="text-align:center"><strong>ARTÍCULO 42 Y 43</strong></h4>
+                                    </div>
+                                    <table class="table-condensed" border="0">
+                                        <tr>
+                                            <td><strong>Nombre del trabajador:</strong></td>
+                                            <td style="border-bottom-width:thin;border-bottom-style:solid;text-align:left"><span t-esc="o.employee_id.name"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>No. Carné de Identidad:</strong></td>
+                                            <td style="border-bottom-width:thin;border-bottom-style:solid;text-align:left">
+                                                <span t-esc="o.employee_id.identification_id"/>
+                                            </td>
+                                        </tr>
+                                        <br/>
+                                        <tr>
+                                            <td colspan="2">La modificación al CONTRATO DE TRABAJO original esta dado por :</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <table class="table-condensed" border="0">
+                                                    <tr>
+                                                        <td>____</td>
+                                                        <td><span t-esc="o.supplement_description.agreement_parts_id.name"/></td>
+                                                        <td>
+                                                            <t t-if="o.supplement_description.agreement_parts_id.parts == 'employee'">___________Employee</t>
+                                                            <t t-if="o.supplement_description.agreement_parts_id.parts == 'employer'">___________Employer</t>
+                                                            <t t-if="o.supplement_description.agreement_parts_id.parts == 'both'">___________Employee <![CDATA[&nbsp;&nbsp;]]>___________Employer</t>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td></td>
+                                                        <td><span t-esc="o.supplement_description.name"/><t t-if="o.supplement_description.desc">:<![CDATA[&nbsp;&nbsp;]]><span t-esc="o.supplement_description.desc"/></t></td>
+                                                        <td>
+                                                            <t t-if="o.supplement_description.type == 'prov'">____Provisional</t>
+                                                            <t t-if="o.supplement_description.type == 'perm'">____Permanente</t>
+                                                        </td>
+
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="row">
+                                        <h4 style="text-align:center"><strong>SITUACION ACTUAL</strong></h4>
+                                    </div>
+                                    <p><strong>Cargo:<![CDATA[]]></strong>
+                                        <span t-esc="o.supp_job"/>
+                                    </p>
+                                    <p><strong>Categoria Ocupacional:<![CDATA[]]></strong>
+                                        <span t-esc="o.supp_occupational_category"/><![CDATA[]]>
+                                        <strong>Grupo escala:<![CDATA[]]></strong>
+                                        <span t-esc="o.supp_salary_group"/>
+                                    </p>
+                                    <p><strong>Salario Total:<![CDATA[]]></strong>
+                                        <span t-esc="o.total_payment"/><![CDATA[]]>
+                                        <strong>Salario Escala:<![CDATA[]]></strong>
+                                        <span t-esc="o.supp_wage"/><![CDATA[]]>
+                                        <span t-esc="o.supp_retributions_deductions"/><![CDATA[]]>
+                                    </p>
+                                    <p>
+                                       <strong>Jornada Laboral:<![CDATA[]]></strong>
+                                       <span t-esc="o.working_hours.work_hours_average"/><![CDATA[]]>
+                                       <strong>Promedio mensual:<![CDATA[]]></strong>
+                                       <span t-esc="o.working_hours.monthly_average"/><![CDATA[]]>
+                                    </p>
+                                    <p>
+                                       <strong>Horario de trabajo:<![CDATA[]]></strong>
+                                       <span t-esc="o.working_hours.name"/><![CDATA[]]>
+                                    </p>
+                                    <table  class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                              <th align="left">Turno</th>
+                                              <th style="text-align:center">Inicio</th>
+                                              <th style="text-align:center">Fin</th>
+                                              <th style="text-align:center">Horas de trabajo</th>
+                                              <th style="text-align:center">Minutos p/Almuerzo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="xname" t-value="'none'"/>
+                                            <t t-foreach="get_attendances(o.working_hours.attendance_ids)" t-as="a">
+                                                <tr>
+                                                   <td align="left"><span t-esc="a.name"/></td>
+                                                   <td style="text-align:center"><t t-esc="'%02d:%02d' % (int(a.hour_from), a.hour_from % 1 * 60)" /></td>
+                                                   <td style="text-align:center"><t t-esc="'%02d:%02d' % (int(a.hour_to), a.hour_to % 1 * 60)" /></td>
+                                                   <td style="text-align:center"><span t-esc="get_working_hours_shift(a)"/></td>
+                                                   <td style="text-align:center"><t t-esc="'%02d:%02d' % (int(a.rest_time), a.rest_time % 1 * 60)" /></td>
+                                                </tr>
+                                                <t t-set="xname" t-value="a.name"/>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                    <p>
+                                       <strong>Área de Trabajo actual:<![CDATA[]]></strong>
+                                       <span t-esc="o.current_work_area"/><![CDATA[]]>
+                                    </p>
+                                     <br/>
+                                    <p>
+                                       <strong>Fecha del movimiento : a<![CDATA[]]></strong>
+                                       <span t-esc="get_datedaymonthyear(o.create_date).day"/><![CDATA[]]>
+                                       <strong>días del mes<![CDATA[]]></strong>
+                                       <span t-esc="get_month(o.create_date)"/><![CDATA[]]>
+                                       <strong>de<![CDATA[]]></strong>
+                                       <span t-esc="get_datedaymonthyear(o.create_date).year"/><![CDATA[]]>
+                                    </p>
+                                    <br/>
+                                    <br/>
+                                    <p>
+                                        <table width="100%" border="0">
+                                            <thead>
+                                                <tr>
+                                                    <th width="5%">
+
+                                                    </th>
+                                                    <th width="30%">
+
+                                                    </th>
+                                                    <th width="30%" >
+
+                                                    </th>
+                                                    <th width="30%">
+
+                                                    </th>
+                                                     <th width="5%">
+
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="border-top:solid 1px;text-align:center">
+                                                        EMPLEADOR
+                                                    </td>
+                                                    <td>
+
+                                                    </td >
+                                                    <td style="border-top:solid 1px;text-align:center">
+                                                        TRABAJADOR
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </p>
+                                </div>
+                            </div>
+                        </t>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_mov_nomina_contract">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                  <t t-call="report.external_layout">
+                    <div class="container">
+                        <div class="page">
+                            <table width="100%" style="margin-bottom:0px">
+                              <tr>
+                                  <td style="border:solid 1px;text-align:left; padding: 2px"><strong>ORGANISMO:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.company_id.partner_id.ministry_id.name"/></td>
+                                  <td width="32%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>MOVIMIENTO</strong></td>
+                              </tr>
+                              <tr>
+                                  <td width="68%" style="border:solid 1px;text-align:left; padding: 2px"><strong>EMPRESA:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.company_id.partner_id.name"/></td>
+                                  <td width="32%" style="border-left:solid 1px;border-right:solid 1px;text-align:center"><strong>DE NOMINAS</strong></td>
+                              </tr>
+                              <tr>
+                                  <td style="border:solid 1px;text-align:left; padding: 2px"><strong>UNIDAD:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.company_id.name"/>()</td>
+                                  <td width="32%" style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"><strong>MODELO SC-4-02</strong></td>
+                              </tr>
+                            </table>
+                            <table width="100%" style="margin-bottom:0px">
+                              <tr>
+                                  <td style="border-left:solid 1px;border-right:solid 1px;text-align:left; padding: 2px"><strong>EXPEDIENTE:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.employee_id.identification_id"/></td>
+                                  <td style="border-right:solid 1px;text-align:left; padding: 2px"><strong>SOLAPIN:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.employee_id.code"/></td>
+                                  <td style="border-right:solid 1px;text-align:left; padding: 2px"><strong>Número:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.employee_id.code"/></td>
+                              </tr>
+                            </table>
+                            <table width="100%" style="margin-bottom:0px" >
+                                <tr>
+                                    <td width="41%" style="border:solid 1px;text-align:left; padding: 2px">
+                                        <strong>MOVIMIENTO DE:</strong>
+                                        <t t-if="o.supplement_type == 'hire'"><strong>HIRE</strong></t>
+                                        <t t-if="o.supplement_type == 'fire'"><strong>FIRE</strong></t>
+                                        <t t-if="o.supplement_type == 'change'"><strong>CHANGE</strong></t>
+                                    </td>
+                                    <td width="59%" style="border:solid 1px;text-align:left; padding: 2px"><strong>FECHA EFECTIVA DEL MOVIMIENTO:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="get_date(o.date_start)"/></td>
+                                </tr>
+                                  <tr>
+                                     <td colspan="2" style="border:solid 1px;text-align:left; padding: 2px"><strong>NOMBRE:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.employee_id.name"/></td>
+                                  </tr>
+                                  <tr>
+                                     <td colspan="2" align="center" style="border:solid 1px;text-align:center; padding: 2px"><strong>SITUACION</strong></td>
+                                  </tr>
+                               </table>
+                            <table width="100%" style="margin-bottom:0px" >
+                                <tr>
+                                    <td colspan="3" style="border:solid 1px;text-align:center; padding: 2px"><strong>ACTUAL</strong></td>
+                                    <td width="13%" style="border:solid 1px;text-align:center"><strong>CODIGO</strong></td>
+                                    <td colspan="3" style="border:solid 1px;text-align:center"><strong>NUEVA</strong></td>
+                                    <td width="12%" style="border:solid 1px;text-align:center"><strong>CODIGO</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><strong>PUESTO DE TRABAJO</strong></td>
+                                    <td rowspan="4" style="border:solid 1px;text-align:center">
+                                        <br/>
+                                        <span t-esc="o.last_supplement_id.supp_code_job"/>
+                                        <br/>
+                                        <br/>
+                                        <span t-esc="o.last_supplement_id.supp_code_depart"/>
+                                    </td>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><strong>PUESTO DE TRABAJO</strong></td>
+                                    <td rowspan="4" style="border:solid 1px;text-align:center">
+                                        <br/>
+                                        <span t-esc="o.supp_code_job"/>
+                                        <br/>
+                                        <br/>
+                                        <span t-esc="o.supp_code_depart"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><span t-esc="o.last_supplement_id.supp_job"/></td>
+                                    <td colspan="3" style="border:solid 1px"><span t-esc="o.supp_job"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><strong>AREA DE TRABAJO</strong></td>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><strong>AREA DE TRABAJO</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><span t-esc="o.last_supplement_id.supp_department"/></td>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><span t-esc="o.supp_department"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="border:solid 1px;text-align:center; padding: 2px"><strong>PARA USO DEL TRABAJO</strong></td>
+                                    <td colspan="4" style="border:solid 1px;text-align:center"><strong>PARA USO DEL TRABAJO</strong></td>
+                                </tr>
+                                <tr>
+                                    <td width="13%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center; padding: 2px"><strong>REGIMEN<br />
+                                        SALARIAL</strong></td>
+                                    <td width="13%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>HORARIO</strong></td>
+                                    <td width="13%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>MENSUAL</strong></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>RENDIM.</strong></td>
+                                    <td width="12%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>REGIMEN<br />
+                                        SALARIAL</strong></td>
+                                    <td width="12%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>HORARIO</strong></td>
+                                    <td width="12%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>MENSUAL</strong></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>RENDIM.</strong></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center; padding: 2px">
+                                        <t t-if="o.last_supplement_id"><span t-esc="SCHEDULE_PAY[o.last_supplement_id.schedule_pay]"/></t>
+                                    </td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"><span t-esc="o.last_supplement_id.supp_working_hours"/></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"><span t-esc="SCHEDULE_PAY[o.schedule_pay]"/></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"><span t-esc="o.supp_working_hours"/></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border:solid 1px;text-align:center; padding: 2px">
+                                        <strong>ESCALA</strong><br/>
+                                        <span t-esc="o.last_supplement_id.supp_wage"/>
+                                    </td>
+                                    <td colspan="2" style="border:solid 1px;text-align:center">
+                                        <table width="100%">
+                                            <tr>
+                                                <td style="border-right:solid 1px;text-align:center" t-foreach="get_list_retributions_deductions(o.last_supplement_id.supp_retributions_deductions)" t-as="a" >
+                                                    <strong><span t-esc="a['name']"/></strong><br/>
+                                                    <span t-esc="a['amount']"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="border:solid 1px;text-align:center">
+                                        <strong>TOTAL</strong><br/>
+                                        <span t-esc="o.last_supplement_id.total_payment"/>
+                                    </td>
+                                    <td style="border:solid 1px;text-align:center">
+                                        <strong>ESCALA</strong><br/>
+                                        <span t-esc="o.supp_wage"/>
+                                    </td>
+                                    <td colspan="2" style="border:solid 1px;text-align:center">
+                                        <table width="100%">
+                                            <tr>
+                                                <td style="border-right:solid 1px;text-align:center" t-foreach="get_list_retributions_deductions(o.supp_retributions_deductions)" t-as="a">
+                                                    <strong><span t-esc="a['name']"/></strong><br/>
+                                                    <span t-esc="a['amount']"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="border:solid 1px;text-align:center">
+                                        <strong>TOTAL</strong><br/>
+                                        <span t-esc="o.total_payment"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px; padding: 2px"><strong>GRUPO ESCALA</strong></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px; padding: 2px"><strong>CATEGORIA</strong></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px; padding: 2px"><strong>GRUPO ESCALA</strong></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px; padding: 2px"><strong>CATEGORIA</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px; padding: 2px"><span t-esc="o.last_supplement_id.supp_salary_group"/></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px; padding: 2px"><span t-esc="o.last_supplement_id.supp_occupational_category"/></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px; padding: 2px"><span t-esc="o.supp_salary_group"/></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px; padding: 2px"><span t-esc="o.supp_occupational_category"/></td>
+                                </tr>
+                            </table>
+                            <table class="table" width="100%" style="margin-bottom:0px">
+                                <tr>
+                                  <td colspan="3"><strong>MOTIVO DEL MOVIMIENTO:</strong></td>
+                                  <td colspan="5"><span t-esc="o.supplement_description.name"/></td>
+                                </tr>
+                                <tr>
+                                  <td width="13%" style="text-align:center"><strong>FECHA EMISION</strong></td>
+                                  <td colspan="2" style="text-align:center"><strong>HECHO POR</strong></td>
+                                  <td width="16%" style="text-align:center"><strong>APROBADO POR</strong></td>
+                                  <td colspan="3" style="text-align:center"><strong>PARA USO DE NOMINAS</strong></td>
+                                  <td width="8%" style="text-align:center"><strong>NUMERO</strong></td>
+                                </tr>
+                                <tr>
+                                  <td style="text-align:center" rowspan="2"><span t-esc="get_date(o.date_start)"/></td>
+                                  <td colspan="2" style="text-align:center" rowspan="2"></td>
+                                  <td style="text-align:center" rowspan="2"></td>
+                                  <td width="15%" style="text-align:center">REVISADO POR </td>
+                                  <td width="16%" style="text-align:center">ACTUALIZADO POR</td>
+                                  <td width="17%" style="text-align:center">ELABORADO POR</td>
+                                  <td style="text-align:center" rowspan="2"></td>
+                                </tr>
+                                <tr>
+                                  <td><br/></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                            </table>
+                            <!--  duplicado  -->
+                            <br/><br/>
+
+                            <table width="100%" style="margin-bottom:0px">
+                              <tr>
+                                  <td style="border:solid 1px;text-align:left; padding: 2px"><strong>ORGANISMO:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.company_id.partner_id.ministry_id.name"/></td>
+                                  <td width="32%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>MOVIMIENTO</strong></td>
+                              </tr>
+                              <tr>
+                                  <td width="68%" style="border:solid 1px;text-align:left; padding: 2px"><strong>EMPRESA:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.company_id.partner_id.name"/></td>
+                                  <td width="32%" style="border-left:solid 1px;border-right:solid 1px;text-align:center"><strong>DE NOMINAS</strong></td>
+                              </tr>
+                              <tr>
+                                  <td style="border:solid 1px;text-align:left; padding: 2px"><strong>UNIDAD:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.company_id.name"/>()</td>
+                                  <td width="32%" style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"><strong>MODELO SC-4-02</strong></td>
+                              </tr>
+                            </table>
+                            <table width="100%" style="margin-bottom:0px">
+                              <tr>
+                                  <td style="border-left:solid 1px;border-right:solid 1px;text-align:left; padding: 2px"><strong>EXPEDIENTE:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.employee_id.identification_id"/></td>
+                                  <td style="border-right:solid 1px;text-align:left; padding: 2px"><strong>SOLAPIN:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.employee_id.code"/></td>
+                                  <td style="border-right:solid 1px;text-align:left; padding: 2px"><strong>Número:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.employee_id.code"/></td>
+                              </tr>
+                            </table>
+                            <table width="100%" style="margin-bottom:0px" >
+                                <tr>
+                                    <td width="41%" style="border:solid 1px;text-align:left; padding: 2px">
+                                        <strong>MOVIMIENTO DE:</strong>
+                                        <t t-if="o.supplement_type == 'hire'"><strong>HIRE</strong></t>
+                                        <t t-if="o.supplement_type == 'fire'"><strong>FIRE</strong></t>
+                                        <t t-if="o.supplement_type == 'change'"><strong>CHANGE</strong></t>
+                                    </td>
+                                    <td width="59%" style="border:solid 1px;text-align:left; padding: 2px"><strong>FECHA EFECTIVA DEL MOVIMIENTO:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="get_date(o.date_start)"/></td>
+                                </tr>
+                                  <tr>
+                                     <td colspan="2" style="border:solid 1px;text-align:left; padding: 2px"><strong>NOMBRE:</strong><![CDATA[&nbsp;&nbsp;]]><span t-esc="o.employee_id.name"/></td>
+                                  </tr>
+                                  <tr>
+                                     <td colspan="2" align="center" style="border:solid 1px;text-align:center; padding: 2px"><strong>SITUACION</strong></td>
+                                  </tr>
+                               </table>
+                            <table width="100%" style="margin-bottom:0px" >
+                                <tr>
+                                    <td colspan="3" style="border:solid 1px;text-align:center; padding: 2px"><strong>ACTUAL</strong></td>
+                                    <td width="13%" style="border:solid 1px;text-align:center"><strong>CODIGO</strong></td>
+                                    <td colspan="3" style="border:solid 1px;text-align:center"><strong>NUEVA</strong></td>
+                                    <td width="12%" style="border:solid 1px;text-align:center"><strong>CODIGO</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><strong>PUESTO DE TRABAJO</strong></td>
+                                    <td rowspan="4" style="border:solid 1px;text-align:center">
+                                        <br/>
+                                        <span t-esc="o.last_supplement_id.supp_code_job"/>
+                                        <br/>
+                                        <br/>
+                                        <span t-esc="o.last_supplement_id.supp_code_depart"/>
+                                    </td>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><strong>PUESTO DE TRABAJO</strong></td>
+                                    <td rowspan="4" style="border:solid 1px;text-align:center">
+                                        <br/>
+                                        <span t-esc="o.supp_code_job"/>
+                                        <br/>
+                                        <br/>
+                                        <span t-esc="o.supp_code_depart"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><span t-esc="o.last_supplement_id.supp_job"/></td>
+                                    <td colspan="3" style="border:solid 1px"><span t-esc="o.supp_job"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><strong>AREA DE TRABAJO</strong></td>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><strong>AREA DE TRABAJO</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><span t-esc="o.last_supplement_id.supp_department"/></td>
+                                    <td colspan="3" style="border:solid 1px; padding: 2px"><span t-esc="o.supp_department"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="border:solid 1px;text-align:center; padding: 2px"><strong>PARA USO DEL TRABAJO</strong></td>
+                                    <td colspan="4" style="border:solid 1px;text-align:center"><strong>PARA USO DEL TRABAJO</strong></td>
+                                </tr>
+                                <tr>
+                                    <td width="13%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center; padding: 2px"><strong>REGIMEN<br />
+                                        SALARIAL</strong></td>
+                                    <td width="13%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>HORARIO</strong></td>
+                                    <td width="13%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>MENSUAL</strong></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>RENDIM.</strong></td>
+                                    <td width="12%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>REGIMEN<br />
+                                        SALARIAL</strong></td>
+                                    <td width="12%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>HORARIO</strong></td>
+                                    <td width="12%" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>MENSUAL</strong></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px;text-align:center"><strong>RENDIM.</strong></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center; padding: 2px">
+                                        <t t-if="o.last_supplement_id"><span t-esc="SCHEDULE_PAY[o.last_supplement_id.schedule_pay]"/></t>
+                                    </td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"><span t-esc="o.last_supplement_id.supp_working_hours"/></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"><span t-esc="SCHEDULE_PAY[o.schedule_pay]"/></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"><span t-esc="o.supp_working_hours"/></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"></td>
+                                    <td style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px;text-align:center"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border:solid 1px;text-align:center; padding: 2px">
+                                        <strong>ESCALA</strong><br/>
+                                        <span t-esc="o.last_supplement_id.supp_wage"/>
+                                    </td>
+                                    <td colspan="2" style="border:solid 1px;text-align:center">
+                                        <table width="100%">
+                                            <tr>
+                                                <td style="border-right:solid 1px;text-align:center" t-foreach="get_list_retributions_deductions(o.last_supplement_id.supp_retributions_deductions)" t-as="a" >
+                                                    <strong><span t-esc="a['name']"/></strong><br/>
+                                                    <span t-esc="a['amount']"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="border:solid 1px;text-align:center">
+                                        <strong>TOTAL</strong><br/>
+                                        <span t-esc="o.last_supplement_id.total_payment"/>
+                                    </td>
+                                    <td style="border:solid 1px;text-align:center">
+                                        <strong>ESCALA</strong><br/>
+                                        <span t-esc="o.supp_wage"/>
+                                    </td>
+                                    <td colspan="2" style="border:solid 1px;text-align:center">
+                                        <table width="100%">
+                                            <tr>
+                                                <td style="border-right:solid 1px;text-align:center" t-foreach="get_list_retributions_deductions(o.supp_retributions_deductions)" t-as="a">
+                                                    <strong><span t-esc="a['name']"/></strong><br/>
+                                                    <span t-esc="a['amount']"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td style="border:solid 1px;text-align:center">
+                                        <strong>TOTAL</strong><br/>
+                                        <span t-esc="o.total_payment"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px; padding: 2px"><strong>GRUPO ESCALA</strong></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px; padding: 2px"><strong>CATEGORIA</strong></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px; padding: 2px"><strong>GRUPO ESCALA</strong></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-top:solid 1px; padding: 2px"><strong>CATEGORIA</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px; padding: 2px"><span t-esc="o.last_supplement_id.supp_salary_group"/></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px; padding: 2px"><span t-esc="o.last_supplement_id.supp_occupational_category"/></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px; padding: 2px"><span t-esc="o.supp_salary_group"/></td>
+                                    <td colspan="2" style="border-left:solid 1px;border-right:solid 1px;border-bottom:solid 1px; padding: 2px"><span t-esc="o.supp_occupational_category"/></td>
+                                </tr>
+                            </table>
+                            <table class="table" width="100%" style="margin-bottom:0px">
+                                <tr>
+                                  <td colspan="3"><strong>MOTIVO DEL MOVIMIENTO:</strong></td>
+                                  <td colspan="5"><span t-esc="o.supplement_description.name"/></td>
+                                </tr>
+                                <tr>
+                                  <td width="13%" style="text-align:center"><strong>FECHA EMISION</strong></td>
+                                  <td colspan="2" style="text-align:center"><strong>HECHO POR</strong></td>
+                                  <td width="16%" style="text-align:center"><strong>APROBADO POR</strong></td>
+                                  <td colspan="3" style="text-align:center"><strong>PARA USO DE NOMINAS</strong></td>
+                                  <td width="8%" style="text-align:center"><strong>NUMERO</strong></td>
+                                </tr>
+                                <tr>
+                                  <td style="text-align:center" rowspan="2"><span t-esc="get_date(o.date_start)"/></td>
+                                  <td colspan="2" style="text-align:center" rowspan="2"></td>
+                                  <td style="text-align:center" rowspan="2"></td>
+                                  <td width="15%" style="text-align:center">REVISADO POR </td>
+                                  <td width="16%" style="text-align:center">ACTUALIZADO POR</td>
+                                  <td width="17%" style="text-align:center">ELABORADO POR</td>
+                                  <td style="text-align:center" rowspan="2"></td>
+                                </tr>
+                                <tr>
+                                  <td><br/></td>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                  </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

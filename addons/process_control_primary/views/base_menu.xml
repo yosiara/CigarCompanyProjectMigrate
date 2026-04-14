@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <menuitem id="menu_proccess_control_primary" name="Control Proceso Primario" sequence="11"
+                  web_icon="process_control_primary,static/src/img/logo_hoja.png"/>
+
+        <menuitem id="process_control_primary_settings_menu" name="Configuración" parent="menu_proccess_control_primary" sequence="99"/>
+
+        <menuitem id="process_control_primary_control_tec" name="Control Tecnológico" parent="menu_proccess_control_primary" sequence="0"/>
+
+        <menuitem id="process_control_primary_informes_xls" name="Informes XLS" parent="menu_proccess_control_primary" sequence="2"/>
+    </data>
+</odoo>

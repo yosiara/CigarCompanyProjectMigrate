@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="report_invoice_product_search" model="ir.ui.view">
+			<field name="name">report.invoice.product.search</field>
+			<field name="model">report.invoice.product</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Reporte Facturas Productos">
+					<filter string="Mes actual" name="this_month" domain= "[('date','&gt;=',(datetime.date.today().replace(day=1)).strftime('%%Y-%%m-%%d')), ('date','&lt;',(datetime.date.today().replace(day=1)+relativedelta(months=1)).strftime('%%Y-%%m-%%d'))]"/>
+					<filter string="Mes anterior" name="before_month" domain= "[('date','&lt;',(datetime.date.today().replace(day=1)).strftime('%%Y-%%m-%%d')), ('date','&gt;=',(datetime.date.today().replace(day=1)-relativedelta(months=1)).strftime('%%Y-%%m-%%d'))]"/>
+
+                    <field name="date"  widget="date"/>
+					<field name="invoice_code" />
+					<field name="partner_id"/>
+                    <field name="reeup"/>
+                    <field name="municipality_id"/>
+                    <field name="contract_id"/>
+                    <field name="national_contract"/>
+                    <field name="invoice_id"/>
+                    <field name="product_id"/>
+
+					<group expand="1" string="Agrupar por...">
+						<filter name="group_by_invoice_code" string="Codigo de facturación" icon="STOCK_INDEX" domain="[]" context="{'group_by' : 'invoice_code'}"/>
+						<filter name="group_by_fecha" string="Fecha" icon="STOCK_INDEX" domain="[]" context="{'group_by' : 'date'}"/>
+					</group>
+
+				</search>
+			</field>
+		</record>
+
+        <record id="report_invoice_product_pivot" model="ir.ui.view">
+            <field name="name">report.invoice.product.pivot</field>
+            <field name="model">report.invoice.product</field>
+            <field name="arch" type="xml">
+                <pivot string="Reporte Facturas Productos" disable_linking="True">
+                    <field name="invoice_id" type="row"/>
+                    <field name="amount_cup" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="report_invoice_product_tree" model="ir.ui.view">
+            <field name="name">report.invoice.product.tree</field>
+            <field name="model">report.invoice.product</field>
+            <field name="arch" type="xml">
+                <tree string="Reporte Facturas Productos" create="false" edit="false" delete="false">
+                   <field name="invoice_code"/>
+                   <field name="partner_id"/>
+                   <field name="reeup"/>
+                   <field name="municipality_id"/>
+                   <field name="contract_id"/>
+                   <field name="national_contract"/>
+                   <field name="invoice_id"/>
+                   <field name="date"/>
+                   <field name="product_id"/>
+                   <field name="amount_cup"/>
+                </tree>
+            </field>
+        </record>
+
+<!--        <record id="contract_report_view_graph" model="ir.ui.view">-->
+<!--            <field name="name">contract.report.graph</field>-->
+<!--            <field name="model">contract.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <graph string="Voucher Statistics" type="bar">-->
+<!--                    <field name="partner_id"/>-->
+<!--                    <field name="amount_total" operator="+"/>-->
+<!--                </graph>-->
+<!--            </field>-->
+<!--         </record>-->
+
+        <record id="action_report_invoice_product" model="ir.actions.act_window">
+            <field name="name">Reporte Facturas Productos</field>
+            <field name="res_model">report.invoice.product</field>
+            <field name="view_mode">tree,pivot</field>
+            <field name="domain">[]</field>
+            <field name="context">{'search_default_this_month':1}</field>
+            <field name="limit">1000</field>
+            <field name="view_id" eval="False"/>
+        </record>
+
+        <menuitem id="menu_action_report_invoice_product" parent="account.account_reports_business_intelligence_menu"
+		            action="action_report_invoice_product"
+                    sequence="0"
+                    groups="base.group_user"/>
+    </data>
+</odoo>

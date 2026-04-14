@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="int_type_1" model="turei_process_control.interruption.type">
+            <field name="name">Problema mecánico</field>
+            <field name="code">PM</field>
+            <field name="use_in_any_machine" eval="True"/>
+            <field name="is_linked_to_machine" eval="True"/>
+            <field name="cause">endogena</field>
+        </record>
+        <record id="int_type_2" model="turei_process_control.interruption.type">
+            <field name="name">Problema eléctrico</field>
+            <field name="code">PE</field>
+            <field name="use_in_any_machine" eval="True"/>
+            <field name="is_linked_to_machine" eval="True"/>
+            <field name="cause">endogena</field>
+        </record>
+        <record id="int_type_3" model="turei_process_control.interruption.type">
+            <field name="name">Mantenimiento Planificado</field>
+            <field name="code">MP</field>
+            <field name="use_in_any_machine" eval="True"/>
+            <field name="is_linked_to_machine" eval="True"/>
+            <field name="cause">endogena</field>
+        </record>
+        <record id="int_type_4" model="turei_process_control.interruption.type">
+            <field name="name">Problema de Calidad</field>
+            <field name="code">PC</field>
+            <field name="is_linked_to_machine" eval="True"/>
+            <field name="cause">endogena</field>
+            <!--Vinculadas a MK8, AMF, CP1 y Minipar.-->
+            <field name="machines_related"
+                   eval="[
+                   (4,ref('mac_type_1')),
+                   (4,ref('mac_type_4')),
+                   (4,ref('mac_type_6')),
+                   (4,ref('mac_type_7')),
+                  ]"/>
+        </record>
+        <record id="int_type_5" model="turei_process_control.interruption.type">
+            <field name="name">Encaje</field>
+            <field name="code">EN</field>
+            <field name="is_linked_to_machine" eval="True"/>
+            <field name="cause">endogena</field>
+            <!--Vinculadas a MK8, NANO.-->
+            <field name="machines_related"
+                   eval="[(4,ref('mac_type_1')),
+                   (4,ref('mac_type_9')),
+                   ]"/>
+        </record>
+        <record id="int_type_6" model="turei_process_control.interruption.type">
+            <field name="name">Objetos extraños</field>
+            <field name="code">OE</field>
+            <field name="cause">endogena</field>
+            <field name="is_linked_to_machine" eval="True"/>
+            <!--Vinculadas a MK8, NANO.-->
+            <field name="machines_related"
+                   eval="[(4,ref('mac_type_1')),
+                   (4,ref('mac_type_9')),
+                   ]"/>
+        </record>
+        <record id="int_type_7" model="turei_process_control.interruption.type">
+            <field name="name">Falta de hebra</field>
+            <field name="code">FH</field>
+            <field name="is_linked_to_machine" eval="True"/>
+            <field name="cause">endogena</field>
+            <!--Vinculadas a MK8, NANO.-->
+            <field name="machines_related"
+                   eval="[(4,ref('mac_type_1')),
+                   (4,ref('mac_type_9')),
+                   ]"/>
+        </record>
+
+        <record id="int_type_8" model="turei_process_control.interruption.type">
+            <field name="name">Falta de energía</field>
+            <field name="code">FE</field>
+            <field name="cause">exogena</field>
+        </record>
+
+        <record id="int_type_9" model="turei_process_control.interruption.type">
+            <field name="name">Falta de aire comprimido</field>
+            <field name="code">FAC</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_10" model="turei_process_control.interruption.type">
+            <field name="name">Falta de cigarros</field>
+            <field name="code">FC</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_11" model="turei_process_control.interruption.type">
+            <field name="name">Falta de materiales</field>
+            <field name="code">FM</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_12" model="turei_process_control.interruption.type">
+            <field name="name">Materiales defectuosos</field>
+            <field name="code">MD</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_13" model="turei_process_control.interruption.type">
+            <field name="name">Preparación</field>
+            <field name="code">P</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_16" model="turei_process_control.interruption.type">
+            <field name="name">Tiempo perdido (falta personal)</field>
+            <field name="code">FO</field>
+            <field name="cause">endogena</field>
+        </record>
+        <record id="int_type_14" model="turei_process_control.interruption.type">
+            <field name="name">Otros (Endogeno)</field>
+            <field name="code">OEN</field>
+            <field name="cause">endogena</field>
+        </record>
+
+        <record id="int_type_15" model="turei_process_control.interruption.type">
+            <field name="name">Otros (Exogena)</field>
+            <field name="code">OEX</field>
+            <field name="cause">endogena</field>
+        </record>
+    </data>
+</odoo>

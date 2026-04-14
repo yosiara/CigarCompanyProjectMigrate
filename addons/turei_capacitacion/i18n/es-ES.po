@@ -1,0 +1,590 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* turei_capacitacion
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-12 03:07+0000\n"
+"PO-Revision-Date: 2021-12-11 21:11-0600\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_address
+msgid "Address"
+msgstr "Dirección"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_annual_period
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_action_search
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_nedd_search
+msgid "Annual Period"
+msgstr "Año"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_anual_period
+msgid "Anual Period"
+msgstr "Año"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_job_id
+msgid "Applied Job"
+msgstr "Puesto de Trabajo"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_attitudes
+msgid "Attitudes"
+msgstr "Actitudes"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_ci
+msgid "CI"
+msgstr "CI"
+
+#. module: turei_capacitacion
+#: model:ir.ui.view,arch_db:turei_capacitacion.wzd_capacitation_plan
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: turei_capacitacion
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_root
+msgid "Capacitación"
+msgstr "Capacitación"
+
+#. module: turei_capacitacion
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_capacitation
+msgid "Capacitation"
+msgstr "Capacitación"
+
+#. module: turei_capacitacion
+#: model:ir.actions.act_window,name:turei_capacitacion.action_turei_capacitation_action
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_action
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_action_search
+msgid "Capacitation Action"
+msgstr "Acción de Capacitación"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_capacitation_categorie_id
+msgid "Capacitation Categorie ID"
+msgstr "Categoría de Capacitación"
+
+#. module: turei_capacitacion
+#: model:ir.actions.act_window,name:turei_capacitacion.action_turei_capacitation_need
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_need
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_nedd_search
+msgid "Capacitation Need"
+msgstr "Necesidades de Capacitación"
+
+#. module: turei_capacitacion
+#: model:ir.actions.act_window,name:turei_capacitacion.wzd_capacitation_plan_act_window
+#: model:ir.ui.menu,name:turei_capacitacion.menu_wzd_capacitation_plan
+#: model:ir.ui.view,arch_db:turei_capacitacion.wzd_capacitation_plan
+msgid "Capacitation Plan"
+msgstr "Plan de Capacitación"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_mode_code
+msgid "Code"
+msgstr "Código"
+
+#. module: turei_capacitacion
+#: model:ir.actions.act_window,help:turei_capacitacion.action_turei_capacitation_action
+msgid "Create a new Capacitation Action"
+msgstr "Crear Nueva Acción de Capacitación"
+
+#. module: turei_capacitacion
+#: model:ir.actions.act_window,help:turei_capacitacion.action_turei_capacitation_need
+msgid "Create a new Capacitation Need"
+msgstr "Crear Nueva Necesidad de Capacitación"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_create_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_create_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_competence_lines_create_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_create_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_create_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_mode_create_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_categorie_create_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_create_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_wzd_plan_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_create_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_create_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_competence_lines_create_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_create_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_create_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_mode_create_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_categorie_create_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_create_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_wzd_plan_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: turei_capacitacion
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_action_search
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_nedd_search
+msgid "Current Year"
+msgstr "Año actual"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_date_from
+msgid "Date From"
+msgstr "Date inicio"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_date_to
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_date_to
+msgid "Date To"
+msgstr "Fecha termino"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_degree_id
+msgid "Degree"
+msgstr "Título"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_department_id
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_nedd_search
+msgid "Department"
+msgstr "Departamento"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_description
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_description
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_description
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_mode_description
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_categorie_description
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_action_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_display_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_display_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_competence_lines_display_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_display_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_display_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_mode_display_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_categorie_display_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_display_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_wzd_plan_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_email
+msgid "Email"
+msgstr "Correo electrónico"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_employee_id
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_nedd_search
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_end_date
+msgid "End Date"
+msgstr "Fecha finalización"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_estimate
+msgid "Estimate"
+msgstr "Presupuesto"
+
+#. module: turei_capacitacion
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_evaluation
+msgid "Evaluation of Capacitation"
+msgstr "Evaluación de Impacto Capacitación"
+
+#. module: turei_capacitacion
+#: sql_constraint:turei_capacitacion.capacitation_action:0
+msgid "Exist one Capacitation Action with this name !"
+msgstr "Existe una Acción de Capacitación con ese nombre !!"
+
+#. module: turei_capacitacion
+#: sql_constraint:turei_capacitacion.formation_center:0
+msgid "Exist one Formation Center with this name !"
+msgstr "Existe un Centro de Formación con ese nombre !!"
+
+#. module: turei_capacitacion
+#: sql_constraint:turei_capacitacion.formation_mode:0
+msgid "Exist one Formation Mode with this name !"
+msgstr "Existe un Modo de Formación con ese nombre !!"
+
+#. module: turei_capacitacion
+#: sql_constraint:turei_capacitacion.instructor_categorie:0
+msgid "Exist one Instructor Categorie with this name !"
+msgstr "Existe una Categoría de Instructor con ese nombre !!"
+
+#. module: turei_capacitacion
+#: sql_constraint:turei_capacitacion.instructor:0
+msgid "Exist one Instructor with this name !"
+msgstr "Existe un Instructor con ese nombre !!"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_external
+msgid "External"
+msgstr "Externo"
+
+#. module: turei_capacitacion
+#: model:ir.actions.act_window,name:turei_capacitacion.action_turei_capacitation_formation_center
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_formation_center_id
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_formation_center
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_action_search
+msgid "Formation Center"
+msgstr "Centro de Formación"
+
+#. module: turei_capacitacion
+#: model:ir.actions.act_window,name:turei_capacitacion.action_turei_capacitation_formation_mode
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_formation_mode_id
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_formation_mode_id
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_formation_mode
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_action_search
+msgid "Formation Mode"
+msgstr "Modo de Formación"
+
+#. module: turei_capacitacion
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_action_search
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_nedd_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_department_participants_ids
+msgid "Groups Participants"
+msgstr "Participantes por Áreas"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_competence_lines_habilitie
+msgid "Habilitie"
+msgstr "Habilidades"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_id
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_id
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_competence_lines_id
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_id
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_id
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_mode_id
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_categorie_id
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_id
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_wzd_plan_id
+msgid "ID"
+msgstr "ID"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_individual_participants_ids
+msgid "Individual Participants"
+msgstr "Participantes Individuales"
+
+#. module: turei_capacitacion
+#: model:ir.actions.report.xml,name:turei_capacitacion.report_capacitation_plan_indidivual
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_need_form
+msgid "Individual Plan"
+msgstr "Plan individual"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_capacitation_plan_ind_lines_ids
+msgid "Individual Plan Line"
+msgstr "Plan individual"
+
+#. module: turei_capacitacion
+#: model:ir.actions.act_window,name:turei_capacitacion.action_turei_capacitation_instructor
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_instructor
+msgid "Instructor"
+msgstr "Instructor"
+
+#. module: turei_capacitacion
+#: model:ir.actions.act_window,name:turei_capacitacion.action_turei_capacitation_instructor_categorie
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_instructor_categorie_id
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_instructor_categorie
+msgid "Instructor Categorie"
+msgstr "Categoría de Instructor"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_internal
+msgid "Internal"
+msgstr "Interno"
+
+#. module: turei_capacitacion
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_instructorform
+msgid "Job Data"
+msgstr "Datos Laborales"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_competence_lines_know_how
+msgid "Know-how"
+msgstr "Conocimientos"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action___last_update
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines___last_update
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need___last_update
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_competence_lines___last_update
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center___last_update
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_mode___last_update
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor___last_update
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_categorie___last_update
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_wzd_plan___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_write_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_write_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_competence_lines_write_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_write_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_write_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_mode_write_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_categorie_write_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_write_uid
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_wzd_plan_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_write_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_write_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_competence_lines_write_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_write_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_write_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_mode_write_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_categorie_write_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_write_date
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_wzd_plan_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_mobile_phone
+msgid "Mobile Phone"
+msgstr "Teléfono Movil"
+
+#. module: turei_capacitacion
+#: selection:turei_capacitacion.wzd_plan,reports:0
+msgid "Month"
+msgstr "Mensual"
+
+#. module: turei_capacitacion
+#: code:addons/turei_capacitacion/wizards/turei_capacitation_wzd_plan.py:32
+#, python-format
+msgid "Month Plan: %s"
+msgstr "Plan Mensual: %s"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_municipality_id
+msgid "Municipality"
+msgstr "Municipio"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_mode_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_categorie_name
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: turei_capacitacion
+#: code:addons/turei_capacitacion/models/turei_capacitacion.py:163
+#, python-format
+msgid "Need Capacitation for: "
+msgstr "Necesidades de Capacitación para: "
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_need_capacitation_id
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_competence_lines_need_capacitation_id
+msgid "Need Id"
+msgstr "Need Id"
+
+#. module: turei_capacitacion
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_need_form
+msgid "Need per compentencies"
+msgstr "Necesidades identificadas a partir de las competencias laborales"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_need_per_compentence_line_ids
+msgid "Need per competence"
+msgstr "Necesidades identificadas a partir de las competencias laborales"
+
+#. module: turei_capacitacion
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_dnc
+msgid "Needs of Capacitation"
+msgstr "Necesidades de Capacitación"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_neighborhood_id
+msgid "Neighborhood"
+msgstr "Vecindario(Barrio)"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_occupational_category_id
+msgid "Occupational Category"
+msgstr "Categoría ocupacional"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_wzd_plan_period_id
+msgid "Period"
+msgstr "Período"
+
+#. module: turei_capacitacion
+#: model:ir.ui.view,arch_db:turei_capacitacion.view_turei_capacitation_instructorform
+msgid "Personal Data"
+msgstr "Datos Personales"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_phone
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_wzd_plan_reports
+msgid "Plan"
+msgstr "Plan"
+
+#. module: turei_capacitacion
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_plan
+msgid "Plan of Capacitation"
+msgstr "Plan de Capacitación"
+
+#. module: turei_capacitacion
+#: model:ir.ui.view,arch_db:turei_capacitacion.wzd_capacitation_plan
+msgid "Print Capacitation Plan"
+msgstr "Imprimir Plan"
+
+#. module: turei_capacitacion
+#: model:ir.ui.view,arch_db:turei_capacitacion.wzd_capacitation_plan
+msgid "Print Plan"
+msgstr "Imprimir Plan"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_quantity
+msgid "Quantity participants"
+msgstr "Quantity participants"
+
+#. module: turei_capacitacion
+#: model:ir.actions.report.xml,name:turei_capacitacion.report_plan
+msgid "Report Plan"
+msgstr "Report Plan"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_school_level_id
+msgid "School Level"
+msgstr "Nivel escolar"
+
+#. module: turei_capacitacion
+#. openerp-web
+#: code:addons/turei_capacitacion/static/src/xml/binary_file.xml:6
+#, python-format
+msgid "Select"
+msgstr "Seleccionar"
+
+#. module: turei_capacitacion
+#: model:ir.ui.menu,name:turei_capacitacion.menu_turei_capacitation_config
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_ind_plan_lines_specific_theme
+msgid "Specific Theme"
+msgstr "Temáticas específicas"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_action_start_date
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_formation_center_state_id
+msgid "State"
+msgstr "Estado"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_street
+msgid "Street"
+msgstr "Calle"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_instructor_ueb_id
+msgid "UEB"
+msgstr "UEB"
+
+#. module: turei_capacitacion
+#. openerp-web
+#: code:addons/turei_capacitacion/static/src/xml/binary_file.xml:6
+#, python-format
+msgid "Upload the file"
+msgstr "Upload the file"
+
+#. module: turei_capacitacion
+#: model:ir.model.fields,field_description:turei_capacitacion.field_turei_capacitacion_capacitation_need_validation_date
+msgid "Validation Date"
+msgstr "Fecha de validación"
+
+#. module: turei_capacitacion
+#: selection:turei_capacitacion.wzd_plan,reports:0
+msgid "Year"
+msgstr "Anual"
+
+#. module: turei_capacitacion
+#: code:addons/turei_capacitacion/wizards/turei_capacitation_wzd_plan.py:70
+#, python-format
+msgid "Year Plan: %s"
+msgstr "Plan Anual: %s"
+
+#. module: turei_capacitacion
+#: model:ir.model,name:turei_capacitacion.model_turei_capacitacion_capacitation_action
+msgid "turei_capacitacion.capacitation_action"
+msgstr "turei_capacitacion.capacitation_action"
+
+#. module: turei_capacitacion
+#: model:ir.model,name:turei_capacitacion.model_turei_capacitacion_capacitation_ind_plan_lines
+msgid "turei_capacitacion.capacitation_ind_plan_lines"
+msgstr "turei_capacitacion.capacitation_ind_plan_lines"
+
+#. module: turei_capacitacion
+#: model:ir.model,name:turei_capacitacion.model_turei_capacitacion_capacitation_need
+msgid "turei_capacitacion.capacitation_need"
+msgstr "turei_capacitacion.capacitation_need"
+
+#. module: turei_capacitacion
+#: model:ir.model,name:turei_capacitacion.model_turei_capacitacion_capacitation_need_competence_lines
+msgid "turei_capacitacion.capacitation_need_competence_lines"
+msgstr "turei_capacitacion.capacitation_need_competence_lines"
+
+#. module: turei_capacitacion
+#: model:ir.model,name:turei_capacitacion.model_turei_capacitacion_formation_center
+msgid "turei_capacitacion.formation_center"
+msgstr "turei_capacitacion.formation_center"
+
+#. module: turei_capacitacion
+#: model:ir.model,name:turei_capacitacion.model_turei_capacitacion_formation_mode
+msgid "turei_capacitacion.formation_mode"
+msgstr "turei_capacitacion.formation_mode"
+
+#. module: turei_capacitacion
+#: model:ir.model,name:turei_capacitacion.model_turei_capacitacion_instructor
+msgid "turei_capacitacion.instructor"
+msgstr "turei_capacitacion.instructor"
+
+#. module: turei_capacitacion
+#: model:ir.model,name:turei_capacitacion.model_turei_capacitacion_instructor_categorie
+msgid "turei_capacitacion.instructor_categorie"
+msgstr "turei_capacitacion.instructor_categorie"
+
+#. module: turei_capacitacion
+#: model:ir.model,name:turei_capacitacion.model_turei_capacitacion_wzd_plan
+msgid "turei_capacitacion.wzd_plan"
+msgstr "turei_capacitacion.wzd_plan"

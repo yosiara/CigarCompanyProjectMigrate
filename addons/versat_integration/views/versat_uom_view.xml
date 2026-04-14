@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		VERSAT UNIT OF MEASURE
+		Model: versat.uom
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="versat_uom_form_view" model="ir.ui.view">
+            <field name="name">versat_uom_form_view</field>
+            <field name="model">versat.uom</field>
+            <field name="arch" type="xml">
+            	<form>
+                    <sheet>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="uom_id"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+		<!-- TREE VIEW -->
+		<record id="versat_uom_tree_view" model="ir.ui.view">
+            <field name="name">versat_uom_tree_view</field>
+            <field name="model">versat.uom</field>
+            <field name="arch" type="xml">
+            	<tree editable="top">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="uom_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="versat_uom_action" model="ir.actions.act_window">
+            <field name="name">Unit of Measure</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">versat.uom</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Units of Measure Integration"
+                  id="versat_uom_menu_item"
+                  action="versat_uom_action"
+                  parent="simple_product.simple_product_left_menu"
+                  sequence="30"/>
+    </data>
+</odoo>

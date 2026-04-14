@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="l10n_cu_hlg_contract_view_ir_sequence_form" model="ir.actions.act_window">
+            <field name="name">Secuencias</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ir.sequence</field>
+            <field name="view_type">form</field>
+            <field name="domain">['|','|',('code', '=', 'partner.archive.number'), ('code', 'ilike', 'contract.type.number'), ('code', 'ilike', 'partner.contract.number')]</field>
+            <field name="filter" eval="True"/>
+        </record>
+
+        <menuitem id="l10n_cu_hlg_contract_ir_sequence_menu" sequence="95" name="Secuencias" parent="l10n_cu_hlg_contract.menu_contract_configuration" action="l10n_cu_hlg_contract_view_ir_sequence_form"/>
+
+    </data>
+</odoo>

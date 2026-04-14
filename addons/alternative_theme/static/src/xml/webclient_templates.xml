@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+    	<template id="alternative_theme_assets_backend" inherit_id="web.assets_backend">
+	        <xpath expr="." position="inside">
+	            <link href="/alternative_theme/static/src/css/alternative_theme.css" rel="stylesheet" type="text/css"/>
+	        </xpath>
+	    </template>
+    </data>
+</odoo>

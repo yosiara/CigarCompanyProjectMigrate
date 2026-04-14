@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="efficiency_accomplish_report">
+            <t t-call="report.html_container">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-2 text-left" style="margin:0 0 0 0; padding:0 0 0 15px">
+                            <img src="/turei_process_control/static/src/img/logo_hoja.png"/>
+                        </div>
+                        <div class="col-xs-10 text-center" style="padding:35px">
+                            <h4>
+                                <b>Secciones productivas que no cumplen con un parámetro de eficiencia en el dpto. de Producción de Cigarrillos</b>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page">
+                    <table class="table table-bordered">
+                        <thead>
+                            <th><b>Desde</b></th>
+                            <th><b>Hasta</b></th>
+                            <th><b>Parámetro incumplido</b></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><t t-esc="data['date_start']"/></td>
+                                <td><t t-esc="data['date_end']"/></td>
+                                <td><t t-esc="data['percent']"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered">
+                        <thead>
+                            <th><b>Sección Productiva</b></th>
+                            <th><b>Eficiencia real (%)</b></th>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="docs" t-as="doc">
+                                <td><t t-esc="doc[0].name"/></td>
+                                <td><t t-esc="doc[1]"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </template>
+
+        <report id="efficiency_accomplish_action"
+                string="Reporte secciones productivas que incumplen con parámetro de eficiencia"
+                model="wzd.efficiency.accomplisht"
+                report_type="qweb-pdf"
+                file="turei_process_control.efficiency_accomplish_report"
+                name="turei_process_control.efficiency_accomplish_report"/>
+
+        <record id="turei_paperformat_efficiency_accomplish_euro_a4_portrait" model="report.paperformat">
+            <field name="name">Turei Efficiency accomplish European A4 portrait</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">13</field>
+            <field name="margin_left">1</field>
+            <field name="margin_right">1</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">40</field>
+            <field name="dpi">120</field>
+        </record>
+
+        <record id="efficiency_accomplish_action" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="turei_paperformat_efficiency_accomplish_euro_a4_portrait"/>
+        </record>
+    </data>
+</odoo>

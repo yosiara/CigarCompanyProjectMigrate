@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+
+		<!-- TREE VIEW -->
+        <record id="turei_maintenance_evaluation_parameter_tree_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_evaluation_parameter_tree_view</field>
+            <field name="model">turei_maintenance.evaluation_parameter</field>
+            <field name="arch" type="xml">
+            	<tree>
+					<field name="comp_value_efficacy_industry"/>
+            		<field name="value_opt"/>
+	            </tree>
+	        </field>
+	    </record>
+
+		 <!-- FORM VIEW -->
+        <record id="turei_maintenance_evaluation_parameter_form_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_evaluation_parameter_form_view</field>
+            <field name="model">turei_maintenance.evaluation_parameter</field>
+            <field name="arch" type="xml">
+            	<form>
+					<sheet>
+						<group>
+							<group>
+								<label for="cohef_maint"/>
+								<div class="o_row">
+                                    <field name="unit_cohef_maint" class="oe_inline" placeholder="Operador" nolabel="1" />
+                                    <field name="cohef_maint" placeholder="Valor" nolabel="1" required="1"/>
+                                </div>
+							</group>
+							<group>
+								<field name="value_opt" required="1"/>
+							</group>
+						</group>
+						<group string="Indicadores">
+							<field name="efficacy_evaluation_ids" nolabel="1"/>
+						</group>
+					</sheet>
+	            </form>
+	        </field>
+	    </record>
+
+		<!-- TREE VIEW -->
+        <record id="turei_maintenance_efficacy_evaluation_tree_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_efficacy_evaluation_tree_view</field>
+            <field name="model">turei_maintenance.efficacy_evaluation</field>
+            <field name="arch" type="xml">
+            	<tree>
+					<field name="name"/>
+            		<field name="value_opt"/>
+					<field name="comp_value_efficacy"/>
+					<field name="comp_value_no_efficacy"/>
+<!--					<field name="value_punctuation"/>-->
+					<field name="value_weight"/>
+<!--					<field name="value_reached"/>-->
+	            </tree>
+	        </field>
+	    </record>
+
+        <!-- FORM VIEW -->
+        <record id="turei_maintenance_efficacy_evaluation_form_view" model="ir.ui.view">
+            <field name="name">turei_maintenance_efficacy_evaluation_form_view</field>
+            <field name="model">turei_maintenance.efficacy_evaluation</field>
+            <field name="arch" type="xml">
+            	<form>
+					<sheet>
+						<div class="oe_title">
+                            <h1>
+                                <field name="name" required="1"/>
+                            </h1>
+                        </div>
+						<group>
+							<group>
+								<field name="value_opt"/>
+								<field name="value_weight" required="1"/>
+							</group>
+							<group>
+								<label for="value_efficacy" string="Eficaz"/>
+								<div class="o_row">
+                                    <field name="unit_value_efficacy" class="oe_inline" placeholder="Operador" nolabel="1" />
+                                    <field name="value_efficacy" placeholder="Valor" nolabel="1" required="1"/>
+                                </div>
+								<label for="value_no_efficacy" string="No Eficaz"/>
+								<div class="o_row">
+                                    <field name="unit_value_no_efficacy" class="oe_inline" placeholder="Operador" nolabel="1" />
+                                    <field name="value_no_efficacy" placeholder="Valor" nolabel="1" required="1"/>
+                                </div>
+<!--								<field name="value_punctuation" required="1"/>-->
+<!--								<field name="value_reached"/>-->
+							</group>
+						</group>
+					</sheet>
+	            </form>
+	        </field>
+	    </record>
+
+        <!-- ACTION -->
+        <record id="turei_maintenance_efficacy_evaluation_action" model="ir.actions.act_window">
+	    	<field name="name">Indicadores evaluación de la eficacia</field>
+		    <field name="res_model">turei_maintenance.evaluation_parameter</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Indicadores evaluación de la eficacia"
+				  id="turei_maintenance_item_efficacy_evaluation"
+				  action="turei_maintenance_efficacy_evaluation_action"
+				  parent="maintenance.menu_m_request"
+				  />
+    </data>
+</odoo>

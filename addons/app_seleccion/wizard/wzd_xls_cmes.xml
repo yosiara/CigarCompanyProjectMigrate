@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="xls_wzd_cmes_view_form" model="ir.ui.view">
+            <field name="name">app_seleccion.xls_report_cmes</field>
+            <field name="model">app_seleccion.xls_report_cmes</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Print">
+                   <group>
+                       <group name="left">
+                            <field name="mes" String="Seleccione el mes"/>
+                       </group>
+                       <group name="right">
+                            <field name="year" String="Seleccione el año"/>
+                       </group>
+                   </group>
+
+                    <footer>
+                        <div>
+                            <button name="print_report" string="Generar modelo" type="object" class="oe_highlight"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_xls_report_cmes" model="ir.actions.act_window">
+            <field name="name">Comportamiento selección por mes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">app_seleccion.xls_report_cmes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+
+        </record>
+
+
+        <menuitem name="Comportamiento por mes en .XLS" id="menu_report_xls_cmes" parent="app_seleccion.menu_reportes"
+                  sequence="7" action="action_xls_report_cmes" />
+
+
+
+    </data>
+</openerp>

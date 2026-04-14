@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data noupdate="0">
+        <record id="contract_days" model="ir.config_parameter">
+            <field name="key">contract_days</field>
+            <field name="value">30</field>
+        </record>
+        <record id="contract_initial" model="ir.config_parameter">
+            <field name="key">contract_initial</field>
+            <field name="value">False</field>
+        </record>
+        <record id="contract_monetary" model="ir.config_parameter">
+            <field name="key">contract_monetary</field>
+            <field name="value">75</field>
+        </record>
+    </data>
+</odoo>

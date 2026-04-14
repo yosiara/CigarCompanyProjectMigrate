@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Company -->
+        <record id="calendar_inherit_res_company_form" model="ir.ui.view">
+            <field name="name">calendar.inherit_res_company_form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_registry']" position="after">
+                    <field name="tasks_postponed_only"/>
+                    <field name="chief_signature_on_resume"/>
+                    <field name="include_obj_cat_monthly_plan"/>
+                    <field name="individual_plan_one_page"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

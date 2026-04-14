@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="assets_backend" name="cmi assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/cmi/static/src/less/cmi_kanban.less"/>
+                <link rel="stylesheet" href="/cmi/static/src/less/cmi_dashboard.less"/>
+
+                <script type="text/javascript" src="/cmi/static/src/js/cmi_dashboard_widgets.js"/>
+                <script type="text/javascript" src="/cmi/static/src/js/gauge.js"/>
+                <script type="text/javascript" src="/cmi/static/src/js/gaugeChart.js"/>
+                <script type="text/javascript" src="/cmi/static/src/js/cmi_kanban_widgets.js"/>
+            </xpath>
+        </template>
+
+</odoo>

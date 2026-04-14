@@ -1,0 +1,978 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* cmi
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20200610\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-12 17:44+0000\n"
+"PO-Revision-Date: 2021-01-12 12:47-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.7.3\n"
+
+#. module: cmi
+#: model:mail.template,body_html:cmi.email_template_indicators_state
+msgid ""
+"\n"
+"<p>Dear Employee</p>\n"
+"Here is the indicators state for the day\n"
+"\n"
+"<p>Greetings</p>\n"
+msgstr ""
+"\n"
+"<p>Estimado Empleado(a)</p>\n"
+"Aquí está el estado de los indicadores empresariales para el día de hoy.\n"
+"\n"
+"<p>Saludos</p>\n"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.report_indicators_state_template
+msgid "<b>Estado</b>"
+msgstr "<b>Estado</b>"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.report_indicators_state_template
+msgid "<b>Indicador</b>"
+msgstr "<b>Indicador</b>"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.report_indicators_state_template
+msgid "<b>Valor</b>"
+msgstr "<b>Valor</b>"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_kanban_view
+msgid ""
+"<br/>\n"
+"                                                        <strong class=\"\">Real</strong>"
+msgstr ""
+"<br/>\n"
+"                                                        <strong class=\"\">Real</strong>"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.report_indicators_state_template
+msgid "<span class=\"\">Real</span>"
+msgstr "<span class=\"\">Real</span>"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_dashboard_form_chart_view
+msgid ""
+"<span class=\"o_primary mr4\">\n"
+"                                    <b>Month</b>\n"
+"                                </span>"
+msgstr ""
+"<span class=\"o_primary mr4\">\n"
+"                                    <b>Mes</b>\n"
+"                                </span>"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_dashboard_form_chart_view
+msgid ""
+"<span class=\"o_primary mr4\">\n"
+"                                    <b>Year</b>\n"
+"                                </span>"
+msgstr ""
+"<span class=\"o_primary mr4\">\n"
+"                                    <b>Año</b>\n"
+"                                </span>"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_kanban_view
+msgid ""
+"<span class=\"o_unfollow\">Unfollow</span>\n"
+"                                                <span class=\"o_following\">Following</span>"
+msgstr ""
+"<span class=\"o_unfollow\">Dejar de seguir</span>\n"
+"                                                        <span class=\"o_following\">Siguiendo</span>"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.report_indicators_state_template
+msgid "<span>Plan</span>"
+msgstr "<span>Plan</span>"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_kanban_view
+msgid "<strong>Plan</strong>"
+msgstr "<strong>Plan</strong>"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_active
+msgid "Active"
+msgstr "Activo"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_aggregation
+msgid "Aggregation"
+msgstr "Agregación"
+
+#. module: cmi
+#: selection:cmi.indicator,periodicity:0
+msgid "Annual"
+msgstr "Anual"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_extract_indicators_wzd_view_form
+#: model:ir.ui.view,arch_db:cmi.view_cmi_config_settings
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:501 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "April"
+msgstr "Abril"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:502 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "August"
+msgstr "Agosto"
+
+#. module: cmi
+#: selection:cmi.indicator,type:0 selection:cmi.source,type:0
+msgid "Automatic"
+msgstr "Automatico"
+
+#. module: cmi
+#: selection:cmi.indicator,aggregation:0
+msgid "Avg"
+msgstr "Avg"
+
+#. module: cmi
+#: selection:cmi.indicator,char_type:0
+msgid "Bar Chart"
+msgstr "Gráfico de barras"
+
+#. module: cmi
+#: model:ir.ui.menu,name:cmi.cmi_root
+msgid "CMI"
+msgstr "CMI"
+
+#. module: cmi
+#: model:res.groups,name:cmi.indicator_manager
+msgid "CMI Indicator Manager"
+msgstr "Editor de Indicador CMI"
+
+#. module: cmi
+#: model:res.groups,name:cmi.manager
+msgid "CMI Responsible"
+msgstr "Responsable CMI"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_execute_transformations_wzd_view_form
+#: model:ir.ui.view,arch_db:cmi.cmi_extract_indicators_wzd_view_form
+#: model:ir.ui.view,arch_db:cmi.view_cmi_config_settings
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_kanban_view
+#: model:ir.ui.view,arch_db:cmi.report_indicators_state_template
+msgid "Certified"
+msgstr "Certificado"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_char_type
+msgid "Chart Type"
+msgstr "Tipo de gráfico"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_color
+msgid "Color"
+msgstr "Color"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_company_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_company_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_company_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_company_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_res_company_code
+msgid "Company code"
+msgstr "Código de la compañia"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_cmi_indicator
+msgid "Company's performance indicator"
+msgstr "Indicador de desempeño de la compañía"
+
+#. module: cmi
+#: model:ir.ui.menu,name:cmi.cmi_configuration
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: cmi
+#: model:ir.actions.act_window,name:cmi.action_cmi_config
+#: model:ir.ui.view,arch_db:cmi.view_cmi_config_settings
+msgid "Configure Cmi"
+msgstr "Configure Cmi"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_dw_conn_id
+#: model:ir.model.fields,field_description:cmi.field_res_company_dw_conn_id
+msgid "Connexion Data Warehouse"
+msgstr "Conexión almacén de datos"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_consolidated
+msgid "Consolidated"
+msgstr "Consolidado"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_create_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_create_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_execute_transformations_wzd_create_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_extract_indicator_wzd_create_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_create_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_create_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective_create_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_source_create_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_uom_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_create_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_create_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_execute_transformations_wzd_create_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_extract_indicator_wzd_create_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_create_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_create_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective_create_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_source_create_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_uom_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: cmi
+#: selection:cmi.indicator,periodicity:0
+msgid "Daily"
+msgstr "Diario"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_cmi_dashboard
+msgid "DashBoard to show indicators"
+msgstr "Tablero para mostrar indicadores"
+
+#. module: cmi
+#: model:ir.actions.act_window,name:cmi.cmi_dashboard_configuration_menu_action
+#: model:ir.actions.act_window,name:cmi.cmi_dashboard_show_menu_action
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_dashboard
+#: model:ir.ui.view,arch_db:cmi.cmi_dashboard_form_chart_view
+#: model:ir.ui.view,arch_db:cmi.cmi_dashboard_form_editable_view
+#: model:ir.ui.view,arch_db:cmi.cmi_dashboard_tree_view
+msgid "Dashboard"
+msgstr "Tablero"
+
+#. module: cmi
+#: model:ir.ui.menu,name:cmi.cmi_dashboards_configuration_menu
+#: model:ir.ui.menu,name:cmi.cmi_dashboards_show_menu
+msgid "Dashboards"
+msgstr "Tableros"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_source_id
+msgid "Data Source"
+msgstr "Fuente de datos"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_execute_transformations_wzd_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_extract_indicator_wzd_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_date_string
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_date_string
+msgid "Date"
+msgstr "Fecha"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:504 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "December"
+msgstr "Diciembre"
+
+#. module: cmi
+#: selection:cmi.indicator,state:0
+msgid "Deficient"
+msgstr "Deficiente"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_display_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_display_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_execute_transformations_wzd_display_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_extract_indicator_wzd_display_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_display_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_display_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective_display_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_source_display_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_uom_display_name
+#: model:ir.model.fields,field_description:cmi.field_report_cmi_report_indicators_state_template_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_email_list
+#: model:ir.model.fields,field_description:cmi.field_res_company_email_list
+msgid "Email List"
+msgstr "Lista de distribución"
+
+#. module: cmi
+#: model:ir.model.fields,help:cmi.field_cmi_config_settings_email_list
+#: model:ir.model.fields,help:cmi.field_res_company_email_list
+msgid "Email address to send information about indicators' state."
+msgstr "Dirección email para enviar información acerca del estado de los indicadores."
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:303
+#, python-format
+msgid "Error! Lower limit can not be higher than the Maximum limit."
+msgstr "¡Error! Límite inferior no puede ser mayor que Límite máximo."
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:301
+#, python-format
+msgid "Error! Lower limit can not be higher than the Medium limit."
+msgstr "¡Error! Límite inferior no puede ser mayor que Límite intermedio."
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:305
+#, python-format
+msgid "Error! Medium limit can not be higher than the Maximum limit."
+msgstr "¡Error! Límite intermedio no puede ser mayor que Límite máximo."
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.report_indicators_state_template
+msgid "Estado indicadores"
+msgstr "Estado indicadores"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_execute_transformations_wzd_view_form
+msgid "Execute"
+msgstr "Ejecuta"
+
+#. module: cmi
+#: model:ir.ui.menu,name:cmi.cmi_execute_transformations_wzd_menu
+msgid "Execute transformations"
+msgstr "Ejecutar transformaciones"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_extract_indicators_wzd_view_form
+msgid "Extract"
+msgstr "Extraer"
+
+#. module: cmi
+#: model:ir.actions.act_window,name:cmi.action_cmi_extract_indicator_wzd
+#: model:ir.ui.menu,name:cmi.cmi_extract_indicator_wzd_menu
+msgid "Extract indicators values"
+msgstr "Extraer valores de indicadores"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:501 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "February"
+msgstr "Febrero"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_first_zone_limit
+msgid "First Zone Limit"
+msgstr "Límite primera zona"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_kanban_view
+msgid "Follow"
+msgstr "Seguir"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_gauge_uom
+msgid "Gauge Uom"
+msgstr "Gauge Uom"
+
+#. module: cmi
+#: selection:cmi.indicator,state:0
+msgid "Good"
+msgstr "Bueno"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_search_view
+#: model:ir.ui.view,arch_db:cmi.cmi_source_search_view
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_execute_transformations_wzd_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_extract_indicator_wzd_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_source_id
+#: model:ir.model.fields,field_description:cmi.field_cmi_uom_id
+#: model:ir.model.fields,field_description:cmi.field_report_cmi_report_indicators_state_template_id
+msgid "ID"
+msgstr "ID"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:505 code:addons/cmi/models/cmi.py:506
+#: selection:cmi.indicator.line,semester:0
+#: selection:cmi.indicator.line,trimester:0
+#, python-format
+msgid "II"
+msgstr "II"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:505 selection:cmi.indicator.line,trimester:0
+#, python-format
+msgid "III"
+msgstr "III"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:505 selection:cmi.indicator.line,trimester:0
+#, python-format
+msgid "IV"
+msgstr "IV"
+
+#. module: cmi
+#: model:res.groups,comment:cmi.manager
+msgid "In charge of CMI configurations."
+msgstr "A cargo de las configuraciones del CMI."
+
+#. module: cmi
+#: model:res.groups,comment:cmi.indicator_manager
+msgid "In charge of some CMI indicator data."
+msgstr "A cargo de la información de algunos indicadores"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.report_indicators_state_template
+msgid "Indicadores sin valores asociados en el período actual"
+msgstr "Indicadores sin valores asociados en el período actual"
+
+#. module: cmi
+#: model:ir.actions.act_window,name:cmi.cmi_indicator_menu_action
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_indicator_id
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_form_view
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_tree_view
+msgid "Indicator"
+msgstr "Indicador"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_line_form_view
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_line_tree_view
+msgid "Indicator Line"
+msgstr "Valor de indicador"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_cmi_uom
+msgid "Indicator Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_ids
+msgid "Indicator lines"
+msgstr "Indicator lines"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_indicator_ids
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective_indicator_ids
+#: model:ir.ui.menu,name:cmi.cmi_indicators_menu
+msgid "Indicators"
+msgstr "Indicadores"
+
+#. module: cmi
+#: model:ir.actions.report.xml,name:cmi.report_indicators_state
+#: model:mail.template,subject:cmi.email_template_indicators_state
+msgid "Indicators State"
+msgstr "Estado de los indicadores"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:501 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "January"
+msgstr "Enero"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:502 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "July"
+msgstr "Julio"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:502 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "June"
+msgstr "Junio"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings___last_update
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard___last_update
+#: model:ir.model.fields,field_description:cmi.field_cmi_execute_transformations_wzd___last_update
+#: model:ir.model.fields,field_description:cmi.field_cmi_extract_indicator_wzd___last_update
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator___last_update
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line___last_update
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective___last_update
+#: model:ir.model.fields,field_description:cmi.field_cmi_source___last_update
+#: model:ir.model.fields,field_description:cmi.field_cmi_uom___last_update
+#: model:ir.model.fields,field_description:cmi.field_report_cmi_report_indicators_state_template___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_write_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_write_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_execute_transformations_wzd_write_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_extract_indicator_wzd_write_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_write_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_write_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective_write_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_source_write_uid
+#: model:ir.model.fields,field_description:cmi.field_cmi_uom_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_write_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_write_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_execute_transformations_wzd_write_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_extract_indicator_wzd_write_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_write_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_write_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective_write_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_source_write_date
+#: model:ir.model.fields,field_description:cmi.field_cmi_uom_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_last_value
+msgid "Last Value"
+msgstr "Último valor"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_form_view
+msgid "Last Values"
+msgstr "Últimos valores"
+
+#. module: cmi
+#: selection:cmi.indicator,char_type:0
+msgid "Line Chart"
+msgstr "Gráfico de línea"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_cmi_indicator_line
+msgid "Line of result of an indicator"
+msgstr "Línea de resultado de un indicador"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_lower_limit
+msgid "Lower Limit"
+msgstr "Límite inferior"
+
+#. module: cmi
+#: selection:cmi.indicator,type:0 selection:cmi.source,type:0
+msgid "Manual"
+msgstr "Manual"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:501 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "March"
+msgstr "Marzo"
+
+#. module: cmi
+#: selection:cmi.indicator,aggregation:0
+msgid "Max"
+msgstr "Máximo"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_maximum_limit
+msgid "Maximum Limit"
+msgstr "Límite máximo"
+
+#. module: cmi
+#: selection:cmi.indicator,optimal_value:0
+msgid "Maximum Possible"
+msgstr "Máximo posible"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:502 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "May"
+msgstr "Mayo"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_medium_limit
+msgid "Medium Limit"
+msgstr "Límite intermedio"
+
+#. module: cmi
+#: selection:cmi.indicator,aggregation:0
+msgid "Min"
+msgstr "Mínimo"
+
+#. module: cmi
+#: selection:cmi.indicator,optimal_value:0
+msgid "Minimum Possible"
+msgstr "Mínimo posible"
+
+#. module: cmi
+#: selection:cmi.indicator,type:0 selection:cmi.source,type:0
+msgid "Mixed(Plan)"
+msgstr "Mixto(Plan)"
+
+#. module: cmi
+#: selection:cmi.indicator,type:0 selection:cmi.source,type:0
+msgid "Mixed(Real)"
+msgstr "Mixto(Real)"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_source_model
+msgid "Model"
+msgstr "Modelo"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_month
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_month
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_month
+msgid "Month"
+msgstr "Mes"
+
+#. module: cmi
+#: selection:cmi.indicator,periodicity:0
+msgid "Monthly"
+msgstr "Mensual"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_source_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_uom_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_kanban_view
+#: model:ir.ui.view,arch_db:cmi.report_indicators_state_template
+msgid "No Certified"
+msgstr "No Certificado"
+
+#. module: cmi
+#. openerp-web
+#: code:addons/cmi/static/src/js/cmi_dashboard_widgets.js:59
+#: code:addons/cmi/static/src/js/cmi_dashboard_widgets.js:79
+#: code:addons/cmi/static/src/js/cmi_dashboard_widgets.js:110
+#, python-format
+msgid "No Data Available."
+msgstr "No hay datos para mostrar."
+
+#. module: cmi
+#: selection:cmi.dashboard,month:0
+msgid "None"
+msgstr "Ninguno"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:503 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "November"
+msgstr "Noviembre"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:503 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "October"
+msgstr "Octubre"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_optimal_value
+msgid "Optimal Value"
+msgstr "Valor óptimo"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_pdi_dir
+#: model:ir.model.fields,field_description:cmi.field_res_company_pdi_dir
+msgid "Pentaho Data Integration Dir"
+msgstr "Directorio de Pentaho Data Integration"
+
+#. module: cmi
+#: selection:cmi.indicator,value_type:0
+msgid "Percentage"
+msgstr "Porciento"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_periodicity
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_periodicity
+msgid "Periodicity"
+msgstr "Periodicidad"
+
+#. module: cmi
+#: model:ir.actions.act_window,name:cmi.cmi_perspective_menu_action
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_perspective_id
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_search_view
+#: model:ir.ui.view,arch_db:cmi.cmi_perspective_form_view
+#: model:ir.ui.view,arch_db:cmi.cmi_perspective_tree_view
+msgid "Perspective"
+msgstr "Perspectiva"
+
+#. module: cmi
+#: model:ir.ui.menu,name:cmi.cmi_perpectives_menu
+msgid "Perspectives"
+msgstr "Perpectivas"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_cmi_perspective
+msgid "Perspectives of evaluation of the company's performance"
+msgstr "Perspectivas de evaluación del redimiendo de la empresa"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:579 code:addons/cmi/models/cmi.py:584
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_plan
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_plan
+#, python-format
+msgid "Plan"
+msgstr "Plan"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_perspective_priority
+msgid "Priority"
+msgstr "Prioridad"
+
+#. module: cmi
+#: selection:cmi.indicator,periodicity:0
+msgid "Quarterly"
+msgstr "Trimestral"
+
+#. module: cmi
+#: selection:cmi.indicator,optimal_value:0
+msgid "Range"
+msgstr "Rango"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:579 code:addons/cmi/models/cmi.py:584
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_value
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_real
+#, python-format
+msgid "Real"
+msgstr "Real"
+
+#. module: cmi
+#: selection:cmi.indicator,state:0
+msgid "Regular"
+msgstr "Regular"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_cmi_source
+msgid "Represent a model responsible for calculating the values of an indicator"
+msgstr "Representa un modelo responsable del cálculo de los valores de un indicador."
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_responsible_id
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_second_zone_limit
+msgid "Second Zone Limit"
+msgstr "Límite segunda zona"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:428
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_semester
+#, python-format
+msgid "Semester"
+msgstr "Semestre"
+
+#. module: cmi
+#: selection:cmi.indicator,periodicity:0
+msgid "Semiannual"
+msgstr "Semestral"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:503 selection:cmi.dashboard,month:0
+#: selection:cmi.indicator.line,month:0
+#, python-format
+msgid "September"
+msgstr "Septiembre"
+
+#. module: cmi
+#: model:ir.ui.menu,name:cmi.menu_cmi_config
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_uom_abbreviated_name
+#: model:ir.model.fields,field_description:cmi.field_cmi_uom_abbreviated_name
+msgid "Short Name"
+msgstr "Nombre corto"
+
+#. module: cmi
+#: model:ir.actions.act_window,name:cmi.cmi_source_menu_action
+#: model:ir.ui.view,arch_db:cmi.cmi_source_form_view
+#: model:ir.ui.view,arch_db:cmi.cmi_source_tree_view
+msgid "Source"
+msgstr "Fuente"
+
+#. module: cmi
+#: model:ir.ui.menu,name:cmi.cmi_source_menu
+msgid "Sources"
+msgstr "Fuentes"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_state
+msgid "State"
+msgstr "Estado"
+
+#. module: cmi
+#: selection:cmi.indicator,aggregation:0
+msgid "Sum"
+msgstr "Suma"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:226
+#, python-format
+msgid "There are no companies with the specified code"
+msgstr "No existen compañías con el código especificado"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_search_view
+msgid "Today"
+msgstr "Hoy"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_config_settings_job_dir
+#: model:ir.model.fields,field_description:cmi.field_res_company_job_dir
+msgid "Transformations file"
+msgstr "Archivo de transformaciones"
+
+#. module: cmi
+#: code:addons/cmi/models/cmi.py:423
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_trimester
+#, python-format
+msgid "Trimester"
+msgstr "Trimestre"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_type
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_type
+#: model:ir.model.fields,field_description:cmi.field_cmi_source_type
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_search_view
+#: model:ir.ui.view,arch_db:cmi.cmi_source_search_view
+msgid "Type"
+msgstr "Tipo"
+
+#. module: cmi
+#: selection:cmi.indicator,value_type:0
+msgid "Unique Value"
+msgstr "Valor único"
+
+#. module: cmi
+#: model:ir.actions.act_window,name:cmi.cmi_uom_menu_action
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_uom_id
+#: model:ir.ui.view,arch_db:cmi.cmi_uom_form_view
+#: model:ir.ui.view,arch_db:cmi.cmi_uom_tree_view
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: cmi
+#: model:ir.ui.menu,name:cmi.cmi_uom_menu
+msgid "Units of Measure"
+msgstr "Unidades de medida"
+
+#. module: cmi
+#. openerp-web
+#: code:addons/cmi/static/src/js/cmi_dashboard_widgets.js:253
+#, python-format
+msgid "Unknown"
+msgstr "Desconocido"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_value
+msgid "Value"
+msgstr "Valor"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_value_type
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_value_type
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_search_view
+msgid "Value Type"
+msgstr "Tipo de valor"
+
+#. module: cmi
+#: model:ir.actions.act_window,name:cmi.action_cmi_execute_transformations_wzd
+#: model:ir.ui.view,arch_db:cmi.cmi_execute_transformations_wzd_view_form
+msgid "Wizard to execute transformations"
+msgstr "Asistente para ejecutar transformaciones"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_extract_indicators_wzd_view_form
+msgid "Wizard to extract indicators values"
+msgstr "Asistente para la extracción de los indicadores"
+
+#. module: cmi
+#: model:ir.model.fields,field_description:cmi.field_cmi_dashboard_year
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_line_year
+#: model:ir.model.fields,field_description:cmi.field_cmi_indicator_year
+msgid "Year"
+msgstr "Año"
+
+#. module: cmi
+#: selection:cmi.indicator,value_type:0
+msgid "Yes/No"
+msgstr "Yes/No"
+
+#. module: cmi
+#: model:ir.ui.view,arch_db:cmi.cmi_indicator_search_view
+msgid "Yesterday"
+msgstr "Ayer"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_cmi_config_settings
+msgid "cmi.config.settings"
+msgstr "cmi.config.settings"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_cmi_execute_transformations_wzd
+msgid "cmi.execute_transformations_wzd"
+msgstr "cmi.execute_transformations_wzd"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_cmi_extract_indicator_wzd
+msgid "cmi.extract_indicator_wzd"
+msgstr "cmi.extract_indicator_wzd"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_cmi_report_indicators_state_template
+msgid "cmi.report_indicators_state_template"
+msgstr "cmi.report_indicators_state_template"
+
+#. module: cmi
+#: model:ir.model,name:cmi.model_report_cmi_report_indicators_state_template
+msgid "report.cmi.report_indicators_state_template"
+msgstr "report.cmi.report_indicators_state_template"

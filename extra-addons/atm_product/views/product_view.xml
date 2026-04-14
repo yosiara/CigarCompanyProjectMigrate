@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		PRODUCT
+		Model: simple_product.product
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atm_product_product_form_view_inherit" model="ir.ui.view">
+            <field name="name">atm_product_product_form_view_inherit</field>
+            <field name="inherit_id" ref="simple_product.simple_product_product_form_view"/>
+            <field name="model">simple_product.product</field>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@id='group0']" position="after">
+                    <group id="group_others" string="Others...">
+                        <group id="group4">
+                            <field name="is_protected"/>
+                            <field name="is_for_contingency"/>
+                            <field name="is_tool_or_util"/>
+                            <field name="is_aft"/>
+                            <field name="is_exclusive_product"/>
+                            <field name="has_assingments"/>
+                        </group>
+
+                        <group id="group5">
+                            <field name="protection_cause"
+                                   attrs="{'invisible': [('is_protected', '=', False)],
+                                           'required': [('is_protected', '=', True)]}"/>
+
+                            <field name="contingency_quantity"
+                                   attrs="{'invisible': [('is_for_contingency', '=', False)],
+                                           'required': [('is_for_contingency', '=', True)]}"/>
+
+                            <field name="owner_id"
+                                   attrs="{'invisible': [('is_tool_or_util', '=', False)]}"/>
+
+                            <!-- <field name="area_id"
+                                   attrs="{'invisible': [('is_exclusive_product', '=', False)],
+                                           'required': [('is_exclusive_product', '=', True)]}"/> -->
+                        </group>
+                    </group>
+                </xpath>
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Assingments..." attrs="{'invisible': [('has_assingments', '=', False)]}">
+                        <field name="assingment_ids">
+                            <tree editable="bottom">
+                                <field name="date"/>
+                                <field name="area_id"/>
+                                <field name="quantity"/>
+                                <field name="given_quantity"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                    <page string="Norma de consumo">
+                        <br/>
+                        <group>
+                            <field name="formula_month_plan"/>
+                        </group>
+
+                        <group string="Norma de consumo para 1 millón de cigarrillos">
+                            <field name="consumption_norm_ids" nolabel="1">
+                                <tree editable="top">
+                                    <field name="uom_id"/>
+                                    <field name="quantity"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+
+                <field name="uom_id" position="before">
+                    <field name="account_id"/>
+                </field>
+
+                <field name="uom_id" position="after">
+                    <field name="quantity_in_millions"/>
+                    <field name="conversion_factor"/>
+                </field>
+
+                <xpath expr="//group[@id='group1']" position="attributes">
+                    <attribute name="string"/>
+                </xpath>
+
+                <xpath expr="//group[@id='group2']" position="attributes">
+                    <attribute name="string"/>
+                </xpath>
+
+                <field name="price" position="before">
+                    <field name="group_number"/>
+					<field name="group_name"/>
+                    <field name="origin"/>
+                    <field name="destiny_id"/>
+                    <field name="weight"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

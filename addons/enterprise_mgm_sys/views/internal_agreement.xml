@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="enterprise_mgm_sys_internal_agreement_form_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_internal_agreement.form</field>
+            <field name="model">enterprise_mgm_sys.internal_agreement</field>
+            <field name="arch" type="xml">
+                <form string="Internal Agreement">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="source_area"/>
+                            </group>
+                            <group>
+                                <field name="destiny_area"/>
+                            </group>
+                        </group>
+                        <separator string="Obligations"/>
+                        <group col="1">
+                            <field name="obligation_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="obligation_id"/>
+                                    <field name="complies_id"/>
+                                    <field name="evaluates_id"/>
+                                    <field name="day"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_internal_agreement_tree_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_internal_agreement.tree</field>
+            <field name="model">enterprise_mgm_sys.internal_agreement</field>
+            <field name="arch" type="xml">
+                <tree string="Internal Agreement">
+                    <field name="source_area"/>
+                    <field name="destiny_area"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_internal_agreement_act_window" model="ir.actions.act_window">
+            <field name="name">Internal Agreements</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.internal_agreement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Internal Agreement.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Internal Agreements" id="enterprise_mgm_sys_internal_agreement_main_menu"
+                  parent="enterprise_mgm_sys_root_menu"/>
+
+        <menuitem name="Internal Agreements" id="enterprise_mgm_sys_internal_agreement_menu"
+                  parent="enterprise_mgm_sys_internal_agreement_main_menu"
+                  action="enterprise_mgm_sys_internal_agreement_act_window"/>
+
+        <record id="enterprise_mgm_sys_internal_agreement_eval_form_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_internal_agreement_eval.form</field>
+            <field name="model">enterprise_mgm_sys.internal_agreement_eval</field>
+            <field name="arch" type="xml">
+                <form string="Internal Agreement Evaluation">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="year"/>
+                                <field name="source_area"/>
+                            </group>
+                            <group>
+                                <field name="internal_agreement_id"/>
+                                <field name="destiny_area"/>
+                            </group>
+                        </group>
+                        <separator string="Evaluations"/>
+                        <group>
+                            <field name="line_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="obligation_id"/>
+                                    <field name="complies_id"/>
+                                    <field name="evaluates_id"/>
+                                    <field name="eval_ene"/>
+                                    <field name="eval_feb"/>
+                                    <field name="eval_mar"/>
+                                    <field name="eval_apr"/>
+                                    <field name="eval_may"/>
+                                    <field name="eval_jun"/>
+                                    <field name="eval_jul"/>
+                                    <field name="eval_aug"/>
+                                    <field name="eval_sept"/>
+                                    <field name="eval_oct"/>
+                                    <field name="eval_nov"/>
+                                    <field name="eval_dec"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_internal_agreement_eval_tree_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_internal_agreement_eval.tree</field>
+            <field name="model">enterprise_mgm_sys.internal_agreement_eval</field>
+            <field name="arch" type="xml">
+                <tree string="Internal Agreement Evaluation">
+                    <field name="name"/>
+                    <field name="year"/>
+                    <field name="source_area"/>
+                    <field name="destiny_area"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_internal_agreement_eval_act_window" model="ir.actions.act_window">
+            <field name="name">Internal Agreement Evaluations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.internal_agreement_eval</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Internal Agreement Evaluation.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Evaluations" id="enterprise_mgm_sys_internal_agreement_eval_menu"
+                  parent="enterprise_mgm_sys_internal_agreement_main_menu"
+                  action="enterprise_mgm_sys_internal_agreement_eval_act_window"/>
+
+        <record id="enterprise_mgm_sys_obligation_form_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_obligation.form</field>
+            <field name="model">enterprise_mgm_sys.obligation</field>
+            <field name="arch" type="xml">
+                <form string="Obligations">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h3>
+                                <field name="name" placeholder="Name"/>
+                            </h3>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_obligation_tree_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_obligation.tree</field>
+            <field name="model">enterprise_mgm_sys.obligation</field>
+            <field name="arch" type="xml">
+                <tree string="Obligations">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_obligation_act_window" model="ir.actions.act_window">
+            <field name="name">Obligations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.obligation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Obligation.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Obligations" id="enterprise_mgm_sys_obligation_menu"
+                  action="enterprise_mgm_sys_obligation_act_window"
+                  parent="enterprise_mgm_sys_internal_agreement_main_menu"/>
+
+        <menuitem name="Reports" id="enterprise_mgm_sys_reports_menu"
+                  parent="enterprise_mgm_sys_internal_agreement_main_menu"/>
+
+    </data>
+</odoo>

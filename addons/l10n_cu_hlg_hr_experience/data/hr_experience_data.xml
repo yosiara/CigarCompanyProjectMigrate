@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data noupdate="1">
+       <record model="hr.teaching.category" id="teaching_asist">
+            <field name="code">PA</field>
+            <field name="name">Profesor Asistente</field>
+        </record>
+
+        <record model="hr.teaching.category" id="teaching_titul">
+            <field name="code">PT</field>
+            <field name="name">Profesor Titular</field>
+        </record>
+
+        <record model="hr.teaching.category" id="teaching_instr">
+            <field name="code">PI</field>
+            <field name="name">Profesor Instructor</field>
+        </record>
+
+        <record model="hr.teaching.category" id="teaching_aux">
+            <field name="code">PX</field>
+            <field name="name">Profesor Auxiliar</field>
+        </record>
+
+        <record model="hr.science.degree.category" id="degree_m">
+            <field name="code">MS</field>
+            <field name="name">Master en Ciencias</field>
+        </record>
+
+        <record model="hr.science.degree.category" id="degree_d">
+            <field name="code">DR</field>
+            <field name="name">Doctor en Ciencias</field>
+        </record>
+    </data>
+</odoo>

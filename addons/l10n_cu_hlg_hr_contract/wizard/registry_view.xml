@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="calendar_registry_information_wzd_view_form"	model="ir.ui.view">
+			<field name="name">l10n_cu_hlg_hr_contract.registry_information</field>
+			<field name="model">l10n_cu_hlg_hr_contract.registry_information</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="HR Registry Information">
+				<separator string="HR Registry Information"/>
+
+                    <p>Para poder disfrutar de todas las funcionalidades del sistema <b>Fasto</b> debe completar el registro del modulo.<br/>
+                    	Envie la semilla a la siguiente direccion de correo <a href="mailto:comercial@hlg.desoft.cu?subject=Solicitud%20de%20registro" target="_blank">comecial@hlg.desoft.cu</a> y le sera enviada su clave de registro.</p>
+					<group col="2">
+						<field name="seed"/>
+						<field name="key"/>
+						<field name="days_left"/>
+					</group>
+					<field name="state" invisible="1" />
+					<group class="oe_edit_only" attrs="{'invisible': [('state','!=','reg')]}">
+						<p class='alert alert-success'>Su registro es valido.</p>
+					</group>
+					<group class="oe_edit_only" attrs="{'invisible': ['|',('days_left','&gt;=',30),('days_left','=',0)]}">
+						<p class='alert alert-warning'>Su registro esta proximo a vencerse.</p>
+					</group>
+					<group class="oe_edit_only" attrs="{'invisible': [('state','!=','unreg')]}">
+						<p class='alert alert-danger'>Su clave de registro es invalida.</p>
+					</group>
+					<group class="oe_edit_only" attrs="{'invisible': [('state','!=','exp')]}">
+						<p class='alert alert-danger'>Su clave de registro esta vencida.</p>
+					</group>
+				     <footer>
+                        <div>
+                            <button name="save_key" string="Actualizar" type="object" class="oe_highlight"/> o
+                            <button special="cancel" string="Cerrar" class="oe_link"/>
+                        </div>
+                    </footer>
+				</form>
+			</field>
+		</record>
+		
+
+    <record id="action_fastos_registry_information" model="ir.actions.act_window">
+		<field name="name">Fastos Registry Information</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">l10n_cu_hlg_hr_contract.registry_information</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+
+	<menuitem id="action_fastos_registry_information_menu" action="action_fastos_registry_information"
+			  groups="hr.group_hr_manager" parent="hr.menu_human_resources_configuration" sequence="11"/>
+
+        
+	</data>
+</openerp>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="prod_and_reg_amf_report">
+            <t t-call="report.html_container">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-2 text-left" style="margin:0 0 0 0; padding:0 0 0 15px">
+                            <img src="/turei_process_control/static/src/img/logo_hoja.png"/>
+                        </div>
+                        <div class="col-xs-10 text-center" style="padding:35px">
+                            <h4>
+                                <b>Control de producción y rechazos de las AMF</b>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page">
+                    <table class="table table-bordered table-condensed">
+                        <tr>
+                            <td colspan="2">
+                                <b>Desde</b>
+                            </td>
+                            <td colspan="2">
+                                <b>Hasta</b>
+                            </td>
+                            <td colspan="2">
+                                <b>Turno</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <t t-raw="date_start"/>
+                            </td>
+                            <td colspan="2">
+                                <t t-raw="date_end"/>
+                            </td>
+                            <td colspan="2">
+                                <t t-if="turn">
+                                    <t t-raw="turn_obj.name"/>
+                                </t>
+                                <t t-else="">
+                                    Todos
+                                </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%" colspan="6" align="center">
+                                <b>LÍNEAS PRODUCTIVAS</b>
+                            </td>
+                        </tr>
+                        <tr style="margin:0;padding:0; border:none">
+                            <td style="margin:0;padding:0; border:none" colspan="6">
+                                <table class="table table-bordered" style="padding:0; margin:0;border:none">
+                                    <tbody style="border:none">
+                                        <t t-set="ps_auxo_header" t-value="-1"/>
+                                        <tr>
+                                            <td style="vertical-align:middle" t-att-rowspan="2"><b>Indicadores.</b></td>
+                                            <t t-foreach="productive_lines_aux" t-as="pl">
+                                                <t t-if="pl.productive_section_id.id != ps_auxo_header">
+                                                    <td t-att-colspan="len(pl.productive_section_id.productive_line_ids)" align="center">
+                                                        <t t-raw="pl.productive_section_id.name[0:3]+'.'+pl.productive_section_id.name[-3:]"/>
+                                                    </td>
+                                                    <t t-set="ps_auxo_header" t-value="pl.productive_section_id.id"/>
+                                                </t>
+                                            </t>
+                                        </tr>
+                                        <tr>
+                                            <t t-foreach="productive_lines_aux" t-as="pl">
+                                                <td>
+                                                    <b>Ln.<t t-raw="pl.name[-3:]"/></b>
+                                                </td>
+                                            </t>
+                                            <td><b>Total</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>Producción (cajones)</b>
+                                            </td>
+                                            <t t-set="total_lines" t-value="len(productive_lines_aux)"/>
+                                            <t t-set="total_prod_cojones" t-value="0.00"/>
+
+                                            <t t-foreach="productive_lines_aux" t-as="line">
+                                                <t t-set="production_aux"
+                                                   t-value="line.get_product_amf_productive_line(date_start,date_end,turn)"/>
+                                                <t t-if="line.productive_line.id in production_aux">
+                                                    <td align="center">
+                                                        <t t-raw="production_aux[line.productive_line.id]"/>
+                                                    </td>
+                                                    <t t-set="total_prod_cojones"
+                                                       t-value="total_prod_cojones + production_aux[line.productive_line.id]"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <td> </td>
+                                                </t>
+                                            </t>
+
+                                            <td align="center">
+                                                <t t-if="total_lines > 0.0">
+                                                    <t t-raw="round(total_prod_cojones / total_lines, 3)"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>Rechazo (cajones)</b>
+                                            </td>
+                                            <t t-set="total_reg_cojones" t-value="0.00"/>
+
+                                            <t t-foreach="productive_lines_aux" t-as="line">
+                                                <t t-set="reg_aux"
+                                                   t-value="line.get_reg_amf_by_productive_line(date_start,date_end,turn)"/>
+                                                <t t-if="line.productive_line.id in reg_aux">
+                                                    <t t-set="total_reg_cojones"
+                                                       t-value="total_reg_cojones + reg_aux[line.productive_line.id]"/>
+                                                    <td align="center">
+                                                        <t t-raw="reg_aux[line.productive_line.id]"/>
+                                                    </td>
+                                                </t>
+                                                <t t-else="">
+                                                    <td> </td>
+                                                </t>
+                                            </t>
+
+                                            <td align="center">
+                                                <t t-if="total_lines > 0.0">
+                                                    <t t-raw="round(total_reg_cojones / total_lines, 3)"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>Índice de Rechazo (%)</b>
+                                            </td>
+                                            <t t-set="total_ind_rech" t-value="0.00"/>
+
+                                            <t t-foreach="productive_lines_aux" t-as="line">
+                                                <t t-set="reg_ind"
+                                                   t-value="line.get_reg_ind(date_start,date_end,turn, line.productive_line.id)"/>
+                                                <t t-set="total_ind_rech"
+                                                   t-value="total_ind_rech + reg_ind"/>
+                                                <td t-if="reg_ind > 0" align="center">
+                                                    <t t-if="reg_ind > line.productive_section_id.productive_section_plan.indice_planif_rechazo">
+                                                        <t t-raw="reg_ind"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <b>** <i><t t-raw="reg_ind"/></i></b>
+                                                    </t>
+                                                </td>
+                                                <td t-else="">
+                                                     
+                                                </td>
+                                            </t>
+                                            <td>
+                                                <t t-if="total_lines > 0.0">
+                                                    <t t-raw="round(total_ind_rech / total_lines, 3)"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <b>Índice de Rechazo (%) x SP</b>
+                                            </td>
+                                            <t t-set="ps_auxo" t-value="-1"/>
+                                            <t t-foreach="productive_lines_aux" t-as="pl">
+                                                <t t-if="pl.productive_section_id.id != ps_auxo">
+                                                    <t t-set="reg_ind_sp"
+                                                       t-value="pl.productive_section_id.get_ind_rechazo(date_start,date_end,turn)"/>
+
+                                                    <td t-if="reg_ind_sp > 0" t-att-colspan="len(pl.productive_section_id.productive_line_ids)" align="center">
+                                                        <t t-raw="reg_ind_sp"/>
+                                                    </td>
+                                                    <td t-else="" t-att-colspan="len(pl.productive_section_id.productive_line_ids)">
+                                                         
+                                                    </td>
+                                                    <t t-set="ps_auxo" t-value="pl.productive_section_id.id"/>
+                                                </t>
+                                            </t>
+                                            <td>
+                                                 
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </template>
+
+        <report id="prod_and_reg_amf_report_action"
+                string="Rep. de Prod. Rechazo de las AMF"
+                model="wzd.prod_reg_amf.report"
+                report_type="qweb-pdf"
+                file="turei_process_control.prod_and_reg_amf_report"
+                name="turei_process_control.prod_and_reg_amf_report"/>
+
+        <record id="turei_paperformat__report_prod_reg_amf_euro_a4_portrait" model="report.paperformat">
+            <field name="name">Turei European A4 production and reg amf portrait</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">297</field>
+            <field name="page_width">210</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">30</field>
+            <field name="margin_bottom">23</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">30</field>
+            <field name="dpi">100</field>
+        </record>
+
+        <record id="prod_and_reg_amf_report_action" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="turei_paperformat__report_prod_reg_amf_euro_a4_portrait"/>
+        </record>
+    </data>
+</odoo>

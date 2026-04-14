@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="external_layout_header" inherit_id="report.external_layout_header">
+            <!-- Add company's reeup & nit code -->
+            <xpath expr="//div[@t-field='company.partner_id']" position="after">
+                <div t-if="company.code_reeup or company.code_nit" style="font-size: 8px">
+                    <t t-if="company.code_reeup">
+                        <strong>REEUP:</strong>
+                        <span t-field="company.code_reeup"/>
+                    </t>
+                    <t t-if="company.code_reeup and company.code_nit">
+                        <span>&amp;nbsp;&amp;nbsp;</span>
+                    </t>
+                    <t t-if="company.code_nit">
+                        <strong>NIT:</strong>
+                        <span t-field="company.code_nit"/>
+                    </t>
+                    </div>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="payment_method_time" model="hr_contract.payment_method">
+            <field name="code">AT</field>
+            <field name="name">A tiempo</field>
+        </record>
+        <record id="payment_method_time_Sueldista" model="hr_contract.payment_method">
+            <field name="code">T</field>
+            <field name="name">Sueldo</field>
+            <field name="parent_id" ref="payment_method_time"/>
+        </record>
+        <record id="payment_method_time_tarifa_horaria" model="hr_contract.payment_method">
+            <field name="code">H</field>
+            <field name="name">Tarifa horaria</field>
+            <field name="parent_id" ref="payment_method_time"/>
+        </record>
+        <record id="payment_method_time_resultado_tarifa_horaria" model="hr_contract.payment_method">
+            <field name="code">E</field>
+            <field name="name">Pago por resultado horaria</field>
+            <field name="parent_id" ref="payment_method_time"/>
+        </record>
+        <record id="payment_method_rendimiento" model="hr_contract.payment_method">
+            <field name="code">AT</field>
+            <field name="name">Por Rendimiento</field>
+        </record>
+        <record id="payment_method_rendimiento_destajo" model="hr_contract.payment_method">
+            <field name="code">D</field>
+            <field name="name">Destajo</field>
+            <field name="parent_id" ref="payment_method_rendimiento"/>
+        </record>
+        <record id="payment_method_rendimiento_resultado" model="hr_contract.payment_method">
+            <field name="code">R</field>
+            <field name="name">Resultado</field>
+            <field name="parent_id" ref="payment_method_rendimiento"/>
+        </record>
+    </data>
+</openerp>

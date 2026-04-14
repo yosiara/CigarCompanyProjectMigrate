@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		PRODUCTS BLIND RECEPTION
+		Model: atmsys.blind_reception
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_blind_reception_form_view" model="ir.ui.view">
+            <field name="name">atmsys_blind_reception_form_view</field>
+            <field name="model">atmsys.blind_reception</field>
+            <field name="arch" type="xml">
+            	<form>
+            		<sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="invoice_number"/>
+                                <field name="supplier_id"/>
+                            </group>
+
+                            <group>
+                                <field name="creation_date"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group>
+                                <field name="warehouse_id"/>
+
+                            </group>
+
+                            <group>
+                                <field name="container_or_box"/>
+                                <field name="car_plate"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+            				<page string="Products">
+            					<br/>
+                                <field name="product_ids">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handler" invisible="0"/>
+                                        <field name="product_description"/>
+                                        <field name="uom_id"/>
+                                        <field name="quantity"/>
+                                    </tree>
+                                </field>
+            				</page>
+
+            				<page string="Notes...">
+                                <br/>
+            					<field name="notes" placeholder="Explanatory notes about the merchandise..."/>
+            				</page>
+            			</notebook>
+
+                        <group>
+                            <field name="approve_id"/>
+        			<field name="driver_id"/>
+                            <field name="buyer_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- TREE VIEW -->
+        <record id="atmsys_blind_reception_tree_view" model="ir.ui.view">
+            <field name="name">atmsys_blind_reception_tree_view</field>
+            <field name="model">atmsys.blind_reception</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		<field name="creation_date"/>
+                    <field name="code"/>
+                    <field name="invoice_number"/>
+                    <field name="warehouse_id"/>
+                    <field name="supplier_id"/>
+
+                    <field name="approve_id" invisible="1"/>
+                    <field name="driver_id" invisible="1"/>
+                    <field name="id" invisible="1"/>
+                    <field name="buyer_id" invisible="1"/>
+	            </tree>
+	        </field>
+	    </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="atmsys_blind_reception_search_view" model="ir.ui.view">
+            <field name="name">atmsys_blind_reception_search_view</field>
+            <field name="model">atmsys.blind_reception</field>
+            <field name="arch" type="xml">
+            	<search>
+                    <field name="code"/>
+                    <field name="invoice_number"/>
+                    <field name="warehouse_id"/>
+                    <separator/>
+
+                    <filter string="Today" name="today" domain="[('creation_date', '&gt;=', datetime.datetime.now().replace(hour=0, minute=0, second=0)),('creation_date', '&lt;=', datetime.datetime.now().replace(hour=23, minute=59, second=59))]" />
+                    <filter string="Current Month" domain="[('creation_date', '&gt;=', datetime.datetime.now().strftime('%Y-%m-01'))]" />
+                    <filter string="Current Year"
+                            domain="[('creation_date', '&gt;=', datetime.datetime.now().strftime('%Y-01-01')),
+                                     ('creation_date', '&lt;=', datetime.datetime.now().strftime('%Y-12-31'))]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_creation_date" string="Creation Date" context="{'group_by': 'creation_date'}"/>
+                        <separator/>
+
+                        <filter name="group_by_warehouse" string="Warehouse" context="{'group_by': 'warehouse_id'}"/>
+                        <filter name="group_by_supplier" string="Supplier" context="{'group_by': 'supplier_id'}"/>
+                        <separator/>
+
+                        <filter name="group_by_approve" string="Approve" context="{'group_by': 'approve_id'}"/>
+                        <filter name="group_by_driver" string="Driver" context="{'group_by': 'driver_id'}"/>
+                        <filter name="group_by_buyer" string="Buyer" context="{'group_by': 'buyer_id'}"/>
+                        <separator/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atmsys_blind_reception_action" model="ir.actions.act_window">
+	    	<field name="name">Blind Receptions</field>
+		    <field name="res_model">atmsys.blind_reception</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Blind Receptions"
+				  id="atmsys_blind_reception_menu_item"
+				  action="atmsys_blind_reception_action"
+				  parent="atmsys_blind_reception_left_menu"/>
+    </data>
+</odoo>

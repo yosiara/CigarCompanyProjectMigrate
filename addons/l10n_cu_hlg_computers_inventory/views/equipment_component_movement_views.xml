@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ========================================================================================================
+        Component Movement
+        model: equipment.component_movement
+        ========================================================================================================= -->
+
+        <!-- FORM VIEW -->
+        <record id="equipment_component_movement_form_view" model="ir.ui.view">
+            <field name="name">equipment_component_movement_form_view</field>
+            <field name="model">equipment.component_movement</field>
+            <field name="arch" type="xml">
+                <form create="false" edit="false" delete="false">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="datetime"/>
+                                <field name="component_type"/>
+<!--                                <field name="new_seal"/>-->
+                                <field name="component_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="equipment_component_movement_tree_view" model="ir.ui.view">
+            <field name="name">equipment_component_movement_tree_view</field>
+            <field name="model">equipment.component_movement</field>
+            <field name="arch" type="xml">
+                <tree edit="false" create="false" delete="false">
+                    <field name="datetime"/>
+                    <field name="equipment_id"/>
+<!--                    <field name="new_seal"/>-->
+                    <field name="component_id"/>
+                    <field name="component_type"/>
+                    <field name="type"/>
+                    <field name="state"/>
+                    <button name="action_approve" string="Approved" type="object"
+                            attrs="{'invisible': [('state', '=', 'approved')]}"
+                            icon="fa-close"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="equipment_component_movement_search_view" model="ir.ui.view">
+            <field name="name">equipment_component_movement_search_view</field>
+            <field name="model">equipment.component_movement</field>
+            <field name="arch" type="xml">
+            	<search>
+                    <field name="component_id"/>
+                    <field name="component_type"/>
+                    <field name="datetime"/>
+                    <separator/>
+
+                    <filter string="Approved" name="approved" domain="[('state', '=', 'approved')]"/>
+                    <filter string="Waiting for approval" name="waiting_approval"
+                            domain="[('state', '=', 'waiting_approval')]"/>
+
+                    <filter string="Today" name="today"
+                            domain="[('datetime', '&gt;=', datetime.datetime.now().replace(hour=0, minute=0, second=0)),
+                                     ('datetime', '&lt;=', datetime.datetime.now().replace(hour=23, minute=59, second=59))]"/>
+
+                    <filter string="Current Month"
+                            domain="[('datetime', '&gt;=', datetime.datetime.now().strftime('%Y-%m-01'))]"/>
+
+                    <filter string="Current Year"
+                            domain="[('datetime', '&gt;=', datetime.datetime.now().strftime('%Y-01-01')),
+                                     ('datetime', '&lt;=', datetime.datetime.now().strftime('%Y-12-31'))]"/>
+
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_date" string="Date" context="{'group_by': 'datetime'}"/>
+                        <filter name="group_by_type" string="Type" context="{'group_by': 'type'}"/>
+                        <filter name="group_by_state" string="State" context="{'group_by': 'state'}"/>
+
+                        <filter name="group_by_component_type" string="Component type"
+                                context="{'group_by': 'component_type'}"/>
+
+                        <filter name="group_by_equipment" string="Equipment" context="{'group_by': 'equipment_id'}"/>
+                        <separator/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="equipment_component_movement_action" model="ir.actions.act_window">
+            <field name="name">Component Movement</field>
+            <field name="res_model">equipment.component_movement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Nothing to show...
+                </p>
+            </field>
+        </record>
+
+        <record id="equipment_component_movement_action2" model="ir.actions.act_window">
+            <field name="name">Component Movement</field>
+            <field name="res_model">equipment.component_movement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('equipment_id', '=', active_id)]</field>
+            <field name="context">
+                {'default_equipment_id': active_id}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Nothing to show...
+                </p>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Movements"
+                  id="component_movement_menu_item"
+                  parent="computers_inventory_equipment_menu_item"
+                  action="equipment_component_movement_action"
+                  groups="computers_inventory_manager"
+                  sequence="120"/>
+    </data>
+</odoo>

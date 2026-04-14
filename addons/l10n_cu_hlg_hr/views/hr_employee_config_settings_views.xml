@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="view_hr_employee_config_settings" model="ir.ui.view">
+            <field name="name">hr employee settings</field>
+            <field name="model">hr.employee.config.settings</field>
+            <field name="arch" type="xml">
+                <form class="oe_form_configuration" name="hr_employee_config_form">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+
+                    <div id="main">
+                        <group string="Additional Features">
+                            <field name="module_l10n_cu_hlg_hr_driving_license" class="oe_inline"/>
+                            <field name="module_l10n_cu_hlg_hr_travels" class="oe_inline"/>
+                            <field name="module_l10n_cu_hlg_hr_uniforms" class="oe_inline"/>
+                        </group>
+                    </div>
+
+                    <div>
+                        <span>(*) This configuration is related to the company you're logged into.</span>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hr_employee_config" model="ir.actions.act_window">
+            <field name="name">Configure Employee</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee.config.settings</field>
+            <field name="view_id" ref="view_hr_employee_config_settings"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem name="Settings"
+                  id="menu_hr_employee_general_settings"
+                  parent="hr.menu_human_resources_configuration"
+                  action="action_hr_employee_config"
+                  groups="base.group_system"
+                  sequence="0"/>
+    </data>
+</odoo>

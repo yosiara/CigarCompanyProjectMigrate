@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cmi_turei_department_user,cmi_turei.department_user,model_cmi_turei_department,base.group_user,1,0,0,0
+access_cmi_turei_department_manager,cmi_turei.department_manager,model_cmi_turei_department,cmi.manager,1,1,1,1

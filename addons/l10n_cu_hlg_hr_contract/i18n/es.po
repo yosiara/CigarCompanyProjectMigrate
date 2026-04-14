@@ -1,0 +1,2625 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_hlg_hr_contract
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e-20180630\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-01 14:00+0000\n"
+"PO-Revision-Date: 2019-02-01 09:36-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_count
+msgid "# Supplement"
+msgstr "# Suplemento"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+msgstr "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "(Consignar lugar o lugares de trabajo)"
+msgstr "(Consignar lugar o lugares de trabajo)"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid ":&amp;nbsp;&amp;nbsp;"
+msgstr ":&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>ACTUAL</strong>"
+msgstr "<strong>ACTUAL</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>APROBADO POR</strong>"
+msgstr "<strong>APROBADO POR</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>AREA DE TRABAJO</strong>"
+msgstr "<strong>AREA DE TRABAJO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>ARTÍCULO 42 Y 43</strong>"
+msgstr "<strong>ARTÍCULO 42 Y 43</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>CAPÍTULO III CONTRATO DE TRABAJO, SECCIÓN SÉPTIMA.  </strong>"
+msgstr "<strong>CAPÍTULO III CONTRATO DE TRABAJO, SECCIÓN SÉPTIMA.  </strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>CATEGORIA</strong>"
+msgstr "<strong>CATEGORIA</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>CHANGE</strong>"
+msgstr "<strong>CAMBIO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>CODIGO</strong>"
+msgstr "<strong>CODIGO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+msgid "<strong>CONTRATO DE TRABAJO POR TIEMPO DETERMINADO</strong>"
+msgstr "<strong>CONTRATO DE TRABAJO POR TIEMPO DETERMINADO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>CONTRATO DE TRABAJO POR TIEMPO INDETERMINADO</strong>"
+msgstr "<strong>CONTRATO DE TRABAJO POR TIEMPO INDETERMINADO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>CONVIENEN:</strong>"
+msgstr "<strong>CONVIENEN:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>CUARTO:</strong>"
+msgstr "<strong>CUARTO:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Cargo:</strong>"
+msgstr "<strong>Cargo:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Categoria Ocupacional:</strong>"
+msgstr "<strong>Categoría Ocupacional:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>DE NOMINAS</strong>"
+msgstr "<strong>DE NOMINAS</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>DE UNA PARTE:</strong>"
+msgstr "<strong>DE UNA PARTE:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>EMPRESA:</strong>&amp;nbsp;&amp;nbsp;"
+msgstr "<strong>EMPRESA:</strong>&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>ESCALA</strong><br/>"
+msgstr "<strong>ESCALA</strong><br/>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>EXPEDIENTE:</strong>&amp;nbsp;&amp;nbsp;"
+msgstr "<strong>EXPEDIENTE:</strong>&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>El Empleador</strong>"
+msgstr "<strong>El Empleador</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>El Trabajador</strong>"
+msgstr "<strong>El Trabajador</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>FECHA EFECTIVA DEL MOVIMIENTO:</strong>&amp;nbsp;&amp;nbsp;"
+msgstr "<strong>FECHA EFECTIVA DEL MOVIMIENTO:</strong>&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>FECHA EMISION</strong>"
+msgstr "<strong>FECHA EMISION</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>FIRE</strong>"
+msgstr "<strong>BAJA</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Fecha del movimiento : a</strong>"
+msgstr "<strong>Fecha del movimiento : a</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>GRUPO ESCALA</strong>"
+msgstr "<strong>GRUPO ESCALA</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Grupo escala:</strong>"
+msgstr "<strong>Grupo escala:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>HECHO POR</strong>"
+msgstr "<strong>HECHO POR</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>HIRE</strong>"
+msgstr "<strong>ALTA</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>HORARIO</strong>"
+msgstr "<strong>HORARIO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Horario de trabajo:</strong>"
+msgstr "<strong>Horario de trabajo:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Jornada Laboral:</strong>"
+msgstr "<strong>Jornada Laboral:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>MENSUAL</strong>"
+msgstr "<strong>MENSUAL</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>MODELO SC-4-02</strong>"
+msgstr "<strong>MODELO SC-4-02</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>MODIFICACIÓN AL CONTRATO DE TRABAJO LEY 116/213 CÓDIGO DE TRABAJO</strong>"
+msgstr "<strong>MODIFICACIÓN AL CONTRATO DE TRABAJO LEY 116/213 CÓDIGO DE TRABAJO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>MOTIVO DEL MOVIMIENTO:</strong>"
+msgstr "<strong>MOTIVO DEL MOVIMIENTO:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>MOVIMIENTO DE:</strong>"
+msgstr "<strong>MOVIMIENTO DE:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>MOVIMIENTO</strong>"
+msgstr "<strong>MOVIMIENTO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>NOMBRE:</strong>&amp;nbsp;&amp;nbsp;"
+msgstr "<strong>NOMBRE:</strong>&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>NOVENO:</strong>"
+msgstr "<strong>NOVENO:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>NUEVA</strong>"
+msgstr "<strong>NUEVA</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>NUMERO</strong>"
+msgstr "<strong>NUMERO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>No. Carné de Identidad:</strong>"
+msgstr "<strong>No. Carné de Identidad:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Nombre del trabajador:</strong>"
+msgstr "<strong>Nombre del trabajador:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>Número:</strong>&amp;nbsp;&amp;nbsp;"
+msgstr "<strong>Número:</strong>&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>OCTAVO:</strong>"
+msgstr "<strong>OCTAVO:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>ORGANISMO:</strong>&amp;nbsp;&amp;nbsp;"
+msgstr "<strong>ORGANISMO:</strong>&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>PARA USO DE NOMINAS</strong>"
+msgstr "<strong>PARA USO DE NOMINAS</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>PARA USO DEL TRABAJO</strong>"
+msgstr "<strong>PARA USO DEL TRABAJO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>PRIMERO:</strong> El trabajador prestará sus servicios al Empleador bajo las condiciones siguientes:"
+msgstr "<strong>PRIMERO:</strong> El trabajador prestará sus servicios al Empleador bajo las condiciones siguientes:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>PUESTO DE TRABAJO</strong>"
+msgstr "<strong>PUESTO DE TRABAJO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Promedio mensual:</strong>"
+msgstr "<strong>Promedio mensual:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>QUINTO:</strong>"
+msgstr "<strong>QUINTO:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid ""
+"<strong>REGIMEN<br/>\n"
+"                                        SALARIAL</strong>"
+msgstr ""
+"<strong>REGIMEN<br/>\n"
+"                                        SALARIAL</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>RENDIM.</strong>"
+msgstr "<strong>RENDIM.</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>SEGUNDO:</strong>"
+msgstr "<strong>SEGUNDO:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>SEPTIMO:</strong>"
+msgstr "<strong>SEPTIMO:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>SEXTO:</strong>"
+msgstr "<strong>SEXTO:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>SITUACION ACTUAL</strong>"
+msgstr "<strong>SITUACION ACTUAL</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>SITUACION</strong>"
+msgstr "<strong>SITUACION</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>SOLAPIN:</strong>&amp;nbsp;&amp;nbsp;"
+msgstr "<strong>SOLAPIN:</strong>&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>SUPLEMENTO AL CONTRATO DE TRABAJO</strong>"
+msgstr "<strong>SUPLEMENTO AL CONTRATO DE TRABAJO</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Salario Escala:</strong>"
+msgstr "<strong>Salario Escala:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Salario Total:</strong>"
+msgstr "<strong>Salario Total:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>TERCERO:</strong>"
+msgstr "<strong>TERCERO:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>TOTAL</strong><br/>"
+msgstr "<strong>TOTAL</strong><br/>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "<strong>UNIDAD:</strong>&amp;nbsp;&amp;nbsp;"
+msgstr "<strong>UNIDAD:</strong>&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "<strong>Y DE OTRA PARTE</strong>"
+msgstr "<strong>Y DE OTRA PARTE</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>de</strong>"
+msgstr "<strong>de</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>días del mes</strong>"
+msgstr "<strong>días del mes</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "<strong>Área de Trabajo actual:</strong>"
+msgstr "<strong>Área de Trabajo actual:</strong>"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+msgid "A)Registro de Datos Principales"
+msgstr "A)Registro de Datos Principales"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "ACTUALIZADO POR"
+msgstr "ACTUALIZADO POR"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "ANEXO No. 14"
+msgstr "ANEXO No. 14"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_category_register
+msgid "ANEXO No. 14-A"
+msgstr "ANEXO No. 14-A"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+msgid "ANEXO No. 14.B"
+msgstr "ANEXO No. 14.B"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "AREA PRINCIPAL"
+msgstr "AREA PRINCIPAL"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.calendar_registry_information_wzd_view_form
+msgid "Actualizar"
+msgstr "Actualizar"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive_agreement_parts_id
+msgid "Agreement parts"
+msgstr "Partes de acuerdo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Al efecto de suscribir el presente contrato de trabajo, el que tiene toda la fuerza legal que en derecho se requiere, comparecen:"
+msgstr "Al efecto de suscribir el presente contrato de trabajo, el que tiene toda la fuerza legal que en derecho se requiere, comparecen:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Ambas partes convienen en lo expresado en el presente documento, comprometiéndose a su más estricto cumplimiento."
+msgstr "Ambas partes convienen en lo expresado en el presente documento, comprometiéndose a su más estricto cumplimiento."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Ambas partes, libre y voluntariamente."
+msgstr "Ambas partes, libre y voluntariamente."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_amount
+msgid "Amount"
+msgstr "Importe"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:615
+#, python-format
+msgid "Amount must be greater than 0"
+msgstr "El monto debe ser mayor que 0"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:617
+#, python-format
+msgid "Amount must be smaller than 0"
+msgstr "El monto debe ser menor que 0"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:16
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:22
+#: selection:hr.contract,schedule_pay:0
+#, python-format
+msgid "Annually"
+msgstr "Anual"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_contract.action_hr_contract_type_under
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_type
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_contract.contract_type_menu_item
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.hr_contract_view_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "Anormal Conditions"
+msgstr "Condiciones anormales"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.approved_template_report
+#: selection:reports.wzd,type:0
+msgid "Approved template"
+msgstr "Plantilla Aprobada"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.approved_cover_report
+#: selection:reports.wzd,type:0
+msgid "Approved template and cover"
+msgstr "Plantilla Aprobada y Cubierta"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:38
+#, python-format
+msgid "April"
+msgstr "Abril"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_cover
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.current_situation
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.qualified_workforce
+msgid "Aprobada"
+msgstr "Aprobada"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:42
+#, python-format
+msgid "August"
+msgstr "Agosto"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard_emp_authorized_signature_id
+msgid "Authorized Employee"
+msgstr "Empleado autorizado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard_authorized_signature_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_wizard_view
+msgid "Authorized signature"
+msgstr "Firma autorizada"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "AÑO DE GRAD."
+msgstr "AÑO DE GRAD."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_background_average
+msgid "Background average"
+msgstr "Fondo Promedio"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_resource_calendar_background_average_days
+msgid "Background average time (days)"
+msgstr "Tiempo promedio de fondo (días)"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_resource_calendar_background_average_hours
+msgid "Background average time(hours)"
+msgstr "Tiempo promedio de fondo (horas)"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:19
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:25
+#: selection:hr.contract,schedule_pay:0
+#, python-format
+msgid "Bi-monthly"
+msgstr "Bimensual"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:18
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:24
+#: selection:hr.contract,schedule_pay:0
+#, python-format
+msgid "Bi-weekly"
+msgstr "Quincenal"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:30
+#: selection:hr_contract.payment_method,clasification:0
+#, python-format
+msgid "By performance"
+msgstr "Por rendimiento"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "CARGO"
+msgstr "CARGO"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "CARNET"
+msgstr "CARNET"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "CATEGORIA"
+msgstr "CATEGORIA"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "COMENZO A TRABAJAR POR PRIMERA VEZ EL DIA"
+msgstr "COMENZÓ A TRABAJAR POR PRIMERA VEZ EL DIA"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "CONTRATO"
+msgstr "CONTRATO"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_wizard_view
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_motive_movement_wzd_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_rpt_wzd_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_template
+msgid "Cantidad"
+msgstr "Cantidad"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Cantidad de puestos"
+msgstr "Cantidad de puestos"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:22
+#: selection:hr.contract,means_of_payment:0
+#, python-format
+msgid "Card"
+msgstr "Tarjeta"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_category_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Cargo del que aprueba: _______________________________________"
+msgstr "Cargo del que aprueba: _______________________________________"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_category_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Cargo del que propone: _______________________________________"
+msgstr "Cargo del que propone: _______________________________________"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+msgid "Carné de Identidad"
+msgstr "Carné de Identidad"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:23
+#: selection:hr.contract,means_of_payment:0
+#, python-format
+msgid "Cash"
+msgstr "Efectivo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_cover
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies_total
+msgid "Cat. Ocupacional"
+msgstr "Cat. Ocupacional"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.covered_by_categories
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.current_situation
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.qualified_workforce
+msgid "Categoría"
+msgstr "Categoría"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_template
+msgid "Categoría Ocupacional"
+msgstr "Categoría Ocupacional"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Categoría ocupacional"
+msgstr "Categoría ocupacional"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.calendar_registry_information_wzd_view_form
+msgid "Cerrar"
+msgstr "Cerrar"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:27
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:13
+#: selection:hr.contract,supplement_type:0
+#, python-format
+msgid "Change"
+msgstr "Cambio"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_child_ids
+msgid "Child Contracts"
+msgstr "Contratos Hijos"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_child_ids
+msgid "Child Payment Method"
+msgstr "Forma de Pago Hijo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_clasification
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_clasification
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.contract_payment_method_view_form
+msgid "Clasification"
+msgstr "Clasificación"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_classification_id
+msgid "Classification"
+msgstr "Clasificación"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.classification_deductios_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.classification_deductios_view_tree
+msgid "Classification of Deductions"
+msgstr "Clasificación de las deducciones"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,help:l10n_cu_hlg_hr_contract.action_hr_contract_supplement_motive
+msgid "Click to add a new Motive."
+msgstr "Click para adicionar un nuevo Motivo."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,help:l10n_cu_hlg_hr_contract.contract_payment_method_view_action
+msgid "Click to add a new Payment Methods."
+msgstr "Click para dicionar un nuevo Método de Pago."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_classification_deductions_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_type_code
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_job_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_company_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_company_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.category_register_report
+#: selection:reports.wzd,type:0
+msgid "Company Category-Job Position (A.14-A)"
+msgstr "Plantilla de la empresa por categoría (A.14-A)"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.employee_register_report
+#: selection:reports.wzd,type:0
+msgid "Company Job Position (A.14)"
+msgstr "Plantilla de la empresa (A.14)"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_job_conditions_security_health
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.job_form
+msgid "Conditions of security and health"
+msgstr "Condiciones de seguridad y salud"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_confirm_movement
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "Confirm movement"
+msgstr "Confirmar Movimiento"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_contract_ids
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard_contract_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_wizard_view
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_hr_contract_type
+msgid "Contract Type"
+msgstr "Condiciones Anormales"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:354
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:371
+#, python-format
+msgid "Contract start date must be less than contract end date."
+msgstr "Contract start date must be less than contract end date."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_contract_type
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_contract_type
+msgid "Contract type time"
+msgstr "Tipo de contrato hora"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_contract_ids
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_job_contract_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hlg_hr_contract_view_graph
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hlg_hr_contract_view_pivot
+msgid "Contracts"
+msgstr "Contratos"
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:hr_contract.retributions_deductions,type:0
+msgid "Contribution"
+msgstr "Contribución"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.hlg_hr_contract_type_view_form
+msgid "Contributions"
+msgstr "Contribuciones"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_ids
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_retributions_deductions
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.contract_retributions_deductios_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.contract_retributions_deductios_view_tree
+msgid "Contributions and Deductions"
+msgstr "Contribuciones y Deducciones"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_job_counts_hired_employee
+msgid "Counts hired employee"
+msgstr "Cantidad de empleados contratados"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_classification_deductions_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_agreement_parts_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_motive_movement_wzd_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_reports_wzd_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_classification_deductions_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_agreement_parts_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_motive_movement_wzd_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_reports_wzd_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_cover
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.current_situation
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.qualified_workforce
+msgid "Cubierta"
+msgstr "Cubierta"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.current_situation_report
+#: selection:reports.wzd,type:0
+msgid "Current situation of the workforce"
+msgstr "Situación actual de la fuerza de trabajo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_current_work_area
+msgid "Current work area"
+msgstr "Área de trabajo actual"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Código REEUP:"
+msgstr "Código REEUP:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:9
+#: selection:hr.contract,contract_type:0
+#, python-format
+msgid "DETERMINADO"
+msgstr "DETERMINADO"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "DIRECCION"
+msgstr "DIRECCION"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information_days_left
+msgid "Days left"
+msgstr "Días restantes"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_category_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "De la plantilla de cargos y el registro de trabajadores"
+msgstr "De la plantilla de cargos y el registro de trabajadores"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:469
+#, python-format
+msgid "Debe introducir un motivo a su último movimiento de nómina"
+msgstr "Debe introducir un motivo a su último movimiento de nómina"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:46
+#, python-format
+msgid "December"
+msgstr "Diciembre"
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:hr_contract.retributions_deductions,type:0
+msgid "Deduction"
+msgstr "Deducción"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_category_register
+msgid "Departamento"
+msgstr "Departamento"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies
+msgid "Departamento:"
+msgstr "Departamento:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_department
+msgid "Department"
+msgstr "Departamento"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_code_depart
+msgid "Department code"
+msgstr "Código del departamento"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Descripción"
+msgstr "Descripción"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_description
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive_desc
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.contract_payment_method_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_hr_contract_supplement_motive_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:15
+#, python-format
+msgid "Determinate"
+msgstr "Determinado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.action_report_contract_determinate
+msgid "Determinate contract"
+msgstr "Contrato determinado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Dirección:"
+msgstr "Dirección:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_classification_deductions_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_agreement_parts_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_motive_movement_wzd_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_approved_cover_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_approved_template_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_by_category_register_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_by_employee_register_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_covered_by_categories_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_current_situation_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_employee_register_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_genaral_information_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_qualified_workforce_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_determinate_contract_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_indeterminate_contract_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_mov_nomina_contract_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_supplement_contract_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_vacancies_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_vacancies_total_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_reports_wzd_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "ELABORADO POR"
+msgstr "ELABORADO POR"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "EMPLEADOR"
+msgstr "EMPLEADOR"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "ESCALA"
+msgstr "ESCALA"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "ESTADO CIVIL"
+msgstr "ESTADO CIVIL"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:232
+#, python-format
+msgid "Each employee must have only one main or indeterminate contract per company"
+msgstr "Cada empleado debe tener solo un contrato principal o indeterminado por compañía"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "El Empleador abonará al trabajador un salario que se ajustará a alguna de las siguientes formas de pagos establecidas en la legislación vigente:"
+msgstr "El Empleador abonará al trabajador un salario que se ajustará a alguna de las siguientes formas de pagos establecidas en la legislación vigente:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "El Empleador se compromete a abonar al Trabajador su salario en la forma establecida en el presente contrato y a cumplir las normas de seguridad y salud y la de seguridad social, vacaciones anuales pagadas y las disposiciones vigentes en materia laboral."
+msgstr "El Empleador se compromete a abonar al Trabajador su salario en la forma establecida en el presente contrato y a cumplir las normas de seguridad y salud y la de seguridad social, vacaciones anuales pagadas y las disposiciones vigentes en materia laboral."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "El Trabajador se compromete a cumplir con el contenido de trabajo que aparece descrito en este contrato, a obedecer las órdenes que le sean impartidas por los superiores que estén debidamente facultados para ellos y para acatar el Convenio Colectivo de Trabajo y el Reglamento Interno de la Entidad, así como las demás disposiciones vigentes que rigen las materias de organización del trabajo y seguridad y salud en el trabajo."
+msgstr "El Trabajador se compromete a cumplir con el contenido de trabajo que aparece descrito en este contrato, a obedecer las órdenes que le sean impartidas por los superiores que estén debidamente facultados para ellos y para acatar el Convenio Colectivo de Trabajo y el Reglamento Interno de la Entidad, así como las demás disposiciones vigentes que rigen las materias de organización del trabajo y seguridad y salud en el trabajo."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "El Trabajador, durante el desempeño de su cargo, disfrutará de los beneficios de las vacaciones anuales pagadas y de la seguridad social, siempre que en ambos casos se cumpla los requisitos establecidos por las disposiciones vigentes sobre estas materias, y tendrá los demás derechos laborales enmarcados en la legislación vigente."
+msgstr "El Trabajador, durante el desempeño de su cargo, disfrutará de los beneficios de las vacaciones anuales pagadas y de la seguridad social, siempre que en ambos casos se cumpla los requisitos establecidos por las disposiciones vigentes sobre estas materias, y tendrá los demás derechos laborales enmarcados en la legislación vigente."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "El horario de trabajo que está establecido es:&amp;nbsp;&amp;nbsp;"
+msgstr "El horario de trabajo que está establecido es:&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "El presente contrato se suscribe por tiempo:"
+msgstr "El presente contrato se suscribe por tiempo:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "El trabajador tendrá asignado un salario de acuerdo a su ocupación y cargo:"
+msgstr "El trabajador tendrá asignado un salario de acuerdo a su ocupación y cargo:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+msgid "Empleados"
+msgstr "Empleados"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_hr_employee
+#: selection:l10n_cu_hlg_hr_contract.agreement_parts,parts:0
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_hr_contract
+msgid "Employee Contract"
+msgstr "Contrato del empleado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:l10n_cu_hlg_hr_contract.agreement_parts,parts:0
+msgid "Employee and Employer"
+msgstr "Trabajador y Empleador"
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:l10n_cu_hlg_hr_contract.agreement_parts,parts:0
+msgid "Employer"
+msgstr "Empleador"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+msgid "Establecer una relación de trabajo mediante contrato determinado o para la ejecución de un trabajo u obra con el objetivo siguiente:"
+msgstr "Establecer una relación de trabajo mediante contrato determinado o para la ejecución de un trabajo u obra con el objetivo siguiente:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_template
+msgid ""
+"Este consolidado resume la cantidad de plazas existentes en el\n"
+"                                        documento primario P2 por Categoría Ocupacional."
+msgstr ""
+"Este consolidado resume la cantidad de plazas existentes en el\n"
+"                                        documento primario P2 por Categoría Ocupacional."
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:l10n_cu_hlg_hr_contract.registry_information,state:0
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_type_extras_hours
+msgid "Extra hours"
+msgstr "Horas extras"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:hr.contract.type,name:l10n_cu_hlg_hr_contract.hr_contract_type_sub_both
+msgid "Extras Hours and Nocturnity"
+msgstr "Horas extras y Nocturnidad"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "FECHA ALTA CARGO"
+msgstr "FECHA ALTA CARGO"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "FECHA ALTA EN EMPRESA"
+msgstr "FECHA ALTA EN EMPRESA"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "FECHA ALTA INICIO ACTIV."
+msgstr "FECHA ALTA INICIO ACTIV."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "FECHA ALTA ORGANISMO"
+msgstr "FECHA ALTA ORGANISMO"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "FECHAS DE ALTA (ESCRIBIR *** DIA / MES / ANO *** )"
+msgstr "FECHAS DE ALTA (ESCRIBIR *** DIA / MES / ANO *** )"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_contract.action_fastos_registry_information
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_contract.action_fastos_registry_information_menu
+msgid "Fastos Registry Information"
+msgstr "Información del registro Fastos"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:36
+#, python-format
+msgid "February"
+msgstr "Febrero"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Fecha de nacimiento:"
+msgstr "Fecha de nacimiento:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "Fin"
+msgstr "Fin"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:26
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:13
+#: selection:hr.contract,supplement_type:0
+#, python-format
+msgid "Fire"
+msgstr "Baja"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_category_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Firma: _______________________________________________________"
+msgstr "Firma: _______________________________________________________"
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:hr.contract,clasification:0
+msgid "Framework"
+msgstr "Marco"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Frecuencia de pago:&amp;nbsp;&amp;nbsp;"
+msgstr "Frecuencia de pago:&amp;nbsp;&amp;nbsp;"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:31
+#, python-format
+msgid "Friday"
+msgstr "Viernes"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.qualified_workforce
+msgid "Fuerza de trabajo calificada"
+msgstr "Fuerza de trabajo calificada"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "GRADUADO DE"
+msgstr "GRADUADO DE"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.genaral_information_report
+msgid "General Information of an Employee"
+msgstr "Información General de un Empleado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_rpt_wzd_form
+msgid "Generate Report"
+msgstr "Generar informe"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_cover
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies_total
+msgid "Grupo Salarial"
+msgstr "Grupo Salarial"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Grupo salarial"
+msgstr "Grupo salarial"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.calendar_registry_information_wzd_view_form
+msgid "HR Registry Information"
+msgstr "Información del Registro de HR"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:25
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:13
+#: selection:hr.contract,supplement_type:0
+#, python-format
+msgid "Hire"
+msgstr "Alta"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.covered_by_categories
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.current_situation
+msgid "Hombres"
+msgstr "Hombres"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "Horas de trabajo"
+msgstr "Horas de trabajo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_classification_deductions_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_agreement_parts_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_motive_movement_wzd_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_approved_cover_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_approved_template_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_by_category_register_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_by_employee_register_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_covered_by_categories_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_current_situation_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_employee_register_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_genaral_information_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_qualified_workforce_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_determinate_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_indeterminate_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_mov_nomina_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_supplement_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_vacancies_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_vacancies_total_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_reports_wzd_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "IDIOMA"
+msgstr "IDIOMA"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:10
+#: selection:hr.contract,contract_type:0
+#, python-format
+msgid "INDETERMINADO"
+msgstr "INDETERMINADO"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_background_average
+msgid "If it is true the form of payment will require a background average in days and hours."
+msgstr "Si es cierto, la forma de pago requerirá un promedio de fondo en días y horas."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_agreement_parts_parts
+msgid "Implicated Parts"
+msgstr "Partes implicadas"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:16
+#, python-format
+msgid "Indeterminate"
+msgstr "Indeterminado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.action_report_contract_indeterminate
+msgid "Indeterminate contract"
+msgstr "Contrato indeterminado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "Inicio"
+msgstr "Inicio"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_employee_is_connected
+msgid "Is Connected"
+msgstr "Está conectado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:35
+#, python-format
+msgid "January"
+msgstr "Enero"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_job
+msgid "Job"
+msgstr "Puesto de trabajo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_hr_job
+msgid "Job Position"
+msgstr "Puesto de trabajo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.by_employee_register_report
+#: selection:reports.wzd,type:0
+msgid "Job Positions by Employee (A.14B)"
+msgstr "Puestos de Trabajo por Empleado (A.14B)"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_code_job
+msgid "Job code"
+msgstr "Código de puesto"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:41
+#, python-format
+msgid "July"
+msgstr "Julio"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:40
+#, python-format
+msgid "June"
+msgstr "Junio"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information_key
+msgid "Key"
+msgstr "Clave"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+msgid "La duración de este contrato es de"
+msgstr "La duración de este contrato es de"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "La modificación al CONTRATO DE TRABAJO original esta dado por :"
+msgstr "La modificación al CONTRATO DE TRABAJO original esta dado por :"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "La modificación de este contrato y la suspensión de la relación de trabajo quedan sujetas a lo dispuesto en los artículos 42, 43 y 44 de la Ley No. 116/2013 (Código de Trabajo), y en los artículos 33 y 34 del Decreto No. 326/2014 (Reglamento del Código de Trabajo)."
+msgstr "La modificación de este contrato y la suspensión de la relación de trabajo quedan sujetas a lo dispuesto en los artículos 42, 43 y 44 de la Ley No. 116/2013 (Código de Trabajo), y en los artículos 33 y 34 del Decreto No. 326/2014 (Reglamento del Código de Trabajo)."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "La terminación del contrato de trabajo y la consiguiente conclusión de la relación de trabajo quedan sujetas a lo dispuesto en los artículos 45,46,47,48,49,50 y 52 de la Ley No. 116/2013 (Código de Trabajo)"
+msgstr "La terminación del contrato de trabajo y la consiguiente conclusión de la relación de trabajo quedan sujetas a lo dispuesto en los artículos 45,46,47,48,49,50 y 52 de la Ley No. 116/2013 (Código de Trabajo)"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_classification_deductions___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_agreement_parts___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_motive_movement_wzd___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_approved_cover___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_approved_template___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_by_category_register___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_by_employee_register___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_covered_by_categories___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_current_situation___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_employee_register___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_genaral_information___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_qualified_workforce___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_determinate_contract___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_indeterminate_contract___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_mov_nomina_contract___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_report_supplement_contract___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_vacancies___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_report_l10n_cu_hlg_hr_contract_vacancies_total___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_reports_wzd___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_classification_deductions_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_agreement_parts_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_motive_movement_wzd_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_reports_wzd_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_classification_deductions_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_agreement_parts_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_report_wizard_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_motive_movement_wzd_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_reports_wzd_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_last_supplement_id
+msgid "Last supplement"
+msgstr "Último suplemento"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_hr_contract.field_hr_contract_last_supplement_id
+msgid "Latest contract of the employee"
+msgstr "Último contrato del empleado."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_resource_calendar_rest_time
+msgid "Lunch break"
+msgstr "Descanso para almorzar"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "MILITANTE"
+msgstr "MILITANTE"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "MOTIVO DEL ALTA"
+msgstr "MOTIVO DEL ALTA"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "MUNICIPIO"
+msgstr "MUNICIPIO"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_main
+msgid "Main"
+msgstr "Principal"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:37
+#, python-format
+msgid "March"
+msgstr "Marzo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:39
+#, python-format
+msgid "May"
+msgstr "Mayo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_means_of_payment
+msgid "Means of payment"
+msgstr "Medio de pago"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "Minutos p/Almuerzo"
+msgstr "Minutos p/Almuerzo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "Minutos p/descanzo y necesidades"
+msgstr "Minutos p/descanzo y necesidades"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:27
+#, python-format
+msgid "Monday"
+msgstr "Lunes"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_resource_calendar_monthly_average
+msgid "Month average work hours"
+msgstr "Horas de trabajo promedio mensuales"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:13
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:19
+#: selection:hr.contract,schedule_pay:0
+#, python-format
+msgid "Monthly"
+msgstr "Mensual"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_hr_contract_supplement_motive_tree
+msgid "Motive"
+msgstr "Motivo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_contract.action_motive_movement_wzd
+msgid "Motive movement"
+msgstr "Motivo del movimiento"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_hr_contract_supplement_motive_search
+msgid "Motive search"
+msgstr "Buscar Motivo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_contract.action_hr_contract_supplement_motive
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_contract.contract_supplement_motive_menu_item
+msgid "Motives"
+msgstr "Motivos de mov. nómina"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_type
+msgid "Movement type"
+msgstr "Tipo de movimiento"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.action_report_contract_mov_nomina
+msgid "Movimiento nomina"
+msgstr "Movimiento nómina"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.covered_by_categories
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.current_situation
+msgid "Mujeres"
+msgstr "Mujeres"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Municipio:"
+msgstr "Municipio:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "NACIDO EN"
+msgstr "NACIDO EN"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "NIVEL ESCOLAR"
+msgstr "NIVEL ESCOLAR"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "NOMBRE DE LA MADRE"
+msgstr "NOMBRE DE LA MADRE"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "NOMBRE DEL PADRE"
+msgstr "NOMBRE DEL PADRE"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "NOMBRES Y APELLIDOS"
+msgstr "NOMBRES Y APELLIDOS"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "NUMERO DE HIJOS"
+msgstr "NUMERO DE HIJOS"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_classification_deductions_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_agreement_parts_name
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.hlg_hr_contract_type_view_form
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_type_night_hours
+msgid "Night hours"
+msgstr "Horario nocturno"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+msgid "Nivel de Escolaridad"
+msgstr "Nivel de Escolaridad"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Nivel de preparacion"
+msgstr "Nivel de preparación"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "No."
+msgstr "No."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "No. Carné de Identidad:"
+msgstr "No. Carné de Identidad:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "No. Expediente laboral:"
+msgstr "No. Expediente laboral:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_category_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Nombre: ______________________________________________________"
+msgstr "Nombre: ______________________________________________________"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:45
+#, python-format
+msgid "November"
+msgstr "Noviembre"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "OFICIO(S)"
+msgstr "OFICIO(S)"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_occupational_category_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_occupational_category
+msgid "Occupational Category"
+msgstr "Categoría ocupacional"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:44
+#, python-format
+msgid "October"
+msgstr "Octubre"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:29
+#: selection:hr_contract.payment_method,clasification:0
+#, python-format
+msgid "On time"
+msgstr "A Tiempo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Organismo al que pertenece:"
+msgstr "Organismo al que pertenece:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_category_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Organo"
+msgstr "Órgano"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "PROVINCIA"
+msgstr "PROVINCIA"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.calendar_registry_information_wzd_view_form
+msgid ""
+"Para poder disfrutar de todas las funcionalidades del sistema <b>Fasto</b> debe completar el registro del modulo.<br/>\n"
+"                    \tEnvie la semilla a la siguiente direccion de correo"
+msgstr ""
+"Para poder disfrutar de todas las funcionalidades del sistema <b>Fasto</b> debe completar el registro del módulo.<br/>\n"
+"                    Envie la semilla a la siguiente direccion de correo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_parent_id
+msgid "Parent Contract"
+msgstr "Contrato padre"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_parent_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.contract_payment_method_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.contract_payment_method_view_tree
+msgid "Parent Payment Method"
+msgstr "Forma de pago padre"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_payment_method_class
+msgid "Parent payment method clasification"
+msgstr "Clasificación del método de pago padre"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_hr_contract_payment_method
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "Payment Method"
+msgstr "Forma de pago"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_contract.contract_payment_method_view_action
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_contract.contract_payment_method_menu_item
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.contract_payment_method_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.contract_payment_method_view_tree
+msgid "Payment Methods"
+msgstr "Formas de pagos"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_payment_method_id_11827
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_payment_method
+msgid "Payment method"
+msgstr "Forma de pago"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_contract.contract_supplement_action
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "Payroll Movement"
+msgstr "Móvimiento de Nómina"
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:hr_contract.supplement_motive,type:0
+msgid "Permanente"
+msgstr "Permanente"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_template
+msgid "Plantilla Aprobada"
+msgstr "Plantilla Aprobada"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_cover
+msgid "Plantilla Aprobada y Cubierta por Cargos"
+msgstr "Plantilla Aprobada y Cubierta por Cargos"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies_total
+msgid "Plazas vacantes"
+msgstr "Plazas vacantes"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "Plus"
+msgstr "Extras"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_wizard_view
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_contract.act_report_indeterminate_contract
+msgid "Print Contract"
+msgstr "Imprimir Modelo de Contrato"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Profesión u oficio:"
+msgstr "Profesión u oficio:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Provincia:"
+msgstr "Provincia:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:hr_contract.supplement_motive,type:0
+msgid "Provisional"
+msgstr "Provisional"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_cover
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies_total
+msgid "Puesto"
+msgstr "Puesto"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.qualified_workforce_report
+#: selection:reports.wzd,type:0
+msgid "Qualified workforce"
+msgstr "Fuerza de trabajo calificada"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:14
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:20
+#: selection:hr.contract,schedule_pay:0
+#, python-format
+msgid "Quarterly"
+msgstr "Trimestral"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Que en lo sucesivo y a los efectos del presente documento se denominará el TRABAJADOR."
+msgstr "Que en lo sucesivo y a los efectos del presente documento se denominará el TRABAJADOR."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Quien concurre por su propio derecho y cuyos datos personales son:"
+msgstr "Quien concurre por su propio derecho y cuyos datos personales son:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "RAZA"
+msgstr "RAZA"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "REGISTRO MILITAR"
+msgstr "REGISTRO MILITAR"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_mov_nomina_contract
+msgid "REVISADO POR"
+msgstr "REVISADO POR"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Rama:"
+msgstr "Rama:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:l10n_cu_hlg_hr_contract.registry_information,state:0
+msgid "Registered"
+msgstr "Registrado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_rpt_wzd_form
+msgid "Reporte"
+msgstr "Reporte"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_reports_wzd_type
+msgid "Reportes"
+msgstr "Reportes"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_resource_calendar
+msgid "Resource Calendar"
+msgstr "Calendario"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.covered_by_categories
+msgid "Resumen de plantilla Cubierta por categorías"
+msgstr "Resumen de plantilla Cubierta por categorías"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid ""
+"SALARIO\n"
+"                                    <br/>\n"
+"                                    TOTAL"
+msgstr ""
+"SALARIO\n"
+"                                    <br/>\n"
+"                                    TOTAL"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "SOLAPIN"
+msgstr "SOLAPIN"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "SUBORDINADA A"
+msgstr "SUBORDINADA A"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+msgid "Salary"
+msgstr "Salario"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_salary_group_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_salary_group
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+msgid "Salary Group"
+msgstr "Grupo salarial"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_wage
+msgid "Salary Scale"
+msgstr "Salario escala"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:32
+#, python-format
+msgid "Saturday"
+msgstr "Sábado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_motive_movement_wzd_form
+msgid "Save"
+msgstr "Guardar"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_schedule_pay
+msgid "Schedule pay"
+msgstr "Programar pago"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information_seed
+msgid "Seed"
+msgstr "Semilla"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_wizard_view
+msgid "Select Authorized signature"
+msgstr "Seleccionar Firma Autorizada"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:15
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:21
+#: selection:hr.contract,schedule_pay:0
+#, python-format
+msgid "Semi-annually"
+msgstr "Semi-anual"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:43
+#, python-format
+msgid "September"
+msgstr "Septiembre"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+msgid "Sexo"
+msgstr "Sexo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_show_in_contract
+msgid "Show in contract"
+msgstr "Mostar en el Contrato"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.current_situation
+msgid "Situación actual de la plantilla"
+msgstr "Situación actual de la plantilla"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_contract.action_rpt_wzd
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_contract.list_rpt_menu
+msgid "Sobre la Plantilla"
+msgstr "Sobre la Plantilla"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_motive_movement_wzd_date_start
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.calendar_registry_information_wzd_view_form
+msgid "Su clave de registro es invalida."
+msgstr "Su clave de registro es inválida."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.calendar_registry_information_wzd_view_form
+msgid "Su clave de registro esta vencida."
+msgstr "Su clave de registro esta vencida."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.calendar_registry_information_wzd_view_form
+msgid "Su registro es valido."
+msgstr "Su registro es válido."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.calendar_registry_information_wzd_view_form
+msgid "Su registro esta proximo a vencerse."
+msgstr "Su registro esta próximo a vencerse."
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:33
+#, python-format
+msgid "Sunday"
+msgstr "Domingo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:hr.contract,clasification:0
+msgid "Supplement"
+msgstr "Movimiento de Nómina"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_description
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_motive_movement_wzd_supplement_description
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_hr_contract_supplement_motive_form
+msgid "Supplement Motive"
+msgstr "Motivo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.action_report_contract_supplement
+msgid "Supplement contract"
+msgstr "Movimiento de nómina"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_supplement_tree
+msgid "Supplements"
+msgstr "Suplementos"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.genaral_information
+msgid "TELEFONO"
+msgstr "TELEFONO"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "TRABAJADOR"
+msgstr "TRABAJADOR"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Teléfono:"
+msgstr "Teléfono:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.covered_by_categories_report
+#: selection:reports.wzd,type:0
+msgid "Template summary Covered by categories"
+msgstr "Resumen de la plantilla cubierta por categorías"
+
+#. module: l10n_cu_hlg_hr_contract
+#: sql_constraint:hr_contract.classification_deductions:0
+msgid "The code must be unique!"
+msgstr "El código debe ser único!"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:303
+#, python-format
+msgid "The employee already has an approved contract with the selected working schedule."
+msgstr "El empleado ya tiene un contrato aprobado con el horario de trabajo seleccionado."
+
+#. module: l10n_cu_hlg_hr_contract
+#: sql_constraint:hr_contract.classification_deductions:0
+#: sql_constraint:hr_contract.retributions_deductions:0
+msgid "The name must be unique!"
+msgstr "El nombre debe ser único!"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/wizard/report_authorized_signature.py:36
+#, python-format
+msgid "The selected contract is not a framework contract"
+msgstr "El contrato seleccionado no es un contrato marco"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "There is an unconfirmed update."
+msgstr "Hay una actualización no confirmada"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:30
+#, python-format
+msgid "Thursday"
+msgstr "Jueves"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "To Closed"
+msgstr "Cierre pendiente"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_category_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.covered_by_categories
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.current_situation
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies_total
+msgid "Total"
+msgstr "Total"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_total_payment
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+msgid "Total Payment"
+msgstr "Pago total"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.approved_cover
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.covered_by_categories
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.current_situation
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.qualified_workforce
+msgid "Total:"
+msgstr "Total:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:28
+#, python-format
+msgid "Tuesday"
+msgstr "Martes"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "Turno"
+msgstr "Turno"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_retributions_deductions_type
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supplement_motive_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_l10n_cu_hlg_hr_contract_registry_information_state
+msgid "UEB Desoft"
+msgstr "UEB Desoft"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_category_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.by_employee_register
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.employee_register
+msgid "Unidad organizativa:"
+msgstr "Unidad organizativa:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: selection:l10n_cu_hlg_hr_contract.registry_information,state:0
+msgid "Unregistered"
+msgstr "No registrado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.vacancies_report
+#: selection:reports.wzd,type:0
+msgid "Vacancies"
+msgstr "Vacantes"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_contract.vacancies_total_report
+#: selection:reports.wzd,type:0
+msgid "Vacancies total"
+msgstr "Total de vacantes"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.current_situation
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies_total
+msgid "Vacantes"
+msgstr "Vacantes"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:29
+#, python-format
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_resource_calendar_work_hours_average
+msgid "Week average work hours"
+msgstr "Horas de trabajo semanales"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:17
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:23
+#: selection:hr.contract,schedule_pay:0
+#, python-format
+msgid "Weekly"
+msgstr "Semanal"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,help:l10n_cu_hlg_hr_contract.action_hr_contract_supplement_motive
+msgid ""
+"With just a quick glance, you can easily find all the information\n"
+"              \tyou need for each Motive."
+msgstr ""
+"Con solo echar un rápido vistazo, puede encontrar fácilmente toda la información\n"
+"              que necesita por cada Motivo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.actions.act_window,help:l10n_cu_hlg_hr_contract.contract_payment_method_view_action
+msgid ""
+"With just a quick glance, you can easily find all the information\n"
+"              \tyou need for each Payment Methods."
+msgstr ""
+"Con solo echar un rápido vistazo, puede encontrar fácilmente toda la información\n"
+"              tque necesita para cada Forma de Pago."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_resource_calendar_attendance
+msgid "Work Detail"
+msgstr "Detalle del trabajo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_resource_calendar_work_hours_day
+msgid "Work hours per day"
+msgstr "Horas de trabajo por día"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_supp_working_hours
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_contract.field_hr_contract_type_working_hours_ids_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.hr_contract_view_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.l10n_cu_hr_contract_form
+msgid "Working hours"
+msgstr "Horario de trabajo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "Y PARA QUE CONSTE, se extiende el presente Contrato de trabajo, que suscriben las partes de común acuerdo, en original y dos copias, en el municipio ____________________________"
+msgstr "Y PARA QUE CONSTE, se extiende el presente Contrato de trabajo, que suscriben las partes de común acuerdo, en original y dos copias, en el municipio ____________________________"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/employee_register_report.py:9
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:8
+#: code:addons/l10n_cu_hlg_hr_contract/wizard/registry.py:9
+#, python-format
+msgid "You are using a expired key. Please contact the suport center for a new one."
+msgstr "Usted está usando una llave expirada. Por favor, póngase en contacto con el centro de soporte para obtener una nueva."
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/employee_register_report.py:8
+#: code:addons/l10n_cu_hlg_hr_contract/report/employee_register_report.py:10
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:7
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:9
+#: code:addons/l10n_cu_hlg_hr_contract/wizard/registry.py:8
+#: code:addons/l10n_cu_hlg_hr_contract/wizard/registry.py:10
+#, python-format
+msgid "You are using a invalid key. Please contact the suport center for a new one."
+msgstr "Estás usando una clave inválida. Por favor, póngase en contacto con el centro de soporte para obtener una nueva."
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:270
+#, python-format
+msgid "You can not delete a contract in this state"
+msgstr "No puede eliminar un contrato en este estado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:646
+#, python-format
+msgid "You can not delete a retribution/deduction in use"
+msgstr "No puede eliminar una retribución/deducción en uso"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:423
+#, python-format
+msgid "You can not modify contract state in state closed"
+msgstr "No se puede modificar el contrato en estado cerrado"
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/models/hr_contract.py:364
+#, python-format
+msgid "You must enter a reason for your last payroll move"
+msgstr "Debe ingresar un motivo para su último movimiento de nómina."
+
+#. module: l10n_cu_hlg_hr_contract
+#: code:addons/l10n_cu_hlg_hr_contract/report/employee_register_report.py:7
+#: code:addons/l10n_cu_hlg_hr_contract/report/l10n_cu_hlg_hr_contract_models.py:6
+#: code:addons/l10n_cu_hlg_hr_contract/wizard/registry.py:7
+#, python-format
+msgid "You must request a registry key. Please contact the suport center for a new one."
+msgstr "Debe solicitar una clave de registro. Por favor, póngase en contacto con el centro de soporte para obtener una nueva."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "__X__"
+msgstr "__X__"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "____"
+msgstr "____"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+msgid "____&amp;nbsp;&amp;nbsp;Cumplimiento del servicio social."
+msgstr "____&amp;nbsp;&amp;nbsp;Cumplimiento del servicio social."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+msgid "____&amp;nbsp;&amp;nbsp;Período de prueba."
+msgstr "____&amp;nbsp;&amp;nbsp;Período de prueba."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+msgid "____&amp;nbsp;&amp;nbsp;Realizar labores eventuales o emergentes."
+msgstr "____&amp;nbsp;&amp;nbsp;Realizar labores eventuales o emergentes."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+msgid "____&amp;nbsp;&amp;nbsp;Sustituir temporalmente a trabajadores ausentes por causas justificadas amparadas en la legislación."
+msgstr "____&amp;nbsp;&amp;nbsp;Sustituir temporalmente a trabajadores ausentes por causas justificadas amparadas en la legislación."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "____Permanente"
+msgstr "____Permanente"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "____Provisional"
+msgstr "____Provisional"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "_____"
+msgstr "_____"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "_____Para labores continuas  _____Para Labores discontinuas o ciclicas"
+msgstr "_____Para labores continuas  _____Para Labores discontinuas o ciclicas"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "___________Employee"
+msgstr "___________Trabajador"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "___________Employee &amp;nbsp;&amp;nbsp;___________Employer"
+msgstr "___________Trabajador &amp;nbsp;&amp;nbsp;___________Empleador"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_supplement_contract
+msgid "___________Employer"
+msgstr "___________Empleador"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "a los"
+msgstr "a los"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "a nombre y en repres."
+msgstr "a nombre y en repres."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "a) Desempañará la ocupación o cargo denominado:"
+msgstr "a) Desempañará la ocupación o cargo denominado:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "b)El trabajo será ejecutado en:"
+msgstr "b)El trabajo será ejecutado en:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "c) Vienen obligado a laborar una jornada de trabajo de:"
+msgstr "c) Vienen obligado a laborar una jornada de trabajo de:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.calendar_registry_information_wzd_view_form
+msgid "comecial@hlg.desoft.cu"
+msgstr "comecial@hlg.desoft.cu"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "cuyo contenido de trabajo es el siguiente:"
+msgstr "cuyo contenido de trabajo es el siguiente:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "d) El puesto de trabajo tiene las condiciones de seguridad y salud siguientes:"
+msgstr "d) El puesto de trabajo tiene las condiciones de seguridad y salud siguientes:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "de la Escala Salarial y la categoría ocupacional de:"
+msgstr "de la Escala Salarial y la categoría ocupacional de:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "de la entidad denominada:"
+msgstr "de la entidad denominada:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "del"
+msgstr "del"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+msgid "días a partir de la fecha de confección y firma."
+msgstr "días a partir de la fecha de confección y firma."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "días del mes de"
+msgstr "días del mes de"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "horas mensuales."
+msgstr "horas mensuales."
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "horas semanales y"
+msgstr "horas semanales y"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_hr_contract_classification_deductions
+msgid "hr_contract.classification_deductions"
+msgstr "hr_contract.classification_deductions"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_hr_contract_retributions_deductions
+msgid "hr_contract.retributions_deductions"
+msgstr "Retribuciones/Deducciones"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_hr_contract_supplement_motive
+msgid "hr_contract.supplement_motive"
+msgstr "hr_contract.supplement_motive"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_l10n_cu_hlg_hr_contract_agreement_parts
+msgid "l10n_cu_hlg_hr_contract.agreement_parts"
+msgstr "l10n_cu_hlg_hr_contract.agreement_parts"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_l10n_cu_hlg_hr_contract_registry_information
+msgid "l10n_cu_hlg_hr_contract.registry_information"
+msgstr "l10n_cu_hlg_hr_contract.registry_information"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_l10n_cu_hlg_hr_contract_report_wizard
+msgid "l10n_cu_hlg_hr_contract.report_wizard"
+msgstr "l10n_cu_hlg_hr_contract.report_wizard"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_motive_movement_wzd_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.view_rpt_wzd_form
+msgid "list"
+msgstr "list"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_motive_movement_wzd
+msgid "motive.movement.wzd"
+msgstr "motive.movement.wzd"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_wizard_view
+msgid "or"
+msgstr "o"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "que corresponde al grupo"
+msgstr "que corresponde al grupo"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "que en lo sucesivo, a los efectos del presente contrato, se denominará  El EMPLEADOR, cuyos datos fundamentales de identificación son los siguientes:"
+msgstr "que en lo sucesivo, a los efectos del presente contrato, se denominará  El EMPLEADOR, cuyos datos fundamentales de identificación son los siguientes:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_determinate_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.report_indeterminate_contract
+msgid "que ocupa el cargo de:"
+msgstr "que ocupa el cargo de:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_approved_cover
+msgid "report.l10n_cu_hlg_hr_contract.approved_cover"
+msgstr "report.l10n_cu_hlg_hr_contract.approved_cover"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_approved_template
+msgid "report.l10n_cu_hlg_hr_contract.approved_template"
+msgstr "report.l10n_cu_hlg_hr_contract.approved_template"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_by_category_register
+msgid "report.l10n_cu_hlg_hr_contract.by_category_register"
+msgstr "report.l10n_cu_hlg_hr_contract.by_category_register"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_by_employee_register
+msgid "report.l10n_cu_hlg_hr_contract.by_employee_register"
+msgstr "report.l10n_cu_hlg_hr_contract.by_employee_register"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_covered_by_categories
+msgid "report.l10n_cu_hlg_hr_contract.covered_by_categories"
+msgstr "report.l10n_cu_hlg_hr_contract.covered_by_categories"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_current_situation
+msgid "report.l10n_cu_hlg_hr_contract.current_situation"
+msgstr "report.l10n_cu_hlg_hr_contract.current_situation"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_employee_register
+msgid "report.l10n_cu_hlg_hr_contract.employee_register"
+msgstr "report.l10n_cu_hlg_hr_contract.employee_register"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_genaral_information
+msgid "report.l10n_cu_hlg_hr_contract.genaral_information"
+msgstr "report.l10n_cu_hlg_hr_contract.genaral_information"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_qualified_workforce
+msgid "report.l10n_cu_hlg_hr_contract.qualified_workforce"
+msgstr "report.l10n_cu_hlg_hr_contract.qualified_workforce"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_report_determinate_contract
+msgid "report.l10n_cu_hlg_hr_contract.report_determinate_contract"
+msgstr "report.l10n_cu_hlg_hr_contract.report_determinate_contract"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_report_indeterminate_contract
+msgid "report.l10n_cu_hlg_hr_contract.report_indeterminate_contract"
+msgstr "report.l10n_cu_hlg_hr_contract.report_indeterminate_contract"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_report_mov_nomina_contract
+msgid "report.l10n_cu_hlg_hr_contract.report_mov_nomina_contract"
+msgstr "report.l10n_cu_hlg_hr_contract.report_mov_nomina_contract"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_report_supplement_contract
+msgid "report.l10n_cu_hlg_hr_contract.report_supplement_contract"
+msgstr "report.l10n_cu_hlg_hr_contract.report_supplement_contract"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_vacancies
+msgid "report.l10n_cu_hlg_hr_contract.vacancies"
+msgstr "report.l10n_cu_hlg_hr_contract.vacancies"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_report_l10n_cu_hlg_hr_contract_vacancies_total
+msgid "report.l10n_cu_hlg_hr_contract.vacancies_total"
+msgstr "report.l10n_cu_hlg_hr_contract.vacancies_total"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.model,name:l10n_cu_hlg_hr_contract.model_reports_wzd
+msgid "reports.wzd"
+msgstr "reports.wzd"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.vacancies
+msgid "sub total:"
+msgstr "Sub total:"
+
+#. module: l10n_cu_hlg_hr_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_contract.calendar_registry_information_wzd_view_form
+msgid "y le sera enviada su clave de registro."
+msgstr "y le será enviada su clave de registro."

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		COST CENTER BUDGET
+		Model: atmsys.cost_center.budget
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_cost_center_budget_form_view" model="ir.ui.view">
+            <field name="name">atmsys_cost_center_budget_form_view</field>
+            <field name="model">atmsys.cost_center.budget</field>
+            <field name="arch" type="xml">
+            	<form>
+            		<sheet>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="cost_center_id"/>
+                            </group>
+
+                            <group>
+                                <field name="plan"/>
+                                <field name="real"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="atmsys_cost_center_budget_tree_view" model="ir.ui.view">
+            <field name="name">atmsys_cost_center_budget_tree_view</field>
+            <field name="model">atmsys.cost_center.budget</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		<field name="date"/>
+            		<field name="cost_center_id"/>
+            		<field name="plan"/>
+            		<field name="real"/>
+	            </tree>
+	        </field>
+	    </record>
+
+        <!-- ACTION -->
+        <record id="atmsys_cost_center_budget_action" model="ir.actions.act_window">
+	    	<field name="name">Budgets</field>
+		    <field name="res_model">atmsys.cost_center.budget</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Budgets"
+				  id="atmsys_cost_center_budget_menu_item"
+				  action="atmsys_cost_center_budget_action"
+				  parent="atmsys_general_elements_left_menu"
+                  sequence="25"/>
+    </data>
+</odoo>

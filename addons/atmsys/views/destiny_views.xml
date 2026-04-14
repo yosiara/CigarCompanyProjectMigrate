@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		DESTINY
+		Model: atmsys.product_destiny
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="atmsys_product_destiny_form_view" model="ir.ui.view">
+            <field name="name">atmsys_product_destiny_form_view</field>
+            <field name="model">atmsys.product_destiny</field>
+            <field name="arch" type="xml">
+            	<form>
+            		<sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="name"/>
+                            </group>
+                            <group/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="atmsys_product_destiny_tree_view" model="ir.ui.view">
+            <field name="name">atmsys_product_destiny_tree_view</field>
+            <field name="model">atmsys.product_destiny</field>
+            <field name="arch" type="xml">
+            	<tree>
+            		<field name="code"/>
+                    <field name="name"/>
+	            </tree>
+	        </field>
+	    </record>
+
+        <!-- SEARCH VIEW -->
+        <record id="atmsys_product_destiny_search_view" model="ir.ui.view">
+            <field name="name">atmsys_product_destiny_search_view</field>
+            <field name="model">atmsys.product_destiny</field>
+            <field name="arch" type="xml">
+            	<search>
+                    <field name="code"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atmsys_product_destiny_action" model="ir.actions.act_window">
+	    	<field name="name">Destinos</field>
+		    <field name="res_model">atmsys.product_destiny</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Destinos"
+				  id="atmsys_product_destiny_menu_item"
+				  action="atmsys_product_destiny_action"
+				  parent="atmsys_general_elements_left_menu"/>
+    </data>
+</odoo>

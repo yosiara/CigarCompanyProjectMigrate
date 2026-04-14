@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+smoke.access_report_smoke_report_smoke,access_report_smoke_report_smoke,smoke.model_report_smoke_report_smoke,base.group_user,1,1,1,1
+smoke.access_smoke_smoke,access_smoke_smoke,smoke.model_smoke_smoke,base.group_user,1,1,1,1
+smoke.access_smoke_concept,access_smoke_concept,smoke.model_smoke_concept,base.group_user,1,1,1,1
+smoke.access_smoke_wzd,access_smoke_wzd,smoke.model_smoke_wzd,base.group_user,1,1,1,1

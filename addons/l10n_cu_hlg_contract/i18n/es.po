@@ -1,0 +1,2828 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_hlg_contract
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0+e-20161124\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-24 18:34+0000\n"
+"PO-Revision-Date: 2020-03-24 18:45-0400\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_res_partner_contract_count
+msgid "# of Contract"
+msgstr "# de Contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_percentage_execution
+msgid "% Monetary Execution"
+msgstr "Ejecución monetaria %"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.to_expire,time:0
+msgid "01-03-2020 al 31-03-2020"
+msgstr "01-03-2020 al 31-03-2020"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.to_expire,time:0
+msgid "01-04-2020 al 30-04-2020"
+msgstr "01-04-2020 al 30-04-2020"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.to_expire,time:0
+msgid "01-05-2020 al 31-05-2020"
+msgstr "01-05-2020 al 31-05-2020"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "<b>Vencimiento por semanas</b>"
+msgstr "<b>Vencimiento por semanas</b>"
+
+#. module: l10n_cu_hlg_contract
+#: model:mail.template,body_html:l10n_cu_hlg_contract.mail_template_data_notification_email_contract_test
+msgid ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: \"#ededed\" summary=\"o_mail_notification\">\n"
+"                    <tbody>\n"
+"\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\">\n"
+"                                  <span style=\"font-size:20px; color:white; font-weight: bold;\">\n"
+"                                      Contratos\n"
+"                                  </span>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                  <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 1000px; background-color: rgb(255, 255, 255); padding: 20px;\">\n"
+"                            <tbody>\n"
+"                                % if ctx.get('contract'):\n"
+"                                    <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                        <td>Número</td>\n"
+"                                        <td>Empresa</td>\n"
+"                                        <td>Fecha Inicio</td>\n"
+"                                        <td>Fecha Finalización</td>\n"
+"                                        <td>Días Validez Restante</td>\n"
+"                                        <td>Comercial</td>\n"
+"                                        <td>Departamento</td>\n"
+"                                    </tr>\n"
+"                                    % for contract in ctx['contract']\n"
+"                                        <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                            <td>${contract[0]}</td>\n"
+"                                            <td>${contract[1]}</td>\n"
+"                                            <td>${contract[2]}</td>\n"
+"                                            <td>${contract[3]}</td>\n"
+"                                            <td>${contract[4]}</td>\n"
+"                                            <td>${contract[5]}</td>\n"
+"                                            <td>${contract[6]}</td>\n"
+"                                        </tr>\n"
+"                                    % endfor\n"
+"                                % endif\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${user.company_id.name}<br/>\n"
+"                                ${user.company_id.phone or ''}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                % if user.company_id.email:\n"
+"                                <a href=\"mailto:${user.company_id.email}\" style=\"text-decoration:none; color: white;\">${user.company_id.email}</a><br/>\n"
+"                                % endif\n"
+"                                % if user.company_id.website:\n"
+"                                    <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: white;\">\n"
+"                                        ${user.company_id.website}\n"
+"                                    </a>\n"
+"                                % endif\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                        <td align=\"center\">\n"
+"                            Elaborado por ${user.company_id.name}.\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            "
+msgstr ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: \"#ededed\" summary=\"o_mail_notification\">\n"
+"                    <tbody>\n"
+"\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\">\n"
+"                                  <span style=\"font-size:20px; color:white; font-weight: bold;\">\n"
+"                                      Contratos\n"
+"                                  </span>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                  <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 1000px; background-color: rgb(255, 255, 255); padding: 20px;\">\n"
+"                            <tbody>\n"
+"                                % if ctx.get('contract'):\n"
+"                                    <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                        <td>Número</td>\n"
+"                                        <td>Empresa</td>\n"
+"                                        <td>Fecha Inicio</td>\n"
+"                                        <td>Fecha Finalización</td>\n"
+"                                        <td>Días Validez Restante</td>\n"
+"                                        <td>Comercial</td>\n"
+"                                        <td>Departamento</td>\n"
+"                                    </tr>\n"
+"                                    % for contract in ctx['contract']\n"
+"                                        <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                            <td>${contract[0]}</td>\n"
+"                                            <td>${contract[1]}</td>\n"
+"                                            <td>${contract[2]}</td>\n"
+"                                            <td>${contract[3]}</td>\n"
+"                                            <td>${contract[4]}</td>\n"
+"                                            <td>${contract[5]}</td>\n"
+"                                            <td>${contract[6]}</td>\n"
+"                                        </tr>\n"
+"                                    % endfor\n"
+"                                % endif\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${user.company_id.name}<br/>\n"
+"                                ${user.company_id.phone or ''}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                % if user.company_id.email:\n"
+"                                <a href=\"mailto:${user.company_id.email}\" style=\"text-decoration:none; color: white;\">${user.company_id.email}</a><br/>\n"
+"                                % endif\n"
+"                                % if user.company_id.website:\n"
+"                                    <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: white;\">\n"
+"                                        ${user.company_id.website}\n"
+"                                    </a>\n"
+"                                % endif\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                        <td align=\"center\">\n"
+"                            Elaborado por ${user.company_id.name}.\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            "
+
+#. module: l10n_cu_hlg_contract
+#: model:mail.template,body_html:l10n_cu_hlg_contract.mail_template_data_notification_email_contract_monetary
+msgid ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: \"#ededed\" summary=\"o_mail_notification\">\n"
+"                    <tbody>\n"
+"\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\">\n"
+"                                  <span style=\"font-size:20px; color:white; font-weight: bold;\">\n"
+"                                      Contratos\n"
+"                                  </span>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                  <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 1000px; background-color: rgb(255, 255, 255); padding: 20px;\">\n"
+"                            <tbody>\n"
+"                                % if ctx.get('contract_monetary'):\n"
+"                                    <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                        <td>Número</td>\n"
+"                                        <td>Empresa</td>\n"
+"                                        <td>Denominación</td>\n"
+"                                        <td>Fecha Inicio</td>\n"
+"                                        <td>Fecha Finalización</td>\n"
+"                                        <td>Importe Total</td>\n"
+"                                        <td>Importe Ejecutado</td>\n"
+"                                        <td>% Ejecutado</td>\n"
+"                                    </tr>\n"
+"                                    % for contract in ctx['contract_monetary']\n"
+"                                        <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                            <td>${contract[0]}</td>\n"
+"                                            <td>${contract[1]}</td>\n"
+"                                            <td>${contract[2]}</td>\n"
+"                                            <td>${contract[3]}</td>\n"
+"                                            <td>${contract[4]}</td>\n"
+"                                            <td>${contract[5]}</td>\n"
+"                                            <td>${contract[6]}</td>\n"
+"                                            <td>${contract[7]}</td>\n"
+"                                        </tr>\n"
+"                                    % endfor\n"
+"                                % endif\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${user.company_id.name}<br/>\n"
+"                                ${user.company_id.phone or ''}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                % if user.company_id.email:\n"
+"                                <a href=\"mailto:${user.company_id.email}\" style=\"text-decoration:none; color: white;\">${user.company_id.email}</a><br/>\n"
+"                                % endif\n"
+"                                % if user.company_id.website:\n"
+"                                    <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: white;\">\n"
+"                                        ${user.company_id.website}\n"
+"                                    </a>\n"
+"                                % endif\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                        <td align=\"center\">\n"
+"                            Elaborado por ${user.company_id.name}.\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            "
+msgstr ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: \"#ededed\" summary=\"o_mail_notification\">\n"
+"                    <tbody>\n"
+"\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\">\n"
+"                                  <span style=\"font-size:20px; color:white; font-weight: bold;\">\n"
+"                                      Contratos\n"
+"                                  </span>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                  <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 1000px; background-color: rgb(255, 255, 255); padding: 20px;\">\n"
+"                            <tbody>\n"
+"                                % if ctx.get('contract_monetary'):\n"
+"                                    <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                        <td>Número</td>\n"
+"                                        <td>Empresa</td>\n"
+"                                        <td>Denominación</td>\n"
+"                                        <td>Fecha Inicio</td>\n"
+"                                        <td>Fecha Finalización</td>\n"
+"                                        <td>Importe Total</td>\n"
+"                                        <td>Importe Ejecutado</td>\n"
+"                                        <td>% Ejecutado</td>\n"
+"                                    </tr>\n"
+"                                    % for contract in ctx['contract_monetary']\n"
+"                                        <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                            <td>${contract[0]}</td>\n"
+"                                            <td>${contract[1]}</td>\n"
+"                                            <td>${contract[2]}</td>\n"
+"                                            <td>${contract[3]}</td>\n"
+"                                            <td>${contract[4]}</td>\n"
+"                                            <td>${contract[5]}</td>\n"
+"                                            <td>${contract[6]}</td>\n"
+"                                            <td>${contract[7]}</td>\n"
+"                                        </tr>\n"
+"                                    % endfor\n"
+"                                % endif\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${user.company_id.name}<br/>\n"
+"                                ${user.company_id.phone or ''}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                % if user.company_id.email:\n"
+"                                <a href=\"mailto:${user.company_id.email}\" style=\"text-decoration:none; color: white;\">${user.company_id.email}</a><br/>\n"
+"                                % endif\n"
+"                                % if user.company_id.website:\n"
+"                                    <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: white;\">\n"
+"                                        ${user.company_id.website}\n"
+"                                    </a>\n"
+"                                % endif\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                        <td align=\"center\">\n"
+"                            Elaborado por ${user.company_id.name}.\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            "
+
+#. module: l10n_cu_hlg_contract
+#: model:mail.template,body_html:l10n_cu_hlg_contract.mail_template_data_notification_email_contract_send_signed_test
+msgid ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: \"#ededed\" summary=\"o_mail_notification\">\n"
+"                    <tbody>\n"
+"\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\">\n"
+"                                  <span style=\"font-size:20px; color:white; font-weight: bold;\">\n"
+"                                      Contratos\n"
+"                                  </span>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                  <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 1000px; background-color: rgb(255, 255, 255); padding: 20px;\">\n"
+"                            <tbody>\n"
+"                                % if ctx.get('contract_signed'):\n"
+"                                    <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                        <td>Número</td>\n"
+"                                        <td>Empresa</td>\n"
+"                                        <td>Fecha Envío</td>\n"
+"                                        <td>Días Enviado</td>\n"
+"                                        <td>Comercial</td>\n"
+"                                    </tr>\n"
+"                                    % for contract in ctx['contract_signed']\n"
+"                                        <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                            <td>${contract[0]}</td>\n"
+"                                            <td>${contract[1]}</td>\n"
+"                                            <td>${contract[2]}</td>\n"
+"                                            <td>${contract[3]}</td>\n"
+"                                            <td>${contract[4]}</td>\n"
+"                                        </tr>\n"
+"                                    % endfor\n"
+"                                % endif\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${user.company_id.name}<br/>\n"
+"                                ${user.company_id.phone or ''}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                % if user.company_id.email:\n"
+"                                <a href=\"mailto:${user.company_id.email}\" style=\"text-decoration:none; color: white;\">${user.company_id.email}</a><br/>\n"
+"                                % endif\n"
+"                                % if user.company_id.website:\n"
+"                                    <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: white;\">\n"
+"                                        ${user.company_id.website}\n"
+"                                    </a>\n"
+"                                % endif\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                        <td align=\"center\">\n"
+"                            Elaborado por ${user.company_id.name}.\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            "
+msgstr ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: \"#ededed\" summary=\"o_mail_notification\">\n"
+"                    <tbody>\n"
+"\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\">\n"
+"                                  <span style=\"font-size:20px; color:white; font-weight: bold;\">\n"
+"                                      Contratos\n"
+"                                  </span>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                  <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 1000px; background-color: rgb(255, 255, 255); padding: 20px;\">\n"
+"                            <tbody>\n"
+"                                % if ctx.get('contract_signed'):\n"
+"                                    <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                        <td>Número</td>\n"
+"                                        <td>Empresa</td>\n"
+"                                        <td>Fecha Envío</td>\n"
+"                                        <td>Días Enviado</td>\n"
+"                                        <td>Comercial</td>\n"
+"                                    </tr>\n"
+"                                    % for contract in ctx['contract_signed']\n"
+"                                        <tr valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                            <td>${contract[0]}</td>\n"
+"                                            <td>${contract[1]}</td>\n"
+"                                            <td>${contract[2]}</td>\n"
+"                                            <td>${contract[3]}</td>\n"
+"                                            <td>${contract[4]}</td>\n"
+"                                        </tr>\n"
+"                                    % endfor\n"
+"                                % endif\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 1000px;\">\n"
+"                          <table width=\"1000\" border=\"0\" cellpadding=\"0\" bgcolor=\"#04B7B6\" style=\"min-width: 1000px; background-color: \"#04B7B6\"; padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${user.company_id.name}<br/>\n"
+"                                ${user.company_id.phone or ''}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                % if user.company_id.email:\n"
+"                                <a href=\"mailto:${user.company_id.email}\" style=\"text-decoration:none; color: white;\">${user.company_id.email}</a><br/>\n"
+"                                % endif\n"
+"                                % if user.company_id.website:\n"
+"                                    <a href=\"${user.company_id.website}\" style=\"text-decoration:none; color: white;\">\n"
+"                                        ${user.company_id.website}\n"
+"                                    </a>\n"
+"                                % endif\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                        <td align=\"center\">\n"
+"                            Elaborado por ${user.company_id.name}.\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            "
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "<span>New</span>"
+msgstr "<span>Nuevo</span>"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_contract.report_acta_contract_committe
+msgid "Acta del Comité de Contratación"
+msgstr "Acta del Comité de Contratación(docx)"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_active
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_milestone_payment_active_id
+msgid "Active"
+msgstr "Activo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_registry_information_wzd_view_form
+msgid "Actualizar"
+msgstr "Actualizar"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_committee
+msgid "Acuerdos"
+msgstr "Acuerdos"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract,option_select:0
+msgid "Add new"
+msgstr "Adicionar nuevos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_state_id
+msgid "Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr "División administrativa de un país. Por ejemplo Comunidad Autónoma, Provincia, Ayuntamiento"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_amount
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_amount
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_amount_payment
+msgid "Amount"
+msgstr "Importe"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Amount Due"
+msgstr "Monto adeudado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_contract_report_amount_invoice
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_amount_invoice
+msgid "Amount Invoice"
+msgstr "Importe facturado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_amount_bool
+msgid "Amount Open"
+msgstr "Sumatoria de facturas"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_amount_payment
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_amount_payment_contract_line
+msgid "Amount Payment"
+msgstr "Importe pagado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_amount_rest
+msgid "Amount Rest"
+msgstr "Importe restante"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_contract_report_amount_total
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_amount_total
+msgid "Amount Total"
+msgstr "Importe total"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_account_analytic_id
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:358
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+#: selection:l10n_cu_contract.contract,state:0
+#: selection:l10n_cu_contract.print_registry,state:0
+#, python-format
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Aprobación"
+msgstr "Aprobación"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_committee_form
+msgid "Asistentes"
+msgstr "Asistentes"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_meeting_point_subject
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_committee_form
+msgid "Asunto"
+msgstr "Asunto"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_date_year
+msgid "Año"
+msgstr "Año"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:366
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: selection:l10n_cu_contract.contract,state:0
+#: selection:l10n_cu_contract.print_registry,state:0
+#, python-format
+msgid "Cancelled"
+msgstr "Cancelado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Cargo"
+msgstr "Cargo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_product_template_puchase
+msgid "Catálogos de Compras"
+msgstr "Productos de compras"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_registry_information_wzd_view_form
+msgid "Cerrar"
+msgstr "Cerrar"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_check_general_amount
+msgid "Check Amount Lines (Invoice)"
+msgstr "Chequear importe en las líneas (Factura)"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_check_lines
+msgid "Check Details Lines (Invoice)"
+msgstr "Chequear líneas de detalles (Factura)"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_check_quantity_lines
+msgid "Check Quantity Lines (Invoice)"
+msgstr "Chequear cantidad en las líneas (Factura)"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_check_quantity_lines
+msgid "Check that only the contracted quantities are executed on invoices"
+msgstr "Chequear que solo las cantidades contratadas se ejecuten en las facturas."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_check_lines
+msgid "Check that only the lines of contracted products or services are on the invoices"
+msgstr "Chequear que solo las líneas de productos o servicios contratadas se encuentren en las facturas."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_child_id
+msgid "Child Contract"
+msgstr "Contrato derivado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_child_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Childs"
+msgstr "Suplementos (Dependen del principal)"
+
+#. module: l10n_cu_hlg_contract
+#: constraint:l10n_cu_contract.contract_type:0
+msgid "Circular references are not permitted between contract and sub-contract"
+msgstr "No está permitido las referencias circulares entre Tipo de contrato y un Subtipo de contrato."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Claim"
+msgstr "Reclamaciones"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Clear"
+msgstr "Limpiar"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,help:l10n_cu_hlg_contract.sales_team_purchase_config_action
+msgid "Click here to define a new sales team."
+msgstr "Haga click aquí para definir un nuevo equipo de Venta."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Cliente"
+msgstr "Cliente"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:364
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: selection:l10n_cu_contract.contract,state:0
+#: selection:l10n_cu_contract.print_registry,state:0
+#, python-format
+msgid "Closed"
+msgstr "Cerrado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_color
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_color
+msgid "Color"
+msgstr "Color"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_meeting_point_contract_committee_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_committee
+msgid "Comité de Contratación"
+msgstr "Comité de contratación"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.committee_view_search
+msgid "Committee"
+msgstr "Comité"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_date_committee
+msgid "Committee Date"
+msgstr "Fecha del comité"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_nro_committee
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_committee_form
+msgid "Committee Nro"
+msgstr "Ejemplo: 10/2020 Número del comité"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_company_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_company_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_company_id
+msgid "Company"
+msgstr "Entidad"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_configuration
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.act_res_partner_2_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_l10n_cu_contract_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_l10n_cu_contract_contract_purchase
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.contract_action_contract_type
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.contract_action_contract_type_draft
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.contract_action_contract_type_process
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.contract_action_contract_type_progress
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.contract_action_type
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_account_invoice_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_line_contract_ids
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_contract_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_reclamation_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_sale_order_contract_id
+#: model:ir.module.category,name:l10n_cu_hlg_contract.module_category_contract_management_mentor
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_purchase
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_graph
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.res_partner_view_buttons_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_committee_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Contract"
+msgstr "Contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_contract_contract_agreement_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_agreement_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_line_contract_form
+msgid "Contract Agreement"
+msgstr "Acuerdos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_report_view_pivot
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_pivot
+msgid "Contract Analysis"
+msgstr "Análisis del contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_l10n_cu_contract_contract_committee
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_l10n_cu_contract_contract_committee_purchase
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_contract_contract_committee_id
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_committee
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_committee_purchase
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_committee_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_committee_tree
+msgid "Contract Committee"
+msgstr "Comité contratación"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_template
+msgid "Contract Committee File"
+msgstr "Fichero del comité de contratación"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.open_contract_dashboard_kanban
+msgid "Contract Dashboard"
+msgstr "Tablero"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_contract_lines_ids
+msgid "Contract Lines"
+msgstr "Líneas del contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_contract_report_contract_number
+msgid "Contract Number"
+msgstr "Número del contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_l10n_cu_contract_contract_tree_parent
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_l10n_cu_contract_contract_tree_parent_purchase
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_parent
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_parent_purchase
+msgid "Contract Parent"
+msgstr "Contratos principales"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_contract_registry_information
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.action_contract_registry_information_menu
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_registry_information_wzd_view_form
+msgid "Contract Registry Information"
+msgstr "Información del registro del Sistema Mentor"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_report_contract_registry_purchase
+msgid "Contract Registry Purchase"
+msgstr "Registro único de contratos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_report_contract_registry_sale
+msgid "Contract Registry Sale"
+msgstr "Registro único de contratos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_report
+msgid "Contract Report"
+msgstr "Reportes"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_report_sales
+msgid "Contract Sale"
+msgstr "Contratos de venta"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_report_contract_to_expire_purchase
+msgid "Contract To Expire Purchase"
+msgstr "Contratos expiran por fecha"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_report_contract_to_expire_sale
+msgid "Contract To Expire Sale"
+msgstr "Contratos expiran por fecha"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_l10n_cu_contract_contract_type
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_l10n_cu_contract_contract_type_purchase
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_contract_type
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_type
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_type_purchase
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_tree
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_tree_parent
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_type_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_type_tree
+msgid "Contract Type"
+msgstr "Tipo de contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_type_form
+msgid "Contract Types"
+msgstr "Tipos de contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "Contract approval"
+msgstr "Contractos aprobados"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_report_buy
+msgid "Contract buy"
+msgstr "Contratos de compra"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "Contract cancelled"
+msgstr "Contratos cancelados"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "Contract close"
+msgstr "Contratos cerrados"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "Contract draft"
+msgstr "Contratos borrador"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "Contract in action"
+msgstr "Contratos en progreso"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "Contract pending appro."
+msgstr "Contratos pendientes de aprobar"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "Contract pending dict."
+msgstr "Contratos pendientes de dictamen"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "Contract pending signed"
+msgstr "Contratos pendientes de firma"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "Contract rejected"
+msgstr "Contratos rechazados"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+msgid "Contracts"
+msgstr "Contratos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_name
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_type_form
+msgid "Example: Contracts for the provision of services"
+msgstr "Ejemplo: Contratos de prestación de servicios"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_committee
+msgid "Contratos a evaluar"
+msgstr "Contratos a evaluar"
+
+#. module: l10n_cu_hlg_contract
+#: model:mail.template,subject:l10n_cu_hlg_contract.mail_template_data_notification_email_contract_monetary
+msgid "Contratos cercanos a la ejecución total del presupuesto"
+msgstr "Contratos cercanos a la ejecución total del presupuesto"
+
+#. module: l10n_cu_hlg_contract
+#: model:mail.template,subject:l10n_cu_hlg_contract.mail_template_data_notification_email_contract_test
+msgid "Contratos cercanos a la fecha de vencimiento"
+msgstr "Contratos cercanos a la fecha de vencimiento"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_to_expire_percent
+msgid "Contratos con un por ciento de ejecución del presupuesto igual o mayor que"
+msgstr "Contratos con un % de ejecución del presupuesto igual o mayor que: "
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_contract.l10n_cu_hlg_contract_to_expire_percent_report
+msgid "Contratos según porcentaje de ejecución del presupuesto"
+msgstr "Contratos según % de ejecución del presupuesto"
+
+#. module: l10n_cu_hlg_contract
+#: model:mail.template,subject:l10n_cu_hlg_contract.mail_template_data_notification_email_contract_send_signed_test
+msgid "Contratos sin regresar del cliente"
+msgstr "Contratos sin regresar firmados del cliente"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_count_contract_draft
+msgid "Count contract draft"
+msgstr "Cantidad de contratos en borrador"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_count_contract_in_process
+msgid "Count contract in process"
+msgstr "Cantidad de contratos en progeso"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_count_contract_in_progress
+msgid "Count contract in progress"
+msgstr "Cantidad de contratos en progeso"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_create_sale_order_view_form
+msgid "Create"
+msgstr "Crear"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_contract_create_sale_order
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_create_sale_order_view_form
+msgid "Create Sale Order"
+msgstr "Create Sale Order"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_create_sale_order_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_contract_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_milestone_payment_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_meeting_point_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_reclamation_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_percent_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_create_sale_order_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_contract_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_milestone_payment_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_meeting_point_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_reclamation_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_percent_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_currency_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_currency_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.invoice_form_inherit_inherit
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_sale_invoice
+msgid "Customer Invoices"
+msgstr "Facturas de cliente"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_partner_mentor
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.print_registry,type:0
+#: selection:l10n_cu_contract.to_expire,type:0
+msgid "DOC"
+msgstr "DOC"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_board_contract_1
+msgid "Dashboard"
+msgstr "Tablero"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_reclamation_dateR
+msgid "Date"
+msgstr "Fecha"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_contract_report_invoice_date
+msgid "Date Invoice"
+msgstr "Fecha de factura"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_date_send_signed
+msgid "Date Send Signed"
+msgstr "Fecha de envío a firmar"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.committee_view_search
+msgid "Date of commitee"
+msgstr "Fecha del comité"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement_date
+msgid "Date of fulfillment"
+msgstr "Fecha de cumplimiento"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_date_send_signed
+msgid "Date sent to sign the contract by the client"
+msgstr "Fecha de envío para firmar el contrato por parte del cliente"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_days
+msgid "Days"
+msgstr "Días"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information_days_left
+msgid "Days left"
+msgstr "Días restantes"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_to_expire_percent
+msgid "Denominación"
+msgstr "Denominación"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_department_responsible_employee_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_department_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_sale_order_department_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+msgid "Department"
+msgstr "Departamento"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_description
+msgid "Desarrollo"
+msgstr "Desarrollo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_description
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_contract_report_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_create_sale_order_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_contract_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_milestone_payment_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_meeting_point_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_reclamation_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_percent_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_report_l10n_cu_contract_report_contract_committee_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_report_l10n_cu_hlg_contract_report_contract_template_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_report_l10n_cu_hlg_contract_report_contract_to_expire_percent_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_type_kanban
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_date_day
+msgid "Día"
+msgstr "Día"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.print_registry,type:0
+#: selection:l10n_cu_contract.to_expire,type:0
+msgid "EXCEL"
+msgstr "EXCEL"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,term:0
+msgid "Eight"
+msgstr "Ocho"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_to_expire_percent
+msgid "Ejecutado"
+msgstr "Ejecutado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_assistans_ids
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_employee_ids
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_employee_id
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_related_employee_id
+msgid "Employee in charge of following up the contract"
+msgstr "Empleado a cargo del seguimiento del contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_to_expire_percent
+msgid "Empresa"
+msgstr "Empresa"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_date_end
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_date_end
+msgid "End Date"
+msgstr "Fecha finalización"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_date_end
+msgid "End date of the contract"
+msgstr "Fecha de finalización del contrato"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/sale.py:117
+#, python-format
+msgid "Error! Amount not permitted."
+msgstr "Error! Importe sobrepasando lo contratado."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:345
+#, python-format
+msgid "Error! Date start must be greater than signed date."
+msgstr "Error! Fecha inicial debe ser mayor que la fecha de firma."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:592
+#, python-format
+msgid "Error! End date must be greater than actual date."
+msgstr "Error! Fecha final debe ser mayor que la fecha actual."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:339
+#, python-format
+msgid "Error! End date must be greater than start date."
+msgstr "Error! Fecha final debe ser mayor que la fecha inicial."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:684
+#, python-format
+msgid "Error! Milestone Payment is wrong."
+msgstr "Error! Hitos de pagos con error en importes."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:588
+#, python-format
+msgid "Error! Number in contract empty."
+msgstr "Error! Número del contrato no puede estar vacío."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/sale.py:51
+#: code:addons/l10n_cu_hlg_contract/models/sale.py:101
+#, python-format
+msgid "Error! Product %s not permitted."
+msgstr "Error! %s no está contratado, por tanto no es posible facturarlo"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/sale.py:112
+#, python-format
+msgid "Error! Product %s quantity not permitted."
+msgstr "Error!  %s  La cantidad de productos sobrepasa lo contratado"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:650
+#, python-format
+msgid "Error! The numbers of contracts can not be the same."
+msgstr "Error! El número del contrato debe ser  único."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Especialista"
+msgstr "Especialista"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Etapa"
+msgstr "Etapa"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Exp No."
+msgstr "Exp Nro."
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.registry_information,state:0
+msgid "Expired"
+msgstr "Expirado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_account_invoice_external_create
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_sale_order_external_create
+msgid "External Create"
+msgstr "Creado Externo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_committee
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_to_expire_percent
+msgid "Fecha Inicio"
+msgstr "Fecha de inicio"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_to_expire_percent
+msgid "Fecha Término"
+msgstr "Fecha de término"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_filename
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Firma"
+msgstr "Firma"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,term:0
+msgid "Five"
+msgstr "Cinco"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_contract_report_flow
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_flow
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_flow
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_flow
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_flow
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_flow
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_percent_flow
+msgid "Flow"
+msgstr "Flujo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_format
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_type
+msgid "Format"
+msgstr "Formato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_type
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_to_expire_wzd_view_form
+msgid "Formato"
+msgstr "Formato"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,term:0
+msgid "Four"
+msgstr "Cuatro"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_sequence
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_sequence
+msgid "Gives the sequence of this line when displaying the invoice."
+msgstr "Presenta la secuencia de esta línea cuando muestra la factura"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.committee_view_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_hco
+msgid "HCO"
+msgstr "HCO"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.module.category,description:l10n_cu_hlg_contract.module_category_contract_management_mentor
+msgid "Helps you manage your contract."
+msgstr "Ayuda para gestionar los contratos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_commercial
+msgid "Hiring"
+msgstr "Contratación"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_stop_time
+msgid "Hora de fin"
+msgstr "Hora de fin"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_start_time
+msgid "Hora de inicio"
+msgstr "Hora de inicio"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_hour_start_char
+msgid "Hora inicial"
+msgstr "Hora inicial"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:303
+#, python-format
+msgid "I need select the parent contract!"
+msgstr "Debe seleccionar el contrato principal."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:504
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:578
+#, python-format
+msgid "I need some detail lines!"
+msgstr "Debe especificar las líneas de productos al contrato."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:546
+#, python-format
+msgid "I need some judgment lines!"
+msgstr "Debe especificar las líneas de dictamen al contrato."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:622
+#, python-format
+msgid "I need some milestone payments!"
+msgstr "Debe especificar los hitos de pagos al contrato."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_contract_report_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_create_sale_order_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_contract_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_milestone_payment_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_meeting_point_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_reclamation_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_percent_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_report_l10n_cu_contract_report_contract_committee_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_report_l10n_cu_hlg_contract_report_contract_template_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_report_l10n_cu_hlg_contract_report_contract_to_expire_percent_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_required_judgment
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_required_judgment
+msgid "If activated it can be assigned to contracts legal opinions"
+msgstr "Si está activado se le pueden asignar a los contratos los  dictámenes legales."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_required_milestone_payment
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_required_milestone_payment
+msgid "If activated it can be assigned to contracts milestones of payments"
+msgstr "Si está activado se le pueden asignar a los contratos los hitos de pagos."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_required_lines
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_required_lines
+msgid "If activated it can be assigned to the contract lines of details of products or services"
+msgstr "Si activado se le  pueden asignar a los contratos en las líneas de detalles los productos o los servicios."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_required_parent
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_required_parent
+msgid "If activated it shows you the types of contracts which can be the parent of this to select it"
+msgstr "En caso de estar activado te muestra los tipos de contratos, los cuales pueden ser Principal de este para seleccionarlo."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_parent_consecutive
+msgid "If it is activated it defined automatically generates the numbers of the associated contracts for principal"
+msgstr "En caso de estar definido, genera los números de los contratos asociados al Principal."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_sequence_id
+msgid "If it is defined it automatically generates the numbers of the associated contracts"
+msgstr "En caso de estar definido, genera automáticamente los números de los contratos asociados ."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_format
+msgid "If the format is written, the template for the printing of the contracts must be defined"
+msgstr "Si el formato es Escrito, se debe definir la plantilla para la impresión de los contratos."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Importe Total"
+msgstr "Importe total"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: selection:l10n_cu_contract.contract,state:0
+#: selection:l10n_cu_contract.contract_committee,state:0
+#: selection:l10n_cu_contract.print_registry,state:0
+msgid "In Action"
+msgstr "En Progreso"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:362
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_committee_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+#, python-format
+msgid "In Progress"
+msgstr "En Progreso"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_number
+msgid "In case the contract type has a sequence associated the number will be automatically generated"
+msgstr "En caso del tipo de contrato tener asociado una secuencia el número se generara automáticamente"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_registry_information_wzd_view_form
+msgid ""
+"In order to enjoy all the functionality of the <b> Contracting </b> system you must complete the registration of the module.<br/>\n"
+"                    \tSend the seed to the following email address"
+msgstr ""
+"Para disfrutar de todas las funcionalidades del Sistema <b> Contratación Mentor v3.1 </b> debe completar el registro del módulo.<br/>\n"
+"                    \Envíe la semilla a la siguiente dirección de correo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_type_kanban
+msgid "In process"
+msgstr "En Proceso"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_type_kanban
+msgid "In progress"
+msgstr "En Progreso"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract_committee.py:184
+#, python-format
+msgid "Incompatible times: The stop time must be bigger than the start time of the meeting!"
+msgstr "La hora final debe ser mayor que la hora final de la reunión."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Informaciones adicionales de los contratos"
+msgstr "Informaciones adicionales de los contratos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Information"
+msgstr "Información"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_date_start
+msgid "Initial date of the contract"
+msgstr "Fecha inicial del contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_internal_number_contract
+msgid "Internal number"
+msgstr "Número contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_account_invoice
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_contract_report_invoice_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_invoice_ids
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_contract_report_purchase
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_report_purchase
+msgid "Invoice Contract Report Purchase"
+msgstr "Reporte contratos facturados"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_contract_report_sale
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_contract_report_sale
+msgid "Invoice Contract Report Sale"
+msgstr "Reporte contratos facturados"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_quantity_invoice
+msgid "Invoice Quantity"
+msgstr "Cantidad de factura"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_judgment_ids
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment_judgment
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Judgment"
+msgstr "Dictamen"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment_date_judgment
+msgid "Judgment Date"
+msgstr "Fecha del dictamen"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment_judgment_file_name
+msgid "Judgment file name"
+msgstr "Nombre del archivo del dictamen"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_kanban_dashboard
+msgid "Kanban dashboard"
+msgstr "Tablero Kanban de los contratos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_kanban_dashboard_graph_contract
+msgid "Kanban dashboard graph contract"
+msgstr "Tablero Gráfico del contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information_key
+msgid "Key"
+msgstr "Clave"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_contract_report___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_create_sale_order___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_contract___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_milestone_payment___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_meeting_point___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_reclamation___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_percent___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_report_l10n_cu_contract_report_contract_committee___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_report_l10n_cu_hlg_contract_report_contract_template___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_report_l10n_cu_hlg_contract_report_contract_to_expire_percent___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_create_sale_order_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_contract_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_milestone_payment_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_meeting_point_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_reclamation_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_percent_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_create_sale_order_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_judgment_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_contract_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_milestone_payment_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_meeting_point_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_reclamation_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_percent_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_crm_team_legal
+msgid "Legal"
+msgstr "Legal"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_line_milestone_payment_id
+msgid "Line Milestone Payment"
+msgstr "Hitos de pagos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_line_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_line_milestone_payment_form
+msgid "Lines"
+msgstr "Líneas"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_milestone_payment_lines_milestone_payment
+msgid "Lines Milestone Payment"
+msgstr "Hitos de pagos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_local_id
+msgid "Local"
+msgstr "Local"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.df_locals_local_menu_item
+msgid "Locales"
+msgstr "Locales"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement_manager_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_manager_id
+#: model:res.groups,name:l10n_cu_hlg_contract.group_contract_manager
+msgid "Manager"
+msgstr "Responsable"
+
+#. module: l10n_cu_hlg_contract
+#: model:res.groups,name:l10n_cu_hlg_contract.group_contract_master
+msgid "Master"
+msgstr "Master"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_milestone_payment_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Milestone Payments"
+msgstr "Hitos de pagos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_ministry
+msgid "Ministry"
+msgstr "Ministerio"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+msgid "Monetary execution"
+msgstr "Ejecución monetaria"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+msgid "Month"
+msgstr "Mes"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_type_kanban
+msgid ""
+"More\n"
+"                                                <i class=\"fa fa-caret-down\"/>"
+msgstr ""
+"More\n"
+"                                                <i class=\"fa fa-caret-down\"/>"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_municipality_id
+msgid "Municipality"
+msgstr "Municipio"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_base_municipality_form
+msgid "Municipio"
+msgstr "Municipio"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_payment_method_id
+msgid "Método de pago"
+msgstr "Método de pago"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_line_milestone_payment_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:350
+#: selection:l10n_cu_contract.contract,state:0
+#: selection:l10n_cu_contract.contract_committee,state:0
+#: selection:l10n_cu_contract.print_registry,state:0
+#, python-format
+msgid "New"
+msgstr "Nuevo"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,term:0
+msgid "Nine"
+msgstr "Nueve"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_to_expire_percent
+msgid "No Ejecutado"
+msgstr "Nro. Ejecutado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_city_name
+msgid "Nombre de la Ciudad"
+msgstr "Nombre de la ciudad"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_month_name
+msgid "Nombre del mes"
+msgstr "Nombre del mes"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Nombres y apellidos"
+msgstr "Nombres y apellidos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+msgid "Not Close"
+msgstr "Nro. Cerrados"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_note
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_notes
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_committee
+msgid "Nro Comité:"
+msgstr "Nro. Comité"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_agreement_number
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_complete_number
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_number
+msgid "Number"
+msgstr "Número Archivo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_parent_consecutive
+msgid "Number consecutive for parent"
+msgstr "Número consecutivo por contrato principal"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_number_archive_partner
+msgid "Number of Archive"
+msgstr "Número de archivo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.committee_view_search
+msgid "Number of commitee"
+msgstr "Número de comité"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_number_readonly
+msgid "Number readonly"
+msgstr "Número de solo lectura"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_to_expire_percent
+msgid "Número"
+msgstr "Número"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_internal_number_contract
+msgid "Número interno del contrato"
+msgstr "Número interno del contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_name
+msgid "Object of the contract"
+msgstr "Objeto del contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Objeto del contrato"
+msgstr "Objeto del contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_reclamation_observation
+msgid "Observation"
+msgstr "Observación"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,term:0
+msgid "One"
+msgstr "Uno"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_option_select
+msgid "Option select"
+msgstr "Opciones"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.print_registry,type:0
+msgid "PDF"
+msgstr "PDF"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_parent_id
+msgid "Parent"
+msgstr "Principal"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_required_parent_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_parent_id
+msgid "Parent Contract Type"
+msgstr "Tipo de contrato principal"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_committee
+msgid "Participan"
+msgstr "Participan"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_res_partner
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_contract_report_partner_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_partner_id
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.l10n_cu_hlg_contract_view_ir_config_form
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.l10n_cu_hlg_contract_ir_config_menu
+msgid "Parámetros del sistema"
+msgstr "Parámetros del sistema"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_payment_lines
+msgid "Payment Lines"
+msgstr "Líneas de pagos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_property_payment_term_id
+msgid "Payment Terms"
+msgstr "Términos de pago"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:354
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: selection:l10n_cu_contract.contract,state:0
+#: selection:l10n_cu_contract.print_registry,state:0
+#, python-format
+msgid "Pending Appro."
+msgstr "Pendiente de Aprobar"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Pending Approve"
+msgstr "Pendiente de Aprobar"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Pending Dict"
+msgstr "Pendiente de Dictamen"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:352
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: selection:l10n_cu_contract.contract,state:0
+#: selection:l10n_cu_contract.print_registry,state:0
+#, python-format
+msgid "Pending Dict."
+msgstr "Pendiente de Dictamen"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:360
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+#: selection:l10n_cu_contract.contract,state:0
+#: selection:l10n_cu_contract.print_registry,state:0
+#, python-format
+msgid "Pending Signed"
+msgstr "Pendiente de Firma"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_percent_percent
+msgid "Percent"
+msgstr "Porcentaje"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_required_parent_id
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_parent_id
+msgid "Possible types of parent contracts for this type of contract"
+msgstr "Posible tipos de contratos principales para este tipo de contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_committee_form
+msgid "Presidente"
+msgstr "Presidente"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_price
+msgid "Price"
+msgstr "Precio"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_print_registry_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_to_expire_percent_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_to_expire_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_contract_print_registry
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_contract_print_registry_customer
+msgid "Print contract registry"
+msgstr "Imprimir registro de contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_contract_to_expire
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_contract_to_expire_customer
+msgid "Print contract to expire"
+msgstr "Imprimir contratos que expiran por fecha"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_contract_to_expire_percent
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.action_contract_to_expire_purchase_percent
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_report_contract_to_expire_percent_purchase
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_report_contract_to_expire_percent_sale
+msgid "Print contracts according to budget execution percentage"
+msgstr "Imprimir contratos próximos a la ejecución monetaria"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_product_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_line_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Product Lines"
+msgstr "Líneas de producto"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_product_template_sales
+msgid "Productos Vendibles"
+msgstr "Productos de Ventas"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Proveedor"
+msgstr "Proveedor"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_point_ids
+msgid "Puntos"
+msgstr "Puntos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_committee_form
+msgid "Puntos a tratar en el Comité"
+msgstr "Puntos a tratar en el Comité"
+
+#. module: l10n_cu_hlg_contract
+#: selection:contract.report,flow:0 selection:crm.team,type:0
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_purchase_commercial
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+#: selection:l10n_cu_contract.contract,flow:0
+#: selection:l10n_cu_contract.contract_committee,flow:0
+#: selection:l10n_cu_contract.contract_type,flow:0
+#: selection:l10n_cu_contract.print_registry,flow:0
+#: selection:l10n_cu_contract.to_expire,flow:0
+#: selection:l10n_cu_contract.to_expire_percent,flow:0
+msgid "Purchase"
+msgstr "Compras"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,name:l10n_cu_hlg_contract.sales_team_purchase_config_action
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_purchase_sales_team
+msgid "Purchase Teams"
+msgstr "Equipos de compra"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_quantity
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_quantity
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_quantity_invoice
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "REGISTRO ÚNICO DE CONTRATO"
+msgstr "REGISTRO ÚNICO DE CONTRATO"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_reclamation_ids
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Reclamation"
+msgstr ""
+"Reclamació\n"
+"n"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_reeup_code
+msgid "Reeup Code"
+msgstr "Código REEUP"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.registry_information,state:0
+msgid "Registered"
+msgstr "Registrado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_contract.contract_single_doc_report
+msgid "Registro Unico de Contrato"
+msgstr "Registro Único de Contrato"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_contract.contract_to_expire_doc_report
+msgid "Registro de Contrato proximos a vencer"
+msgstr "Reporte de Contratos próximos a vencer"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_contract.id_contract_single_xls_report
+msgid "Registro de contratos"
+msgstr "Registro único de contratos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_contract.l10n_cu_hlg_contract_contract_report
+msgid "Registro Único de Contratos"
+msgstr "Registro Único de Contratos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Reject"
+msgstr "Rechazar"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:356
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+#: selection:l10n_cu_contract.contract,state:0
+#: selection:l10n_cu_contract.print_registry,state:0
+#, python-format
+msgid "Rejected"
+msgstr "Rechazado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_related_employee_id
+msgid "Related Employee"
+msgstr "Empleado relacionado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_ir_actions_report_xml_id
+msgid "Report"
+msgstr "Reportes"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_contract.l10n_cu_hlg_contract_committee_report
+msgid "Reporte del Comité de Contratación"
+msgstr "Reporte del Comité de Contratación"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_contract.report_template_contract_committe
+msgid "Reporte del Comité de Contratación(docx)"
+msgstr "Reporte del Comité de Contratación (docx)"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_required_judgment
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_required_judgment
+msgid "Required Judgment"
+msgstr "Requiere dictamen"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_required_lines
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_required_lines
+msgid "Required Lines"
+msgstr "Requiere  líneas"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_required_milestone_payment
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_required_milestone_payment
+msgid "Required Milestone Payment"
+msgstr "Requiere hitos de pagos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_required_parent
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_required_parent
+msgid "Required Parent"
+msgstr "Requiere principal"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.committee_view_search
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_committee
+msgid "Responsable"
+msgstr "Responsable"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_responsible_employee_id
+msgid "Responsible Employee"
+msgstr "Empleado responsable"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_revision
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+msgid "Review at the beginning of the year"
+msgstr "Revisión a inicio de año?"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_year
+msgid "Revision year"
+msgstr "Año de revisión"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_template
+msgid "Revisión"
+msgstr "Revisión"
+
+#. module: l10n_cu_hlg_contract
+#: selection:contract.report,flow:0 selection:crm.team,type:0
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_sale_commercial
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+#: selection:l10n_cu_contract.contract,flow:0
+#: selection:l10n_cu_contract.contract_committee,flow:0
+#: selection:l10n_cu_contract.contract_type,flow:0
+#: selection:l10n_cu_contract.print_registry,flow:0
+#: selection:l10n_cu_contract.to_expire,flow:0
+#: selection:l10n_cu_contract.to_expire_percent,flow:0
+msgid "Sale"
+msgstr "Ventas"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_sale_order
+msgid "Sales Order"
+msgstr "Aviso para pedido de venta"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_crm_team
+msgid "Sales Team"
+msgstr "Equipo de ventas"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_sale_sales_team
+msgid "Sales Teams"
+msgstr "Equipos de ventas"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information_seed
+msgid "Seed"
+msgstr "Semilla"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_sequence
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_sequence_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_milestone_payment_sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_type_kanban
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,term:0
+msgid "Seven"
+msgstr "Siete"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,term:0
+msgid "Six"
+msgstr "Seis"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_date_start
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_date_start
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_state_id
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_state
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_state
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_print_registry_state
+msgid "Status"
+msgstr "Estado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.dashboard_commercial
+msgid "TOTAL"
+msgstr "Total"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_template_data
+msgid "Template"
+msgstr "Plantilla"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_template_file_name
+msgid "Template file name"
+msgstr "Nombre de la plantilla"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,term:0
+msgid "Ten"
+msgstr "Diez"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_term
+msgid "Term (Years)"
+msgstr "Término (Años)"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_term
+msgid "Term in years of validity for contracts related to the type of contract"
+msgstr "Plazo en años de validez para contratos relacionados con el tipo de contrato"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract_committee.py:205
+#: sql_constraint:l10n_cu_contract.contract_committee:0
+#, python-format
+msgid "The number must be unique!"
+msgstr "El número debe de ser único!"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/dashboard.py:102
+#, python-format
+msgid "This Week"
+msgstr "Esta semana"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,term:0
+msgid "Three"
+msgstr "Tres"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_to_expire_time
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_to_expire_wzd_view_form
+msgid "Tiempo"
+msgstr "Tiempo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_committee_hour_end_char
+msgid "Tiempo final"
+msgstr "Tiempo final"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_dashboard_commercial_total
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.report_contract_to_expire_percent
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form
+msgid "Total"
+msgstr "Total"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,term:0
+msgid "Two"
+msgstr "Dos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_crm_team_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_registry_information_state
+msgid "UEB Desoft"
+msgstr "UEB Desoft"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:668
+#: code:addons/l10n_cu_hlg_contract/models/contract_committee.py:194
+#, python-format
+msgid "Unlink in state draft."
+msgstr "Eliminar en estado nuevo."
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.registry_information,state:0
+msgid "Unregistered"
+msgstr "No registrado"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_hco
+msgid "Until the fulfillment of the obligations"
+msgstr "Hasta el cumplimiento de las obligaciones"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_update_date
+msgid "Update Date"
+msgstr "Fecha de actualización"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_update_lines
+msgid "Update Lines"
+msgstr "Actualizar líneas"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract,option_select:0
+msgid "Update Quantity"
+msgstr "Actualizar cantidades"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_update_date
+msgid "Update end date of parent contract"
+msgstr "Actualizar la fecha final del contrato principal"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_update_lines
+msgid "Update lines of parent contract"
+msgstr "Actualizar líneas del contrato principal"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.actions.act_window,help:l10n_cu_hlg_contract.sales_team_purchase_config_action
+msgid ""
+"Use sales team to organize your different salespersons or\n"
+"                    departments into separate teams. Each team will work in\n"
+"                    its own list of opportunities."
+msgstr ""
+"Use equipos de ventas para organizar a sus comerciales o\n"
+"departamentos en distintos equipos. Cada equipo trabajará\n"
+"en su propia lista de oportunidades."
+
+#. module: l10n_cu_hlg_contract
+#: model:res.groups,name:l10n_cu_hlg_contract.group_contract_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_currency_id
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_lines_currency_id
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_lines_milestone_payment_currency_id
+msgid "Utility field to express amount currency"
+msgstr "Campo útil para expresar importe en divisa."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,field_description:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_validity_date_progress
+msgid "Validity date progress"
+msgstr "Progreso fecha validez"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.invoice_supplier_form_inherit_inherit
+msgid "Vendor"
+msgstr "Proveedor"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_purchase_invoice
+msgid "Vendor Bills"
+msgstr "Facturas de proveedor"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.menu,name:l10n_cu_hlg_contract.menu_partner_supplier_mentor
+msgid "Vendors"
+msgstr "Proveedores"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,format:0
+msgid "Verb"
+msgstr "Verbal"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_type_check_general_amount
+msgid "Verify that only the total contracted amount is executed in invoices"
+msgstr "Chequear que solo se facture el importe contratado, según la línea de servicios o productos contratados"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_percentage_execution
+msgid "Visual element that represents the percent of monetary execution"
+msgstr "Elemento visual que representa el % de ejecución monetaria del contrato."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model.fields,help:l10n_cu_hlg_contract.field_l10n_cu_contract_contract_validity_date_progress
+msgid "Visual element that represents the remaining percent of validity in the contract"
+msgstr "Elemento visual que representa el porcentaje restante de validez en el contrato cuanto a tiempo."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_report_view_graph
+msgid "Voucher Statistics"
+msgstr "Voucher Statistics"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_print_registry_wzd_view_form
+msgid "Wizard to print contract registry"
+msgstr "Registro único de contratos"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_to_expire_wzd_view_form
+msgid "Wizard to print contract to expire"
+msgstr "Contratos que expiran por fecha de finalización"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_create_sale_order_view_form
+msgid "Wizard to print create sale order"
+msgstr "Wizard to print create sale order"
+
+#. module: l10n_cu_hlg_contract
+#: selection:l10n_cu_contract.contract_type,format:0
+msgid "Write"
+msgstr "Escrito"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+msgid "Year"
+msgstr "Año"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_view_search
+msgid "Year of revision"
+msgstr "Año de revisión"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:12
+#: code:addons/l10n_cu_hlg_contract/models/contract_committee.py:11
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_create_sale_order.py:30
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_print_registry.py:32
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_print_template.py:30
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_to_expire.py:33
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_to_expire_percent.py:33
+#, python-format
+msgid "You are using a expired key. Please contact the suport center for a new one."
+msgstr "Está utilizando una clave caducada. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:11
+#: code:addons/l10n_cu_hlg_contract/models/contract_committee.py:10
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_create_sale_order.py:29
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_print_registry.py:31
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_print_template.py:29
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_to_expire.py:32
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_to_expire_percent.py:32
+#, python-format
+msgid "You are using a invalid key. Please contact the suport center for a new one."
+msgstr "Está utilizando una clave no válida. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:540
+#, python-format
+msgid "You can not close a contract with children without closing!"
+msgstr "No es posible cerrar un contrato con suplementos sin cerrar!"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:672
+#, python-format
+msgid "You can not delete contracts with related invoices."
+msgstr "No es posible eliminar contratos que tengan facturas asignadas."
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:670
+#, python-format
+msgid "You can not delete contracts with related specifics."
+msgstr "No es posible eliminar contratos que tengan contratos específicos relacionados"
+
+#. module: l10n_cu_hlg_contract
+#: code:addons/l10n_cu_hlg_contract/models/contract.py:10
+#: code:addons/l10n_cu_hlg_contract/models/contract_committee.py:9
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_create_sale_order.py:28
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_print_registry.py:30
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_print_template.py:28
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_to_expire.py:31
+#: code:addons/l10n_cu_hlg_contract/wizard/l10n_cu_contract_to_expire_percent.py:31
+#, python-format
+msgid "You must request a registry key. Please contact the suport center for a new one."
+msgstr "Debe solicitar una clave de registro. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_registry_information_wzd_view_form
+msgid "Your registration is about to expire."
+msgstr "Su registro está a punto de expirar."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_registry_information_wzd_view_form
+msgid "Your registration is valid."
+msgstr "Su registro es válido."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_registry_information_wzd_view_form
+msgid "Your registration key is expired."
+msgstr "Su clave de registro está vencida."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_registry_information_wzd_view_form
+msgid "Your registration key is invalid."
+msgstr "Su clave de registro es no válida."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_registry_information_wzd_view_form
+msgid "and your registration key will be sent to you."
+msgstr "y le será enviada su clave de registro según el periodo contratado."
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_contract.contract_registry_information_wzd_view_form
+msgid "comercial.holguin@desoft.cu"
+msgstr "comercial.holguin@desoft.cu"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_contract_report
+msgid "contract.report"
+msgstr "contract.report"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_dashboard_commercial
+msgid "dashboard.commercial"
+msgstr "dashboard.commercial"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_contract
+msgid "l10n_cu_contract.contract"
+msgstr "l10n_cu_contract.contract"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_contract_agreement
+msgid "l10n_cu_contract.contract_agreement"
+msgstr "l10n_cu_contract.contract_agreement"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_contract_committee
+msgid "l10n_cu_contract.contract_committee"
+msgstr "l10n_cu_contract.contract_committee"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_contract_lines
+msgid "l10n_cu_contract.contract_lines"
+msgstr "l10n_cu_contract.contract_lines"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_contract_type
+msgid "l10n_cu_contract.contract_type"
+msgstr "l10n_cu_contract.contract_type"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_create_sale_order
+msgid "l10n_cu_contract.create_sale_order"
+msgstr "l10n_cu_contract.create_sale_order"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_judgment
+msgid "l10n_cu_contract.judgment"
+msgstr "l10n_cu_contract.judgment"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_line_contract
+msgid "l10n_cu_contract.line_contract"
+msgstr "l10n_cu_contract.line_contract"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_line_milestone_payment
+msgid "l10n_cu_contract.line_milestone_payment"
+msgstr "l10n_cu_contract.line_milestone_payment"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_lines_milestone_payment
+msgid "l10n_cu_contract.lines_milestone_payment"
+msgstr "l10n_cu_contract.lines_milestone_payment"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_meeting_point
+msgid "l10n_cu_contract.meeting_point"
+msgstr "l10n_cu_contract.meeting_point"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_milestone_payment
+msgid "l10n_cu_contract.milestone_payment"
+msgstr "l10n_cu_contract.milestone_payment"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_print_registry
+msgid "l10n_cu_contract.print_registry"
+msgstr "l10n_cu_contract.print_registry"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_reclamation
+msgid "l10n_cu_contract.reclamation"
+msgstr "l10n_cu_contract.reclamation"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_registry_information
+msgid "l10n_cu_contract.registry_information"
+msgstr "l10n_cu_contract.registry_information"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_to_expire
+msgid "l10n_cu_contract.to_expire"
+msgstr "l10n_cu_contract.to_expire"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_l10n_cu_contract_to_expire_percent
+msgid "l10n_cu_contract.to_expire_percent"
+msgstr "l10n_cu_contract.to_expire_percent"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_report_l10n_cu_contract_report_contract_committee
+msgid "report.l10n_cu_contract.report_contract_committee"
+msgstr "report.l10n_cu_contract.report_contract_committee"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_report_l10n_cu_hlg_contract_report_contract_template
+msgid "report.l10n_cu_hlg_contract.report_contract_template"
+msgstr "report.l10n_cu_hlg_contract.report_contract_template"
+
+#. module: l10n_cu_hlg_contract
+#: model:ir.model,name:l10n_cu_hlg_contract.model_report_l10n_cu_hlg_contract_report_contract_to_expire_percent
+msgid "report.l10n_cu_hlg_contract.report_contract_to_expire_percent"
+msgstr "report.l10n_cu_hlg_contract.report_contract_to_expire_percent"

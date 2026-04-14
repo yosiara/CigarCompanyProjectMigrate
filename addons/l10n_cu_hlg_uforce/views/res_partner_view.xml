@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--Partner form inherit-->
+        <record id="uforce_res_partner_form_inherit" model="ir.ui.view">
+            <field name="name">uforce.res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="l10n_cu_base.view_partner_form_inherit"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='ministry_id']" position="after">
+                        <field name="is_gfroza_entity" invisible="1"/>
+                        <field name="organism_id" attrs="{'invisible': [('is_gfroza_entity', '=', False)]}"
+                               domain="[('ministry_id','=', ministry_id)]"/>
+                        <field name="gforza_code" attrs="{'invisible': [('is_gfroza_entity', '=', False)]}"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <!--Partner search inherit-->
+        <record id="uforce_res_partner_filter_inherit" model="ir.ui.view">
+            <field name="name">uforce.res.partner.search.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//group[@name='group_by']" position="inside">
+                        <filter string="Ministry" domain="[]" context="{'group_by': 'ministry_id'}"/>
+                        <filter string="Organism" domain="[]" context="{'group_by': 'organism_id'}"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+    </data>
+</openerp>

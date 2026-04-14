@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.enterprise_mgm_sys_improvement_program_report"
+                model="enterprise_mgm_sys.improvement_program_report"
+                string="Programa de mejoras"
+                report_type="xlsx"
+                name="enterprise_mgm_sys.improvement_program_report"
+                file="enterprise_mgm_sys.improvement_program_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

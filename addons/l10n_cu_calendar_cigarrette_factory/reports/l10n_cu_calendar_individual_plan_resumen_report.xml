@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="l10n_cu_calendar.report_individual_plan_resumen">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <style>
+                                ol {
+                                padding-left: 40px;
+                                }
+                            </style>
+                            <p align="center">Modelo 3.1 RESUMEN DEL CUMPLIMIENTO DEL PLAN DE TRABAJO DEL MES</p>
+                            <p align="center">
+                                <span t-esc="o['periodo']"/>
+                            </p>
+                            <p align="center">
+                                <span t-esc="o['job']"/>
+                            </p>
+                            <p align="center">
+                                <span t-esc="o['name']"/>
+                            </p>
+                            <p align="left">
+                                <b>RESUMEN CUANTITATIVO</b>
+                            </p>
+
+                            <table width="100%" cellpadding="4" cellspacing="0" style="page-break-inside: avoid">
+
+                                <tr valign="center">
+                                    <td rowspan="2" width="20%"
+                                        style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">TOTAL DE TAREAS PLANIFICADAS</p>
+                                    </td>
+                                    <td colspan="3" width="60%"
+                                        style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">DE ELLAS</p>
+                                    </td>
+                                    <td rowspan="2" width="20%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="center">NUEVAS TAREAS(EXTRA PLANES)</p>
+                                    </td>
+                                </tr>
+                                <tr valign="center">
+                                    <td width="20%"
+                                        style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">CUMPLIDAS</p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">INCUMPLIDAS</p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">MODIFICADAS</p>
+                                    </td>
+                                </tr>
+                                <tr valign="center">
+                                    <td width="20%"
+                                        style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">
+                                            <br/>
+                                            <span t-esc="o['plan_task']"/>
+
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">
+                                            <br/>
+                                            <span t-esc="o['done_task']"/>
+
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">
+                                            <br/>
+                                            <span t-esc="len(o['not_done_task_list'])"/>
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">
+                                            <br/>
+                                            <span t-esc="len(o['modified_task_list'])"/>
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: none; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: 1px double #808080; padding-top: 0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">
+                                            <br/>
+                                            <span t-esc="o['extra_plan_task']"/>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p align="left">
+                                <br/>
+                            </p>
+
+                            <table width="100%" cellpadding="4" cellspacing="0">
+                                <tr style="page-break-inside: avoid" valign="center">
+                                    <td width="50%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+                                            <b>OBSERVACIONES DEL CUMPLIMIENTO</b>
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="center">
+                                            <b>QUIÉN LAS ORIGINÓ</b>
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border: 1px double #808080; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="center">
+                                            <b>CAUSAS</b>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr style="page-break-inside: avoid" valign="top">
+                                    <td width="50%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+                                            <b>TAREAS INCUMPLIDAS</b>
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="left">
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr style="page-break-inside: avoid" t-foreach="o['not_done_task_list']" t-as="t"
+                                    valign="top">
+                                    <td width="50%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+                                            <span>
+                                                <t t-esc="t['name']"/>
+                                            </span>
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="left">
+                                            <span t-esc="o['name']"/>
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+                                            <span>
+                                                <t t-esc="t['cause']"/>
+                                            </span>
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr style="page-break-inside: avoid" valign="top">
+                                    <td width="50%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+                                            <b>MODIFICADAS</b>
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="left">
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr style="page-break-inside: avoid" t-foreach="o['modified_task_list']" t-as="t"
+                                    valign="top">
+                                    <td width="50%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+                                            <span>
+                                                <p align="left">-<span t-esc="t['name']"/>(<span
+                                                        t-esc="t['modifications']"/>)
+                                                </p>
+                                            </span>
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="left">
+                                            <span t-esc="t['user']"/>
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+                                            <span>
+                                                <span>
+                                                    <t t-esc="t['cause']"/>
+                                                </span>
+                                            </span>
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr style="page-break-inside: avoid" valign="top">
+                                    <td width="50%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left" valign="center">
+                                            <b>NUEVAS TAREAS(EXTRA PLANES)</b>
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="left">
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr style="page-break-inside: avoid" t-foreach="o['extra_plan_list']" t-as="t"
+                                    valign="top">
+                                    <td width="50%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+                                            <span>
+                                                <p align="left">-
+                                                    <span t-esc="t['name']"/>
+                                                    dia:
+                                                    <span t-esc="t['start']"/>
+                                                    a las
+                                                    <span t-esc="t['hour_start']"/>
+                                                </p>
+                                            </span>
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="left">
+                                            <p align="left">
+                                                <span t-esc="t['user_id']"/>
+                                            </p>
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+                                            <span>
+                                                <t t-esc="t['cause']"/>
+                                            </span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr style="page-break-inside: avoid" valign="top">
+                                    <td width="50%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left" valign="center">
+                                            <b>ANÁLISIS CUALITATIVO</b>
+                                        </p>
+                                    </td>
+                                    <td width="20%"
+                                        style="border-top: 1px double #808080; border-bottom: 1px double #808080; border-left: 1px double #808080; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+                                        <p align="left">
+                                        </p>
+                                    </td>
+                                    <td width="30%" style="border: 1px double #808080; padding: 0.1cm">
+                                        <p align="left">
+
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr style="page-break-inside: avoid" valign="top">
+                                    <td colspan="3" style="border: 1px double #808080; padding: 0.1cm">
+                                        <br/>
+                                        <div>
+                                            <t t-raw="o['resumen']"/>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p align="right">
+                                <br/>
+                                <br/>
+
+                            </p>
+                            <div class="row" t-if="user.company_id.chief_signature_on_resume">
+                                <div class="col-xs-6">
+                                    <p align="center">
+                                        <span t-esc="o['job']"/>
+                                    </p>
+                                    <p align="center">
+                                        <span t-esc="o['name']"/>
+                                    </p>
+                                </div>
+                                <div class="col-xs-6">
+                                    <p align="center">
+                                        <span t-esc="o['manager_job']"/>
+                                    </p>
+                                    <p align="center">
+                                        <span t-esc="o['manager_name']"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row" t-else="">
+                                <div class="col-xs-12">
+                                    <p align="center">
+                                        <span t-esc="o['job']"/>
+                                    </p>
+                                    <p align="center">
+                                        <span t-esc="o['name']"/>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</openerp>

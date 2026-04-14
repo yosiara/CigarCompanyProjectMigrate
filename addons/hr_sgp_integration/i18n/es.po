@@ -1,0 +1,260 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_sgp_integration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20171122\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-24 00:28+0000\n"
+"PO-Revision-Date: 2020-06-23 20:31-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.7.3\n"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brand_active
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_materials_active
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module_active
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_turn_active
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_brand_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_brigade_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_materials_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_module_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_turn_search
+msgid "Active"
+msgstr "Activo"
+
+#. module: hr_sgp_integration
+#: model:ir.actions.act_window,name:hr_sgp_integration.action_import_config_wizard_view
+msgid "Auxiliar para importar configuraciones..."
+msgstr "Auxiliar para importar configuraciones..."
+
+#. module: hr_sgp_integration
+#: model:ir.actions.act_window,name:hr_sgp_integration.action_hr_sgp_integration_brand
+#: model:ir.ui.menu,name:hr_sgp_integration.hr_sgp_integration_brand_menu_item
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_brand_form
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_brand_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_brand_tree
+msgid "Brand Configuration"
+msgstr "Configuración de marcas"
+
+#. module: hr_sgp_integration
+#: model:ir.model,name:hr_sgp_integration.model_hr_sgp_integration_brand
+msgid "Brand configuration"
+msgstr "Configuración de marcas"
+
+#. module: hr_sgp_integration
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_brigade_form
+msgid "Brigade Config"
+msgstr "Configuración de brigada"
+
+#. module: hr_sgp_integration
+#: model:ir.actions.act_window,name:hr_sgp_integration.action_hr_sgp_integration_brigade
+#: model:ir.ui.menu,name:hr_sgp_integration.hr_sgp_integration_brigade_menu_item
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_brigade_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_brigade_tree
+msgid "Brigades Config"
+msgstr "Configuración de brigadas"
+
+#. module: hr_sgp_integration
+#: model:ir.model,name:hr_sgp_integration.model_hr_sgp_integration_brigade
+msgid "Brigades configuration"
+msgstr "Configuración de brigadas"
+
+#. module: hr_sgp_integration
+#: model:ir.ui.menu,name:hr_sgp_integration.hr_sgp_integration_menu_item
+msgid "Configuration SGP"
+msgstr "Configuración SGP"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brand_create_uid
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brigade_create_uid
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_materials_create_uid
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module_create_uid
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_turn_create_uid
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_import_config_wizard_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brand_create_date
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brigade_create_date
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_materials_create_date
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module_create_date
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_turn_create_date
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_import_config_wizard_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_import_config_wizard_connector_id
+msgid "Database"
+msgstr "Base de Datos"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brand_display_name
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brigade_display_name
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_materials_display_name
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module_display_name
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_turn_display_name
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_import_config_wizard_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: hr_sgp_integration
+#: model:ir.ui.view,arch_db:hr_sgp_integration.import_config_wizard_form_view
+msgid ""
+"En orden de importar las<b>Configuraciones</b> de modulo y turno,\n"
+"\t\t\t\t\t\t\tde la Base de datos del Sistema de Gestion de la Produccion usted\n"
+"                            debe seleccionar la conexion a usar..."
+msgstr ""
+"En orden de importar las<b>Configuraciones</b> de modulo y turno,\n"
+"\t\t\t\t\t\t\tde la Base de datos del Sistema de Gestion de la Produccion usted\n"
+"                            debe seleccionar la conexion a usar..."
+
+#. module: hr_sgp_integration
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_brand_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_brigade_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_materials_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_module_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_turn_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: hr_sgp_integration
+#: model:ir.model,name:hr_sgp_integration.model_hr_department
+msgid "Hr Department"
+msgstr "Departamento de Recursos Humanos"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brand_id
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brigade_id
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_materials_id
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module_id
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_turn_id
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_import_config_wizard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_sgp_integration
+#: model:ir.ui.view,arch_db:hr_sgp_integration.import_config_wizard_form_view
+msgid "Importar"
+msgstr "Importar"
+
+#. module: hr_sgp_integration
+#: model:ir.ui.menu,name:hr_sgp_integration.out_indicators_import_sgp
+msgid "Importar configuraciones..."
+msgstr "Importar configuraciones..."
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brand___last_update
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brigade___last_update
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_materials___last_update
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module___last_update
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_turn___last_update
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_import_config_wizard___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brand_write_uid
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brigade_write_uid
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_materials_write_uid
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module_write_uid
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_turn_write_uid
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_import_config_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brand_write_date
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brigade_write_date
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_materials_write_date
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module_write_date
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_turn_write_date
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_import_config_wizard_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: hr_sgp_integration
+#: model:ir.actions.act_window,name:hr_sgp_integration.action_hr_sgp_integration_materials
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_materials_form
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_materials_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_materials_tree
+msgid "Materials Configuration"
+msgstr "Configuración de materiales"
+
+#. module: hr_sgp_integration
+#: model:ir.model,name:hr_sgp_integration.model_hr_sgp_integration_materials
+msgid "Materials configuration"
+msgstr "Configuración de materiales"
+
+#. module: hr_sgp_integration
+#: model:ir.actions.act_window,name:hr_sgp_integration.action_hr_sgp_integration_module
+#: model:ir.ui.menu,name:hr_sgp_integration.hr_sgp_integration_module_menu_item
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_module_form
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_module_search
+msgid "Module Config"
+msgstr "Configuración de módulos"
+
+#. module: hr_sgp_integration
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_module_tree
+msgid "Modules Config"
+msgstr "Configuración de módulos"
+
+#. module: hr_sgp_integration
+#: model:ir.model,name:hr_sgp_integration.model_hr_sgp_integration_module
+msgid "Modules configuration"
+msgstr "Configuración de módulos"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module_department_ids
+msgid "Related Departments"
+msgstr "Departamentos relacionados"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brand_sgp_id
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brigade_sgp_id
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_materials_sgp_id
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module_sgp_id
+msgid "SGP Identifier"
+msgstr "Identificador en SGP"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brand_sgp_name
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_brigade_sgp_name
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_materials_sgp_name
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_module_sgp_name
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_turn_sgp_name
+msgid "SGP Name"
+msgstr "Nombre en SGP"
+
+#. module: hr_sgp_integration
+#: model:ir.model.fields,field_description:hr_sgp_integration.field_hr_sgp_integration_turn_sgp_id
+msgid "SGP identifier"
+msgstr "Identificador en SGP"
+
+#. module: hr_sgp_integration
+#: model:ir.actions.act_window,name:hr_sgp_integration.action_hr_sgp_integration_turn
+#: model:ir.ui.menu,name:hr_sgp_integration.hr_sgp_integration_turn_menu_item
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_turn_form
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_turn_search
+#: model:ir.ui.view,arch_db:hr_sgp_integration.view_hr_sgp_integration_turn_tree
+msgid "Turn Config"
+msgstr "Configuración de turnos"
+
+#. module: hr_sgp_integration
+#: model:ir.model,name:hr_sgp_integration.model_hr_sgp_integration_turn
+msgid "Turns configuration"
+msgstr "Configuración de turnos"
+
+#. module: hr_sgp_integration
+#: model:ir.model,name:hr_sgp_integration.model_import_config_wizard
+msgid "import.config.wizard"
+msgstr "import.config.wizard"

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		HR Department
+		Model: hr.department
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+	  	<record id="view_department_form_inherit" model="ir.ui.view">
+            <field name="name">hr.department.form.inherit</field>
+            <field name="model">hr.department</field>
+            <field eval="60" name="priority"/>
+            <field name="inherit_id" ref="hr.view_department_form"/>
+            <field name="arch" type="xml">
+        		<data>
+                    <xpath expr="//form/sheet/group" position="replace">
+                        <group>
+                            <group>
+                                <field name="short_name" widget="mask_regex" data-inputmask-regex="([A-Za-z0-9- /ÁÉÓÍÚÑáéóíúñ\.]{1,25})"/>
+                                <field name="name" widget="mask_regex" data-inputmask-regex="([A-Za-z0-9- /ÁÉÓÍÚÑáéóíúñ\.]{1,50})"/>
+                                <field name="manager_id"/>
+                            </group>
+
+                            <group>
+                                <field name="parent_id"/>
+                                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                                <field name="is_productive"/>
+                            </group>
+                        </group>
+                    </xpath>
+		 		</data>
+            </field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem id="hr.menu_hr_department_tree"
+                  action="hr.open_module_tree_department"
+                  parent="hr.menu_human_resources_configuration"
+                  groups="hr.group_hr_user"
+                  sequence="40"/>
+	</data>
+</odoo>

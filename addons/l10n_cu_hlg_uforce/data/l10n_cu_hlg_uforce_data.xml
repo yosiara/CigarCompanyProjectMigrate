@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="hr_contract.supplement_motive" id="supplement_motive_alta">
+        <field name='code'>ALT</field>
+        <field name='name'>Alta</field>
+    </record>
+    <record model="hr_contract.supplement_motive" id="supplement_motive_null">
+        <field name='code'>ND</field>
+        <field name='name'>No definido</field>
+    </record>
+</odoo>

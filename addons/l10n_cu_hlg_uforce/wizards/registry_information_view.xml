@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="l10n_cu_hlg_uforce_registry_information_wzd_view_form" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_uforce.registry_information</field>
+            <field name="model">l10n_cu_hlg_uforce.registry_information</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Qualify Work Force Registry Information">
+                    <separator string="Qualify Work Force Registry Information"/>
+
+                    <p>
+                        To enjoy all features of the System <b>Qualify Work Force</b> you must complete the module
+                        register.
+                        <br/>
+                        Send the seed to the following email address
+                        <a href="mailto:comercial.holguin@desoft.cu?subject=Solicitud%20de%20registro" target="_blank">
+                            comercial.holguin@desoft.cu
+                        </a>
+                        and we will send to you the register key.
+                    </p>
+                    <group col="2">
+                        <field name="seed"/>
+                        <field name="key"/>
+                        <field name="days_left"/>
+                    </group>
+                    <field name="state" invisible="1"/>
+                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','sinclave')]}">
+                        <p class='alert alert-warning'>You must request your register key.</p>
+                    </group>
+                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','reg')]}">
+                        <p class='alert alert-success'>Your register key is valid or you are in trial period.</p>
+                    </group>
+                    <group class="oe_edit_only"
+                           attrs="{'invisible': ['|',('days_left','&gt;=',30),('days_left','=',0)]}">
+                        <p class='alert alert-warning'>Your register key will be expired in the next days.</p>
+                    </group>
+                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','unreg')]}">
+                        <p class='alert alert-danger'>Your register key is invalid.</p>
+                    </group>
+                    <group class="oe_edit_only" attrs="{'invisible': [('state','!=','exp')]}">
+                        <p class='alert alert-danger'>Your register key is expired.</p>
+                    </group>
+                    <footer>
+                        <div>
+                            <button name="save_key" string="Update" type="object" class="oe_highlight"/>
+                            o
+                            <button special="cancel" string="Close" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="l10n_cu_hlg_uforce_registry_information_action" model="ir.actions.act_window">
+            <field name="name">Qualify Work Force Registry Information</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_hlg_uforce.registry_information</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="l10n_cu_hlg_uforce_registry_information_menu"
+                  action="l10n_cu_hlg_uforce_registry_information_action"
+                  parent="menu_uforce_setting"
+                  sequence="7"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Hiring"
+                  id="menu_commercial" sequence="26" groups="group_contract_user"
+                  web_icon="l10n_cu_hlg_contract,static/description/icon.png"/>
+
+        <menuitem name="Contract Report" id="menu_contract_report" parent="menu_commercial" sequence="4"
+        groups="group_contract_manager"/>
+
+        <menuitem name="Contract Sale" id="menu_contract_report_sales" parent="menu_contract_report" sequence="10"
+        groups="group_contract_manager"/>
+
+        <menuitem name="Contract buy" id="menu_contract_report_buy" parent="menu_contract_report" sequence="15"
+        groups="group_contract_manager"/>
+
+        <menuitem name="Configuration" id="menu_contract_configuration" parent="menu_commercial" sequence="5"
+        groups="group_contract_manager"/>
+
+
+    </data>
+</odoo>

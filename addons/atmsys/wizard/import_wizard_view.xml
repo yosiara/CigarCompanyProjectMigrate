@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		WIZARD TO IMPORT INFORMATION FROM EXCEL FILE
+		Model: atmsys.import_wizard
+		=========================================================================================== -->
+
+		<!-- FORM VIEW -->
+		<record id="atmsys_import_wizard_form_view" model="ir.ui.view">
+            <field name="name">atmsys_import_wizard_form_view</field>
+            <field name="model">atmsys.import_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            	<form>
+                    <sheet>
+                        <div>
+                            <p>
+                                Seleccione la opción requerida <b>para importar datos</b>, y cargue el archivo
+                                correspondiente...
+                            </p>
+                        </div>
+
+                        <div attrs="{'invisible': [('action', '!=', 'import_responsibility_areas')]}">
+                            <p>
+                                Se espera que el archivo <b>Excel</b> tenga la información a importar en la primera hoja
+                                y este compuesto por las siguientes columnas...
+                            </p>
+
+                            <table class="table table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Nombre</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>0001</td>
+                                        <td>Area de Responsabilidad #1...</td>
+                                    </tr>
+                                    <tr>
+                                        <td>...</td>
+                                        <td>...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div attrs="{'invisible': [('action', '!=', 'import_cost_centers')]}">
+                            <p>
+                                Se espera que el archivo <b>Excel</b> tenga la información a importar en la primera hoja
+                                y este compuesto por las siguientes columnas, de las cuales la descripción
+                                no es obligatoria...
+                            </p>
+
+                            <table class="table table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Area</th>
+                                        <th>Código</th>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>0001</td>
+                                        <td>0058</td>
+                                        <td>Centro de Costo #1...</td>
+                                        <td>Este centro de costo es...</td>
+                                    </tr>
+                                    <tr>
+                                        <td>...</td>
+                                        <td>...</td>
+                                        <td>...</td>
+                                        <td>...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div attrs="{'invisible': [('action', '!=', 'import_product_groups')]}">
+                            <p>
+                                Se espera que el archivo <b>Excel</b> tenga la información a importar en la primera hoja
+                                y este compuesto por las siguientes columnas, de las cuales la descripción
+                                no es obligatoria...
+                            </p>
+
+                            <table class="table table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Nombre</th>
+                                        <th>Descripción</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>0001</td>
+                                        <td>Grupo de productos de prueba...</td>
+                                        <td>Este grupo de productos...</td>
+                                    </tr>
+                                    <tr>
+                                        <td>...</td>
+                                        <td>...</td>
+                                        <td>...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <group string="Configuration..." col="8">
+                            <group col="4" colspan="4">
+                                <field name="filename" invisible="1" colspan="4"/>
+                                <field name="file" colspan="4" filename="filename"/>
+                                <field name="action" colspan="4"/>
+                            </group>
+                            <group col="4"/>
+                        </group>
+                    </sheet>
+
+                    <footer>
+                        <button name="action_import" string="Import..." type="object" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="atm_import_wizard_action" model="ir.actions.act_window">
+            <field name="name">Wizard to import data...</field>
+            <field name="res_model">atmsys.import_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="Wizard" id="atmsys_integration_left_menu" parent="atmsys_root_menu" sequence="100"/>
+
+        <menuitem name="Data Import..."
+                  id="versat_integration_wizard_menu_item"
+                  action="atm_import_wizard_action"
+                  parent="atmsys_integration_left_menu"/>
+    </data>
+</odoo>

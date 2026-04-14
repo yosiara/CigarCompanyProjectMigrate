@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<odoo>
+   <data>
+       <!-- Tree View de los Puestos de Trabajo  -->
+        <record id="app_seleccion_job_tree_inherit" model="ir.ui.view">
+            <field name="name">app_seleccion_job_tree_inherit</field>
+            <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+            <field name="model">hr.job</field>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='department_id']" position="replace">
+
+                </xpath>
+
+                <xpath expr="//field[@name='no_of_employee']" position="replace">
+
+                </xpath>
+
+                 <xpath expr="//field[@name='expected_employees']" position="replace">
+
+                </xpath>
+
+                <xpath expr="//field[@name='no_of_hired_employee']" position="replace">
+
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+       <!-- Form View de los Puestos de Trabajo  -->
+       <record id="app_seleccion_job_form_inherit" model="ir.ui.view">
+            <field name="name">app_seleccion_job_form_inherit</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="model">hr.job</field>
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='name']" position="replace">
+                <label for="name" string="Puesto de Trabajo"/>
+                </xpath>
+                <xpath expr="//button[@name='set_open']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+            </field>
+       </record>
+
+
+   </data>
+
+</odoo>

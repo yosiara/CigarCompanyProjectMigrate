@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="wzd_evaluar" model="ir.ui.view">
+            <field name="name">app_seleccion.wzd_evaluar</field>
+            <field name="model">app_seleccion.wzd_evaluar</field>
+            <field name="arch" type="xml">
+                <form string="Evaluación del estudiante">
+                    <sheet>
+                        <group>
+                            <group name="left">
+                                <field name="estudiante_id" options="{'no_create': True, 'no_open': True}" domain="[('estado','=','curso')]"/>
+                                <field name="evaluacion_id" attrs="{'invisible': [('estudiante_id', '=', False)]}" >
+                                    <tree editable="bottom" string="Evaluaciones">
+                                    <field name="aspecto_evaluar_id" string="Aspecto a evaluar" options="{'no_create': True, 'no_open': True}" />
+                                    <field name="evaluacion"/>
+                                </tree>
+                       </field>
+                            </group>
+                            <group name="rigth">
+
+                            </group>
+                        </group>
+                        <footer>
+                            <div>
+                                <button name="Evaluar" icon="fa-lg fa-save" string="Evaluar" type="object"
+                                        class="oe_highlight"/>
+
+                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_evaluar_act_window" model="ir.actions.act_window">
+            <field name="name">Evaluación del estudiante</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">app_seleccion.wzd_evaluar</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_evaluar_act_window"
+                  id="menu_wzd_evaluar" parent="hr_recruitment.menu_hr_recruitment_root" sequence="4"/>
+    </data>
+</odoo>

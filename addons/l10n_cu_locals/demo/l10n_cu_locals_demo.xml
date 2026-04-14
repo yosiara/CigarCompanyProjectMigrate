@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+    <!--Users-->
+
+    <!--locals-->
+	<record id="local_edif" model="l10n_cu_locals.local">
+		<field name="name">Edificio Principal</field>
+		<field name="code">0000</field>
+	</record>
+	<record id="local_1erpiso" model="l10n_cu_locals.local">
+		<field name="name">Primer Piso</field>
+		<field name="code">1000</field>
+		<field name="parent_id" ref="local_edif"/>
+	</record>
+	<record id="local_2dopiso" model="l10n_cu_locals.local">
+		<field name="name">Segundo Piso</field>
+		<field name="code">2000</field>
+		<field name="parent_id" ref="local_edif"/>
+	</record>
+	<record id="local_3erpiso" model="l10n_cu_locals.local">
+		<field name="name">Tercer Piso</field>
+		<field name="code">3000</field>
+		<field name="parent_id" ref="local_edif"/>
+	</record>
+	<record id="local_4topiso" model="l10n_cu_locals.local">
+		<field name="name">Cuarto Piso</field>
+		<field name="code">4000</field>
+		<field name="parent_id" ref="local_edif"/>
+	</record>
+	<record id="local_5topiso" model="l10n_cu_locals.local">
+		<field name="name">Quinto Piso</field>
+		<field name="code">5000</field>
+		<field name="parent_id" ref="local_edif"/>
+	</record>
+	<record id="local_3erpiso_d1" model="l10n_cu_locals.local">
+		<field name="name">Laboratorio Desarrollo 1</field>
+		<field name="code">3003</field>
+		<field name="parent_id" ref="local_3erpiso"/>
+	</record>
+	<record id="local_3erpiso_d2" model="l10n_cu_locals.local">
+		<field name="name">Laboratorio Desarrollo 2</field>
+		<field name="code">3004</field>
+		<field name="parent_id" ref="local_3erpiso"/>
+	</record>
+	<record id="local_OficinaCTSIH1" model="l10n_cu_locals.local">
+		<field name="name">CTSI Holguin 1</field>
+		<field name="code">3001</field>
+		<field name="parent_id" ref="local_3erpiso"/>
+	</record>
+    </data>
+</openerp>

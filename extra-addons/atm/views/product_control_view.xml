@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		PRODUCT CONTROL INHERIT
+		Model: warehouse.product_control
+		=========================================================================================== -->
+
+        <!-- TREE VIEW -->
+        <record id="warehouse_product_control_tree_view_inherit" model="ir.ui.view">
+            <field name="name">warehouse_product_control_tree_view_inherit</field>
+            <field name="inherit_id" ref="warehouse.warehouse_product_control_tree_view"/>
+            <field name="model">warehouse.product_control</field>
+            <field name="arch" type="xml">
+            	<field name="quantity" position="after">
+                    <field name="quantity_system"/>
+                </field>
+	        </field>
+	    </record>
+    </data>
+</odoo>

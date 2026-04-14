@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_maintenance_orders_planned"
+                model="wzd.orders.planned"
+                string="Rep. Órdenes Planificadas"
+                report_type="xlsx"
+                name="turei_maintenance.orders_planned_report"
+                file="turei_maintenance.orders_planned_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

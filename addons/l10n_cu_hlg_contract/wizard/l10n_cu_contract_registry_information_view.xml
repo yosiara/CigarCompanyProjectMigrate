@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="contract_registry_information_wzd_view_form" model="ir.ui.view">
+			<field name="name">l10n_cu_contract.registry_information</field>
+			<field name="model">l10n_cu_contract.registry_information</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Contract Registry Information">
+				<separator string="Contract Registry Information"/>
+
+					<p>In order to enjoy all the functionality of the <b> Contracting </b> system you must complete the registration of the module.<br/>
+                    	Send the seed to the following email address <a href="mailto:comercial.holguin@desoft.cu?subject=Solicitud%20de%20registro"
+																		target="_blank">comercial.holguin@desoft.cu</a> and your registration key will be sent to you.</p>
+					<group col="2">
+						<field name="seed"/>
+						<field name="key"/>
+						<field name="days_left"/>
+					</group>
+					<field name="state" invisible="1" />
+					<!--<group class="oe_edit_only" attrs="{'invisible': [('state','!=','reg')]}">-->
+						<!--<p class='alert alert-success'>Your registration is valid.</p>-->
+					<!--</group>-->
+					<group class="oe_edit_only" attrs="{'invisible': ['|',('days_left','&gt;=',30),('days_left','=',0)]}">
+						<p class='alert alert-warning'>Your registration is about to expire.</p>
+					</group>
+					<group class="oe_edit_only" attrs="{'invisible': [('state','!=','unreg')]}">
+						<p class='alert alert-danger'>Your registration key is invalid.</p>
+					</group>
+					<group class="oe_edit_only" attrs="{'invisible': [('state','!=','exp')]}">
+						<p class='alert alert-danger'>Your registration key is expired.</p>
+					</group>
+				     <footer>
+                        <div>
+                            <button name="save_key" string="Actualizar" type="object" class="oe_highlight"/> o
+                            <button special="cancel" string="Cerrar" class="oe_link"/>
+                        </div>
+                    </footer>
+				</form>
+			</field>
+		</record>
+		
+
+    <record id="action_contract_registry_information" model="ir.actions.act_window">
+		<field name="name">Contract Registry Information</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">l10n_cu_contract.registry_information</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+
+	<delete model="ir.ui.menu" id="l10n_cu_hlg_contract.action_contract_registry_information_menu"/>
+	<menuitem id="action_contract_registry_information_menu" action="action_contract_registry_information"
+			  groups="group_contract_manager"
+			  parent="menu_contract_configuration" sequence="100"/>
+        
+	</data>
+</openerp>

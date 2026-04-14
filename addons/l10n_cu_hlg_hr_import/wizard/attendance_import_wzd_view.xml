@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="l10n_cu_hlg_hr_import_attendance_import_wzd_view" model="ir.ui.view">
+            <field name="name">l10n.cu.hlg.hr.import.attendance.import.wzd.form</field>
+            <field name="model">l10n_cu_hlg_hr_import.attendance_import_wzd</field>
+            <field name="arch" type="xml">
+                <form string="Import Attendances">
+
+                    <group col="4">
+                        <field name="fecha_inicio"/>
+                        <field name="fecha_fin"/>
+                        <field name="employee_id"/>
+                        <field name="connector_id"/>
+                    </group>
+                    <footer>
+                        <button string="Import attendances" name="do_import_attendances" type="object" default_focus="1"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!--action -->
+        <record id="action_l10n_cu_hlg_hr_import_attendance_import_wzd" model="ir.actions.act_window">
+            <field name="name">Import Attendance</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_hlg_hr_import.attendance_import_wzd</field>
+            <field name="view_id" ref="l10n_cu_hlg_hr_import_attendance_import_wzd_view"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_l10n_cu_hlg_hr_import_attendance_import_wzd" id="l10n_cu_hlg_hr_import_attendance_import_wzd_menu_item"
+                  parent="l10n_cu_hlg_hr_import.hr_import" sequence="10" groups="hr.group_hr_manager"/>
+
+    </data>
+</openerp>

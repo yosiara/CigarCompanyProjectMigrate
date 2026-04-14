@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="enterprise_mgm_sys_process_efficacy_form_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_process_efficacy.form</field>
+            <field name="model">enterprise_mgm_sys.process_efficacy</field>
+            <field name="arch" type="xml">
+                <form string="Process Efficacy Evaluation">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="process_id"/>
+                                <field name="year"/>
+                                <field name="month"/>
+                                <field name="expedition_date"/>
+                            </group>
+                            <group>
+                                <field name="real_value"/>
+                                <field name="total"/>
+                                <field name="optimal_value"/>
+                                <field name="efficacy"/>
+                            </group>
+                        </group>
+                        <separator string="Indicators"/>
+                        <group col="1">
+                            <field name="line_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="indicator_id"/>
+                                    <field name="evaluation"/>
+                                    <field name="weight"/>
+                                    <field name="punctuation"/>
+                                    <field name="value_reached"/>
+                                    <field name="optimal_value" invisible="1"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_process_efficacy_tree_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_process_efficacy.tree</field>
+            <field name="model">enterprise_mgm_sys.process_efficacy</field>
+            <field name="arch" type="xml">
+                <tree string="Process Efficacy Evaluation">
+                    <field name="process_id"/>
+                    <field name="year"/>
+                    <field name="month"/>
+                    <field name="efficacy"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_process_efficacy_graph_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_process_efficacy.graph</field>
+            <field name="model">enterprise_mgm_sys.process_efficacy</field>
+            <field name="arch" type="xml">
+                <graph string="Process Efficacy Evaluation" stacked="False">
+                    <field name="process_id" type="row"/>
+                    <field name="year" type="row"/>
+                    <field name="month" type="row"/>
+                    <field name="total" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_process_efficacy_pivot_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_process_efficacy.pivot</field>
+            <field name="model">enterprise_mgm_sys.process_efficacy</field>
+            <field name="arch" type="xml">
+                <pivot string="Process Efficacy Evaluation">
+                    <field name="process_id"/>
+                    <field name="year" type="row"/>
+                    <field name="month" type="row"/>
+                    <field name="real_value" type="measure"/>
+                    <field name="optimal_value" type="measure"/>
+                    <field name="total" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="enterprise_mgm_sys_process_efficacy_search_view" model="ir.ui.view">
+            <field name="name">enterprise_mgm_sys_process_efficacy.search</field>
+            <field name="model">enterprise_mgm_sys.process_efficacy</field>
+            <field name="arch" type="xml">
+                <search string="Process Efficacy Evaluation">
+                    <filter string="This year" name="this_year" domain="[('year','=',datetime.date.today().strftime('%%Y'))]"/>
+                    <filter string="Last year" name="last_year" domain="[('year','=',(context_today() - relativedelta(years=1)).strftime('%%Y'))]"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Month > Process" name="process_x_month" domain="[]"
+                                context="{'group_by':['month', 'process_id']}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="enterprise_mgm_sys_process_efficacy_act_window" model="ir.actions.act_window">
+            <field name="name">Process Efficacy Evaluation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.process_efficacy</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+            <field name="context">{'search_default_process_x_month': 1, 'search_default_this_year': 1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Process Efficacy Evaluation.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Process Efficacy Evaluation" id="enterprise_mgm_sys_process_efficacy_menu" parent="enterprise_mgm_sys_process_main_menu"
+                  action="enterprise_mgm_sys_process_efficacy_act_window"/>
+
+    </data>
+</odoo>

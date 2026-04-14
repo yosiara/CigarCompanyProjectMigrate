@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="turei_retired_person.report_retired_person" model="ir.actions.report.xml">
+            <field name="name">Retired Person List</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">turei_retired_person.retired_person</field>
+            <field name="report_name">turei_retired_person.report_retired_person</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">turei_retired_person</field>
+            <field name="docxtpl_template_fallback">reports/docx/turei_retired_person.docx</field>
+        </record>
+
+        <record id="turei_retired_person.report_retired_article_request" model="ir.actions.report.xml">
+            <field name="name">Article Request List</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">turei_retired_person.article_request</field>
+            <field name="report_name">turei_retired_person.report_retired_article_request</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">turei_retired_person</field>
+            <field name="docxtpl_template_fallback">reports/docx/turei_retired_article_request.docx</field>
+        </record>
+
+        <record id="turei_retired_person.report_employee_arrival_retired" model="ir.actions.report.xml">
+            <field name="name">Employee Arrival Retired</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">hr.employee</field>
+            <field name="report_name">turei_retired_person.report_employee_arrival_retired</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">turei_retired_person</field>
+            <field name="docxtpl_template_fallback">reports/docx/turei_employee_arrival_retired.docx</field>
+        </record>
+
+        <record id="report_retired_single_person" model="ir.actions.report.xml">
+            <field name="name">Retired Person Data</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">turei_retired_person.retired_person</field>
+            <field name="report_name">report_retired_single_person</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="docxtpl_multi_in_one">True</field>
+            <field name="module">turei_retired_person</field>
+            <field name="docxtpl_template_fallback">reports/docx/turei_retired_single_person.docx</field>
+        </record>
+
+         <record id="report_turei_retired_person_diploma" model="ir.actions.report.xml">
+            <field name="name">Retired Person Diploma</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">turei_retired_person.retired_person</field>
+            <field name="report_name">report_turei_retired_person_diploma</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="docxtpl_multi_in_one">True</field>
+            <field name="module">turei_retired_person</field>
+            <field name="docxtpl_template_fallback">reports/docx/turei_retired_person_diploma.docx</field>
+        </record>
+
+        <record id="button_report_person_diploma" model="ir.values">
+            <field name="key2">client_print_multi</field>
+            <field name="model">turei_retired_person.retired_person</field>
+            <field name="name">Retired Person Diploma</field>
+            <field name="value"
+                   eval="'ir.actions.report.xml,%d'%report_turei_retired_person_diploma"/>
+        </record>
+
+        <record id="turei_retired_person.report_dead_person" model="ir.actions.report.xml">
+            <field name="name">Retired Person Dead List</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">turei_retired_person.retired_person</field>
+            <field name="report_name">turei_retired_person.report_dead_person</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">turei_retired_person</field>
+            <field name="docxtpl_template_fallback">reports/docx/turei_retired_dead.docx</field>
+        </record>
+
+        <record id="button_report_single_person" model="ir.values">
+            <field name="key2">client_print_multi</field>
+            <field name="model">turei_retired_person.retired_person</field>
+            <field name="name">Retired Person Data</field>
+            <field name="value"
+                   eval="'ir.actions.report.xml,%d'%report_retired_single_person"/>
+        </record>
+    </data>
+</odoo>

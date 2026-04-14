@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Employee category action Inherit -->
+        <record id="view_employee_category_form" model="ir.ui.view">
+            <field name="name">hr.employee.category.form</field>
+            <field name="model">hr.employee.category</field>
+            <field name="inherit_id" ref="hr.view_employee_category_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="name" position="replace">
+                        <group colspan="4" col="4">
+                            <field name="name" colspan="2"/>
+                            <field name="payment_group" colspan="2"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Employees">
+                                <field name="employee_ids"/>
+                            </page>
+                        </notebook>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <!-- Employee search inherit view -->
+        <record id="view_employee_filter_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.search</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <group>
+                        <filter string="Payment group" context="{'group_by':'payment_group_id'}"/>
+                    </group>
+                </data>
+
+             </field>
+         </record>
+
+        <!-- Employee action Inherit -->
+        <record id="hr_contract.act_hr_employee_2_hr_contract" model="ir.actions.act_window">
+            <field name="name">Contracts</field>
+            <field name="res_model">hr.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('clasification','=','framework')]</field>
+            <field name="context">{'search_default_employee_id': [active_id], 'default_employee_id': active_id}</field>
+        </record>
+
+
+        <!-- Employee form view Inherit -->
+        <record id="l10n_cu_hlg_hr_contract_employee_form" model="ir.ui.view">
+            <field name="name">l10n.cu.hlg.hr.contract.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='department_id']" position="replace">
+                        <field name="department_id" readonly="1"/>
+                    </xpath>
+                    <xpath expr="//field[@name='job_id']" position="replace">
+                        <field name="job_id" readonly="1"/>
+                    </xpath>
+                    <xpath expr="//field[@name='calendar_id']" position="replace">
+                        <field name="calendar_id" readonly="1"/>
+                    </xpath>
+                    <xpath expr="//field[@name='place_of_birth']" position="replace">
+                    </xpath>
+
+                </data>
+            </field>
+        </record>
+
+        <!-- Resource form view Inherit -->
+        <record id="resource_resource_form" model="ir.ui.view">
+            <field name="name">resource.resource.form</field>
+            <field name="model">resource.resource</field>
+            <field name="inherit_id" ref="resource.resource_resource_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='calendar_id']" position="replace">
+                        <field name="calendar_id" readonly="1"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <!-- Resource Calendar View Inherit-->
+        <record id="resource_calendar_form" model="ir.ui.view">
+            <field name="name">l10n.cu.hr.contract.resourse.calendar.form</field>
+            <field name="model">resource.calendar</field>
+            <field name="inherit_id" ref="resource.resource_calendar_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="manager" position="after">
+                        <field name="work_hours_day" colspan="2"/>
+                        <field name="work_hours_average" colspan="2"/>
+                        <field name="monthly_average" colspan="2"/>
+                        <field name="background_average_days" colspan="2"/>
+                        <field name="background_average_hours" colspan="2"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+
+        <!-- Job View Inherit-->
+
+        <record id="l10n_cu_hlg_hr_contract.job_tree" model="ir.ui.view">
+            <field name="name">l10n.cu.hr.contract.job.tree</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='no_of_hired_employee']" position="replace">
+                        <field name="counts_hired_employee"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="l10n_cu_hlg_hr_contract.job_form" model="ir.ui.view">
+            <field name="name">l10n.cu.hr.contract.job.form</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="l10n_cu_hlg_hr.l10n_cu_hr_job_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//page[@name='employees']" position="after">
+                        <page name="cond_sec_health" string="Conditions of security and health">
+                            <field name="conditions_security_health" colspan="4"/>
+                        </page>
+                    </xpath>
+                    <xpath expr="//field[@name='position_id']" position="before">
+                        <field name="code" colspan="2"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <!-- Contract Type Form View Inherit-->
+        <record id="hlg_hr_contract_type_view_form" model="ir.ui.view">
+            <field name="name">hlg.hr.contract.type.view.form</field>
+            <field name="model">hr.contract.type</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_type_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='name']" position="replace">
+                        <field name="name" string="Name" colspan="2"/>
+                        <field name="code" colspan="2" required="1"/>
+                        <field name="extras_hours" colspan="2"/>
+                        <field name="night_hours" colspan="2"/>
+                        <field name="working_hours_ids_id" colspan="2"/>
+                    </xpath>
+                    <xpath expr="//group[1]" position="after">
+                        <group name="Contributions" colspan="4">
+                            <div>
+                                <label for="retributions_ids" string="Contributions" colspan="2"/>
+                                <field name="retributions_ids" class="oe_inline"/>
+                            </div>
+                        </group>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <!--Supplement-->
+
+        <record id="view_supplement_tree" model="ir.ui.view">
+            <field name="name">Supplement</field>
+            <field name="model">hr.contract</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <tree string="Supplements" create="false" delete="false">
+                    <field name="supplement_type"/>
+                    <field name="date_start"/>
+                    <field name="supp_job"/>
+                    <field name="supp_department"/>
+                    <field name="supp_wage"/>
+                    <field name="supplement_description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="contract_supplement_action" model="ir.actions.act_window">
+            <field name="name">Payroll Movement</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'supplement':True}</field>
+            <field name="domain">[('parent_id','=',active_id)]</field>
+            <field name="view_id" ref="view_supplement_tree"/>
+        </record>
+
+        <!-- Contract View Inherit -->
+
+        <record id="hr_contract_view_tree" model="ir.ui.view">
+            <field name="name">hr.contract.tree</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='type_id']" position="replace">
+                        <field name="type_id" string="Anormal Conditions"/>
+                    </xpath>
+                    <xpath expr="//field[@name='working_hours']" position="replace">
+                        <field name="working_hours" string="Working hours"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="l10n_cu_hr_contract_form" model="ir.ui.view">
+            <field name="name">l10n.cu.hr.contract.form</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <data>
+
+                    <!--<xpath expr='//form' position='attributes'>-->
+                    <!--<attribute name="edit" eval="(True ? 'false' : 'true')" />-->
+                    <!--</xpath>-->
+
+                    <field name="state" position="replace"/>
+                    <xpath expr="//sheet/div" position="before">
+                        <div class="oe_button_box" name="button_box">
+                            <button name="%(contract_supplement_action)d" type="action"
+                                    icon="fa-sitemap" class="oe_stat_button"
+                                    attrs="{'invisible':[('clasification','==','supplement')]}">
+                                <field string="Payroll Movement" name="supplement_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                    </xpath>
+                    <xpath expr="//header" position="inside">
+                        <button name="btn_approved" string="Approved" type="object" states="draft"
+                                class="oe_highlight"/>
+                        <button name="btn_change" string="Confirm movement" type="object"
+                                attrs="{'invisible': ['|',('confirm_movement', '=', False),('state', 'in', ('draft','closed'))]}"
+                                class="oe_highlight"/>
+                        <button name="btn_close" string="Closed" type="object"
+                                attrs="{'invisible': ['|','|',('confirm_movement', '=', True),('clasification', '=','supplement'),('state', 'in', ('draft','closed'))]}"
+                                class="oe_highlight"/>
+                        <button name="btn_pending" string="To Closed" type="object"
+                                attrs="{'invisible': ['|','|',('confirm_movement', '=', True),('clasification', '=','supplement'),('state','!=','approved')]}"
+                                class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="approved,closed,pending"
+                               statusbar_colors='{"approved":"blue"}'/>
+                    </xpath>
+
+                    <xpath expr="//header" position="before">
+                        <div class="alert alert-warning" role="alert" style="margin:5px;"
+                             attrs="{'invisible': [('confirm_movement','=',False)]}">
+                            There is an unconfirmed update.
+                        </div>
+                    </xpath>
+
+                    <xpath expr="//field[@name='employee_id']" position="before">
+                        <field name="supplement_description"
+                               attrs="{'readonly': [('state', '=', 'closed')],'invisible': [('clasification','!=','supplement')],'required':[('clasification','==','supplement')]}"/>
+                    </xpath>
+                    <field name="wage" position="before">
+                        <field name="supp_wage"/>
+                    </field>
+                    <field name="department_id" position="before">
+                        <field name="supp_department"/>
+                    </field>
+                    <xpath expr="//field[@name='wage']" position="before">
+                        <field name="salary_group_id"/>
+                        <field name="supp_salary_group"/>
+                        <field name="occupational_category_id"/>
+                        <field name="supp_occupational_category"/>
+                    </xpath>
+                    <xpath expr="//field[@name='working_hours']" position="after">
+                        <field name="contract_type"/>
+                        <field name="supp_contract_type"/>
+                    </xpath>
+                    <xpath expr="//field[@name='working_hours']" position="replace">
+                        <field name="working_hours" required="1" string="Working hours"/>
+                        <field name="supp_working_hours"/>
+                    </xpath>
+                    <xpath expr="//field[@name='type_id']" position="replace">
+                        <field name="type_id" string="Anormal Conditions"/>
+                        <field name="supp_type" string="Anormal Conditions"/>
+                    </xpath>
+                    <xpath expr="//field[@name='job_id']" position="replace">
+                        <field name="job_id" domain="[('department_id','=',department_id)]" required="1"/>
+                        <field name="supp_job"/>
+                        <field name="clasification" invisible="1"/>
+                        <field name="parent_id" invisible="1"/>
+                        <field name="child_ids" invisible="1"/>
+                    </xpath>
+                    <xpath expr="//field[@name='job_id']" position="after">
+                        <field name="main"
+                               attrs="{'readonly':['|','|',('contract_type','=','indeterminate'),('state', 'in', 'closed'),('clasification','==','supplement')]}"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="id" invisible="1"/>
+                        <field name="confirm_movement" invisible="1"/>
+                    </xpath>
+                    <xpath expr="//page[@name='information']" position="inside">
+                        <group string="Payments" colspan="4" col="4">
+                            <group colspan="4" col="4">
+                                <field name="schedule_pay" required="1" colspan="2"/>
+                                <field name="payment_method_id" colspan="2" required="1"
+                                       domain="[('parent_id','!=',False)]" string="Payment Method"/>
+                                <field name="means_of_payment" colspan="2"/>
+                                <field name="supp_payment_method" colspan="2"/>
+                                <field name="supp_payment_method_class" colspan="2" invisible="True"/>
+                            </group>
+                            <group name="Plus Data" colspan="4">
+                                <div>
+                                    <label for="retributions_deductions_ids" string="Plus" colspan="2"/>
+                                    <field name="retributions_deductions_ids" domain="[('show_in_contract','=',True)]" options="{'reload_on_button': True}" class="oe_inline">
+                                        <tree>
+                                            <field name="code"/>
+                                            <field name="name"/>
+                                            <field name="amount"/>
+                                        </tree>
+                                    </field>
+                                    <field name="supp_retributions_deductions" class="oe_inline"/>
+                                    <span aling="right"/>
+                                    =
+                                    <field name="total_payment" class="oe_right"/>
+                                </div>
+                            </group>
+                        </group>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id='l10n_cu_hlg_hr_contract_view_pivot' model='ir.ui.view'>
+            <field name="name">l10n_cu_hlg_hr_contract.pivot</field>
+            <field name="model">hr.contract</field>
+            <field name="arch" type="xml">
+                <pivot string="Contracts">
+                </pivot>
+            </field>
+        </record>
+
+        <record id='l10n_cu_hlg_hr_contract_view_graph' model='ir.ui.view'>
+            <field name="name">l10n_cu_hlg_hr_contract.graph</field>
+            <field name="model">hr.contract</field>
+            <field name="arch" type="xml">
+                <graph string="Contracts">
+                </graph>
+            </field>
+        </record>
+
+        <record id="hr_contract.action_hr_contract" model="ir.actions.act_window">
+            <field name="name">Contracts</field>
+            <field name="res_model">hr.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+            <field name="domain">[('clasification','=','framework')]</field>
+            <field name="context">{'search_default_current':1, 'rd':1}</field>
+            <!--<field name="search_view_id" ref="hr_contract.hr_contract_view_search"/>-->
+            <field name="view_id" ref="hr_contract_view_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click here to create new contracts.
+                </p>
+            </field>
+        </record>
+
+        <record id="action_hr_contract_type_under" model="ir.actions.act_window">
+            <field name="name">Anormal Conditions</field>
+            <field name="res_model">hr.contract.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="hr_contract.hr_contract_type_view_search"/>
+        </record>
+
+
+        <!-- Classification Deductions -->
+        <record id="classification_deductios_view_tree" model="ir.ui.view">
+            <field name="name">contract.classification_deductios.tree</field>
+            <field name="model">hr_contract.classification_deductions</field>
+            <field name="arch" type="xml">
+                <tree string="Classification of Deductions">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="classification_deductios_view_form" model="ir.ui.view">
+            <field name="name">contract.classification_deductios.form</field>
+            <field name="model">hr_contract.classification_deductions</field>
+            <field name="arch" type="xml">
+                <form string="Classification of Deductions">
+                    <sheet>
+                        <group>
+                            <field name="code" required="1"/>
+                            <field name="name" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Contributions Deductions List View Definition -->
+        <record id="contract_retributions_deductios_view_tree" model="ir.ui.view">
+            <field name="name">contract.retributions.deductios.tree</field>
+            <field name="model">hr_contract.retributions_deductions</field>
+            <field name="arch" type="xml">
+                <tree string="Contributions and Deductions">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Contributions Deductions Form View Definition -->
+        <record id="contract_retributions_deductios_view_form" model="ir.ui.view">
+            <field name="name">contract.retributions.deductios.form</field>
+            <field name="model">hr_contract.retributions_deductions</field>
+            <field name="arch" type="xml">
+                <form string="Contributions and Deductions">
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="code" required="1" colspan="2"/>
+                            <field name="name" required="1" colspan="2"/>
+                            <field name="type" colspan="2" required="1"/>
+                            <field name="amount" required="1" colspan="2"/>
+                            <field name="classification_id" colspan="2" required="1"/>
+                            <field name="show_in_contract" colspan="2"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="wzd_recruitment_modelo_cmedico" model="ir.ui.view">
+            <field name="name">app_seleccion.wzd_cmedico</field>
+            <field name="model">app_seleccion.wzd_cmedico</field>
+            <field name="arch" type="xml">
+                <form string="Chequeo Médico Prempleo">
+                    <sheet>
+                        <group>
+                            <group name="left">
+                                <field name="partner_name_id" options="{'no_create': True, 'no_open': True}"/>
+                            </group>
+                            <group name="rigth">
+
+                            </group>
+                        </group>
+                        <footer>
+                            <div>
+                                <button name="imprimir" icon="fa-lg fa-save" string="Generar modelo" type="object"
+                                        class="oe_highlight"/>
+
+                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_recruitment_cmedico_act_window" model="ir.actions.act_window">
+            <field name="name">Modelo de Chequeo Médico Prempleo</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">app_seleccion.wzd_cmedico</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_recruitment_cmedico_act_window"
+                  id="menu_wzd_cmedico_report" parent="app_seleccion.menu_modelos" sequence="4"/>
+    </data>
+</odoo>

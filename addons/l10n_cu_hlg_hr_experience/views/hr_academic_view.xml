@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <!-- Academic Title -->
+    <record id="hr_academic_title_view_form" model="ir.ui.view">
+        <field name="name">hr.academic.title.form</field>
+        <field name="model">hr.academic.titles</field>
+        <field name="arch" type="xml">
+            <form string="Academic Title">
+                <group>
+                    <field name="name" required="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_academic_title_tree" model="ir.ui.view">
+        <field name="name">hr.academic.title.tree</field>
+        <field name="model">hr.academic.titles</field>
+        <field name="arch" type="xml">
+            <tree string="Aacdemic Titles">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_view_academic_title_action" model="ir.actions.act_window">
+        <field name="name">Academic Titles</field>
+        <field name="res_model">hr.academic.titles</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--<menuitem action="open_view_academic_title_action" id="menu_hr_academic_titles_view_form"
+              parent="hr.menu_human_resources_configuration" sequence="1" groups="base.group_no_one"/>-->
+
+    <!-- academic tree-->
+    <record model="ir.ui.view" id="view_academic_tree">
+        <field name="name">hr.academic.tree</field>
+        <field name="model">hr.academic</field>
+        <field name="arch" type="xml">
+            <tree string="Academic experiences">
+                <field name="title_id" string="Title"/>
+                <field name="employee_id"/>
+                <field name="partner_id" string="Institution"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="tome"/>
+                <field name="folio"/>
+                <field name="registration_date"/>
+
+            </tree>
+        </field>
+    </record>
+     <!-- academic form-->
+    <record model="ir.ui.view" id="view_academic_form">
+        <field name="name">hr.academic.form</field>
+        <field name="model">hr.academic</field>
+        <field name="arch" type="xml">
+            <form string="Academic experience">
+                <sheet>
+                    <group name="main" col="4">
+                        <field name="employee_id"/>
+                        <field name="title_id"/>
+                        <separator string="Dates" colspan="4"/>
+                        <field name="start_date"/>
+                        <field name="end_date" />
+                        <separator string="Partner" colspan="4"/>
+                        <field name="partner_id"/>
+                        <separator string="Information" colspan="4"/>
+                        <field name="tome"/>
+                        <field name="folio"/>
+                        <field name="registration_date"/>
+                        <separator string="Additional Information" colspan="4"/>
+                        <field name="description" colspan="4" nolabel="1"/>
+                        <field name="category" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+      </field>
+    </record>
+    <!-- Menu -->
+    <record model="ir.actions.act_window" id="open_view_academic_form">
+        <field name="name">Academic experiences</field>
+        <field name="res_model">hr.academic</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--<menuitem name="Academic Experiences"
+              parent="menu_hr_experience"
+              id="menu_open_view_academic_form"
+              action="open_view_academic_form"/>-->
+
+</odoo>

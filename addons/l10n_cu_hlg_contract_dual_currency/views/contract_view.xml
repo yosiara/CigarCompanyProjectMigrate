@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_l10n_cu_contract_contract_form_inherit_dual_currency" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.contract.form.inherit.dual.currency</field>
+            <field name="model">l10n_cu_contract.contract</field>
+            <field name="inherit_id" ref="l10n_cu_hlg_contract.view_l10n_cu_contract_contract_form"/>
+            <field name="arch" type="xml">
+        		<data>
+                    <field name="amount_invoice" position="after">
+        				<field name="invoice_cup"/>
+        				<field name="invoice_cuc"/>
+                        <field name="total_cup"/>
+        				<field name="total_cuc"/>
+			 		</field>
+                    <field name="price" position="after">
+        				<field name="price_cuc"/>
+			 		</field>
+                    <field name="amount" position="after">
+        				<field name="amount_cuc"/>
+			 		</field>
+                    <field name="amount_total_signed" position="after">
+                        <field name="amount_total_cup" sum="CUP"/>
+                        <field name="amount_total_cuc" sum="CUC"/>
+                    </field>
+		 		</data>
+            </field>
+        </record>
+
+        <record id="contract_view_pivot_dual_currency" model="ir.ui.view">
+            <field name="name">contract.pivot.dual.currency</field>
+            <field name="model">l10n_cu_contract.contract</field>
+            <field name="inherit_id" ref="l10n_cu_hlg_contract.contract_view_pivot"/>
+            <field name="arch" type="xml">
+        		<data>
+                    <field name="amount_invoice" position="after">
+        				<field name="total_cup" type="measure"/>
+        				<field name="invoice_cup" type="measure"/>
+        				<field name="total_cuc" type="measure"/>
+        				<field name="invoice_cuc" type="measure"/>
+			 		</field>
+		 		</data>
+            </field>
+        </record>
+	</data>
+</openerp>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="report_wzd_form" model="ir.ui.view">
+            <field name="name">report_wzd</field>
+            <field name="model">l10n_cu_hlg_hr_work_force.report_wzd</field>
+            <field name="arch" type="xml">
+                <form string="Qualify Work Force Reports">
+                    <sheet>
+                        <group col="4">
+                            <field name="reports" widget="radio" colspan="4"/>
+                        </group>
+
+                        <!-- Degree reports -->
+                        <group attrs="{'invisible':[('reports','!=', 'degree')]}">
+                            <group name="left">
+                                <field name="degree_filter" attrs="{'required':[('reports','=', 'degree')]}"/>
+                            </group>
+                            <group name="right">
+                                <field name="branch_science_id"
+                                   attrs="{'invisible':[('degree_filter','!=', 'branch')],
+                                           'required': [('reports','=', 'degree'), ('degree_filter','=', 'branch')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="specialty_family_id"
+                                   attrs="{'invisible':[('degree_filter','!=', 'specialty')],
+                                           'required': [('reports','=', 'degree'), ('degree_filter','=', 'specialty')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="parent_id"
+                                   attrs="{'invisible':[('degree_filter','!=', 'parent')],
+                                           'required': [('reports','=', 'degree'), ('degree_filter','=', 'parent')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            </group>
+                        </group>
+
+                        <!-- Demand reports -->
+                        <group attrs="{'invisible':[('reports','!=', 'demand')]}">
+                            <group name="left">
+                                <field name="demand_filter" attrs="{'required':[('reports','=', 'demand')]}"/>
+                            </group>
+                            <group name="right">
+                                <field name="degree_id"
+                                   attrs="{'invisible':[('demand_filter','!=', 'degree')],
+                                           'required': [('reports','=', 'demand'), ('demand_filter','=', 'degree')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                                <field name="period_id"
+                                   attrs="{'invisible':[('demand_filter','!=', 'year')],
+                                           'required': [('reports','=', 'demand'), ('demand_filter','=', 'year')]}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            </group>
+                        </group>
+
+                        <!-- Employee reports -->
+                        <group attrs="{'invisible':[('reports','!=', 'employee')]}">
+                            <group name="left">
+                                <field name="employee_filter"  attrs="{'required':[('reports','=', 'employee')]}"/>
+                            </group>
+                            <group name="right">
+								<field name="occupational_id"
+                                       attrs="{'invisible':[('employee_filter','!=', 'occupational')],
+                                               'required': [('reports','=','employee'), ('employee_filter','=','occupational')]}"
+                                       options="{'no_create': True, 'no_open': True}"/>
+                                <field name="age_range_employee_id"
+                                       attrs="{'invisible':[('employee_filter','!=', 'age_range')],
+                                               'required': [('reports','=', 'employee'), ('employee_filter','=', 'age_range')]}"
+                                       options="{'no_create': True, 'no_open': True}"/>
+                            </group>
+                        </group>
+
+                        <!-- Hire and Drop reports -->
+                        <group attrs="{'invisible':[('reports','!=', 'hire_drop')]}">
+                            <group name="left">
+                                <field name="hire_drop_filter" attrs="{'required':[('reports','=', 'hire_drop')]}"/>
+                            </group>
+                            <group name="right">
+                                <field name="age_range_hire_drop_id"
+                                       attrs="{'invisible':[('hire_drop_filter','!=', 'age_range')],
+                                               'required': [('reports','=', 'hire_drop'), ('hire_drop_filter','=', 'age_range')]}"
+                                       options="{'no_create': True, 'no_open': True}"/>
+                                <field name="gender"
+                                       attrs="{'invisible':[('hire_drop_filter','!=', 'gender')],
+                                               'required': [('reports','=', 'hire_drop'), ('hire_drop_filter','=', 'gender')]}"
+                                       options="{'no_create': True, 'no_open': True}"/>
+                                <field name="motive_id" colspan="2"
+                                       attrs="{'invisible':[('hire_drop_filter','!=', 'motive')],
+                                               'required': [('reports','=', 'hire_drop'), ('hire_drop_filter','=', 'motive')]}"
+                                       options="{'no_create': True, 'no_open': True}"/>
+                            </group>
+                        </group>
+
+                        <footer>
+                            <div>
+                                <button name="report_print" string="Report" type="object"
+                                        icon="fa-print text-success" class="btn-primary"/>
+                                <button special="cancel" string="Cancel" class="btn-secondary"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_wzd_act_window" model="ir.actions.act_window">
+            <field name="name">Qualify Work Force Reports</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_hlg_hr_work_force.report_wzd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="report_wzd_act_window" id="menu_report_wzd"
+                  parent="l10n_cu_hlg_hr.menu_l10n_cu_hlg_hr_reporting" sequence="10"/>
+    </data>
+</odoo>

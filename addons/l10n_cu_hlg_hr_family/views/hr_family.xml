@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <record id="hr_family_view_tree" model="ir.ui.view">
+        <field name="name">hr.family.view.tree</field>
+        <field name="model">hr.employee.family</field>
+        <field name="arch" type="xml">
+            <tree string="Employee family" editable="bottom">
+                <field name="name"/>
+                <field name="kindred"/>
+                <field name="gender"/>
+                <field name="date_of_birth"/>
+                <field name="coexistence"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="cmi_root" name="CMI" sequence="" web_icon="cmi,static/src/img/logo.png"/>
+        <menuitem id="cmi_configuration" name="Configuration" parent="cmi_root" sequence="5" groups="cmi.manager"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="cmi_indicators_menu" name="Indicators" parent="cmi_root" action="cmi_indicator_menu_action" sequence="1"/>
+        <menuitem id="cmi_perpectives_menu" name="Perspectives" parent="cmi_configuration" action="cmi_perspective_menu_action" groups="cmi.manager"/>
+        <menuitem id="cmi_uom_menu" name="Units of Measure" parent="cmi_configuration" action="cmi_uom_menu_action" groups="cmi.manager"/>
+        <menuitem id="cmi_source_menu" name="Sources" parent="cmi_configuration" action="cmi_source_menu_action" groups="base.group_system"/>
+        <menuitem id="cmi_extract_indicator_wzd_menu" name="Extract indicators values" parent="cmi_configuration" action="action_cmi_extract_indicator_wzd" groups="cmi.manager"/>
+        <menuitem id="cmi_execute_transformations_wzd_menu" name="Execute transformations" parent="cmi_configuration" action="action_cmi_execute_transformations_wzd" groups="cmi.manager"/>
+        <menuitem id="cmi_dashboards_configuration_menu" name="Dashboards" parent="cmi_configuration" action="cmi_dashboard_configuration_menu_action" groups="cmi.manager"/>
+        <menuitem id="cmi_dashboards_show_menu" name="Dashboards" parent="cmi_root" action="cmi_dashboard_show_menu_action" sequence="2"/>
+
+    </data>
+</odoo>

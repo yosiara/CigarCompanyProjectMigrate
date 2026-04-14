@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="control_proc_control_proc_productive_section_plan_form" model="ir.ui.view">
+            <field name="name">control_proc_control_proc_productive_section_plan_view_form</field>
+            <field name="model">turei_process_control.productive_section_plan</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="group_top" col="8">
+                            <group colspan="4">
+                                <field name="year"/>
+                                <field string="Sec.Productivas" name="productive_section_ids" widget="many2many_tags"/>
+                                <field name="name"/>
+                                <field name="active"/>
+                                <field name="productive_capacity"/>
+                                <field name="quantity_line"/>
+                            </group>
+                            <group colspan="4">
+                                <group colspan="4">
+                                    <field name="indice_planif_efici_real"/>
+                                    <field name="indice_planif_rechazo"/>
+                                </group>
+                                <group colspan="4">
+                                    <field name="indice_planif_disp_tec"/>
+                                    <field name="indice_planif_norma"/>
+                                </group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="control_proc_productive_section_plan_view_tree" model="ir.ui.view">
+            <field name="name">control_proc_productive_section_plan_view_tree</field>
+            <field name="model">turei_process_control.productive_section_plan</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year"/>
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="productive_capacity"/>
+                    <field name="quantity_line"/>
+                    <field name="indice_planif_efici_real"/>
+                    <field name="indice_planif_rechazo"/>
+                    <field name="indice_planif_disp_tec"/>
+                    <field name="indice_planif_norma"/>
+                </tree>
+            </field>
+        </record>
+
+        <act_window id="control_proc_productive_section_plan"
+                    name="Planificación de norma e indices"
+                    res_model="turei_process_control.productive_section_plan"
+                    view_mode="tree,form"/>
+
+        <menuitem id="control_proc_productive_section_plan_menu"
+                  name="Planificación de norma e indicadores"
+                  parent="turei_process_control_settings_menu"
+                  action="control_proc_productive_section_plan" sequence="38"/>
+    </data>
+</odoo>

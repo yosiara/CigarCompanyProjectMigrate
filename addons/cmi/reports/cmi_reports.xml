@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <report
+                id="report_indicators_state"
+                model="cmi.indicator"
+                string="Indicators State"
+                name="cmi.report_indicators_state_template"
+                file="cmi.report_indicators_state_template"
+                report_type="qweb-pdf"
+                menu="False"
+        />
+
+        <template id="report_indicators_state_template">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <h1 class="text-center">Estado indicadores</h1>
+                            <t t-foreach="doc['perspectives']" t-as="p">
+                                <h3>
+                                    <span t-esc="p['name']"/>
+                                </h3>
+                                <table width="100%" cellpadding="4" cellspacing="0">
+                                    <thead>
+                                        <tr valign="top" style="border-top: 1px solid #808080; font-size: 11pt;">
+                                            <td
+                                                    style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+                                                <p align="left">
+                                                    <b>Indicador</b>
+                                                </p>
+                                            </td>
+                                            <td
+                                                    style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: none; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+                                                <p align="left">
+                                                    <b>Valor</b>
+                                                </p>
+                                            </td>
+                                            <td
+                                                    style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+                                                <p align="left">
+                                                    <b>Estado</b>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="p['lines']" t-as="ind">
+                                            <tr style="font-size: 11pt;">
+                                                <t t-set="color" t-value="'#88ac67'"/>
+                                                <t t-if="ind.color == 'yellow'">
+                                                    <t t-set="color" t-value="'#f78f20'"/>
+                                                </t>
+                                                <t t-if="ind.color == 'red'">
+                                                    <t t-set="color" t-value="'#db4e4e'"/>
+                                                </t>
+                                                <td
+                                                        style="font-size: 10pt; vertical-align:middle; border:1px solid #808080; padding-top: 0in; padding-bottom: 0.00in; padding-left: 0.04in; padding-right: 0in">
+                                                    <p style="display: table-cell;">
+                                                        <span style="display: inline-block;" t-esc="ind.name"/>
+                                                    </p>
+                                                </td>
+                                                <td
+                                                        style="font-size: 10pt; vertical-align:middle; border:1px solid #808080; padding-top: 0in; padding-bottom: 0.00in; padding-left: 0.04in; padding-right: 0in">
+                                                    <p style="display: table-cell;">
+                                                        <span style="display: inline-block;">
+                                                            <t t-if="ind.value_type == 'yes_no'">
+                                                                <span class="">
+                                                                    <t t-if="ind.value &gt; 0">
+                                                                        Certified
+                                                                    </t>
+                                                                    <t t-else="">
+                                                                        No Certified
+                                                                    </t>
+                                                                </span>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <span>Plan</span>
+                                                                <span class="">
+                                                                    <span t-field="ind.plan"/>
+                                                                    <span t-esc="ind.uom_abbreviated_name"/>
+                                                                </span>
+                                                                <span class="">Real</span>
+                                                                <span class="">
+                                                                    <span t-field="ind.real"/>
+                                                                    <span t-esc="ind.uom_abbreviated_name"/>
+                                                                </span>
+                                                            </t>
+                                                        </span>
+                                                    </p>
+                                                </td>
+                                                <td width="10%"
+                                                    t-attf-style="background-color: {{color}}; font-size: 10pt; vertical-align:middle; border:1px solid #808080; padding-top: 0in; padding-bottom: 0.00in; padding-left: 0.04in; padding-right: 0in">
+                                                    <p style="display: table-cell;">
+
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+
+                                </table>
+                            </t>
+
+                            <h1 class="text-center">Indicadores sin valores asociados en el período actual</h1>
+                            <table width="100%" cellpadding="4" cellspacing="0">
+                                <thead>
+                                    <tr valign="top" style="border-top: 1px solid #808080; font-size: 11pt;">
+                                        <td
+                                                style="border-top: none; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080; padding-top: 0in; padding-bottom: 0.04in; padding-left: 0.04in; padding-right: 0in">
+                                            <p align="left">
+                                                <b>Indicador</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="doc['no_value']" t-as="ind">
+                                        <tr style="font-size: 11pt;">
+                                            <td
+                                                    style="font-size: 10pt; vertical-align:middle; border:1px solid #808080; padding-top: 0in; padding-bottom: 0.00in; padding-left: 0.04in; padding-right: 0in">
+                                                <p style="display: table-cell;">
+                                                    <span style="display: inline-block;" t-esc="ind.name"/>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

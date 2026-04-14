@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="compliance_planned_efficiency_action"
+                string="Rep. Cumplimiento de eficiencia planificada"
+                model="wzd.compliance.planned.efficiency.excel"
+                report_type="xlsx"
+                file="turei_process_control.compliance_planned_efficiency"
+                name="turei_process_control.compliance_planned_efficiency"/>
+    </data>
+</odoo>

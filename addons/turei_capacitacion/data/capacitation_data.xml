@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+		<record id="formation_mode_0" model="turei_capacitacion.formation_mode">
+			<field name="code">FA</field>
+			<field name="name">Formación Académica</field>
+		</record>
+		
+		<record id="formation_mode_1" model="turei_capacitacion.formation_mode">
+			<field name="code">FP</field>
+			<field name="name">Formación de pregrado</field>
+		</record>
+		
+		<record id="formation_mode_2" model="turei_capacitacion.formation_mode">
+			<field name="code">CUR</field>
+			<field name="name">Curso</field>
+		</record>
+
+		<record id="formation_mode_3" model="turei_capacitacion.formation_mode">
+			<field name="code">TALL</field>
+			<field name="name">Taller</field>
+		</record>
+
+		<record id="formation_mode_4" model="turei_capacitacion.formation_mode">
+			<field name="code">EN</field>
+			<field name="name">Entrenamiento</field>
+		</record>
+
+		<record id="formation_mode_5" model="turei_capacitacion.formation_mode">
+			<field name="code">CE</field>
+			<field name="name">Conferencia Especializada</field>
+		</record>
+
+		<record id="formation_mode_6" model="turei_capacitacion.formation_mode">
+			<field name="code">ASE</field>
+			<field name="name">Asesoría</field>
+		</record>
+
+		<record id="formation_center_0" model="turei_capacitacion.formation_center">
+			<field name="name">Universidad de  Holguín</field>
+		</record>
+
+		<record id="formation_center_1" model="turei_capacitacion.formation_center">
+			<field name="name">TCP</field>
+		</record>
+
+		<record id="formation_center_3" model="turei_capacitacion.formation_center">
+			<field name="name">Empresa de Cigarros Lazaro Peña</field>
+		</record>
+
+		<record id="formation_center_4" model="turei_capacitacion.formation_center">
+			<field name="name">CEDES</field>
+		</record>
+
+		<record id="formation_center_5" model="turei_capacitacion.formation_center">
+			<field name="name">CONAS</field>
+		</record>
+
+		<record id="formation_center_6" model="turei_capacitacion.formation_center">
+			<field name="name">TRAMOS</field>
+		</record>
+
+		<record id="formation_center_7" model="turei_capacitacion.formation_center">
+			<field name="name">SEPRO</field>
+		</record>
+
+	</data>
+</odoo>

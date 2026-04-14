@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="report_authorized_software">
+        <t t-call="report.html_container">
+            <t t-call="l10n_cu_hlg_computers_inventory.external_layout">
+                <div class="page">
+                    <t t-set="flag" t-value="False"/>
+                    <t t-foreach="docs" t-as="o">
+                        <t t-if="flag">
+                            <p style="page-break-before: always;"></p>
+                        </t>
+                        <h3 align="center">Application for authorization to install computer systems</h3>
+                        <div class="row mt16 mb16"/>
+                        <p>
+                            <b>Date:</b>
+                            <span t-field="o.date"/>
+                        </p>
+                        <p>
+                            <b>Name and Lastname:</b>
+                            <span t-field="o.applicant_id"/>
+                        </p>
+                        <p>
+                            <b>User:</b>
+                            <span t-field="o.applicant_id.user_id.login"/>
+                        </p>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr class="tr_report">
+                                    <th style="text-align: center">
+                                        Software name
+                                    </th>
+                                    <th style="text-align: center">
+                                        Version
+                                    </th>
+                                    <th style="text-align: center">
+                                        Origin
+                                    </th>
+                                    <th style="text-align: center">
+                                        Installation type
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.software_line_ids" t-as="s">
+                                    <tr>
+                                        <td>
+                                            <span t-field="s.software_id"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-field="s.version"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="s.software_id.manufacturer"/>
+                                        </td>
+                                        <td>
+                                            <t t-if="s.valid">
+                                                <span>Until</span>
+                                                <span t-field="s.valid"/>
+                                            </t>
+                                            <t t-else="">
+                                                <span>Permanent</span>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <div class="row mt64 text-center">
+                            <div class="col-xs-6">
+                                <p>_____________________</p>
+                                <p>
+                                    <span t-field="o.applicant_id"/>
+                                </p>
+                                <p>
+                                    <span t-field="o.applicant_id.job_id"/>
+                                </p>
+                                <p>
+                                    <b>Applicant</b>
+                                </p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p>_____________________</p>
+                                <p>
+                                    <span t-field="o.approve_by_id"/>
+                                </p>
+                                <p>
+                                    <span t-field="o.approve_by_id.job_id"/>
+                                </p>
+                                <p>
+                                    <b>Approve</b>
+                                </p>
+                            </div>
+                        </div>
+                        <t t-set="flag" t-value="True"/>
+                    </t>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

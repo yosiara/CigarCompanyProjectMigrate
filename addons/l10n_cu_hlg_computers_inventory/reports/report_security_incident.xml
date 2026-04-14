@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_security_incident">
+            <t t-call="report.html_container">
+
+                <t t-call="l10n_cu_hlg_computers_inventory.external_layout">
+                    <div class="page">
+                        <table width="100%">
+                            <thead style="page-break-inside: avoid">
+                                <tr>
+                                    <td width="5%">
+
+                                    </td>
+                                    <td width="55%" colspan="5"
+                                        style="font-size:12pt;vertical-align:middle;text-align:center;">
+
+                                    </td>
+                                    <td width="40%" colspan="4"
+                                        style="vertical-align:middle;font-size:12pt;text-align:right;">
+
+                                        <br/>
+                                        INCIDENTES DE SEGURIDAD
+                                        <br/>
+
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="5%">
+                                        <br/>
+                                    </td>
+                                    <td width="55%" colspan="5"
+                                        style="font-size:12pt;vertical-align:middle;text-align:center;">
+                                        <br/>
+                                    </td>
+                                    <td width="40%" colspan="4"
+                                        style="vertical-align:middle;font-size:12pt;text-align:right;">
+                                        <br/>
+
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tr>
+                                <th width="5%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Code
+                                </th>
+                                <th width="10%"
+                                    style="vertical-align:middle;font-size:12pt;text-align:center;border: 1px double black; padding: 0.1cm">
+                                    Detection date
+                                </th>
+                                <th width="5%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Equipment
+                                </th>
+                                <th width="10%"
+                                    style="vertical-align:middle;font-size:12pt;text-align:center;border: 1px double black; padding: 0.1cm">
+                                    Person who detects
+                                </th>
+                                <th width="10%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Responsable
+                                </th>
+                                <th width="10%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Department
+                                </th>
+                                <th width="15%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Incident detected
+                                </th>
+                                <th width="15%"
+                                    style="vertical-align:middle;font-size:12pt;text-align:center;border: 1px double black; padding: 0.1cm">
+                                    Observations
+                                </th>
+                                <th width="15%"
+                                    style="vertical-align:middle;font-size:12pt;text-align:center;border: 1px double black; padding: 0.1cm">
+                                    Provisions applied
+                                </th>
+
+                            </tr>
+
+                            <t t-foreach="docs" t-as="o">
+                                <tr>
+                                    <td width="5%"
+                                        style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['id_code']"/>
+                                    </td>
+                                    <td width="10%"
+                                        style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['detection_date']"/>
+                                    </td>
+                                    <td width="5%"
+                                        style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['equipment_id']"/>
+                                    </td>
+                                    <td width="10%"
+                                        style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['detector']"/>
+                                    </td>
+                                    <td width="10%"
+                                        style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['employee_id']"/>
+                                    </td>
+                                    <td width="10%"
+                                        style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['department_id']"/>
+                                    </td>
+                                    <td width="15%"
+                                        style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['incident']"/>
+                                    </td>
+                                    <td width="15%"
+                                        style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['observations']"/>
+                                    </td>
+                                    <td width="15%"
+                                        style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['provisions_applied']"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+
+                        <div class="row mt64 text-center">
+                            <div class="col-xs-6">
+                                <p>_____________________</p>
+                                <p>
+                                    <span t-field="elaborates_id.name"/>
+                                </p>
+                                <p>
+                                    <span t-field="elaborates_id.job_id"/>
+                                </p>
+                                <p>
+                                    <b>Elaborates</b>
+                                </p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p>_____________________</p>
+                                <p>
+                                    <span t-field="approved_id.name"/>
+                                </p>
+                                <p>
+                                    <span t-field="approved_id.job_id"/>
+                                </p>
+                                <p>
+                                    <b>Approve</b>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

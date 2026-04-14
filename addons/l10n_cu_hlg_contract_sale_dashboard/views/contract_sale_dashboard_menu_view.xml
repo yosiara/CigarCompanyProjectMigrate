@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <delete model="ir.ui.menu" search="[('id', '=', ref('l10n_cu_hlg_contract.menu_board_contract_1'))]"/>
+    </data>
+</odoo>

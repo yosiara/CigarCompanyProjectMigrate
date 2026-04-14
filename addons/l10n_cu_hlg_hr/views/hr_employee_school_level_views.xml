@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		Employee School Level
+		Model: l10n_cu_hlg_hr.employee_school_level
+		=========================================================================================== -->
+
+        <!-- FORM VIEW -->
+        <record id="l10n_cu_hlg_hr_employee_school_level_form_view" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_hr_employee_school_level_form_view</field>
+            <field name="model">l10n_cu_hlg_hr.employee_school_level</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- TREE VIEW -->
+        <record id="l10n_cu_hlg_hr_employee_school_level_tree_view" model="ir.ui.view">
+            <field name="name">view_l10n_cu_hlg_hr_employee_school_level_tree_view</field>
+            <field name="model">l10n_cu_hlg_hr.employee_school_level</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="l10n_cu_hlg_hr_employee_school_level_action" model="ir.actions.act_window">
+            <field name="name">School Level</field>
+            <field name="res_model">l10n_cu_hlg_hr.employee_school_level</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!-- MENU ITEM -->
+        <menuitem name="School Levels"
+                  id="hr_employee_school_level_menu_item"
+                  action="l10n_cu_hlg_hr_employee_school_level_action"
+                  parent="l10n_cu_hr_desoft_staff_menu"
+                  groups="hr.group_hr_user"/>
+    </data>
+</odoo>

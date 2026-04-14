@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <!-- ========================= Widget File ======================== -->
+    <t t-extend="web.FieldBinaryFile">
+        <t t-jquery=".btn-primary" t-operation="replace">
+            <button type="button" class="btn btn-sm btn-primary o_select_file_button" title="Select">
+                Upload the file
+            </button>
+        </t>
+    </t>
+</templates>

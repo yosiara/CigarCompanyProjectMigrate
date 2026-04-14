@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_report_comp_coincid" model="ir.ui.view">
+            <field name="name">report.comp.coincid.form</field>
+            <field name="model">l10n_cu_calendar.print_comp_coincid</field>
+            <field name="arch" type="xml">
+            <form string="Comprobación de Coincidencias Programadas en un período">
+                <group>
+                    <field name="period_id"/>
+                    <field name="org_group_id"/>
+                    <field name="group_member_ids"/>
+                </group>
+                <footer>
+                    <button name="print_comp_coincid" string="Imprimir" type="object" class="oe_highlight"/>
+                    <button string="Cancelar" special="cancel" class="oe_link"/>
+                </footer>
+            </form>
+            </field>
+        </record>
+
+        <record id="action_report_comp_coincid" model="ir.actions.act_window">
+            <field name="name">Comprobación de Coincidencias</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_calendar.print_comp_coincid</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    <menuitem
+            name="Reportes"
+            parent="l10n_cu_calendar_menu"
+            id="menu_reportes_calendar" sequence="30"/>
+
+    <menuitem name="Comprobación de Coincidencias" id="comp_incid_item_menu" action="action_report_comp_coincid"
+				  parent="menu_reportes_calendar" sequence="10"/>
+
+</odoo>

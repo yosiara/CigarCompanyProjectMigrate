@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="calendar_group_add_employee_wzd_view_form" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.group_add_employee_wzd</field>
+            <field name="model">l10n_cu_calendar.group_add_employee_wzd</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Add employees to groups">
+                    <label string="This wizard let you add the new employees to existing groups." colspan="4"/>
+                    <group>
+                        <field name="employee_ids" widget="many2many_tags"/>
+                        <field name="group_ids" widget="many2many_tags"/>
+                        <field name="include_in_group_tasks"/>
+                    </group>
+                    <group col="4">
+                        <field name="date_start"
+                               attrs="{'invisible':[('include_in_group_tasks','=',False)], 'required':[('include_in_group_tasks','=',True)]}"/>
+                        <field name="date_end"
+                               attrs="{'invisible':[('include_in_group_tasks','=',False)], 'required':[('include_in_group_tasks','=',True)]}"/>
+                    </group>
+                    <footer>
+                        <div>
+                            <button name="execute" string="Apply" type="object" class="oe_highlight"/>
+                            o
+                            <button special="cancel" string="Cerrar" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_calendar_group_add_employee_wzd" model="ir.actions.act_window">
+            <field name="name">Add employees to groups</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_calendar.group_add_employee_wzd</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="calendar_group_add_employee_wzd_menu" action="action_calendar_group_add_employee_wzd"
+                  groups="l10n_cu_calendar.officer" parent="l10n_cu_calendar_main_config_menu" sequence="50"/>
+    </data>
+</openerp>

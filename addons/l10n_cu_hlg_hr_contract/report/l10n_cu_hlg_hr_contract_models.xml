@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report
+            id="action_report_contract_indeterminate"
+            model="l10n_cu_hlg_hr_contract.report_wizard"
+            string="Indeterminate contract"
+            report_type="qweb-html"
+            name="l10n_cu_hlg_hr_contract.report_indeterminate_contract"
+            file="l10n_cu_hlg_hr_contract.report_indeterminate_contract"
+            menu="False"
+        />
+
+        <report
+            id="action_report_contract_determinate"
+            model="l10n_cu_hlg_hr_contract.report_wizard"
+            string="Determinate contract"
+            report_type="qweb-html"
+            name="l10n_cu_hlg_hr_contract.report_determinate_contract"
+            file="l10n_cu_hlg_hr_contract.report_determinate_contract"
+            menu="False"
+        />
+
+        <report
+            id="action_report_contract_supplement"
+            model="hr.contract"
+            string="Supplement contract"
+            report_type="qweb-pdf"
+            name="l10n_cu_hlg_hr_contract.report_supplement_contract"
+            file="l10n_cu_hlg_hr_contract.report_supplement_contract"
+            menu="True"
+        />
+
+        <record id="paperformat_letter" model="report.paperformat">
+            <field name="name">Letter</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">80</field>
+        </record>
+
+
+        <report
+            id="action_report_contract_mov_nomina"
+            model="hr.contract"
+            string="Movimiento nomina"
+            report_type="qweb-pdf"
+            name="l10n_cu_hlg_hr_contract.report_mov_nomina_contract"
+            file="l10n_cu_hlg_hr_contract.report_mov_nomina_contract"
+            paperformat="paperformat_letter"
+            menu="True"
+
+        />
+    </data>
+</openerp>

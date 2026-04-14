@@ -1,0 +1,696 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* turei_retired_person
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-28 02:23+0000\n"
+"PO-Revision-Date: 2021-04-27 22:24-0400\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_address
+msgid "Address"
+msgstr "Dirección"
+
+#. module: turei_retired_person
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_person_filter:0
+msgid "All Retired Person"
+msgstr "Todos los Jubilados"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_arrival_year
+msgid "Arrival Year"
+msgstr "Año de arribo a jubilación"
+
+#. module: turei_retired_person
+#: model:ir.actions.act_window,name:turei_retired_person.action_retired_person_article
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_article_id
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_article_id
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_article_request_search
+#: selection:turei_retired_person.wzd_retired_person_reports,reports:0
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_article_filter:0
+msgid "Article"
+msgstr "Artículo"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_article_request_id
+#: model:ir.ui.menu,name:turei_retired_person.menu_retired_person_article_request
+msgid "Article Request"
+msgstr "Solicitud de Artículo"
+
+#. module: turei_retired_person
+#: model:ir.actions.report.xml,name:turei_retired_person.report_retired_article_request
+msgid "Article Request List"
+msgstr "Lista de Artículos Solicitados"
+
+#. module: turei_retired_person
+#: model:ir.actions.act_window,name:turei_retired_person.action_retired_person_article_type
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_article_type
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_article_to_retired_type_id
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_article_type_id
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_article_request_search
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_article_filter:0
+msgid "Article Type"
+msgstr "Tipo de Artículo"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_form
+msgid "Articles Requested"
+msgstr "Artículos Solicitados"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_assigned
+msgid "Assigned"
+msgstr "Asignado"
+
+#. module: turei_retired_person
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_person_filter:0
+msgid "Birht Month"
+msgstr "Mes de Nacimiento"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_birth_month
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_birth_month_name
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_search
+msgid "Birth Month"
+msgstr "Mes de Nacimiento"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_birth_month
+msgid "Birth month"
+msgstr "Mes de Nacimiento"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_born_date
+msgid "Born Date"
+msgstr "Fecha de Nacimiento"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.wzd_retired_person_reports
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_cell_phone
+msgid "Cell Phone"
+msgstr "Télefono Móvil"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.import_retired_excel_wzd_form_view
+#: model:ir.ui.view,arch_db:turei_retired_person.update_retired_form_view
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_type_code
+msgid "Code"
+msgstr "Código"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_create_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_create_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_type_create_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_import_retired_wizard_create_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_create_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_update_retired_wizard_create_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_create_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_create_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_type_create_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_import_retired_wizard_create_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_create_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_update_retired_wizard_create_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_date_request
+msgid "Date Request"
+msgstr "Fecha de Solicitud"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_dead_date
+msgid "Dead Date"
+msgstr "Fecha de Fallecimiento"
+
+#. module: turei_retired_person
+#: selection:turei_retired_person.wzd_retired_person_reports,reports:0
+msgid "Dead Person"
+msgstr "Trabajador Fallecido"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_dead_person_description
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_search
+msgid "Dead Person Description"
+msgstr "Fallecidos"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_dead_year
+msgid "Dead Year"
+msgstr "Año de Fallecimiento"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_degree_id
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_degree_id
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_search
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_person_filter:0
+msgid "Degree"
+msgstr "Carrera"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_display_name
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_display_name
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_type_display_name
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_import_retired_wizard_display_name
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_display_name
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_update_retired_wizard_display_name
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_email
+msgid "Email"
+msgstr "Correo electrónico"
+
+#. module: turei_retired_person
+#: model:ir.model,name:turei_retired_person.model_hr_employee
+msgid "Employee"
+msgstr "Trabajador"
+
+#. module: turei_retired_person
+#: model:ir.actions.report.xml,name:turei_retired_person.report_employee_arrival_retired
+#: selection:turei_retired_person.wzd_retired_person_reports,reports:0
+msgid "Employee Arrival Retired"
+msgstr "Trabajadores que arriban a Jubilación"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:216
+#, python-format
+msgid "Employee arrival retired in period: -"
+msgstr "Trabajadores que arriban a Jubilación en el período:"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:195
+#, python-format
+msgid "Employee arrival retired in: "
+msgstr "Trabajadores que arriban a Jubilación en: "
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_end_dead_year
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_end_year
+msgid "End Year"
+msgstr "Año de Fin"
+
+#. module: turei_retired_person
+#: selection:turei_retired_person.retired_person,gender_choice:0
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_gender:0
+msgid "Female"
+msgstr "Femenino"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_import_retired_wizard_file_name
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_dead_filter
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_employee_filter
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_retired_article_filter
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_retired_person_filter
+msgid "Filter by"
+msgstr "Filtrar por"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_founder_description
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_search
+msgid "Founder Description"
+msgstr "Es Fundador"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_founder
+msgid "Founder?"
+msgstr "Es fundador ?"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_gender
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_gender_choice
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_retired_gender
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_search
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_person_filter:0
+msgid "Gender"
+msgstr "Sexo"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_article_request_search
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_search
+msgid "Group by"
+msgstr "Agrupar por"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_house_phone
+msgid "House Phone"
+msgstr "Télefono Fijo"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_id
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_id
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_type_id
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_import_retired_wizard_id
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_id
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_update_retired_wizard_id
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_id
+msgid "ID"
+msgstr "ID"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_identification_id
+msgid "Identification ID"
+msgstr "CI"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.import_retired_excel_wzd_form_view
+msgid "Import"
+msgstr "Importar"
+
+#. module: turei_retired_person
+#: model:ir.actions.act_window,name:turei_retired_person.action_import_retired
+#: model:ir.ui.menu,name:turei_retired_person.menu_import_retired
+msgid "Import Retired Person from Excel"
+msgstr "Importar información de Jubilados desde plantilla de XLS"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_in_service
+msgid "In Service?"
+msgstr "En Servicio en la Empresa?"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_dead_person
+msgid "Is dead retired person?"
+msgstr "Es fallecido el trabajador ?"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_job_id
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_person_filter:0
+msgid "Job"
+msgstr "Puesto de trabajo"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_form
+msgid "Job Data"
+msgstr "Datos Laborales"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request___last_update
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired___last_update
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_type___last_update
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_import_retired_wizard___last_update
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person___last_update
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_update_retired_wizard___last_update
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_write_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_type_write_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_write_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_import_retired_wizard_write_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_write_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_update_retired_wizard_write_uid
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_write_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_type_write_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_write_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_import_retired_wizard_write_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_write_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_update_retired_wizard_write_date
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: turei_retired_person
+#: selection:turei_retired_person.retired_person,gender_choice:0
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_gender:0
+msgid "Male"
+msgstr "Maculino"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_municipality_id
+msgid "Municipality"
+msgstr "Municipio"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_name
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_to_retired_type_name
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_neighborhood_id
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_search
+msgid "Neighborhood"
+msgstr "Vecindario(Barrio)"
+
+#. module: turei_retired_person
+#: selection:turei_retired_person.wzd_retired_person_reports,dead_filter:0
+#: selection:turei_retired_person.wzd_retired_person_reports,employee_filter:0
+msgid "Period"
+msgstr "Período"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_form
+msgid "Personal Data"
+msgstr "Datos Personales"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/import_retired.py:52
+#, python-format
+msgid "Please give an CI or born date!"
+msgstr "Please give an CI or born date!"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/import_retired.py:70
+#, python-format
+msgid "Please give an Municipality!"
+msgstr "Please give an Municipality!"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/import_retired.py:75
+#, python-format
+msgid "Please give an State!"
+msgstr "Please give an State!"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/import_retired.py:33
+#, python-format
+msgid "Please, select the correct file!"
+msgstr "Please, select the correct file!"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.wzd_retired_person_reports
+msgid "Print Report"
+msgstr "Imprimir Reporte"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_reports
+msgid "Reports"
+msgstr "Informes"
+
+#. module: turei_retired_person
+#: model:ir.actions.act_window,name:turei_retired_person.action_retired_person_article_request
+msgid "Request"
+msgstr "Solicitud"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:176
+#, python-format
+msgid "Request Article Type is: "
+msgstr "Tipo de Solicitud de Artículo: "
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:170
+#, python-format
+msgid "Request Article in: "
+msgstr "Solicitud de Artículo en: "
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:173
+#, python-format
+msgid "Request Article is: "
+msgstr "Solicitu de Artículo: "
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_request_year
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_article_request_search
+msgid "Request Year"
+msgstr "Año de Solicitud"
+
+#. module: turei_retired_person
+#: model:ir.ui.menu,name:turei_retired_person.menu_retired_person_root
+msgid "Retired"
+msgstr "Jubilados"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_retired_date
+msgid "Retired Date"
+msgstr "Fecha de Jubilación"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_retired_job_id
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_search
+msgid "Retired Job"
+msgstr "Puesto de Trabajo al jubilarse"
+
+#. module: turei_retired_person
+#: model:ir.actions.act_window,name:turei_retired_person.action_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_article_request_retired_person_id
+#: model:ir.ui.menu,name:turei_retired_person.menu_retired_person_item
+#: selection:turei_retired_person.wzd_retired_person_reports,reports:0
+msgid "Retired Person"
+msgstr "Trabajador Jubilado"
+
+#. module: turei_retired_person
+#: model:ir.actions.report.xml,name:turei_retired_person.report_retired_single_person
+msgid "Retired Person Data"
+msgstr "Datos del Trabajador Jubilado"
+
+#. module: turei_retired_person
+#: model:ir.actions.report.xml,name:turei_retired_person.report_dead_person
+msgid "Retired Person Dead List"
+msgstr "Lista de Trabajadores Jubilados Fallecidos"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:257
+#, python-format
+msgid "Retired Person Dead in period: -"
+msgstr "Trabajadores Jubilados Fallecidos en el período: -"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:237
+#, python-format
+msgid "Retired Person Dead in: "
+msgstr "Trabajador Fallecido en: "
+
+#. module: turei_retired_person
+#: model:ir.actions.report.xml,name:turei_retired_person.report_turei_retired_person_diploma
+msgid "Retired Person Diploma"
+msgstr "Diploma de Reconocimiento"
+
+#. module: turei_retired_person
+#: model:ir.actions.report.xml,name:turei_retired_person.report_retired_person
+msgid "Retired Person List"
+msgstr "Lista de Trabajadores Jubilados"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:130
+#, python-format
+msgid "Retired Person List All"
+msgstr "Todas los Jubilados"
+
+#. module: turei_retired_person
+#: model:ir.actions.act_window,name:turei_retired_person.wzd_retired_person_reports_act_window
+#: model:ir.ui.menu,name:turei_retired_person.menu_retired_person_reports
+#: model:ir.ui.menu,name:turei_retired_person.menu_wzd_retired_person_reports
+#: model:ir.ui.view,arch_db:turei_retired_person.wzd_retired_person_reports
+msgid "Retired Person Reports"
+msgstr "Reportes"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:148
+#, python-format
+msgid "Retired Person by Birth Month: "
+msgstr "Trabajadores Jubilados por Mes de Nacimiento: "
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:145
+#, python-format
+msgid "Retired Person by Degree: "
+msgstr "Trabajadores Jubilados por Carrera: "
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:142
+#, python-format
+msgid "Retired Person by Job: "
+msgstr "Trabajadores Jubilados por Puesto de Trabajo: "
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:139
+#, python-format
+msgid "Retired Person by UEB: "
+msgstr "Trabajadores Jubilados por UEB: "
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:136
+#, python-format
+msgid "Retired Person by gender: "
+msgstr "Trabajadores Jubilados por Género: "
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:133
+#, python-format
+msgid "Retired Person in: "
+msgstr "Trabajadores Jubilados en: "
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_hr_employee_retired_year
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_retired_year
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_search
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_person_filter:0
+msgid "Retired Year"
+msgstr "Año de Jubilación"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_retired_year
+msgid "Retired year"
+msgstr "Año de Jubilación"
+
+#. module: turei_retired_person
+#. openerp-web
+#: code:addons/turei_retired_person/static/src/xml/binary_file.xml:6
+#, python-format
+msgid "Select"
+msgstr "Seleccionar"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_import_retired_wizard_file_data
+msgid "Select template"
+msgstr "Seleccione la plantilla"
+
+#. module: turei_retired_person
+#: model:ir.ui.menu,name:turei_retired_person.menu_retired_person_config
+msgid "Setting"
+msgstr "Configuración"
+
+#. module: turei_retired_person
+#: model:ir.ui.menu,name:turei_retired_person.menu_retired_person_config_article
+msgid "Setting Article"
+msgstr "Artículo"
+
+#. module: turei_retired_person
+#: model:ir.ui.menu,name:turei_retired_person.menu_retired_person_config_article_type
+msgid "Setting Article Type"
+msgstr "Tipo de Artículo"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_start_dead_year
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_start_year
+msgid "Start Year"
+msgstr "Año de Inicio"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_state_id
+msgid "State"
+msgstr "Estado"
+
+#. module: turei_retired_person
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:281
+#: code:addons/turei_retired_person/wizards/turei_retired_wzd_retired_person.py:286
+#, python-format
+msgid "The start year must be less than the end year !!"
+msgstr "El año de inicio no puede ser mayor que el de fin !!"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_retired_person_ueb_id
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_ueb_id
+#: model:ir.ui.view,arch_db:turei_retired_person.view_turei_retired_person_retired_person_search
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_person_filter:0
+msgid "UEB"
+msgstr "UEB"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.update_retired_form_view
+msgid "Update"
+msgstr "Actualizar"
+
+#. module: turei_retired_person
+#: model:ir.actions.act_window,name:turei_retired_person.action_update_retired
+#: model:ir.ui.menu,name:turei_retired_person.menu_update_retired
+msgid "Update Retired Person from HR Database"
+msgstr "Actualizar información de Jubilados desde la Base de Datos de HR"
+
+#. module: turei_retired_person
+#. openerp-web
+#: code:addons/turei_retired_person/static/src/xml/binary_file.xml:6
+#, python-format
+msgid "Upload the file"
+msgstr "Subir archivo"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.update_retired_form_view
+msgid "Using this wizard you can import the retired person information from HR Data Base"
+msgstr "A través de este asistente puede actualizar la información de los Jubilados desde la Base de Datos de HR"
+
+#. module: turei_retired_person
+#: model:ir.ui.view,arch_db:turei_retired_person.import_retired_excel_wzd_form_view
+msgid "Using this wizard you can import the retired person information from an Excel template"
+msgstr "A través de este asistente puede actualizar la información de los Jubilados desde una plantilla XLS"
+
+#. module: turei_retired_person
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_dead_year
+#: model:ir.model.fields,field_description:turei_retired_person.field_turei_retired_person_wzd_retired_person_reports_year
+#: selection:turei_retired_person.wzd_retired_person_reports,dead_filter:0
+#: selection:turei_retired_person.wzd_retired_person_reports,employee_filter:0
+#: selection:turei_retired_person.wzd_retired_person_reports,retired_article_filter:0
+msgid "Year"
+msgstr "Año"
+
+#. module: turei_retired_person
+#: model:ir.model,name:turei_retired_person.model_retired_person_import_retired_wizard
+msgid "retired_person.import_retired_wizard"
+msgstr "retired_person.import_retired_wizard"
+
+#. module: turei_retired_person
+#: model:ir.model,name:turei_retired_person.model_turei_retired_person_article_request
+msgid "turei_retired_person.article_request"
+msgstr "turei_retired_person.article_request"
+
+#. module: turei_retired_person
+#: model:ir.model,name:turei_retired_person.model_turei_retired_person_article_to_retired
+msgid "turei_retired_person.article_to_retired"
+msgstr "turei_retired_person.article_to_retired"
+
+#. module: turei_retired_person
+#: model:ir.model,name:turei_retired_person.model_turei_retired_person_article_to_retired_type
+msgid "turei_retired_person.article_to_retired_type"
+msgstr "turei_retired_person.article_to_retired_type"
+
+#. module: turei_retired_person
+#: model:ir.model,name:turei_retired_person.model_turei_retired_person_import_retired_wizard
+msgid "turei_retired_person.import_retired_wizard"
+msgstr "turei_retired_person.import_retired_wizard"
+
+#. module: turei_retired_person
+#: model:ir.model,name:turei_retired_person.model_turei_retired_person_retired_person
+msgid "turei_retired_person.retired_person"
+msgstr "turei_retired_person.retired_person"
+
+#. module: turei_retired_person
+#: model:ir.model,name:turei_retired_person.model_turei_retired_person_update_retired_wizard
+msgid "turei_retired_person.update_retired_wizard"
+msgstr "turei_retired_person.update_retired_wizard"
+
+#. module: turei_retired_person
+#: model:ir.model,name:turei_retired_person.model_turei_retired_person_wzd_retired_person_reports
+msgid "turei_retired_person.wzd_retired_person_reports"
+msgstr "turei_retired_person.wzd_retired_person_reports"

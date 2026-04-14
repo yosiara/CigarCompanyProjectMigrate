@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="turei_computers_inventory_wo_paper_format" model="report.paperformat">
+            <field name="name">turei_computers_inventory_wo_paper_format</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">96</field>
+        </record>
+
+        <report
+                id="report_work_order"
+                model="computers_inventory.work_order"
+                string="Work Order"
+                name="turei_computers_inventory.report_work_order_view"
+                file="turei_computers_inventory.report_work_order"
+                paperformat="turei_computers_inventory.turei_computers_inventory_wo_paper_format"
+                report_type="qweb-pdf"/>
+
+        <template id="report_work_order_view">
+            <t t-call="report.html_container">
+                <div class="page">
+                    <t t-foreach="docs" t-as="doc">
+                        <table style="page-break-inside: avoid;" width="100%">
+                            <tr>
+                                <td colspan="2" width="25%"
+                                    style="padding: 2px;font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <img src="/turei_computers_inventory/static/img/logo.png"
+                                         style="width: 225px; height: auto;"/>
+                                </td>
+                                <td colspan="4" class="text-center" width="50%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <b>ORDEN DE TRABAJO</b>
+                                </td>
+                                <td width="25%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    No.
+                                    <span style="text-decoration: underline;" t-field="doc.number"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7"
+                                    style="padding: 10px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Ejecutor
+                                    <t t-if="doc.executor">
+                                        <span style="text-decoration: underline;" t-field="doc.executor"/>&#160;&#160;
+                                    </t>
+                                    <t t-else="">
+                                        ______________&#160;&#160;
+                                    </t>
+                                    C. Costo
+                                    <t t-if="doc.cost_center">
+                                        <span style="text-decoration: underline;" t-field="doc.cost_center"/>&#160;&#160;
+                                    </t>
+                                    <t t-else="">
+                                        ______________&#160;&#160;
+                                    </t>
+                                    Fecha de Solicitud
+                                    <t t-if="doc.request_date">
+                                        <span style="text-decoration: underline;" t-field="doc.request_date"/>&#160;&#160;
+                                    </t>
+                                    <t t-else="">
+                                        ______________&#160;&#160;
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7"
+                                    style="padding: 5px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Descripción:
+                                    <t t-if="doc.description">
+                                        <span style="text-decoration: underline;" t-field="doc.description"/>
+                                    </t>
+                                    <t t-else="">
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td width="10%"
+                                    style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Fecha de Inicio
+                                </td>
+                                <td width="15%"
+                                    style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Empleado
+                                </td>
+                                <td width="14%"
+                                    style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Trabajo
+                                </td>
+                                <td width="14%"
+                                    style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Equipo y No.
+                                </td>
+                                <td width="14%"
+                                    style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Tiempo
+                                </td>
+                                <td width="37%" colspan="2"
+                                    style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    Observaciones
+                                </td>
+                            </tr>
+                            <t t-set="lines" t-value="max(8,len(doc.line_ids))"/>
+                            <t t-foreach="range(0, lines)" t-as="i">
+                                <tr class="text-center">
+                                    <td width="10%"
+                                        style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="i &lt; len(doc.line_ids)">
+                                            <span t-field="doc.line_ids[i].start_date"/>
+                                        </t>
+                                        <t t-else="">
+                                            &#160;
+                                        </t>
+                                    </td>
+                                    <td width="15%"
+                                        style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="i &lt; len(doc.line_ids)">
+                                            <span t-field="doc.line_ids[i].employee_id"/>
+                                        </t>
+                                        <t t-else="">
+                                            &#160;
+                                        </t>
+                                    </td>
+                                    <td width="14%"
+                                        style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="i &lt; len(doc.line_ids)">
+                                            <span t-field="doc.line_ids[i].realized_work"/>
+                                        </t>
+                                        <t t-else="">
+                                            &#160;
+                                        </t>
+                                    </td>
+                                    <td width="14%"
+                                        style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="i &lt; len(doc.line_ids)">
+                                            <span t-field="doc.line_ids[i].equipment_id"/>
+                                        </t>
+                                        <t t-else="">
+                                            &#160;
+                                        </t>
+                                    </td>
+                                    <td width="14%"
+                                        style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="i &lt; len(doc.line_ids)">
+                                            <span t-field="doc.line_ids[i].duration"/>
+                                        </t>
+                                        <t t-else="">
+                                            &#160;
+                                        </t>
+                                    </td>
+                                    <td width="37%" colspan="2"
+                                        style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                        <t t-if="i &lt; len(doc.line_ids)">
+                                            <span t-field="doc.line_ids[i].observations"/>
+                                        </t>
+                                        <t t-else="">
+                                            &#160;
+                                        </t>
+                                    </td>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td rowspan="2" colspan="4"
+                                    style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <p>Nombre del Responsable</p>
+                                    <t t-if="doc.responsible">
+                                        <table>
+                                            <td class="text-center">
+                                                <span t-field="doc.responsible"/>
+                                            </td>
+                                            <td style="padding-left: 16px;" class="text-center">
+                                                __________<br/>
+                                                Firma
+                                            </td>
+                                        </table>
+                                    </t>
+                                    <t t-else="">
+                                        <p class="text-right">
+                                            <span style="padding-right: 64px;">_________________________________________</span><br/>
+                                            <span style="padding-right: 96px;">Firma</span>
+                                        </p>
+                                    </t>
+                                </td>
+                                <td class="text-center" colspan="3"
+                                    style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <span>Equipo Listo para el Trabajo</span>
+                                    <br/>
+                                    <t t-if="doc.equipment_ready">
+                                        <span>Sí</span>
+                                        <span style="text-decoration: underline">&#160;X&#160;</span>&#160;&#160;<span>
+                                        No
+                                    </span>
+                                        <span style="text-decoration: underline">&#160;&#160;&#160;</span>
+                                    </t>
+                                    <t t-else="">
+                                        <span>Sí</span>
+                                        <span style="text-decoration: underline">&#160;&#160;&#160;</span>&#160;&#160;<span>
+                                        No
+                                    </span>
+                                        <span style="text-decoration: underline">&#160;X&#160;</span>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td colspan="3"
+                                    style="padding: 2px; font-size:12pt;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black;">
+                                    <span>Fecha de Cierre</span>
+                                    <br/>
+                                    <t t-if="doc.close_date">
+                                        <span t-field="doc.close_date"/>
+                                    </t>
+                                    <t t-else="">
+                                        <br/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <br/>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

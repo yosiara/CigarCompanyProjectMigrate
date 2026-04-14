@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    <data noupdate="1">-->
+        <!-- States -->
+        <record id="l10n_cu_base.res_country_state_0" model="res.country.state">
+            <field name="external_id">21</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_1" model="res.country.state">
+            <field name="external_id">22</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_2" model="res.country.state">
+            <field name="external_id">23</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_3" model="res.country.state">
+            <field name="external_id">24</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_4" model="res.country.state">
+            <field name="external_id">25</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_5" model="res.country.state">
+            <field name="external_id">26</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_6" model="res.country.state">
+            <field name="external_id">27</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_7" model="res.country.state">
+            <field name="external_id">28</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_8" model="res.country.state">
+            <field name="external_id">29</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_9" model="res.country.state">
+            <field name="external_id">30</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_10" model="res.country.state">
+            <field name="external_id">31</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_11" model="res.country.state">
+            <field name="external_id">32</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_12" model="res.country.state">
+            <field name="external_id">33</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_13" model="res.country.state">
+            <field name="external_id">34</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_14" model="res.country.state">
+            <field name="external_id">35</field>
+        </record>
+
+        <record id="l10n_cu_base.res_country_state_15" model="res.country.state">
+            <field name="external_id">40</field>
+        </record>
+
+        <!-- Municipalities -->
+        <record id="l10n_cu_base.res_state_municipality_0" model="l10n_cu_base.municipality">
+            <field name="external_id">2101</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_1" model="l10n_cu_base.municipality">
+            <field name="external_id">2102</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_2" model="l10n_cu_base.municipality">
+            <field name="external_id">2103</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_3" model="l10n_cu_base.municipality">
+            <field name="external_id">2104</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_4" model="l10n_cu_base.municipality">
+            <field name="external_id">2105</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_5" model="l10n_cu_base.municipality">
+            <field name="external_id">2106</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_6" model="l10n_cu_base.municipality">
+            <field name="external_id">2107</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_7" model="l10n_cu_base.municipality">
+            <field name="external_id">2108</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_8" model="l10n_cu_base.municipality">
+            <field name="external_id">2108</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_9" model="l10n_cu_base.municipality">
+            <field name="external_id">2110</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_10" model="l10n_cu_base.municipality">
+            <field name="external_id">2111</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_11" model="l10n_cu_base.municipality">
+            <field name="external_id">2201</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_12" model="l10n_cu_base.municipality">
+            <field name="external_id">2202</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_13" model="l10n_cu_base.municipality">
+            <field name="external_id">2203</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_14" model="l10n_cu_base.municipality">
+            <field name="external_id">2204</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_15" model="l10n_cu_base.municipality">
+            <field name="external_id">2205</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_16" model="l10n_cu_base.municipality">
+            <field name="external_id">2206</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_17" model="l10n_cu_base.municipality">
+            <field name="external_id">2207</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_18" model="l10n_cu_base.municipality">
+            <field name="external_id">2208</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_19" model="l10n_cu_base.municipality">
+            <field name="external_id">2209</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_20" model="l10n_cu_base.municipality">
+            <field name="external_id">2210</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_21" model="l10n_cu_base.municipality">
+            <field name="external_id">2211</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_22" model="l10n_cu_base.municipality">
+            <field name="external_id">2301</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_23" model="l10n_cu_base.municipality">
+            <field name="external_id">2302</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_24" model="l10n_cu_base.municipality">
+            <field name="external_id">2303</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_25" model="l10n_cu_base.municipality">
+            <field name="external_id">2304</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_26" model="l10n_cu_base.municipality">
+            <field name="external_id">2305</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_27" model="l10n_cu_base.municipality">
+            <field name="external_id">2306</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_28" model="l10n_cu_base.municipality">
+            <field name="external_id">2307</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_29" model="l10n_cu_base.municipality">
+            <field name="external_id">2308</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_30" model="l10n_cu_base.municipality">
+            <field name="external_id">2309</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_31" model="l10n_cu_base.municipality">
+            <field name="external_id">2310</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_32" model="l10n_cu_base.municipality">
+            <field name="external_id">2311</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_33" model="l10n_cu_base.municipality">
+            <field name="external_id">2312</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_34" model="l10n_cu_base.municipality">
+            <field name="external_id">2313</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_35" model="l10n_cu_base.municipality">
+            <field name="external_id">2314</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_36" model="l10n_cu_base.municipality">
+            <field name="external_id">2315</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_37" model="l10n_cu_base.municipality">
+            <field name="external_id">2401</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_38" model="l10n_cu_base.municipality">
+            <field name="external_id">2402</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_39" model="l10n_cu_base.municipality">
+            <field name="external_id">2403</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_40" model="l10n_cu_base.municipality">
+            <field name="external_id">2404</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_41" model="l10n_cu_base.municipality">
+            <field name="external_id">2405</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_42" model="l10n_cu_base.municipality">
+            <field name="external_id">2406</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_43" model="l10n_cu_base.municipality">
+            <field name="external_id">2407</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_44" model="l10n_cu_base.municipality">
+            <field name="external_id">2408</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_45" model="l10n_cu_base.municipality">
+            <field name="external_id">2409</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_46" model="l10n_cu_base.municipality">
+            <field name="external_id">2410</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_47" model="l10n_cu_base.municipality">
+            <field name="external_id">2411</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_48" model="l10n_cu_base.municipality">
+            <field name="external_id">2501</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_49" model="l10n_cu_base.municipality">
+            <field name="external_id">2502</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_50" model="l10n_cu_base.municipality">
+            <field name="external_id">2503</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_51" model="l10n_cu_base.municipality">
+            <field name="external_id">2504</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_52" model="l10n_cu_base.municipality">
+            <field name="external_id">2505</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_53" model="l10n_cu_base.municipality">
+            <field name="external_id">2506</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_54" model="l10n_cu_base.municipality">
+            <field name="external_id">2507</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_55" model="l10n_cu_base.municipality">
+            <field name="external_id">2508</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_56" model="l10n_cu_base.municipality">
+            <field name="external_id">2509</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_57" model="l10n_cu_base.municipality">
+            <field name="external_id">2510</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_58" model="l10n_cu_base.municipality">
+            <field name="external_id">2511</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_59" model="l10n_cu_base.municipality">
+            <field name="external_id">2512</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_60" model="l10n_cu_base.municipality">
+            <field name="external_id">2513</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_61" model="l10n_cu_base.municipality">
+            <field name="external_id">2601</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_62" model="l10n_cu_base.municipality">
+            <field name="external_id">2602</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_63" model="l10n_cu_base.municipality">
+            <field name="external_id">2603</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_64" model="l10n_cu_base.municipality">
+            <field name="external_id">2604</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_65" model="l10n_cu_base.municipality">
+            <field name="external_id">2605</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_66" model="l10n_cu_base.municipality">
+            <field name="external_id">2606</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_67" model="l10n_cu_base.municipality">
+            <field name="external_id">2607</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_68" model="l10n_cu_base.municipality">
+            <field name="external_id">2608</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_69" model="l10n_cu_base.municipality">
+            <field name="external_id">2609</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_70" model="l10n_cu_base.municipality">
+            <field name="external_id">2610</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_71" model="l10n_cu_base.municipality">
+            <field name="external_id">2611</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_72" model="l10n_cu_base.municipality">
+            <field name="external_id">2612</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_73" model="l10n_cu_base.municipality">
+            <field name="external_id">2613</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_74" model="l10n_cu_base.municipality">
+            <field name="external_id">2701</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_75" model="l10n_cu_base.municipality">
+            <field name="external_id">2702</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_76" model="l10n_cu_base.municipality">
+            <field name="external_id">2703</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_77" model="l10n_cu_base.municipality">
+            <field name="external_id">2704</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_78" model="l10n_cu_base.municipality">
+            <field name="external_id">2705</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_79" model="l10n_cu_base.municipality">
+            <field name="external_id">2706</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_80" model="l10n_cu_base.municipality">
+            <field name="external_id">2707</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_81" model="l10n_cu_base.municipality">
+            <field name="external_id">2708</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_82" model="l10n_cu_base.municipality">
+            <field name="external_id">2801</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_83" model="l10n_cu_base.municipality">
+            <field name="external_id">2802</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_84" model="l10n_cu_base.municipality">
+            <field name="external_id">2803</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_85" model="l10n_cu_base.municipality">
+            <field name="external_id">2804</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_86" model="l10n_cu_base.municipality">
+            <field name="external_id">2805</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_87" model="l10n_cu_base.municipality">
+            <field name="external_id">2806</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_88" model="l10n_cu_base.municipality">
+            <field name="external_id">2807</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_89" model="l10n_cu_base.municipality">
+            <field name="external_id">2808</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_90" model="l10n_cu_base.municipality">
+            <field name="external_id">2901</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_91" model="l10n_cu_base.municipality">
+            <field name="external_id">2902</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_92" model="l10n_cu_base.municipality">
+            <field name="external_id">2903</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_93" model="l10n_cu_base.municipality">
+            <field name="external_id">2904</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_94" model="l10n_cu_base.municipality">
+            <field name="external_id">2905</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_95" model="l10n_cu_base.municipality">
+            <field name="external_id">2906</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_96" model="l10n_cu_base.municipality">
+            <field name="external_id">2907</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_97" model="l10n_cu_base.municipality">
+            <field name="external_id">2908</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_98" model="l10n_cu_base.municipality">
+            <field name="external_id">2909</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_99" model="l10n_cu_base.municipality">
+            <field name="external_id">2910</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_100" model="l10n_cu_base.municipality">
+            <field name="external_id">3001</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_101" model="l10n_cu_base.municipality">
+            <field name="external_id">3002</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_102" model="l10n_cu_base.municipality">
+            <field name="external_id">3003</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_103" model="l10n_cu_base.municipality">
+            <field name="external_id">3004</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_104" model="l10n_cu_base.municipality">
+            <field name="external_id">3005</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_105" model="l10n_cu_base.municipality">
+            <field name="external_id">3006</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_106" model="l10n_cu_base.municipality">
+            <field name="external_id">3007</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_107" model="l10n_cu_base.municipality">
+            <field name="external_id">3008</field>
+        </record>
+
+
+        <record id="l10n_cu_base.res_state_municipality_108" model="l10n_cu_base.municipality">
+            <field name="external_id">3009</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_109" model="l10n_cu_base.municipality">
+            <field name="external_id">3010</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_110" model="l10n_cu_base.municipality">
+            <field name="external_id">3011</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_111" model="l10n_cu_base.municipality">
+            <field name="external_id">3012</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_112" model="l10n_cu_base.municipality">
+            <field name="external_id">3013</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_113" model="l10n_cu_base.municipality">
+            <field name="external_id">3101</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_114" model="l10n_cu_base.municipality">
+            <field name="external_id">3102</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_115" model="l10n_cu_base.municipality">
+            <field name="external_id">3103</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_116" model="l10n_cu_base.municipality">
+            <field name="external_id">3104</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_117" model="l10n_cu_base.municipality">
+            <field name="external_id">3105</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_118" model="l10n_cu_base.municipality">
+            <field name="external_id">3106</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_119" model="l10n_cu_base.municipality">
+            <field name="external_id">3107</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_120" model="l10n_cu_base.municipality">
+            <field name="external_id">3108</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_121" model="l10n_cu_base.municipality">
+            <field name="external_id">3201</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_122" model="l10n_cu_base.municipality">
+            <field name="external_id">3202</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_123" model="l10n_cu_base.municipality">
+            <field name="external_id">3203</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_124" model="l10n_cu_base.municipality">
+            <field name="external_id">3204</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_125" model="l10n_cu_base.municipality">
+            <field name="external_id">3205</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_126" model="l10n_cu_base.municipality">
+            <field name="external_id">3206</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_127" model="l10n_cu_base.municipality">
+            <field name="external_id">3207</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_128" model="l10n_cu_base.municipality">
+            <field name="external_id">3208</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_129" model="l10n_cu_base.municipality">
+            <field name="external_id">3209</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_130" model="l10n_cu_base.municipality">
+            <field name="external_id">3210</field>
+        </record>
+
+
+        <record id="l10n_cu_base.res_state_municipality_131" model="l10n_cu_base.municipality">
+            <field name="external_id">3211</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_132" model="l10n_cu_base.municipality">
+            <field name="external_id">3212</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_133" model="l10n_cu_base.municipality">
+            <field name="external_id">3213</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_134" model="l10n_cu_base.municipality">
+            <field name="external_id">3214</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_135" model="l10n_cu_base.municipality">
+            <field name="external_id">3301</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_136" model="l10n_cu_base.municipality">
+            <field name="external_id">3302</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_137" model="l10n_cu_base.municipality">
+            <field name="external_id">3303</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_138" model="l10n_cu_base.municipality">
+            <field name="external_id">3304</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_139" model="l10n_cu_base.municipality">
+            <field name="external_id">3305</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_140" model="l10n_cu_base.municipality">
+            <field name="external_id">3306</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_141" model="l10n_cu_base.municipality">
+            <field name="external_id">3307</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_142" model="l10n_cu_base.municipality">
+            <field name="external_id">3308</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_143" model="l10n_cu_base.municipality">
+            <field name="external_id">3309</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_144" model="l10n_cu_base.municipality">
+            <field name="external_id">3310</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_145" model="l10n_cu_base.municipality">
+            <field name="external_id">3311</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_146" model="l10n_cu_base.municipality">
+            <field name="external_id">3312</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_147" model="l10n_cu_base.municipality">
+            <field name="external_id">3313</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_148" model="l10n_cu_base.municipality">
+            <field name="external_id">3401</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_149" model="l10n_cu_base.municipality">
+            <field name="external_id">3402</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_150" model="l10n_cu_base.municipality">
+            <field name="external_id">3403</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_151" model="l10n_cu_base.municipality">
+            <field name="external_id">3404</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_152" model="l10n_cu_base.municipality">
+            <field name="external_id">3405</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_153" model="l10n_cu_base.municipality">
+            <field name="external_id">3406</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_154" model="l10n_cu_base.municipality">
+            <field name="external_id">3407</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_155" model="l10n_cu_base.municipality">
+            <field name="external_id">3408</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_156" model="l10n_cu_base.municipality">
+            <field name="external_id">3409</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_157" model="l10n_cu_base.municipality">
+            <field name="external_id">3501</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_158" model="l10n_cu_base.municipality">
+            <field name="external_id">3502</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_159" model="l10n_cu_base.municipality">
+            <field name="external_id">3503</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_160" model="l10n_cu_base.municipality">
+            <field name="external_id">3504</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_161" model="l10n_cu_base.municipality">
+            <field name="external_id">3505</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_162" model="l10n_cu_base.municipality">
+            <field name="external_id">3506</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_163" model="l10n_cu_base.municipality">
+            <field name="external_id">3507</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_164" model="l10n_cu_base.municipality">
+            <field name="external_id">3508</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_165" model="l10n_cu_base.municipality">
+            <field name="external_id">3509</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_166" model="l10n_cu_base.municipality">
+            <field name="external_id">3510</field>
+        </record>
+
+        <record id="l10n_cu_base.res_state_municipality_167" model="l10n_cu_base.municipality">
+            <field name="external_id">4001</field>
+        </record>
+<!--    </data>-->
+</odoo>

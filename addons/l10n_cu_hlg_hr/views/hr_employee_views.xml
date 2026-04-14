@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		Employee
+		Model: hr.employee
+		=========================================================================================== -->
+
+        <!-- Employee Form View Inherit -->
+        <record id="l10n_cu_hr_view_employee_form_inherit" model="ir.ui.view">
+            <field name="name">l10n_cu_hr_view_employee_form_inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <!--Validaciones de campos-->
+                    <xpath expr="//field[@name='name']" position="replace">
+                       <field name="name" widget="mask_regex" data-inputmask-regex="([A-Za-z ÁÉÍÓÚáéíóúÀÈÌÒÙàèìòùÑñÄËÏÖÜäëïöü]{2,64})"/>
+                    </xpath>
+                    <xpath expr="//field[@name='work_location']" position="replace">
+                       <field name="work_location" widget="mask_regex" data-inputmask-regex="([A-Za-z0-9-/.# ÁÉÍÓÚáéíóúÀÈÌÒÙàèìòùÑñ]{2,64})"/>
+                    </xpath>
+                    <xpath expr="//field[@name='work_email']" position="replace">
+                       <field name="work_email" widget="mask_regex" data-inputmask-regex="([a-z0-9-_.@]{2,64})"/>
+                    </xpath>
+                    <xpath expr="//field[@name='mobile_phone']" position="replace">
+                       <field name="mobile_phone" widget="mask_regex" data-inputmask-regex="([0-9- ]{2,16})"/>
+                    </xpath>
+                    <xpath expr="//field[@name='work_phone']" position="replace">
+                       <field name="work_phone" widget="mask_regex" data-inputmask-regex="([0-9- ]{2,16})"/>
+                    </xpath>
+                    <xpath expr="//field[@name='passport_id']" position="replace">
+                       <field name="passport_id" widget="mask_regex" data-inputmask-regex="([A-Z0-9]{2,12})"/>
+                    </xpath>
+
+                    <xpath expr="//div[@class='oe_title']" position="attributes">
+                        <attribute name="style">width: 100%;</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='identification_id']" position="replace">
+                       <field name="identification_id" widget="mask_regex" data-inputmask-regex="([0-9]{11})"/>
+                       <!--<field widget="mask" data-inputmask="'mask': '9', 'repeat': 11, 'greedy' : false" name="identification_id" />-->
+                    </xpath>
+
+                    <field name="user_id" position="after">
+                        <field name="code" widget="mask_regex" data-inputmask-regex="([0-9]{2,10})"/>
+                    </field>
+
+                    <xpath expr="//page[@name='public']" position="inside">
+                        <group>
+                            <group string="Academic Information">
+                                <field name="school_level_id"/>
+                            </group>
+
+                            <group string="Employment Information">
+                                <field name="admission_date"/>
+                                <field name="date_organism"/>
+                                <field name="init_work_date"/>
+                                <field name="years_worked"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string="Defense Location">
+                                <field name="is_indispensable_employee"/>
+                                <field name="defence_location_id"
+                                       attrs="{'invisible': [('is_indispensable_employee', '=', True)]}"/>
+
+                                <field name="defence_situation"
+                                       attrs="{'invisible': [('is_indispensable_employee', '=', True)]}"/>
+
+                                <field name="date_defence_location_update"
+                                       attrs="{'invisible': [('is_indispensable_employee', '=', True)]}"/>
+                            </group>
+
+                            <group></group>
+                        </group>
+                    </xpath>
+
+                    <xpath expr="//field[@name='bank_account_id']" position="after">
+                        <field name="bank_secondary_account_id" string="Secundary Bank Account Number"
+                               groups="base.group_multi_currency"/>
+
+                        <field name="political_affiliation"/>
+                    </xpath>
+
+                    <xpath expr="//field[@name='gender']" position="after">
+                        <field name="race"/>
+                    </xpath>
+
+                    <xpath expr="//field[@name='birthday']" position="after">
+                        <field name="place_of_birth"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id='l10n_cu_hlg_hr_view_pivot' model='ir.ui.view'>
+            <field name="name">l10n_cu_hlg_hr.pivot</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <pivot string="Employees">
+
+                </pivot>
+            </field>
+        </record>
+
+        <record id='l10n_cu_hlg_hr_view_graph' model='ir.ui.view'>
+            <field name="name">l10n_cu_hlg_hr.graph</field>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <graph string="Employees">
+
+                </graph>
+            </field>
+        </record>
+    </data>
+</odoo>

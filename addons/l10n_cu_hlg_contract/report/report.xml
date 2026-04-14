@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <report id="l10n_cu_hlg_contract_contract_report"
+            name="l10n_cu_hlg_contract.report_contract_template"
+            file="l10n_cu_hlg_contract.report_contract_template"
+            model="l10n_cu_contract.print_registry"
+            string="Registro Único de Contratos"
+            paperformat="l10n_cu_contract_reports_paper_format_letter_landscape"
+            report_type="qweb-pdf"
+            menu="False"
+        />
+
+        <report id="l10n_cu_hlg_contract_committee_report"
+            name="l10n_cu_hlg_contract.report_contract_committee"
+            file="l10n_cu_hlg_contract.report_contract_committee"
+            model="l10n_cu_contract.contract_committee"
+            string="Reporte del Comité de Contratación"
+            paperformat="l10n_cu_contract_reports_paper_format_letter_landscape"
+            report_type="qweb-pdf"
+            menu="False"
+        />
+
+        <report id="id_contract_single_xls_report"
+                string="Registro de contratos"
+                model="l10n_cu_contract.print_registry"
+                report_type="xlsx"
+                file="l10n_cu_hlg_contract.contract_single_xls_report.xlsx"
+                name="l10n_cu_hlg_contract.contract_single_xls_report.xlsx"
+                attachment_use="False"/>
+
+        <report id="l10n_cu_hlg_contract_to_expire_percent_report"
+            name="l10n_cu_hlg_contract.report_contract_to_expire_percent"
+            file="l10n_cu_hlg_contract.report_contract_to_expire_percent"
+            model="l10n_cu_contract.to_expire_percent"
+            string="Contratos"
+            paperformat="l10n_cu_contract_reports_paper_format_letter_landscape_percent"
+            report_type="qweb-pdf"
+            menu="False"
+        />
+        <report
+                id="report_contract_single_xls_percent_report"
+                model="l10n_cu_contract.to_expire_percent"
+                string="Contratos"
+                report_type="xlsx"
+                name="l10n_cu_hlg_contract.contract_single_xls_percent_report.xlsx"
+                file="l10n_cu_hlg_contract.contract_single_xls_percent_report.xlsx"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

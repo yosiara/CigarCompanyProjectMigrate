@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.process_control_statistical_results_to_excel"
+                model="process_control.statistical_results_to_excel_wzd"
+                string="Rep. Resultados Estadisticos"
+                report_type="xlsx"
+                name="process_control.statistical_results_report"
+                file="process_control.statistical_results_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

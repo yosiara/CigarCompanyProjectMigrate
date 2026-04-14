@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- Work Force -->
+        <menuitem id="menu_uforce_root"
+                  name="uForce"
+                  web_icon="l10n_cu_hlg_uforce,static/description/icon.png"
+                  groups="hr.group_hr_user"
+                  sequence="98"/>
+
+        <menuitem id="menu_uforce"
+                  name="Work force"
+                  parent="menu_uforce_root"
+                  groups="base.group_user"
+                  sequence="1"/>
+
+        <menuitem id="uforce_employee_menu"
+                  name="Employees"
+                  parent="menu_uforce_root"
+                  groups="base.group_user"
+                  sequence="2"/>
+
+        <menuitem id="uforce_employee_menu_item"
+                  name="Employees"
+                  action="hr.open_view_employee_list_my"
+                  parent="uforce_employee_menu"
+                  sequence="1"/>
+
+        <menuitem id="uforce_department_menu_item"
+                  name="Departments"
+                  action="hr.open_module_tree_department"
+                  parent="uforce_employee_menu"
+                  groups="hr.group_hr_manager"
+                  sequence="2"/>
+
+        <menuitem id="uforce_school_level_menu_item"
+                  name="School level"
+                  action="l10n_cu_hlg_hr.l10n_cu_hlg_hr_employee_school_level_action"
+                  parent="uforce_employee_menu"
+                  groups="hr.group_hr_manager"
+                  sequence="3"/>
+
+        <menuitem id="uforce_occupational_category_menu_item"
+                  name="Occupational category"
+                  action="l10n_cu_hlg_hr.l10n_cu_hlg_hr_job_occupational_category_action"
+                  parent="uforce_employee_menu"
+                  groups="hr.group_hr_manager"
+                  sequence="4"/>
+
+        <menuitem id="menu_report_uforce"
+                  name="Reports"
+                  parent="menu_uforce_root"
+                  sequence="3"/>
+
+        <menuitem id="menu_uforce_setting"
+                  name="Settings"
+                  parent="menu_uforce_root"
+                  groups="hr.group_hr_manager"
+                  sequence="4"/>
+
+        <!-- Center Study -->
+        <act_window id="action_center_study"
+                    name="Center Study"
+                    res_model="l10n_cu_hlg_uforce.center_study"
+                    view_mode="tree,form"/>
+
+        <menuitem id="menu_center_study"
+                  name="Center Study"
+                  parent="menu_uforce_setting"
+                  sequence="1"
+                  action="action_center_study"/>
+
+        <!-- Tree View center study -->
+        <record id="view_l10n_cu_hr_uforce_center_study_tree" model="ir.ui.view">
+            <field name="name">Tree View Center Study</field>
+            <field name="model">l10n_cu_hlg_uforce.center_study</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="initial_letters"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View center study -->
+        <record id="view_l10n_cu_hr_uforce_center_study_form" model="ir.ui.view">
+            <field name="name">Form View Center Study</field>
+            <field name="model">l10n_cu_hlg_uforce.center_study</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group name="group_left">
+                                <field name="name" class="oe_title"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="initial_letters" class="oe_title"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Branch of Science -->
+        <act_window id="action_branch_science"
+                    name="Branch of Science"
+                    res_model="l10n_cu_hlg_uforce.branch_science"
+                    view_mode="tree,form"/>
+
+        <menuitem id="menu_branch_science"
+                  name="Branch of Science"
+                  parent="menu_uforce_setting"
+                  sequence="2"
+                  action="action_branch_science"/>
+
+        <!-- Tree View branch of science -->
+        <record id="view_l10n_cu_hr_uforce_branch_science_tree" model="ir.ui.view">
+            <field name="name">Tree View Branch of Science</field>
+            <field name="model">l10n_cu_hlg_uforce.branch_science</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="degree_level_id" class="oe_title"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View Branch of Science -->
+        <record id="view_l10n_cu_hr_uforce_branch_science_form" model="ir.ui.view">
+            <field name="name">Form View Branch Science</field>
+            <field name="model">l10n_cu_hlg_uforce.branch_science</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group name="group_left">
+                                <field name="name" class="oe_title"/>
+                            </group>
+                            <group name="group_right">
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Specialty family -->
+        <act_window id="action_specialty_family"
+                    name="Specialty family"
+                    res_model="l10n_cu_hlg_uforce.specialty_family"
+                    view_mode="tree,form"/>
+
+        <menuitem id="menu_specialty_family"
+                  name="Specialty family"
+                  parent="menu_uforce_setting"
+                  sequence="3"
+                  action="action_specialty_family"/>
+
+        <!-- Tree View Specialty of family -->
+        <record id="view_l10n_cu_hr_uforce_specialty_family_tree" model="ir.ui.view">
+            <field name="name">Tree View Specialty Family</field>
+            <field name="model">l10n_cu_hlg_uforce.specialty_family</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="degree_level_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View Specialty of family -->
+        <record id="view_l10n_cu_hr_uforce_specialty_family_form" model="ir.ui.view">
+            <field name="name">Form View Specialty Family</field>
+            <field name="model">l10n_cu_hlg_uforce.specialty_family</field>
+            <field name="arch" type="xml">
+                <form string="Specialty family">
+                    <sheet>
+                        <group>
+                            <group name="group_left">
+                                <field name="name" class="oe_title"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="degree_level_id" class="oe_title"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Degree -->
+        <act_window id="action_degree"
+                    name="Degree"
+                    res_model="l10n_cu_hlg_uforce.degree"
+                    view_mode="tree,form"/>
+
+        <menuitem id="menu_degree"
+                  name="Degree"
+                  parent="menu_uforce_setting"
+                  sequence="4"
+                  action="action_degree"/>
+
+        <!-- View tree degree  -->
+        <record id="view_l10n_cu_hr_uforce_degree_tree" model="ir.ui.view">
+            <field name="name">Tree View Degree</field>
+            <field name="model">l10n_cu_hlg_uforce.degree</field>
+            <field name="arch" type="xml">
+                <tree string="Degrees">
+                    <field name="name"/>
+                    <field name="parent_id" class="oe_title"/>
+                    <field name="branch_science_id"/>
+                    <field name="degree_level_id"/>
+                    <field name="specialty_family_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- search -->
+        <record id="view_l10n_cu_hr_uforce_degree_search" model="ir.ui.view">
+            <field name="name">view_l10n_cu_hr_uforce_degree_search</field>
+            <field name="model">l10n_cu_hlg_uforce.degree</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <group expand="0" string="Group by">
+                        <filter string="Parent Degree" domain="[]" context="{'group_by':'parent_id'}"/>
+                        <filter string="Branch Science" domain="[]" context="{'group_by':'branch_science_id'}"/>
+                        <filter string="Specialty Family" domain="[]" context="{'group_by':'specialty_family_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Form view degree -->
+        <record id="view_l10n_cu_hr_uforce_degree_form" model="ir.ui.view">
+            <field name="name">Form View Degree</field>
+            <field name="model">l10n_cu_hlg_uforce.degree</field>
+            <field name="arch" type="xml">
+                <form string="Degree">
+                    <sheet>
+                        <group>
+                            <group name="group_left">
+                                <field name="name" class="oe_title"/>
+                                <field name="degree_level_id" class="oe_title"/>
+                                <field name="parent_id" class="oe_title"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="code" class="oe_title"/>
+                                <field name="branch_science_id" class="oe_title"/>
+                                <field name="specialty_family_id" class="oe_title"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Organism -->
+        <act_window id="action_organism"
+                    name="Organism"
+                    res_model="l10n_cu_hlg_uforce.organism"
+                    view_mode="tree,form"/>
+
+        <menuitem id="menu_organism"
+                  name="Organism"
+                  parent="menu_uforce_setting"
+                  sequence="5"
+                  action="action_organism"/>
+
+        <!-- Tree Search Organism -->
+        <!-- search -->
+        <record id="view_hr_uforce_organism_search" model="ir.ui.view">
+            <field name="name">view_hr_uforce_organism_search</field>
+            <field name="model">l10n_cu_hlg_uforce.organism</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <group expand="0" string="Group by">
+                        <filter string="Ministry" domain="[]" context="{'group_by':'ministry_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Tree View Organism -->
+        <record id="view_l10n_cu_hr_uforce_organism_tree" model="ir.ui.view">
+            <field name="name">Tree View Organism</field>
+            <field name="model">l10n_cu_hlg_uforce.organism</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="ministry_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View Organism -->
+        <record id="view_l10n_cu_hr_uforce_organism_form" model="ir.ui.view">
+            <field name="name">Form View Organism</field>
+            <field name="model">l10n_cu_hlg_uforce.organism</field>
+            <field name="arch" type="xml">
+                <form string="Organism">
+                    <sheet>
+                        <group col="4">
+                            <field name="name" colspan="4"/>
+                            <field name="code" colspan="2"/>
+                            <field name="ministry_id" colspan="2"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Entities -->
+        <record id="action_entity" model="ir.actions.act_window">
+            <field name="name">Entity</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('is_gfroza_entity', '=', True)]</field>
+            <field name="context">{'no_create': False}</field>
+        </record>
+
+        <menuitem id="menu_entity"
+                  parent="menu_uforce_setting"
+                  sequence="6"
+                  action="action_entity"/>
+
+        <!-- Graduates Demand -->
+        <act_window id="action_graduates_demand"
+                    name="Graduates demand"
+                    res_model="l10n_cu_hlg_uforce.graduates_demand"
+                    view_mode="tree,form"/>
+
+        <menuitem id="menu_graduates_demand"
+                  parent="menu_uforce"
+                  action="action_graduates_demand"
+                  groups="hr.group_hr_user"
+                  sequence="2"/>
+
+        <!-- search -->
+        <record id="view_hr_uforce_graduates_demand_search" model="ir.ui.view">
+            <field name="name">view_hr_uforce_graduates_demand_search</field>
+            <field name="model">l10n_cu_hlg_uforce.graduates_demand</field>
+            <field name="arch" type="xml">
+                <search>
+                    <group expand="0" string="Group by">
+                        <filter string="Ministry" domain="[]" context="{'group_by':'ministry_id'}"/>
+                        <filter string="Organism" domain="[]" context="{'group_by':'organism_id'}"/>
+                        <filter string="Entity" domain="[]" context="{'group_by':'entity_id'}"/>
+                        <filter string="Degree" domain="[]" context="{'group_by':'degree_id'}"/>
+                        <filter string="Fiscal year" domain="[]" context="{'group_by':'period_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Tree -->
+        <record id="view_hr_uforce_graduates_demand_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_uforce.graduates_demand.tree</field>
+            <field name="model">l10n_cu_hlg_uforce.graduates_demand</field>
+            <field name="arch" type="xml">
+                <tree string="Graduates demand">
+                    <field name="ministry_id"/>
+                    <field name="organism_id"/>
+                    <field name="entity_id"/>
+                    <field name="state_id"/>
+                    <field name="municipality_id"/>
+                    <field name="degree_id"/>
+                    <field name="period_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form -->
+        <record id="view_hr_uforce_graduates_demand_form" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_uforce.graduates_demand.form</field>
+            <field name="model">l10n_cu_hlg_uforce.graduates_demand</field>
+            <field name="arch" type="xml">
+                <form string="Graduates demand">
+                    <sheet>
+                        <group col="4">
+                            <field name="ministry_id" colspan="2"/>
+                            <field name="organism_id" colspan="2" domain="[('ministry_id','=', ministry_id)]"/>
+                            <field name="state_id" colspan="2"/>
+                            <field name="municipality_id" colspan="2" domain="[('state_id','=', state_id)]"/>
+                            <field name="entity_id" colspan="4" domain="[('ministry_id','=', ministry_id),
+                                                                         ('organism_id','=', organism_id)]"/>
+<!--                                                                         ('state_id','=', state_id),-->
+<!--                                                                         ('municipality_id','=', municipality_id)]"/>-->
+                            <field name="degree_id" colspan="4"/>
+                            <field name="period_id" colspan="2"/>
+                        </group>
+                        <group col="4">
+                            <separator string="Demand per year"/>
+                            <field name="line_ids" colspan="4" nolabel="1">
+                                <tree editable="bottom" create="0" delete="0">
+                                    <field name="period_id" readonly="1"/>
+                                    <field name="quantity"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Hire Drop Record -->
+        <act_window id="action_hire_drop_record"
+                    name="Hire and drop record"
+                    res_model="l10n_cu_hlg_uforce.hire_drop_record"
+                    view_mode="tree"/>
+
+        <menuitem id="menu_hire_drop_record"
+                  parent="menu_uforce"
+                  action="action_hire_drop_record"
+                  groups="hr.group_hr_user"
+                  sequence="3"/>
+
+        <!-- search -->
+        <record id="view_hr_uforce_hire_drop_record_search" model="ir.ui.view">
+            <field name="name">view_hr_uforce_hire_drop_record_search</field>
+            <field name="model">l10n_cu_hlg_uforce.hire_drop_record</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <group expand="0" string="Group by">
+                        <filter string="Employee" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <filter string="Motive" domain="[]" context="{'group_by':'motive_id'}"/>
+                        <filter string="Type" domain="[]" context="{'group_by':'record_type'}"/>
+                    </group>
+                    <group expand="0" string="Filter by">
+                        <filter string="Hires" domain="[('record_type', '=', 'hire')]" context="{}"/>
+                        <filter string="Drops" domain="[('record_type', '=', 'drop')]" context="{}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Tree -->
+        <record id="view_hr_uforce_hire_drop_record_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_hlg_uforce.hire_drop_record.tree</field>
+            <field name="model">l10n_cu_hlg_uforce.hire_drop_record</field>
+            <field name="arch" type="xml">
+                <tree string="Hire and drop records" editable="top">
+                    <field name="name" required="1"/>
+                    <field name="employee_id"/>
+                    <field name="record_type" required="1"/>
+                    <field name="motive_id"/>
+                    <field name="record_date"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</openerp>

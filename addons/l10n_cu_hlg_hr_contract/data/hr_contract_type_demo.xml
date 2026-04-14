@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data >
+
+        <!-- Contract Types -->
+        <record id="hr_contract_type_none_more" model="hr.contract.type">
+            <field name="name">None</field>
+            <field name="extras_hours">False</field>
+            <field name="night_hours">False</field>
+        </record>
+
+        <record id="hr_contract_type_ext_more" model="hr.contract.type">
+            <field name="name">Extras Hours</field>
+            <field name="extras_hours">True</field>
+            <field name="night_hours">False</field>
+        </record>
+
+        <record id="hr_contract_type_nig_more" model="hr.contract.type">
+            <field name="name">Night Working</field>
+            <field name="extras_hours">False</field>
+            <field name="night_hours">True</field>
+        </record>
+
+        <record id="hr_contract_type_sub_both_more" model="hr.contract.type">
+            <field name="name">Both</field>
+            <field name="type_id"/>
+            <field name="extras_hours">True</field>
+            <field name="night_hours">True</field>
+        </record>
+
+    </data>
+</openerp>

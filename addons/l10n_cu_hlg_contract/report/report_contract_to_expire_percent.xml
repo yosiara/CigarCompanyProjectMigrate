@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="l10n_cu_hlg_contract.report_contract_to_expire_percent">
+            <t t-call="report.html_container">
+                <t t-if="not o and doc">
+                    <t t-set="o" t-value="doc"/>
+                </t>
+                <t t-if="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id"></t>
+                </t>
+                <t t-if="not o or not 'company_id' in o">
+                    <t t-set="company" t-value="res_company"></t>
+                </t>
+                <div class="header">
+                    <div class="col-xs-12">
+                        <table width="100%">
+                            <tr>
+                                <td width="33%" style="vertical-align:middle;">
+                                    <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo"
+                                 style="border-radius:15px;height:150px;width:150px;"/>
+                                </td>
+                                <td width="67%" style="text-align:right;vertical-align:middle;">
+                                    <h4>Contratos de <t t-if="flow=='customer'">
+                                            ventas
+                                        </t><t t-if="flow=='supplier'">
+                                            compras
+                                        </t> con un por ciento de ejecución del presupuesto igual o mayor que <t t-esc="percent"/>
+
+
+                                    </h4>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="page">
+                    <table class="table table-hover table-condensed ">
+                        <thead>
+                            <tr style="border-bottom:2px solid black;">
+                                <th>Número</th>
+                                <th>Empresa</th>
+                                <th>Denominación</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Término</th>
+                                <th>Total</th>
+                                <th>Ejecutado</th>
+                                <th>No Ejecutado</th>
+                                <th>%</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text_left">
+                            <t t-foreach="docs" t-as="o">
+                                <tr class="border-table-transparent ">
+                                    <td>
+                                        <t t-esc="o.number"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="o.partner_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.name"/>
+                                    </td>
+                                    <td style="text-align:center;vertical-align:middle;">
+                                        <t t-esc="o.date_start"/>
+                                    </td>
+                                    <td style="text-align:center;vertical-align:middle;">
+                                        <t t-esc="o.date_end"/>
+                                    </td>
+                                    <td style="text-align:right;vertical-align:middle;">
+                                        <span t-field="'{0:.2f}'.format(o.amount_total).replace('.',',')"/>
+                                    </td>
+                                    <td style="text-align:right;vertical-align:middle;">
+                                        <span t-field="'{0:.2f}'.format(o.amount_invoice).replace('.',',')"/>
+                                    </td>
+                                    <td style="text-align:right;vertical-align:middle;">
+                                        <span t-field="'{0:.2f}'.format(o.amount_rest).replace('.',',')"/>
+                                    </td>
+                                    <td style="text-align:right;vertical-align:middle;">
+                                        <span t-field="'{0:.2f}'.format(o.percentage_execution).replace('.',',')"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

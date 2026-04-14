@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		EMPLOYEE
+		Model: hr.employee
+		=========================================================================================== -->
+
+        <!-- FORM VIEW INHERIT -->
+        <record id="atmsys_employee_form_view_inherit" model="ir.ui.view">
+            <field name="name">atmsys_employee_form_view_inherit</field>
+            <field name="inherit_id" ref="warehouse.warehouse_employee_form_view_inherit"/>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <field name="can_authorize_a_request" position="after">
+                    <br/>
+                    <label for="can_authorize_a_blind_reception"/>
+                    <field name="can_authorize_a_blind_reception"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- TREE VIEW INHERIT -->
+        <record id="atmsys_employee_tree_view_inherit" model="ir.ui.view">
+            <field name="name">atmsys_employee_tree_view_inherit</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="model">hr.employee</field>
+            <field name="arch" type="xml">
+                <!--<field name="name" position="before">-->
+                    <!--<field name="employee_id_number" string="Number"/>-->
+                <!--</field>-->
+
+                <field name="work_phone" position="replace"/>
+                <field name="work_email" position="replace"/>
+                <field name="parent_id" position="replace"/>
+            </field>
+        </record>
+    </data>
+</odoo>

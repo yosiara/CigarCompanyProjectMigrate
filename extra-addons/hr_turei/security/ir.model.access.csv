@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+,,,,,,,
+access_hr_turei_daily_smoking_user,hr.turei.daily.smoking.user,model_hr_turei_daily_smoking,hr.group_hr_user,1,1,1,1
+access_hr_turei_cigarette_concept_user,hr.turei.cigarette.concept.user,model_hr_turei_cigarette_concept,hr.group_hr_user,1,1,1,1
+access_hr_turei_smoke_period_user,hr.turei.smoke.period.user,model_hr_turei_smoke_period,hr.group_hr_user,1,1,1,1
+access_hr_turei_additional_incidences_line_user,hr.turei.additional.incidences.line.user,model_hr_turei_additional_incidences_line,hr.group_hr_user,1,1,1,1
+access_hr_turei_additional_incidences_user,hr.turei.additional.incidences.user,model_hr_turei_additional_incidences,hr.group_hr_user,1,1,1,1
+access_hr_turei_attendance_reason_type_user,hr.turei.attendance.reason.type.user,model_hr_turei_attendance_reason_type,hr.group_hr_user,1,1,1,1
+access_hr_turei_attendance_reason_user,hr.turei.attendance.reason.user,model_hr_turei_attendance_reason,hr.group_hr_user,1,1,1,1
+access_hr_turei_attendance_incidence_user,hr.turei.attendance.incidence.user,model_hr_turei_attendance_incidence,hr.group_hr_user,1,1,1,1
+access_hr_turei_employee_movement_cause_user,hr.turei.employee.movement.cause.user,model_hr_turei_employee_movement_cause,hr.group_hr_user,1,1,1,1
+access_hr_turei_employee_movement_user,hr.turei.employee.movement.user,model_hr_turei_employee_movement,hr.group_hr_user,1,1,1,1
+access_hr_turei_external_area_user,hr.turei.external.area.user,model_hr_turei_external_area,hr.group_hr_user,1,1,1,1
+access_hr_turei_services_provided_user,hr.turei.services.provided.user,model_hr_turei_services_provided,hr.group_hr_user,1,1,1,1
+access_hr_turei_external_staff_user,hr.turei.external.staff.user,model_hr_turei_external_staff,hr.group_hr_user,1,1,1,1
+access_hr_turei_external_staff_attendance_line_user,hr.turei.external.staff.attendance.line.user,model_hr_turei_external_staff_attendance_line,hr.group_hr_user,1,1,1,1
+access_hr_turei_external_staff_attendance_user,hr.turei.external.staff.attendance.user,model_hr_turei_external_staff_attendance,hr.group_hr_user,1,1,1,1

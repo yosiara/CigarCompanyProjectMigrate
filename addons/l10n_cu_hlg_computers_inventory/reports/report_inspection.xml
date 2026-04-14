@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="report_inspection">
+        <t t-call="report.html_container">
+            <t t-call="l10n_cu_hlg_computers_inventory.external_layout">
+                <div class="page">
+                    <link href="/l10n_cu_hlg_computers_inventory/static/src/css/styles.css"
+                          rel="stylesheet" type="text/css"/>
+
+                    <h2 align="center">Inspections record</h2>
+
+                    <div class="row mt16 mb16"/>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="tr_report">
+                                <th width="10%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Date
+                                </th>
+                                <th width="10%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Equipment
+                                </th>
+                                <th width="10%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Department
+                                </th>
+                                <th width="18%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Observations
+                                </th>
+                                <th width="17%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Participants
+                                </th>
+                                <th width="18%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Security incidents
+                                </th>
+                                <th width="17%"
+                                    style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                    Conclusions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="o">
+                                <tr>
+                                    <td
+                                            style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['date']"/>
+                                    </td>
+                                    <td
+                                            style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['equipment_id'].name"/>
+                                    </td>
+                                    <td
+                                            style="font-size:12pt;vertical-align:middle;text-align:center;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['department_id'].name"/>
+                                    </td>
+                                    <td
+                                            style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['observations']"/>
+                                    </td>
+                                    <td
+                                            style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-foreach="o['participants_ids']" t-as="participant">
+                                            -
+                                            <t t-esc="participant.name"/>
+                                            <br/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-foreach="o['security_incident_ids']" t-as="incident">
+                                            -
+                                            <t t-esc="incident.id_code"/>.
+                                            <t t-esc="incident.incident"/>
+                                            <br/>
+                                        </t>
+                                    </td>
+                                    <td
+                                            style="font-size:12pt;vertical-align:middle;text-align:left;border-top: 1px double black; border-bottom: 1px double black; border-left: 1px double black; border-right: 1px double black; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+                                        <t t-esc="o['conclusions']"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt64 text-center">
+                        <div class="col-xs-6">
+                            <p>_____________________</p>
+                            <p>
+                                <span t-field="elaborates_id.name"/>
+                            </p>
+                            <p>
+                                <span t-field="elaborates_id.job_id"/>
+                            </p>
+                            <p>
+                                <b>Elaborates</b>
+                            </p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p>_____________________</p>
+                            <p>
+                                <span t-field="approved_id.name"/>
+                            </p>
+                            <p>
+                                <span t-field="approved_id.job_id"/>
+                            </p>
+                            <p>
+                                <b>Approve</b>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

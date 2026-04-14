@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+    	<!-- Menu Item -->
+
+		<menuitem action="action_hr_contract_supplement_motive" id="contract_supplement_motive_menu_item"
+		parent="hr.menu_human_resources_configuration" sequence="10" groups="base.group_user"/>
+
+		<menuitem action="contract_payment_method_view_action" id="contract_payment_method_menu_item"
+		parent="hr.menu_human_resources_configuration" sequence="11" groups="base.group_user"/>
+
+		<delete model="ir.ui.menu"
+                search="[('name','=','Contract Types'),('parent_id','=','Configuration')]"/>
+
+		<menuitem action="action_hr_contract_type_under" id="contract_type_menu_item"
+		parent="hr.menu_human_resources_configuration" sequence="9" groups="base.group_user"/>
+		
+    </data>
+</odoo>

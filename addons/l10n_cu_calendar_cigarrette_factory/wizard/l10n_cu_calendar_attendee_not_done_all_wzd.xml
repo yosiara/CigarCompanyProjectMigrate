@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="calendar_attendee_not_done_all_wzd_view_form" model="ir.ui.view">
+			<field name="name">l10n_cu_calendar.attendee_not_done_all_wzd</field>
+			<field name="model">l10n_cu_calendar.attendee_not_done_all_wzd</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Not Done">
+					<separator string="Wizard to mark as not done all tasks"/>
+                    <footer>
+                        <div>
+                            <button name="execute" string="Apply" type="object" class="oe_highlight"/> o
+                            <button special="cancel" string="Close" class="oe_link"/>
+                        </div>
+                    </footer>
+				</form>
+			</field>
+		</record>
+
+        <act_window id="action_calendar_attendee_all_not_done"
+            key2="client_action_multi" name="Mark all as not done"
+            res_model="l10n_cu_calendar.attendee_not_done_all_wzd" src_model="calendar.attendee"
+            view_mode="form" target="new" view_type="form" />
+        
+	</data>
+</openerp>

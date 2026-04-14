@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="wzd_mpaprobados" model="ir.ui.view">
+            <field name="name">app_seleccion.wzd_mpaprobados</field>
+            <field name="model">app_seleccion.wzd_mpaprobados</field>
+            <field name="arch" type="xml">
+                <form string="Listado de candidatos aprobados por año">
+                    <sheet>
+                        <group>
+                            <group name="left">
+                                <field name="year" String="Seleccione el año" />
+                            </group>
+                            <group name="rigth">
+                                
+                            </group>
+                        </group>
+
+
+                        <footer>
+                            <div>
+                                <button name="imprimir" icon="fa-lg fa-save" string="Generar Modelo" type="object"
+                                        class="oe_highlight"/>
+
+                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_mpaprobados_act_window" model="ir.actions.act_window">
+            <field name="name">Listado de candidatos aprobados por Año</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">app_seleccion.wzd_mpaprobados</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_mpaprobados_act_window" name="Listado de candidatos aprobados por Año"
+                  id="menu_wzd_mpaprobados_report" parent="app_seleccion.menu_reportes" sequence="9"/>
+    </data>
+</odoo>

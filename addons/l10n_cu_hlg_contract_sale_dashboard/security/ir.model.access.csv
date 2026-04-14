@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_contract_sale_dashboard,contract_sale_dashboard.contract_sale_dashboard,model_contract_sale_dashboard,l10n_cu_hlg_contract.group_contract_user,1,1,1,1
+access_contract_purchase_dashboard,contract_purchase_dashboard.contract_purchase_dashboard,model_contract_purchase_dashboard,l10n_cu_hlg_contract.group_contract_user,1,1,1,1

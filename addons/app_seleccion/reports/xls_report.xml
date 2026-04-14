@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.xls_report"
+                model="app_seleccion.xls_report"
+                string="Candidatos a verificar por puestos de trabajo"
+                report_type="xlsx"
+                name="app_seleccion.xls_report"
+                file="app_seleccion.xls_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

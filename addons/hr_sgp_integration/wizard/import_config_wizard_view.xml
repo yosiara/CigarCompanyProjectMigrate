@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="import_config_wizard_form_view" model="ir.ui.view">
+			<field name="name">import.config.wizard.form</field>
+			<field name="model">import.config.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<div>
+						<p>
+							En orden de importar las<b>Configuraciones</b> de modulo y turno,
+							de la Base de datos del Sistema de Gestion de la Produccion usted
+                            debe seleccionar la conexion a usar...
+						</p>
+					</div>
+
+                    <group>
+						<field name="connector_id"/>
+					</group>
+
+                    <footer>
+						<button name="action_import" string="Importar" type="object" class="oe_highlight"/>
+                    </footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_import_config_wizard_view" model="ir.actions.act_window">
+			<field name="name">Auxiliar para importar configuraciones...</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">import.config.wizard</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="out_indicators_import_sgp"
+				  name="Importar configuraciones..."
+				  action="action_import_config_wizard_view"
+				  parent="hr_sgp_integration_menu_item"
+				  sequence="13"/>
+	</data>
+</odoo>

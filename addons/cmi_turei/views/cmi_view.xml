@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Indicator-->
+        <record id="cmi_indicator_form_view_inherit" model="ir.ui.view">
+            <field name="name">cmi.indicator.form.view.inherit</field>
+            <field name="model">cmi.indicator</field>
+            <field name="inherit_id" ref="cmi.cmi_indicator_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='perspective_id']" position="after">
+                    <field name="department_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="cmi_indicator_search_view_inherit" model="ir.ui.view">
+            <field name="name">cmi.indicator.tree.search.inherit</field>
+            <field name="model">cmi.indicator</field>
+            <field name="inherit_id" ref="cmi.cmi_indicator_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='perspective_id']" position="after">
+                    <field name="department_id"/>
+                </xpath>
+                <xpath expr="//group[1]" position="inside">
+                    <filter string="Department" domain="[]" context="{'group_by': 'department_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Department-->
+        <record id="cmi_turei_department_form_view" model="ir.ui.view">
+            <field name="name">cmi.turei.department.form.view</field>
+            <field name="model">cmi_turei.department</field>
+            <field name="arch" type="xml">
+                <form string="Department">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cmi_turei_department_tree_view" model="ir.ui.view">
+            <field name="name">cmi.turei.department.tree.view</field>
+            <field name="model">cmi_turei.department</field>
+            <field name="arch" type="xml">
+                <tree string="Department">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cmi_turei_department_search_view" model="ir.ui.view">
+            <field name="name">cmi.turei.department.tree.search</field>
+            <field name="model">cmi_turei.department</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="cmi_turei_department_menu_action" model="ir.actions.act_window">
+            <field name="name">Department</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cmi_turei.department</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="cmi_turei_department_menu" name="Departments" parent="cmi.cmi_configuration" action="cmi_turei_department_menu_action" groups="cmi.manager"/>
+
+
+    </data>
+</odoo>

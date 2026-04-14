@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.turei_maintenance_orders_delivered"
+                model="wzd.orders.delivered"
+                string="Rep. Órdenes Entregadas"
+                report_type="xlsx"
+                name="turei_maintenance.orders_delivered_report"
+                file="turei_maintenance.orders_delivered_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

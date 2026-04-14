@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="wzd_interruptions_line_form" model="ir.ui.view">
+            <field name="name">wzd.interruptions.line.form</field>
+            <field name="model">wzd.interruptions.line</field>
+            <field name="arch" type="xml">
+                <form string="Rep. Interrupciones por líneas productivas">
+                    <sheet>
+                        <style>
+                            td.o_td_label
+                            {
+                            min-width:88px !important;
+                            }
+                        </style>
+                        <group col="4">
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="productive_line"/>
+                            <field name="interruption_type"/>
+                        </group>
+                        <footer>
+                            <div>
+                                <button name="print_report" icon="fa-print" string="Imprimir" type="object"
+                                        class="oe_highlight"/>
+                                o
+                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                            </div>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="wzd_interruptions_line_act_window" model="ir.actions.act_window">
+            <field name="name">Rep. Interrupciones por líneas productivas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wzd.interruptions.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="wzd_interruptions_line_act_window"
+                  id="menu_interruptions_line_report" parent="turei_process_control_informes" sequence="4"/>
+    </data>
+</odoo>

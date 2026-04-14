@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="turei_capacitacion.report_capacitation_actions" model="ir.actions.report.xml">
+            <field name="name">Report Capacitations Actions</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">turei_capacitacion.capacitation_action</field>
+            <field name="report_name">turei_capacitacion.report_capacitation_actions</field>
+            <field name="report_type">docxtpl</field>
+            <field name="docxtpl_filetype">docx</field>
+            <field name="module">turei_capacitacion</field>
+            <field name="docxtpl_template_fallback">reports/docx/turei_capacitacion_plan.docx</field>
+        </record>
+
+
+    </data>
+</odoo>

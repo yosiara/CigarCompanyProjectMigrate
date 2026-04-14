@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <!-- Professions -->
+    <record id="hr_professions_view_form" model="ir.ui.view">
+        <field name="name">hr.professions.form</field>
+        <field name="model">hr.professions</field>
+        <field name="arch" type="xml">
+            <form string="Professions">
+                <group>
+                    <field name="name" required="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hr_professions_tree" model="ir.ui.view">
+        <field name="name">hr.professions.tree</field>
+        <field name="model">hr.professions</field>
+        <field name="arch" type="xml">
+            <tree string="Aacdemic Titles">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="open_view_hr_professions_action" model="ir.actions.act_window">
+        <field name="name">Professions</field>
+        <field name="res_model">hr.professions</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--<menuitem action="open_view_hr_professions_action" id="menu_hr_professions_view_form"
+              parent="hr.menu_human_resources_configuration" sequence="1" groups="base.group_no_one"/>-->
+
+    <!--employee profession tree-->
+    <record model="ir.ui.view" id="view_employee_profession_tree">
+        <field name="name">hr.employee.profession.tree</field>
+        <field name="model">hr.employee.professions</field>
+        <field name="arch" type="xml">
+            <tree string="Professions">
+                <field name="profession_id" string="Title"/>
+                <field name="employee_id"/>
+                <field name="partner_id" string="Institution"/>
+                <field name="start_date"/>
+                <field name="end_date"/> 
+            </tree>
+        </field>
+    </record>
+     <!-- profession form-->
+    <record model="ir.ui.view" id="view_employee_profession_form">
+        <field name="name">hr.employee.profession.form</field>
+        <field name="model">hr.employee.professions</field>
+        <field name="arch" type="xml">
+            <form string="Professions">
+                <sheet>
+                    <group name="main" col="4">
+                        <field name="employee_id"/>
+                        <field name="profession_id"/>
+                        <separator string="Dates" colspan="4"/>
+                        <field name="start_date"/>
+                        <field name="end_date" />
+                        <separator string="Partner" colspan="4"/>
+                        <field name="partner_id"/>
+                        <separator string="Additional Information" colspan="4"/>
+                        <field name="description" colspan="4" nolabel="1"/>
+                        <field name="category" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+      </field>
+    </record>
+    <!-- Menu -->
+    <record model="ir.actions.act_window" id="open_view_profession_form">
+        <field name="name">Professions</field>
+        <field name="res_model">hr.employee.professions</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--<menuitem name="Professions"
+              parent="menu_hr_experience"
+              id="menu_open_view_profession_form"
+              action="open_view_profession_form"/>-->
+
+</odoo>

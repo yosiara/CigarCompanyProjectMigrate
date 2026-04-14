@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.enterprise_mgm_sys_registry_r1_report"
+                model="enterprise_mgm_sys.registry_r1_wzd"
+                string="Registry R1"
+                report_type="xlsx"
+                name="enterprise_mgm_sys.registry_r1_report"
+                file="enterprise_mgm_sys.registry_r1_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

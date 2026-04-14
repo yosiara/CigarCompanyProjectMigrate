@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		base
+		Model: l10n_cu_base.authorized_signature
+		=========================================================================================== -->
+<record id="view_l10n_cu_base_authorized_signature_form" model="ir.ui.view">
+	    <field name="name">l10n_cu_base.authorized_signature.form</field>
+	    <field name="model">l10n_cu_base.authorized_signature</field>
+	    <field name="arch" type="xml">
+	        <form string="Authorized signatures">
+	            <sheet>
+	                <group col="4">
+	                    <field name="model" colspan="2"/>
+						<field name="company_id" options="{'no_create': True}" colspan="2" groups="base.group_multi_company"/>
+	                </group>
+					<group string="Authorized">
+						<field name="employee_ids" colspan="4" nolabel="1"/>
+					</group>
+	            </sheet>
+	        </form>
+	    </field>
+	</record>
+
+	<record id="view_l10n_cu_base_authorized_signature_tree" model="ir.ui.view">
+	    <field name="name">l10n_cu_base.authorized_signature.tree</field>
+	    <field name="model">l10n_cu_base.authorized_signature</field>
+	    <field name="arch" type="xml">
+	        <tree string="Authorized signatures">
+	            <field name="model"/>
+                 <field name="employee_ids"/>
+	        </tree>
+	    </field>
+	</record>
+
+	<record id="action_l10n_cu_base_authorized_signature_tree" model="ir.actions.act_window">
+		<field name="name">Authorized signatures</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">l10n_cu_base.authorized_signature</field>
+	</record>
+
+	<menuitem id="l10n_cu_base_authorized_signature_tree_menu" action="action_l10n_cu_base_authorized_signature_tree" parent="base.menu_administration" sequence="2" groups="base.group_user"/>
+
+    </data>
+</odoo>

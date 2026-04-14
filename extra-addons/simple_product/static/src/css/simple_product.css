@@ -1,0 +1,9 @@
+
+.oe_kanban_new_product {
+    font-size: x-large;
+    color: darkorange;
+    position: absolute;
+    float: right;
+    top: 30%;
+    right: 5%;
+}

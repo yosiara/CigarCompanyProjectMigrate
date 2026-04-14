@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <menuitem id="hr_turei_attendance_menu"
+                  name="Attendance"
+                  parent="hr.menu_hr_root"
+                  sequence="23"
+                  groups="base.group_user"/>
+        <!-- ========================= attendance.reason========================= -->
+        <!--tree -->
+        <record id="view_hr_turei_attendance_reason_tree" model="ir.ui.view">
+            <field name="name">hr.turei.attendance.reason.tree</field>
+            <field name="model">hr_turei.attendance_reason</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Reasons">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+        <!--form -->
+        <record id="view_hr_turei_attendance_reason_form" model="ir.ui.view">
+            <field name="name">hr.turei.attendance.reason.form</field>
+            <field name="model">hr_turei.attendance_reason</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Reason">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="type"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--search -->
+        <record id="view_hr_turei_attendance_reason_search" model="ir.ui.view">
+            <field name="name">hr.turei.attendance.reason.search</field>
+            <field name="model">hr_turei.attendance_reason</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Reason search">
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="type"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!--action -->
+        <record id="action_hr_turei_attendance_reason" model="ir.actions.act_window">
+            <field name="name">Reasons</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.attendance_reason</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_hr_turei_attendance_reason_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new reason.
+                </p>
+                <p>
+                    With just a quick glance, you can easily find all the information
+                    you need for each Reason; code, name and parent.
+                </p>
+            </field>
+        </record>
+        <!--Menu Item -->
+        <menuitem action="action_hr_turei_attendance_reason" id="hr_turei_attendance_reason_menu_item"
+                  parent="hr_turei_attendance_menu" sequence="10" groups="base.group_user"/>
+
+
+        <!--tree -->
+        <record id="view_hr_turei_attendance_incidence_tree" model="ir.ui.view">
+            <field name="name">hr.turei.attendance.incidence.tree</field>
+            <field name="model">hr_turei.attendance_incidence</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Incidences">
+                    <field name="employee_code"/>
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="employee_turn" invisible="1"/>
+                    <field name="entry_date"/>
+                    <field name="exit_date"/>
+                    <field name="working_time" invisible="1"/>
+                    <field name="not_working_time" invisible="1"/>
+                    <field name="reason_code"/>
+                </tree>
+            </field>
+        </record>
+        <!--form -->
+        <record id="view_hr_turei_attendance_incidence_form" model="ir.ui.view">
+            <field name="name">hr.turei.attendance.incidence.form</field>
+            <field name="model">hr_turei.attendance_incidence</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Incidence">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee_code"/>
+                                <field name="employee_id"/>
+                                <field name="date"/>
+                                <field name="employee_turn"/>
+                            </group>
+                            <group>
+                                <field name="entry_date"/>
+                                <field name="exit_date"/>
+                                <field name="working_time" widget="float_time"/>
+                                <field name="not_working_time" widget="float_time"/>
+                                <field name="reason_code"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!--search -->
+        <record id="view_hr_turei_attendance_incidence_search" model="ir.ui.view">
+            <field name="name">hr.turei.attendance.incidence.search</field>
+            <field name="model">hr_turei.attendance_incidence</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Incidence search">
+                    <separator/>
+                    <filter string="This Month" name="this_month"
+                            domain="[('date','&gt;=',(datetime.date.today().replace(day=1)).strftime('%%Y-%%m-%%d')), ('date','&lt;',(datetime.date.today().replace(day=1)+relativedelta(months=1)).strftime('%%Y-%%m-%%d'))]"/>
+                    <filter string="Before Month" name="before_month"
+                            domain="[('date','&lt;',(datetime.date.today().replace(day=1)).strftime('%%Y-%%m-%%d')), ('date','&gt;=',(datetime.date.today().replace(day=1)-relativedelta(months=1)).strftime('%%Y-%%m-%%d'))]"/>
+                    <field name="date" widget="date"/>
+                    <field name="employee_id"/>
+                    <field name="reason_id"/>
+
+
+                    <group expand="1" string="Group By...">
+                        <filter name="group_by_employee" string="Employees" icon="STOCK_INDEX" domain="[]"
+                                context="{'group_by' : 'employee_id'}"/>
+                        <filter name="group_by_date" string="Date" icon="STOCK_INDEX" domain="[]"
+                                context="{'group_by' : 'date'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <!--action -->
+        <record id="action_hr_turei_attendance_incidence" model="ir.actions.act_window">
+            <field name="name">Incidences</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.attendance_incidence</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem action="action_hr_turei_attendance_incidence" id="hr_turei_attendance_incidence_menu_item"
+                  parent="hr_turei_attendance_menu" sequence="10" groups="hr.group_hr_manager"/>
+
+    </data>
+</openerp>

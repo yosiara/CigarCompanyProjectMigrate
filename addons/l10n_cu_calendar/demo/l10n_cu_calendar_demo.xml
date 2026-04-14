@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+		<record id="org_group000" model="l10n_cu_calendar.org_group">
+			<field name="name">Mi empresa</field>
+            <field name="work_plan" eval="True"/>
+            <field name="company_id" ref="base.main_company"/>
+		</record>		
+		<record id="org_group001" model="l10n_cu_calendar.org_group">
+			<field name="name">Comite de control</field>
+			 <field name="work_plan" eval="False"/>
+            <field name="company_id" ref="base.main_company"/>
+		</record>
+		<record id="org_group002" model="l10n_cu_calendar.org_group">
+			<field name="name">Comite de financiamiento</field>
+			<field name="work_plan" eval="False"/>
+            <field name="company_id" ref="base.main_company"/>
+		</record>
+		<record id="org_group003" model="l10n_cu_calendar.org_group">
+			<field name="name">Comite de Contratacion</field>
+			<field name="work_plan" eval="False"/>
+            <field name="company_id" ref="base.main_company"/>
+		</record>
+		<record id="org_group004" model="l10n_cu_calendar.org_group">
+			<field name="name">Comite de Espertos</field>
+			<field name="work_plan" eval="False"/>
+            <field name="company_id" ref="base.main_company"/>
+		</record>
+		<record id="org_group005" model="l10n_cu_calendar.org_group">
+			<field name="work_plan" eval="False"/>
+			<field name="name">Nucleo del PCC</field>
+            <field name="company_id" ref="base.main_company"/>
+		</record>
+		<record id="org_group006" model="l10n_cu_calendar.org_group">
+			<field name="work_plan" eval="False"/>
+			<field name="name">Comite UJC</field>
+            <field name="company_id" ref="base.main_company"/>
+		</record>
+		<record id="org_group007" model="l10n_cu_calendar.org_group">
+			<field name="work_plan" eval="False"/>
+			<field name="name">Comite de negocios</field>
+            <field name="company_id" ref="base.main_company"/>
+		</record>
+		<record id="org_group008" model="l10n_cu_calendar.org_group">
+			<field name="work_plan" eval="False"/>
+			<field name="name">Consejo de direccion</field>
+            <field name="company_id" ref="base.main_company"/>
+		</record>
+     </data>
+    <data>
+	<!--Actualizar departamento-->
+		<!--Management-->
+		<record id="hr.dep_management" model="hr.department">
+			<field name="manager_id" ref="hr.employee_root"/>
+		</record>
+		<!--Administration-->
+		<record id="hr.dep_administration" model="hr.department">
+			<field name="manager_id" ref="hr.employee_vad"/>
+			<field name="parent_id" ref="hr.dep_management"/>
+		</record>
+		<!--Research & Development-->
+		<record id="hr.dep_rd" model="hr.department">
+			<field name="manager_id" ref="hr.employee_al"/>
+			<field name="parent_id" ref="hr.dep_management"/>
+		</record>
+		<!--Professional Services-->
+		<record id="hr.dep_ps" model="hr.department">
+			<field name="manager_id" ref="hr.employee_fpi"/>
+			<field name="parent_id" ref="hr.dep_management"/>
+		</record>
+		<!--Sales -->
+		<record id="hr.dep_sales" model="hr.department">
+			<field name="manager_id" ref="hr.employee_ngh"/>
+			<field name="parent_id" ref="hr.dep_management"/>
+		</record>
+
+<!--Related users-->
+		<record id="base.partner_antoine" model="res.partner">
+            <field name="name">Antoine Langlais</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_antoine" model="res.users">
+            <field name="partner_id" ref="base.partner_antoine"/>
+            <field name="login">antoine</field>
+            <field name="password">Antoine123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('l10n_cu_calendar.manager'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_al-image.jpg"/>
+        </record>
+		<record id="hr.employee_al" model="hr.employee">
+          	<field name="user_id" ref="base.user_antoine"/>
+			<field name="parent_id" ref="hr.employee_root"/>
+      </record>
+<!--Ashley Presley-->
+	<record id="base.partner_ashley" model="res.partner">
+            <field name="name">Ashley Presley</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_ashley" model="res.users">
+            <field name="partner_id" ref="base.partner_ashley"/>
+            <field name="login">ashley</field>
+            <field name="password">Ashley123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_vad-image.jpg"/>
+        </record>
+		<record id="hr.employee_vad" model="hr.employee">
+          	<field name="user_id" ref="base.user_ashley"/>
+      </record>
+<!--David Samson-->
+		<record id="base.partner_david" model="res.partner">
+            <field name="name">David Samson</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_david" model="res.users">
+            <field name="partner_id" ref="base.partner_david"/>
+            <field name="login">david</field>
+            <field name="password">David123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_chs-image.jpg"/>
+        </record>
+		<record id="hr.employee_chs" model="hr.employee">
+          	<field name="user_id" ref="base.user_david"/>
+      </record>
+	<!--Juan Gomez-->
+	<record id="base.partner_juan" model="res.partner">
+            <field name="name">Juan Gomez</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_juan" model="res.users">
+            <field name="partner_id" ref="base.partner_juan"/>
+            <field name="login">juan</field>
+            <field name="password">Juan123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_jgo-image.jpg"/>
+        </record>
+		<record id="hr.employee_jgo" model="hr.employee">
+          	<field name="user_id" ref="base.user_juan"/>
+      </record>
+	<!--Jean-Pierre Carnaud-->
+	<record id="base.partner_pierre" model="res.partner">
+            <field name="name">Jean-Pierre Carnaud</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_pierre" model="res.users">
+            <field name="partner_id" ref="base.partner_pierre"/>
+            <field name="login">pierre</field>
+            <field name="password">Pierre123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_jep-image.jpg"/>
+        </record>
+		<record id="hr.employee_jep" model="hr.employee">
+          	<field name="user_id" ref="base.user_pierre"/>
+      </record>
+		<!--Hans Anders-->
+	<record id="base.partner_hans" model="res.partner">
+            <field name="name">Hans Anders</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_hans" model="res.users">
+            <field name="partner_id" ref="base.partner_hans"/>
+            <field name="login">hans</field>
+            <field name="password">Hans123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_han-image.png"/>
+        </record>
+		<record id="hr.employee_han" model="hr.employee">
+          	<field name="user_id" ref="base.user_hans"/>
+      </record>
+			<!--Jan Van Eyck-->
+	<record id="base.partner_jan" model="res.partner">
+            <field name="name">Jan Van Eyck</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_jan" model="res.users">
+            <field name="partner_id" ref="base.partner_jan"/>
+            <field name="login">jan</field>
+            <field name="password">Jan123456/*+</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_jve-image.jpg"/>
+        </record>
+		<record id="hr.employee_jve" model="hr.employee">
+          	<field name="user_id" ref="base.user_jan"/>
+      </record>
+	<!--João Gomer-->
+	<record id="base.partner_joao" model="res.partner">
+            <field name="name">João Gomer</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_joao" model="res.users">
+            <field name="partner_id" ref="base.partner_joao"/>
+            <field name="login">joao</field>
+            <field name="password">Joao123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_jog-image.jpg"/>
+        </record>
+		<record id="hr.employee_jog" model="hr.employee">
+          	<field name="user_id" ref="base.user_joao"/>
+      </record>
+	<!--Luigi Rondi-->
+	<record id="base.partner_luigi" model="res.partner">
+            <field name="name">Luigi Rondi</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_luigi" model="res.users">
+            <field name="partner_id" ref="base.partner_luigi"/>
+            <field name="login">luigi</field>
+            <field name="password">Luigi123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_lur-image.png"/>
+        </record>
+		<record id="hr.employee_lur" model="hr.employee">
+          	<field name="user_id" ref="base.user_luigi"/>
+      </record>
+<!--Jimmy Kosikin-->
+	<record id="base.partner_jimmy" model="res.partner">
+            <field name="name">Jimmy Kosikin</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_jimmy" model="res.users">
+            <field name="partner_id" ref="base.partner_jimmy"/>
+            <field name="login">jimmy</field>
+            <field name="password">Jimmy123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_jth-image.png"/>
+        </record>
+		<record id="hr.employee_jth" model="hr.employee">
+          	<field name="user_id" ref="base.user_jimmy"/>
+            <field name="parent_id" ref="hr.employee_fpi"/>
+      </record>
+	<!--Martin Lawrence-->
+	<record id="base.partner_martin" model="res.partner">
+            <field name="name">Martin Lawrence</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_martin" model="res.users">
+            <field name="partner_id" ref="base.partner_martin"/>
+            <field name="login">martin</field>
+            <field name="password">Martin123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('l10n_cu_calendar.officer'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_fpi-image.jpg"/>
+        </record>
+		<record id="hr.employee_fpi" model="hr.employee">
+          	<field name="user_id" ref="base.user_martin"/>
+      </record>
+	<!--Jack Macklin-->
+		<record id="base.partner_jack" model="res.partner">
+            <field name="name">Jack Macklin</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_jack" model="res.users">
+            <field name="partner_id" ref="base.partner_jack"/>
+            <field name="login">jack</field>
+            <field name="password">Jack123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_fme-image.jpg"/>
+        </record>
+		<record id="hr.employee_fme" model="hr.employee">
+          	<field name="user_id" ref="base.user_jack"/>
+      </record>
+	<!--Gilles Gravie-->
+		<record id="base.partner_gilles" model="res.partner">
+            <field name="name">Gilles Gravie</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_gilles" model="res.users">
+            <field name="partner_id" ref="base.partner_gilles"/>
+            <field name="login">gilles</field>
+            <field name="password">Gilles123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_qdp-image.png"/>
+        </record>
+		<record id="hr.employee_qdp" model="hr.employee">
+          	<field name="user_id" ref="base.user_gilles"/>
+      </record>
+	<!--Liam Nelson-->
+		<record id="base.partner_liam" model="res.partner">
+            <field name="name">Liam Nelson</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_liam" model="res.users">
+            <field name="partner_id" ref="base.partner_liam"/>
+            <field name="login">liam</field>
+            <field name="password">Liam123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_stw-image.jpg"/>
+        </record>
+		<record id="hr.employee_stw" model="hr.employee">
+          	<field name="user_id" ref="base.user_liam"/>
+      </record>
+
+    	<!--Famke Jenssens-->
+		<record id="base.partner_famke" model="res.partner">
+            <field name="name">Famke Jenssens</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="customer" eval="False"/>
+            <field name="email">demo@yourcompany.example.com</field>
+        </record>
+
+		<record id="base.user_famke" model="res.users">
+            <field name="partner_id" ref="base.partner_famke"/>
+            <field name="login">famke</field>
+            <field name="password">Famke123456/*</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="groups_id" eval="[(6,0,[ref('l10n_cu_calendar.officer'), ref('base.group_partner_manager')])]"/>
+            <field name="image" type="base64" file="hr/static/img/employee_ngh-image.jpg"/>
+        </record>
+		<record id="hr.employee_ngh" model="hr.employee">
+          	<field name="user_id" ref="base.user_famke"/>
+      </record>
+    <!--John Doe-->
+    <record id="base.partner_johnd" model="res.partner">
+        <field name="name">John Doe</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="customer" eval="False"/>
+        <field name="email">demo@yourcompany.example.com</field>
+    </record>
+
+    <record id="base.user_johnd" model="res.users">
+        <field name="partner_id" ref="base.partner_johnd"/>
+        <field name="login">johnd</field>
+        <field name="password">Johnd123456/*</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+        <field name="image" type="base64" file="hr/static/img/employee_jod-image.png"/>
+    </record>
+    <record id="hr.employee_jod" model="hr.employee">
+        <field name="user_id" ref="base.user_johnd"/>
+  </record>
+    <!--Michael Hawkins-->
+    <record id="base.partner_micha" model="res.partner">
+        <field name="name">Michael Hawkins</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="customer" eval="False"/>
+        <field name="email">demo@yourcompany.example.com</field>
+    </record>
+
+    <record id="base.user_micha" model="res.users">
+        <field name="partner_id" ref="base.partner_micha"/>
+        <field name="login">micha</field>
+        <field name="password">Micha123456/*</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="groups_id" eval="[(6,0,[ref('base.group_user'), ref('base.group_partner_manager')])]"/>
+        <field name="image" type="base64" file="hr/static/img/employee_niv-image.jpg"/>
+    </record>
+    <record id="hr.employee_niv" model="hr.employee">
+        <field name="user_id" ref="base.user_micha"/>
+  </record>
+
+<!--CATEGORIAS-->
+    <record id="task_category01" model="l10n_cu_calendar.task_category">
+        <field name="name" >Trabajo politico-ideologico y de organizacion del Partido</field>
+        <field name="code" >I</field>
+    </record>
+    <record id="task_category02" model="l10n_cu_calendar.task_category">
+        <field name="code" >II</field>
+        <field name="name" >Funcionamiento y control del Estado.</field>
+    </record>
+    <record id="task_category03" model="l10n_cu_calendar.task_category">
+        <field name="code" >III</field>
+        <field name="name" >III - Funcionamiento y control del Gobierno</field>
+    </record>
+    <record id="task_category04" model="l10n_cu_calendar.task_category">
+        <field name="code" >IV</field>
+        <field name="name" >IV - Funciones empresariales</field>
+    </record>
+    <record id="task_category05" model="l10n_cu_calendar.task_category">
+        <field name="code" >V</field>
+        <field name="name" >V - Funcionamiento Interno</field>
+    </record>
+    <record id="task_category06" model="l10n_cu_calendar.task_category">
+        <field name="code" >VI</field>
+        <field name="name" >VI - Defensa, Orden Interior y Defensa Civil</field>
+    </record>
+
+    <!--OBJETIVOS DE TRABAJO-->
+    <record id="objt_10" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Cumplir el plan de ventas</field>
+        <field name="code" >10</field>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_01" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Cumplir el plan de ventas 1er trimestre</field>
+        <field name="code" >10-01</field>
+        <field name="parent_id" ref="objt_10"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_02" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Cumplir el plan de ventas 2do trimestre</field>
+        <field name="code" >10-02</field>
+        <field name="parent_id" ref="objt_10"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_03" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Cumplir el plan de ventas 3er trimestre</field>
+        <field name="code" >10-03</field>
+        <field name="parent_id" ref="objt_10"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_04" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Cumplir el plan de ventas 4to trimestre</field>
+        <field name="code" >10-04</field>
+        <field name="parent_id" ref="objt_10"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_20" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Perfeccionamiento empresarial</field>
+        <field name="code" >20</field>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_21" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Certificacion de la seguridad</field>
+        <field name="code" >20-01</field>
+        <field name="parent_id" ref="objt_20"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_22" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Certificacion de la contabilidad</field>
+        <field name="code" >20-02</field>
+        <field name="parent_id" ref="objt_20"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_23" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Preparacion del expediente</field>
+        <field name="code" >20-03</field>
+        <field name="parent_id" ref="objt_20"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_24" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Presentacion del expediente</field>
+        <field name="code" >20-04</field>
+        <field name="parent_id" ref="objt_20"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_30" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Migracion de los servicios a Odoo</field>
+        <field name="code" >30</field>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_31" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Desarollo de la linea base</field>
+        <field name="code" >30-01</field>
+        <field name="parent_id" ref="objt_30"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_32" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Despliegue de la linea base</field>
+        <field name="code" >30-02</field>
+        <field name="parent_id" ref="objt_30"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+
+    <record id="objt_33" model="l10n_cu_calendar.objective_task">
+        <field name="name" >Capacitacion de todos los usuarios</field>
+        <field name="code" >30-03</field>
+        <field name="parent_id" ref="objt_30"/>
+        <field name="category_id" ref="task_category04"/>
+        <field name="period_id" ref="l10n_cu_period.period_0"/>
+        <field name="group_id" ref="org_group000"/>
+    </record>
+</data>
+</openerp>

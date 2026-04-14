@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.process_control_primary_use_of_time_to_excel"
+                model="wzd.use.of.time.to.excel"
+                string="Rep. de Utilización del Tiempo"
+                report_type="xlsx"
+                name="process_control_primary.use_of_time_report"
+                file="process_control_primary.use_of_time_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

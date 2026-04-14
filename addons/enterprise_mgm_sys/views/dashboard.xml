@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_enterprise_mgm_sys_dashboard" model="ir.actions.act_window">
+            <field name="name">Dashboard</field>
+            <field name="res_model">enterprise_mgm_sys.dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="target">fullscreen</field>
+            <field name="view_mode">enterprise_mgm_sys_dashboard_view</field>
+            <field name="context">{
+                'enterprise_mgm_sys_dashboard_view_view_ref' : 'enterprise_mgm_sys.enterprise_mgm_sys_dashboard_view'
+                }
+            </field>
+        </record>
+        <record id="enterprise_mgm_sys_dashboard_configuration_action" model="ir.actions.act_window">
+            <field name="name">Dashboard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">enterprise_mgm_sys.dashboard</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="enterprise_mgm_sys_dashboard_view">
+            <field name="name">Dashboard</field>
+            <field name="model">enterprise_mgm_sys.dashboard</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <menuitem id="menu_enterprise_mgm_sys_dashboard"
+                  name="Dashboard"
+                  action="action_enterprise_mgm_sys_dashboard"
+                  parent="enterprise_mgm_sys_process_main_menu"
+                  sequence="1"/>
+
+        <menuitem id="menu_enterprise_mgm_sys_dashboard_configuration"
+                  name="Dashboard"
+                  action="enterprise_mgm_sys_dashboard_configuration_action"
+                  parent="enterprise_mgm_sys_configuration_root_menu"
+                  sequence="1"/>
+    </data>
+</odoo>

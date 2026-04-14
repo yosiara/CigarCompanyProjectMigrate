@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--tree employee movements-->
+        <record id="view_hr_turei_employee_movement_tree" model="ir.ui.view">
+            <field name="name">hr.turei.employee.movement.tree</field>
+            <field name="model">hr_turei.employee_movement</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Movements">
+                    <field name="employee_code"/>
+                    <field name="employee_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="old_job_position_id"/>
+                    <field name="new_job_position_id"/>
+                    <field name="movement_type"/>
+                    <field name="movement_start_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--form employee movements-->
+        <record id="view_hr_turei_employee_movement_form" model="ir.ui.view">
+            <field name="name">hr.turei.employee.movement.form</field>
+            <field name="model">hr_turei.employee_movement</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Movement">
+                    <sheet>
+                        <group>
+                            <field name="employee_code"/>
+                            <field name="employee_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="old_job_position_id"/>
+                            <field name="new_job_position_id"/>
+                            <field name="movement_type"/>
+                            <field name="movement_start_date"/>
+                            <field name="movement_end_date"/>
+                            <field name="movement_cause"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--search employee movements-->
+        <record id="view_hr_turei_employee_movement_search" model="ir.ui.view">
+            <field name="name">hr.turei.employee.movement.search</field>
+            <field name="model">hr_turei.employee_movement</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Employee Movements">
+                    <field name="employee_code"/>
+                    <field name="employee_id"/>
+                    <field name="movement_start_date"/>
+                    <field name="movement_end_date"/>
+                    <group expand="1" string="Group By">
+                        <filter string="Code" context="{'group_by': 'employee_code'}"/>
+                        <filter string="Company" context="{'group_by': 'company_id'}"/>
+                        <filter string="Employee" context="{'group_by': 'employee_id'}"/>
+                        <filter string="Old Job Position" context="{'group_by': 'old_job_position_id'}"/>
+                        <filter string="New Job Position" context="{'group_by': 'new_job_position_id'}"/>
+                        <filter string="Movement Type" context="{'group_by': 'movement_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_hr_turei_employee_movements" model="ir.actions.act_window">
+            <field name="name">Employee Movements</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.employee_movement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--tree Movement cause-->
+        <record id="view_hr_turei_employee_movement_cause_tree" model="ir.ui.view">
+            <field name="name">hr.turei.employee.movement.cause.tree</field>
+            <field name="model">hr_turei.employee_movement_cause</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Employee's movements cause">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--form Movement cause-->
+        <record id="view_hr_turei_employee_movement_cause_form" model="ir.ui.view">
+            <field name="name">hr.turei.employee.movement.cause.form</field>
+            <field name="model">hr_turei.employee_movement_cause</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Employee's movements cause">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--search Movement cause-->
+        <record id="view_hr_turei_employee_movement_cause_search" model="ir.ui.view">
+            <field name="name">hr.turei.employee.movement_cause.search</field>
+            <field name="model">hr_turei.employee_movement_cause</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Employee's movements cause">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <!--action Movement cause -->
+        <record id="action_hr_turei_employee_movement_cause" model="ir.actions.act_window">
+            <field name="name">Employee's movements cause</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.employee_movement_cause</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="hr_turei_employee_movement_configuration_menu" name="Employee's movements"
+                  parent="hr.menu_human_resources_configuration"/>
+
+        <menuitem action="action_hr_turei_employee_movements" id="hr_turei_employee_movement_menu"
+                  parent="hr_turei_employee_movement_configuration_menu"/>
+
+        <menuitem action="action_hr_turei_employee_movement_cause" id="hr_turei_employee_movement_cause_menu"
+                  parent="hr_turei_employee_movement_configuration_menu"/>
+    </data>
+</odoo>

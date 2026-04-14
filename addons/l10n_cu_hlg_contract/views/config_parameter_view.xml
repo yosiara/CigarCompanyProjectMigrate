@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="l10n_cu_hlg_contract_view_ir_config_form" model="ir.actions.act_window">
+            <field name="name">Parámetros del sistema</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ir.config_parameter</field>
+            <field name="view_type">form</field>
+            <field name="domain">['|','|',('key', '=', 'contract_days'), ('key', '=', 'contract_initial'), ('key', '=', 'contract_monetary')]</field>
+            <field name="filter" eval="True"/>
+        </record>
+
+        <menuitem id="l10n_cu_hlg_contract_ir_config_menu" sequence="90" name="Parámetros del sistema" parent="l10n_cu_hlg_contract.menu_contract_configuration" action="l10n_cu_hlg_contract_view_ir_config_form"/>
+
+    </data>
+</odoo>

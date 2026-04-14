@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--name="Agenda Express"-->
+        <menuitem
+                id="calendar.mail_menu_calendar"
+                sequence="2"
+                name="Agenda Express"
+                web_icon="l10n_cu_calendar,static/description/icon.png"
+                groups="base.group_user"/>
+
+        <menuitem name="Calendar" id="l10n_cu_calendar_menu" sequence="9" parent="calendar.mail_menu_calendar"
+                  groups="base.group_user"/>
+        <menuitem name="Calendar" id="l10n_cu_calendar_menu_item" sequence="10" parent="l10n_cu_calendar_menu"
+                  action="calendar.action_calendar_event" groups="base.group_user"/>
+
+        <menuitem name="Employees" id="l10n_cu_calendar_employee_menu" sequence="15"
+                  parent="calendar.mail_menu_calendar"
+                  groups="base.group_user"/>
+
+        <menuitem id="l10n_cu_calendar_nomenclature_menu" name="Nomenclatures" parent="calendar.mail_menu_calendar"
+                  sequence="20" groups="l10n_cu_calendar.officer"/>
+
+        <menuitem id="l10n_cu_calendar_main_config_menu" name="Calendar settings" parent="calendar.mail_menu_calendar"
+                  sequence="30" groups="l10n_cu_calendar.officer"/>
+
+        <menuitem name="Employees" id="menu_open_view_employee" action="hr.open_view_employee_list_my"
+                  parent="l10n_cu_calendar_employee_menu" sequence="1"
+                  groups="base.group_user"/>
+
+        <menuitem name="Departments" id="menu_open_module_tree_department" action="hr.open_module_tree_department"
+                  parent="l10n_cu_calendar_employee_menu" sequence="2"
+                  groups="l10n_cu_calendar.officer"/>
+
+
+        <!-- l10n_cu_calendar.task_category -->
+        <record id="view_category_search" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.task_category.search</field>
+            <field name="model">l10n_cu_calendar.task_category</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <group expand="0" string="Group by">
+                        <filter string="Parent Category" domain="[]" context="{'group_by':'parent_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_calendar_task_category_form" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.task_category.form</field>
+            <field name="model">l10n_cu_calendar.task_category</field>
+            <field name="arch" type="xml">
+                <form string="Category">
+                    <sheet>
+                        <group colspan="1">
+                            <field name="code" widget="mask_regex" data-inputmask-regex="([A-Za-z0-9-/.]{1,10})"/>
+                        </group>
+                        <group colspan="3">
+                            <field name="name" widget="mask_regex"
+                                   data-inputmask-regex="([A-Za-z0-9- /ÁÉÓÍÚÑáéóíúñ\(\)\.\,]{1,600})"/>
+                            <field name="parent_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_calendar_task_category_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.task_category.tree</field>
+            <field name="model">l10n_cu_calendar.task_category</field>
+            <field name="arch" type="xml">
+                <tree string="Categories">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_l10n_cu_calendar_task_category_view_tree" model="ir.actions.act_window">
+            <field name="name">Categories</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_calendar.task_category</field>
+        </record>
+
+        <menuitem id="l10n_cu_calendar_task_category_view_tree_menu"
+                  action="action_l10n_cu_calendar_task_category_view_tree" parent="l10n_cu_calendar_nomenclature_menu"
+                  sequence="10" groups="l10n_cu_calendar.manager"/>
+
+        <!-- configuration l10n_cu_calendar.objective_task -->
+
+        <record id="view_l10n_cu_calendar_objective_form" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.objective_task.form</field>
+            <field name="model">l10n_cu_calendar.objective_task</field>
+            <field name="arch" type="xml">
+                <form string="Objectives">
+                    <sheet>
+                        <group>
+                            <group colspan="4" col="4">
+                                <field name="code" widget="mask_regex" data-inputmask-regex="([A-Za-z0-9-/.]{1,10})"/>
+                                <field name="period_id"/>
+                                <field name="group_id"/>
+                            </group>
+                            <group colspan="4">
+                                <field name="name" widget="mask_regex"
+                                       data-inputmask-regex="([A-Za-z0-9- /%#ÁÉÓÍÚÑáéóíúñ\.\,]{1,600})"/>
+                                <field name="parent_id" options="{'no_open': true, 'no_create': true}"/>
+                            </group>
+                            <group colspan="4">
+                                <field name="category_id"/>
+                            </group>
+                            <separator string="Guidelines"/>
+                            <field name="guideline_ids" options="{'no_create': True}" nolabel="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_calendar_objective_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.objective_task.tree</field>
+            <field name="model">l10n_cu_calendar.objective_task</field>
+            <field name="arch" type="xml">
+                <tree string="Objectives">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="category_id"/>
+                    <field name="group_id"/>
+                    <field name="period_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_objective_search" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.objective_task.search</field>
+            <field name="model">l10n_cu_calendar.objective_task</field>
+            <field name="arch" type="xml">
+                <search string="Objectives">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="category_id"/>
+                    <field name="group_id"/>
+                    <field name="period_id"/>
+                    <group expand="0" string="Group by">
+                        <filter string="Parent Objective" domain="[]" context="{'group_by':'parent_id'}"/>
+                        <filter string="Category" domain="[]" context="{'group_by':'category_id'}"/>
+                        <filter string="Area" domain="[]" context="{'group_by':'group_id'}"/>
+                        <filter string="Period" domain="[]" context="{'group_by':'period_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_l10n_cu_calendar_objective_view_tree" model="ir.actions.act_window">
+            <field name="name">Objectives</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_calendar.objective_task</field>
+        </record>
+
+        <menuitem id="l10n_cu_calendar_objective_view_tree_menu" action="action_l10n_cu_calendar_objective_view_tree"
+                  parent="l10n_cu_calendar_nomenclature_menu" sequence="20" groups="l10n_cu_calendar.officer"/>
+
+        <!--l10n_cu_calendar_guideline-->
+        <record id="view_l10n_cu_calendar_guideline_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.guideline.tree</field>
+            <field name="model">l10n_cu_calendar.guideline</field>
+            <field name="arch" type="xml">
+                <tree string="Guidelines" editable="bottom">
+                    <field name="number"/>
+                    <field name="name" widget="mask_regex"
+                           data-inputmask-regex="([A-Za-z0-9- /ÁÉÓÍÚÑáéóíúñ\.]{1,300})"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_l10n_cu_calendar_guideline_view_tree" model="ir.actions.act_window">
+            <field name="name">Guidelines</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_calendar.guideline</field>
+        </record>
+
+        <menuitem id="l10n_cu_calendar_guideline_view_tree_menu"
+                  action="action_l10n_cu_calendar_guideline_view_tree"
+                  parent="l10n_cu_calendar_nomenclature_menu"
+                  sequence="15" groups="l10n_cu_calendar.officer"/>
+
+        <!-- l10n_cu_calendar.org_group -->
+        <record id="view_l10n_cu_calendar_org_group_form" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.org_group.form</field>
+            <field name="model">l10n_cu_calendar.org_group</field>
+            <field name="arch" type="xml">
+                <form string="Organization group">
+                    <sheet>
+                        <label for="name"/>
+                        <field name="name" widget="mask_regex"
+                               data-inputmask-regex="([A-Za-z0-9- /ÁÉÓÍÚÑáéóíúñ\.]{1,128})"/>
+                        <group col="4">
+                            <field name="department_id"/>
+                            <field name="work_plan"/>
+                            <field name="partner_id"/>
+                            <field name="parent_id" domain="[('work_plan','=',True)]"
+                                   options="{'no_open': true, 'no_create': true}"
+                                   attrs="{'invisible':[('work_plan','=',False)]}"/>
+                            <field name="cant"/>
+                            <field name="group_type" attrs="{'invisible':[('work_plan','=',False)]}"/>
+                        </group>
+                        <group attrs="{'invisible':[('group_type','!=','simple')]}">
+                            <label for="partner_group_ids" colspan="4"/>
+                            <field name="partner_group_ids" attrs="{'required':[('group_type','=','simple')]}" nolabel="1" colspan="4"/>
+                        </group>
+                        <group attrs="{'invisible':[('group_type','=','simple')]}">
+                            <label for="childs_ids" colspan="4"/>
+                            <field name="childs_ids" nolabel="1" attrs="{'required':[('group_type','!=','simple')]}" colspan="4" widget="many2many"
+                                   options="{'not_delete': True}"/>
+                        </group>
+                        <group attrs="{'invisible':[('group_type','=','simple')]}">
+                            <field name="include_single_members"/>
+                        </group>
+                        <group attrs="{'invisible':[('include_single_members', '=', False)]}">
+                            <field name="single_member_ids" widget="many2many_tags"/>
+                        </group>
+                        <button name="%(action_calendar_print_group_plan)d" type="action" string="Print group plan"
+                                icon="fa-print text-success" attrs="{'invisible':[('work_plan','=',False)]}"/>
+
+                        <button name="view_calendar" type="object" string="View Task"/>
+                        <button name="update_superior" type="object" string="Update Superior"
+                                groups="l10n_cu_calendar.manager"/>
+                        <button name="UpdateMembers" type="object" string="Update Members"
+                                groups="l10n_cu_calendar.manager"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_l10n_cu_calendar_org_group_tree" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.org_group.tree</field>
+            <field name="model">l10n_cu_calendar.org_group</field>
+            <field name="arch" type="xml">
+                <tree string="Organizations groups">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="partner_id"/>
+                    <field name="work_plan"/>
+                    <field name="group_type"/>
+                    <field name="cant"/>
+                    <button name="%(action_calendar_print_group_plan)d" type="action" string="Print group plan"
+                            icon="fa-print text-success" attrs="{'invisible':[('work_plan','=',False)]}"/>
+
+                    <button name="view_calendar" type="object" icon="fa-calendar-check-o text-success"
+                            string="View Task"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_org_group_search" model="ir.ui.view">
+            <field name="name">l10n_cu_calendar.org_group.search</field>
+            <field name="model">l10n_cu_calendar.org_group</field>
+            <field name="arch" type="xml">
+                <search string="Organizative groups">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <group expand="0" string="Group by">
+                        <filter string="Parent" domain="[]" context="{'group_by':'parent_id'}"/>
+                        <filter string="Area" domain="[]" context="{'group_by':'department_id'}"/>
+                        <filter string="Type" domain="[]" context="{'group_by':'group_type'}"/>
+                        <filter string="Work plan?" domain="[]" context="{'group_by':'work_plan'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_l10n_cu_calendar_org_group_view_tree" model="ir.actions.act_window">
+            <field name="name">Organizations groups</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_calendar.org_group</field>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem id="l10n_cu_calendar_org_group_view_tree_menu" action="action_l10n_cu_calendar_org_group_view_tree"
+                  parent="l10n_cu_calendar_menu" sequence="20" groups="base.group_user"/>
+
+
+        <!-- HEREDANDO LA VISTA TREE ALRMAS -->
+        <record id="view_calendar_alarm_tree_inherit" model="ir.ui.view">
+            <field name="name">calendar.alarm.inherit</field>
+            <field name="model">calendar.alarm</field>
+            <field name="inherit_id" ref="calendar.view_calendar_alarm_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="name" position="replace">
+                        <field name="name" widget="mask_regex"
+                               data-inputmask-regex="([A-Za-z0-9- ~()+/ÁÉÓÍÚÑáéóíúñ\.]{1,64})"/>
+                    </field>
+                    <field name="duration" position="replace">
+                        <field name="duration" string="Cantidad" widget="mask_regex"
+                               data-inputmask-regex="([0-9.,]{1,4})"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="action_l10n_cu_calendar_alarm_view_tree" model="ir.actions.act_window">
+            <field name="name">Alarms</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">calendar.alarm</field>
+
+        </record>
+        <menuitem id="l10n_cu_calendar_alarm_view_tree_menu" action="action_l10n_cu_calendar_alarm_view_tree"
+                  parent="l10n_cu_calendar_nomenclature_menu" sequence="25" groups="l10n_cu_calendar.manager"/>
+
+        <menuitem id="calendar_period_view_tree_menu" string="Periodos"
+                  action="l10n_cu_period.action_l10n_cu_period_period_view_tree"
+                  parent="l10n_cu_calendar_nomenclature_menu" sequence="30"/>
+
+        <menuitem action="l10n_cu_locals.action_df_locals_local" id="calendar_df_locals_local_menu_item"
+                  parent="l10n_cu_calendar_nomenclature_menu" groups="base.group_user" sequence="5"/>
+
+        <!-- HEREDANDO LA VISTA FORM DE CALENDAR -->
+        <record id="view_calendar_event_form_inherit" model="ir.ui.view">
+            <field name="name">calendar.event.inherit</field>
+            <field name="model">calendar.event</field>
+            <field eval="60" name="priority"/>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='state']" position="replace">
+                    </xpath>
+
+                    <xpath expr="//sheet[1]" position="before">
+                        <header attrs="{'invisible':[('group_task','!=',True)]}">
+                            <field name="state" widget="statusbar" clickable="1"/>
+                        </header>
+                    </xpath>
+
+                    <xpath expr="//sheet/div[@class='oe_title']" position="replace">
+                        <!--<label for="name"/>-->
+                        <field name="name" placeholder="Resumen de la tarea, ejemplo Matutino general"
+                               help="Resumen de la tarea, ejemplo Matutino general."
+                               widget="mask_regex" data-inputmask-regex="([A-Za-z0-9- /ÁÉÓÍÚÑáéóíúñ\(\)\.\,]{1,300})"/>
+                  <group>
+								<field name="short_name" placeholder="Mat. Gral."/>
+                        </group>
+                        <group colspan="4" col="2">
+                            <field name="needs_assurance" attrs="{'readonly': [('edit','=',False)]}" colspan="1"/>
+                            <field name="parent_id" attrs="{'readonly': [('edit','=',False)]}" colspan="1"/>
+                        </group>
+                    </xpath>
+
+                    <!--PRIMERA PAGINA : Meeting Details-->
+                    <xpath expr="/form/sheet/notebook/page[1]" position="attributes">
+                        <attribute name="string">Task Details</attribute>
+                    </xpath>
+                    <button name="action_detach_recurring_event" position="replace">
+                        <button type="object" name="action_detach_recurring_event"
+                                attrs="{'invisible':[('edit','=',False)]}" string="Update only this instance"
+                                help="Click here to update only this instance and not all recurrences. "
+                                class="oe_link"/>
+                    </button>
+                    <field name="start_date" position="replace">
+                        <field name="start_date" string="Starting at"
+                               attrs="{'invisible': [('allday','=',False)], 'readonly': ['&amp;','|',('id', '!=', False),('recurrency','=',True),('edit','=',False)]}"/>
+                    </field>
+                    <field name="stop_date" position="replace">
+                        <field name="stop_date" string="Ending at"
+                               attrs="{'invisible': [('allday','=',False)], 'readonly': ['&amp;','|',('id', '!=', False),('recurrency','=',True),('edit','=',False)]}"/>
+                    </field>
+                    <field name="start_datetime" position="replace">
+                        <field name="start_datetime" string="Starting at"
+                               attrs="{'invisible': [('allday','=',True)], 'readonly': ['&amp;','|',('id', '!=', False),('recurrency','=',True),('edit','=',False)]}"/>
+                    </field>
+                    <field name="duration" position="replace">
+                        <field name="duration" widget="float_time" string="Duration" class="oe_inline"
+                               attrs="{'readonly': ['&amp;','|',('id', '!=', False),('recurrency','=',True),('edit','=',False)]}"/>
+                    </field>
+                    <field name="allday" position="replace">
+                        <field name="allday"
+                               attrs="{'readonly': ['&amp;','|',('id', '!=', False),('recurrency','=',True),('edit','=',False)]}"/>
+                        <field name="local_id" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="categ_ids" position="replace">
+                        <field name="edit" invisible="1"/>
+                        <field name="objective_id" attrs="{'readonly':[('edit','=',False)]}"/>
+                        <field name="category_id" attrs="{'readonly':[('edit','=',False)]}"/>
+                        <field name="guidelines"/>
+                        <field name="priority_order" attrs="{'readonly':[('edit','=',False)]}"/>
+                        <field name="priority" attrs="{'readonly':[('edit','=',False)]}"/>
+                        <field name="type" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+
+                    <!--<label for="partner_ids" position="replace"/>-->
+                    <!--<field name="partner_ids" position="replace"/>-->
+                    <field name="location" position="replace"/>
+
+                    <field name="alarm_ids" position="replace"/>
+
+                    <xpath expr="//field[@name='description']" position="replace"/>
+                    <xpath expr="//label[@for='description']" position="replace">
+                        <group col="1">
+                            <label for="unfulfilled_cause" states="unfulfilled"/>
+                            <field name="unfulfilled_cause" nolabel="1" states="unfulfilled"/>
+                            <!--<label for="description"/>-->
+                            <field name="description" nolabel="1"
+                                   placeholder="Detalles de la tarea, por ejemplo Orden del dia de la reunion."
+                                   attrs="{'readonly':[('edit','=',False)]}"/>
+                        </group>
+                    </xpath>
+
+
+                    <!--FIN PRIMERA PAGINA : Meeting Details-->
+                    <!--SEGUNDA PAGINA : OPTIONS-->
+                    <field name="privacy" position="replace">
+                        <field name="alarm_ids" widget="many2many_tags" attrs="{'readonly':[('edit','=',False)]}"/>
+                        <field name="mail_notification" attrs="{'readonly':[('edit','=',False)]}"/>
+                        <field name="repeat_other_year" attrs="{'readonly':[('edit','=',False)]}"
+                               groups="l10n_cu_calendar.manager"/>
+                        <field name="add_anyway" colspan="1"/>
+                        <field name="hide_time_in_report" colspan="1"/>
+                    </field>
+                    <field name="show_as" position="replace"/>
+                    <field name="recurrency" position="replace">
+                        <field name="recurrency" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="interval" position="replace">
+                        <field name="interval"
+                               attrs="{'required': [('recurrency', '=', True)],'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="rrule_type" position="replace">
+                        <field name="rrule_type"
+                               attrs="{'required': [('recurrency', '=', True)],'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="end_type" position="replace">
+                        <field name="end_type"
+                               attrs="{'required': [('recurrency', '=', True)],'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="count" position="replace">
+                        <field name="count"
+                               attrs="{'invisible': [('end_type', '!=', 'count')], 'required': [('recurrency', '=', True)],'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="final_date" position="replace">
+                        <field name="final_date"
+                               attrs="{'invisible': [('end_type', '!=', 'end_date')], 'required': [('end_type', '=', 'end_date'),('recurrency', '=', True)],'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="mo" position="replace">
+                        <field name="mo" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="tu" position="replace">
+                        <field name="tu" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="we" position="replace">
+                        <field name="we" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="th" position="replace">
+                        <field name="th" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="fr" position="replace">
+                        <field name="fr" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="sa" position="replace">
+                        <field name="sa" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="su" position="replace">
+                        <field name="su" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="month_by" position="replace">
+                        <field name="month_by" attrs="{'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="day" position="replace">
+                        <field name="day"
+                               attrs="{'required': [('month_by', '=', 'date'), ('rrule_type', '=', 'monthly')],
+									'invisible': [('month_by', '!=', 'date')],
+									'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="byday" position="replace">
+                        <field name="byday" string="The"
+                               attrs="{'required': [('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],
+									'invisible': [('month_by', '!=', 'day')],
+									'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <field name="week_list" position="replace">
+                        <field name="week_list" nolabel="1"
+                               attrs="{'required': [('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],
+									'invisible': [('month_by', '!=', 'day')],
+									'readonly':[('edit','=',False)]}"/>
+                    </field>
+                    <!--FIN SEGUNDA PAGINA : OPTIONS-->
+                    <!--TERCERA PAGINA : INVITATIONS-->
+                    <xpath expr="//button[@name='action_sendmail']" position="after">
+                        <button name="task_done_all" type="object" string="Done to everyone" icon="fa-star text-success"
+                                class="oe_link"/>
+                        <button name="task_not_done_all" type="object" string="Not done to everyone"
+                                icon="fa-remove text-danger" class="oe_link"/>
+                    </xpath>
+
+                    <xpath expr="/form/sheet/notebook/page[3]" position="attributes">
+                        <attribute name="groups">base.group_user</attribute>
+                    </xpath>
+                    <field name="email" widget="email" position="attributes">
+                        <attribute name="groups">l10n_cu_calendar.manager</attribute>
+                    </field>
+                    <!--attendee buttons-->
+                    <button name="do_tentative" position="attributes">
+                        <attribute name="states">needsAction</attribute>
+                    </button>
+                    <!--<button name="do_accept"  states="needsAction,tentative,declined" type="object" icon="fa-check text-success"/>-->
+                    <!--<button name="do_decline" states="needsAction,tentative,accepted" type="object" icon="fa-times-circle text-danger"/>-->
+                    <button name="do_decline" position="after">
+                        <button name="task_done" string="Participate" states="accepted,not_done" type="object"
+                                icon="fa-star text-success"/>
+                    </button>
+                    <button name="do_decline" position="after">
+                        <button name="task_not_done" string="Abscent" states="accepted,done" type="object"
+                                icon="fa-remove text-danger"/>
+                    </button>
+                    <field name="email" position="after">
+                        <field name="cause" attrs="{'invisible':[('state','!=','not_done')]}"/>
+                    </field>
+                    <!--CUARTA PAGINA : MISC/ATTENDEES-->
+                    <!--HACER PUBLICA ESTA PAGINA-->
+                    <xpath expr="/form/sheet/notebook/page[4]" position="attributes">
+                        <attribute name="groups">base.group_user</attribute>
+                        <attribute name="string">Attendees</attribute>
+                    </xpath>
+                    <label for="user_id" position="replace"/>
+                    <field name="user_id" position="replace"/>
+                    <xpath expr="/form/sheet/notebook/page[4]/group" position="inside">
+                        <group colspan="4" col="2">
+                            <group col="2">
+                                <field name="user_id" string="Owner"
+                                       attrs="{'readonly':[('edit','=',False)]}"/>
+                                <field name="directed_by_job" attrs="{'readonly':[('edit','=',False)]}"
+                                       widget="mask_regex"
+                                       data-inputmask-regex="([A-Za-z0-9- /ÁÉÓÍÚÑáéóíúñ\.]{1,128})"/>
+                                <field name="only_employee" attrs="{'readonly':[('edit','=',False)]}"/>
+                            </group>
+                            <group col="2">
+                                <field name="group_task" groups="l10n_cu_calendar.officer"/>
+                                <field name="add_responsible" attrs="{'readonly':[('edit','=',False)]}"/>
+                                <field name="behave" widget="radio" colspan="1"
+                                       attrs="{'readonly':[('edit','=',False)],'invisible':[('group_task','=',False)]}"/>
+                            </group>
+                        </group>
+                        <group colspan="4" attrs="{'invisible':[('behave','!=','assign_specific')]}" col="2">
+                            <label string="Seleccione los participantes"
+                                   attrs="{'invisible':[('behave','!=','assign_specific')],'readonly':[('edit','=',False)]}"
+                                   colspan="2"/>
+                            <field name="partner_ids" widget="many2manyattendee" colspan="2"
+                                   context="{'force_email':True}" nolabel="1" required="True"
+                                   domain="[('is_company','=',False), ('employee','=',True)]"
+                                   attrs="{'invisible':[('behave','!=','assign_specific')],'readonly':[('edit','=',False)]}"/>
+                        </group>
+                        <group colspan="4" attrs="{'invisible':[('behave','=','assign_specific')]}" col="2">
+                            <label colspan="2" string="Seleccione los grupos"
+                                   attrs="{'invisible':[('behave','=','assign_specific')],'readonly':[('edit','=',False)]}"/>
+                            <field colspan="2" name="group_ids" widget="many2many_tags"
+                                   nolabel="1"
+                                   attrs="{'invisible':[('behave','=','assign_specific')],'readonly':[('edit','=',False)]}"/>
+                            <label colspan="2" for="individual_attendee_ids"
+                                   attrs="{'invisible':[('behave','=','assign_specific')],'readonly':[('edit','=',False)]}"/>
+                            <field colspan="2" name="individual_attendee_ids" widget="many2many_tags" nolabel="1"
+                                   domain="[('employee','=',True)]"
+                                   attrs="{'invisible':[('behave','=','assign_specific')],'readonly':[('edit','=',False)]}"/>
+                        </group>
+                        <group colspan="4" col="1">
+                            <label for="participants_text"/>
+                            <field name="participants_text" nolabel="1"/>
+                            <label for="attendees_group_ids" groups="l10n_cu_calendar.manager"/>
+                            <field name="attendees_group_ids" widget="many2many_tags"
+                                   groups="l10n_cu_calendar.manager" nolabel="1"/>
+                        </group>
+                    </xpath>
+
+                    <xpath expr="/form/sheet/notebook/page[4]" position="after">
+                        <page string="Assurance Tasks" attrs="{'invisible':[('needs_assurance','!=',True)]}">
+                            <group col="1">
+                                <field name="child_ids"
+                                       attrs="{'readonly':['|', ('needs_assurance','!=',True), ('edit','=',False)]}"
+                                       nolabel="1"
+                                       context="{'default_duration': duration, 'default_allday': allday, 'default_start_date': start_date, 'default_stop_date': stop_date, 'default_start': start, 'default_stop': stop, 'default_start_datetime': start_datetime, 'default_category_id': category_id, 'default_objective_id': objective_id}">
+                                    <tree string="Meetings">
+                                        <field name="name" states="" string="Subject"  readonly="1"/>
+                                        <field name="allday" states="" invisible="True"  readonly="1"/>
+                                        <field name="start" states="" string="Start Date" invisible="True"  readonly="1"/>
+                                        <field name="stop" states="" string="End Date" invisible="True"  readonly="1"/>
+                                        <field name="start_date" states="" attrs="{'invisible':[('allday', '=', False)]}"  readonly="1"/>
+                                        <field name="stop_date" states="" attrs="{'invisible':[('allday', '=', False)]}"  readonly="1"/>
+                                        <field name="start_datetime" states="" attrs="{'invisible':[('allday', '=', True)]}"  readonly="1"/>
+                                        <field name="duration" states="" widget="float_time"
+                                               attrs="{'invisible':[('allday', '=', True)]}"  readonly="1"/>
+                                        <field name="location" states=""  readonly="1"/>
+                                        <field name="state" states=""  readonly="1"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </xpath>
+
+                    <xpath expr="//field[@name='unfulfilled_cause']" position="replace"/>
+                    <xpath expr="//label[@for='unfulfilled_cause']" position="replace"/>
+                    <xpath expr="/form/sheet/notebook/page[5]" position="after">
+                        <page string="Accomplish resume">
+                            <group col="2" attrs="{'invisible':[('state','!=','unfulfilled')]}">
+                                <field name="unfulfilled_cause" attrs="{'readonly':[('state','!=','unfulfilled')]}"/>
+                                <field name="unfulfilled_origin" attrs="{'readonly':[('state','!=','unfulfilled')]}"/>
+                            </group>
+                            <group col="2">
+                                <field name="modification_cause"/>
+                                <field name="modification_origin"/>
+                            </group>
+                            <group col="2" attrs="{'invisible':[('type','!=','extra')]}">
+                                <field name="extra_plan_cause" attrs="{'readonly':[('type','!=','extra')]}"/>
+                                <field name="extra_plan_origin" attrs="{'readonly':[('type','!=','extra')]}"/>
+                            </group>
+                        </page>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <!--HEREDANDO VISTA CALENDARIO-->
+        <record id="view_l10n_cu_calendar_event_calendar" model="ir.ui.view">
+            <field name="name">calendar.event.calendar</field>
+            <field name="model">calendar.event</field>
+            <field name="priority" eval="2"/>
+            <field name="inherit_id" ref="calendar.view_calendar_event_calendar"/>
+            <field name="arch" type="xml">
+                <calendar position="attributes">
+                    <attribute name="mode">month</attribute>
+                    <attribute name="use_contacts">False</attribute>
+                    <attribute name="quick_add">False</attribute>
+                    <attribute name="color">color_key</attribute>
+                </calendar>
+                <calendar position="inside">
+                    <field name="color_key"/>
+                    <field name="state"/>
+                    <field name="parent_id"/>
+                    <field name="recurrency"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!--HEREDANDO ACTION CALENDARIO-->
+        <record id="calendar.action_calendar_event" model="ir.actions.act_window">
+            <field name="context">{"mymeetings": 1}</field>
+            <field name="view_mode">calendar,tree,form</field>
+        </record>
+
+        <!--HEREDANDO VISTA TREEE-->
+        <record id="view_l10n_cu_calendar_event_tree" model="ir.ui.view">
+            <field name="name">calendar.event.tree</field>
+            <field name="model">calendar.event</field>
+            <field name="priority" eval="2"/>
+            <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="location" position="replace">
+                        <field name="local_id"/>
+                    </field>
+                    <field name="partner_ids" position="replace">
+                    </field>
+                    <field name="duration" position="replace">
+                        <field name="duration" widget="float_time"/>
+                        <field name="guidelines"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+        <!--HEREDANDO VISTA FORM POPUP-->
+        <record id="view_l10n_cu_calendar_event_popup" model="ir.ui.view">
+            <field name="name">calendar.event.tree</field>
+            <field name="model">calendar.event</field>
+            <field name="priority" eval="2"/>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form_popup"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="location" position="replace">
+                        <field name="local_id"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <!--HEREDANDO VISTA SEARCH -->
+        <record id="view_l10n_cu_calendar_event_search" model="ir.ui.view">
+            <field name="name">calendar.event.search</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='privacy']" position="after">
+                    <field name="start"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="needs_assurance"/>
+                    <field name="parent_id"/>
+                </xpath>
+                <xpath expr="//filter[@name='message_needaction']" position="after">
+                    <filter string="This Month" name="this_month" context="{'virtual_id': True}"
+                            domain="[('stop','&gt;=',datetime.date.today().strftime('%%Y-%%m-01')), ('start','&lt;',(datetime.date.today()+relativedelta(months=1)).strftime('%%Y-%%m-01'))]"/>
+                    <filter string="Last Month" name="last_month" context="{'virtual_id': True}"
+                            domain="[('stop','&gt;=',(datetime.date.today()-relativedelta(months=1)).strftime('%%Y-%%m-01')), ('start','&lt;',(datetime.date.today()).strftime('%%Y-%%m-01'))]"/>
+                    <filter string="Assurance Tasks" name="assurance" domain="[('parent_id','!=',False)]"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_l10n_cu_calendar_event_attendee" model="ir.ui.view">
+            <field name="name">calendar.attendee.tree</field>
+            <field name="model">calendar.attendee</field>
+            <field name="arch" type="xml">
+                <tree string="Invitation details" editable="top" create="false" delete="false">
+                    <field name="event_id" readonly="True"/>
+                    <field name="date_start"/>
+                    <field name="partner_id"/>
+                    <field name="state"/>
+                    <!--<button name="do_tentative" states="needsAction,declined,accepted" string="Uncertain" type="object" icon="fa-asterisk" />-->
+                    <!--<button name="do_accept" string="Accept" states="needsAction,tentative,declined" type="object" icon="fa-check text-success"/>-->
+                    <button name="do_decline" string="Decline" states="needsAction,tentative,accepted" type="object"
+                            icon="fa-times-circle text-danger"/>
+                    <button name="task_done" string="Participate" states="accepted,not_done" type="object"
+                            icon="fa-star text-success"/>
+                    <button name="task_not_done" string="Abscent" states="accepted,done" type="object"
+                            icon="fa-remove text-danger"/>
+                </tree>
+            </field>
+        </record>
+        <!--T ODO LIST-->
+
+        <!--<record id="view_l10n_cu_calendar_attendee_search" model="ir.ui.view">
+            <field name="name">calendar.attendee.tree</field>
+            <field name="model">calendar.attendee</field>
+            <field name="priority" eval="2"/>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form_popup"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="location" position="replace">
+                        <field name="local_id" />
+                    </field>
+                </data>
+            </field>
+        </record>-->
+
+        <record id="view_calendar_attendee_filter" model="ir.ui.view">
+            <field name="name">calendar.attendee.select</field>
+            <field name="model">calendar.attendee</field>
+            <field name="arch" type="xml">
+                <search string="My events">
+                    <field name="state"/>
+                    <field name="event_id" string="Tarea"/>
+                    <field name="partner_id" operator="child_of"/>
+                    <separator/>
+                    <filter name="accepted" string="Accepted" domain="[('state','=','accepted')]"/>
+                    <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                    <filter name="not_done" string="Not Done" domain="[('state','=','not_done')]"/>
+                    <filter string="This Month" name="this_month"
+                            domain="[('date_start','&gt;=',(datetime.date.today().replace(day=1)).strftime('%%Y-%%m-%%d')), ('date_start','&lt;',(datetime.date.today().replace(day=1)+relativedelta(months=1)).strftime('%%Y-%%m-%%d'))]"/>
+                    <filter string="Last Month" name="last_month"
+                            domain="[('date_start','&gt;=',(datetime.date.today().replace(day=1)-relativedelta(months=1)).strftime('%%Y-%%m-%%d')), ('date_start','&lt;',(datetime.date.today().replace(day=1)).strftime('%%Y-%%m-%%d'))]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter name="partner_id" string="Partner" context="{'group_by':'partner_id'}"/>
+                        <filter name="status" string="Status" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_calendar_attendee" model="ir.actions.act_window">
+            <field name="name">My Todo List</field>
+            <field name="res_model">calendar.attendee</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('recurrency','=',False), ('user_id','=',uid), ('active_task_list','=',True)]</field>
+            <!--<field name="view_id" ref="view_calendar_event_calendar"/>-->
+            <!--<field name="search_view_id" ref="view_calendar_event_search"/>-->
+            <field name="context">{'search_default_this_month':1,}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to schedule a new meeting.
+                </p>
+                <p>
+                    The calendar is shared between employees and fully integrated with
+                    other applications such as the employee holidays or the business
+                    opportunities.
+                </p>
+            </field>
+        </record>
+        <menuitem id="l10n_cu_calendar_attendee_view_tree_menu" action="action_calendar_attendee"
+                  parent="l10n_cu_calendar_menu" sequence="20" groups="base.group_user"/>
+
+
+        <!-- Employee - partner Hierarchy  -->
+        <record id="view_partner_employee_tree2" model="ir.ui.view">
+            <field name="name">res.partner.hierarchy</field>
+            <field name="model">res.partner</field>
+            <field name="field_parent">subordinate_ids</field>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <tree string="Employees">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="function"/>
+                    <field name="boss_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="partner_employee_action_subordinate_hierachy" model="ir.actions.act_window">
+            <field name="name">Subordinate Hierarchy</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="domain">[('employee','=',True),('boss_id','=',False)]</field>
+            <field name="view_type">tree</field>
+            <field name="view_id" ref="view_partner_employee_tree2"/>
+        </record>
+
+        <menuitem id="l10n_cu_calendar_subordinate_hierachy_menu" action="partner_employee_action_subordinate_hierachy"
+                  parent="l10n_cu_calendar_main_config_menu" sequence="60" groups="l10n_cu_calendar.manager"/>
+    </data>
+</odoo>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <report
+                id="conciliation_military_report"
+                model="hr.employee"
+                string="Physical Conciliation of the Military Registry"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_defense_inf.conciliation_military"
+                file="conciliation_military"
+                attachment_use="True"
+                menu="False"
+        />
+
+        <template id="conciliation_military">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>CONCILIACIÓN FÍSICA DEL REGISTRO MILITAR</h2>
+
+                        <b>Asociados a :</b>
+                        <table class="table table-condensed">
+                            <tbody>
+                                <t t-foreach="obj_list" t-as="item">
+                                    <tr style="font-weight: bold;">
+                                        <td>
+                                            <t t-esc="item.get('localizacion')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('cantidad')"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <b>De ellos:</b>
+                        <table class="table table-condensed">
+                            <tbody>
+                                <t t-set="total" t-value="0"/>
+                                <t t-foreach="sex_list" t-as="item">
+                                    <tr style="font-weight: bold;">
+                                        <td>
+                                            <t t-esc="get_sexo(item.get('sexo'),'L')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('cantidad')"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="total" t-value="total + item.get('cantidad') "/>
+                                </t>
+                                <tr style="font-weight: bold;">
+                                    <td>Total</td>
+                                    <td align="right">
+                                        <t t-esc="total"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="military_registry_report"
+                model="hr.employee"
+                string="Behavior of the Militaty Registry"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_defense_inf.military_registry"
+                file="military_registry"
+                attachment_use="True"
+                menu="False"
+        />
+
+        <template id="military_registry">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>COMPORTAMIENTO DEL REGISTRO MILITAR</h2>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2">Concepto</th>
+                                    <th class="text-right">Cantidad</th>
+                                    <th class="text-right">%</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-right">Incorporados:
+                                        <t t-esc="total_in_defence"/>
+                                    </th>
+                                    <th class="text-right">
+                                        <t t-esc="get_cal_porciento(total_employee, total_in_defence)"/>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="obj_list" t-as="item">
+                                    <tr style="font-weight: bold;">
+                                        <td>
+                                            <t t-esc="item.get('localizacion')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="item.get('cantidad')"/>
+                                        </td>
+                                        <td align="right">
+                                            <t t-esc="get_cal_porciento(total_employee, item.get('cantidad'))"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+        <report
+                id="military_registry_list_report"
+                model="hr.employee"
+                string="Militaty Registry"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_defense_inf.military_registry_list"
+                file="military_registry_list"
+                attachment_use="True"
+                menu="False"
+        />
+
+        <template id="military_registry_list">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <h2>REGISTRO MILITAR</h2>
+
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Numero</th>
+                                    <th>Nombre(s) y Apellido(s)</th>
+                                    <th>C.I</th>
+                                    <th>Sexo</th>
+                                    <th>Teléfono</th>
+                                    <th>Área de trabajo</th>
+                                    <th>Cargo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="defence" t-value="''"/>
+                                <t t-foreach="obj_list" t-as="item">
+                                    <t t-if="item.get('defence') != defence">
+                                        <tr>
+                                            <td colspan="7" style="font-weight: bold;">
+                                                Ubicación:
+                                                <t t-esc="item.get('defence')"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <tr>
+                                        <td>
+                                            <t t-esc="item.get('code')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('name_related')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('identification_id')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="get_sexo(item.get('gender'))"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('mobile_phone')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('department')"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="item.get('job')"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="defence" t-value="item.get('defence')"/>
+                                </t>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+
+        <report
+                id="wear_template_report"
+                model="l10n_cu_hlg_hr_defense_inf.template_wear"
+                string="Wear template"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_defense_inf.wear_template"
+                file="wear_template"
+                attachment_use="True"
+                menu="False"
+        />
+
+        <template id="wear_template">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+
+                        <h5>PLANTILLA DE PERSONAL PARA LA ETAPA DE DESGASTE SISTEMATICO.</h5>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th align="center" colspan="8">DATOS DE LA PLANTILLA</th>
+                                    <th align="center" colspan="4">DATOS DE QUIEN LA OCUPA</th>
+                                </tr>
+                                <tr>
+                                    <th rowspan="2">No.</th>
+                                    <th rowspan="2">Cargo u ocupación</th>
+                                    <th rowspan="2">Grupo
+                                        <br/>
+                                        escala
+                                    </th>
+                                    <th rowspan="2">Categ.
+                                        <br/>
+                                        Ocupac.
+                                    </th>
+                                    <th colspan="2">Sal. Aprob Resol. 1</th>
+                                    <th rowspan="2">Impresc.</th>
+                                    <th rowspan="2">Tiempo en días</th>
+                                    <th rowspan="2">Nombre y apellidos</th>
+                                    <th rowspan="2">Edad</th>
+                                    <th rowspan="2">Dirección domiciliaria</th>
+                                    <th rowspan="2">Zona
+                                        <br/>
+                                        Defen.
+                                    </th>
+                                </tr>
+                                <tr>
+                                  <th>Paso</th>
+                                  <th>Desg.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <t t-foreach="get_list" t-as="o">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="o['no']"/>
+                                        </td>
+                                        <td>
+                                             <t t-esc="o['job']"/>
+                                        </td>
+                                        <td align="center">
+                                             <t t-esc="o['salary_group']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o['occupational_category']"/>
+                                        </td>
+                                        <td align="right">
+                                           <t t-esc="o['salary']"/>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><t t-esc="o['time_in_days']"/> </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+         <report
+                id="invasion_template_report"
+                model="l10n_cu_hlg_hr_defense_inf.template_invasion"
+                string="Invasion template"
+                report_type="qweb-pdf"
+                name="l10n_cu_hlg_hr_defense_inf.invasion_template"
+                file="invasion_template"
+                attachment_use="True"
+                menu="False"
+         />
+
+        <template id="invasion_template">
+            <t t-call="report.html_container">
+
+                <t t-call="report.external_layout">
+                    <div class="page">
+
+                        <h5>PLANTILLA DE PERSONAL PARA LA ETAPA DE INVASION.</h5>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th align="center" colspan="8">DATOS DE LA PLANTILLA</th>
+                                    <th align="center" colspan="4">DATOS DE QUIEN LA OCUPA</th>
+                                </tr>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Cargo u ocupación</th>
+                                    <th>Grupo
+                                        <br/>
+                                        escala
+                                    </th>
+                                    <th>Categ.
+                                        <br/>
+                                        Ocupac.
+                                    </th>
+                                    <th>Sal. Aprob<br/>Resol. 1.</th>
+                                    <th>Impresc.</th>
+                                    <th>Tiempo en días</th>
+                                    <th>Nombre y apellidos</th>
+                                    <th>Edad</th>
+                                    <th>Dirección domiciliaria</th>
+                                    <th>Zona
+                                        <br/>
+                                        Defen.
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <t t-foreach="get_list" t-as="o">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="o['no']"/>
+                                        </td>
+                                        <td>
+                                             <t t-esc="o['job']"/>
+                                        </td>
+                                        <td align="center">
+                                             <t t-esc="o['salary_group']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="o['occupational_category']"/>
+                                        </td>
+                                        <td align="right">
+                                           <t t-esc="o['salary']"/>
+                                        </td>
+
+                                        <td></td>
+                                        <td><t t-esc="o['time_in_days']"/> </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </t>
+            </t>
+        </template>
+
+    </data>
+</openerp>

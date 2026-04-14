@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="line_01" model="maintenance_turei.line">
+            <field name="name">M02L03</field>
+            <field name="sequence">1</field>
+            <field name="is_start">True</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_02" model="maintenance_turei.line">
+            <field name="name">M02L04</field>
+            <field name="sequence">2</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_03" model="maintenance_turei.line">
+            <field name="name">M02</field>
+            <field name="sequence">1</field>
+            <field name="is_start">True</field>
+            <field name="is_end">False</field>
+            <field name="is_module">True</field>
+            <field name="special_regime">False</field>
+        </record>
+
+        <record id="line_04" model="maintenance_turei.line">
+            <field name="name">M03L05</field>
+            <field name="sequence">3</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_05" model="maintenance_turei.line">
+            <field name="name">M03L06</field>
+            <field name="sequence">4</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_06" model="maintenance_turei.line">
+            <field name="name">M03</field>
+            <field name="sequence">2</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">True</field>
+            <field name="special_regime">False</field>
+        </record>
+
+        <record id="line_07" model="maintenance_turei.line">
+            <field name="name">M04L07</field>
+            <field name="sequence">5</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_08" model="maintenance_turei.line">
+            <field name="name">M04L08</field>
+            <field name="sequence">6</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_09" model="maintenance_turei.line">
+            <field name="name">M04</field>
+            <field name="sequence">3</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">True</field>
+            <field name="special_regime">False</field>
+        </record>
+
+        <record id="line_10" model="maintenance_turei.line">
+            <field name="name">M05L09</field>
+            <field name="sequence">7</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_11" model="maintenance_turei.line">
+            <field name="name">M05L10</field>
+            <field name="sequence">8</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_12" model="maintenance_turei.line">
+            <field name="name">M05</field>
+            <field name="sequence">4</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">True</field>
+            <field name="special_regime">False</field>
+        </record>
+
+        <record id="line_13" model="maintenance_turei.line">
+            <field name="name">M06L11</field>
+            <field name="sequence">9</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_14" model="maintenance_turei.line">
+            <field name="name">M06L12</field>
+            <field name="sequence">10</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_15" model="maintenance_turei.line">
+            <field name="name">M06</field>
+            <field name="sequence">5</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">True</field>
+            <field name="special_regime">False</field>
+        </record>
+
+        <record id="line_16" model="maintenance_turei.line">
+            <field name="name">M07L13</field>
+            <field name="sequence">11</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_17" model="maintenance_turei.line">
+            <field name="name">M07L14</field>
+            <field name="sequence">12</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_18" model="maintenance_turei.line">
+            <field name="name">M07</field>
+            <field name="sequence">6</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">True</field>
+            <field name="special_regime">False</field>
+        </record>
+
+        <record id="line_19" model="maintenance_turei.line">
+            <field name="name">M08L15</field>
+            <field name="sequence">13</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_20" model="maintenance_turei.line">
+            <field name="name">M08L16</field>
+            <field name="sequence">14</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_21" model="maintenance_turei.line">
+            <field name="name">M08</field>
+            <field name="sequence">7</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">True</field>
+            <field name="special_regime">False</field>
+        </record>
+
+        <record id="line_22" model="maintenance_turei.line">
+            <field name="name">M09L17</field>
+            <field name="sequence">15</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_23" model="maintenance_turei.line">
+            <field name="name">M09L18</field>
+            <field name="sequence">16</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_24" model="maintenance_turei.line">
+            <field name="name">M09</field>
+            <field name="sequence">8</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">True</field>
+            <field name="special_regime">False</field>
+        </record>
+
+        <record id="line_25" model="maintenance_turei.line">
+            <field name="name">M10L19</field>
+            <field name="sequence">17</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_26" model="maintenance_turei.line">
+            <field name="name">M10L20</field>
+            <field name="sequence">18</field>
+            <field name="is_start">False</field>
+            <field name="is_end">True</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">False</field>
+        </record>
+        <record id="line_27" model="maintenance_turei.line">
+            <field name="name">M10</field>
+            <field name="sequence">9</field>
+            <field name="is_start">False</field>
+            <field name="is_end">True</field>
+            <field name="is_module">True</field>
+            <field name="special_regime">False</field>
+        </record>
+
+        <record id="line_28" model="maintenance_turei.line">
+            <field name="name">M01L01</field>
+            <field name="sequence">19</field>
+            <field name="is_start">False</field>
+            <field name="is_end">False</field>
+            <field name="is_module">False</field>
+            <field name="special_regime">True</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="turn_view_form" model="ir.ui.view">
+                <field name="name">turn.form</field>
+                <field name="model">process_control.turn</field>
+                <field name="arch" type="xml">
+                    <form>
+                        <sheet>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                            <separator/>
+                            <field name="turn_attendance_context" invisible="1"/>
+                            <notebook>
+                                <page string="Horas de Trabajo">
+                                    <field name="turn_attendance_ids" widget="section_one2many" context="{'default_session': turn_attendance_context['default_session'], 'default_name': turn_attendance_context['default_name'], 'default_hour_from': turn_attendance_context['default_hour_from'], 'default_hour_to': turn_attendance_context['default_hour_to']}">
+                                        <tree editable="bottom">
+                                            <field name="name"/>
+                                            <field name="session"/>
+                                            <field name="hour_from" widget="float_time"/>
+                                            <field name="hour_to" widget="float_time"/>
+                                        </tree>
+                                         <!-- <form>
+                                            <sheet>
+                                                <group>
+                                                    <group>
+                                                        <field name="name"/>
+                                                        <field name="session"/>
+                                                    </group>
+                                                    <group>
+                                                        <field name="hour_from" widget="float_time"/>
+                                                        <field name="hour_to" widget="float_time"/>
+                                                    </group>
+                                                </group>
+                                            </sheet>
+                                        </form> -->
+                                    </field>
+                                </page>
+                            </notebook>
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+
+        <record id="view_turn_tree" model="ir.ui.view">
+            <field name="name">turn.tree</field>
+            <field name="model">process_control.turn</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_turn_form" model="ir.actions.act_window">
+            <field name="name">Turnos de Trabajo</field>
+            <field name="res_model">process_control.turn</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define working hours and time table that could be scheduled to your project members
+            </p>
+            </field>
+        </record>
+        
+        <menuitem action="action_turn_form" id="menu_turn" parent="process_control_settings_menu" sequence="1"/>
+    </data>
+</odoo>

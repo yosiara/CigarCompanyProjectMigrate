@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="ir.cron" id="cron_send_indicators_state">
+            <field name="name">Send Internal Agreement Obligations Reminder</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="model" eval="'enterprise_mgm_sys.internal_agreement'"/>
+            <field name="function" eval="'_send_email_notification'"/>
+            <field name="args" eval="'()'"/>
+        </record>
+
+        <record model="enterprise_mgm_sys.month" id="month_1">
+            <field name="name">Enero</field>
+            <field name="number">01</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_2">
+            <field name="name">Febrero</field>
+            <field name="number">02</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_3">
+            <field name="name">Marzo</field>
+            <field name="number">03</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_4">
+            <field name="name">Abril</field>
+            <field name="number">04</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_5">
+            <field name="name">Mayo</field>
+            <field name="number">05</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_6">
+            <field name="name">Junio</field>
+            <field name="number">06</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_7">
+            <field name="name">Julio</field>
+            <field name="number">07</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_8">
+            <field name="name">Agosto</field>
+            <field name="number">08</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_9">
+            <field name="name">Septiembre</field>
+            <field name="number">09</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_10">
+            <field name="name">Octubre</field>
+            <field name="number">10</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_11">
+            <field name="name">Noviembre</field>
+            <field name="number">11</field>
+        </record>
+        <record model="enterprise_mgm_sys.month" id="month_12">
+            <field name="name">Diciembre</field>
+            <field name="number">12</field>
+        </record>
+    </data>
+</odoo>

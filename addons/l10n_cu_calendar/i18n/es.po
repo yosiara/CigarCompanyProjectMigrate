@@ -1,0 +1,2919 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* l10n_cu_calendar
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20200610\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-04 13:21+0000\n"
+"PO-Revision-Date: 2021-06-04 13:21+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_cu_calendar
+#: model:mail.template,body_html:l10n_cu_calendar.calendar_template_meeting_invitation
+msgid "\n"
+"<div summary=\"o_mail_template\" style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"% set colors = {'needsAction': 'grey', 'accepted': 'green', 'tentative': '#FFFF00',  'declined': 'red'}\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"center\" width=\"200\" style=\"padding:10px 10px 10px 5px;font-size: 12px\">\n"
+"                <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"            </td>\n"
+"            <td valign=\"center\" align=\"right\" width=\"340\" style=\"padding:10px 10px 10px 5px; font-size: 12px;\">\n"
+"\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"top\" style=\"width:600px; padding:10px 10px 10px 5px;\">\n"
+"                <div>\n"
+"                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:15px auto;padding:0\">\n"
+"                </div>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"<div style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:10px 10px 10px 5px;font-size: 14px;\">\n"
+"                <p style=\"font-size: 20px; text-align: center;\">Invitation to <strong>${object.event_id.name}</strong></p>\n"
+"                <p>\n"
+"                    <strong>Dear ${object.common_name}</strong>,<br />\n"
+"                    ${object.event_id.user_id.partner_id.name} invited you for the ${object.event_id.name} meeting of ${object.event_id.user_id.company_id.name}.</p>\n"
+"                <table style=\"margin-top: 20px;\"><tr>\n"
+"                    <td>\n"
+"                        <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;background:#875A7B;padding-top: 4px;\">\n"
+"                            ${object.event_id.get_interval('dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #F8F8F8;width: 130px;border:1px solid #875A7B;\">\n"
+"                            ${object.event_id.get_interval('day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#875A7B'>${object.event_id.get_interval('month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                        <div style=\"border-collapse:separate;color: #5F5F5F;text-align:center;width: 130px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid #875A7B;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval('time', tz=object.partner_id.tz) or ''}</div>\n"
+"                    </td>\n"
+"                    <td width=\"20px;\"/>\n"
+"                    <td>\n"
+"                        <p>Details of the event</p>\n"
+"                        <ul>\n"
+"                        % if object.event_id.location:\n"
+"                            <li>Location: ${object.event_id.local_id.name}\n"
+"                            (<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                            </li>\n"
+"                        % endif\n"
+"                        % if object.event_id.description :\n"
+"                            <li>Description: ${object.event_id.description}</li>\n"
+"                        % endif\n"
+"                        % if not object.event_id.allday and object.event_id.duration\n"
+"                            <li>Duration: ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}</li>\n"
+"                        % endif\n"
+"                        <li>Attendees\n"
+"                        <ul>\n"
+"                        % for attendee in object.event_id.attendee_ids:\n"
+"                            <li>\n"
+"                                <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${colors[attendee.state] or 'white'};\"></div>\n"
+"                                % if attendee.common_name != object.common_name:\n"
+"                                <span style=\"margin-left:5px\">${attendee.common_name}</span>\n"
+"                                % else:\n"
+"                                <span style=\"margin-left:5px\">You</span>\n"
+"                                % endif\n"
+"                            </li>\n"
+"                        % endfor\n"
+"                        </ul></li>\n"
+"                        </ul>\n"
+"                    </td>\n"
+"                </tr></table>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>"
+msgstr "\n"
+"<div summary=\"o_mail_template\" style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"% set colors = {'needsAction': 'grey', 'accepted': 'green', 'tentative': '#FFFF00',  'declined': 'red'}\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"center\" width=\"200\" style=\"padding:10px 10px 10px 5px;font-size: 12px\">\n"
+"                <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"            </td>\n"
+"            <td valign=\"center\" align=\"right\" width=\"340\" style=\"padding:10px 10px 10px 5px; font-size: 12px;\">\n"
+"\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"top\" style=\"width:600px; padding:10px 10px 10px 5px;\">\n"
+"                <div>\n"
+"                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:15px auto;padding:0\">\n"
+"                </div>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"<div style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:10px 10px 10px 5px;font-size: 14px;\">\n"
+"                <p style=\"font-size: 20px; text-align: center;\">Invitación a <strong>${object.event_id.name}</strong></p>\n"
+"                <p>\n"
+"                    <strong>Estimado ${object.common_name}</strong>,<br />\n"
+"                    ${object.event_id.user_id.partner_id.name} le ha invitado a ${object.event_id.name} evento de ${object.event_id.user_id.company_id.name}.</p>\n"
+"                <table style=\"margin-top: 20px;\"><tr>\n"
+"                    <td>\n"
+"                        <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;background:#875A7B;padding-top: 4px;\">\n"
+"                            ${object.event_id.get_interval('dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #F8F8F8;width: 130px;border:1px solid #875A7B;\">\n"
+"                            ${object.event_id.get_interval('day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#875A7B'>${object.event_id.get_interval('month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                        <div style=\"border-collapse:separate;color: #5F5F5F;text-align:center;width: 130px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid #875A7B;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval('time', tz=object.partner_id.tz) or ''}</div>\n"
+"                    </td>\n"
+"                    <td width=\"20px;\"/>\n"
+"                    <td>\n"
+"                        <p>Detalles del evento</p>\n"
+"                        <ul>\n"
+"                        % if object.event_id.location:\n"
+"                            <li>Lugar: ${object.event_id.local_id.name}\n"
+"                            (<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                            </li>\n"
+"                        % endif\n"
+"                        % if object.event_id.description :\n"
+"                            <li>Descripción: ${object.event_id.description}</li>\n"
+"                        % endif\n"
+"                        % if not object.event_id.allday and object.event_id.duration\n"
+"                            <li>Duración: ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}</li>\n"
+"                        % endif\n"
+"                        <li>Asistentes\n"
+"                        <ul>\n"
+"                        % for attendee in object.event_id.attendee_ids:\n"
+"                            <li>\n"
+"                                <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${colors[attendee.state] or 'white'};\"></div>\n"
+"                                % if attendee.common_name != object.common_name:\n"
+"                                <span style=\"margin-left:5px\">${attendee.common_name}</span>\n"
+"                                % else:\n"
+"                                <span style=\"margin-left:5px\">Usted</span>\n"
+"                                % endif\n"
+"                            </li>\n"
+"                        % endfor\n"
+"                        </ul></li>\n"
+"                        </ul>\n"
+"                    </td>\n"
+"                </tr></table>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>"
+
+#. module: l10n_cu_calendar
+#: model:mail.template,body_html:l10n_cu_calendar.calendar_template_meeting_changedate
+msgid "\n"
+"<div summary=\"o_mail_template\" style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"% set colors = {'needsAction': 'grey', 'accepted': 'green', 'tentative': '#FFFF00',  'declined': 'red'}\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"center\" width=\"200\" style=\"padding:10px 10px 10px 5px;font-size: 12px\">\n"
+"                <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"            </td>\n"
+"            <td valign=\"center\" align=\"right\" width=\"340\" style=\"padding:10px 10px 10px 5px; font-size: 12px;\">\n"
+"                <p>\n"
+"                </p>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"top\" style=\"width:600px; padding:10px 10px 10px 5px;\">\n"
+"                <div>\n"
+"                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:15px auto;padding:0\">\n"
+"                </div>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"<div style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:10px 10px 10px 5px;font-size: 14px;\">\n"
+"                <p style=\"font-size: 20px; text-align: center;\"><strong>${object.event_id.name} date updated</strong></p>\n"
+"                <p>\n"
+"                    <strong>Dear ${object.common_name}</strong>,<br />\n"
+"                    The date of the meeting has been upated. The meeting  ${object.event_id.name} created by ${object.event_id.user_id.partner_id.name} is now scheduled for ${object.event_id.get_display_time_tz(tz=object.partner_id.tz)}.\n"
+"                </p>\n"
+"                <table style=\"margin-top: 20px;\"><tr>\n"
+"                    <td>\n"
+"                        <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;background:#875A7B;padding-top: 4px;\">\n"
+"                            ${object.event_id.get_interval('dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #F8F8F8;width: 130px;border:1px solid #875A7B;\">\n"
+"                            ${object.event_id.get_interval('day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#875A7B'>${object.event_id.get_interval('month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                        <div style=\"border-collapse:separate;color: #5F5F5F;text-align:center;width: 130px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid #875A7B;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval('time', tz=object.partner_id.tz) or ''}</div>\n"
+"                    </td>\n"
+"                    <td width=\"20px;\"/>\n"
+"                    <td>\n"
+"                        <p>Details of the event</p>\n"
+"                        <ul>\n"
+"                        % if object.event_id.location:\n"
+"                            <li>Location: ${object.event_id.location}\n"
+"                            (<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                            </li>\n"
+"                        % endif\n"
+"                        % if object.event_id.description :\n"
+"                            <li>Description: ${object.event_id.description}</li>\n"
+"                        % endif\n"
+"                        % if not object.event_id.allday and object.event_id.duration\n"
+"                            <li>Duration: ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}</li>\n"
+"                        % endif\n"
+"                        <li>Attendees\n"
+"                        <ul>\n"
+"                        % for attendee in object.event_id.attendee_ids:\n"
+"                            <li>\n"
+"                                <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${colors[attendee.state] or 'white'};\"></div>\n"
+"                                % if attendee.common_name != object.common_name:\n"
+"                                <span style=\"margin-left:5px\">${attendee.common_name}</span>\n"
+"                                % else:\n"
+"                                <span style=\"margin-left:5px\">You</span>\n"
+"                                % endif\n"
+"                            </li>\n"
+"                        % endfor\n"
+"                        </ul></li>\n"
+"                        </ul>\n"
+"                    </td>\n"
+"                </tr></table>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>"
+msgstr "\n"
+"<div summary=\"o_mail_template\" style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"% set colors = {'needsAction': 'grey', 'accepted': 'green', 'tentative': '#FFFF00',  'declined': 'red'}\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"center\" width=\"200\" style=\"padding:10px 10px 10px 5px;font-size: 12px\">\n"
+"                <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"            </td>\n"
+"            <td valign=\"center\" align=\"right\" width=\"340\" style=\"padding:10px 10px 10px 5px; font-size: 12px;\">\n"
+"                <p>\n"
+"                </p>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"top\" style=\"width:600px; padding:10px 10px 10px 5px;\">\n"
+"                <div>\n"
+"                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:15px auto;padding:0\">\n"
+"                </div>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"<div style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:10px 10px 10px 5px;font-size: 14px;\">\n"
+"                <p style=\"font-size: 20px; text-align: center;\"><strong>${object.event_id.name} fecha actualizada</strong></p>\n"
+"                <p>\n"
+"                    <strong>Estimado ${object.common_name}</strong>,<br />\n"
+"                    El día del evento ha sido actualizado. El evento ${object.event_id.name} creado por ${object.event_id.user_id.partner_id.name} está programado para ${object.event_id.get_display_time_tz(tz=object.partner_id.tz)}.\n"
+"                </p>\n"
+"                <table style=\"margin-top: 20px;\"><tr>\n"
+"                    <td>\n"
+"                        <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;background:#875A7B;padding-top: 4px;\">\n"
+"                            ${object.event_id.get_interval('dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #F8F8F8;width: 130px;border:1px solid #875A7B;\">\n"
+"                            ${object.event_id.get_interval('day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#875A7B'>${object.event_id.get_interval('month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                        <div style=\"border-collapse:separate;color: #5F5F5F;text-align:center;width: 130px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid #875A7B;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval('time', tz=object.partner_id.tz) or ''}</div>\n"
+"                    </td>\n"
+"                    <td width=\"20px;\"/>\n"
+"                    <td>\n"
+"                        <p>Detalles del evento</p>\n"
+"                        <ul>\n"
+"                        % if object.event_id.location:\n"
+"                            <li>Lugar: ${object.event_id.location}\n"
+"                            (<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                            </li>\n"
+"                        % endif\n"
+"                        % if object.event_id.description :\n"
+"                            <li>Descripción: ${object.event_id.description}</li>\n"
+"                        % endif\n"
+"                        % if not object.event_id.allday and object.event_id.duration\n"
+"                            <li>Duración: ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}</li>\n"
+"                        % endif\n"
+"                        <li>Asistentes\n"
+"                        <ul>\n"
+"                        % for attendee in object.event_id.attendee_ids:\n"
+"                            <li>\n"
+"                                <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${colors[attendee.state] or 'white'};\"></div>\n"
+"                                % if attendee.common_name != object.common_name:\n"
+"                                <span style=\"margin-left:5px\">${attendee.common_name}</span>\n"
+"                                % else:\n"
+"                                <span style=\"margin-left:5px\">Usted</span>\n"
+"                                % endif\n"
+"                            </li>\n"
+"                        % endfor\n"
+"                        </ul></li>\n"
+"                        </ul>\n"
+"                    </td>\n"
+"                </tr></table>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>"
+
+#. module: l10n_cu_calendar
+#: model:mail.template,body_html:l10n_cu_calendar.calendar_template_meeting_reminder
+msgid "\n"
+"<div summary=\"o_mail_template\" style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"% set colors = {'needsAction': 'grey', 'accepted': 'green', 'tentative': '#FFFF00',  'declined': 'red'}\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"center\" width=\"200\" style=\"padding:10px 10px 10px 5px;font-size: 12px\">\n"
+"                <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"            </td>\n"
+"            <td valign=\"center\" align=\"right\" width=\"340\" style=\"padding:10px 10px 10px 5px; font-size: 12px;\">\n"
+"                <p>\n"
+"                </p>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"top\" style=\"width:600px; padding:10px 10px 10px 5px;\">\n"
+"                <div>\n"
+"                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:15px auto;padding:0\">\n"
+"                </div>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"<div style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:10px 10px 10px 5px;font-size: 14px;\">\n"
+"                <p style=\"font-size: 20px; text-align: center;\">Reminder for <strong>${object.event_id.name}</strong></p>\n"
+"                <p>\n"
+"                    <strong>Dear ${object.common_name}</strong>,<br />\n"
+"                    This is a reminder for the below event :\n"
+"                </p>\n"
+"                <table style=\"margin-top: 20px;\"><tr>\n"
+"                    <td>\n"
+"                        <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;background:#875A7B;padding-top: 4px;\">\n"
+"                            ${object.event_id.get_interval('dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #F8F8F8;width: 130px;border:1px solid #875A7B;\">\n"
+"                            ${object.event_id.get_interval('day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#875A7B'>${object.event_id.get_interval('month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                        <div style=\"border-collapse:separate;color: #5F5F5F;text-align:center;width: 130px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid #875A7B;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval('time', tz=object.partner_id.tz) or ''}</div>\n"
+"                    </td>\n"
+"                    <td width=\"20px;\"/>\n"
+"                    <td>\n"
+"                        <p>Details of the event</p>\n"
+"                        <ul>\n"
+"                        % if object.event_id.location:\n"
+"                            <li>Location: ${object.event_id.location}\n"
+"                            (<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                            </li>\n"
+"                        % endif\n"
+"                        % if object.event_id.description :\n"
+"                            <li>Description: ${object.event_id.description}</li>\n"
+"                        % endif\n"
+"                        % if not object.event_id.allday and object.event_id.duration\n"
+"                            <li>Duration: ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}</li>\n"
+"                        % endif\n"
+"                        <li>Attendees\n"
+"                        <ul>\n"
+"                        % for attendee in object.event_id.attendee_ids:\n"
+"                            <li>\n"
+"                                <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${colors[attendee.state] or 'white'};\"></div>\n"
+"                                % if attendee.common_name != object.common_name:\n"
+"                                <span style=\"margin-left:5px\">${attendee.common_name}</span>\n"
+"                                % else:\n"
+"                                <span style=\"margin-left:5px\">You</span>\n"
+"                                % endif\n"
+"                            </li>\n"
+"                        % endfor\n"
+"                        </ul></li>\n"
+"                        </ul>\n"
+"                    </td>\n"
+"                </tr></table>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>"
+msgstr "\n"
+"<div summary=\"o_mail_template\" style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"% set colors = {'needsAction': 'grey', 'accepted': 'green', 'tentative': '#FFFF00',  'declined': 'red'}\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"center\" width=\"200\" style=\"padding:10px 10px 10px 5px;font-size: 12px\">\n"
+"                <img src=\"/logo.png\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${user.company_id.name}\">\n"
+"            </td>\n"
+"            <td valign=\"center\" align=\"right\" width=\"340\" style=\"padding:10px 10px 10px 5px; font-size: 12px;\">\n"
+"                <p>\n"
+"                </p>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td valign=\"top\" style=\"width:600px; padding:10px 10px 10px 5px;\">\n"
+"                <div>\n"
+"                    <hr width=\"100%\" style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:15px auto;padding:0\">\n"
+"                </div>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"<div style=\"padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table cellspacing=\"0\" cellpadding=\"0\" style=\"width:600px;border-collapse:collapse;background:inherit;color:inherit\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:10px 10px 10px 5px;font-size: 14px;\">\n"
+"                <p style=\"font-size: 20px; text-align: center;\">Recordatorio para <strong>${object.event_id.name}</strong></p>\n"
+"                <p>\n"
+"                    <strong>Estimado(a) ${object.common_name}</strong>,<br />\n"
+"                    Por este medio le recordamos la proximidad del evento:\n"
+"                </p>\n"
+"                <table style=\"margin-top: 20px;\"><tr>\n"
+"                    <td>\n"
+"                        <div style=\"border-top-left-radius:3px;border-top-right-radius:3px;font-size:12px;border-collapse:separate;text-align:center;font-weight:bold;color:#ffffff;width:130px;min-height: 18px;background:#875A7B;padding-top: 4px;\">\n"
+"                            ${object.event_id.get_interval('dayname', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style=\"font-size:48px;min-height:auto;font-weight:bold;text-align:center;color: #5F5F5F;background-color: #F8F8F8;width: 130px;border:1px solid #875A7B;\">\n"
+"                            ${object.event_id.get_interval('day', tz=object.partner_id.tz if not object.event_id.allday else None)}\n"
+"                        </div>\n"
+"                        <div style='font-size:12px;text-align:center;font-weight:bold;color:#ffffff;background-color:#875A7B'>${object.event_id.get_interval('month', tz=object.partner_id.tz if not object.event_id.allday else None)}</div>\n"
+"                        <div style=\"border-collapse:separate;color: #5F5F5F;text-align:center;width: 130px;font-size:12px;border-bottom-right-radius:3px;font-weight:bold;border:1px solid #875A7B;border-bottom-left-radius:3px;\">${not object.event_id.allday and object.event_id.get_interval('time', tz=object.partner_id.tz) or ''}</div>\n"
+"                    </td>\n"
+"                    <td width=\"20px;\"/>\n"
+"                    <td>\n"
+"                        <p>Detalles del evento:</p>\n"
+"                        <ul>\n"
+"                        % if object.event_id.location:\n"
+"                            <li>Lugar: ${object.event_id.location}\n"
+"                            (<a href=\"http://maps.google.com/maps?oi=map&q=${object.event_id.location}\">View Map</a>)\n"
+"                            </li>\n"
+"                        % endif\n"
+"                        % if object.event_id.description :\n"
+"                            <li>Descripción: ${object.event_id.description}</li>\n"
+"                        % endif\n"
+"                        % if not object.event_id.allday and object.event_id.duration\n"
+"                            <li>Duración: ${('%dH%02d' % (object.event_id.duration,(object.event_id.duration*60)%60))}</li>\n"
+"                        % endif\n"
+"                        <li>Asistentes:\n"
+"                        <ul>\n"
+"                        % for attendee in object.event_id.attendee_ids:\n"
+"                            <li>\n"
+"                                <div style=\"display:inline-block; border-radius: 50%; width:10px; height:10px;background:${colors[attendee.state] or 'white'};\"></div>\n"
+"                                % if attendee.common_name != object.common_name:\n"
+"                                <span style=\"margin-left:5px\">${attendee.common_name}</span>\n"
+"                                % else:\n"
+"                                <span style=\"margin-left:5px\">Usted</span>\n"
+"                                % endif\n"
+"                            </li>\n"
+"                        % endfor\n"
+"                        </ul></li>\n"
+"                        </ul>\n"
+"                    </td>\n"
+"                </tr></table>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "\"Ordinario\""
+msgstr "\"Ordinario\""
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "\"Según lista interna de clasificación\""
+msgstr "\"Según lista interna de clasificación\""
+
+#. module: l10n_cu_calendar
+#: model:mail.template,subject:l10n_cu_calendar.calendar_template_meeting_reminder
+msgid "${object.event_id.name} - Reminder"
+msgstr "${object.event_id.name} - Recordatorio"
+
+#. module: l10n_cu_calendar
+#: model:mail.template,subject:l10n_cu_calendar.calendar_template_meeting_invitation
+msgid "${object.event_id.name} invitation"
+msgstr "${object.event_id.name} invitación"
+
+#. module: l10n_cu_calendar
+#: model:mail.template,subject:l10n_cu_calendar.calendar_template_meeting_changedate
+msgid "${object.event_id.name}: Date updated"
+msgstr "${object.event_id.name}: Fecha actualizada"
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:411
+#, python-format
+msgid "%s has declined invitation"
+msgstr "%s ha declinado la invitación"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "-20-"
+msgstr "-20-"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan_category
+msgid "<b style=\"display: inline-block; font-size: 11pt\">Actividad hora y lugar</b>"
+msgstr "<b style=\"display: inline-block; font-size: 11pt\">Actividad hora y lugar</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan_category
+msgid "<b style=\"display: inline-block; font-size: 11pt\">Dirige</b>"
+msgstr "<b style=\"display: inline-block; font-size: 11pt\">Dirige</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan_category
+msgid "<b style=\"display: inline-block; font-size: 11pt\">Fecha</b>"
+msgstr "<b style=\"display: inline-block; font-size: 11pt\">Fecha</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan_category
+msgid "<b style=\"display: inline-block; font-size: 11pt\">Nro</b>"
+msgstr "<b style=\"display: inline-block; font-size: 11pt\">Nro</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan
+msgid "<b style=\"display: inline-block; font-size: 11pt\">Observaciones sobre el\n"
+"                                                cumplimiento\n"
+"                                            </b>"
+msgstr "<b style=\"display: inline-block; font-size: 11pt\">Observaciones sobre el\n"
+"                                                cumplimiento\n"
+"                                            </b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan_category
+msgid "<b style=\"display: inline-block; font-size: 11pt\">Observaciones sobre el cumplimiento</b>"
+msgstr "<b style=\"display: inline-block; font-size: 11pt\">Observaciones sobre el cumplimiento</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan_category
+msgid "<b style=\"display: inline-block; font-size: 11pt\">Participa</b>"
+msgstr "<b style=\"display: inline-block; font-size: 11pt\">Participa</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "<b>ANÁLISIS CUALITATIVO</b>"
+msgstr "<b>ANÁLISIS CUALITATIVO</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Abr</b>"
+msgstr "<b>Abr</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_no_categ_report
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_report
+msgid "<b>Actividades (Lugar)</b>"
+msgstr "<b>Actividades (Lugar)</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Actividades, hora y lugar</b>"
+msgstr "<b>Actividades, hora y lugar</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Ago</b>"
+msgstr "<b>Ago</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "<b>CAUSAS</b>"
+msgstr "<b>CAUSAS</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Dic</b>"
+msgstr "<b>Dic</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Dirige</b>"
+msgstr "<b>Dirige</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_no_categ_report
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_report
+msgid "<b>Dirigente</b>"
+msgstr "<b>Dirigente</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Ene</b>"
+msgstr "<b>Ene</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Feb</b>"
+msgstr "<b>Feb</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_no_categ_report
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_report
+msgid "<b>Fecha y hora planificada</b>"
+msgstr "<b>Fecha y hora planificada</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_no_categ_report
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_report
+msgid "<b>Fecha y hora puntualizada</b>"
+msgstr "<b>Fecha y hora puntualizada</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group
+msgid "<b>JEFE DE GRUPO:</b>"
+msgstr "<b>JEFE DE GRUPO:</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Jul</b>"
+msgstr "<b>Jul</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Jun</b>"
+msgstr "<b>Jun</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "<b>MODIFICADAS</b>"
+msgstr "<b>MODIFICADAS</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Mar</b>"
+msgstr "<b>Mar</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>May</b>"
+msgstr "<b>May</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Modelo No. 1</b>"
+msgstr "<b>Modelo No. 1</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group
+msgid "<b>NOMBRE GRUPO:</b>"
+msgstr "<b>NOMBRE GRUPO:</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "<b>NUEVAS TAREAS(EXTRA PLANES)</b>"
+msgstr "<b>NUEVAS TAREAS(EXTRA PLANES)</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_no_categ_report
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_report
+msgid "<b>No</b>"
+msgstr "<b>No</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Nov</b>"
+msgstr "<b>Nov</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>OBJETIVOS DE TRABAJO</b>"
+msgstr "<b>OBJETIVOS DE TRABAJO</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "<b>OBSERVACIONES DEL CUMPLIMIENTO</b>"
+msgstr "<b>OBSERVACIONES DEL CUMPLIMIENTO</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Observaciones</b>"
+msgstr "<b>Observaciones</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Oct</b>"
+msgstr "<b>Oct</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_no_categ_report
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_report
+msgid "<b>Participantes</b>"
+msgstr "<b>Participantes</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "<b>QUIÉN LAS ORIGINÓ</b>"
+msgstr "<b>QUIÉN LAS ORIGINÓ</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group
+msgid "<b>REPORTE DE INTEGRANTES POR GRUPOS ORGANIZATIVOS</b>"
+msgstr "<b>REPORTE DE INTEGRANTES POR GRUPOS ORGANIZATIVOS</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "<b>RESUMEN CUANTITATIVO</b>"
+msgstr "<b>RESUMEN CUANTITATIVO</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<b>Sep</b>"
+msgstr "<b>Sep</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "<b>TAREAS INCUMPLIDAS</b>"
+msgstr "<b>TAREAS INCUMPLIDAS</b>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan_category
+msgid "<font color=\"#000000\" face=\"Arial, sans-serif\" style=\"font-size: 11pt\">\n"
+"                                                <b>\n"
+"                                                    Modelo No. 2\n"
+"                                                </b>\n"
+"                                            </font>"
+msgstr "<font color=\"#000000\" face=\"Arial, sans-serif\" style=\"font-size: 11pt\">\n"
+"                                                <b>\n"
+"                                                    Modelo No. 2\n"
+"                                                </b>\n"
+"                                            </font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan
+msgid "<font color=\"#000000\" face=\"Arial, sans-serif\" style=\"font-size: 9pt\">\n"
+"                                                <b>\n"
+"                                                    Modelo No. 2\n"
+"                                                </b>\n"
+"                                            </font>"
+msgstr "<font color=\"#000000\" face=\"Arial, sans-serif\" style=\"font-size: 9pt\">\n"
+"                                                <b>\n"
+"                                                    Modelo No. 2\n"
+"                                                </b>\n"
+"                                            </font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan_category
+msgid "<font color=\"#000000\">\n"
+"                                    <font face=\"Arial\">\n"
+"                                        <font size=\"5\" style=\"font-size: 18pt\">\n"
+"                                            <b>TAREAS\n"
+"                                                PRINCIPALES\n"
+"                                            </b>\n"
+"                                        </font>\n"
+"                                    </font>\n"
+"                                </font>"
+msgstr "<font color=\"#000000\">\n"
+"                                    <font face=\"Arial\">\n"
+"                                        <font size=\"5\" style=\"font-size: 18pt\">\n"
+"                                            <b>TAREAS\n"
+"                                                PRINCIPALES\n"
+"                                            </b>\n"
+"                                        </font>\n"
+"                                    </font>\n"
+"                                </font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "<font face=\"Arial, sans-serif\">\n"
+"                                                            <font size=\"3\" style=\"font-size: 11pt\">Aprobado:</font>\n"
+"                                                        </font>"
+msgstr "<font face=\"Arial, sans-serif\">\n"
+"                                                            <font size=\"3\" style=\"font-size: 11pt\">Aprobado:</font>\n"
+"                                                        </font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan_category
+msgid "<font face=\"Arial, sans-serif\">Aprobado:</font>"
+msgstr "<font face=\"Arial, sans-serif\">Aprobado:</font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "<font face=\"Verdana, sans-serif\">\n"
+"                                                <b>Modelo Nro. 3</b>\n"
+"                                            </font>"
+msgstr "<font face=\"Verdana, sans-serif\">\n"
+"                                                <b>Modelo Nro. 3</b>\n"
+"                                            </font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "<font face=\"Verdana, sans-serif\">\n"
+"                                    <font size=\"3\" style=\"font-size: 12pt\">\n"
+"                                        <span lang=\"es-ES\">\n"
+"                                            <b>ACTIVIDADES PRINCIPALES</b>\n"
+"                                        </span>\n"
+"                                    </font>\n"
+"                                </font>"
+msgstr "<font face=\"Verdana, sans-serif\">\n"
+"                                    <font size=\"3\" style=\"font-size: 12pt\">\n"
+"                                        <span lang=\"es-ES\">\n"
+"                                            <b>ACTIVIDADES PRINCIPALES</b>\n"
+"                                        </span>\n"
+"                                    </font>\n"
+"                                </font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "<font face=\"Verdana, sans-serif\">Aprobado:</font>"
+msgstr "<font face=\"Verdana, sans-serif\">Aprobado:</font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group
+msgid "<font size=\"2\" style=\"font-size: 10pt\"><b>CARGO</b></font>"
+msgstr "<font size=\"2\" style=\"font-size: 10pt\"><b>CARGO</b></font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group
+msgid "<font size=\"2\" style=\"font-size: 10pt\"><b>DEPARTAMENTO</b></font>"
+msgstr "<font size=\"2\" style=\"font-size: 10pt\"><b>DEPARTAMENTO</b></font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group
+msgid "<font size=\"2\" style=\"font-size: 10pt\"><b>NOMBRE</b></font>"
+msgstr "<font size=\"2\" style=\"font-size: 10pt\"><b>NOMBRE</b></font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group
+msgid "<font size=\"2\" style=\"font-size: 10pt\">INTEGRANTES</font>"
+msgstr "<font size=\"2\" style=\"font-size: 10pt\">INTEGRANTES</font>"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_event_attendee
+msgid "Abscent"
+msgstr "Ausente"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_attendee_filter
+msgid "Accepted"
+msgstr "Aceptado"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+#: selection:l10n_cu_calendar.print_individual_plan,type:0
+msgid "Accomplish resume"
+msgstr "Resumen de cumplimiento"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_attendee_active_task_list
+msgid "Active My Task list"
+msgstr "Activar Mi lista de tareas"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_actualizar_partner_employee_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "Actualizar"
+msgstr "Actualizar"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_calendar_actualizar_partner_employee
+#: model:ir.ui.menu,name:l10n_cu_calendar.calendar_actualizar_partner_employee_menu
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_actualizar_partner_employee_wzd_view_form
+msgid "Actualizar Partner-Employee"
+msgstr "Sincronizar datos"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_add_responsible
+msgid "Add Responsible"
+msgstr "Añadir responsable"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_calendar_group_add_employee_wzd
+#: model:ir.ui.menu,name:l10n_cu_calendar.calendar_group_add_employee_wzd_menu
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_group_add_employee_wzd_view_form
+msgid "Add employees to groups"
+msgstr "Agregar empleados a grupos"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_calendar_event_add_responsible
+msgid "Add responsible automatic to attendees"
+msgstr "Añadir el responsable automáticamente"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_attendees_group_ids
+msgid "Affected Groups"
+msgstr "Affected Groups"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_calendar_registry_information
+#: model:ir.ui.menu,name:l10n_cu_calendar.action_calendar_registry_information_menu
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "Agenda Express Registry Information"
+msgstr "Información del registro del Sistema Agenda Express"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_l10n_cu_calendar_alarm_view_tree
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_alarm_view_tree_menu
+msgid "Alarms"
+msgstr "Alarmas"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.annual_group_plan_docx
+msgid "Annual Group Plan"
+msgstr "Plan anual del grupo"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.annual_group_plan_obs_docx
+msgid "Annual Group Plan with Observations"
+msgstr "Annual Group Plan with Observations"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.print_group_plan,type:0
+msgid "Annual accomplish resume"
+msgstr "Resumen de cumplimiento anual"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.print_group_plan,type:0
+msgid "Annual activities plan"
+msgstr "Plan anual de actividades"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.anual_group_plan
+msgid "Anual Group Plan"
+msgstr "Plan anual del grupo"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_attendee_done_all_wzd
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_attendee_not_done_all_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_group_add_employee_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_config_settings
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_approved_by
+msgid "Approved By"
+msgstr "Aprobado por"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_group_id
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_objective_search
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_org_group_search
+msgid "Area"
+msgstr "Área"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_child_ids
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_event_search
+msgid "Assurance Tasks"
+msgstr "Tareas de Aseguramiento"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_group_ids
+msgid "Attendee Groups"
+msgstr "Attendee Groups"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_calendar_attendee
+msgid "Attendee information"
+msgstr "Información asistencia"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Attendees"
+msgstr "Asistentes"
+
+#. module: l10n_cu_calendar
+#: selection:calendar.event,behave:0
+msgid "Automatic Assign"
+msgstr "Automática"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+msgid "AÑO"
+msgstr "AÑO"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_behave
+msgid "Behave"
+msgstr "Comportamiento"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_partner_boss_id
+msgid "Boss"
+msgstr "Superior"
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:1132
+#, python-format
+msgid "Busy"
+msgstr "Ocupado"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "CUMPLIDAS"
+msgstr "CUMPLIDAS"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_menu
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_menu_item
+msgid "Calendar"
+msgstr "Calendario"
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:90
+#: code:addons/l10n_cu_calendar/models/calendar.py:131
+#: code:addons/l10n_cu_calendar/models/calendar.py:724
+#: code:addons/l10n_cu_calendar/models/calendar.py:877
+#: code:addons/l10n_cu_calendar/models/hr.py:48
+#: model:res.groups,name:l10n_cu_calendar.manager
+#, python-format
+msgid "Calendar Manager"
+msgstr "Planificador General"
+
+#. module: l10n_cu_calendar
+#: model:res.groups,name:l10n_cu_calendar.officer
+msgid "Calendar Officer"
+msgstr "Planificador/Evaluador"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_main_config_menu
+msgid "Calendar settings"
+msgstr "Configuración"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_config_settings
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_alarm_tree_inherit
+msgid "Cantidad"
+msgstr "Cantidad"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_l10n_cu_calendar_task_category_view_tree
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_task_category_view_tree_menu
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_task_category_tree
+msgid "Categories"
+msgstr "Categorías"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_category_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line_category_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_category_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_name
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_task_category_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_objective_search
+msgid "Category"
+msgstr "Categoría"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_attendee_cause
+msgid "Cause"
+msgstr "Causa"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_actualizar_partner_employee_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_group_add_employee_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_individual_plan_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "Cerrar"
+msgstr "Cerrar"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_child_ids
+msgid "Child Categories"
+msgstr "Categorías hijas"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_child_ids
+msgid "Child Objectives"
+msgstr "Sub-ojetivos"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_childs_ids
+msgid "Childs"
+msgstr "Hijos"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_actualizar_partner_employee_wzd_view_form
+msgid "Clic en <b>Actualizar</b> para iniciar el proceso..."
+msgstr "Clic en <b>Actualizar</b> para iniciar el proceso..."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Click here to update only this instance and not all recurrences."
+msgstr "Pulse para actualizar sólo esta instancia y no todas las repeticiones."
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,help:l10n_cu_calendar.action_calendar_attendee
+msgid "Click to schedule a new meeting."
+msgstr "Pulse para planificar una nueva reunión."
+
+#. module: l10n_cu_calendar
+#. openerp-web
+#: code:addons/l10n_cu_calendar/static/src/js/web_calendar.js:236
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_attendee_done_all_wzd
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_attendee_not_done_all_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_group_plan_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_to_next_year_view_form
+#, python-format
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_code
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_code
+msgid "Code"
+msgstr "Código"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_color_key
+msgid "Color Key"
+msgstr "Color Key"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_company_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_l10n_cu_calendar_general_settings
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_config_settings
+msgid "Configure Calendar"
+msgstr "Configurar calendario"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_confirmed
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_confirmed
+msgid "Confirmed"
+msgstr "Confirmada"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_individual_plan_wzd_view_form
+msgid "Copy to your mobile device and opened with ICalendar compatible application."
+msgstr "Copie el archivo descargado en su dispositivo móvil y ábralo con una aplicación compatible con el estándar ICalendar."
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_actualizar_partner_employee_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_done_all_wzd_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_not_done_all_wzd_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_guideline_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_to_next_year_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_actualizar_partner_employee_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_done_all_wzd_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_not_done_all_wzd_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_guideline_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_create_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_to_next_year_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_text
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_text
+msgid "Cualitative Resume"
+msgstr "Resumen cualitativo"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_custom_period
+msgid "Custom Period"
+msgstr "Período personalizado"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "DE ELLAS"
+msgstr "DE ELLAS"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.print_group_plan,format:0
+#: selection:l10n_cu_calendar.print_individual_plan,format:0
+msgid "DOCX"
+msgstr "DOCX"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_date_end
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_date_end
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_date_end_custom
+msgid "Date End"
+msgstr "Fecha fin"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_date_start
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_date_start
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_date_start_custom
+msgid "Date Start"
+msgstr "Fecha inicio"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information_days_left
+msgid "Days left"
+msgstr "Días restantes"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "Debe solicitar la clave de registro."
+msgstr "Debe solicitar la clave de registro."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:20
+#: code:addons/l10n_cu_calendar/wizard/l10n_cu_calendar_print_group_plan.py:33
+#: code:addons/l10n_cu_calendar/wizard/l10n_cu_calendar_print_individual_plan.py:33
+#, python-format
+msgid "Debe solicitar una clave de registro. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+msgstr "Debe solicitar una clave de registro. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_event_attendee
+msgid "Decline"
+msgstr "Rechazar"
+
+#. module: l10n_cu_calendar
+#. openerp-web
+#: code:addons/l10n_cu_calendar/static/src/js/web_calendar.js:231
+#, python-format
+msgid "Delete"
+msgstr "Delete"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_partner_department_id
+msgid "Department"
+msgstr "Departamento"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.menu,name:l10n_cu_calendar.menu_open_module_tree_department
+msgid "Departments"
+msgstr "Departamentos"
+
+#. module: l10n_cu_calendar
+#. openerp-web
+#: code:addons/l10n_cu_calendar/static/src/js/web_calendar.js:188
+#, python-format
+msgid "Detach"
+msgstr "Separar"
+
+#. module: l10n_cu_calendar
+#. openerp-web
+#: code:addons/l10n_cu_calendar/static/src/js/web_calendar.js:202
+#, python-format
+msgid "Detach and Confirm"
+msgstr "Separar y Confirmar"
+
+#. module: l10n_cu_calendar
+#. openerp-web
+#: code:addons/l10n_cu_calendar/static/src/js/web_calendar.js:216
+#, python-format
+msgid "Detach and Edit"
+msgstr "Separar y Editar"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.detail_no_categ_report_docx
+msgid "Detail No category report"
+msgstr "Detail No category report"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.detail_no_categ_report
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.detail_report
+msgid "Detail Report"
+msgstr "Puntualización mensual"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.detail_report_docx
+#: selection:l10n_cu_calendar.print_group_plan,type:0
+msgid "Detail report"
+msgstr "Puntualización mensual"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Detalles de la tarea, por ejemplo Orden del dia de la reunion."
+msgstr "Detalles de la tarea, por ejemplo Orden del día de la reunión."
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_directed_by_job
+msgid "Directed by(job)"
+msgstr "Dirige"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_actualizar_partner_employee_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_done_all_wzd_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_not_done_all_wzd_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_guideline_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_report_utils_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_to_next_year_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_anual_group_plan_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_detail_no_categ_report_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_detail_report_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_group_plan_category_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_group_plan_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_group_resume_plan_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_individual_plan_display_name
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_individual_plan_resumen_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "Domingo"
+msgstr "Domingo"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_attendee_filter
+msgid "Done"
+msgstr "Hecho"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Done to everyone"
+msgstr "Cumplida a todas"
+
+#. module: l10n_cu_calendar
+#. openerp-web
+#: code:addons/l10n_cu_calendar/static/src/js/web_calendar.js:178
+#, python-format
+msgid "Duplicate"
+msgstr "Duplicar"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Duration"
+msgstr "Duración"
+
+#. module: l10n_cu_calendar
+#. openerp-web
+#: code:addons/l10n_cu_calendar/static/src/js/web_calendar.js:172
+#, python-format
+msgid "Edit"
+msgstr "Editar"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "Ejemplar No. ____"
+msgstr "Ejemplar No. ____"
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:44
+#: sql_constraint:l10n_cu_calendar.task_category:0
+#, python-format
+msgid "El código de la categoría debe ser único."
+msgstr "El código de la categoría debe ser único."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:433
+#: sql_constraint:calendar.alarm:0
+#, python-format
+msgid "El nombre de la alarma debe ser único."
+msgstr "El nombre de la alarma debe ser único."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:43
+#: sql_constraint:l10n_cu_calendar.task_category:0
+#, python-format
+msgid "El nombre de la categoría debe ser único."
+msgstr "El nombre de la categoría debe ser único."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:253
+#: sql_constraint:l10n_cu_calendar.org_group:0
+#, python-format
+msgid "El nombre del grupo organizativo debe ser único."
+msgstr "El nombre del grupo organizativo debe ser único."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:146
+#: sql_constraint:l10n_cu_calendar.objective_task:0
+#, python-format
+msgid "El nombre del objetivo debe ser único."
+msgstr "El nombre del objetivo debe ser único."
+
+#. module: l10n_cu_calendar
+#: model:res.groups,comment:l10n_cu_calendar.officer
+msgid "El usuario realiza y aprueba los planes de trabajos de los grupos."
+msgstr "El usuario realiza los planes de trabajos de los grupos."
+
+#. module: l10n_cu_calendar
+#: model:res.groups,comment:l10n_cu_calendar.manager
+msgid "El usuario tiene acceso a t y aprueba los planes de trabajos de los grupos."
+msgstr "El usuario tiene acceso a todas las funcionalidades del sistema."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:1238
+#, python-format
+msgid "El/los empleado(s) ya tienen una actividad programada en el mismo horario. Debe verificar el campo 'Coincidencia programada' para planificar la tarea de todos modos."
+msgstr "El/los empleado(s) ya tienen una actividad programada en el mismo horario. Debe verificar el campo 'Coincidencia programada' para planificar la tarea de todos modos."
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_elaborated_by
+msgid "Elaborated By"
+msgstr "Elaborado por"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_employee_ids
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_employee_menu
+#: model:ir.ui.menu,name:l10n_cu_calendar.menu_open_view_employee
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_partner_employee_tree2
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_res_partner_filter_inerit
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "End Date"
+msgstr "Fecha de finalización"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_date_end
+msgid "End of Period"
+msgstr "Fin de período"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Ending at"
+msgstr "Terminando a las"
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:309
+#, python-format
+msgid "Error! El usuario %s debe estar asociado a un empleado para actualizarle el superior."
+msgstr "Error! El usuario %s debe estar asociado a un empleado para actualizarle el superior."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:313
+#, python-format
+msgid "Error! Para actualizar el superior se debe definir el responsable del grupo."
+msgstr "Error! Para actualizar el superior se debe definir el responsable del grupo."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_actualizar_partner_employee_wzd_view_form
+msgid "Este asistente le permite sincronizar los datos relacionados con los empleados y los grupos organizativos que pertenecen."
+msgstr "Este asistente permite sincronizar la palabra Meetings por Tareas. "
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:22
+#: code:addons/l10n_cu_calendar/wizard/l10n_cu_calendar_print_group_plan.py:35
+#: code:addons/l10n_cu_calendar/wizard/l10n_cu_calendar_print_individual_plan.py:35
+#, python-format
+msgid "Está utilizando una clave caducada. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+msgstr "Está utilizando una clave caducada. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:21
+#: code:addons/l10n_cu_calendar/wizard/l10n_cu_calendar_print_group_plan.py:34
+#: code:addons/l10n_cu_calendar/wizard/l10n_cu_calendar_print_individual_plan.py:34
+#, python-format
+msgid "Está utilizando una clave no válida. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+msgstr "Está utilizando una clave no válida. Póngase en contacto con el centro de soporte técnico, a través de la dirección de correo comercial.holguin@desoft.cu para obtener una nueva."
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_calendar_alarm
+msgid "Event alarm"
+msgstr "Alarma del evento"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.registry_information,state:0
+msgid "Expired"
+msgstr "Vencida"
+
+#. module: l10n_cu_calendar
+#: selection:calendar.event,type:0
+msgid "Extra Plan"
+msgstr "Extra Plan"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_extra_plan_cause
+msgid "Extra plan-Cause"
+msgstr "Extra plan-Causa"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_extra_plan_origin
+msgid "Extra plan-Origin"
+msgstr "Extra plan-Origen"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_data
+msgid "File"
+msgstr "Archivo"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_name
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:942
+#, python-format
+msgid "First you have to specify the date of the invitation."
+msgstr "Primero debe especificar la fecha de la invitación."
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.print_individual_plan,state:0
+msgid "Get"
+msgstr "Recibir"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_attendee_filter
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.group_plan
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.group_report
+msgid "Group Plan"
+msgstr "Integrantes del grupo"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.group_plan_resume_docx
+msgid "Group Plan Resume"
+msgstr "Resumen Plan de Grupo"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.group_plan_category
+msgid "Group Plan by Categories"
+msgstr "Plan de trabajo mensual por categorías"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_group_task
+msgid "Group Task"
+msgstr "Tarea del grupo"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_group_type
+msgid "Group Type"
+msgstr "Tipo de grupo"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_category_search
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_objective_search
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_org_group_search
+msgid "Group by"
+msgstr "Agrupar por"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_partner_id
+msgid "Group's chief"
+msgstr "Responsable"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_group_ids
+msgid "Groups"
+msgstr "Grupos"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_guideline
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_guideline_name
+msgid "Guideline"
+msgstr "Lineamiento"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_l10n_cu_calendar_guideline_view_tree
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_guidelines
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line_guidelines
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_guideline_ids
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_guideline_view_tree_menu
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_guideline_tree
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_objective_form
+msgid "Guidelines"
+msgstr "Lineamientos"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_individual_plan_wzd_view_form
+msgid "Here is the exported ICS file:"
+msgstr "Aquí está el archivo ICS:"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_hide_time_in_report
+msgid "Hide time in report"
+msgstr "Ocultar hora en reportes"
+
+#. module: l10n_cu_calendar
+#: selection:calendar.event,priority:0
+msgid "High"
+msgstr "Alta"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.print_individual_plan,type:0
+msgid "ICS"
+msgstr "ICS"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_actualizar_partner_employee_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_done_all_wzd_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_not_done_all_wzd_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_guideline_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_report_utils_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_to_next_year_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_anual_group_plan_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_detail_no_categ_report_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_detail_report_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_group_plan_category_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_group_plan_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_group_resume_plan_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_individual_plan_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_individual_plan_resumen_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "INCUMPLIDAS"
+msgstr "INCUMPLIDAS"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_l10n_cu_calendar_org_group_group_type
+msgid "If the group is \"simple\" you must define the members of the group.\n"
+"                                        If the group is composed you must define the groups that compose it."
+msgstr "Si el grupo es \"simple\" usted debe definir los miembros del grupo.\n"
+"                                        Si el grupo es compuesto usted debe definir los grupos que lo componen."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_individual_plan_wzd_view_form
+msgid "If you do not know what this means, leave the checkbox marked"
+msgstr "Para que el sistema convierta las tareas <b>recuerrentes</b> en <b>no recuerrentes</b>, deje marcado esta casilla."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_group_plan_wzd_view_form
+msgid "If you want approve the task for this group in this period, select the next checkbox"
+msgstr "Si usted desea aprobar las tareas para este grupo en este período, seleccione la siguiente casilla"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_include_in_group_tasks
+msgid "Include in groups tasks"
+msgstr "Incluir en tareas de grupo"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_include_single_members
+msgid "Include members"
+msgstr "Incluir miembros individuales"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_include_obj_cat_monthly_plan
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_company_include_obj_cat_monthly_plan
+msgid "Include objectives and categories in monthly plan"
+msgstr "Incluir objetivos y categorías en plan mensual"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_individual_attendee_ids
+msgid "Individual Attendee"
+msgstr "Asistentes individuales"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.individual_plan
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.individual_plan_docx
+msgid "Individual Plan"
+msgstr "Plan individual"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.individual_plan_resumen_docx
+msgid "Individual Plan Resumen"
+msgstr "Individual Plan Resumen"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.org_group,group_type:0
+msgid "Integrated"
+msgstr "Compuesto"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_event_attendee
+msgid "Invitation details"
+msgstr "Detalles de la invitación"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "Jueves"
+msgstr "Jueves"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information_key
+msgid "Key"
+msgstr "Clave"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_actualizar_partner_employee___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_done_all_wzd___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_not_done_all_wzd___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_guideline___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_report_utils___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_to_next_year___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_anual_group_plan___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_detail_no_categ_report___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_detail_report___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_group_plan___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_group_plan_category___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_group_resume_plan___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_individual_plan___last_update
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_report_l10n_cu_calendar_report_individual_plan_resumen___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_attendee_filter
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_event_search
+msgid "Last Month"
+msgstr "Mes Anterior"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_actualizar_partner_employee_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_done_all_wzd_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_not_done_all_wzd_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_guideline_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_to_next_year_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_actualizar_partner_employee_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_done_all_wzd_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_attendee_not_done_all_wzd_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_group_add_employee_wzd_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_guideline_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_write_date
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_to_next_year_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_local_id
+msgid "Local"
+msgstr "Local"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.menu,name:l10n_cu_calendar.calendar_df_locals_local_menu_item
+msgid "Locals"
+msgstr "Locales"
+
+#. module: l10n_cu_calendar
+#: selection:calendar.event,priority:0
+msgid "Low"
+msgstr "Baja"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "Lunes"
+msgstr "Lunes"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+msgid "MES"
+msgstr "MES"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "MODIFICADAS"
+msgstr "MODIFICADAS"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_mail_notification
+msgid "Mail notification"
+msgstr "Notificación vía correo"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_parent_id
+msgid "Main Task"
+msgstr "Tarea principal"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_calendar_attendee_all_done
+msgid "Mark all as done"
+msgstr "Marcar todas como cumplidas"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_calendar_attendee_all_not_done
+msgid "Mark all as not done"
+msgstr "Marcar todas como incumplidas"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_calendar_event_mail_notification
+msgid "Mark this checkbox for automatic mail notification."
+msgstr "Seleccione esta casilla para notificar por correo automáticamente."
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_l10n_cu_calendar_org_group_work_plan
+msgid "Mark this checkbox if this group must have a work plan."
+msgstr "Seleccionar la casilla si el grupo lleva plan de trabajo."
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_calendar_event_repeat_other_year
+msgid "Mark this checkbox if this task could be repeat other year."
+msgstr "Marca esta casilla, si esta tarea debería ser repetida otro año."
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_calendar_event_group_task
+msgid "Mark this checkbox if this task is a group task."
+msgstr "Seleccionar si es una tarea que debe ser incluida en el plan de trabajo del grupo."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "Martes"
+msgstr "Martes"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_add_anyway
+msgid "Matching Schedule"
+msgstr "Coincidencia programada"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Meetings"
+msgstr "Reuniones"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_partner_group_ids
+msgid "Miembros"
+msgstr "Miembros"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "Miercoles"
+msgstr "Miércoles"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_attendee_done_all_wzd
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_to_next_year_view_form
+msgid "Migrate"
+msgstr "Migrar"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_calendar_to_next_year
+#: model:ir.ui.menu,name:l10n_cu_calendar.action_calendar_to_next_year_menu
+msgid "Migrate tasks"
+msgstr "Migrar tareas"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+msgid "Modelo 3.1 RESUMEN DEL CUMPLIMIENTO DEL PLAN DE TRABAJO DEL"
+msgstr "Modelo 3.1 RESUMEN DEL CUMPLIMIENTO DEL PLAN DE TRABAJO DEL"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "Modelo 3.1 RESUMEN DEL CUMPLIMIENTO DEL PLAN DE TRABAJO DEL MES"
+msgstr "Modelo 3.1 RESUMEN DEL CUMPLIMIENTO DEL PLAN DE TRABAJO DEL MES"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_modification_cause
+msgid "Modification cause"
+msgstr "Causa modificación"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_modification_origin
+msgid "Modification origin"
+msgstr "Origen de modificación"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.monthly_group_plan_docx
+msgid "Monthly Group Plan"
+msgstr "Plan mensual del grupo"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.monthly_group_plan_category_report_docx
+msgid "Monthly Group Plan Category"
+msgstr "Plan de trabajo mensual por categorías"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.monthly_group_plan_category_obs_report_docx
+msgid "Monthly Group Plan Category with Observations"
+msgstr "Plan de grupo mensual con categorías y observaciones"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.monthly_group_plan_obs_docx
+msgid "Monthly Group Plan with Observations"
+msgstr "Plan de grupo mensual con observaciones"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.print_group_plan,type:0
+msgid "Monthly accomplish resume"
+msgstr "Resumen de cumplimiento mensual"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.print_group_plan,type:0
+msgid "Monthly organization work plan"
+msgstr "Plan mensual del grupo"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_calendar_attendee
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_attendee_view_tree_menu
+msgid "My Todo List"
+msgstr "Mi lista de tareas"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_attendee_filter
+msgid "My events"
+msgstr "Mis tareas"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "NUEVAS TAREAS(EXTRA PLANES)"
+msgstr "NUEVAS TAREAS(EXTRA PLANES)"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_needs_assurance
+msgid "Needs Assurance"
+msgstr "Necesita aseguramiento"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_to_next_year_next_period_id
+msgid "Next period"
+msgstr "Período actual"
+
+#. module: l10n_cu_calendar
+#: constraint:l10n_cu_calendar.objective_task:0
+msgid "No está permitido relacionar el objetivo con el mismo objetivo, en el Objetivo superior."
+msgstr "No está permitido relacionar el objetivo con el mismo objetivo, en el Objetivo superior."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_nomenclature_menu
+msgid "Nomenclatures"
+msgstr "Nomencladores"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_unfulfilled_cause
+msgid "Non-fulfillment cause"
+msgstr "Causa del incumplimiento"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_unfulfilled_origin
+msgid "Non-fulfillment origin"
+msgstr "Origen del incumplimiento"
+
+#. module: l10n_cu_calendar
+#: selection:calendar.event,priority:0
+msgid "Normal"
+msgstr "Normal"
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/hr.py:110
+#, python-format
+msgid "Not Definido"
+msgstr "No Definido"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_attendee_not_done_all_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_attendee_filter
+msgid "Not Done"
+msgstr "Incumplida"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Not done to everyone"
+msgstr "Incumplido a todos"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_guideline_number
+msgid "Number"
+msgstr "Número"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "OBJETIVOS DE TRABAJO Y PLAN DE"
+msgstr "OBJETIVOS DE TRABAJO Y PLAN DE"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_no_categ_report
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_report
+msgid "ORGANIZACION:"
+msgstr "ORGANIZACION:"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_objective_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line_objective_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_name
+msgid "Objective"
+msgstr "Objetivo"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_l10n_cu_calendar_objective_view_tree
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_guideline_objective_ids
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_objective_ids
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_objective_view_tree_menu
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_objective_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_objective_tree
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_objective_search
+msgid "Objectives"
+msgstr "Objetivos"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_only_employee
+msgid "Only employee"
+msgstr "Solo empleados"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_calendar_event_only_employee
+msgid "Only show employees users."
+msgstr "Mostrar solo los usuarios de los empleados."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_org_group_form
+msgid "Organization group"
+msgstr "Grupo Organizativo"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_partner_partner_group_ids
+msgid "Organizational groups to which it belongs"
+msgstr "Grupos organizativos a que pertenece"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_l10n_cu_calendar_org_group_view_tree
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_org_group
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_org_group_view_tree_menu
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_org_group_tree
+msgid "Organizations groups"
+msgstr "Grupos organizativos"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_org_group_search
+msgid "Organizative groups"
+msgstr "Grupos Organizativos"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_single_member_ids
+msgid "Other members"
+msgstr "Otros miembros"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_format
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_format
+msgid "Output Format"
+msgstr "Formato de salida"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_anual_group_plan
+msgid "PARA EL AÑO"
+msgstr "PARA EL AÑO"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.print_group_plan,format:0
+#: selection:l10n_cu_calendar.print_individual_plan,format:0
+msgid "PDF"
+msgstr "PDF"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan
+msgid "PLAN\n"
+"                                                DE TRABAJO PARA EL MES DE"
+msgstr "PLAN DE TRABAJO PARA EL MES DE"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "PLAN DE TRABAJO INDIVIDUAL PARA EL MES"
+msgstr "PLAN DE TRABAJO INDIVIDUAL PARA EL MES"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_plan_category
+msgid "PLAN DE TRABAJO PARA EL MES DE"
+msgstr "PLAN DE TRABAJO PARA EL MES DE"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_no_categ_report
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_detail_report
+msgid "PROPUESTA DE ACTIVIDADES QUE SE PUNTUALIZAN PARA EL MES DE"
+msgstr "PROPUESTA DE ACTIVIDADES QUE SE PUNTUALIZAN PARA EL MES DE"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "Para disfrutar de todas las funcionalidades del Sistema <b>Agenda Express v3.0.0</b> debe\n"
+"                        completar el registro del módulo.\n"
+"                        <br/>\n"
+"                        Envíe la semilla a la siguiente dirección de correo"
+msgstr "Para disfrutar de todas las funcionalidades del Sistema <b>Agenda Express v3.0.0</b> debe\n"
+"                        completar el registro del módulo.\n"
+"                        <br/>\n"
+"                        Envíe la semilla a la siguiente dirección de correo"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_parent_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_parent_id
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_org_group_search
+msgid "Parent"
+msgstr "Padre"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_parent_id
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_category_search
+msgid "Parent Category"
+msgstr "Categoría padre"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_objective_search
+msgid "Parent Objective"
+msgstr "Objetivo principal"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_event_attendee
+msgid "Participate"
+msgstr "Participó"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_res_partner
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_attendee_filter
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_period_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_period_id
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_period_id
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_objective_search
+msgid "Period"
+msgstr "Período"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.menu,name:l10n_cu_calendar.calendar_period_view_tree_menu
+msgid "Periods"
+msgstr "Períodos"
+
+#. module: l10n_cu_calendar
+#: selection:calendar.event,type:0
+#: selection:l10n_cu_calendar.print_individual_plan,type:0
+msgid "Plan"
+msgstr "Plan"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_to_next_year_previous_period_id
+msgid "Previous period"
+msgstr "Período anterior"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_calendar_print_individual_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_group_plan_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_individual_plan_wzd_view_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.l10n_cu_calendar_hr_kanban_view_employees_inerit
+#: selection:l10n_cu_calendar.print_individual_plan,state:0
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.action_calendar_print_group_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_org_group_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_org_group_tree
+msgid "Print group plan"
+msgstr "Imprimir plan del grupo"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.l10n_cu_calendar_hr_kanban_view_employees_inerit
+msgid "Print individual plan"
+msgstr "Imprimir plan individual"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_priority
+msgid "Priority"
+msgstr "Prioridad"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_priority_order
+msgid "Priority order"
+msgstr "Orden de prioridad"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_cant
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_attendee_recurrency
+msgid "Recurrent"
+msgstr "Recurrente"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_calendar_attendee_recurrency
+msgid "Recurrent Meeting"
+msgstr "Reunión periódica"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.registry_information,state:0
+msgid "Registered"
+msgstr "Registrado"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_department_id
+msgid "Related department"
+msgstr "Departamento"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_individual_plan_wzd_view_form
+msgid "Remember all tasks must be <b>non-recurring</b> to proceed with the task evaluation."
+msgstr "Recuerde que todas las tareas deben ser <b>no recurrentes</b> para continuar con su evaluación."
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_repeat_id
+msgid "Repeat id"
+msgstr "Repeat id"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_repeat_other_year
+msgid "Repeat other year"
+msgstr "Repetir otro año"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.report.xml,name:l10n_cu_calendar.individual_plan_resumen
+msgid "Resumen"
+msgstr "Resumen"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Resumen de la tarea, ejemplo Matutino general"
+msgstr "Resumen de la tarea, ejemplo Matutino general"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Resumen de la tarea, ejemplo Matutino general."
+msgstr "Resumen de la tarea, ejemplo Matutino general."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "Sabado"
+msgstr "Sábado"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information_seed
+msgid "Seed"
+msgstr "Semilla"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Seleccione los grupos"
+msgstr "Seleccione los grupos"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Seleccione los participantes"
+msgstr "Seleccione los participantes"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_menu_general_settings
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_chief_signature_on_resume
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_company_chief_signature_on_resume
+msgid "Show chief signature on compliance summary"
+msgstr "Mostrar pie de firma del jefe superior en el Resumen de cumplimiento individual"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_show_jobs_on_plan
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_company_show_jobs_on_plan
+msgid "Show jobs instead names in plans"
+msgstr "Mostrar cargos en vez de nombres en planes"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_show_annual_observation_column
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_company_show_annual_observation_column
+msgid "Show observations column in annual plan"
+msgstr "Mostrar columna observaciones en plan anual"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_show_observation_column
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_company_show_observation_column
+msgid "Show observations column in monthly plans"
+msgstr "Mostrar columna observaciones en planes mensuales"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_individual_plan_one_week_per_page
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_company_individual_plan_one_week_per_page
+msgid "Show one week per page in individual plan"
+msgstr "Mostrar una semana por página en plan individual"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_config_settings_tasks_postponed_only
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_company_tasks_postponed_only
+msgid "Show only postponed tasks"
+msgstr "Mostrar solo tareas pospuestas en resumen de cumplimiento"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_calendar_config_settings_tasks_postponed_only
+#: model:ir.model.fields,help:l10n_cu_calendar.field_res_company_tasks_postponed_only
+msgid "Show only tasks that change of period in compliance summary"
+msgstr "Mostrar solo tareas que cambian de período en resumen de cumplimeinto"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.org_group,group_type:0
+msgid "Simple"
+msgstr "Simple"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.registry_information,state:0
+msgid "Sin clave"
+msgstr "Sin clave"
+
+#. module: l10n_cu_calendar
+#: selection:calendar.event,behave:0
+msgid "Specific Assign"
+msgstr "Específica"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_behave
+msgid "Specify Authors"
+msgstr "Especificar autores"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_attendee_date_start
+msgid "Start"
+msgstr "Iniciar"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Start Date"
+msgstr "Fecha de inicio"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_calendar_attendee_date_start
+msgid "Start date of an event, without time for full days events"
+msgstr "Fecha de inicio del evento, sin horas para eventos de día completo"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_date_start
+msgid "Start of Period"
+msgstr "Inicio"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Starting at"
+msgstr "Comenzando en"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_state
+msgid "State"
+msgstr "Estado"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_attendee_filter
+msgid "Status"
+msgstr "Estado"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "Su clave de registro es correcta o está en el período de pruebas."
+msgstr "Su clave de registro es correcta o está en el período de pruebas."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "Su clave de registro es incorrecta."
+msgstr "Su clave de registro es incorrecta."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "Su clave de registro está próxima a vencerse."
+msgstr "Su clave de registro está próxima a vencerse."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "Su clave de registro está vencida."
+msgstr "Su clave de registro está vencida."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Subject"
+msgstr "Asunto"
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,name:l10n_cu_calendar.partner_employee_action_subordinate_hierachy
+#: model:ir.ui.menu,name:l10n_cu_calendar.l10n_cu_calendar_subordinate_hierachy_menu
+msgid "Subordinate Hierarchy"
+msgstr "Jerarquía subordinada"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_res_partner_subordinate_ids
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.l10n_cu_calendar_view_employee_filter_inerit
+msgid "Subordinates"
+msgstr "Subordinados"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "TOTAL DE TAREAS PLANIFICADAS"
+msgstr "TOTAL DE TAREAS PLANIFICADAS"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_attendee_filter
+msgid "Tarea"
+msgstr "Tarea"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_calendar_event
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_category_objective_line_task_id
+msgid "Task"
+msgstr "Tarea"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Task Details"
+msgstr "Detalles de la tarea"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_task_category
+msgid "Task category"
+msgstr "Categoría"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_participants_text
+msgid "Task participants to show in plan"
+msgstr "Participantes a mostrar en plan"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_objective_task
+msgid "Task's objectives"
+msgstr "Objetivos"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_objective_task_task_ids
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_task_category_task_ids
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "The"
+msgstr "El"
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:528
+#, python-format
+msgid "The assurance tasks can not be recurrent."
+msgstr "Las tareas de aseguramiento no pueden ser recurrentes."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:744
+#, python-format
+msgid "The authenticated user must be the head of at least one group or Calendar Manager."
+msgstr "El usuario autenticado debe ser jefe de al menos de un grupo con plan de trabajo o Planificador general."
+
+#. module: l10n_cu_calendar
+#: model:ir.actions.act_window,help:l10n_cu_calendar.action_calendar_attendee
+msgid "The calendar is shared between employees and fully integrated with\n"
+"                    other applications such as the employee holidays or the business\n"
+"                    opportunities."
+msgstr "El calendario se comparte entre los empleados y está completamente integrado con otras aplicaciones como las vacaciones de los empleados o las oportunidades de negocio."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/wizard/l10n_cu_calendar_to_next_year.py:55
+#, python-format
+msgid "The next period must be more actual than the previous period!"
+msgstr "El Período actual debe ser más actual que el Período anterior!"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_calendar_event_priority_order
+msgid "The priority of the task, as an integer: 0 means higher priority, 10 means lower priority."
+msgstr "La prioridad de la tarea, como un entero: 0 significa mayor prioridad, 100 significa menor prioridad."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_attendee_filter
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_event_search
+msgid "This Month"
+msgstr "Mes actual"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_group_plan_wzd_view_form
+msgid "This action will convert all the recurring tasks of the period into non-recurring ones. Remember all tasks must be <b>non-recurring</b> to proceed with the task evaluation."
+msgstr "Esta acción convertirá todas las tareas recurrentes del período en <b>no recurrentes</b>. Recuerde que todas las tareas deben ser <b>no recurrentes</b> para proceder con su <b>evaluación</b>."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_group_add_employee_wzd_view_form
+msgid "This wizard let you add the new employees to existing groups."
+msgstr "Este asistente permite agregar nuevos empleados a grupos existentes, asignándole las tareas según el período seleccionado."
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_attendee_type
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_type
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_group_plan_type
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_print_individual_plan_type
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_org_group_search
+msgid "Type"
+msgstr "Tipo"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_registry_information_state
+msgid "UEB Desoft"
+msgstr "UEB Desoft"
+
+#. module: l10n_cu_calendar
+#: selection:l10n_cu_calendar.registry_information,state:0
+msgid "Unregistered"
+msgstr "Sin registrar"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_org_group_form
+msgid "Update Members"
+msgstr "Actualizar miembros"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_org_group_form
+msgid "Update Superior"
+msgstr "Actualizar superior"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_calendar_event_form_inherit
+msgid "Update only this instance"
+msgstr "Actualizar sólo esta instancia"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_attendee_user_id
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_users_simple_form_inherit
+msgid "User"
+msgstr "Usuario"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,help:l10n_cu_calendar.field_calendar_event_edit
+msgid "User can edit this event"
+msgstr "Usuario puede editar esta tarea"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_calendar_event_edit
+msgid "User edit"
+msgstr "Editar"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_group_plan_wzd_view_form
+msgid "Using this Wizard you can print Annual activities plan and Monthly organization work plan.      You can also print the annual and monthly compliance summaries."
+msgstr "Plan Anual de Actividades, Plan de Trabajo Mensual, Resumen de cumplimiento anual y mensual."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_individual_plan_wzd_view_form
+msgid "Using this wizard you can print Employee´s individuals plan and Accomplish resume plan."
+msgstr "Plan de Trabajo individual, Resumen de cumplimiento y el plan de trabajo en formato compatible con dispositivos Android."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_group_plan_resumen_report.py:27
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_individual_plan_report.py:13
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_individual_plan_resumen_report.py:10
+#, python-format
+msgid "Usted debe solicitar una clave de registro válida. Por favor contacte al centro de soporte por una nueva."
+msgstr "Usted debe solicitar una clave de registro válida. Por favor contacte al centro de soporte por una nueva."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_group_plan_resumen_report.py:28
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_group_plan_resumen_report.py:30
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_individual_plan_report.py:14
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_individual_plan_report.py:16
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_individual_plan_resumen_report.py:11
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_individual_plan_resumen_report.py:13
+#, python-format
+msgid "Usted está usando una clave inválida. Por favor contacte con el centro de soporte para una nueva."
+msgstr "Usted está usando una clave inválida. Por favor contacte con el centro de soporte para una nueva."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_group_plan_resumen_report.py:29
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_individual_plan_report.py:15
+#: code:addons/l10n_cu_calendar/reports/l10n_cu_calendar_individual_plan_resumen_report.py:12
+#, python-format
+msgid "Usted está usando una clave vencida. Por favor contacte con el centro de soporte para una nueva."
+msgstr "Usted está usando una clave vencida. Por favor contacte con el centro de soporte para una nueva."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan
+msgid "Viernes"
+msgstr "Viernes"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.l10n_cu_calendar_hr_kanban_view_employees_inerit
+msgid "View"
+msgstr "Ver"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_org_group_form
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_l10n_cu_calendar_org_group_tree
+msgid "View Task"
+msgstr "Ver tareas"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.l10n_cu_calendar_hr_kanban_view_employees_inerit
+msgid "View employee's calendar"
+msgstr "Ver calendario del empleado"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_hr_employee_visible
+msgid "Visible"
+msgstr "Visible"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_attendee_done_all_wzd
+msgid "Wizard to mark as done all tasks"
+msgstr "Asistente para marcar todas las tareas como cumplidas"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_attendee_not_done_all_wzd_view_form
+msgid "Wizard to mark as not done all tasks"
+msgstr "Asistente para marcar todas las tareas como incumplidas"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_to_next_year_view_form
+msgid "Wizard to migrate the tasks from a previous period to the current period"
+msgstr "Asistente para migrar las tareas, desde un período anual anterior hacia el período anual actual."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_individual_plan_wzd_view_form
+msgid "Wizard to print employee´s plan related reports"
+msgstr "Asistente para imprimir los reportes relacionados con el empleado"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_group_plan_wzd_view_form
+msgid "Wizard to print organization plan related reports"
+msgstr "Asistente para imprimir los reportes relacionados con el grupo organizativo"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:l10n_cu_calendar.field_l10n_cu_calendar_org_group_work_plan
+msgid "Work Plan"
+msgstr "Plan de trabajo"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.view_org_group_search
+msgid "Work plan?"
+msgstr "Plan de trabajo?"
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:525
+#, python-format
+msgid "You can not create assurance tasks for a recurrent task."
+msgstr "Usted no puede crear tareas de aseguramiento para una tarea recurrente."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:381
+#: code:addons/l10n_cu_calendar/models/calendar.py:391
+#, python-format
+msgid "You can not evaluate a closed event. Contact with event responsible to open."
+msgstr "Usted no puede evaluar un evento cerrado. Contacte con el responsable para abrirlo."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:901
+#, python-format
+msgid "You cannot change the state of a recurrent event."
+msgstr "No puede cambiar el estado de un evento recurrente."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:911
+#, python-format
+msgid "You cannot delete this event. Only event´s responsible can delete."
+msgstr "Usted no puede eliminar esta tarea. Solo el responsable puede hacerlo."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:904
+#, python-format
+msgid "You cannot modify this event. Only event´s responsible can modify."
+msgstr "Usted no puede modificar esta tarea. Solo el responsable puede hacerlo."
+
+#. module: l10n_cu_calendar
+#: code:addons/l10n_cu_calendar/models/calendar.py:734
+#, python-format
+msgid "You must configured at least one Calendar Manager."
+msgstr "Usted debe configurar al menos un planificador general."
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_print_individual_plan_wzd_view_form
+msgid "You must select the reports..."
+msgstr "Seleccione el reporte:"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "a las"
+msgstr "a las"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_calendar_config_settings
+msgid "calendar.config.settings"
+msgstr "calendar.config.settings"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "comercial.holguin@desoft.cu"
+msgstr "comercial.holguin@desoft.cu"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_group_resume_plan
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.report_individual_plan_resumen
+msgid "dia:"
+msgstr "día:"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_actualizar_partner_employee
+msgid "l10n_cu_calendar.actualizar_partner_employee"
+msgstr "l10n_cu_calendar.actualizar_partner_employee"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_attendee_done_all_wzd
+msgid "l10n_cu_calendar.attendee_done_all_wzd"
+msgstr "l10n_cu_calendar.attendee_done_all_wzd"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_attendee_not_done_all_wzd
+msgid "l10n_cu_calendar.attendee_not_done_all_wzd"
+msgstr "l10n_cu_calendar.attendee_not_done_all_wzd"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_category_objective_line
+msgid "l10n_cu_calendar.category_objective_line"
+msgstr "l10n_cu_calendar.category_objective_line"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_group_add_employee_wzd
+msgid "l10n_cu_calendar.group_add_employee_wzd"
+msgstr "l10n_cu_calendar.group_add_employee_wzd"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_print_comp_coincid
+msgid "l10n_cu_calendar.print_comp_coincid"
+msgstr "l10n_cu_calendar.print_comp_coincid"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_print_group_plan
+msgid "l10n_cu_calendar.print_group_plan"
+msgstr "l10n_cu_calendar.print_group_plan"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_print_individual_plan
+msgid "l10n_cu_calendar.print_individual_plan"
+msgstr "l10n_cu_calendar.print_individual_plan"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_registry_information
+msgid "l10n_cu_calendar.registry_information"
+msgstr "l10n_cu_calendar.registry_information"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_report_utils
+msgid "l10n_cu_calendar.report_utils"
+msgstr "l10n_cu_calendar.report_utils"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_l10n_cu_calendar_to_next_year
+msgid "l10n_cu_calendar.to_next_year"
+msgstr "l10n_cu_calendar.to_next_year"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_report_l10n_cu_calendar_report_anual_group_plan
+msgid "report.l10n_cu_calendar.report_anual_group_plan"
+msgstr "report.l10n_cu_calendar.report_anual_group_plan"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_report_l10n_cu_calendar_report_detail_no_categ_report
+msgid "report.l10n_cu_calendar.report_detail_no_categ_report"
+msgstr "report.l10n_cu_calendar.report_detail_no_categ_report"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_report_l10n_cu_calendar_report_detail_report
+msgid "report.l10n_cu_calendar.report_detail_report"
+msgstr "report.l10n_cu_calendar.report_detail_report"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_report_l10n_cu_calendar_report_group_plan
+msgid "report.l10n_cu_calendar.report_group_plan"
+msgstr "report.l10n_cu_calendar.report_group_plan"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_report_l10n_cu_calendar_report_group_plan_category
+msgid "report.l10n_cu_calendar.report_group_plan_category"
+msgstr "report.l10n_cu_calendar.report_group_plan_category"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_report_l10n_cu_calendar_report_group_resume_plan
+msgid "report.l10n_cu_calendar.report_group_resume_plan"
+msgstr "report.l10n_cu_calendar.report_group_resume_plan"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_report_l10n_cu_calendar_report_individual_plan
+msgid "report.l10n_cu_calendar.report_individual_plan"
+msgstr "report.l10n_cu_calendar.report_individual_plan"
+
+#. module: l10n_cu_calendar
+#: model:ir.model,name:l10n_cu_calendar.model_report_l10n_cu_calendar_report_individual_plan_resumen
+msgid "report.l10n_cu_calendar.report_individual_plan_resumen"
+msgstr "report.l10n_cu_calendar.report_individual_plan_resumen"
+
+#. module: l10n_cu_calendar
+#: model:ir.ui.view,arch_db:l10n_cu_calendar.calendar_registry_information_wzd_view_form
+msgid "y le será enviada su clave de registro."
+msgstr "y le será enviada su clave de registro."
+
+#. module: l10n_cu_calendar
+#: selection:calendar.event,state:0
+msgid "Fulfilled"
+msgstr "Cumplida"
+
+#. module: l10n_cu_calendar
+#: selection:calendar.event,state:0
+msgid "Unfulfilled"
+msgstr "Incumplida"
+
+#. module: l10n_cu_calendar
+#: model:ir.model.fields,field_description:calendar.field_calendar_event_stop_date
+#: model:ir.ui.view,arch_db:calendar.view_calendar_event_tree
+msgid "End Date"
+msgstr "Fecha de finalización"

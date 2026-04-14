@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="calendar_actualizar_partner_employee_wzd_view_form"	model="ir.ui.view">
+			<field name="name">l10n_cu_calendar.actualizar_partner_employee</field>
+			<field name="model">l10n_cu_calendar.actualizar_partner_employee</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Actualizar Partner-Employee">
+				<separator string="Actualizar Partner-Employee"/>
+				 <label string="Este asistente le permite sincronizar los datos relacionados con los empleados y los grupos organizativos que pertenecen." colspan="4"/>
+                         <p>Clic en <b>Actualizar</b> para iniciar el proceso...</p>
+				     <footer>
+                        <div>
+                            <button name="actualizar_partner_employee" string="Actualizar" type="object" class="oe_highlight"/> o
+                            <button special="cancel" string="Cerrar" class="oe_link"/>
+                        </div>
+                    </footer>
+				</form>
+			</field>
+		</record>
+		
+
+    <record id="action_calendar_actualizar_partner_employee" model="ir.actions.act_window">
+		<field name="name">Actualizar Partner-Employee</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">l10n_cu_calendar.actualizar_partner_employee</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+
+	<menuitem id="calendar_actualizar_partner_employee_menu" action="action_calendar_actualizar_partner_employee" groups="l10n_cu_calendar.officer" parent="l10n_cu_calendar_main_config_menu" sequence="65"/>
+
+        
+	</data>
+</openerp>

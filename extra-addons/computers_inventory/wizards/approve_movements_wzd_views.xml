@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="approve_movements_wzd_form" model="ir.ui.view">
+            <field name="name">approve_movements_wzd_form</field>
+            <field name="model">computers_inventory.approve_movements_wzd</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <footer>
+                        <div>
+                            <button name="approve_all" string="Aprobar" type="object"
+                                    class="oe_highlight" help="De click en Aprobar para aprobar todos los movimientos del equipamiento seleccionado."/>
+                            o
+                            <button special="cancel" string="Cancelar" class="oe_link"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_approve_movements_wzd" model="ir.actions.act_window">
+            <field name="name">"Aprobar movimientos</field>
+            <field name="res_model">computers_inventory.approve_movements_wzd</field>
+            <!-- <field name="view_id" ref="maintenance.equipment"/> -->
+            <field name="view_mode">form</field>
+            <!-- multi="True" -->
+            <field name="target">new</field>
+            <!-- key2="client_action_multi</field> -->
+        </record>
+    </data>
+</odoo>

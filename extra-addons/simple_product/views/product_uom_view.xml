@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		PRODUCT CATEGORY
+		Model: product.category
+		=========================================================================================== -->
+
+        <!-- MENU ITEM -->
+        <menuitem name="Units of Measure"
+                  id="simple_product_product_uom_menu_item"
+                  action="product.product_uom_form_action"
+                  parent="simple_product_left_menu"
+                  sequence="20"/>
+    </data>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+		<!-- ======================================================================================
+		PRODUCT
+		Model: simple_product.product
+		=========================================================================================== -->
+
+        <!-- FORM VIEW INHERIT -->
+        <record id="warehouse_product_form_view_inherit" model="ir.ui.view">
+            <field name="name">warehouse_product_form_view_inherit</field>
+            <field name="inherit_id" ref="simple_product.simple_product_product_form_view"/>
+            <field name="model">simple_product.product</field>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Stock..." name="stock">
+                        <br/>
+                        <field name="product_control_ids">
+                            <tree>
+                                <field name="warehouse_id"/>
+                                <field name="quantity"/>
+                                <field name="quantity_system"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                    <page string="Locations">
+                        <br/>
+                        <field name="location_ids">
+                            <tree>
+                                <field name="warehouse_id"/>
+                                <field name="location"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+	        </field>
+	    </record>
+
+        <!-- TREE VIEW INHERIT -->
+        <record id="simple_product_product_tree_view_inherit" model="ir.ui.view">
+            <field name="name">simple_product_product_tree_view_inherit</field>
+            <field name="inherit_id" ref="simple_product.simple_product_product_tree_view"/>
+            <field name="model">simple_product.product</field>
+            <field name="arch" type="xml">
+                <field name="price_extra" position="after">
+                    <field name="product_control_str" string="Stock"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="contract_print_template_wzd_view_form" model="ir.ui.view">
+            <field name="name">l10n_cu_contract.print_template</field>
+            <field name="model">l10n_cu_contract.print_template</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Print">
+                    <separator string="Wizard to print contract template"/>
+                    <field name="contract_id" string="Contrato"/>
+                    <footer>
+                        <div>
+                            <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                        </div>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_contract_print_template" model="ir.actions.act_window">
+            <field name="name">Print contract template</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">l10n_cu_contract.print_template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem name="Contract Template" id="menu_report_contract_template" parent="menu_contract_report"
+                  sequence="5" action="action_contract_print_template" groups="group_contract_manager"/>
+
+
+
+    </data>
+</openerp>

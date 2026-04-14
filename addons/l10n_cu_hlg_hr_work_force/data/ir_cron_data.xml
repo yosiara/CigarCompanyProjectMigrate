@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.cron" id="work_force_update_employee_job">
+        <field name='name'>Cron: Update Employees Fluctuation</field>
+        <field name='interval_number'>1</field>
+        <field name='interval_type'>work_days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+        <field name="model">l10n_cu_hlg_hr_work_force.import_hire_drop_wizard</field>
+        <field name="function">action_import_function</field>
+        <field name="args">()</field>
+    </record>
+
+    <record model="ir.cron" id="work_force_new_period">
+        <field name='name'>Cron: New period</field>
+        <field name='interval_number'>12</field>
+        <field name='interval_type'>months</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+        <field name="model">l10n_cu_hlg_hr_work_force.graduates_demand</field>
+        <field name="function">create_new_period</field>
+        <field name="nextcall" eval="time.strftime('%Y') + '-12-31'"/>
+        <field name="args">()</field>
+    </record>
+</odoo>

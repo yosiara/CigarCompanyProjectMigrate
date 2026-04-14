@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<odoo>
+   <data>
+
+
+        <!-- Tipo de Estructura -->
+        <act_window id="action_tipo_estructura"
+         name="Tipo de Estructura"
+         res_model="app_seleccion.tipo_estructura"
+         view_mode="tree,form" />
+
+        <menuitem id="menu_tipo_estructura"
+        name="Tipo de Estructura"
+        parent="hr_recruitment.menu_hr_recruitment_configuration"
+        sequence="1"
+        action="action_tipo_estructura"
+        groups="group_app_seleccion_manager"
+        />
+
+       <!-- View form de los tipos de estructura -->
+        <record id="view_form_tipo_estructura" model="ir.ui.view">
+           <field name="name">Formulario Tipo de Estructura</field>
+           <field name="model">app_seleccion.tipo_estructura</field>
+           <field name="arch" type="xml">
+              <form string="Tipo de Estructura">
+                 <sheet>
+
+                     <group>
+                         <group name="group_left">
+                           <field name="name" class="oe_title"/>
+                         </group>
+                         <group name="group_right">
+                         </group>
+                      </group>
+                 </sheet>
+              </form>
+           </field>
+        </record>
+
+
+
+
+
+       <!-- Areas -->
+       <act_window id="action_area"
+         name="Áreas"
+         res_model="app_seleccion.area"
+         view_mode="tree,form" />
+
+        <menuitem id="menu_area"
+        name="Áreas"
+        parent="hr_recruitment.menu_hr_recruitment_configuration"
+        sequence="2"
+        action="action_area"
+        groups="group_app_seleccion_manager"
+        />
+
+       <!-- View tree de las areas -->
+       <record id="app_seleccion_area_tree" model="ir.ui.view">
+            <field name="name">app_seleccion_tipos_tree</field>
+            <field name="model">app_seleccion.area</field>
+            <field name="arch" type="xml">
+
+                <tree string="Listado de Áreas">
+                     <field name="name"/>
+                     <field name="tipo_estructura"/>
+                </tree>
+
+            </field>
+        </record>
+
+        <!-- View form de las Areas -->
+        <record id="view_form_areas" model="ir.ui.view">
+            <field name="name">Formulario Áreas </field>
+            <field name="model">app_seleccion.area</field>
+            <field name="arch" type="xml">
+                 <form string="Áreas">
+                    <sheet>
+
+                         <group>
+                            <group name="group_left">
+                                <field name="name" class="oe_title"/>
+                                <field name="code" class="oe_title"/>
+                                <field name="tipo_estructura"/>
+                            </group>
+                            <group name="group_right">
+
+                            </group>
+                         </group>
+                    </sheet>
+                 </form>
+            </field>
+        </record>
+
+
+       <!-- Cursos -->
+        <act_window id="action_curso"
+        name="Cursos de Habilitación"
+        res_model="app_seleccion.curso"
+        view_mode="tree,form,kanban" />
+
+        <menuitem id="menu_curso"
+        name="Cursos"
+        parent="hr_recruitment.menu_hr_recruitment_configuration"
+        sequence="1"
+        action="action_curso"
+
+        />
+
+       <!-- View form de los cursos de habilitacion -->
+        <record id="view_form_cursos" model="ir.ui.view">
+            <field name="name">Formulario Cursos de Habilitacion</field>
+            <field name="model">app_seleccion.curso</field>
+            <field name="arch" type="xml">
+                <form string="Cursos de Habilitación">
+                    <sheet>
+
+                        <group>
+                            <group name="group_left">
+                                <field name="name" class="oe_title"/>
+
+                            </group>
+                            <group name="group_right">
+
+                            </group>
+                         </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- View tree de los cursos de habilitacion -->
+        <record id="app_seleccion_curso_tree" model="ir.ui.view">
+            <field name="name">app_seleccion_curso_tree</field>
+            <field name="model">app_seleccion.curso</field>
+            <field name="arch" type="xml">
+
+                <tree string="Listado de Cursos de Habilitación">
+                     <field name="name"/>
+
+                </tree>
+
+            </field>
+        </record>
+
+
+
+        <!-- Aspectos a evaluar en los cursos-->
+       <act_window id="action_aspectos"
+         name="Aspectos a evaluar en los cursos"
+         res_model="app_seleccion.aspecto"
+         view_mode="tree,form" />
+
+        <menuitem id="menu_aspectos"
+        name="Aspectos a evaluar en los cursos"
+        parent="hr_recruitment.menu_hr_recruitment_configuration"
+        sequence="1"
+        action="action_aspectos"
+        groups="group_app_seleccion_manager"
+        />
+
+        <!-- View form de los aspectos a evaluar  -->
+        <record id="view_form_aspectos" model="ir.ui.view">
+            <field name="name">Formulario Aspectos a evaluar</field>
+            <field name="model">app_seleccion.aspecto</field>
+            <field name="arch" type="xml">
+                <form string="Aspectos a evaluar en los cursos">
+                    <sheet>
+
+                        <group>
+
+                            <group name="group_left">
+                                <field name="name" class="oe_title"/>
+                            </group>
+                            <group name="group_right">
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+     <!-- Repartos de residencia -->
+
+        <act_window id="action_reparto"
+        name="Repartos"
+        res_model="app_seleccion.reparto"
+        view_mode="tree,form" />
+
+        <menuitem id="menu_reparto"
+        name="Repartos"
+        parent="hr_recruitment.menu_hr_recruitment_configuration"
+        sequence="12"
+        action="action_reparto"
+        groups="group_app_seleccion_manager"
+        />
+
+       <!-- View form de los repartos -->
+        <record id="view_form_reparto" model="ir.ui.view">
+            <field name="name">Formulario Repartos</field>
+            <field name="model">app_seleccion.reparto</field>
+            <field name="arch" type="xml">
+                <form string="Reparto">
+                    <sheet>
+
+                        <group>
+                            <group name="group_left">
+                                <field name="name" class="oe_title"/>
+
+                            </group>
+                            <group name="group_right">
+
+                            </group>
+                         </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- View tree de los repartos -->
+        <record id="app_seleccion_reparto_tree" model="ir.ui.view">
+            <field name="name">app_seleccion_reparto_tree</field>
+            <field name="model">app_seleccion.reparto</field>
+            <field name="arch" type="xml">
+
+                <tree string="Listado de Repartos">
+                     <field name="name"/>
+
+                </tree>
+
+            </field>
+        </record>
+
+       <!-- Solicitud al Comité de Expertos -->
+
+        <act_window id="action_solicitud"
+        name="Solicitud al Comité de Expertos"
+        res_model="app_seleccion.solicitud_expertos"
+        view_mode="tree,form" />
+
+        <menuitem id="menu_solicitud_experto"
+        name="Solicitudes al Comité de Expertos"
+        parent="hr_recruitment.menu_hr_recruitment_root"
+        sequence="2"
+        action="action_solicitud"
+        groups="group_app_seleccion_manager"
+        />
+
+       <!-- View form solicitud -->
+        <record id="view_form_solicitud_experto" model="ir.ui.view">
+            <field name="name">Formulario Solicitud al Comite de Expertos</field>
+            <field name="model">app_seleccion.solicitud_expertos</field>
+            <field name="arch" type="xml">
+                <form string="Solicitud al Comité de Expertos">
+                    <sheet>
+
+                        <group>
+                            <group name="group_left">
+                                <field name="numero_solicitud" class="oe_title"/>
+                                <field name="job_id" class="oe_title" options="{'no_create': True, 'no_open': True}" />
+                                <field name="applicant_ids"  options="{'no_create': True, 'no_open': True}" widget="many2many_tags"/>
+                                <field name="fecha_fin" class="oe_title"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="fecha_solicitud" class="oe_title"/>
+                                <field name="curso_id" class="oe_title" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="employee_ids"  options="{'no_create': True, 'no_open': True}" widget="many2many_tags"/>
+                            </group>
+
+
+                         </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- View tree de las solicitudes al comite de expertos -->
+        <record id="app_seleccion_solicitud_experto_tree" model="ir.ui.view">
+            <field name="name">app_seleccion_solicitud_experto_tree</field>
+            <field name="model">app_seleccion.solicitud_expertos</field>
+            <field name="arch" type="xml">
+
+                <tree string="Listado de Solicitudes al Comité de Expertos">
+                     <field name="numero_solicitud"/>
+                     <field name="fecha_solicitud"/>
+                     <field name="fecha_fin"/>
+                     <field name="job_id"/>
+                     <field name="curso_id"/>
+                     <field name="tiempo_en_comite"/>
+                     <field name="applicant_ids"/>
+                     <field name="employee_ids"/>
+                     <field name="estado"/>
+                </tree>
+
+            </field>
+        </record>
+
+       <record id="cexperto_view_search" model="ir.ui.view">
+            <field name="name">app_seleccion_solicitud_experto_search</field>
+            <field name="model">app_seleccion.solicitud_expertos</field>
+            <field name="arch" type="xml">
+                <search string="Comité de Expertos">
+                    <field name="numero_solicitud"/>
+                    <field name="fecha_solicitud"/>
+                    <field name="fecha_fin"/>
+                    <field name="year"/>
+                    <field name="applicant_ids"/>
+                    <field name="employee_ids"/>
+                        <group expand="0" string="Group By">
+                            <filter string="Mes" domain="[]" context="{'group_by':'mes_experto_nombre'}"/>
+                            <filter string="Año" domain="[]" context="{'group_by':'year'}"/>
+                            <filter string="Fecha de Solicitud" domain="[]" context="{'group_by':'fecha_solicitud'}"/>
+                            <filter string="Fecha de Resultados del Comité de Expertos" domain="[]" context="{'group_by':'fecha_fin'}"/>
+                            <filter string="Días en Comité" domain="[]" context="{'group_by':'tiempo_en_comite'}"/>
+                        </group>
+
+                </search>
+            </field>
+        </record>
+
+
+   </data>
+
+</odoo>

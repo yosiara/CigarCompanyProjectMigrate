@@ -1,0 +1,157 @@
+
+body, html {
+	font-family: 'Roboto','Open Sans', sans-serif;
+	font-size: 14px;
+	margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.body_login {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+    height: 100%;
+    position: relative;
+	background-color: #FFF;
+	opacity: 0.9;
+    /*background-color: #22527b;*/
+}
+
+.body_login:before {
+	content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    margin-right: -0.25em;
+	padding-top: 35px;
+}
+
+.o_database_list {
+	display: inline-block;
+    vertical-align: middle;
+    padding: 25px;
+    /*border: 1px solid #DDD;*/
+    /*border-radius: 5px;*/
+    float: none;
+    background-color: #FFF;
+	/*-moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.9);
+	-webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.9);
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.9);*/
+    opacity: 0.9;
+}
+
+#background-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	-webkit-filter: blur(0px);
+	z-index: -1;
+}
+
+.o_database_list input,
+.o_database_list select {
+	background-color: transparent !important;
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 1px solid #CCC;
+	border-radius: 0px;
+	color: rgb(120,41, 28);;
+	font-size: 16px;
+	font-weight: 300;
+	transition: border-color 0.7s ease;
+	box-shadow: none!important;
+	text-align: center;
+	font-variant: petite-caps;
+}
+
+.o_database_list select option {
+	background-color: #95A5A6;
+}
+
+.o_database_list input:focus,
+.o_database_list select:focus {
+	border-bottom: 1px solid rgb(120,41, 28);;
+	outline: 0 none;
+}
+
+a.btn-select {
+    background-color: #BBB;
+    border-radius: 5px !important;
+    color: #EEE;
+}
+
+.o_database_list .btn-primary {
+	color: #FFF;
+  	background-color: #BBB;
+  	border: 1px solid #CCC;
+  	text-transform: uppercase;
+  	transition: background-color 0.5s ease;
+}
+
+.o_database_list .btn-primary:hover,
+a.btn-select:hover {
+	background-color: rgb(13,107,77);
+	color: #FFF;
+}
+
+.form-control {
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+}
+
+.o_database_list .company_logo {
+	margin-bottom: 50px;
+	max-width: 100%;
+    height: auto;
+}
+
+.oe_login_buttons {
+	margin-top: 30px;
+	margin-bottom: 10px;
+	font-variant: petite-caps;
+}
+
+.oe_login_form, .oe_signup_form, .oe_reset_password_form {
+    max-width: 300px;
+    position: relative;
+    margin: 0px auto !important;
+}
+
+.o_database_list .btn-primary {
+    color: #FFF;
+    background-color: rgb(120,41, 28);;
+    border: 0px solid rgb(120,41, 28);;
+    text-transform: uppercase;
+    transition: background-color 0.5s ease;
+    width: 100%;
+}
+
+.login-logo, .register-logo {
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.login-logo a, .register-logo a, .login-logo b  {
+    color: rgb(120,41, 28);;
+	text-decoration: none !important;
+}
+
+.login-logo a:hover
+{
+	text-decoration: none !important;
+}

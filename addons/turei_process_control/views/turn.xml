@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <menuitem action="resource.action_resource_calendar_form" id="menu_turei_resource_calendar"
+                  parent="turei_process_control_settings_menu" sequence="1"/>
+
+        <record id="resource_calendar_form" model="ir.ui.view">
+            <field name="name">resource.calendar.form</field>
+            <field name="model">resource.calendar</field>
+            <field name="inherit_id" ref="resource.resource_calendar_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <div class="alert alert-info">
+                        <strong>Información:</strong>
+                        Las Fechas usan el formato de 24 horas. Ejemplo 11:00 PM es 23:00
+                    </div>
+                </xpath>
+                <field name="name" position="after">
+                    <field name="description"/>
+                </field>
+                <field name="manager" position="attributes">
+                    <attribute name="string">Responsible</attribute>
+                </field>
+                <field name="leave_ids" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="resource_calendar_tree" model="ir.ui.view">
+            <field name="name">resource.calendar.tree</field>
+            <field name="model">resource.calendar</field>
+            <field name="inherit_id" ref="resource.view_resource_calendar_tree"/>
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                    <field name="name"/>
+                    <field name="description"/>
+                </field>
+                <field name="manager" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="resource_calendar_search">
+            <field name="name">resource.view_resource_calendar_search_modificado</field>
+            <field name="inherit_id" ref="resource.view_resource_calendar_search"/>
+            <field name="model">resource.calendar</field>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="replace">
+                    <search string="Buscar Turno de trabajo">
+                        <field name="name" string="Turno de trabajo"/>
+                        <field name="description"/>
+                    </search>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="suinli_view_resource_calendar_attendance_tree" model="ir.ui.view">
+            <field name="name">suinli_resource.calendar.attendance.tree</field>
+            <field name="model">resource.calendar.attendance</field>
+            <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree"/>
+            <field name="arch" type="xml">
+                <field name="dayofweek" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="suinli_view_resource_calendar_attendance_form" model="ir.ui.view">
+            <field name="name">suinli_resource.calendar.attendance.form</field>
+            <field name="model">resource.calendar.attendance</field>
+            <field name="inherit_id" ref="resource.view_resource_calendar_attendance_form"/>
+            <field name="arch" type="xml">
+                <field name="dayofweek" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

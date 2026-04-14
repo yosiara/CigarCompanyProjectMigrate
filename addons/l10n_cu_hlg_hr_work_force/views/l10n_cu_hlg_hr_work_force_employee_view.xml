@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- ======================================================================================
+		Employee
+		Model: hr.employee
+		=========================================================================================== -->
+
+        <!-- Employee Form View Inherit -->
+        <record id="l10n_cu_hr_view_employee_form_inherit" model="ir.ui.view">
+            <field name="name">l10n_cu_hr_view_employee_form_inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="school_level_id" position="after">
+                        <field name="degree_id" />
+                    </field>
+                </data>
+            </field>
+        </record>
+
+         <!-- Employee Search View  -->
+        <record id="view_employee_filter_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.search_inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="/search/group" position="replace">
+                     <group expand="0" string="Group By">
+                        <filter string="School Level" domain="[]" context="{'group_by':'school_level_id'}"/>
+                        <filter string="Degree" domain="[('degree_id','!=', False)]" context="{'group_by':'degree_id'}"/>
+                        <filter string="Sexo" context="{'group_by':'gender'}"/>
+                        <filter string="Race" context="{'group_by':'race'}"/>
+                        <filter string="Admission Date" context="{'group_by':'admission_date'}"/>
+                        <filter string="Age Range" context="{'group_by':'age_range_id'}"/>
+                        <filter string="Political Affiliation" domain="[('political_affiliation','!=', 'none')]" context="{'group_by':'political_affiliation'}"/>
+                        <filter string="Occupational Category" context="{'group_by':'occupational_category_id'}"/>
+                        <filter string="Years Worked" context="{'group_by':'years_worked'}"/>
+                        <filter string="Manager" domain="[]" context="{'group_by':'parent_id'}"/>
+                        <filter string="Coach" domain="[]" context="{'group_by':'coach_id'}"/>
+                        <filter string="Department" domain="[]" context="{'group_by':'department_id'}"/>
+                        <filter string="Job" domain="[]" context="{'group_by':'job_id'}"/>
+                        <filter string="Company" domain="[]" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                    </group>
+                </xpath>
+
+
+             </field>
+         </record>
+
+    </data>
+</odoo>

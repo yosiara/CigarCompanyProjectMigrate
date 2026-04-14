@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend_base" name="Base assest" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link href="/base_cu/static/src/css/base_cu_styles.css" rel="stylesheet" type="text/less"></link>
+            </xpath>
+        </template>
+    </data>
+</odoo>

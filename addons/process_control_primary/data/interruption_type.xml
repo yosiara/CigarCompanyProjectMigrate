@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="int_type_1" model="process_control_primary.interruption.type">
+            <field name="name">Problema mecánico</field>
+            <field name="is_linked_to_machine" eval="True"/>
+            <field name="cause">endogena</field>
+        </record>
+        <record id="int_type_2" model="process_control_primary.interruption.type">
+            <field name="name">Problema eléctrico</field>
+            <field name="is_linked_to_machine" eval="True"/>
+            <field name="cause">endogena</field>
+        </record>
+        <record id="int_type_3" model="process_control_primary.interruption.type">
+            <field name="name">Problema de calidad</field>
+            <field name="is_linked_to_machine" eval="True"/>
+            <field name="cause">endogena</field>
+        </record>
+
+        <record id="int_type_4" model="process_control_primary.interruption.type">
+            <field name="name">Falta de energía</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_5" model="process_control_primary.interruption.type">
+            <field name="name">Falta de vapor</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_6" model="process_control_primary.interruption.type">
+            <field name="name">Falta de aire comprimido</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_7" model="process_control_primary.interruption.type">
+            <field name="name">Falta de bolsas</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_8" model="process_control_primary.interruption.type">
+            <field name="name">Falta de materia prima</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_9" model="process_control_primary.interruption.type">
+            <field name="name">Silos vacíos</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_10" model="process_control_primary.interruption.type">
+            <field name="name">Silos Llenos</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_11" model="process_control_primary.interruption.type">
+            <field name="name">Calentamiento</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_12" model="process_control_primary.interruption.type">
+            <field name="name">Rotura en la Línea Normal</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_13" model="process_control_primary.interruption.type">
+            <field name="name">Rotura en la Línea de Corte y Secado</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_14" model="process_control_primary.interruption.type">
+            <field name="name">Cambio de marca</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_15" model="process_control_primary.interruption.type">
+            <field name="name">Limpieza tecnológica</field>
+            <field name="cause">exogena</field>
+        </record>
+        <record id="int_type_16" model="process_control_primary.interruption.type">
+            <field name="name">Otras</field>
+            <field name="cause">exogena</field>
+        </record>
+    </data>
+</odoo>

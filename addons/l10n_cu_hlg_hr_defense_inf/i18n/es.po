@@ -1,0 +1,466 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_cu_hlg_hr_defense_inf
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-04 15:18+0000\n"
+"PO-Revision-Date: 2017-08-04 11:23-0400\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.conciliation_military
+msgid "<b>Asociados a :</b>"
+msgstr "<b>Asociados a :</b>"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.conciliation_military
+msgid "<b>De ellos:</b>"
+msgstr "<b>De ellos:</b>"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: selection:hr.employee,location_defence:0
+msgid "BDP"
+msgstr "BDP"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: selection:hr.employee,location_defence:0
+msgid "BDP(CT)"
+msgstr "BDP(CT)"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_defense_inf.military_registry_report
+#: selection:reports.militaty.wzd,type:0
+msgid "Behavior of the Militaty Registry"
+msgstr "Comportamiento del Registro Militar"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry_list
+msgid "C.I"
+msgstr "C.I"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry
+msgid "COMPORTAMIENTO DEL REGISTRO MILITAR"
+msgstr "COMPORTAMIENTO DEL REGISTRO MILITAR"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.conciliation_military
+msgid "CONCILIACIÓN FÍSICA DEL REGISTRO MILITAR"
+msgstr "CONCILIACIÓN FÍSICA DEL REGISTRO MILITAR"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.view_rpt_military_wzd_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry
+msgid "Cantidad"
+msgstr "Cantidad"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry_list
+msgid "Cargo"
+msgstr "Cargo"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "Cargo u ocupación"
+msgstr "Cargo u ocupación"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid ""
+"Categ.\n"
+"                                        <br/>\n"
+"                                        Ocupac."
+msgstr ""
+"Categ.\n"
+"                                        <br/>\n"
+"                                        Ocupac."
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry
+msgid "Concepto"
+msgstr "Concepto"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_invasion_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_wear_create_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_reports_militaty_wzd_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_invasion_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_wear_create_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_reports_militaty_wzd_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "DATOS DE LA PLANTILLA"
+msgstr "DATOS DE LA PLANTILLA"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "DATOS DE QUIEN LA OCUPA"
+msgstr "DATOS DE QUIEN LA OCUPA"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_defense_inf.l10n_cu_hr_defense_menu
+msgid "Defense"
+msgstr "Defensa"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_hr_employee_location_defence
+msgid "Defense Location"
+msgstr "Ubicación en la defensa"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_hr_employee_defense_zone
+msgid "Defense zone"
+msgstr "Zona de defensa"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "Desg."
+msgstr "Desg."
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "Dirección domiciliaria"
+msgstr "Dirección domiciliaria"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_invasion_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_wear_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_conciliation_military_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_invasion_template_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_military_registry_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_military_registry_list_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_wear_template_display_name
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_reports_militaty_wzd_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "Edad"
+msgstr "Edad"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model,name:l10n_cu_hlg_hr_defense_inf.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.view_rpt_military_wzd_form
+msgid "Generate Report"
+msgstr "Generar informe"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid ""
+"Grupo\n"
+"                                        <br/>\n"
+"                                        escala"
+msgstr ""
+"Grupo\n"
+"                                        <br/>\n"
+"                                        escala"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_invasion_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_wear_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_conciliation_military_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_invasion_template_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_military_registry_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_military_registry_list_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_wear_template_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_reports_militaty_wzd_id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "Impresc."
+msgstr "Impresc."
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: selection:hr.employee,location_defence:0
+msgid "Imprescindibles"
+msgstr "Imprescindibles"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry
+msgid "Incorporados:"
+msgstr "Incorporados:"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_defense_inf.invasion_template_report
+msgid "Invasion template"
+msgstr "Invasion template"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_invasion___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_wear___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_conciliation_military___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_invasion_template___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_military_registry___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_military_registry_list___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_report_l10n_cu_hlg_hr_defense_inf_wear_template___last_update
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_reports_militaty_wzd___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_invasion_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_wear_write_uid
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_reports_militaty_wzd_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_invasion_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_wear_write_date
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_reports_militaty_wzd_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: selection:hr.employee,location_defence:0
+msgid "MTT"
+msgstr "MTT"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_defense_inf.military_registry_list_report
+#: selection:reports.militaty.wzd,type:0
+msgid "Militaty Registry"
+msgstr "Registro Militar"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "No."
+msgstr "No."
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "Nombre y apellidos"
+msgstr "Nombre y apellidos"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry_list
+msgid "Nombre(s) y Apellido(s)"
+msgstr "Nombre(s) y Apellido(s)"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_invasion_number_of_places
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_wear_number_of_places
+msgid "Number of places"
+msgstr "Cantidad de plazas"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry_list
+msgid "Numero"
+msgstr "Numero"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "PLANTILLA DE PERSONAL PARA LA ETAPA DE DESGASTE SISTEMATICO."
+msgstr "PLANTILLA DE PERSONAL PARA LA ETAPA DE DESGASTE SISTEMATICO."
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+msgid "PLANTILLA DE PERSONAL PARA LA ETAPA DE INVASION."
+msgstr "PLANTILLA DE PERSONAL PARA LA ETAPA DE INVASION."
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "Paso"
+msgstr "Paso"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_defense_inf.conciliation_military_report
+#: selection:reports.militaty.wzd,type:0
+msgid "Physical Conciliation of the Military Registry"
+msgstr "Conciliación Física del Registro Militar"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_invasion_position_id
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_wear_position_id
+msgid "Position"
+msgstr "Cargo"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry_list
+msgid "REGISTRO MILITAR"
+msgstr "REGISTRO MILITAR"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.view_rpt_military_wzd_form
+msgid "Reporte"
+msgstr "Reporte"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_reports_militaty_wzd_type
+msgid "Reportes"
+msgstr "Reportes"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "Sal. Aprob Resol. 1"
+msgstr "Sal. Aprob Resol. 1"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+msgid "Sal. Aprob<br/>Resol. 1."
+msgstr "Sal. Aprob<br/>Resol. 1."
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry_list
+msgid "Sexo"
+msgstr "Sexo"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_defense_inf.action_rpt_military_wzd
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_defense_inf.military_rpt_menu
+msgid "Sobre el Registro Militar"
+msgstr "Sobre el Registro Militar"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry_list
+msgid "Teléfono"
+msgstr "Teléfono"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_defense_inf.action_l10n_cu_hlg_hr_defense_template_invasion
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_defense_inf.hr_defense_template_invasion_menu_item
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.view_l10n_cu_hlg_hr_defense_template_invasion_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.view_l10n_cu_hlg_hr_defense_template_invasion_tree
+msgid "Template invasion"
+msgstr "Plantilla para la etapa de invación "
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.actions.act_window,name:l10n_cu_hlg_hr_defense_inf.action_l10n_cu_hlg_hr_defense_template_wear
+#: model:ir.ui.menu,name:l10n_cu_hlg_hr_defense_inf.hr_defense_template_wear_menu_item
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.view_l10n_cu_hlg_hr_defense_template_wear_form
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.view_l10n_cu_hlg_hr_defense_template_wear_tree
+msgid "Template wear"
+msgstr "Plantilla para la etapa de desgaste"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid "Tiempo en días"
+msgstr "Tiempo en días"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_invasion_time_in_days
+#: model:ir.model.fields,field_description:l10n_cu_hlg_hr_defense_inf.field_l10n_cu_hlg_hr_defense_inf_template_wear_time_in_days
+msgid "Time in days"
+msgstr "Tiempo en días"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.conciliation_military
+msgid "Total"
+msgstr "Total"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: selection:hr.employee,location_defence:0
+msgid "UM"
+msgstr "UM"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry_list
+msgid "Ubicación:"
+msgstr "Ubicación:"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.actions.report.xml,name:l10n_cu_hlg_hr_defense_inf.wear_template_report
+#: selection:reports.militaty.wzd,type:0
+msgid "Wear template"
+msgstr "Plantilla para Etapa de Desgaste"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.invasion_template
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.wear_template
+msgid ""
+"Zona\n"
+"                                        <br/>\n"
+"                                        Defen."
+msgstr ""
+"Zona\n"
+"                                        <br/>\n"
+"                                        Defen."
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model,name:l10n_cu_hlg_hr_defense_inf.model_l10n_cu_hlg_hr_defense_inf_template_invasion
+msgid "l10n_cu_hlg_hr_defense_inf.template_invasion"
+msgstr "l10n_cu_hlg_hr_defense_inf.template_invasion"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model,name:l10n_cu_hlg_hr_defense_inf.model_l10n_cu_hlg_hr_defense_inf_template_wear
+msgid "l10n_cu_hlg_hr_defense_inf.template_wear"
+msgstr "l10n_cu_hlg_hr_defense_inf.template_wear"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.view_rpt_military_wzd_form
+msgid "list"
+msgstr "list"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model,name:l10n_cu_hlg_hr_defense_inf.model_report_l10n_cu_hlg_hr_defense_inf_conciliation_military
+msgid "report.l10n_cu_hlg_hr_defense_inf.conciliation_military"
+msgstr "report.l10n_cu_hlg_hr_defense_inf.conciliation_military"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model,name:l10n_cu_hlg_hr_defense_inf.model_report_l10n_cu_hlg_hr_defense_inf_invasion_template
+msgid "report.l10n_cu_hlg_hr_defense_inf.invasion_template"
+msgstr "report.l10n_cu_hlg_hr_defense_inf.invasion_template"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model,name:l10n_cu_hlg_hr_defense_inf.model_report_l10n_cu_hlg_hr_defense_inf_military_registry
+msgid "report.l10n_cu_hlg_hr_defense_inf.military_registry"
+msgstr "report.l10n_cu_hlg_hr_defense_inf.military_registry"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model,name:l10n_cu_hlg_hr_defense_inf.model_report_l10n_cu_hlg_hr_defense_inf_military_registry_list
+msgid "report.l10n_cu_hlg_hr_defense_inf.military_registry_list"
+msgstr "report.l10n_cu_hlg_hr_defense_inf.military_registry_list"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model,name:l10n_cu_hlg_hr_defense_inf.model_report_l10n_cu_hlg_hr_defense_inf_wear_template
+msgid "report.l10n_cu_hlg_hr_defense_inf.wear_template"
+msgstr "report.l10n_cu_hlg_hr_defense_inf.wear_template"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.model,name:l10n_cu_hlg_hr_defense_inf.model_reports_militaty_wzd
+msgid "reports.militaty.wzd"
+msgstr "reports.militaty.wzd"
+
+#. module: l10n_cu_hlg_hr_defense_inf
+#: model:ir.ui.view,arch_db:l10n_cu_hlg_hr_defense_inf.military_registry_list
+msgid "Área de trabajo"
+msgstr "Área de trabajo"

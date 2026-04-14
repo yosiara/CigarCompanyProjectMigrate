@@ -1,0 +1,591 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* cmi_turei
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0-20171122\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-21 02:36+0000\n"
+"PO-Revision-Date: 2019-08-20 22:37-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.7.3\n"
+
+#. module: cmi_turei
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_areas_protegidas_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_chequeos_medicos_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_clima_laboral_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_acetato_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_cajas_carton_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_cinta_rasgar_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_b1_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_negros_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_rubios_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marq_negros_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marquilla_b1_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marquillas_rubios_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_papel_berge_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_papel_velin_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_holt_melt_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_linea_caj_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_linea_cig_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_polipropileno_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_sellos_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_tabaco_negro_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_tabaco_rubio_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_externo_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_interno_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_riesgos_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_cumplimiento_inversiones_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_atmosfera_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_individual_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_residuos_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_disp_tecnica_industria_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_disp_tecnica_industria_primario_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_educacion_ambiental_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_eficacia_prevencion_riesgos_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_ausentismo_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_calidad_manufactura_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_fluctuacion_personal_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_programa_dignificacion_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_lotes_no_conforme_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_medidas_autocontrol_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_capacitacion_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_mecanico_electronico_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_produccion_cigarrillos_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_tab_reconstituido_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_portadores_energeticos_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_cuc_proteccion_personal_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_cup_proteccion_personal_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_total_proteccion_personal_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_rel_gastos_ingresos_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_requisitos_legales_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_ventas_cigarrillos_cmi_source
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_ventas_tabaco_reconstituido_cmi_source
+msgid "CMI Source"
+msgstr "CMI Source"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_presp_cuc_proteccion_personal
+msgid "Cantidad de presupuesto(CUC) en adquisición de medios de protección personal"
+msgstr "Cantidad de presupuesto(CUC) en adquisición de medios de protección personal"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_presp_cup_proteccion_personal
+msgid "Cantidad de presupuesto(CUP) en adquisición de medios de protección personal"
+msgstr "Cantidad de presupuesto(CUP) en adquisición de medios de protección personal"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_presp_total_proteccion_personal
+msgid "Cantidad de presupuesto(TOTAL) en adquisición de medios de protección personal"
+msgstr "Cantidad de presupuesto(TOTAL) en adquisición de medios de protección personal"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_disp_tecnica_industria_primario
+msgid "Coeficiente disponibilidad técnica de la industria en el taller primario"
+msgstr "Coeficiente disponibilidad técnica de la industria en el taller primario"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_disp_tecnica_industria
+msgid "Coeficiente disponibilidad técnica de la industria en el taller secundario"
+msgstr "Coeficiente disponibilidad técnica de la industria en el taller secundario"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_indicator
+msgid "Company's performance indicator"
+msgstr "Indicador de desempeño de la compañía"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_cajas_carton
+msgid "Consumo de Cajas de cartón corrugado"
+msgstr "Consumo de Cajas de cartón corrugado"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_cinta_rasgar
+msgid "Consumo de Cinta para rasgar"
+msgstr "Consumo de Cinta para rasgar"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_envoltura_b1
+msgid "Consumo de Envoltura (negro) B1"
+msgstr "Consumo de Envoltura (negro) B1"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_envoltura_negros
+msgid "Consumo de Envolturas (negros)"
+msgstr "Consumo de Envolturas (negros)"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_envoltura_rubios
+msgid "Consumo de Envolturas (rubios)"
+msgstr "Consumo de Envolturas (rubios)"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_marquilla_b1
+msgid "Consumo de Marquilla (negro) B1"
+msgstr "Consumo de Marquilla (negro) B1"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_marq_negros
+msgid "Consumo de Marquillas (negros)"
+msgstr "Consumo de Marquillas (negros)"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_marquillas_rubios
+msgid "Consumo de Marquillas (rubios)"
+msgstr "Consumo de Marquillas (rubios)"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_papel_berge
+msgid "Consumo de Papel cigarro Berge"
+msgstr "Consumo de Papel cigarro Berge"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_papel_velin
+msgid "Consumo de Papel cigarro velin"
+msgstr "Consumo de Papel cigarro velin"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_acetato
+msgid "Consumo de Pegamento Acetato"
+msgstr "Consumo de Pegamento Acetato"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_peg_holt_melt
+msgid "Consumo de Pegamento Holt Melt"
+msgstr "Consumo de Pegamento Holt Melt"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_peg_linea_caj
+msgid "Consumo de Pegamento L 1 (Cajetillas)"
+msgstr "Consumo de Pegamento L 1 (Cajetillas)"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_peg_linea_cig
+msgid "Consumo de Pegamento L 1 (Cigarrillos)"
+msgstr "Consumo de Pegamento L 1 (Cigarrillos)"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_polipropileno
+msgid "Consumo de Polipropileno"
+msgstr "Consumo de Polipropileno"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_sellos
+msgid "Consumo de sellos"
+msgstr "Consumo de sellos"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_tabaco_negro
+msgid "Consumo de tabaco negro"
+msgstr "Consumo de tabaco negro"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_consumo_tabaco_rubio
+msgid "Consumo de tabaco rubio"
+msgstr "Consumo de tabaco rubio"
+
+#. module: cmi_turei
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_department_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: cmi_turei
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_department_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_control_interno
+msgid "Cumplimiento de las acciones de control interno"
+msgstr "Cumplimiento de las acciones de control interno"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_requisitos_legales
+msgid "Cumplimiento de los requisitos legales aplicables a la empresa"
+msgstr "Cumplimiento de los requisitos legales aplicables a la empresa"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_control_externo
+msgid "Cumplimiento de planes de medidas de los controles externos"
+msgstr "Cumplimiento de planes de medidas de los controles externos"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_medidas_autocontrol
+msgid "Cumplimiento de planes de medidas del autocontrol"
+msgstr "Cumplimiento de planes de medidas del autocontrol"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_control_riesgos
+msgid "Cumplimiento del Programa Gestión de Riesgos Laborales"
+msgstr "Cumplimiento del Programa Gestión de Riesgos Laborales"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_plan_produccion_cigarrillos
+msgid "Cumplimiento del plan de Producción de cigarrillos"
+msgstr "Cumplimiento del plan de Producción de cigarrillos"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_plan_tab_reconstituido
+msgid "Cumplimiento del plan de Producción de láminas de tabaco reconstituido"
+msgstr "Cumplimiento del plan de Producción de láminas de tabaco reconstituido"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_plan_capacitacion
+msgid "Cumplimiento del plan de capacitación"
+msgstr "Cumplimiento del plan de capacitación"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_plan_mecanico_electronico
+msgid "Cumplimiento del plan de mantenimiento mecánico-electrónico"
+msgstr "Cumplimiento del plan de mantenimiento mecánico-electrónico"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_chequeos_medicos
+msgid "Cumplimiento del programa anual de chequeos médicos"
+msgstr "Cumplimiento del programa anual de chequeos médicos"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_educacion_ambiental
+msgid "Cumplimiento del programa de educación ambiental"
+msgstr "Cumplimiento del programa de educación ambiental"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_desempeno_residuos
+msgid "Cumplimiento del programa para el manejo de residuos solidos y liquidos"
+msgstr "Cumplimiento del programa para el manejo de residuos solidos y liquidos"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_portadores_energeticos
+msgid "Cumplimiento del programa para usar eficientemente los portadores energeticos, las materias primas, materiales e insumos"
+msgstr "Cumplimiento del programa para usar eficientemente los portadores energeticos, las materias primas, materiales e insumos"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_cumplimiento_inversiones
+msgid "Cumplimiento en valores de la inversión"
+msgstr "Cumplimiento en valores de la inversión"
+
+#. module: cmi_turei
+#: model:ir.actions.act_window,name:cmi_turei.cmi_turei_department_menu_action
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_indicator_department_id
+#: model:ir.ui.view,arch_db:cmi_turei.cmi_indicator_search_view_inherit
+#: model:ir.ui.view,arch_db:cmi_turei.cmi_turei_department_form_view
+#: model:ir.ui.view,arch_db:cmi_turei.cmi_turei_department_tree_view
+msgid "Department"
+msgstr "Departamento"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_department
+#: model:ir.ui.menu,name:cmi_turei.cmi_turei_department_menu
+msgid "Departments"
+msgstr "Departamentos"
+
+#. module: cmi_turei
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_department_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_areas_protegidas_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_chequeos_medicos_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_clima_laboral_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_acetato_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_cajas_carton_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_cinta_rasgar_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_b1_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_negros_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_rubios_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marq_negros_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marquilla_b1_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marquillas_rubios_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_papel_berge_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_papel_velin_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_holt_melt_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_linea_caj_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_linea_cig_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_polipropileno_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_sellos_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_tabaco_negro_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_tabaco_rubio_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_externo_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_interno_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_riesgos_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_cumplimiento_inversiones_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_atmosfera_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_individual_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_residuos_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_disp_tecnica_industria_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_disp_tecnica_industria_primario_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_educacion_ambiental_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_eficacia_prevencion_riesgos_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_ausentismo_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_calidad_manufactura_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_fluctuacion_personal_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_programa_dignificacion_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_lotes_no_conforme_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_medidas_autocontrol_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_capacitacion_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_mecanico_electronico_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_produccion_cigarrillos_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_tab_reconstituido_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_portadores_energeticos_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_cuc_proteccion_personal_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_cup_proteccion_personal_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_total_proteccion_personal_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_rel_gastos_ingresos_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_requisitos_legales_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_ventas_cigarrillos_display_name
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_ventas_tabaco_reconstituido_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_eficacia_prevencion_riesgos
+msgid "Eficacia del Plan de prevención de riesgos"
+msgstr "Eficacia del Plan de prevención de riesgos"
+
+#. module: cmi_turei
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_department_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_areas_protegidas_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_chequeos_medicos_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_clima_laboral_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_acetato_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_cajas_carton_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_cinta_rasgar_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_b1_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_negros_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_rubios_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marq_negros_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marquilla_b1_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marquillas_rubios_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_papel_berge_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_papel_velin_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_holt_melt_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_linea_caj_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_linea_cig_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_polipropileno_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_sellos_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_tabaco_negro_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_tabaco_rubio_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_externo_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_interno_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_riesgos_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_cumplimiento_inversiones_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_atmosfera_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_individual_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_residuos_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_disp_tecnica_industria_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_disp_tecnica_industria_primario_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_educacion_ambiental_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_eficacia_prevencion_riesgos_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_ausentismo_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_calidad_manufactura_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_fluctuacion_personal_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_programa_dignificacion_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_lotes_no_conforme_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_medidas_autocontrol_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_capacitacion_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_mecanico_electronico_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_produccion_cigarrillos_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_tab_reconstituido_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_portadores_energeticos_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_cuc_proteccion_personal_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_cup_proteccion_personal_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_total_proteccion_personal_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_rel_gastos_ingresos_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_requisitos_legales_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_ventas_cigarrillos_id
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_ventas_tabaco_reconstituido_id
+msgid "ID"
+msgstr "ID"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_indice_calidad_manufactura
+msgid "Indice de calidad en la manufactura"
+msgstr "Indice de calidad en la manufactura"
+
+#. module: cmi_turei
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_department___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_areas_protegidas___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_chequeos_medicos___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_clima_laboral___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_acetato___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_cajas_carton___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_cinta_rasgar___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_b1___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_negros___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_envoltura_rubios___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marq_negros___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marquilla_b1___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_marquillas_rubios___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_papel_berge___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_papel_velin___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_holt_melt___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_linea_caj___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_peg_linea_cig___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_polipropileno___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_sellos___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_tabaco_negro___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_consumo_tabaco_rubio___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_externo___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_interno___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_control_riesgos___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_cumplimiento_inversiones___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_atmosfera___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_individual___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_desempeno_residuos___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_disp_tecnica_industria___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_disp_tecnica_industria_primario___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_educacion_ambiental___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_eficacia_prevencion_riesgos___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_ausentismo___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_calidad_manufactura___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_fluctuacion_personal___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_indice_programa_dignificacion___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_lotes_no_conforme___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_medidas_autocontrol___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_capacitacion___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_mecanico_electronico___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_produccion_cigarrillos___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_plan_tab_reconstituido___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_portadores_energeticos___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_cuc_proteccion_personal___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_cup_proteccion_personal___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_presp_total_proteccion_personal___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_rel_gastos_ingresos___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_requisitos_legales___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_ventas_cigarrillos___last_update
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_source_ventas_tabaco_reconstituido___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: cmi_turei
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_department_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: cmi_turei
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_department_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_lotes_no_conforme
+msgid "Lotes no conforme"
+msgstr "Lotes no conforme"
+
+#. module: cmi_turei
+#: model:ir.model.fields,field_description:cmi_turei.field_cmi_turei_department_name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_desempeno_individual
+msgid "Nivel de Desempeño Individual"
+msgstr "Nivel de Desempeño Individual"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_desempeno_atmosfera
+msgid "Programa para Minimizar las emisiones de gases y partículas polvo a la atmósfera"
+msgstr "Programa para Minimizar las emisiones de gases y partículas polvo a la atmósfera"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_rel_gastos_ingresos
+msgid "Relación Gastos Totales/Peso de Ingreso Total"
+msgstr "Relación Gastos Totales/Peso de Ingreso Total"
+
+#. module: cmi_turei
+#: code:addons/cmi_turei/models/sources.py:33
+#: code:addons/cmi_turei/models/sources.py:63
+#: code:addons/cmi_turei/models/sources.py:93
+#: code:addons/cmi_turei/models/sources.py:123
+#: code:addons/cmi_turei/models/sources.py:153
+#: code:addons/cmi_turei/models/sources.py:183
+#: code:addons/cmi_turei/models/sources.py:215
+#: code:addons/cmi_turei/models/sources.py:247
+#: code:addons/cmi_turei/models/sources.py:279
+#: code:addons/cmi_turei/models/sources.py:311
+#: code:addons/cmi_turei/models/sources.py:344
+#: code:addons/cmi_turei/models/sources.py:376
+#: code:addons/cmi_turei/models/sources.py:407
+#: code:addons/cmi_turei/models/sources.py:438
+#: code:addons/cmi_turei/models/sources.py:469
+#: code:addons/cmi_turei/models/sources.py:500
+#: code:addons/cmi_turei/models/sources.py:531
+#: code:addons/cmi_turei/models/sources.py:562
+#: code:addons/cmi_turei/models/sources.py:593
+#: code:addons/cmi_turei/models/sources.py:624
+#: code:addons/cmi_turei/models/sources.py:654
+#: code:addons/cmi_turei/models/sources.py:684
+#: code:addons/cmi_turei/models/sources.py:714
+#: code:addons/cmi_turei/models/sources.py:744
+#: code:addons/cmi_turei/models/sources.py:774
+#: code:addons/cmi_turei/models/sources.py:804
+#: code:addons/cmi_turei/models/sources.py:834
+#: code:addons/cmi_turei/models/sources.py:864
+#: code:addons/cmi_turei/models/sources.py:894
+#: code:addons/cmi_turei/models/sources.py:924
+#: code:addons/cmi_turei/models/sources.py:954
+#: code:addons/cmi_turei/models/sources.py:984
+#: code:addons/cmi_turei/models/sources.py:1016
+#: code:addons/cmi_turei/models/sources.py:1048
+#: code:addons/cmi_turei/models/sources.py:1080
+#: code:addons/cmi_turei/models/sources.py:1112
+#: code:addons/cmi_turei/models/sources.py:1144
+#: code:addons/cmi_turei/models/sources.py:1176
+#: code:addons/cmi_turei/models/sources.py:1208
+#: code:addons/cmi_turei/models/sources.py:1240
+#: code:addons/cmi_turei/models/sources.py:1272
+#: code:addons/cmi_turei/models/sources.py:1304
+#: code:addons/cmi_turei/models/sources.py:1336
+#: code:addons/cmi_turei/models/sources.py:1368
+#: code:addons/cmi_turei/models/sources.py:1400
+#: code:addons/cmi_turei/models/sources.py:1432
+#: code:addons/cmi_turei/models/sources.py:1464
+#: code:addons/cmi_turei/models/sources.py:1496
+#: code:addons/cmi_turei/models/sources.py:1528
+#: code:addons/cmi_turei/models/sources.py:1560
+#, python-format
+msgid ""
+"The operation has not been completed. Please, check the connection of \n"
+"                                         the Database and make sure to select the correct one..."
+msgstr ""
+"The operation has not been completed. Please, check the connection of \n"
+"                                         the Database and make sure to select the correct one..."
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_areas_protegidas
+msgid "Total de áreas que se declaran Áreas Protegidas"
+msgstr "Total de áreas que se declaran Áreas Protegidas"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_ventas_cigarrillos
+msgid "Ventas Cigarrillos"
+msgstr "Ventas Cigarrillos"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_ventas_tabaco_reconstituido
+msgid "Ventas Tabaco Reconstituido"
+msgstr "Ventas Tabaco Reconstituido"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_clima_laboral
+msgid "Índice de Calidad de Clima Laboral"
+msgstr "Índice de Calidad de Clima Laboral"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_indice_programa_dignificacion
+msgid "Índice de Cumplimiento de las acciones contempladas en el programa de dignificación"
+msgstr "Índice de Cumplimiento de las acciones contempladas en el programa de dignificación"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_indice_fluctuacion_personal
+msgid "Índice de Fluctuación de Personal"
+msgstr "Índice de Fluctuación de Personal"
+
+#. module: cmi_turei
+#: model:ir.model,name:cmi_turei.model_cmi_turei_source_indice_ausentismo
+msgid "Índice de ausentismo"
+msgstr "Índice de ausentismo"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.contract_hiring_status_xls_report"
+                model="l10n_cu_contract.hiring_status"
+                string="Estado de la Contratación"
+                report_type="xlsx"
+                name="l10n_cu_hlg_contract.contract_hiring_status_xls_report.xlsx"
+                file="l10n_cu_hlg_contract.contract_hiring_status_xls_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

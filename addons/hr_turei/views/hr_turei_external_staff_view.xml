@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_services_provided_tree" model="ir.ui.view">
+            <field name="name">hr.turei.services.provided.tree</field>
+            <field name="model">hr_turei.services_provided</field>
+            <field name="arch" type="xml">
+                <tree string="Services">
+                    <field name="name"/>
+                    <field name="entity"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_external_staff_form" model="ir.ui.view">
+            <field name="name">hr.turei.external.staff.form</field>
+            <field name="model">hr_turei.external_staff</field>
+            <field name="arch" type="xml">
+                <form string="External Staff">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" groups="hr.group_hr_user"
+                                    class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                       options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+                        <field name="image" widget='image' class="oe_avatar" options='{"preview_image":"image"}'/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="Full Name"/>
+                            </h1>
+                        </div>
+                        <group col="4">
+                            <field name="code"/>
+                            <field name="area_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="gender"/>
+                            <field name="smoker"/>
+                            <field name="carries_daily_smoking" attrs="{'invisible':[('smoker','!=', True)]}"/>
+                            <field name="brand_smoke_id" attrs="{'invisible':[('smoker','!=', True)]}"/>
+                            <field name="packs_amount" attrs="{'invisible':[('smoker','!=', True)]}"/>
+                            <field name="company_retired"/>
+                            <field name="permanent_disability" attrs="{'invisible':[('company_retired','!=', True)]}"/>
+                            <field name="calendar_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_external_staff_tree" model="ir.ui.view">
+            <field name="name">hr.turei.external.staff.tree</field>
+            <field name="model">hr_turei.external_staff</field>
+            <field name="arch" type="xml">
+                <tree string="External Staff">
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="calendar_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_external_staff_filter" model="ir.ui.view">
+            <field name="name">hr.turei.external.staff.search</field>
+            <field name="model">hr_turei.external_staff</field>
+            <field name="arch" type="xml">
+                <search string="External Staff">
+                    <field name="code"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="hr_kanban_view_external_staff" model="ir.ui.view">
+            <field name="name">hr.turei.external.staff.kanban</field>
+            <field name="model">hr_turei.external_staff</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <kanban class="o_hr_employee_kanban">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('hr_turei.external_staff', 'image', record.id.value)"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+            </field>
+        </record>
+
+        <record id="action_hr_turei_external_staff" model="ir.actions.act_window">
+            <field name="name">External Staff</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.external_staff</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="hr_kanban_view_external_staff"/>
+        </record>
+
+        <record id="view_hr_turei_external_area_tree" model="ir.ui.view">
+            <field name="name">hr.turei.external.area.tree</field>
+            <field name="model">hr_turei.external_area</field>
+            <field name="arch" type="xml">
+                <tree string="External Area">
+                    <field name="name"/>
+                    <field name="carries_daily_smoking"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_turei_external_area_form" model="ir.ui.view">
+            <field name="name">hr.turei.external.area.form</field>
+            <field name="model">hr_turei.external_area</field>
+            <field name="arch" type="xml">
+                <form string="External Area">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group col="2">
+                            <group string="Daily smoking list">
+                                <field name="carries_daily_smoking"/>
+                                <field name="smoking_type"/>
+                            </group>
+                            <group string="Weekly smoking list">
+                                <field name="weekly_list_delivery_type"/>
+                                <field name="weekly_list_delivery_concept"/>
+                            </group>
+                        </group>
+                        <group string="Associated">
+                            <field nolabel="1" name="external_staff_ids">
+                                <form string="External Staff">
+                                    <sheet>
+                                        <div class="oe_button_box" name="button_box">
+                                            <button name="toggle_active" type="object" groups="hr.group_hr_user"
+                                                    class="oe_stat_button" icon="fa-archive">
+                                                <field name="active" widget="boolean_button"
+                                                       options='{"terminology": "archive"}'/>
+                                            </button>
+                                        </div>
+                                        <field name="image" widget='image' class="oe_avatar"
+                                               options='{"preview_image":"image"}'/>
+                                        <div class="oe_title">
+                                            <label for="name" class="oe_edit_only"/>
+                                            <h1>
+                                                <field name="name" placeholder="Full Name"/>
+                                            </h1>
+                                        </div>
+                                        <group col="4">
+                                            <field name="code"/>
+                                            <field name="company_id" groups="base.group_multi_company"/>
+                                            <field name="gender"/>
+                                            <field name="smoker"/>
+                                            <field name="carries_daily_smoking"
+                                                   attrs="{'invisible':[('smoker','!=', True)]}"/>
+                                            <field name="brand_smoke_id" attrs="{'invisible':[('smoker','!=', True)]}"/>
+                                            <field name="packs_amount" attrs="{'invisible':[('smoker','!=', True)]}"/>
+                                            <field name="company_retired"/>
+                                            <field name="permanent_disability"
+                                                   attrs="{'invisible':[('company_retired','!=', True)]}"/>
+                                            <field name="calendar_id"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hr_turei_external_area" model="ir.actions.act_window">
+            <field name="name">External Areas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.external_area</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_hr_turei_external_staff_attendance_tree" model="ir.ui.view">
+            <field name="name">hr.turei.external.staff.attendance.tree</field>
+            <field name="model">hr_turei.external_staff_attendance</field>
+            <field name="arch" type="xml">
+                <tree string="External Staff Attendance">
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_turei_external_staff_attendance_form" model="ir.ui.view">
+            <field name="name">hr.turei.external.staff.attendance.form</field>
+            <field name="model">hr_turei.external_staff_attendance</field>
+            <field name="arch" type="xml">
+                <form string="External Staff Attendance">
+                    <sheet>
+                        <group>
+                            <field name="period_id"/>
+                            <field name="external_area_id"/>
+                            <field name="days"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Attendance">
+                            <field nolabel="1" name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="external_staff_id" domain="[('area_id', '=', parent.external_area_id)]"/>
+                                    <field name="days"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hr_turei_external_staff_attendance" model="ir.actions.act_window">
+            <field name="name">External Staff Attendance</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr_turei.external_staff_attendance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_hr_external_staff_view" name="External Template"
+                  parent="hr.menu_hr_root"/>
+
+        <menuitem action="action_hr_turei_external_staff" id="menu_employee_external_staff_view"
+                  parent="menu_hr_external_staff_view" sequence="10"/>
+
+        <menuitem action="action_hr_turei_external_area" id="menu_hr_turei_external_area_view"
+                  parent="menu_hr_external_staff_view" sequence="10"/>
+
+        <menuitem action="action_hr_turei_external_staff_attendance"
+                  id="menu_hr_turei_external_staff_attendance_view"
+                  parent="menu_hr_external_staff_view" sequence="10"/>
+    </data>
+</odoo>

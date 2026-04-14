@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+                id="report.process_control_tobacco_summary_time_frequency_to_excel"
+                model="wzd.summary.time.frequency.to.excel.tobacco"
+                string="Rep. Resumen de Tiempo y Frecuencia"
+                report_type="xlsx"
+                name="process_control_tobacco.summary_time_frequency_report"
+                file="process_control_tobacco.summary_time_frequency_report"
+                attachment_use="False"
+        />
+    </data>
+</odoo>

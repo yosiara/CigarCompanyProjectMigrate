@@ -1,0 +1,43 @@
+@font-face {
+  font-family: Roboto;
+  src: url(/turei_backend_theme/static/src/font/Roboto-Regular.ttf)
+}
+
+.navbar {
+
+  &-default {
+
+    .badge {
+      background-color: #fff;
+      //color: @navbar-default-bg;
+      color: #b8bdbd;
+      padding-top: 5px;
+    }
+  }
+
+  .company_name {
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  &-inverse {
+
+    .badge {
+      background-color: #fff;
+      //color: @navbar-inverse-bg;
+      color: #b8bdbd;
+    }
+  }
+}
+
+@media (max-width: @grid-float-breakpoint-max) {
+  .navbar {
+
+    .dropdown-menu {
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
