@@ -10,16 +10,17 @@
             "request": "attach",
             "connect": {
                 "host": "localhost",
-                "port": 5678
+                "port": 5678,
             },
+            "justMyCode": true,
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}/extra-addons",
                     "remoteRoot": "/mnt/extra-addons"
                 },
                 {
-                    "localRoot": "${workspaceFolder}/addons",
-                    "remoteRoot": "/usr/lib/python3/dist-packages/odoo/addons"
+                    "localRoot": "${workspaceFolder}/enterprise-addons",
+                    "remoteRoot": "/mnt/enterprise-addons"
                 },
             ]
         }
