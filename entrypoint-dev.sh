@@ -44,11 +44,12 @@ while true; do
         python3 -m debugpy \
             --listen "0.0.0.0:$DEBUGPY_PORT" \
             /usr/bin/odoo \
-            "$@" "${DB_ARGS[@]}"
+            "$@" "${DB_ARGS[@]}" \
+            || echo "Odoo terminated with code $?. Restarting in 1 second..."
     else
         echo "Starting Odoo without debugpy"
-        odoo "$@" "${DB_ARGS[@]}"
+        odoo "$@" "${DB_ARGS[@]}" \
+        || echo "Odoo terminated with code $?. Restarting in 1 second..."
     fi
-    echo "Odoo terminated with code $?. Restarting in 1 second..."
     sleep 1
 done
