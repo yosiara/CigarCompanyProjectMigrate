@@ -15,7 +15,6 @@ services:
     volumes:
       - odoo-data:/var/lib/odoo
       - /mnt/extra-addons:/mnt/extra-addons
-    tty: true
     command: --dev=reload
     restart: unless-stopped
 
