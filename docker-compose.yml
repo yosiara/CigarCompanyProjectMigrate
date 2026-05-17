@@ -11,9 +11,11 @@ services:
       - USER=${CONTAINER_USER}
       - PASSWORD=${CONTAINER_PASSWORD}
     ports:
-      - "8069:8069"
+      - "8069:8069"  # Odoo web
+      - "8072:8072"  # Web socket
     volumes:
       - odoo-data:/var/lib/odoo
+      - /etc/odoo:/etc/odoo
       - /mnt/extra-addons:/mnt/extra-addons
     command: --dev=reload
     restart: unless-stopped
