@@ -11,8 +11,8 @@ __pycache__/
 # Excluded Addons
 community-addons
 community-addons/
-enterprise-addons/
 l10n*/
 
 # VSCode
 .vscode/
+!.vscode/launch.json
