@@ -35,13 +35,13 @@ RUN EXISTING_USER=$(getent passwd $UID | cut -d: -f1 2>/dev/null) && \
     echo "$UNAME ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/"$UNAME" && \
     chmod 0440 /etc/sudoers.d/"$UNAME"
 
-COPY debug-entrypoint.sh /debug-entrypoint.sh
-RUN chmod +x /debug-entrypoint.sh && chown odoo /debug-entrypoint.sh
+COPY entrypoint-dev.sh /entrypoint-dev.sh
+RUN chmod +x /entrypoint-dev.sh && chown odoo /entrypoint-dev.sh
 
 USER odoo
 
 ENV DEBUGPY_ENABLE=false
 ENV DEBUGPY_PORT=5678
 
-ENTRYPOINT ["/debug-entrypoint.sh"]
+ENTRYPOINT ["/entrypoint-dev.sh"]
 CMD ["odoo"]
