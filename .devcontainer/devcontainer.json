@@ -27,7 +27,6 @@
                 "mvintg.odoo-file",
                 "redhat.vscode-xml",
                 "mechatroner.rainbow-csv",
-                "GitHub.copilot",
                 "jeffery9.odoo-snippets"
             ],
             "settings": {
@@ -38,9 +37,7 @@
                     "/workspaces/${localWorkspaceFolderBasename}/extra-addons",
                     "/workspaces/${localWorkspaceFolderBasename}/enterprise-addons"
                 ],
-                "python.languageServer": "None",
                 "remote.autoForwardPorts": false,
-                "remote.downloadExtensionsLocally": true,
                 "files.exclude": {
                     "**/__pycache__": true,
                     "**/.pyc": true,
