@@ -9,7 +9,7 @@ _logger = logging.getLogger(__name__)
 
 class ICTEmployee(models.Model):
     _name = 'ict.employee'
-    _description = 'Domain Employees'
+    _description = 'ICT Employees'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     domain_user = fields.Char(string='Username *', required=True, tracking=True)

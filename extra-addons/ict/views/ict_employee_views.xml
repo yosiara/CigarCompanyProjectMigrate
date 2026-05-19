@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- View ict.employee View List -->
+    <!-- View ict.employee list -->
     <record id="view_ict_employee_list" model="ir.ui.view">
         <field name="name">view.ict.employee.list</field>
         <field name="model">ict.employee</field>
@@ -114,6 +114,7 @@
         </field>
     </record>
 
+    <!-- Menu ict.employee -->
     <menuitem id="menu_employees" 
               name="Employees" 
               parent="menu_ict_root" 
