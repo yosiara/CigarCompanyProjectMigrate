@@ -8,6 +8,14 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="domain_user"/>
+                <field name="work_email"/>
+                <field name="work_phone"/>
+                <field name="mobile_phone"/>
+                <field name="job_title"/>
+                <field name="department_name"/>
+                <field name="hire_date"/>
+                <field name="active" widget="boolean_toggle"/>
             </list>
         </field>
     </record>
@@ -32,6 +40,7 @@
                             <field name="mobile_phone"/>
                             <field name="work_email"/>
                             <field name="hire_date"/>
+                            <field name="active" widget="boolean_toggle"/>
                         </group>
                     </group>
                     <notebook>
@@ -69,8 +78,22 @@
         <field name="model">ict.employee</field>
         <field name="arch" type="xml">
             <search>
+                <field name="name"/>
+                <field name="domain_user"/>
+                <field name="work_email"/>
+                <field name="work_phone"/>
+                <field name="mobile_phone"/>
+                <field name="job_title"/>
+                <field name="department_name"/>
+                <field name="hire_date"/>
+
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Inactive" name="inactive" domain="[('active', '=', False)]"/>
+
                 <group expand="1" string="Group By">
-                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                    <filter string="Job" name="job_title" domain="[]" context="{'group_by':'job_title'}"/>
+                    <filter string="Department" name="department_name" domain="[]" context="{'group_by':'department_name'}"/>
+                    <filter string="Hire Date" name="hire_date" domain="[]" context="{'group_by':'hire_date'}"/>
                 </group>
             </search>
         </field>

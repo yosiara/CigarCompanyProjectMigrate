@@ -14,8 +14,9 @@ class ICTEmployee(models.Model):
 
     domain_user = fields.Char(string='Username *', required=True, tracking=True)
     domain_id = fields.Many2one(string='Domain', comodel_name='mail.alias.domain', default=lambda self: self.env.company.alias_domain_id.id)
+    domain_name = fields.Char(string='Domain Name', related='domain_id.name')
     work_email = fields.Char(string='Email', compute='_compute_work_email', readonly=True)
-    hire_date = fields.Date(string='Hire Date')
+    hire_date = fields.Date(string='Hire Date', default=fields.Date().today())
     active = fields.Boolean(default=True)
     
     computer_ids = fields.One2many('ict.computer', 'employee_ids', string='Assigned Computers')
@@ -23,12 +24,13 @@ class ICTEmployee(models.Model):
     
     # Related employee fields
     employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee *', required=True, tracking=True)
-    name = fields.Char(related='employee_id.name')
+    name = fields.Char(string="Name *", related='employee_id.name')
     user_id = fields.Many2one(related='employee_id.user_id')
     work_phone = fields.Char(related='employee_id.work_phone', readonly=False, related_sudo=False)
     mobile_phone = fields.Char(related='employee_id.mobile_phone', readonly=False, related_sudo=False)
     job_title = fields.Char(related='employee_id.job_title')
     department_id = fields.Many2one(related='employee_id.department_id')
+    department_name = fields.Char(string='Department', related='department_id.name')
     
     @api.depends('domain_id', 'domain_user')
     def _compute_work_email(self):
