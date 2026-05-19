@@ -23,13 +23,14 @@
                         <group>
                             <field name="employee_id"/>
                             <field name="domain_user"/>
-                            <!-- <field name="email"/> -->
+                            <field name="domain_id"/>
+                            <field name="job_title"/>
                             <field name="department_id"/>
                         </group>
                         <group>
                             <field name="work_phone"/>
                             <field name="mobile_phone"/>
-                            <field name="position"/>
+                            <field name="work_email"/>
                             <field name="hire_date"/>
                         </group>
                     </group>

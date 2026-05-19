@@ -29,7 +29,7 @@ services:
       - "8069:8069"  # Odoo web
       - "5678:5678"  # Debugger
       - "8072:8072"  # Web socket
-    command: --dev=all #--update=planning_turei
+    command: --dev=all --update=ict
     # tty: true
 
   db:
