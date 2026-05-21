@@ -2,10 +2,10 @@
 
 <odoo>
     <data>
-        <!-- ========================================================================================================
-        Computer Component
-        model: ict.computer.component
-        ========================================================================================================= -->
+        <!-- ======================================================================================================== -->
+        <!-- Computer Component                                                                                        -->
+        <!-- model: ict.computer.component                                                                             -->
+        <!-- ======================================================================================================== -->
 
         <!-- FORM VIEW -->
         <record id="view_ict_computer_component_form" model="ir.ui.view">
@@ -40,13 +40,13 @@
                                 <field name="serial_no_custom"/>
                             </group>
                         </group>
-                        <group col="4" invisible="component_type != 'motherboard'">
+                        <group col="4" invisible="component_type != 'board'">
                             <field name="version" readonly="ocs_external_id != False"/>
                         </group>
                         <group col="4" invisible="component_type != 'monitor'">
                             <field name="manufactured_date"/>
                         </group>
-                        <group col="4" invisible="component_type != 'microprocessor'">
+                        <group col="4" invisible="component_type != 'processor'">
                             <field name="frequency" readonly="ocs_external_id != False"/>
                             <field name="socket_type" readonly="ocs_external_id != False"/>
                             <field name="architecture" readonly="ocs_external_id != False"/>
@@ -112,8 +112,8 @@
             <field name="model">equipment.component</field>
             <field name="arch" type="xml">
                 <search string="">
-                    <filter string="Motherboard" domain="[('component_type', '=', 'motherboard')]"/>
-                    <filter string="Microprocessor" domain="[('component_type', '=', 'microprocessor')]"/>
+                    <filter string="Motherboard" domain="[('component_type', '=', 'board')]"/>
+                    <filter string="Microprocessor" domain="[('component_type', '=', 'processor')]"/>
                     <filter string="RAM" domain="[('component_type', '=', 'memory')]"/>
                     <filter string="Monitor" domain="[('component_type', '=', 'monitor')]"/>
                     <filter string="Network" domain="[('component_type', '=', 'network')]"/>
@@ -148,13 +148,13 @@
             <field name="context">{}</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
-                    There is no examples click here to add new ICt Computer Components.
+                    There is no examples click here to add new ICT Computer Components.
                 </p>
             </field>
         </record>
 
         <!-- Menu ict.computer.component -->
-        <menuitem id="menu_computer_components"
+        <menuitem id="menu_computer_component"
                 name="Computer Components"
                 parent="menu_ict_configuration"
                 sequence="5"

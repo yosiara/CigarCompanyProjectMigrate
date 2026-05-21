@@ -25,10 +25,10 @@ class ICTComputerComponent(models.Model):
     manufacturer = fields.Char()
     manufacturer_custom = fields.Char("Custom Manufacturer")
     component_type = fields.Selection(
-        [('motherboard', 'MotherBoard'), ('memory', 'Memory'), ('storage', 'Storage'), ('monitor', 'Monitor'),
-         ('microprocessor', 'Microprocessor'), ('video_card', 'Video Card'), ('sound_card', 'Sound Card'),
+        [('board', 'MotherBoard'), ('memory', 'Memory'), ('storage', 'Storage'), ('monitor', 'Monitor'),
+         ('processor', 'Microprocessor'), ('video_card', 'Video Card'), ('sound_card', 'Sound Card'),
          ('network', 'Network'), ('input_device', 'Input Device'), ('modem', 'Modem'),
-         ('printer', 'Printer'), ('ups', 'UPS'), ('fax', 'Fax'), ('scanner', 'Scanner'), ('speaker', 'Speaker'), ('power_source', 'Power Source')], string='Component Type', default='motherboard'
+         ('printer', 'Printer'), ('ups', 'UPS'), ('fax', 'Fax'), ('scanner', 'Scanner'), ('speaker', 'Speaker'), ('power_source', 'Power Source')], string='Component Type', default='board'
     )
 
     inventory_number = fields.Char('Inventory Number')
@@ -51,15 +51,20 @@ class ICTComputerComponent(models.Model):
     # specific storage
     firmware = fields.Char()
     disk_size = fields.Integer()
+    storage_type = fields.Selection([
+        ('hdd', 'HDD'),
+        ('ssd', 'SSD'),
+        ('nvme', 'NVMe'),
+    ], string='Storage Type')
     # specific video card
     memory = fields.Char()
     chipset = fields.Char()
     resolution = fields.Char()
     # specific network
-    ip = fields.Char()
-    mac = fields.Char()
-    status = fields.Char()
-    speed = fields.Char()
+    # ip = fields.Char()
+    # mac = fields.Char()
+    # status = fields.Char()
+    # speed = fields.Char()
     # specific input device
     interface = fields.Char()
     # specific printer

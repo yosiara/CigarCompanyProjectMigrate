@@ -11,11 +11,11 @@
                 <field name="type"/>
                 <field name="state"/>
                 <field name="responsible_name"/>
-                <field name="processor"/>
+                <field name="processor_name"/>
                 <field name="ip_address"/>
                 <field name="purchase_date"/>
                 <field name="operating_system"/>
-                <field name="total_ram_gb"/>
+                <field name="total_memory_gb"/>
                 <field name="total_storage_gb"/>
                 
                 <templates>
@@ -57,19 +57,19 @@
                                 
                                 <!-- Especificaciones -->
                                 <div class="specs">
-                                    <span class="spec" t-att-title="'Procesador: ' + record.processor.raw_value or 'N/A'">
+                                    <span class="spec" t-att-title="'Procesador: ' + record.processor_name.raw_value or 'N/A'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
                                             <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
                                         </svg>
                                         <!-- <i class="fa fa-microchip"></i> -->
-                                        <t t-esc="record.processor.raw_value or 'N/A'"/>
+                                        <t t-esc="record.processor_name.raw_value or 'N/A'"/>
                                     </span>
 
-                                    <span class="spec" t-att-title="'Total Memoria RAM: ' + (record.total_ram_gb.raw_value or '?') + 'GB'">
+                                    <span class="spec" t-att-title="'Total Memoria RAM: ' + (record.total_memory_gb.raw_value or '?') + 'GB'">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
                                             <path d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z"/>
                                         </svg>
-                                        <t t-esc="record.total_ram_gb.raw_value or '?'"/>GB
+                                        <t t-esc="record.total_memory_gb.raw_value or '?'"/>GB
                                     </span>
 
                                     <span class="spec" t-att-title="'Total Almacenamiento: ' + (record.total_storage_gb.raw_value or '?') + 'GB'">
@@ -127,7 +127,7 @@
                                 
                                 <span class="footer-item" t-att-title="'Fecha de Compra: ' + (record.purchase_date.raw_value or 'Sin fecha')" t-att-class="record.purchase_date.raw_value ? 'text-success' : 'text-muted'">
                                     <i class="fa fa-calendar"></i>
-                                    <t t-esc="record.purchase_date.raw_value.split('T')[0] or '—'"/>
+                                    <t t-esc="record.purchase_date.raw_value ? record.purchase_date.raw_value.split('T')[0] : '-'"/>
                                 </span>
                                 
                                 <!-- <span class="footer-item" t-att-title="'Depto: ' + (record.department_name.raw_value ? record.department_name.raw_value : 'Sin asignar')">
@@ -161,10 +161,10 @@
                 <field name="purchase_date"/>
                 <field name="ip_address"/>
                 <!-- <field name="mac_address"/> -->
-                <field name="department_id"/>
+                <!-- <field name="department_id"/> -->
                 <field name="active"/>
                 <field name="warranty_date"/>
-                <field name="supplier"/>
+                <field name="partner_id"/>
             </list>
         </field>
     </record>
@@ -179,7 +179,7 @@
                     <div class="oe_title">
                         <label for="name"/>
                         <h1>
-                            <field name="name" placeholder="Name..."/>
+                            <field name="name" placeholder="Name"/>
                         </h1>
                     </div>
                     <group>
@@ -193,10 +193,8 @@
                         </group>
                         <group>
                             <field name="employee_ids" widget="many2many_tags"/>
-                            <field name="operating_system"/>
-                            <field name="ip_address"/>
                             <field name="warranty_date"/>
-                            <field name="supplier"/>
+                            <field name="partner_id"/>
                         </group>
                     </group>
                 </sheet>
@@ -226,7 +224,7 @@
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                There is no examples click here to add new ICt Computer.
+                There is no examples click here to add new ICT Computer.
             </p>
         </field>
     </record>
@@ -249,10 +247,10 @@
                 
                 <div class="alert alert-info">
                     <i class="fa fa-laptop me-2"/>
-                    Este equipo es una computadora.
+                    This device is a computer.
                     <button class="btn btn-sm btn-primary ms-3" 
-                            name="action_view_ict_computer" type="object" invisible="computer_id">
-                        <i class="fa fa-arrow-right"/> Ver detalles ICT
+                            name="action_view_ict_computer" type="object" invisible="not computer_id">
+                        <i class="fa fa-arrow-right"/> View ICT details
                     </button>
                 </div>
             </xpath>

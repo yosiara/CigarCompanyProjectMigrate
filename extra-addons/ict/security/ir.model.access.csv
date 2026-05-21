@@ -5,3 +5,4 @@ ict.access_ict_phone,access_ict_phone,ict.model_ict_phone,base.group_user,1,1,1,
 ict.access_ict_service,access_ict_service,ict.model_ict_service,base.group_user,1,1,1,1
 ict.access_ict_reports,access_ict_reports,ict.model_ict_reports,base.group_user,1,1,1,1
 ict.access_ict_computer_component,access_ict_computer_component,ict.model_ict_computer_component,base.group_user,1,1,1,1
+ict.access_ict_computer_application,access_ict_computer_application,ict.model_ict_computer_application,base.group_user,1,1,1,1

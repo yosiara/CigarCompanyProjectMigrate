@@ -15,7 +15,7 @@ class ICTService(models.Model):
         ('internet', 'Internet'),
         ('telephony', 'Telephony'),
         ('cloud', 'Cloud Services'),
-        ('software', 'Software Licenses'),
+        ('application', 'Application Licenses'),
         ('support', 'Technical Support'),
     ], string='Service Type', required=True)
     

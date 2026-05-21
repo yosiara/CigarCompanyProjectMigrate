@@ -12,8 +12,29 @@ class ICTComputer(models.Model):
     _inherits = {'maintenance.equipment': 'equipment_id'}
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    equipment_id = fields.Many2one('maintenance.equipment', required=True, ondelete='cascade', auto_join=True, index=True,
-        string='Related Equipment', help='Equipment-related data of the computer')
+    equipment_id = fields.Many2one('maintenance.equipment', string='Related Equipment', required=True,
+        ondelete='cascade', auto_join=True, index=True, help='Equipment-related data of the computer')
+
+    # Equipment fields
+    # name = fields.Char('Equipment Name', required=True, translate=True)
+    # active = fields.Boolean(default=True)
+    # owner_user_id = fields.Many2one('res.users', string='Owner', tracking=True)
+    # category_id = fields.Many2one('maintenance.equipment.category', string='Equipment Category',
+    #                               tracking=True, group_expand='_read_group_category_ids')
+    # partner_id = fields.Many2one('res.partner', string='Vendor', check_company=True)
+    # partner_ref = fields.Char('Vendor Reference')
+    # location = fields.Char('Location')
+    # model = fields.Char('Model')
+    # serial_no = fields.Char('Serial Number', copy=False)
+    # assign_date = fields.Date('Assigned Date', tracking=True)
+    # cost = fields.Float('Cost')
+    # note = fields.Html('Note')
+    # warranty_date = fields.Date('Warranty Expiration Date')
+    # color = fields.Integer('Color Index')
+    # scrap_date = fields.Date('Scrap Date')
+    # maintenance_ids = fields.One2many('maintenance.request', 'equipment_id')
+    # equipment_properties = fields.Properties('Properties', definition='category_id.equipment_properties_definition', copy=True)
+    # match_serial = fields.Boolean(compute='_compute_match_serial')
 
     type = fields.Selection([
         ('desktop', 'Desktop'),
@@ -22,34 +43,7 @@ class ICTComputer(models.Model):
     ], string='Type', required=True, default='desktop')
 
     brand = fields.Char(string='Brand', required=True)
-    # model = fields.Char(string='Model', required=True)
-    # processor = fields.Char(string='Processor')
-    # ram_gb = fields.Integer(string='RAM (GB)')
-    total_ram_gb = fields.Integer(string='Total RAM (GB)', compute='_compute_components')
-    # storage_gb = fields.Integer(string='Storage (GB)')
-    total_storage_gb = fields.Integer(string='Total Storage (GB)', compute='_compute_components')
-    # storage_type = fields.Selection([
-    #     ('hdd', 'HDD'),
-    #     ('ssd', 'SSD'),
-    #     ('nvme', 'NVMe'),
-    # ], string='Storage Type')
-    
-    operating_system = fields.Selection([
-        ('windows_10', 'Windows 10'),
-        ('windows_11', 'Windows 11'),
-        ('windows_server', 'Windows Server'),
-        ('linux', 'Linux'),
-        ('macos', 'macOS'),
-    ], string='Operating System')
-    
-    ip_address = fields.Char(string='IP Address')
-    # mac_address = fields.Char(string='MAC Address')
-    
-    # employee_id = fields.Many2one('ict.employee', string='Assigned to')
-
     purchase_date = fields.Date(string='Purchase Date')
-    # warranty_date = fields.Date(string='Warranty End Date')
-    supplier = fields.Char(string='Supplier')
     state = fields.Selection([
         ('new', 'New'),
         ('in_use', 'In Use'),
@@ -57,48 +51,44 @@ class ICTComputer(models.Model):
         ('retired', 'Retired'),
     ], string='Status', default='new')
     
-    ##########################################
-    employee_ids = fields.Many2many('ict.employee',
-                        'ict_computer_employees_rel',
-                        'computer_id', 'employee_id', 'Assigned Employees'
-                    )
-    responsible_id = fields.Many2one(related='equipment_id.employee_id', string='Responsible', compute='_compute_responsible',
-        help=_("The first of the selected employees will be assumed as responsible for the equipment/computer and their equal in maintenance")
-    )
+    employee_ids = fields.Many2many('ict.employee', 'ict_computer_employees_rel', 'computer_id', 'employee_id', 'Assigned Employees')
+    responsible_id = fields.Many2one('ict.employee', string='Responsible', compute='_compute_responsible', store=True,
+                                    help=_("The first employee selected will be considered the team's top manager."))
     responsible_name = fields.Char(related='responsible_id.name')
-    # equipment_assign_to = fields.Selection(selection_add=[('employees', 'Employees')])
     inventory_number = fields.Char('Inventory Number')
     seal = fields.Char('Seal')
     ocs_external_id = fields.Integer(index=True)
-    # is_a_computer = fields.Boolean('Is an ICT equipment?', default=False)
+    is_a_computer = fields.Boolean('Is an ICT equipment?', default=False)
 
-    # Administrative data...
-    # user_name = fields.Char()
-    # operative_system = fields.Char()
-    # os_version = fields.Char()
+    component_ids  = fields.One2many('ict.computer.component', 'computer_id', 'Components', domain=[('is_active', '=', True)])
+    application_ids = fields.One2many('ict.computer.application', 'computer_id', 'Applications')
 
-    # uuid = fields.Char()
-    # architecture = fields.Char()
+    processor_name = fields.Char(string='Processor', compute='_compute_component', store=True)
+    total_memory_gb = fields.Integer(string='Total Memory (GB)', compute='_compute_component', store=True)
+    total_storage_gb = fields.Integer(string='Total Storage (GB)', compute='_compute_component', store=True)
 
-    # domain = fields.Char()
-    # ip_address = fields.Char()
-    information_updated_date = fields.Datetime()
+    operating_system = fields.Selection([
+        ('windows_10', 'Windows 10'),
+        ('windows_11', 'Windows 11'),
+        ('windows_server', 'Windows Server'),
+        ('linux', 'Linux'),
+        ('macos', 'macOS'),
+    ], string='Operating System')
+    os_version = fields.Char()
+    ip_address = fields.Char(string='IP Address')
+    mac_address = fields.Char(string='MAC Address')
+    uuid = fields.Char()
+    architecture = fields.Char()
+    domain = fields.Char()
+
+    # qrcode_image = fields.Binary("QRCode", compute='get_qrimage')
 
     # To know the state in the importation...
     # 1 -> Imported.
     # 2 -> Updated first time.
     # 3 -> Updated more than once time.
     # importation_state = fields.Selection([('1', '1'), ('2', '2'), ('3', '3')], default='1')
-
-    # local_id = fields.Many2one('l10n_cu_locals.local', 'Used in local')
-
-    component_ids = fields.One2many('ict.computer.component', 'computer_id', 'Component', domain=[('is_active', '=', True)])
-    # component_id = fields.Many2one(comodel_name='ict.computer.component', compute='_compute_component', search='_search_computer_component', store=False)
-    processor = fields.Char(string='Processor', compute='_compute_components')
-
-    # software_ids = fields.One2many('equipment.software', 'equipment_id', 'Software')
-
-    # qrcode_image = fields.Binary("QRCode", compute='get_qrimage')
+    # information_updated_date = fields.Datetime()
 
     _sql_constraints = [
         ('equipment_id', 'unique(equipment_id)', "Related equipment already exists!"),
@@ -111,40 +101,67 @@ class ICTComputer(models.Model):
 
     @api.depends('employee_ids')
     def _compute_responsible(self):
-        for rec in self:
-            if rec.employee_ids:
-                rec.responsible_id = rec.employee_ids.ids[0]
+        for pc in self:
+            if pc.employee_ids:
+                pc.responsible_id = pc.employee_ids.ids[0]
             else:
-                rec.responsible_id = False
+                pc.responsible_id = False
+            pc.equipment_id.employee_id = pc.responsible_id
 
     @api.depends('component_ids')
-    def _compute_components(self):
-        for rec in self:
-            for component in rec.component_ids:
-                if component.component_type == 'microprocessor':
-                    rec.processor = component.type
-                elif component.component_type == 'memory':
-                    rec.total_ram_gb += component.capacity
-                elif component.component_type == 'storage':
-                    rec.total_storage_gb += component.disk_size
+    def _compute_component(self):
+        for pc in self:
+            total_memory  = 0
+            total_storage = 0
+            micro = self.env['ict.computer.component']
 
-    # @api.onchange('responsible_id')
-    # def _set_responsible(self):
-    #     if self.responsible_id:
-    #         self.equipment_id.employee_id = self.responsible_id
+            for component in pc.component_ids:
+                type = component.component_type
+                if type == 'processor':
+                    micro |= component
+                elif type == 'memory':
+                    total_memory += component.capacity
+                elif type == 'storage':
+                    total_storage += component.disk_size
+            
+            pc.processor_name   = micro[0].name if micro else False
+            pc.total_memory_gb  = total_memory
+            pc.total_storage_gb = total_storage
 
-    # @api.depends('component_ids')
-    # def _compute_component(self):
-    #     component_per_computer = {
-    #         component.computer_id.id: component
-    #         for component in self.env['ict.computer.component'].search([('computer_id', 'in', self.ids)])
-    #     }
-    #     for computer in self:
-    #         computer.component_id = component_per_computer.get(computer.id)
-
-    # def _search_computer_component(self, operator, value):
-    #     return [('component_ids', operator, value)]
-
+    # Get methods
+    def get_component(self, component_type):
+        return self.component_ids.filtered_domain([('type', '=', component_type)])
+    def ups(self):
+        return self.get_component('ups')
+    def fax(self):
+        return self.get_component('fax')
+    def modem(self):
+        return self.get_component('modem')
+    def board(self):
+        return self.get_component('board')
+    def memory(self):
+        return self.get_component('memory')
+    def scanner(self):
+        return self.get_component('scanner')
+    def speaker(self):
+        return self.get_component('speaker')
+    def storage(self):
+        return self.get_component('storage')
+    def monitor(self):
+        return self.get_component('monitor')
+    def printer(self):
+        return self.get_component('printer')
+    def processor(self):
+        return self.get_component('processor')
+    def video_card(self):
+        return self.get_component('video_card')
+    def sound_card(self):
+        return self.get_component('sound_card')
+    def input_device(self):
+        return self.get_component('input_device')
+    def power_source(self):
+        return self.get_component('power_source')
+    
     # @api.model
     # def get_kanban_stats(self):
     #     """Get statistics for kanban view"""
@@ -200,20 +217,6 @@ class ICTComputer(models.Model):
             'by_status': by_status
         }
 
-    # @api.depends('component_id.capacity')
-    # def _compute_total_ram_gb(self):
-    #     for rec in self:
-    #         capacity = rec.component_id.capacity
-    #         if capacity:
-    #             rec.total_ram_gb += capacity
-
-    # @api.depends('component_id.disk_size')
-    # def _compute_total_storage_gb(self):
-    #     for rec in self:
-    #         disk_size = rec.component_id.disk_size
-    #         if disk_size:
-    #             rec.total_storage_gb += disk_size
-
     @api.model_create_multi
     def create(self, vals_list):
         computers = super().create(vals_list)
@@ -234,7 +237,7 @@ class ICTComputer(models.Model):
             employees = self.env['ict.employee'].browse([t[1] for t in vals['employee_ids']])
             for employee in employees:
                 if employee.user_id:
-                    partner_ids.append(employee.user_id.parent_id.id)
+                    partner_ids.append(employee.user_id.partner_id.id)
         if partner_ids:
             self.message_subscribe(partner_ids=partner_ids)
         return super(ICTComputer, self).write(vals)
