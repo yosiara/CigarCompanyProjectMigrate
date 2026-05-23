@@ -26,7 +26,7 @@
                             <field name="component_type" readonly="id != False"/>
                             <field name="inventory_number"
                                    invisible="component_type not in ['monitor','input_device','printer','ups','fax','scanner','speaker']"/>
-                            <field name="type" readonly="id != False"/>
+                            <!-- <field name="type" readonly="id != False"/> -->
                         </group>
                         <group>
                             <group>
@@ -67,12 +67,12 @@
                             <field name="chipset" readonly="ocs_external_id != False"/>
                             <field name="resolution" readonly="ocs_external_id != False"/>
                         </group>
-                        <group col="4" invisible="component_type != 'network'">
+                        <!-- <group col="4" invisible="component_type != 'network'">
                             <field name="ip" readonly="ocs_external_id != False"/>
                             <field name="mac" readonly="ocs_external_id != False"/>
                             <field name="status" readonly="ocs_external_id != False"/>
                             <field name="speed" readonly="ocs_external_id != False"/>
-                        </group>
+                        </group> -->
                         <group col="4" invisible="component_type != 'input_device'">
                             <field name="interface" readonly="ocs_external_id != False"/>
                         </group>

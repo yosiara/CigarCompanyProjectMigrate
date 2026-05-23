@@ -19,7 +19,7 @@ class ICTComputerComponent(models.Model):
     is_active = fields.Boolean(default=True)
     ocs_external_id = fields.Char(index=True)
 
-    type = fields.Char(index=True)
+    # type = fields.Char(index=True)
     model = fields.Char()
     model_custom = fields.Char("Custom model")
     manufacturer = fields.Char()

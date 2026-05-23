@@ -8,7 +8,7 @@
                 <field name="name"/>
                 <field name="brand"/>
                 <field name="model"/>
-                <field name="type"/>
+                <field name="pc_type"/>
                 <field name="state"/>
                 <field name="responsible_name"/>
                 <field name="processor_name"/>
@@ -39,10 +39,10 @@
                             <div class="card-body">
                                 <!-- Icono principal -->
                                 <div class="icon-wrapper">
-                                    <div t-att-class="'icon-circle icon-' + record.type.raw_value">
+                                    <div t-att-class="'icon-circle icon-' + record.pc_type.raw_value">
                                         <i t-attf-class="fa {{
-                                            record.type.raw_value === 'laptop' ? 'fa-laptop' :
-                                            record.type.raw_value === 'desktop' ? 'fa-desktop' : 'fa-server'
+                                            record.pc_type.raw_value === 'laptop' ? 'fa-laptop' :
+                                            record.pc_type.raw_value === 'desktop' ? 'fa-desktop' : 'fa-server'
                                         }}"></i>
                                     </div>
                                 </div>
@@ -146,14 +146,14 @@
         </field>
     </record>
 
-    <!-- View ict.computer View List -->
+    <!-- View ict.computer List -->
     <record id="view_ict_computer_list" model="ir.ui.view">
         <field name="name">ict.computer.list</field>
         <field name="model">ict.computer</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
-                <field name="type"/>
+                <field name="pc_type"/>
                 <field name="brand"/>
                 <field name="model"/>
                 <field name="employee_ids" widget="many2many_tags"/>
@@ -169,35 +169,166 @@
         </field>
     </record>
 
-    <!-- View ict.computer form -->
+    <!-- View ict.computer Form -->
     <record id="view_ict_computer_form" model="ir.ui.view">
-        <field name="name">view.ict.computer.form</field>
+        <field name="name">ict.computer.form</field>
         <field name="model">ict.computer</field>
         <field name="arch" type="xml">
-            <form string="ICT Computer">
-                <sheet>
-                    <div class="oe_title">
-                        <label for="name"/>
-                        <h1>
-                            <field name="name" placeholder="Name"/>
-                        </h1>
+            <form string="Computer">
+                <header>
+                    <button name="action_start_using" type="object" class="btn-primary" string="Start Using"/>
+                    <button name="action_send_repair" type="object" class="btn-warning" string="Send to Repair"/>
+                    <button name="action_retire" type="object" class="btn-danger" string="Retire"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,in_use,repair,retired" options="{'clickable': '1'}"/>
+                </header>
+                <sheet class="computer_form_sheet">
+                    <field name="company_id" invisible="1"/>
+                    <field name="maintenance_team_id" context="{'default_company_id':company_id}" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(maintenance.hr_equipment_request_action_from_equipment)d"
+                            type="action"
+                            class="oe_stat_button"
+                            context="{'search_default_active': True, 'default_company_id': company_id, 'default_maintenance_team_id': maintenance_team_id}"
+                            icon="fa-wrench">
+                            <field string="Maintenance" name="maintenance_open_count" widget="statinfo"/>
+                        </button>
                     </div>
-                    <group>
-                        <group>
-                            <field name="type"/>
-                            <field name="brand"/>
-                            <field name="model"/>
-                            <field name="active"/>
-                            <field name="state"/>
-                            <field name="purchase_date"/>
-                        </group>
-                        <group>
-                            <field name="employee_ids" widget="many2many_tags"/>
-                            <field name="warranty_date"/>
-                            <field name="partner_id"/>
-                        </group>
-                    </group>
+
+                    <!-- Tarjeta resumen mejorada -->
+                    <div class="computer_hero">
+                        <div class="hero_icon" t-attf-class="hero_{{pc_type}}">
+                            <i class="fa fa-laptop"  invisible="pc_type != 'laptop'"/>
+                            <i class="fa fa-desktop" invisible="pc_type != 'desktop'"/>
+                            <i class="fa fa-server"  invisible="pc_type != 'server'"/>
+                        </div>
+                        <div class="hero_info">
+                            <h1><field name="name" placeholder="Computer name..."/></h1>
+                            <div class="hero_details">
+                                <span class="brand_model"><field name="brand"/> <field name="model"/></span>
+                                <span class="separator">•</span>
+                                <span class="inventory"><i class="fa fa-tag"/> <field name="inventory_number" placeholder="Inventory #"/></span>
+                            </div>
+                        </div>
+                        <div class="hero_specs">
+                            <div class="hero_spec">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
+                                    <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+                                </svg>
+                                <span><field name="processor_name" widget="badge"/></span>
+                            </div>
+                            <div class="hero_spec">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
+                                    <path d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z"/>
+                                </svg>
+                                <span><field name="total_memory_gb"/> GB RAM</span>
+                            </div>
+                            <div class="hero_spec">
+                                <i class="fa fa-hdd-o"></i>
+                                <span><field name="total_storage_gb"/> GB</span>
+                            </div>
+
+                            <div class="hero_spec" invisible="not operating_system">
+                                <!-- <i class="fa fa-windows" t-if="operating_system == 'windows_10' or operating_system == 'windows_11'"></i>
+                                <i class="fa fa-linux" t-if="operating_system == 'linux'"></i>
+                                <i class="fa fa-apple" t-if="operating_system == 'macos'"></i> -->
+                                <i class="fa fa-linux" invisible="operating_system == 'windows_10' or operating_system == 'macos'"/>
+                                <i class="fa fa-apple" invisible="operating_system == 'linux' or operating_system == 'windows_10'"/>
+                                <i class="fa fa-windows" invisible="operating_system == 'linux' or operating_system == 'macos'"/>                                
+                                <span><field name="operating_system"/></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pestañas organizadas -->
+                    <notebook class="computer_notebook">
+                        <!-- Pestaña 1: Información general -->
+                        <page string="General Information">
+                            <group>
+                                <group string="Hardware Configuration">
+                                    <field name="pc_type"/>
+                                    <field name="brand" required="1"/>
+                                    <field name="model"/>
+                                    <field name="processor_name" readonly="1" class="oe_inline"/>
+                                    <field name="total_memory_gb" readonly="1"/>
+                                    <field name="total_storage_gb" readonly="1"/>
+                                </group>
+                                <group string="Software &amp; Network">
+                                    <field name="operating_system"/>
+                                    <field name="os_version"/>
+                                    <field name="ip_address" widget="url"/>
+                                    <field name="mac_address"/>
+                                    <field name="uuid"/>
+                                    <field name="domain"/>
+                                </group>
+                            </group>
+                            <group string="Equipment Details &amp; Procurement" name="equipment_fields">
+                                <group>
+                                    <field name="owner_user_id" options="{'no_create': True}"/>
+                                    <field name="category_id" options="{'no_create_edit': True}"/>
+                                    <field name="partner_id" placeholder="Vendor"/>
+                                    <field name="location"/>
+                                    <field name="serial_no"/>
+                                </group>
+                                <group>
+                                    <field name="assign_date" widget="date"/>
+                                    <field name="cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="warranty_date" widget="date"/>
+                                    <field name="scrap_date" widget="date"/>
+                                    <field name="active" invisible="not context.get('show_inactive')"/>
+                                </group>
+                            </group>
+                            <field name="note" placeholder="Additional notes..." nolabel="1"/>
+                        </page>
+
+                        <!-- Pestaña 2: Componentes -->
+                        <page string="Components" name="components">
+                            <field name="component_ids"> <!--context="{'default_computer_id': active_id}"-->
+                                <list editable="bottom" string="Hardware Components">
+                                    <field name="component_type" widget="badge"/>
+                                    <field name="name"/>
+                                    <field name="manufacturer"/>
+                                    <field name="model"/>
+                                    <field name="serial_no"/>
+                                    <field name="capacity" string="Capacity (GB)"/>
+                                    <field name="disk_size" string="Disk (GB)"/>
+                                    <field name="speed" string="Speed"/>
+                                    <field name="is_active"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <!-- Pestaña 3: Aplicaciones instaladas -->
+                        <page string="Applications" name="applications">
+                            <field name="application_ids">
+                                <list string="Software" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="version"/>
+                                    <field name="publisher"/>
+                                    <!-- <field name="install_date"/> -->
+                                </list>
+                            </field>
+                        </page>
+
+                        <!-- Pestaña 4: Solicitudes de mantenimiento (heredadas) -->
+                        <page string="Maintenance Requests" name="maintenance">
+                            <field name="maintenance_ids" readonly="1">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="stage_id"/>
+                                    <field name="user_id"/>
+                                    <field name="request_date"/>
+                                    <field name="close_date"/>
+                                </list>
+                            </field>
+                        </page>
+
+                        <!-- Pestaña 5: Propiedades dinámicas -->
+                        <page string="Properties" name="properties">
+                            <field name="equipment_properties"/>
+                        </page>
+                    </notebook>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
@@ -237,7 +368,7 @@
               action="action_ict_computer"/>
 
     <!-- Añadir botón para ir a vista IT desde equipment -->
-    <record id="maintenance_equipment_view_form_inherit_ict" model="ir.ui.view">
+    <!-- <record id="maintenance_equipment_view_form_inherit_ict" model="ir.ui.view">
         <field name="name">maintenance.equipment.view.form.inherit.ict</field>
         <field name="model">maintenance.equipment</field>
         <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
@@ -255,6 +386,6 @@
                 </div>
             </xpath>
         </field>
-    </record>
+    </record> -->
 
 </odoo>

@@ -34,6 +34,7 @@
             'ict/static/src/components/live_stats/*',
             'ict/static/src/components/quick_create/*',
             'ict/static/src/views/computer_kanban/*',
+            'ict/static/src/scss/computer_form.scss'
         ],
     },
     'installable': True,

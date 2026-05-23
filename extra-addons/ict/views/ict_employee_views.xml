@@ -48,7 +48,7 @@
                             <field name="computer_ids">
                                 <list>
                                     <field name="name"/>
-                                    <field name="type"/>
+                                    <field name="pc_type"/>
                                     <field name="brand"/>
                                     <field name="model"/>
                                     <field name="state"/>

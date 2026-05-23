@@ -9,8 +9,8 @@ _logger = logging.getLogger(__name__)
 class ICTComputer(models.Model):
     _name = 'ict.computer'
     _description = 'Computer Inventory'
-    _inherits = {'maintenance.equipment': 'equipment_id'}
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherits = {'maintenance.equipment': 'equipment_id'}
 
     equipment_id = fields.Many2one('maintenance.equipment', string='Related Equipment', required=True,
         ondelete='cascade', auto_join=True, index=True, help='Equipment-related data of the computer')
@@ -36,7 +36,9 @@ class ICTComputer(models.Model):
     # equipment_properties = fields.Properties('Properties', definition='category_id.equipment_properties_definition', copy=True)
     # match_serial = fields.Boolean(compute='_compute_match_serial')
 
-    type = fields.Selection([
+    # computer_id = fields.One2many(comodel_name='ict.computer', inverse_name='equipment_id', string='ICT Computer')
+
+    pc_type = fields.Selection([
         ('desktop', 'Desktop'),
         ('laptop', 'Laptop'),
         ('server', 'Server'),
@@ -52,13 +54,12 @@ class ICTComputer(models.Model):
     ], string='Status', default='new')
     
     employee_ids = fields.Many2many('ict.employee', 'ict_computer_employees_rel', 'computer_id', 'employee_id', 'Assigned Employees')
-    responsible_id = fields.Many2one('ict.employee', string='Responsible', compute='_compute_responsible', store=True,
+    responsible_name = fields.Char(string='Responsible', compute='_compute_responsible', store=True,
                                     help=_("The first employee selected will be considered the team's top manager."))
-    responsible_name = fields.Char(related='responsible_id.name')
     inventory_number = fields.Char('Inventory Number')
     seal = fields.Char('Seal')
     ocs_external_id = fields.Integer(index=True)
-    is_a_computer = fields.Boolean('Is an ICT equipment?', default=False)
+    is_a_computer = fields.Boolean('Is an ICT equipment?', default=True)
 
     component_ids  = fields.One2many('ict.computer.component', 'computer_id', 'Components', domain=[('is_active', '=', True)])
     application_ids = fields.One2many('ict.computer.application', 'computer_id', 'Applications')
@@ -103,10 +104,13 @@ class ICTComputer(models.Model):
     def _compute_responsible(self):
         for pc in self:
             if pc.employee_ids:
-                pc.responsible_id = pc.employee_ids.ids[0]
+                responsible = pc.employee_ids[0]
+                pc.employee_id = responsible
+                if responsible.name != pc.responsible_name:
+                    pc.responsible_name = responsible.name
             else:
-                pc.responsible_id = False
-            pc.equipment_id.employee_id = pc.responsible_id
+                pc.employee_id = False
+                pc.responsible_name = False
 
     @api.depends('component_ids')
     def _compute_component(self):
@@ -116,12 +120,12 @@ class ICTComputer(models.Model):
             micro = self.env['ict.computer.component']
 
             for component in pc.component_ids:
-                type = component.component_type
-                if type == 'processor':
+                type_ = component.component_type
+                if type_ == 'processor':
                     micro |= component
-                elif type == 'memory':
+                elif type_ == 'memory':
                     total_memory += component.capacity
-                elif type == 'storage':
+                elif type_ == 'storage':
                     total_storage += component.disk_size
             
             pc.processor_name   = micro[0].name if micro else False
@@ -130,7 +134,7 @@ class ICTComputer(models.Model):
 
     # Get methods
     def get_component(self, component_type):
-        return self.component_ids.filtered_domain([('type', '=', component_type)])
+        return self.component_ids.filtered_domain([('component_type', '=', component_type)])
     def ups(self):
         return self.get_component('ups')
     def fax(self):
@@ -241,3 +245,27 @@ class ICTComputer(models.Model):
         if partner_ids:
             self.message_subscribe(partner_ids=partner_ids)
         return super(ICTComputer, self).write(vals)
+
+    def action_change_state(self):
+        # Abre un wizard para cambiar estado con motivo
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'change.computer.state.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_computer_id': self.id}
+        }
+    
+    def action_retire(self):
+        self.state = 'retired'
+        self.scrap_date = fields.Date.today()
+
+    def action_start_using(self):
+        self.state = 'in_use'
+
+    def action_send_repair(self):
+        self.state = 'repair'
+
+    def action_retire(self):
+        self.state = 'retired'
+        self.scrap_date = fields.Date.today()
