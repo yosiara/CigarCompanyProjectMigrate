@@ -8,7 +8,7 @@ _logger = logging.getLogger(__name__)
 
 class ICTPhone(models.Model):
     _name = 'ict.phone'
-    _description = 'Mobile Phone Inventory'
+    _description = 'ICT Phone'
     
     name = fields.Char(string='Serial Number/IMEI', required=True)
     brand = fields.Char(string='Brand', required=True)

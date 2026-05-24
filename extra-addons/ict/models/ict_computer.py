@@ -8,7 +8,7 @@ _logger = logging.getLogger(__name__)
 
 class ICTComputer(models.Model):
     _name = 'ict.computer'
-    _description = 'Computer Inventory'
+    _description = 'ICT Computer'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _inherits = {'maintenance.equipment': 'equipment_id'}
 

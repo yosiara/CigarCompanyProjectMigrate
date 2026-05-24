@@ -23,6 +23,7 @@
 
                         <field name="id" invisible="1"/>
                         <group col="4">
+                            <field name="computer_id"/>
                             <field name="component_type" readonly="id != False"/>
                             <field name="inventory_number"
                                    invisible="component_type not in ['monitor','input_device','printer','ups','fax','scanner','speaker']"/>

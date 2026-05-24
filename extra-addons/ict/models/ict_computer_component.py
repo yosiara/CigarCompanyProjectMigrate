@@ -45,7 +45,7 @@ class ICTComputerComponent(models.Model):
     cores_number = fields.Integer()
     # specific ram
     speed = fields.Char()
-    capacity = fields.Char()
+    capacity = fields.Integer()
     slot_used = fields.Integer()
     slot_description = fields.Char()
     # specific storage
