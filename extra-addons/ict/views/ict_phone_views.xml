@@ -12,7 +12,7 @@
                 <field name="model"/>
                 <field name="phone_number"/>
                 <field name="carrier"/>
-                <field name="employee_id"/>
+                <field name="employee_ids"/>
                 <field name="data_plan"/>
                 <field name="data_gb"/>
                 <field name="assignment_date"/>
@@ -38,7 +38,7 @@
                         <field name="model"/>
                         <field name="phone_number"/>
                         <field name="carrier"/>
-                        <field name="employee_id"/>
+                        <field name="employee_ids"/>
                         <field name="data_plan"/>
                         <field name="data_gb"/>
                         <field name="assignment_date"/>
@@ -46,6 +46,7 @@
                         <field name="active"/>
                     </div>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>

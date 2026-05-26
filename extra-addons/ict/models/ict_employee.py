@@ -9,7 +9,7 @@ _logger = logging.getLogger(__name__)
 
 class ICTEmployee(models.Model):
     _name = 'ict.employee'
-    _description = 'ICT Employees'
+    _description = 'ICT Employee'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     domain_user = fields.Char(string='Username *', required=True, tracking=True)
@@ -19,9 +19,9 @@ class ICTEmployee(models.Model):
     hire_date = fields.Date(string='Hire Date', default=fields.Date().today())
     active = fields.Boolean(default=True)
     
-    computer_ids = fields.One2many('ict.computer', 'employee_ids', string='Assigned Computers')
-    phone_ids = fields.One2many('ict.phone', 'employee_id', string='Assigned Phones')
-    
+    phone_ids = fields.Many2many('ict.phone', 'ict_phone_employee_rel', 'employee_id', 'phone_id', 'Phones')
+    computer_ids = fields.Many2many('ict.computer', 'ict_computer_employee_rel', 'employee_id', 'computer_id', 'Computers')
+
     # Related employee fields
     employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee *', required=True, tracking=True)
     name = fields.Char(string="Name *", related='employee_id.name')
@@ -39,9 +39,10 @@ class ICTEmployee(models.Model):
                 employee.work_email = employee.domain_user + '@' + employee.domain_id.name
             else:
                 employee.work_email = False
-            employee.employee_id.sudo().write({
-                'work_email': employee.work_email
-            })
+            employee.employee_id.work_email = employee.work_email
+            # employee.employee_id.sudo().write({
+            #     'work_email': employee.work_email
+            # })
 
     @api.constrains('work_email')
     def _check_email(self):

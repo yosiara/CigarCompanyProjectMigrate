@@ -21,7 +21,7 @@ class ICTPhone(models.Model):
         ('tuenti', 'Tuenti'),
     ], string='Carrier')
     
-    employee_id = fields.Many2one('ict.employee', string='Assigned to')
+    employee_ids = fields.Many2many('ict.employee', 'ict_phone_employee_rel', 'phone_id', 'employee_id', 'Employees')
     data_plan = fields.Boolean(string='Includes Data Plan')
     data_gb = fields.Integer(string='Data GB')
     

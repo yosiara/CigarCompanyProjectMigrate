@@ -53,7 +53,7 @@ class ICTComputer(models.Model):
         ('retired', 'Retired'),
     ], string='Status', default='new')
     
-    employee_ids = fields.Many2many('ict.employee', 'ict_computer_employees_rel', 'computer_id', 'employee_id', 'Assigned Employees')
+    employee_ids = fields.Many2many('ict.employee', 'ict_computer_employee_rel', 'computer_id', 'employee_id', 'Assigned Employees')
     responsible_name = fields.Char(string='Responsible', compute='_compute_responsible', store=True,
                                     help=_("The first employee selected will be considered the team's top manager."))
     inventory_number = fields.Char('Inventory Number')
@@ -105,7 +105,7 @@ class ICTComputer(models.Model):
         for pc in self:
             if pc.employee_ids:
                 responsible = pc.employee_ids[0]
-                pc.employee_id = responsible
+                pc.employee_id = responsible.employee_id
                 if responsible.name != pc.responsible_name:
                     pc.responsible_name = responsible.name
             else:
