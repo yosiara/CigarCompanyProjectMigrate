@@ -9,9 +9,9 @@
             <list>
                 <field name="name"/>
                 <field name="domain_user"/>
-                <field name="work_email"/>
+                <field name="work_email" widget="email"/>
                 <field name="work_phone"/>
-                <field name="mobile_phone"/>
+                <field name="mobile_phone" widget="phone"/>
                 <field name="job_title"/>
                 <field name="department_name"/>
                 <field name="hire_date"/>
@@ -96,16 +96,12 @@
         <field name="context">{'search_default_active': True}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                There is no examples click here to add new It Employee.
+                There is no examples click here to add new ICT Employee.
             </p>
         </field>
     </record>
 
     <!-- Menu ict.employee -->
-    <menuitem id="menu_employees" 
-              name="Employees" 
-              parent="menu_ict_root" 
-              sequence="10"
-              action="ict.action_ict_employee"/>
+    <menuitem id="menu_employees" name="Employees" parent="menu_ict_root" sequence="10" action="ict.action_ict_employee"/>
 
 </odoo>

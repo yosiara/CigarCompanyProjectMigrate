@@ -19,57 +19,52 @@ class ICTComputerComponent(models.Model):
     is_active = fields.Boolean(default=True)
     ocs_external_id = fields.Char(index=True)
 
-    # type = fields.Char(index=True)
     model = fields.Char()
-    model_custom = fields.Char("Custom model")
+    model_custom = fields.Char('Custom model')
     manufacturer = fields.Char()
-    manufacturer_custom = fields.Char("Custom Manufacturer")
-    component_type = fields.Selection(
-        [('board', 'MotherBoard'), ('memory', 'Memory'), ('storage', 'Storage'), ('monitor', 'Monitor'),
-         ('processor', 'Microprocessor'), ('video_card', 'Video Card'), ('sound_card', 'Sound Card'),
-         ('network', 'Network'), ('input_device', 'Input Device'), ('modem', 'Modem'),
-         ('printer', 'Printer'), ('ups', 'UPS'), ('fax', 'Fax'), ('scanner', 'Scanner'), ('speaker', 'Speaker'), ('power_source', 'Power Source')], string='Component Type', default='board'
-    )
+    manufacturer_custom = fields.Char('Custom Manufacturer')
+    component_type = fields.Selection([
+        ('board', 'MotherBoard'), ('memory', 'Memory'), ('storage', 'Storage'), ('monitor', 'Monitor'),
+        ('processor', 'Microprocessor'), ('video_card', 'Video Card'), # ('sound_card', 'Sound Card'), ('network', 'Network'),
+        ('keyboard', 'KeyBoard'), ('mouse', 'Mouse'), # ('modem', 'Modem'), ('fax', 'Fax'), ('input_device', 'Input Device')
+        ('printer', 'Printer'), ('ups', 'UPS'), ('scanner', 'Scanner'), ('speaker', 'Speaker'), 
+        # ('power_source', 'Power Source'),
+    ], string='Type', default='board')
 
     inventory_number = fields.Char('Inventory Number')
     description = fields.Text()
 
     # specific motherboard
-    version = fields.Char()
+    version = fields.Char(domain=[('component_type','=', 'board')])
     # specific monitor
-    manufactured_date = fields.Char()
+    manufactured_date = fields.Char(domain=[('component_type','=', 'monitor')])
     # specific microprocessor
-    frequency = fields.Char()
-    socket_type = fields.Char()
-    architecture = fields.Char()
-    cores_number = fields.Integer()
+    frequency = fields.Char(domain=[('component_type','=', 'processor')])
+    socket_type = fields.Char(domain=[('component_type','=', 'processor')])
+    architecture = fields.Char(domain=[('component_type','=', 'processor')])
+    cores_number = fields.Integer(domain=[('component_type','=', 'processor')])
     # specific ram
-    speed = fields.Char()
-    capacity = fields.Integer()
-    slot_used = fields.Integer()
-    slot_description = fields.Char()
+    speed = fields.Char(domain=[('component_type','=', 'memory')])
+    capacity = fields.Integer(domain=[('component_type','=', 'memory')])
+    slot_used = fields.Integer(domain=[('component_type','=', 'memory')])
+    slot_description = fields.Char(domain=[('component_type','=', 'memory')])
     # specific storage
-    firmware = fields.Char()
-    disk_size = fields.Integer()
+    firmware = fields.Char(domain=[('component_type','=', 'storage')])
+    disk_size = fields.Integer(domain=[('component_type','=', 'storage')])
     storage_type = fields.Selection([
         ('hdd', 'HDD'),
         ('ssd', 'SSD'),
         ('nvme', 'NVMe'),
-    ], string='Storage Type')
+    ], string='Storage Type', domain=[('component_type','=', 'storage')])
     # specific video card
-    memory = fields.Char()
-    chipset = fields.Char()
-    resolution = fields.Char()
-    # specific network
-    # ip = fields.Char()
-    # mac = fields.Char()
-    # status = fields.Char()
-    # speed = fields.Char()
+    memory = fields.Char(domain=[('component_type','=', 'video_card')])
+    chipset = fields.Char(domain=[('component_type','=', 'video_card')])
+    resolution = fields.Char(domain=[('component_type','=', 'video_card')])
     # specific input device
-    interface = fields.Char()
+    # interface = fields.Char(domain=[('component_type','=', 'input_device')])
     # specific printer
-    port = fields.Char()
-    driver = fields.Char()
+    port = fields.Char(domain=[('component_type','=', 'printer')])
+    driver = fields.Char(domain=[('component_type','=', 'printer')])
 
     # specific_properties_str = fields.Text('Specific Properties', compute='_compute_specific_properties')
 

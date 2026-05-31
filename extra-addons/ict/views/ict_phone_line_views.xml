@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- View ict.reports View List -->
-    <record id="view_ict_reports_list" model="ir.ui.view">
-        <field name="name">view.ict.reports.list</field>
-        <field name="model">ict.reports</field>
+    <!-- View ict.phone.line View List -->
+    <record id="view_ict_phone_line_list" model="ir.ui.view">
+        <field name="name">view.ict.phone.line.list</field>
+        <field name="model">ict.phone.line</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
@@ -12,12 +12,12 @@
         </field>
     </record>
 
-    <!-- View ict.reports form -->
-    <record id="view_ict_reports_form" model="ir.ui.view">
-        <field name="name">view.ict.reports.form</field>
-        <field name="model">ict.reports</field>
+    <!-- View ict.phone.line form -->
+    <record id="view_ict_phone_line_form" model="ir.ui.view">
+        <field name="name">view.ict.phone.line.form</field>
+        <field name="model">ict.phone.line</field>
         <field name="arch" type="xml">
-            <form string="ICT Reports">
+            <form string="Ict Phone Line">
                 <sheet>
                     <div class="oe_title">
                         <label for="name"/>
@@ -30,10 +30,10 @@
         </field>
     </record>
 
-    <!-- View ict.reports search -->
-    <record id="view_ict_reports_search" model="ir.ui.view">
-        <field name="name">view.ict.reports.search</field>
-        <field name="model">ict.reports</field>
+    <!-- View ict.phone.line search -->
+    <record id="view_ict_phone_line_search" model="ir.ui.view">
+        <field name="name">view.ict.phone.line.search</field>
+        <field name="model">ict.phone.line</field>
         <field name="arch" type="xml">
             <search>
                 <group expand="1" string="Group By">
@@ -43,18 +43,21 @@
         </field>
     </record>
 
-    <!-- Action ict.reports -->
-    <record id="action_ict_reports" model="ir.actions.act_window">
-        <field name="name">It Reports</field>
-        <field name="res_model">ict.reports</field>
+    <!-- Action ict.phone.line -->
+    <record id="action_ict_phone_line" model="ir.actions.act_window">
+        <field name="name">Phone Lines</field>
+        <field name="res_model">ict.phone.line</field>
         <field name="view_mode">list,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                There is no examples click here to add new It Reports.
+                There is no examples click here to add new Ict Phone Line.
             </p>
         </field>
     </record>
+
+    <!-- Menu ict.phone.line -->
+    <menuitem id="menu_ict_phone_line" name="Lines" parent="menu_ict_phone" sequence="10" action="action_ict_phone_line"/>
 
 </odoo>

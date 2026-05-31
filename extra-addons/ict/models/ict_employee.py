@@ -40,9 +40,6 @@ class ICTEmployee(models.Model):
             else:
                 employee.work_email = False
             employee.employee_id.work_email = employee.work_email
-            # employee.employee_id.sudo().write({
-            #     'work_email': employee.work_email
-            # })
 
     @api.constrains('work_email')
     def _check_email(self):

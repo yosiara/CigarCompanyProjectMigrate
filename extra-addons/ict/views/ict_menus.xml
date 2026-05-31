@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Main menu -->
-    <menuitem id="menu_ict_root"
-              name="ICT"
-              sequence="10"
-              web_icon="ict,static/description/icon.png"/>
+    <menuitem id="menu_ict_root" name="ICT" sequence="1" web_icon="ict,static/description/icon.png"/>
 
-    <!-- Menu ict.computer -->
-    <menuitem id="menu_ict_configuration" 
-              name="Configuration" 
-              parent="menu_ict_root" 
-              sequence="60"/>
+        <!-- Menu ict.computer -->
+        <menuitem id="menu_ict_computer" name="Computers" parent="menu_ict_root" sequence="20"/>
+
+        <!-- Menu ict.phone -->
+        <menuitem id="menu_ict_phone" name="Phones" parent="menu_ict_root" sequence="30"/>
+
+        <!-- Menu ict.configuration -->
+        <menuitem id="menu_ict_configuration" name="Configuration" parent="menu_ict_root" sequence="40"/>
 
 </odoo>

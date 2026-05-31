@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View ict.computer.application List -->
+    <record id="view_ict_computer_application_list" model="ir.ui.view">
+        <field name="name">view.ict.computer.application.list</field>
+        <field name="model">ict.computer.application</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- View ict.computer.application form -->
+    <record id="view_ict_computer_application_form" model="ir.ui.view">
+        <field name="name">view.ict.computer.application.form</field>
+        <field name="model">ict.computer.application</field>
+        <field name="arch" type="xml">
+            <form string="Ict Computer Application">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name..."/>
+                        </h1>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View ict.computer.application search -->
+    <record id="view_ict_computer_application_search" model="ir.ui.view">
+        <field name="name">view.ict.computer.application.search</field>
+        <field name="model">ict.computer.application</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action ict.computer.application -->
+    <record id="action_ict_computer_application" model="ir.actions.act_window">
+        <field name="name">Computer Application</field>
+        <field name="res_model">ict.computer.application</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new ICT Computer Application.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu ict.computer.application -->
+    <menuitem id="menu_ict_computer_application" name="Applications" parent="menu_ict_computer" sequence="15" action="action_ict_computer_application"/>
+
+</odoo>

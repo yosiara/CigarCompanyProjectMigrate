@@ -13,75 +13,80 @@ class ICTComputer(models.Model):
     _inherits = {'maintenance.equipment': 'equipment_id'}
 
     equipment_id = fields.Many2one('maintenance.equipment', string='Related Equipment', required=True,
-        ondelete='cascade', auto_join=True, index=True, help='Equipment-related data of the computer')
+        ondelete='restrict', auto_join=True, index=True, help='Equipment-related data of the computer')
 
-    # Equipment fields
-    # name = fields.Char('Equipment Name', required=True, translate=True)
-    # active = fields.Boolean(default=True)
-    # owner_user_id = fields.Many2one('res.users', string='Owner', tracking=True)
-    # category_id = fields.Many2one('maintenance.equipment.category', string='Equipment Category',
-    #                               tracking=True, group_expand='_read_group_category_ids')
-    # partner_id = fields.Many2one('res.partner', string='Vendor', check_company=True)
-    # partner_ref = fields.Char('Vendor Reference')
-    # location = fields.Char('Location')
-    # model = fields.Char('Model')
-    # serial_no = fields.Char('Serial Number', copy=False)
-    # assign_date = fields.Date('Assigned Date', tracking=True)
-    # cost = fields.Float('Cost')
-    # note = fields.Html('Note')
-    # warranty_date = fields.Date('Warranty Expiration Date')
-    # color = fields.Integer('Color Index')
-    # scrap_date = fields.Date('Scrap Date')
-    # maintenance_ids = fields.One2many('maintenance.request', 'equipment_id')
-    # equipment_properties = fields.Properties('Properties', definition='category_id.equipment_properties_definition', copy=True)
-    # match_serial = fields.Boolean(compute='_compute_match_serial')
+    # Inherited Equipment Fields
+    # # name = fields.Char('Equipment Name', required=True, translate=True)
+    # # active = fields.Boolean(default=True)
+    # # owner_user_id = fields.Many2one('res.users', string='Owner', tracking=True)
+    # # category_id = fields.Many2one('maintenance.equipment.category', string='Equipment Category',
+    # #                               tracking=True, group_expand='_read_group_category_ids')
+    # # partner_id = fields.Many2one('res.partner', string='Vendor', check_company=True)
+    # # partner_ref = fields.Char('Vendor Reference')
+    # # location = fields.Char('Location')
+    # # model = fields.Char('Model')
+    # # serial_no = fields.Char('Serial Number', copy=False)
+    # # assign_date = fields.Date('Assigned Date', tracking=True)
+    # # cost = fields.Float('Cost')
+    # # note = fields.Html('Note')
+    # # warranty_date = fields.Date('Warranty Expiration Date')
+    # # color = fields.Integer('Color Index')
+    # # scrap_date = fields.Date('Scrap Date')
+    # # maintenance_ids = fields.One2many('maintenance.request', 'equipment_id')
+    # # equipment_properties = fields.Properties('Properties', definition='category_id.equipment_properties_definition', copy=True)
+    # # match_serial = fields.Boolean(compute='_compute_match_serial')
 
-    # computer_id = fields.One2many(comodel_name='ict.computer', inverse_name='equipment_id', string='ICT Computer')
-
+    # Hardware
     pc_type = fields.Selection([
         ('desktop', 'Desktop'),
         ('laptop', 'Laptop'),
         ('server', 'Server'),
-    ], string='Type', required=True, default='desktop')
+    ], string='Type *', required=True, default='desktop')
 
-    brand = fields.Char(string='Brand', required=True)
-    purchase_date = fields.Date(string='Purchase Date')
+    brand = fields.Char(string='Brand *', required=True)
+    processor_name = fields.Char(string='Processor', compute='_compute_component', store=True)
+    total_memory_gb = fields.Integer(string='Total Memory (GB)', compute='_compute_component', store=True)
+    total_storage_gb = fields.Integer(string='Total Storage (GB)', compute='_compute_component', store=True)
+
+    component_ids  = fields.One2many('ict.computer.component', 'computer_id', 'Components', domain=[('is_active', '=', True)])
+
+    # Software
+    operating_system = fields.Selection([
+        ('linux', 'Linux'),
+        ('macos', 'MacOS'),
+        ('windows_10', 'Windows 10'),
+        ('windows_11', 'Windows 11'),
+        ('windows_server', 'Windows Server'),
+    ], string='Operating System', default='windows_10')
+
+    os_version = fields.Char(string='OS Version')
+    ip_address = fields.Char(string='IP Address')
+    mac_address = fields.Char(string='MAC Address')
+    uuid = fields.Char()
+    architecture = fields.Char()
+    domain_id = fields.Many2one(string='Domain', comodel_name='mail.alias.domain', default=lambda self: self.env.company.alias_domain_id.id)
+
+    application_ids = fields.One2many('ict.computer.application', 'computer_id', 'Applications')
+
+    # Assignment & Location
+    employee_ids = fields.Many2many('ict.employee', 'ict_computer_employee_rel', 'computer_id', 'employee_id', 'Assigned Employees')
+    responsible_name = fields.Char(string='Responsible', compute='_compute_responsible', store=True, readonly=True,
+                                    help=_("The first employee selected will be considered the team's top manager."))
+    local_name = fields.Char(related='employee_id.department_id.name', string='Location', readonly=True)
+    
+    # General Information
     state = fields.Selection([
         ('new', 'New'),
         ('in_use', 'In Use'),
         ('repair', 'Under Repair'),
         ('retired', 'Retired'),
     ], string='Status', default='new')
-    
-    employee_ids = fields.Many2many('ict.employee', 'ict_computer_employee_rel', 'computer_id', 'employee_id', 'Assigned Employees')
-    responsible_name = fields.Char(string='Responsible', compute='_compute_responsible', store=True,
-                                    help=_("The first employee selected will be considered the team's top manager."))
+
+    purchase_date = fields.Date(string='Purchase Date')
     inventory_number = fields.Char('Inventory Number')
-    seal = fields.Char('Seal')
+    seal = fields.Char()
     ocs_external_id = fields.Integer(index=True)
-    is_a_computer = fields.Boolean('Is an ICT equipment?', default=True)
-
-    component_ids  = fields.One2many('ict.computer.component', 'computer_id', 'Components', domain=[('is_active', '=', True)])
-    application_ids = fields.One2many('ict.computer.application', 'computer_id', 'Applications')
-
-    processor_name = fields.Char(string='Processor', compute='_compute_component', store=True)
-    total_memory_gb = fields.Integer(string='Total Memory (GB)', compute='_compute_component', store=True)
-    total_storage_gb = fields.Integer(string='Total Storage (GB)', compute='_compute_component', store=True)
-
-    operating_system = fields.Selection([
-        ('windows_10', 'Windows 10'),
-        ('windows_11', 'Windows 11'),
-        ('windows_server', 'Windows Server'),
-        ('linux', 'Linux'),
-        ('macos', 'macOS'),
-    ], string='Operating System')
-    os_version = fields.Char()
-    ip_address = fields.Char(string='IP Address')
-    mac_address = fields.Char(string='MAC Address')
-    uuid = fields.Char()
-    architecture = fields.Char()
-    domain = fields.Char()
-
+    
     # qrcode_image = fields.Binary("QRCode", compute='get_qrimage')
 
     # To know the state in the importation...
@@ -95,10 +100,26 @@ class ICTComputer(models.Model):
         ('equipment_id', 'unique(equipment_id)', "Related equipment already exists!"),
     ]
 
-    @api.onchange('equipment_assign_to')
-    def _onchange_equipment_assign_to(self):
-        if self.equipment_assign_to == 'department':
-            self.employee_ids = False
+    # @api.constrains('active')
+    # def _check_no_active_computers(self):
+    #     """Evita archivar un equipo si aún tiene computadoras activas que lo referencian."""
+    #     for record in self:
+    #         if not record.active:
+    #             # Busca computadoras activas que apunten a este equipo.
+    #             active_computers = self.env['computer.computer'].search_count([
+    #                 ('equipment_id', '=', record.id),
+    #                 ('active', '=', True)
+    #             ])
+    #             if active_computers:
+    #                 raise UserError(_(
+    #                     "No se puede archivar el equipo '%s' porque tiene %d computadora(s) activa(s) asociada(s).",
+    #                     record.name, active_computers
+    #                 ))
+
+    # @api.onchange('equipment_assign_to')
+    # def _onchange_equipment_assign_to(self):
+    #     if self.equipment_assign_to == 'department':
+    #         self.employee_ids = False
 
     @api.depends('employee_ids')
     def _compute_responsible(self):
@@ -132,15 +153,15 @@ class ICTComputer(models.Model):
             pc.total_memory_gb  = total_memory
             pc.total_storage_gb = total_storage
 
-    # Get methods
+    # Get Components methods
     def get_component(self, component_type):
         return self.component_ids.filtered_domain([('component_type', '=', component_type)])
     def ups(self):
         return self.get_component('ups')
-    def fax(self):
-        return self.get_component('fax')
-    def modem(self):
-        return self.get_component('modem')
+    # def fax(self):
+    #     return self.get_component('fax')
+    # def modem(self):
+    #     return self.get_component('modem')
     def board(self):
         return self.get_component('board')
     def memory(self):
@@ -159,12 +180,12 @@ class ICTComputer(models.Model):
         return self.get_component('processor')
     def video_card(self):
         return self.get_component('video_card')
-    def sound_card(self):
-        return self.get_component('sound_card')
-    def input_device(self):
-        return self.get_component('input_device')
-    def power_source(self):
-        return self.get_component('power_source')
+    # def sound_card(self):
+    #     return self.get_component('sound_card')
+    # def input_device(self):
+    #     return self.get_component('input_device')
+    # def power_source(self):
+    #     return self.get_component('power_source')
     
     # @api.model
     # def get_kanban_stats(self):
@@ -245,21 +266,7 @@ class ICTComputer(models.Model):
         if partner_ids:
             self.message_subscribe(partner_ids=partner_ids)
         return super(ICTComputer, self).write(vals)
-
-    def action_change_state(self):
-        # Abre un wizard para cambiar estado con motivo
-        return {
-            'type': 'ir.actions.act_window',
-            'res_model': 'change.computer.state.wizard',
-            'view_mode': 'form',
-            'target': 'new',
-            'context': {'default_computer_id': self.id}
-        }
     
-    def action_retire(self):
-        self.state = 'retired'
-        self.scrap_date = fields.Date.today()
-
     def action_start_using(self):
         self.state = 'in_use'
 

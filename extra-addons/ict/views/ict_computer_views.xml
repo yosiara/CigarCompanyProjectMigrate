@@ -221,7 +221,7 @@
                         <!-- Inventario: icono + número -->
                         <div class="hero_inventory">
                             <i class="fa fa-tag"/>
-                            <field name="inventory_number" placeholder="INV-XXXX"/>
+                            <field name="inventory_number" placeholder="INV-XXXXXX"/>
                         </div>
                         <div class="hero_specs">
                             <div class="hero_spec" title="Processor">
@@ -254,43 +254,48 @@
                                 <i class="fa fa-apple" invisible="operating_system != 'macos'"/>
                                 <i class="fa fa-windows" invisible="operating_system == 'linux' or operating_system == 'macos'"/>
                                 <span><field name="operating_system"/></span>
-                            </div> -->                            
+                            </div> -->
                         </div>
                     </div>
 
+                    <group>
+                        <group>
+                            <field name="pc_type"/>
+                            <field name="brand" required="1"/>
+                            <field name="model"/>
+                            <field name="local_name"/>
+                            <field name="responsible_name" widget="badge"/>
+                        </group>
+                        <group>
+                            <field name="operating_system"/>
+                            <field name="os_version"/>
+                            <field name="ip_address" widget="url" placeholder="192.168.1.100"/>
+                            <field name="mac_address" placeholder="00:1A:2B:3C:4D:5E"/>
+                            <field name="domain_id"/>
+                        </group>
+                    </group>
+                    
+                    <group>
+                        <field name="employee_ids" string="Assigned Employees" widget="many2many_tags" options="{'no_create': True}" placeholder="Assign to employees..."/>
+                    </group>
+
+                    
+                    <separator string=" "/>
+                    
                     <notebook class="computer_notebook">
                         <!-- Pestaña 1: General Information -->
-                        <page string="General Information">
+                        <page string="General Information" name="general_information">
                             <group>
-                                <group string="Hardware Configuration">
-                                    <field name="pc_type"/>
-                                    <field name="brand" required="1"/>
-                                    <field name="model"/>
-                                    <field name="processor_name"/>
-                                    <field name="serial_no"/>
-                                </group>
-                                <group string="Software &amp; Network">
-                                    <field name="operating_system"/>
-                                    <field name="os_version"/>
-                                    <field name="ip_address" widget="url" placeholder="192.168.1.100"/>
-                                    <field name="mac_address" placeholder="00:1A:2B:3C:4D:5E"/>
-                                    <field name="domain"/>
-                                </group>
-                                <group string="Assignment &amp; Location">
-                                    <field name="employee_ids" widget="many2many_tags" 
-                                        options="{'no_create': True}" 
-                                        placeholder="Assign to employees..."/>
-                                    <field name="department_id" 
-                                        domain="[('company_id', '=', company_id)]"
-                                        options="{'no_create': True}"/>
-                                    <field name="location"/>
+                                <group>
+                                    <field name="seal"/>
                                     <field name="assign_date" widget="date"/>
+                                    <field name="purchase_date" widget="date"/>
+                                    <field name="architecture"/>
                                     <field name="owner_user_id" options="{'no_create': True}"/>
                                 </group>
-                                <group string="Procurement &amp; Warranty" name="equipment_fields">
+                                <group>
                                     <field name="partner_id" placeholder="Vendor"/>
                                     <field name="cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                    <field name="purchase_date" widget="date"/>
                                     <field name="warranty_date" widget="date"/>
                                     <field name="scrap_date" widget="date"/>
                                     <field name="active" invisible="not context.get('show_inactive')"/>
@@ -299,10 +304,10 @@
                             <field name="note" placeholder="Additional notes..." nolabel="1"/>
                         </page>
 
-                        <!-- Pestaña 2: Components (con contexto corregido) -->
+                        <!-- Pestaña 2: Components -->
                         <page string="Components" name="components">
                             <field name="component_ids">
-                                <list editable="bottom" string="Hardware Components">
+                                <list string="Hardware Components">
                                     <field name="component_type"/>
                                     <field name="name"/>
                                     <field name="manufacturer"/>
@@ -328,7 +333,7 @@
                             </field>
                         </page>
 
-                        <!-- Pestaña 4: Maintenance Requests -->
+                        <!-- Pestaña 4: Maintenance Requests
                         <page string="Maintenance Requests" name="maintenance">
                             <field name="maintenance_ids" readonly="1">
                                 <list>
@@ -341,141 +346,11 @@
                             </field>
                         </page>
 
-                        <!-- Pestaña 5: Properties -->
+                        Pestaña 5: Properties
                         <page string="Properties" name="properties">
                             <field name="equipment_properties"/>
-                        </page>
+                        </page> -->
                     </notebook>
-
-                    <!-- Tarjeta resumen mejorada -->
-                    <!-- <div class="computer_hero">
-                        <div class="hero_icon" t-attf-class="hero_{{pc_type}}">
-                            <i class="fa fa-laptop"  invisible="pc_type != 'laptop'"/>
-                            <i class="fa fa-desktop" invisible="pc_type != 'desktop'"/>
-                            <i class="fa fa-server"  invisible="pc_type != 'server'"/>
-                        </div>
-                        <div class="hero_info">
-                            <h1><field name="name" placeholder="Computer name..."/></h1>
-                            <div class="hero_details">
-                                <span class="brand_model"><field name="brand" placeholder="Brand"/> <field name="model" placeholder="Model"/></span>
-                                <span class="separator">•</span>
-                                <span class="inventory"><i class="fa fa-tag"/> <field name="inventory_number" placeholder="Inventory #"/></span>
-                            </div>
-                        </div>
-                        <div class="hero_specs">
-                            <div class="hero_spec" title="Processor">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
-                                    <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
-                                </svg>
-                                <span><field name="processor_name"/></span>
-                            </div>
-                            <div class="hero_spec" title="Total RAM">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
-                                    <path d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z"/>
-                                </svg>
-                                <span><field name="total_memory_gb"/> GB RAM</span>
-                            </div>
-                            <div class="hero_spec" title="Total Storage">
-                                <i class="fa fa-hdd-o"></i>
-                                <span><field name="total_storage_gb"/> GB Disk</span>
-                            </div>
-
-                            <div class="hero_spec" title="Operating System">
-                                <i class="fa fa-linux" invisible="operating_system != 'linux'"/>
-                                <i class="fa fa-apple" invisible="operating_system != 'macos'"/>
-                                <i class="fa fa-windows" invisible="operating_system == 'linux' or operating_system == 'macos'"/>
-                                <span><field name="operating_system"/></span>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Pestañas organizadas -->
-                    <!-- <notebook class="computer_notebook">
-                        Pestaña 1: Información general
-                        <page string="General Information">
-                            <group>
-                                <group string="Hardware Configuration">
-                                    <field name="pc_type"/>
-                                    <field name="brand" required="1"/>
-                                    <field name="model"/>
-                                    <field name="processor_name" readonly="1" class="oe_inline"/>
-                                    <field name="total_memory_gb" readonly="1"/>
-                                    <field name="total_storage_gb" readonly="1"/>
-                                </group>
-                                <group string="Software &amp; Network">
-                                    <field name="operating_system"/>
-                                    <field name="os_version"/>
-                                    <field name="ip_address" widget="url"/>
-                                    <field name="mac_address"/>
-                                    <field name="uuid"/>
-                                    <field name="domain"/>
-                                </group>
-                            </group>
-                            <group string="Equipment Details &amp; Procurement" name="equipment_fields">
-                                <group>
-                                    <field name="owner_user_id" options="{'no_create': True}"/>
-                                    <field name="category_id" options="{'no_create_edit': True}"/>
-                                    <field name="partner_id" placeholder="Vendor"/>
-                                    <field name="location"/>
-                                    <field name="serial_no"/>
-                                </group>
-                                <group>
-                                    <field name="assign_date" widget="date"/>
-                                    <field name="cost" widget="monetary" options="{'currency_field': 'currency_id'}"/>
-                                    <field name="warranty_date" widget="date"/>
-                                    <field name="scrap_date" widget="date"/>
-                                    <field name="active" invisible="not context.get('show_inactive')"/>
-                                </group>
-                            </group>
-                            <field name="note" placeholder="Additional notes..." nolabel="1"/>
-                        </page>
-
-                        Pestaña 2: Componentes
-                        <page string="Components" name="components">
-                            <field name="component_ids">
-                                <list editable="bottom" string="Hardware Components">
-                                    <field name="component_type"/>
-                                    <field name="name"/>
-                                    <field name="manufacturer"/>
-                                    <field name="model"/>
-                                    <field name="serial_no"/>
-                                    <field name="capacity" string="Capacity (GB)"/>
-                                    <field name="disk_size" string="Disk (GB)"/>
-                                    <field name="speed" string="Speed"/>
-                                    <field name="is_active"/>
-                                </list>
-                            </field>
-                        </page>
-
-                        Pestaña 3: Aplicaciones instaladas
-                        <page string="Applications" name="applications">
-                            <field name="application_ids">
-                                <list string="Software" editable="bottom">
-                                    <field name="name"/>
-                                    <field name="version"/>
-                                    <field name="publisher"/>
-                                </list>
-                            </field>
-                        </page>
-
-                        Pestaña 4: Solicitudes de mantenimiento (heredadas)
-                        <page string="Maintenance Requests" name="maintenance">
-                            <field name="maintenance_ids" readonly="1">
-                                <list>
-                                    <field name="name"/>
-                                    <field name="stage_id"/>
-                                    <field name="user_id"/>
-                                    <field name="request_date"/>
-                                    <field name="close_date"/>
-                                </list>
-                            </field>
-                        </page>
-
-                        Pestaña 5: Propiedades dinámicas
-                        <page string="Properties" name="properties">
-                            <field name="equipment_properties"/>
-                        </page>
-                    </notebook> -->
                 </sheet>
                 <chatter/>
             </form>
@@ -510,13 +385,9 @@
     </record>
 
     <!-- Menu ict.computer -->
-    <menuitem id="menu_computers" 
-              name="Computers" 
-              parent="menu_ict_root" 
-              sequence="20"
-              action="action_ict_computer"/>
+    <menuitem id="menu_ict_computer_computer" name="Computers" parent="menu_ict_computer" sequence="5" action="action_ict_computer"/>
 
-    <!-- Añadir botón para ir a vista IT desde equipment -->
+    <!-- Añadir botón para ir a vista ICT desde equipment -->
     <record id="maintenance_equipment_view_form_inherit_ict" model="ir.ui.view">
         <field name="name">maintenance.equipment.view.form.inherit.ict</field>
         <field name="model">maintenance.equipment</field>

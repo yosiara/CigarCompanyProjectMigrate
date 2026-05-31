@@ -17,13 +17,15 @@
     'data': [
         "security/ir.model.access.csv",
         "views/ict_menus.xml",
+        "views/ict_computer_application_views.xml",
+        "views/ict_computer_component_views.xml",
         "views/ict_computer_views.xml",
+        "views/ict_dashboard.xml",
         "views/ict_employee_views.xml",
         "views/ict_phone_views.xml",
         "views/ict_service_views.xml",
-        "views/ict_dashboard.xml",
-        # 'views/ict_reports_views.xml',
-        "views/ict_computer_component_views.xml"
+        # "views/ict_reports_views.xml",
+        'views/ict_phone_line_views.xml'
     ],
     'assets': {
         'web.assets_backend': [
