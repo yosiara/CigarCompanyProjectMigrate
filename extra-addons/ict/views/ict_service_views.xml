@@ -53,15 +53,20 @@
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                There is no examples click here to add new It Service.
+                There is no examples click here to add new ICT Service.
             </p>
         </field>
     </record>
 
-    <menuitem id="menu_services" 
-              name="Services" 
-              parent="menu_ict_root" 
-              sequence="40"
-              action="action_ict_service"/>
+    <!-- Menu ict.service -->
+    <menuitem id="menu_service_service" name="Services" parent="menu_ict_service" sequence="5" action="action_ict_service"/>
+
+    <!-- survey.survey -->
+    <record id="survey.action_survey_form" model="ir.actions.act_window">
+        <field name="domain">[('create_uid', '=', uid)]</field>
+        <!-- <field name="context">[('search_default_user_id', '=', uid)]</field> -->
+    </record>
+
+    <menuitem id="menu_service_surveys" name="Surveys" parent="menu_ict_service" sequence="10" action="survey.action_survey_form"/>
 
 </odoo>

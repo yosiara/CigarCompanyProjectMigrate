@@ -9,11 +9,11 @@ class ICTComputerApplication(models.Model):
     _description = 'ICT Computer Application'
 
     name = fields.Char('Name', required=True)
-    computer_id = fields.Many2one('ict.computer', 'Computer', ondelete='cascade', index=True)
+    computer_ids = fields.Many2many('ict.computer', 'ict_computer_application_rel', 'application_id', 'computer_id', 'In Computers')
     publisher = fields.Char()
     version = fields.Char()
     ocs_external_id = fields.Integer()
-    notes = fields.Text()
+    installation_help = fields.Html('Installation Help')
 
     # @api.multi
     # def write(self, vals):

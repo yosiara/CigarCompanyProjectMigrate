@@ -66,7 +66,7 @@ class ICTComputer(models.Model):
     architecture = fields.Char()
     domain_id = fields.Many2one(string='Domain', comodel_name='mail.alias.domain', default=lambda self: self.env.company.alias_domain_id.id)
 
-    application_ids = fields.One2many('ict.computer.application', 'computer_id', 'Applications')
+    application_ids = fields.Many2many('ict.computer.application', 'ict_computer_application_rel', 'computer_id', 'application_id', 'Applications')
 
     # Assignment & Location
     employee_ids = fields.Many2many('ict.employee', 'ict_computer_employee_rel', 'computer_id', 'employee_id', 'Assigned Employees')

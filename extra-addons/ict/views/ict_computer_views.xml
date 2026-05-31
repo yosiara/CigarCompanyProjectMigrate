@@ -152,19 +152,20 @@
         <field name="model">ict.computer</field>
         <field name="arch" type="xml">
             <list>
-                <field name="name"/>
+                <field name="name" widget="badge"/>
+                <field name="responsible_name" widget="badge"/>
+                <field name="local_name"/>
                 <field name="pc_type"/>
+                <field name="operating_system"/>
+                <field name="ip_address"/>
                 <field name="brand"/>
                 <field name="model"/>
-                <field name="employee_ids" widget="many2many_tags"/>
+                <field name="processor_name"/>
+                <field name="total_memory_gb" string="Memory (GB)"/>
+                <field name="total_storage_gb" string="Storage (GB)"/>
                 <field name="state"/>
-                <field name="purchase_date"/>
-                <field name="ip_address"/>
-                <!-- <field name="mac_address"/> -->
-                <!-- <field name="department_id"/> -->
-                <field name="active"/>
-                <field name="warranty_date"/>
-                <field name="partner_id"/>
+                <field name="assign_date" string="Asignado"/>
+                <field name="inventory_number" string="INV"/>
             </list>
         </field>
     </record>
@@ -263,7 +264,7 @@
                             <field name="pc_type"/>
                             <field name="brand" required="1"/>
                             <field name="model"/>
-                            <field name="local_name"/>
+                            <field name="local_name" widget="badge"/>
                             <field name="responsible_name" widget="badge"/>
                         </group>
                         <group>
@@ -324,11 +325,10 @@
                         <!-- Pestaña 3: Applications -->
                         <page string="Applications" name="applications">
                             <field name="application_ids">
-                                <list editable="bottom" string="Installed Software">
+                                <list string="Installed Software">
                                     <field name="name"/>
                                     <field name="version"/>
                                     <field name="publisher"/>
-                                    <!-- <field name="install_date" widget="date"/> -->
                                 </list>
                             </field>
                         </page>

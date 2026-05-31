@@ -8,6 +8,8 @@
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="version"/>
+                <field name="publisher"/>
             </list>
         </field>
     </record>
@@ -17,14 +19,35 @@
         <field name="name">view.ict.computer.application.form</field>
         <field name="model">ict.computer.application</field>
         <field name="arch" type="xml">
-            <form string="Ict Computer Application">
+            <form string="Computer Application">
                 <sheet>
                     <div class="oe_title">
-                        <label for="name"/>
                         <h1>
-                            <field name="name" placeholder="Name..."/>
+                            <field name="name" placeholder="Application name..."/>
                         </h1>
                     </div>
+                    
+                    <separator string=" "/>
+
+                    <group>
+                        <group>
+                            <field name="version"/>
+                            <field name="publisher"/>
+                        </group>
+                        <group>
+                            <field name="computer_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+
+                    
+                    <notebook>
+                        
+                        <page string="Installation">
+                            <field name="installation_help" nolabel="1" placeholder="Installation Help"/>
+                        </page>
+                        
+                    </notebook>
+
                 </sheet>
             </form>
         </field>

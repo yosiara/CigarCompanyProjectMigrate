@@ -9,7 +9,10 @@
         <!-- Menu ict.phone -->
         <menuitem id="menu_ict_phone" name="Phones" parent="menu_ict_root" sequence="30"/>
 
+        <!-- Menu ict.service -->
+        <menuitem id="menu_ict_service" name="Services" parent="menu_ict_root" sequence="40"/>
+
         <!-- Menu ict.configuration -->
-        <menuitem id="menu_ict_configuration" name="Configuration" parent="menu_ict_root" sequence="40"/>
+        <menuitem id="menu_ict_configuration" name="Configuration" parent="menu_ict_root" sequence="50"/>
 
 </odoo>
