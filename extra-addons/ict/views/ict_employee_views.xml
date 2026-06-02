@@ -16,8 +16,10 @@
                 <field name="domain_user"/>
                 <field name="department_id"/>
                 <field name="department_name"/>
+                <field name="department_hex_color"/>
                 <field name="employee_id"/>
-                <field name="user_id"/>  <!-- para presencia y chatter -->
+                <field name="user_id"/>
+                <field name="user_status"/>
                 <field name="computer_ids"/>
                 <field name="phone_ids"/>
                 <field name="whatsapp_url"/>
@@ -25,18 +27,18 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_card o_kanban_card_employee"
-                            t-attf-style="border-left: 4px solid #{record.department_id.raw_value and record.department_id.raw_value.color or '#e0e0e0'};">
+                            t-attf-style="border-left: 4px solid #{record.department_hex_color.raw_value or '#e0e0e0'};">
 
                             <!-- ===== CABECERA: presencia + departamento ===== -->
                             <div class="d-flex justify-content-between p-2 pb-0">
                                 <!-- Punto de presencia -->
-                                <t t-set="im_status" t-value="record.user_id.raw_value and record.user_id.raw_value.im_status or 'offline'"/>
+                                <t t-set="im_status" t-value="record.user_status.raw_value or 'offline'"/>
                                 <span class="presence_dot" t-att-class="im_status == 'online' ? 'online' : 'offline'"
                                     t-att-title="im_status == 'online' ? 'Conectado' : 'Desconectado'"/>
                                 <!-- Badge de departamento -->
                                 <span t-if="record.department_name.raw_value"
                                     class="badge rounded-pill"
-                                    t-attf-style="background-color: #{record.department_id.raw_value and record.department_id.raw_value.color or '#aaa'}20; color: {record.department_id.raw_value and record.department_id.raw_value.color or '#555'};">
+                                    t-attf-style="background-color: #{record.department_hex_color.raw_value or '#aaa'}20; color: #{record.department_hex_color.raw_value or '#555'};">
                                     <t t-esc="record.department_name.raw_value"/>
                                 </span>
                             </div>
@@ -52,9 +54,6 @@
                                 <small class="text-muted d-block" t-if="record.job_title.raw_value">
                                     <t t-esc="record.job_title.raw_value"/>
                                 </small>
-                                <!-- <small class="text-muted" t-if="record.hire_date.value">
-                                    <i class="fa fa-calendar-o me-1"/> Desde: <t t-esc="record.hire_date.value" t-options='{"format": "MMM yyyy"}'/>
-                                </small> -->
                                 <small class="text-muted" t-if="record.formatted_hire_date.raw_value">
                                     <i class="fa fa-calendar-o me-1"/> Desde: <t t-esc="record.formatted_hire_date.raw_value"/>
                                 </small>

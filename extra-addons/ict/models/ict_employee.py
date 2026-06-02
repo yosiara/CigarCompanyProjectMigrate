@@ -26,11 +26,12 @@ class ICTEmployee(models.Model):
     employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee *', required=True, tracking=True)
     name = fields.Char(string="Name *", related='employee_id.name')
     user_id = fields.Many2one(related='employee_id.user_id')
+    user_status = fields.Char(related='employee_id.user_id.im_status')
     work_phone = fields.Char(related='employee_id.work_phone', readonly=False, related_sudo=False)
     mobile_phone = fields.Char(related='employee_id.mobile_phone', readonly=False, related_sudo=False)
     job_title = fields.Char(related='employee_id.job_title')
     department_id = fields.Many2one(related='employee_id.department_id')
-    department_name = fields.Char(string='Department', related='department_id.name')
+    department_name = fields.Char(string='Department', related='employee_id.department_id.name')
     image_1920 = fields.Binary(related='employee_id.image_1920', string="Photo", attachment=True)
     
     @api.depends('domain_id', 'domain_user')
@@ -105,3 +106,31 @@ class ICTEmployee(models.Model):
                 'force_email': False,
             },
         }
+
+    department_hex_color = fields.Char(
+        string='Department Hex Color',
+        compute='_compute_department_hex_color',
+        store=False,  # no se almacena, depende del department_id
+    )
+
+    @api.depends('department_id', 'department_id.color')
+    def _compute_department_hex_color(self):
+        """ Diccionario que mapea el índice de color estándar de Odoo a su valor hexadecimal """
+        DEPT_COLOR_PALETTE = {
+            0: '#3b5998',  # azul oscuro (sin color suele ser este)
+            1: '#F06050',  # rojo
+            2: '#F4A460',  # naranja
+            3: '#F7CD1F',  # amarillo
+            4: '#6CC1ED',  # celeste
+            5: '#814968',  # morado
+            6: '#8C8C8C',  # gris
+            7: '#2E86D1',  # azul
+            8: '#20B2AA',  # verde agua
+            9: '#4CAF50',  # verde
+            10: '#D2691E', # marrón
+            11: '#E67E22', # naranja oscuro
+        }
+        
+        for rec in self:
+            color_int = rec.department_id.color
+            rec.department_hex_color = DEPT_COLOR_PALETTE.get(color_int, '#adb5bd')
