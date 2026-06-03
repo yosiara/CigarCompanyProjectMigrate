@@ -27,7 +27,8 @@
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_card o_kanban_card_employee"
-                            t-attf-style="border-left: 4px solid #{record.department_hex_color.raw_value or '#e0e0e0'};">
+                            t-attf-style="--dept-color: #{record.department_hex_color.raw_value or '#adb5bd'};">
+                            <!-- t-attf-style="border-left: 4px solid #{record.department_hex_color.raw_value or '#e0e0e0'};"> -->
 
                             <!-- ===== CABECERA: presencia + departamento ===== -->
                             <div class="d-flex justify-content-between p-2 pb-0">
@@ -50,7 +51,7 @@
                                     t-att-src="kanban_image('hr.employee', 'image_1920', emp_id)"
                                     class="rounded-circle mb-2"
                                     style="width:100px; height:100px; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); object-fit: cover;"/>
-                                <h5 class="mb-0 fw-semibold"><t t-esc="record.name.raw_value"/></h5>
+                                <h5 class="mb-0 employee-name"><t t-esc="record.name.raw_value"/></h5>
                                 <small class="text-muted d-block" t-if="record.job_title.raw_value">
                                     <t t-esc="record.job_title.raw_value"/>
                                 </small>
@@ -61,24 +62,24 @@
 
                             <!-- ===== DATOS DE CONTACTO ===== -->
                             <div class="px-3 pt-3 small contact-info">
-                                <!-- Email con enlace rápido (opcional) -->
-                                <div t-if="record.work_email.raw_value" class="d-flex align-items-center">
+                                <!-- Email -->
+                                <div t-if="record.work_email.value" class="d-flex align-items-center contact-line mb-1">
                                     <i class="fa fa-envelope-o me-2"/>
-                                    <span class="flex-grow-1"><t t-esc="record.work_email.raw_value"/></span>
+                                    <span class="flex-grow-1"><t t-esc="record.work_email.value"/></span>
                                 </div>
                                 <!-- Teléfonos -->
-                                <div t-if="record.work_phone.raw_value or record.mobile_phone.raw_value" class="d-flex align-items-center">
+                                <div t-if="record.work_phone.value or record.mobile_phone.value" class="d-flex align-items-center contact-line mb-1">
                                     <i class="fa fa-phone me-2"/>
                                     <span>
-                                        <t t-esc="record.work_phone.raw_value or ''"/>
-                                        <t t-if="record.work_phone.raw_value and record.mobile_phone.raw_value"> · </t>
-                                        <t t-esc="record.mobile_phone.raw_value or ''"/>
+                                        <t t-esc="record.work_phone.value or ''"/>
+                                        <t t-if="record.work_phone.value and record.mobile_phone.value"> · </t>
+                                        <t t-esc="record.mobile_phone.value or ''"/>
                                     </span>
                                 </div>
                                 <!-- Nombre de usuario -->
-                                <div t-if="record.domain_user.raw_value" class="d-flex align-items-center">
+                                <div t-if="record.domain_user.value" class="d-flex align-items-center contact-line mb-1">
                                     <i class="fa fa-terminal me-2"/>
-                                    <span><t t-esc="record.domain_user.raw_value"/></span>
+                                    <span><t t-esc="record.domain_user.value"/></span>
                                 </div>
                             </div>
 

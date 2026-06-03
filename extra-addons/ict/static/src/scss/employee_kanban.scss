@@ -1,0 +1,205 @@
+.o_kanban_card_employee {
+    --dept-color: #adb5bd; // fallback
+    position: relative;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    overflow: hidden; // para que el pseudoelemento del borde no se salga
+
+    // Borde izquierdo con gradiente
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--dept-color), rgba(255,255,255,0) 90%);
+        opacity: 0.7;
+        transition: opacity 0.3s ease, width 0.3s ease;
+    }
+
+    &:hover {
+        box-shadow: 0 12px 28px rgba(0,0,0,0.1), 0 0 0 1px var(--dept-color, rgba(0,0,0,0.05));
+        transform: translateY(-4px);
+        &::before {
+            opacity: 1;
+            width: 6px;
+        }
+        // Subrayado animado en el nombre
+        .employee-name {
+            background-size: 100% 2px;
+        }
+    }
+
+    // Punto de presencia con doble anillo
+    .presence_dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        &.online {
+            background: #28a745;
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                border-radius: 50%;
+                background: rgba(40,167,69,0.4);
+                animation: pulse-ring 2s infinite;
+                transform: translate(-50%, -50%);
+            }
+            &::before {
+                width: 18px;
+                height: 18px;
+                animation-delay: 0s;
+            }
+            &::after {
+                width: 24px;
+                height: 24px;
+                animation-delay: 1s;
+            }
+        }
+        &.offline {
+            background: #adb5bd;
+        }
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 0.35em 0.65em;
+        // Gradiente sutil en el badge
+        // background: linear-gradient(135deg, var(--dept-color) 0%, lighten(var(--dept-color), 10%) 100%);
+        color: #fff;
+        border: none;
+    }
+
+    // Avatar con anillo del departamento
+    img.rounded-circle {
+        object-fit: cover;
+        border: 3px solid var(--dept-color) !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        }
+    }
+
+    // Nombre con subrayado animado
+    .employee-name {
+        font-weight: 600;
+        display: inline-block;
+        background-image: linear-gradient(to right, var(--dept-color), var(--dept-color));
+        background-size: 0% 2px;
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        transition: background-size 0.3s ease;
+    }
+
+    // Iconos de contacto: zoom suave en hover de la línea
+    .contact-info {
+        .contact-line {
+            transition: transform 0.2s ease, color 0.2s ease;
+            i {
+                transition: transform 0.2s ease;
+            }
+            &:hover {
+                transform: translateX(4px);
+                color: darken(#495057, 10%);
+                i {
+                    transform: scale(1.15);
+                    color: var(--dept-color);
+                }
+            }
+        }
+    }
+
+    // Resumen de dispositivos con iconos destacables
+    .devices-summary {
+        i {
+            color: #6c757d;
+            transition: color 0.2s;
+        }
+        &:hover i {
+            color: var(--dept-color);
+        }
+    }
+
+    // Footer adaptable
+    .kanban-footer {
+        position: relative;
+        // Separadores decorativos cuando hay solo 1 acción (ya con :has)
+        &:has(> a:only-of-type)::before,
+        &:has(> a:only-of-type)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            height: 1px;
+            background: #dee2e6;
+            width: 20%;
+        }
+        &:has(> a:only-of-type)::before {
+            left: 15%;
+        }
+        &:has(> a:only-of-type)::after {
+            right: 15%;
+        }
+
+        .footer-action {
+            color: #6c757d;
+            font-size: 1.2rem;
+            padding: 0.25rem 0.5rem;
+            position: relative;
+            transition: color 0.2s, background 0.2s, transform 0.2s;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: var(--dept-color);
+                opacity: 0;
+                transform: scale(0.8);
+                transition: opacity 0.2s, transform 0.2s;
+                z-index: 0;
+            }
+            i {
+                position: relative;
+                z-index: 1;
+            }
+            &:hover {
+                color: #fff;
+                transform: translateY(-2px);
+                &::before {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+    }
+}
