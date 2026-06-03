@@ -106,8 +106,12 @@
     .contact-info {
         .contact-line {
             transition: transform 0.2s ease, color 0.2s ease;
+            // line-height: 1.4;
             i {
                 transition: transform 0.2s ease;
+                font-size: 0.85rem;
+                width: 14px;
+                text-align: center;
             }
             &:hover {
                 transform: translateX(4px);
@@ -153,13 +157,13 @@
 
         .footer-action {
             color: #6c757d;
-            font-size: 1.2rem;
+            font-size: 1rem;
             padding: 0.25rem 0.5rem;
             position: relative;
             transition: color 0.2s, background 0.2s, transform 0.2s;
             border-radius: 50%;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
