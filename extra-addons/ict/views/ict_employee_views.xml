@@ -5,16 +5,13 @@
         <field name="name">ict.employee.kanban</field>
         <field name="model">ict.employee</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_employee_ict"> <!-- default_group_by="department_id" -->
-                <!-- Campos necesarios para el template -->
+            <kanban class="o_kanban_employee_ict">
                 <field name="name"/>
                 <field name="job_title"/>
-                <field name="hire_date"/>
                 <field name="work_email"/>
                 <field name="work_phone"/>
                 <field name="mobile_phone"/>
                 <field name="domain_user"/>
-                <field name="department_id"/>
                 <field name="department_name"/>
                 <field name="department_hex_color"/>
                 <field name="employee_id"/>
@@ -26,9 +23,8 @@
                 <field name="formatted_hire_date"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_card o_kanban_card_employee"
+                        <div class="o_kanban_card_employee"
                             t-attf-style="--dept-color: #{record.department_hex_color.raw_value or '#adb5bd'};">
-                            <!-- t-attf-style="border-left: 4px solid #{record.department_hex_color.raw_value or '#e0e0e0'};"> -->
 
                             <!-- ===== CABECERA: presencia + departamento ===== -->
                             <div class="d-flex justify-content-between p-2 pb-0">
@@ -49,7 +45,7 @@
                                 <t t-set="emp_id" t-value="record.employee_id.raw_value"/>
                                 <img t-if="emp_id"
                                     t-att-src="kanban_image('hr.employee', 'image_1920', emp_id)"
-                                    class="rounded-circle mb-2"
+                                    class="rounded-circle"
                                     style="width:100px; height:100px; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); object-fit: cover;"/>
                                 <h5 class="mb-0 employee-name"><t t-esc="record.name.raw_value"/></h5>
                                 <small class="text-muted d-block" t-if="record.job_title.raw_value">
@@ -70,10 +66,12 @@
                                 <!-- Teléfonos -->
                                 <div t-if="record.work_phone.value or record.mobile_phone.value" class="d-flex align-items-center contact-line mb-1">
                                     <i class="fa fa-phone me-2"/>
-                                    <span>
-                                        <t t-esc="record.work_phone.value or ''"/>
-                                        <t t-if="record.work_phone.value and record.mobile_phone.value"> · </t>
-                                        <t t-esc="record.mobile_phone.value or ''"/>
+                                    <span class="phone-numbers">
+                                        <t t-if="record.work_phone.value"><span><t t-esc="record.work_phone.value"/></span></t>
+                                        <t t-if="record.work_phone.value and record.mobile_phone.value">
+                                            <span class="phone-separator">·</span>
+                                        </t>
+                                        <t t-if="record.mobile_phone.value"><span><t t-esc="record.mobile_phone.value"/></span></t>
                                     </span>
                                 </div>
                                 <!-- Nombre de usuario -->
@@ -86,12 +84,14 @@
                             <!-- ===== RESUMEN DE DISPOSITIVOS ===== -->
                             <t t-set="computers" t-value="record.computer_ids.raw_value"/>
                             <t t-set="phones" t-value="record.phone_ids.raw_value"/>
-                            <div t-if="computers or phones" class="px-3 py-2 small mt-2 border-top devices-summary">
+                            <div t-if="computers or phones" class="px-3 py-2 small mt-2 devices-summary">
                                 <div class="d-flex align-items-center text-muted">
                                     <t t-if="computers">
                                         <i class="fa fa-desktop me-1"/> <t t-esc="computers.length"/> equipos
                                     </t>
-                                    <t t-if="computers and phones" class="mx-2">·</t>
+                                    <t t-if="computers and phones">
+                                        <span class="device-separator">·</span>
+                                    </t>
                                     <t t-if="phones">
                                         <i class="fa fa-mobile-phone me-1"/> <t t-esc="phones.length"/> teléfonos
                                     </t>
@@ -99,31 +99,26 @@
                             </div>
 
                             <!-- ===== FOOTER: ACCIONES ADAPTATIVAS ===== -->
-                            <div class="kanban-footer border-top mt-1 pt-2 pb-0 px-2 d-flex justify-content-around align-items-center">
+                            <div class="kanban-footer mt-1 p-1 d-flex justify-content-around align-items-center">
                                 <!-- Email siempre que haya correo -->
                                 <a t-if="record.work_email.raw_value"
-                                type="object"
-                                name="action_send_email"
-                                class="btn btn-sm btn-link footer-action"
-                                title="Enviar correo">
+                                    type="object"
+                                    name="action_send_email"
+                                    class="btn btn-sm btn-link footer-action"
+                                    title="Enviar correo">
                                     <i class="fa fa-envelope-o"/>
                                 </a>
                                 <!-- Chatter: solo si es usuario del sistema -->
-                                <a t-if="record.user_id.raw_value"
-                                type="open"
-                                class="btn btn-sm btn-link footer-action"
-                                title="Abrir chatter">
-                                    <i class="fa fa-comments-o"/>
-                                </a>
+                                <widget name="ict_employee_chat"/>
                                 <!-- WhatsApp: solo si hay móvil -->
                                 <a t-if="record.whatsapp_url.raw_value"
-                                t-att-href="record.whatsapp_url.raw_value"
-                                target="_blank"
-                                class="btn btn-sm btn-link footer-action"
-                                title="WhatsApp">
+                                    t-att-href="record.whatsapp_url.raw_value"
+                                    target="_blank"
+                                    class="btn btn-sm btn-link footer-action"
+                                    onclick="event.stopPropagation();"
+                                    title="Abrir WhatsApp">
                                     <i class="fa fa-whatsapp"/>
                                 </a>
-                                <!-- Cuando solo hay un botón, los separadores se añaden con CSS -->
                             </div>
                         </div>
                     </t>
