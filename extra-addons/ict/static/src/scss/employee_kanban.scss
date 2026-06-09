@@ -38,6 +38,8 @@
     .presence_dot {
         width: 12px;
         height: 12px;
+        min-width: 12px;
+        min-height: 12px;
         border-radius: 50%;
         display: inline-block;
         position: relative;
@@ -165,7 +167,8 @@
         background: #f8f9fa;
         box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
         border-radius: 0 0 16px 16px;
-        margin-top: 0.25rem;
+        // margin-top: 0.25rem;
+        margin-top: auto;
 
         // Separadores decorativos cuando hay solo 1 acción (ya con :has)
         &:has(> a:only-of-type)::before,

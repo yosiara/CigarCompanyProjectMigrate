@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ict.OpenChat">
+        <a t-if="props.record.data.user_id and props.record.resId"
+            class="btn btn-sm btn-link footer-action"
+            title="Abrir chat"
+            icon="fa-comments-o"
+            t-on-click.prevent="() => openChat(props.record.resId)"
+            href="#"
+            role="button">
+            <i class="fa fa-comments-o"/>
+        </a>
+    </t>
+</templates>
