@@ -182,26 +182,14 @@
         </field>
     </record>
     
+    <!-- ACTION INHERIT -->
     <record id="planning.planning_action_schedule_by_resource" model="ir.actions.act_window">
-        <field name="name">Schedule by Resource</field>
-        <field name="res_model">planning.slot</field>
-        <field name="path">planning_turei</field>
-        <field name="view_mode">gantt,calendar,list,form,kanban,pivot,graph</field>
-        <field name="mobile_view_mode">calendar</field>
         <field name="context">{
             'planning_expand_resource': 1,
             'planning_expand_role': 1,
             'search_default_my_task': 1,
             'search_default_no_cumplido': 1,
         }</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                No Task found. Let's create one!
-            </p>
-            <p>
-                Schedule your human and material resources across roles, projects and sales orders.
-            </p>
-        </field>
     </record>
 
     <!-- MENUS INHERIT -->
