@@ -3,7 +3,7 @@
     'name': 'ICT',
     'version': '18.1',
     'category': 'Inventory',
-    'summary': 'ICT department management',
+    'summary': 'Information and Communication Technologies',
     'description': """
         Module to manage ICT:
         - Computers and their components

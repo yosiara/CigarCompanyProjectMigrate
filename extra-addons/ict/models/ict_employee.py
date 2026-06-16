@@ -101,7 +101,9 @@ class ICTEmployee(models.Model):
             'default_model': 'ict.employee',
             'default_res_ids': [self.id],
             'default_email_to': self.work_email,
-            'default_partner_ids': [self.employee_id.work_contact_id.id] if self.employee_id.work_contact_id and self.employee_id.work_contact_id.id != self.env.user.partner_id.id else False,
+            'default_partner_ids': [self.employee_id.work_contact_id.id] 
+                                    if self.employee_id.work_contact_id and self.employee_id.work_contact_id.id != self.env.user.partner_id.id 
+                                    else False,
             'default_subject': 'Mensaje de ICT'
         }
         return {
