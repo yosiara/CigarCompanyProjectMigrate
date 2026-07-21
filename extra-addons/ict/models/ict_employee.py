@@ -130,3 +130,13 @@ class ICTEmployee(models.Model):
                 'force_email': False,
             },
         }
+        
+    def action_open_whatsapp(self):
+        self.ensure_one()
+        if self.whatsapp_url:
+            return {
+                'type': 'ir.actions.act_url',
+                'url': self.whatsapp_url,
+                'target': 'new',
+            }
+        return False

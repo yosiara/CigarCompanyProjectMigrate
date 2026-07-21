@@ -1,0 +1,88 @@
+/* Cabecera */
+.o_ict_employee_header {
+    background: #f8f9fc;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e9ecef;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* Avatar */
+.o_ict_avatar img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50% !important;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Grupos de dos columnas con fondo y bordes */
+.o_ict_employee_details {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+.o_ict_group {
+    flex: 1;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 0;
+}
+.o_ict_group .o_group_name {
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+/* Equipos */
+.o_ict_employee_equipment {
+    margin-top: 8px;
+}
+.o_ict_employee_equipment > .o_group {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 12px 16px;
+    border: 1px solid #e9ecef;
+    margin-bottom: 20px;
+}
+.o_ict_equipment_tags .badge {
+    background-color: #e9ecef;
+    color: #2c3e50;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin: 4px;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+.o_ict_equipment_tags .badge:hover {
+    background-color: #dee2e6;
+}
+/* Íconos según el modelo (asumiendo que el badge contiene el nombre) */
+.o_ict_equipment_tags .badge[data-model="ict.computer"]::before,
+.o_ict_equipment_tags .badge:has(span:contains("Computer"))::before {
+    content: "\f108";
+    font-family: "FontAwesome";
+    margin-right: 6px;
+}
+.o_ict_equipment_tags .badge[data-model="ict.phone"]::before,
+.o_ict_equipment_tags .badge:has(span:contains("Phone"))::before {
+    content: "\f095";
+    font-family: "FontAwesome";
+    margin-right: 6px;
+}
+/* Fallback: añadir icono a todos los badges del campo computer_ids */
+.o_ict_employee_equipment field[name="computer_ids"] + .o_field_many2many_tags .badge::before {
+    content: "\f108";
+    font-family: "FontAwesome";
+    margin-right: 6px;
+}
+.o_ict_employee_equipment field[name="phone_ids"] + .o_field_many2many_tags .badge::before {
+    content: "\f095";
+    font-family: "FontAwesome";
+    margin-right: 6px;
+}

@@ -5,13 +5,16 @@
         <field name="name">ict.employee.kanban</field>
         <field name="model">ict.employee</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_employee_ict">
+            <kanban class="o_kanban_employee_ict"> <!-- default_group_by="department_id" -->
+                <!-- Campos necesarios para el template -->
                 <field name="name"/>
                 <field name="job_title"/>
+                <field name="hire_date"/>
                 <field name="work_email"/>
                 <field name="work_phone"/>
                 <field name="mobile_phone"/>
                 <field name="domain_user"/>
+                <field name="department_id"/>
                 <field name="department_name"/>
                 <field name="department_hex_color"/>
                 <field name="employee_id"/>
@@ -23,15 +26,15 @@
                 <field name="formatted_hire_date"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="o_kanban_card_employee"
-                            t-attf-style="--dept-color: #{record.department_hex_color.raw_value or '#adb5bd'};">
+                        <div class="oe_kanban_card o_kanban_card_employee"
+                            t-attf-style="border-left: 4px solid #{record.department_hex_color.raw_value or '#e0e0e0'};">
 
                             <!-- ===== CABECERA: presencia + departamento ===== -->
-                            <div class="d-flex gap-5 justify-content-between p-2 pb-0">
+                            <div class="d-flex justify-content-between p-2 pb-0">
                                 <!-- Punto de presencia -->
                                 <t t-set="im_status" t-value="record.user_status.raw_value or 'offline'"/>
-                                <span class="presence_dot" t-att-class="im_status == 'offline' ? 'online' : 'offline'"
-                                    t-att-title="im_status == 'offline' ? 'Conectado' : 'Desconectado'"/>
+                                <span class="presence_dot" t-att-class="im_status == 'online' ? 'online' : 'offline'"
+                                    t-att-title="im_status == 'online' ? 'Conectado' : 'Desconectado'"/>
                                 <!-- Badge de departamento -->
                                 <span t-if="record.department_name.raw_value"
                                     class="badge rounded-pill"
@@ -45,10 +48,10 @@
                                 <t t-set="emp_id" t-value="record.employee_id.raw_value"/>
                                 <img t-if="emp_id"
                                     t-att-src="kanban_image('hr.employee', 'image_1920', emp_id)"
-                                    class="rounded-circle"
+                                    class="rounded-circle mb-2"
                                     style="width:100px; height:100px; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); object-fit: cover;"/>
-                                <h5 class="mb-0 employee-name text-truncate"><t t-esc="record.name.raw_value"/></h5>
-                                <small class="text-muted d-block text-truncate" t-if="record.job_title.raw_value">
+                                <h5 class="mb-0 fw-semibold"><t t-esc="record.name.raw_value"/></h5>
+                                <small class="text-muted d-block" t-if="record.job_title.raw_value">
                                     <t t-esc="record.job_title.raw_value"/>
                                 </small>
                                 <small class="text-muted" t-if="record.formatted_hire_date.raw_value">
@@ -58,40 +61,36 @@
 
                             <!-- ===== DATOS DE CONTACTO ===== -->
                             <div class="px-3 pt-3 small contact-info">
-                                <!-- Email -->
-                                <div t-if="record.work_email.value" class="d-flex align-items-center contact-line mb-1">
+                                <!-- Email con enlace rápido (opcional) -->
+                                <div t-if="record.work_email.raw_value" class="d-flex align-items-center">
                                     <i class="fa fa-envelope-o me-2"/>
-                                    <span class="flex-grow-1"><t t-esc="record.work_email.value"/></span>
+                                    <span class="flex-grow-1"><t t-esc="record.work_email.raw_value"/></span>
                                 </div>
                                 <!-- Teléfonos -->
-                                <div t-if="record.work_phone.value or record.mobile_phone.value" class="d-flex align-items-center contact-line mb-1">
+                                <div t-if="record.work_phone.raw_value or record.mobile_phone.raw_value" class="d-flex align-items-center">
                                     <i class="fa fa-phone me-2"/>
-                                    <span class="phone-numbers">
-                                        <t t-if="record.work_phone.value"><span><t t-esc="record.work_phone.value"/></span></t>
-                                        <t t-if="record.work_phone.value and record.mobile_phone.value">
-                                            <span class="phone-separator">·</span>
-                                        </t>
-                                        <t t-if="record.mobile_phone.value"><span><t t-esc="record.mobile_phone.value"/></span></t>
+                                    <span>
+                                        <t t-esc="record.work_phone.raw_value or ''"/>
+                                        <t t-if="record.work_phone.raw_value and record.mobile_phone.raw_value"> · </t>
+                                        <t t-esc="record.mobile_phone.raw_value or ''"/>
                                     </span>
                                 </div>
                                 <!-- Nombre de usuario -->
-                                <!-- <div t-if="record.domain_user.value" class="d-flex align-items-center contact-line mb-1">
+                                <div t-if="record.domain_user.raw_value" class="d-flex align-items-center">
                                     <i class="fa fa-terminal me-2"/>
-                                    <span><t t-esc="record.domain_user.value"/></span>
-                                </div> -->
+                                    <span><t t-esc="record.domain_user.raw_value"/></span>
+                                </div>
                             </div>
 
                             <!-- ===== RESUMEN DE DISPOSITIVOS ===== -->
                             <t t-set="computers" t-value="record.computer_ids.raw_value"/>
                             <t t-set="phones" t-value="record.phone_ids.raw_value"/>
-                            <div t-if="computers or phones" class="px-3 py-2 small mt-2 devices-summary">
+                            <div t-if="computers or phones" class="px-3 py-2 small mt-2 border-top devices-summary">
                                 <div class="d-flex align-items-center text-muted">
                                     <t t-if="computers">
                                         <i class="fa fa-desktop me-1"/> <t t-esc="computers.length"/> equipos
                                     </t>
-                                    <t t-if="computers and phones">
-                                        <span class="device-separator">·</span>
-                                    </t>
+                                    <t t-if="computers and phones" class="mx-2">·</t>
                                     <t t-if="phones">
                                         <i class="fa fa-mobile-phone me-1"/> <t t-esc="phones.length"/> teléfonos
                                     </t>
@@ -99,29 +98,31 @@
                             </div>
 
                             <!-- ===== FOOTER: ACCIONES ADAPTATIVAS ===== -->
-                            <t t-set="email" t-value="record.work_email.raw_value"/>
-                            <t t-set="user" t-value="record.user_id.raw_value"/>
-                            <t t-set="whatsapp" t-value="record.whatsapp_url.raw_value"/>
-                            <div t-if="email or user or whatsapp" class="kanban-footer mt-1 p-1 d-flex justify-content-around align-items-center">
+                            <div class="kanban-footer border-top mt-2 pt-2 pb-2 px-2 d-flex justify-content-around align-items-center">
                                 <!-- Email siempre que haya correo -->
-                                <a t-if="email"
-                                    type="object"
-                                    name="action_send_email"
-                                    class="btn btn-sm btn-link footer-action"
-                                    title="Enviar correo">
+                                <a t-if="record.work_email.raw_value"
+                                type="object"
+                                name="action_send_email"
+                                class="btn btn-sm btn-link footer-action"
+                                title="Enviar correo">
                                     <i class="fa fa-envelope-o"/>
                                 </a>
                                 <!-- Chatter: solo si es usuario del sistema -->
-                                <widget t-if="user" name="ict_employee_chat"/>
+                                <a t-if="record.user_id.raw_value"
+                                type="open"
+                                class="btn btn-sm btn-link footer-action"
+                                title="Abrir chatter">
+                                    <i class="fa fa-comments-o"/>
+                                </a>
                                 <!-- WhatsApp: solo si hay móvil -->
-                                <a t-if="whatsapp"
-                                    t-att-href="record.whatsapp_url.raw_value"
-                                    target="_blank"
-                                    class="btn btn-sm btn-link footer-action"
-                                    onclick="event.stopPropagation();"
-                                    title="Abrir WhatsApp">
+                                <a t-if="record.whatsapp_url.raw_value"
+                                t-att-href="record.whatsapp_url.raw_value"
+                                target="_blank"
+                                class="btn btn-sm btn-link footer-action"
+                                title="WhatsApp">
                                     <i class="fa fa-whatsapp"/>
                                 </a>
+                                <!-- Cuando solo hay un botón, los separadores se añaden con CSS -->
                             </div>
                         </div>
                     </t>
@@ -156,54 +157,30 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-                    <!-- Cabecera con foto y nombre -->
-                    <div class="o_ict_employee_header">
-                        <div class="d-flex align-items-center">
-                            <div class="me-3">
-                                <field name="image_1920" widget="image" class="o_ict_avatar" 
-                                    options="{'preview_image': 'image_1920', 'zoom': true}"/>
-                            </div>
-                            <div class="flex-grow-1">
-                                <h2 class="mb-0">
-                                    <field name="name" class="d-inline-block"/>
-                                    <field name="user_status" class="ms-2"/>
-                                </h2>
-                                <div class="text-muted">
-                                    <field name="job_title"/>
-                                    <span class="mx-2">•</span>
-                                    <field name="department_name"/>
-                                </div>
-                            </div>
-                            <div class="btn-toolbar">
-                                <!-- Solo botón de WhatsApp (no redundante) y toggle activo -->
-                                <button class="btn btn-sm btn-outline-success me-2" type="object" 
-                                        name="action_open_whatsapp" title="WhatsApp" icon="fa-whatsapp"/>
-                                <field name="active" widget="boolean_toggle"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Datos en dos columnas con fondo gris y bordes -->
-                    <group class="o_ict_employee_details">
-                        <group string="Datos de cuenta" class="o_ict_group">
-                            <field name="domain_user" placeholder="Usuario de dominio" required="1"/>
-                            <field name="domain_id" placeholder="Dominio" required="1"/>
-                            <field name="hire_date" placeholder="Fecha contratación" widget="date"/>
+                    <group>
+                        <group>
+                            <field name="employee_id"  placeholder="Pepe Antonio Vargas"/>
+                            <field name="domain_user"  placeholder="pepe"/>
+                            <field name="domain_id"    placeholder="turei.co.cu"/>
+                            <field name="work_phone"   placeholder="222"/>
+                            <field name="mobile_phone" placeholder="+53 55555555"/>
                         </group>
-                        <group string="Contacto" class="o_ict_group">
-                            <field name="work_phone" placeholder="Teléfono trabajo" widget="phone"/>
-                            <field name="mobile_phone" placeholder="Teléfono móvil" widget="phone"/>
-                            <field name="work_email" string="Work Email" placeholder="Correo electrónico" widget="email"/>
+                        <group>
+                            <field name="job_title"/>
+                            <field name="department_name"/>
+                            <field name="work_email"/>
+                            <field name="hire_date"/>
+                            <field name="active" widget="boolean_toggle"/>
                         </group>
                     </group>
 
-                    <!-- Equipos asignados con chips e íconos -->
-                    <group name="assignments" class="o_ict_employee_equipment">
-                        <group string="Computadoras asignadas">
-                            <field name="computer_ids" widget="many2many_tags" class="o_ict_equipment_tags"/>
+                    <!-- Equipment Assignments -->
+                    <group name="assignments">
+                        <group string="Assigned Computers">
+                            <field name="computer_ids" widget="many2many_tags" row="2"/>
                         </group>
-                        <group string="Teléfonos asignados">
-                            <field name="phone_ids" widget="many2many_tags" class="o_ict_equipment_tags"/>
+                        <group string="Assigned Phones">
+                            <field name="phone_ids" widget="many2many_tags" row="2"/>
                         </group>
                     </group>
                 </sheet>
@@ -211,7 +188,7 @@
             </form>
         </field>
     </record>
-
+    
     <!-- View ict.employee search -->
     <record id="view_ict_employee_search" model="ir.ui.view">
         <field name="name">view.ict.employee.search</field>

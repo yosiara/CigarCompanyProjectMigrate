@@ -1,0 +1,173 @@
+<!-- Template personalizado para el formulario OWL -->
+<template id="computer_form_renderer" name="ict.ComputerFormRenderer">
+    <div class="o_form_view computer_form_custom">
+        <!-- Header con botones y statusbar -->
+        <header class="o_form_statusbar">
+            <div class="o_statusbar_status">
+                <field name="state" widget="statusbar" statusbar_visible="new,in_use,repair,retired"/>
+            </div>
+            <div class="o_form_buttons_edit">
+                <button class="btn btn-primary" t-on-click="() => onChangeState('in_use')" 
+                        t-attf-class="btn btn-sm" t-if="props.record.data.state === 'new'">
+                    <i class="fa fa-play-circle"/> Start Using
+                </button>
+                <button class="btn btn-warning" t-on-click="() => onChangeState('repair')" 
+                        t-if="props.record.data.state === 'in_use'">
+                    <i class="fa fa-wrench"/> Send to Repair
+                </button>
+                <button class="btn btn-danger" t-on-click="() => onChangeState('retired')" 
+                        t-if="props.record.data.state !== 'retired'">
+                    <i class="fa fa-archive"/> Retire
+                </button>
+            </div>
+        </header>
+
+        <!-- Cuerpo del formulario con diseño moderno -->
+        <div class="o_form_sheet_bg">
+            <div class="o_form_sheet computer-form-sheet">
+                
+                <!-- Tarjeta de resumen (similar al kanban pero más grande) -->
+                <div class="summary-hero">
+                    <div class="hero-icon" t-attf-class="hero-{{props.record.data.type}}">
+                        <i t-attf-class="fa {{
+                            props.record.data.type === 'laptop' ? 'fa-laptop' :
+                            props.record.data.type === 'desktop' ? 'fa-desktop' : 'fa-server'
+                        }}"/>
+                    </div>
+                    <div class="hero-info">
+                        <h1><field name="name" placeholder="Computer name..."/></h1>
+                        <div class="badge-group">
+                            <span class="badge badge-brand"><field name="brand"/></span>
+                            <span class="badge badge-model"><field name="model"/></span>
+                            <span class="badge badge-inv"><field name="inventory_number" placeholder="Inventory #"/></span>
+                        </div>
+                    </div>
+                    <div class="hero-specs">
+                        <div class="spec-item">
+                            <i class="fa fa-microchip"></i>
+                            <span><field name="processor_name" widget="badge"/></span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fa fa-database"></i>
+                            <span><field name="total_memory_gb"/> GB RAM</span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fa fa-hdd-o"></i>
+                            <span><field name="total_storage_gb"/> GB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pestañas (Notebook) con estilo moderno -->
+                <div class="computer-notebook">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#general_info">General</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#components_tab">Components</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#apps_tab">Applications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#maintenance_tab">Maintenance</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#properties_tab">Properties</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <!-- Pestaña General -->
+                        <div class="tab-pane active" id="general_info">
+                            <div class="row">
+                                <div class="col-6">
+                                    <group string="Hardware">
+                                        <field name="type"/>
+                                        <field name="brand"/>
+                                        <field name="model"/>
+                                        <field name="processor_name" readonly="1"/>
+                                        <field name="total_memory_gb" readonly="1"/>
+                                        <field name="total_storage_gb" readonly="1"/>
+                                    </group>
+                                    <group string="Software & Network">
+                                        <field name="operating_system"/>
+                                        <field name="os_version"/>
+                                        <field name="ip_address" widget="url"/>
+                                        <field name="mac_address"/>
+                                        <field name="uuid"/>
+                                    </group>
+                                </div>
+                                <div class="col-6">
+                                    <group string="Equipment Data (from maintenance)">
+                                        <field name="owner_user_id"/>
+                                        <field name="category_id"/>
+                                        <field name="partner_id" placeholder="Vendor"/>
+                                        <field name="location"/>
+                                        <field name="serial_no"/>
+                                        <field name="assign_date"/>
+                                        <field name="cost" widget="monetary"/>
+                                        <field name="warranty_date"/>
+                                    </group>
+                                </div>
+                            </div>
+                            <field name="note" placeholder="Additional notes..." nolabel="1"/>
+                        </div>
+
+                        <!-- Pestaña Componentes -->
+                        <div class="tab-pane" id="components_tab">
+                            <field name="component_ids" context="{'default_computer_id': active_id}">
+                                <tree editable="bottom" create="1" delete="1">
+                                    <field name="component_type" widget="badge"/>
+                                    <field name="name"/>
+                                    <field name="manufacturer"/>
+                                    <field name="model"/>
+                                    <field name="serial_no"/>
+                                    <field name="capacity" string="Capacity"/>
+                                    <field name="disk_size" string="Disk Size"/>
+                                    <field name="is_active"/>
+                                </tree>
+                            </field>
+                        </div>
+
+                        <!-- Pestaña Aplicaciones -->
+                        <div class="tab-pane" id="apps_tab">
+                            <field name="application_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="version"/>
+                                    <field name="publisher"/>
+                                    <field name="install_date"/>
+                                </tree>
+                            </field>
+                        </div>
+
+                        <!-- Pestaña Mantenimiento -->
+                        <div class="tab-pane" id="maintenance_tab">
+                            <field name="maintenance_ids" readonly="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="stage_id"/>
+                                    <field name="user_id"/>
+                                    <field name="request_date"/>
+                                    <field name="close_date"/>
+                                </tree>
+                            </field>
+                        </div>
+
+                        <!-- Pestaña Propiedades dinámicas -->
+                        <div class="tab-pane" id="properties_tab">
+                            <field name="equipment_properties"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatter (mensajes y actividades) -->
+        <div class="o_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread"/>
+        </div>
+    </div>
+</template>

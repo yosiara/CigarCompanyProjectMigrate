@@ -1,0 +1,6 @@
+<template id="computer_form_renderer" name="ict.ComputerFormRenderer" owl="1">
+    <div class="o_form_view">
+        <h1>Custom OWL Form - Works!</h1>
+        <p>Computer: <t t-esc="props.record.data.name"/></p>
+    </div>
+</template>

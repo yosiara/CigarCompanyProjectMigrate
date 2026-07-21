@@ -13,7 +13,7 @@
     """,
     'author': 'Computer Science Specialist, '
     'Yosiel R. Arango Arencibia. ',
-    'depends': ['base', 'web', 'mail', 'hr', 'maintenance'],
+    'depends': ['mail', 'hr', 'maintenance'],
     'data': [
         "security/ir.model.access.csv",
         "views/ict_menus.xml",
@@ -29,17 +29,21 @@
     ],
     'assets': {
         'web.assets_backend': [
+            # Components
             'ict/static/src/components/advanced_search/*',
             'ict/static/src/components/assignment_timeline/*',
             'ict/static/src/components/dashboard/*',
             'ict/static/src/components/dynamic_form/*',
             'ict/static/src/components/live_stats/*',
             'ict/static/src/components/quick_create/*',
-            'ict/static/src/views/computer_kanban/*',
-            'ict/static/src/scss/computer_form.scss',
-            'ict/static/src/scss/employee_kanban.scss',
             'ict/static/src/components/employee_chat/*',
+            # Views
+            'ict/static/src/views/computer_kanban/*',
             'ict/static/src/views/open_chat_hook.js',
+            # Styles
+            'ict/static/src/scss/ict_computer/*.scss',
+            'ict/static/src/scss/ict_employee/*.scss',
+            # Others
             'ict/static/src/store_service_patch.js',
         ],
     },
