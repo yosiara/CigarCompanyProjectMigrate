@@ -37,6 +37,7 @@
             'ict/static/src/components/live_stats/*',
             'ict/static/src/components/quick_create/*',
             'ict/static/src/components/employee_chat/*',
+            'ict/static/src/components/status_badge/*',
             # Views
             'ict/static/src/views/computer_kanban/*',
             'ict/static/src/views/open_chat_hook.js',

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <div t-name="ict.StatusBadgeField" 
+         class="o_ict_user_status" 
+         t-att-data-status="statusLabel">
+        <span class="o_ict_status_dot" t-att-class="statusClass"/>
+    </div>
+</templates>

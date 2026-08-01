@@ -140,3 +140,27 @@ class ICTEmployee(models.Model):
                 'target': 'new',
             }
         return False
+
+    def action_open_facebook(self):
+        self.ensure_one()
+        # Ajusta la URL según tu lógica de negocio
+        # Ejemplo: si el empleado tiene un campo facebook_url
+        if self.employee_id.facebook_url:
+            return {
+                'type': 'ir.actions.act_url',
+                'url': self.employee_id.facebook_url,
+                'target': 'new',
+            }
+        return False
+
+    def action_open_x(self):
+        self.ensure_one()
+        # Ajusta la URL según tu lógica de negocio
+        # Ejemplo: si el empleado tiene un campo x_url
+        if self.employee_id.x_url:
+            return {
+                'type': 'ir.actions.act_url',
+                'url': self.employee_id.x_url,
+                'target': 'new',
+            }
+        return False
