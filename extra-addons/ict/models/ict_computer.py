@@ -82,7 +82,7 @@ class ICTComputer(models.Model):
         ('retired', 'Retired'),
     ], string='Status', default='new')
 
-    purchase_date = fields.Date(string='Purchase Date')
+    purchase_date = fields.Date(string='Purchase Date', default=fields.Date.today())
     inventory_number = fields.Char('Inventory Number')
     seal = fields.Char()
     ocs_external_id = fields.Integer(index=True)
