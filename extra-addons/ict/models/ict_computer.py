@@ -121,6 +121,14 @@ class ICTComputer(models.Model):
     #     if self.equipment_assign_to == 'department':
     #         self.employee_ids = False
 
+    @api.onchange('component_ids')
+    def _onchange_model(self):
+        for component in self.component_ids:
+            type_ = component.component_type
+            if type_ == 'board':
+                self.equipment_id.model = component.model_custom
+                break
+
     @api.depends('employee_ids')
     def _compute_responsible(self):
         for pc in self:
@@ -158,10 +166,6 @@ class ICTComputer(models.Model):
         return self.component_ids.filtered_domain([('component_type', '=', component_type)])
     def ups(self):
         return self.get_component('ups')
-    # def fax(self):
-    #     return self.get_component('fax')
-    # def modem(self):
-    #     return self.get_component('modem')
     def board(self):
         return self.get_component('board')
     def memory(self):
@@ -186,6 +190,10 @@ class ICTComputer(models.Model):
     #     return self.get_component('input_device')
     # def power_source(self):
     #     return self.get_component('power_source')
+    # def fax(self):
+    #     return self.get_component('fax')
+    # def modem(self):
+    #     return self.get_component('modem')
     
     # @api.model
     # def get_kanban_stats(self):

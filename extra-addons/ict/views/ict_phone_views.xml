@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- View ict.phone View List -->
+    <!-- View ict.phone List -->
     <record id="view_ict_phone_list" model="ir.ui.view">
         <field name="name">view.ict.phone.list</field>
         <field name="model">ict.phone</field>
@@ -30,21 +30,26 @@
             <form string="ICT Phone">
                 <sheet>
                     <div class="oe_title">
-                        <label for="name"/>
                         <h1>
-                            <field name="name" placeholder="Name..."/>
+                            <field name="name" placeholder="Serial Number/IMEI..."/>
                         </h1>
-                        <field name="brand"/>
-                        <field name="model"/>
-                        <field name="phone_number"/>
-                        <field name="carrier"/>
-                        <field name="employee_ids"/>
-                        <field name="data_plan"/>
-                        <field name="data_gb"/>
-                        <field name="assignment_date"/>
-                        <field name="state"/>
-                        <field name="active"/>
                     </div>
+                    <group>
+                        <group>
+                            <field name="brand"/>
+                            <field name="model"/>
+                            <field name="phone_number"/>
+                            <field name="carrier"/>
+                            <field name="employee_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="data_plan"/>
+                            <field name="data_gb"/>
+                            <field name="assignment_date"/>
+                            <field name="state"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
                 </sheet>
                 <chatter/>
             </form>

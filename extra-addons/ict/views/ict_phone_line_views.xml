@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- View ict.phone.line View List -->
+    <!-- View ict.phone.line List -->
     <record id="view_ict_phone_line_list" model="ir.ui.view">
         <field name="name">view.ict.phone.line.list</field>
         <field name="model">ict.phone.line</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
+                <field name="phone_number"/>
+                <field name="imsi"/>
+                <field name="sim_card"/>
+                <field name="pin"/>
+                <field name="puk"/>
+                <field name="secondary_language"/>
+                <field name="written_language"/>
+                <field name="sms_cap_plan"/>
+                <field name="calls_cap_plan"/>
+                <field name="roaming_cap_plan"/>
+                <field name="gprs_cap_plan"/>
+                <field name="sms_package"/>
+                <field name="plan_rate"/>
+                <field name="gprs_package"/>
+                <field name="gprs_profile"/>
             </list>
         </field>
     </record>
 
-    <!-- View ict.phone.line form -->
+    <!-- View ict.phone.line Form -->
     <record id="view_ict_phone_line_form" model="ir.ui.view">
         <field name="name">view.ict.phone.line.form</field>
         <field name="model">ict.phone.line</field>
@@ -25,12 +40,33 @@
                             <field name="name" placeholder="Name..."/>
                         </h1>
                     </div>
+                    <group>
+                        <group>
+                            <field name="phone_number"/>
+                            <field name="imsi"/>
+                            <field name="sim_card"/>
+                            <field name="pin"/>
+                            <field name="puk"/>
+                            <field name="secondary_language"/>
+                            <field name="written_language"/>
+                            <field name="sms_cap_plan"/>
+                        </group>
+                        <group>
+                            <field name="calls_cap_plan"/>
+                            <field name="roaming_cap_plan"/>
+                            <field name="gprs_cap_plan"/>
+                            <field name="sms_package"/>
+                            <field name="plan_rate"/>
+                            <field name="gprs_package"/>
+                            <field name="gprs_profile"/>
+                        </group>
+                    </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <!-- View ict.phone.line search -->
+    <!-- View ict.phone.line Search -->
     <record id="view_ict_phone_line_search" model="ir.ui.view">
         <field name="name">view.ict.phone.line.search</field>
         <field name="model">ict.phone.line</field>
@@ -52,7 +88,7 @@
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                There is no examples click here to add new Ict Phone Line.
+                There is no examples click here to add new ICT Phone Line.
             </p>
         </field>
     </record>

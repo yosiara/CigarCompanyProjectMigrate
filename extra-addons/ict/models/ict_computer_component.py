@@ -14,7 +14,6 @@ class ICTComputerComponent(models.Model):
 
     serial_no = fields.Char('Serial No OCS', index=True)
     serial_no_custom = fields.Char('Custom Serial No')
-    name = fields.Char('Name', required=True, index=True)
     computer_id = fields.Many2one('ict.computer', 'Computer', ondelete='cascade', index=True)
     is_active = fields.Boolean(default=True)
     ocs_external_id = fields.Char(index=True)
@@ -29,7 +28,7 @@ class ICTComputerComponent(models.Model):
         ('keyboard', 'KeyBoard'), ('mouse', 'Mouse'), # ('modem', 'Modem'), ('fax', 'Fax'), ('input_device', 'Input Device')
         ('printer', 'Printer'), ('ups', 'UPS'), ('scanner', 'Scanner'), ('speaker', 'Speaker'), 
         # ('power_source', 'Power Source'),
-    ], string='Type', default='board')
+    ], string='Type', required=True, default='board')
 
     inventory_number = fields.Char('Inventory Number')
     description = fields.Text()

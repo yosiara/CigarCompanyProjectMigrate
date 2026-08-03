@@ -263,9 +263,10 @@
                         <group>
                             <field name="pc_type"/>
                             <field name="brand" required="1"/>
-                            <field name="model"/>
+                            <field name="model" invisible="1"/> <!-- Do not remove fields modified using the onchange method -->
                             <field name="local_name" widget="badge"/>
                             <field name="responsible_name" widget="badge"/>
+                            <field name="employee_ids" string="Employees" widget="many2many_tags" options="{'no_create': True}" placeholder="Assign to employees..."/>
                         </group>
                         <group>
                             <field name="operating_system"/>
@@ -276,9 +277,9 @@
                         </group>
                     </group>
                     
-                    <group>
+                    <!-- <group>
                         <field name="employee_ids" string="Assigned Employees" widget="many2many_tags" options="{'no_create': True}" placeholder="Assign to employees..."/>
-                    </group>
+                    </group> -->
 
                     
                     <separator string=" "/>
@@ -310,7 +311,7 @@
                             <field name="component_ids">
                                 <list string="Hardware Components">
                                     <field name="component_type"/>
-                                    <field name="name"/>
+                                    <!-- <field name="name"/> -->
                                     <field name="manufacturer"/>
                                     <field name="model"/>
                                     <field name="serial_no"/>
