@@ -131,7 +131,7 @@
             <field name="model">ict.computer.component</field>
             <field name="arch" type="xml">
                 <list string="Equipment Component List">
-                    <field name="computer_id"/>
+                    <field name="computer_id" column_invisible="context.get('from_computer', False)"/>
                     <field name="component_type" widget="badge"/>
                     <field name="manufacturer"/>
                     <field name="manufacturer_custom"/>

@@ -44,12 +44,12 @@ class ICTComputerComponent(models.Model):
     cores_number = fields.Integer()
     # specific ram
     speed = fields.Char()
-    capacity = fields.Integer()
+    capacity = fields.Integer(string="Capacity (GB)")
     slot_used = fields.Integer()
     slot_description = fields.Char()
     # specific storage
     firmware = fields.Char()
-    disk_size = fields.Integer()
+    disk_size = fields.Integer(string="Disk Size (GB)")
     storage_type = fields.Selection([
         ('hdd', 'HDD'),
         ('ssd', 'SSD'),

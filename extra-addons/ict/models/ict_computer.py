@@ -44,7 +44,7 @@ class ICTComputer(models.Model):
     ], string='Type *', required=True, default='desktop')
 
     brand = fields.Char(string='Brand *', required=True)
-    processor_name = fields.Char(string='Processor', compute='_compute_component', store=True)
+    processor_model = fields.Char(string='Processor', compute='_compute_component', store=True)
     total_memory_gb = fields.Integer(string='Total Memory (GB)', compute='_compute_component', store=True)
     total_storage_gb = fields.Integer(string='Total Storage (GB)', compute='_compute_component', store=True)
 
@@ -157,7 +157,7 @@ class ICTComputer(models.Model):
                 elif type_ == 'storage':
                     total_storage += component.disk_size
             
-            pc.processor_name   = micro[0].name if micro else False
+            pc.processor_model   = micro[0].model_custom if micro else False
             pc.total_memory_gb  = total_memory
             pc.total_storage_gb = total_storage
 
