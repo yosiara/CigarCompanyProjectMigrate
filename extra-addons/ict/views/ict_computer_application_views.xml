@@ -35,7 +35,8 @@
                             <field name="publisher"/>
                         </group>
                         <group>
-                            <field name="computer_ids" widget="many2many_tags"/>
+                            <field name="computer_ids" widget="many2many_tags" readonly="context.get('from_computer', False)"/>
+                            <!-- <field name="computer_ids" /> -->
                         </group>
                     </group>
 

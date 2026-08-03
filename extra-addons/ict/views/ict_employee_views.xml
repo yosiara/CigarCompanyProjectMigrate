@@ -36,7 +36,7 @@
                                 <span t-if="record.department_name.raw_value"
                                     class="badge rounded-pill"
                                     t-attf-style="background-color: #{record.department_hex_color.raw_value or '#aaa'}20; color: #{record.department_hex_color.raw_value or '#555'};">
-                                    <t t-esc="record.department_name.raw_value"/>
+                                    <t t-out="record.department_name.raw_value"/>
                                 </span>
                             </div>
 
@@ -46,13 +46,14 @@
                                 <img t-if="emp_id"
                                     t-att-src="kanban_image('hr.employee', 'image_1920', emp_id)"
                                     class="rounded-circle"
+                                    alt="Employee photo"
                                     style="width:100px; height:100px; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); object-fit: cover;"/>
-                                <h5 class="mb-0 employee-name text-truncate"><t t-esc="record.name.raw_value"/></h5>
+                                <h5 class="mb-0 employee-name text-truncate"><t t-out="record.name.raw_value"/></h5>
                                 <small class="text-muted d-block text-truncate" t-if="record.job_title.raw_value">
-                                    <t t-esc="record.job_title.raw_value"/>
+                                    <t t-out="record.job_title.raw_value"/>
                                 </small>
                                 <small class="text-muted" t-if="record.formatted_hire_date.raw_value">
-                                    <i class="fa fa-calendar-o me-1"/> Desde: <t t-esc="record.formatted_hire_date.raw_value"/>
+                                    <i class="fa fa-calendar-o me-1"/> Desde: <t t-out="record.formatted_hire_date.raw_value"/>
                                 </small>
                             </div>
 
@@ -60,24 +61,24 @@
                             <div class="px-3 pt-3 small contact-info">
                                 <!-- Email -->
                                 <div t-if="record.work_email.value" class="d-flex align-items-center contact-line mb-1">
-                                    <i class="fa fa-envelope-o me-2"/>
-                                    <span class="flex-grow-1"><t t-esc="record.work_email.value"/></span>
+                                    <i class="fa fa-envelope-o me-2" title="Email"/>
+                                    <span class="flex-grow-1"><t t-out="record.work_email.value"/></span>
                                 </div>
                                 <!-- Teléfonos -->
                                 <div t-if="record.work_phone.value or record.mobile_phone.value" class="d-flex align-items-center contact-line mb-1">
-                                    <i class="fa fa-phone me-2"/>
+                                    <i class="fa fa-phone me-2" title="Phone"/>
                                     <span class="phone-numbers">
-                                        <t t-if="record.work_phone.value"><span><t t-esc="record.work_phone.value"/></span></t>
+                                        <t t-if="record.work_phone.value"><span><t t-out="record.work_phone.value"/></span></t>
                                         <t t-if="record.work_phone.value and record.mobile_phone.value">
                                             <span class="phone-separator">·</span>
                                         </t>
-                                        <t t-if="record.mobile_phone.value"><span><t t-esc="record.mobile_phone.value"/></span></t>
+                                        <t t-if="record.mobile_phone.value"><span><t t-out="record.mobile_phone.value"/></span></t>
                                     </span>
                                 </div>
                                 <!-- Nombre de usuario -->
                                 <!-- <div t-if="record.domain_user.value" class="d-flex align-items-center contact-line mb-1">
                                     <i class="fa fa-terminal me-2"/>
-                                    <span><t t-esc="record.domain_user.value"/></span>
+                                    <span><t t-out="record.domain_user.value"/></span>
                                 </div> -->
                             </div>
 
@@ -87,13 +88,13 @@
                             <div t-if="computers or phones" class="px-3 py-2 small mt-2 devices-summary">
                                 <div class="d-flex align-items-center text-muted">
                                     <t t-if="computers">
-                                        <i class="fa fa-desktop me-1"/> <t t-esc="computers.length"/> equipos
+                                        <i class="fa fa-desktop me-1" title="Computer"/> <t t-out="computers.length"/> equipos
                                     </t>
                                     <t t-if="computers and phones">
                                         <span class="device-separator">·</span>
                                     </t>
                                     <t t-if="phones">
-                                        <i class="fa fa-mobile-phone me-1"/> <t t-esc="phones.length"/> teléfonos
+                                        <i class="fa fa-mobile-phone me-1" title="Mobile Phone"/> <t t-out="phones.length"/> teléfonos
                                     </t>
                                 </div>
                             </div>
@@ -108,6 +109,7 @@
                                     type="object"
                                     name="action_send_email"
                                     class="btn btn-sm btn-link footer-action"
+                                    role="button"
                                     title="Enviar correo">
                                     <i class="fa fa-envelope-o"/>
                                 </a>
@@ -119,6 +121,7 @@
                                     target="_blank"
                                     class="btn btn-sm btn-link footer-action"
                                     onclick="event.stopPropagation();"
+                                    role="button"
                                     title="Abrir WhatsApp">
                                     <i class="fa fa-whatsapp"/>
                                 </a>
@@ -174,13 +177,13 @@
                                     <field name="user_status" widget="ict_status_badge"/>
                                 </div>
                                 <!-- Cargo y departamento -->
-                                <div class="o_ict_employee_badges">
+                                <div class="o_ict_employee_badges" invisible="not job_title or not department_name">
                                     <span class="o_ict_badge badge-job">
-                                        <i class="fa fa-briefcase"></i>
+                                        <i class="fa fa-briefcase" title="Job Title"></i>
                                         <field name="job_title"/>
                                     </span>
                                     <span class="o_ict_badge badge-department">
-                                        <i class="fa fa-building"></i>
+                                        <i class="fa fa-building" title="Department"></i>
                                         <field name="department_name"/>
                                     </span>
                                 </div>

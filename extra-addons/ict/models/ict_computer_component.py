@@ -34,36 +34,36 @@ class ICTComputerComponent(models.Model):
     description = fields.Text()
 
     # specific motherboard
-    version = fields.Char(domain=[('component_type','=', 'board')])
+    version = fields.Char()
     # specific monitor
-    manufactured_date = fields.Char(domain=[('component_type','=', 'monitor')])
+    manufactured_date = fields.Char()
     # specific microprocessor
-    frequency = fields.Char(domain=[('component_type','=', 'processor')])
-    socket_type = fields.Char(domain=[('component_type','=', 'processor')])
-    architecture = fields.Char(domain=[('component_type','=', 'processor')])
-    cores_number = fields.Integer(domain=[('component_type','=', 'processor')])
+    frequency = fields.Char()
+    socket_type = fields.Char()
+    architecture = fields.Char()
+    cores_number = fields.Integer()
     # specific ram
-    speed = fields.Char(domain=[('component_type','=', 'memory')])
-    capacity = fields.Integer(domain=[('component_type','=', 'memory')])
-    slot_used = fields.Integer(domain=[('component_type','=', 'memory')])
-    slot_description = fields.Char(domain=[('component_type','=', 'memory')])
+    speed = fields.Char()
+    capacity = fields.Integer()
+    slot_used = fields.Integer()
+    slot_description = fields.Char()
     # specific storage
-    firmware = fields.Char(domain=[('component_type','=', 'storage')])
-    disk_size = fields.Integer(domain=[('component_type','=', 'storage')])
+    firmware = fields.Char()
+    disk_size = fields.Integer()
     storage_type = fields.Selection([
         ('hdd', 'HDD'),
         ('ssd', 'SSD'),
         ('nvme', 'NVMe'),
-    ], string='Storage Type', domain=[('component_type','=', 'storage')])
+    ], string='Storage Type')
     # specific video card
-    memory = fields.Char(domain=[('component_type','=', 'video_card')])
-    chipset = fields.Char(domain=[('component_type','=', 'video_card')])
-    resolution = fields.Char(domain=[('component_type','=', 'video_card')])
+    memory = fields.Char()
+    chipset = fields.Char()
+    resolution = fields.Char()
     # specific input device
     # interface = fields.Char(domain=[('component_type','=', 'input_device')])
     # specific printer
-    port = fields.Char(domain=[('component_type','=', 'printer')])
-    driver = fields.Char(domain=[('component_type','=', 'printer')])
+    port = fields.Char()
+    driver = fields.Char()
 
     # specific_properties_str = fields.Text('Specific Properties', compute='_compute_specific_properties')
 

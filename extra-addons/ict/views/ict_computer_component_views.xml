@@ -29,7 +29,7 @@
                                 <field name="serial_no" readonly="1"/>
                             </group>
                             <group>
-                                <field name="computer_id"/>
+                                <field name="computer_id" readonly="context.get('from_computer', False)"/>
                                 <field name="inventory_number"
                                     invisible="component_type not in ['monitor','input_device','printer','ups','fax','scanner','speaker']"/>
                                 <field name="manufacturer_custom"/>

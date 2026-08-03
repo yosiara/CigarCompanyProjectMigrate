@@ -32,7 +32,7 @@ class ICTEmployee(models.Model):
     mobile_phone = fields.Char(related='employee_id.mobile_phone', readonly=False, related_sudo=False)
     job_title = fields.Char(related='employee_id.job_title')
     department_id = fields.Many2one(related='employee_id.department_id')
-    department_name = fields.Char(string='Department', related='employee_id.department_id.name')
+    department_name = fields.Char(string='Department Name', related='employee_id.department_id.name')
     image_1920 = fields.Binary(related='employee_id.image_1920', string="Photo", attachment=True)
     
     # Fields for views

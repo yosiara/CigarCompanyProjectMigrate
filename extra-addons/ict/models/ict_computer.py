@@ -72,7 +72,7 @@ class ICTComputer(models.Model):
     employee_ids = fields.Many2many('ict.employee', 'ict_computer_employee_rel', 'computer_id', 'employee_id', 'Assigned Employees')
     responsible_name = fields.Char(string='Responsible', compute='_compute_responsible', store=True, readonly=True,
                                     help=_("The first employee selected will be considered the team's top manager."))
-    local_name = fields.Char(related='employee_id.department_id.name', string='Location', readonly=True)
+    local_name = fields.Char(related='employee_id.department_id.name', string='Department Location', readonly=True)
     
     # General Information
     state = fields.Selection([
