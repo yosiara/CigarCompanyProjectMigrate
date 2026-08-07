@@ -39,13 +39,14 @@
             'ict/static/src/components/employee_chat/*',
             'ict/static/src/components/status_badge/*',
             # Views
-            'ict/static/src/views/computer_kanban/*',
-            'ict/static/src/views/open_chat_hook.js',
+            'ict/static/src/views/kanban/kanban_common.scss',
+            'ict/static/src/views/kanban/employee_kanban/*',
+            'ict/static/src/views/kanban/computer_kanban/*',
+            'ict/static/src/views/kanban/phone_kanban/*',
             # Styles
             'ict/static/src/scss/ict_computer/*.scss',
             'ict/static/src/scss/ict_employee/*.scss',
             # Others
-            'ict/static/src/store_service_patch.js',
         ],
     },
     'installable': True,

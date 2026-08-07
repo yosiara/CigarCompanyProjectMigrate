@@ -16,7 +16,7 @@ export class DynamicComputerForm extends Component {
                 ram_gb: 8,
                 storage_gb: 256,
                 employee_id: false,
-                state: "new"
+                state: "available"
             },
             employees: [],
             showAdvanced: false,

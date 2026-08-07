@@ -28,8 +28,8 @@
                             <div t-att-class="'status-badge badge-' + record.state.raw_value">
                                 <span>
                                     <i t-attf-class="fa {{
-                                        record.state.raw_value === 'new' ? 'fa-star' :
-                                        record.state.raw_value === 'in_use' ? 'fa-play-circle' :
+                                        record.state.raw_value === 'available' ? 'fa-star' :
+                                        record.state.raw_value === 'assigned' ? 'fa-play-circle' :
                                         record.state.raw_value === 'repair' ? 'fa-wrench' : 'fa-archive'
                                     }}"></i>
                                     <t t-out="record.state.raw_value.replace('_', ' ').toUpperCase()"/>
@@ -48,7 +48,7 @@
                                 </div>
                                 
                                 <!-- Información del equipo -->
-                                <div class="computer-info">
+                                <div class="equipment-info">
                                     <h3><field name="name"/></h3>
                                     <div class="model">
                                         <field name="brand"/> <field name="model"/>
@@ -178,10 +178,10 @@
             <form string="Computer">
                 <header>
                     <!-- Botones condicionales según estado -->
-                    <button name="action_start_using" type="object" 
+                    <!-- <button name="action_start_using" type="object" 
                             class="btn-primary" 
-                            string="Start Using"
-                            invisible="state in ['in_use', 'retired']"/>
+                            string="Assigned"
+                            invisible="state in ['assigned', 'retired']"/> -->
                     <button name="action_send_repair" type="object" 
                             class="btn-warning" 
                             string="Send to Repair"
@@ -192,8 +192,8 @@
                             confirm="Are you sure you want to retire this computer?"
                             invisible="state == 'retired'"/>
                     <field name="state" widget="statusbar" 
-                        statusbar_visible="new,in_use,repair,retired" 
-                        options="{'clickable': '1'}"/>
+                        statusbar_visible="available,assigned,repair,retired" />
+                        <!-- options="{'clickable': '1'}"/> -->
                 </header>
                 <sheet class="computer_form_sheet">
                     <field name="company_id" invisible="1"/>
@@ -262,10 +262,11 @@
                     <group>
                         <group>
                             <field name="pc_type"/>
-                            <field name="brand" required="1"/>
-                            <field name="model" invisible="1"/> <!-- Do not remove fields modified using the onchange method -->
-                            <field name="local_name" widget="badge"/>
-                            <field name="responsible_name" widget="badge"/>
+                            <field name="brand"/>
+                            <field name="physical_condition"/>
+                            <field name="local_name" widget="badge"/> <field name="responsible_name" widget="badge" class="oe_inline"/>
+                            <!-- <field name="local_name" widget="badge"/> -->
+                            <!-- <field name="responsible_name" widget="badge"/> -->
                             <field name="employee_ids" string="Employees" widget="many2many_tags" options="{'no_create': True}" placeholder="Assign to employees..."/>
                         </group>
                         <group>
@@ -274,6 +275,11 @@
                             <field name="ip_address" widget="url" placeholder="192.168.1.100"/>
                             <field name="mac_address" placeholder="00:1A:2B:3C:4D:5E"/>
                             <field name="domain_id"/>
+                        </group>
+                         <!-- Do not remove fields modified using the onchange method -->
+                        <group>
+                            <field name="model" invisible="1"/>
+                            <field name="state" invisible="1"/>
                         </group>
                     </group>
                     

@@ -31,8 +31,8 @@
                         class="form-control mb-2"
                         t-on-change="search">
                     <option value="">All Status</option>
-                    <option value="new">New</option>
-                    <option value="in_use">In Use</option>
+                    <option value="available">Available</option>
+                    <option value="assigned">Assigned</option>
                     <option value="repair">Under Repair</option>
                     <option value="retired">Retired</option>
                 </select>

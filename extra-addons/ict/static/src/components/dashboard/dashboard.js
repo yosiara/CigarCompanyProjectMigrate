@@ -43,8 +43,8 @@ export class ICTDashboard extends Component {
 
     getStatusClass(state) {
         const classes = {
-            'new': 'text-success',
-            'in_use': 'text-primary',
+            'available': 'text-success',
+            'assigned': 'text-primary',
             'repair': 'text-warning',
             'retired': 'text-danger',
             'available': 'text-success',

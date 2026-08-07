@@ -2,13 +2,13 @@
 import { KanbanRenderer } from "@web/views/kanban/kanban_renderer";
 import { useService } from "@web/core/utils/hooks";
 import { onWillStart, onMounted, useState } from "@odoo/owl";
-import { ComputerKanbanRecord } from "./computer_kanban_record";
+import { PhoneKanbanRecord } from "./phone_kanban_record";
 
-export class ComputerKanbanRenderer extends KanbanRenderer {
-    static template = "ict.ComputerKanbanRenderer";
+export class PhoneKanbanRenderer extends KanbanRenderer {
+    static template = "ict.PhoneKanbanRenderer";
     static components = {
         ...KanbanRenderer.components,
-        KanbanRecord: ComputerKanbanRecord,
+        KanbanRecord: PhoneKanbanRecord,
     };
 
     setup() {
@@ -40,10 +40,10 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
     async loadStats() {
         this.headState.loading = true;
         try {
-            const stats = await this.orm.call("ict.computer", "get_kanban_stats", []);
+            const stats = await this.orm.call("ict.phone", "get_kanban_stats", []);
             
             // Calcular tendencias (ejemplo)
-            const lastMonthStats = await this.orm.call("ict.computer", "get_kanban_stats", [{
+            const lastMonthStats = await this.orm.call("ict.phone", "get_kanban_stats", [{
                 last_month: true
             }]);
             
@@ -114,8 +114,8 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
 
     getStatusClass(status) {
         const classes = {
-            'new': 'success',
-            'in_use': 'info',
+            'available': 'success',
+            'assigned': 'info',
             'repair': 'warning',
             'retired': 'secondary'
         };
@@ -124,8 +124,8 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
 
     getStatusIcon(status) {
         const icons = {
-            'new': 'fa-star',
-            'in_use': 'fa-play-circle',
+            'available': 'fa-star',
+            'assigned': 'fa-play-circle',
             'repair': 'fa-wrench',
             'retired': 'fa-archive'
         };
@@ -136,7 +136,7 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
         // Acción al hacer clic en la tarjeta
         this.action.doAction({
             type: 'ir.actions.act_window',
-            res_model: 'ict.computer',
+            res_model: 'ict.phone',
             res_id: record.id,
             views: [[false, 'form']],
             target: 'current'
@@ -153,11 +153,11 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
             case 'edit':
                 await this.action.doAction({
                     type: 'ir.actions.act_window',
-                    res_model: 'ict.computer',
+                    res_model: 'ict.phone',
                     res_id: recordId,
                     views: [[false, 'form']],
                     target: 'current',
-                    context: { form_view_ref: 'ict_computer.view_ict_computer_form' }
+                    context: { form_view_ref: 'ict_phone.view_ict_phone_form' }
                 });
                 break;
             case 'maintenance':
@@ -171,4 +171,4 @@ export class ComputerKanbanRenderer extends KanbanRenderer {
     }
 }
 
-// ComputerKanbanRenderer.template = "ict.ComputerKanbanRenderer";
+// PhoneKanbanRenderer.template = "ict.PhoneKanbanRenderer";

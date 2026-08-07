@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from odoo import models, fields, api, _
+from odoo import models, fields, api
 from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
@@ -71,16 +71,22 @@ class ICTComputer(models.Model):
     # Assignment & Location
     employee_ids = fields.Many2many('ict.employee', 'ict_computer_employee_rel', 'computer_id', 'employee_id', 'Assigned Employees')
     responsible_name = fields.Char(string='Responsible', compute='_compute_responsible', store=True, readonly=True,
-                                    help=_("The first employee selected will be considered the team's top manager."))
-    local_name = fields.Char(related='employee_id.department_id.name', string='Department Location', readonly=True)
+                                    help="The first employee selected will be considered the team's top manager.")
+    local_name = fields.Char(related='employee_id.department_id.name', string='Dpt. Location', readonly=True)
     
     # General Information
     state = fields.Selection([
-        ('new', 'New'),
-        ('in_use', 'In Use'),
+        ('available', 'Available'),
+        ('assigned', 'Assigned'),
         ('repair', 'Under Repair'),
         ('retired', 'Retired'),
-    ], string='Status', default='new')
+    ], string='Status', default='available', tracking=True)
+    physical_condition = fields.Selection([
+        ('excellent', 'Excellent'),
+        ('good', 'Good'),
+        ('fair', 'Fair'),
+        ('poor', 'Poor'),
+    ], string='Physical Condition', default='good')
 
     purchase_date = fields.Date(string='Purchase Date', default=fields.Date.today())
     inventory_number = fields.Char('Inventory Number')
@@ -99,27 +105,6 @@ class ICTComputer(models.Model):
     _sql_constraints = [
         ('equipment_id', 'unique(equipment_id)', "Related equipment already exists!"),
     ]
-
-    # @api.constrains('active')
-    # def _check_no_active_computers(self):
-    #     """Evita archivar un equipo si aún tiene computadoras activas que lo referencian."""
-    #     for record in self:
-    #         if not record.active:
-    #             # Busca computadoras activas que apunten a este equipo.
-    #             active_computers = self.env['computer.computer'].search_count([
-    #                 ('equipment_id', '=', record.id),
-    #                 ('active', '=', True)
-    #             ])
-    #             if active_computers:
-    #                 raise UserError(_(
-    #                     "No se puede archivar el equipo '%s' porque tiene %d computadora(s) activa(s) asociada(s).",
-    #                     record.name, active_computers
-    #                 ))
-
-    # @api.onchange('equipment_assign_to')
-    # def _onchange_equipment_assign_to(self):
-    #     if self.equipment_assign_to == 'department':
-    #         self.employee_ids = False
 
     @api.onchange('component_ids')
     def _onchange_model(self):
@@ -184,35 +169,6 @@ class ICTComputer(models.Model):
         return self.get_component('processor')
     def video_card(self):
         return self.get_component('video_card')
-    # def sound_card(self):
-    #     return self.get_component('sound_card')
-    # def input_device(self):
-    #     return self.get_component('input_device')
-    # def power_source(self):
-    #     return self.get_component('power_source')
-    # def fax(self):
-    #     return self.get_component('fax')
-    # def modem(self):
-    #     return self.get_component('modem')
-    
-    # @api.model
-    # def get_kanban_stats(self):
-    #     """Get statistics for kanban view"""
-    #     total = self.search_count([('active', '=', True)])
-        
-    #     # Get counts by state
-    #     states = ['new', 'in_use', 'repair', 'retired']
-    #     by_status = {}
-        
-    #     for state in states:
-    #         count = self.search_count([('state', '=', state), ('active', '=', True)])
-    #         if count > 0:
-    #             by_status[state] = count
-        
-    #     return {
-    #         'total': total,
-    #         'by_status': by_status
-    #     }
 
     @api.model
     def get_kanban_stats(self, options=None):
@@ -236,7 +192,7 @@ class ICTComputer(models.Model):
         total = self.search_count(domain)
         
         # Get counts by state
-        states = ['new', 'in_use', 'repair', 'retired']
+        states = ['available', 'assigned', 'repair', 'retired']
         by_status = {}
         
         for state in states:
@@ -275,8 +231,9 @@ class ICTComputer(models.Model):
             self.message_subscribe(partner_ids=partner_ids)
         return super(ICTComputer, self).write(vals)
     
-    def action_start_using(self):
-        self.state = 'in_use'
+    @api.onchange('employee_ids')
+    def _onchange_employee_ids(self):
+        self.state = 'assigned' if self.employee_ids else 'available'
 
     def action_send_repair(self):
         self.state = 'repair'
@@ -284,3 +241,24 @@ class ICTComputer(models.Model):
     def action_retire(self):
         self.state = 'retired'
         self.scrap_date = fields.Date.today()
+
+    # @api.constrains('active')
+    # def _check_no_active_computers(self):
+    #     """Evita archivar un equipo si aún tiene computadoras activas que lo referencian."""
+    #     for record in self:
+    #         if not record.active:
+    #             # Busca computadoras activas que apunten a este equipo.
+    #             active_computers = self.env['computer.computer'].search_count([
+    #                 ('equipment_id', '=', record.id),
+    #                 ('active', '=', True)
+    #             ])
+    #             if active_computers:
+    #                 raise UserError(_(
+    #                     "No se puede archivar el equipo '%s' porque tiene %d computadora(s) activa(s) asociada(s).",
+    #                     record.name, active_computers
+    #                 ))
+
+    # @api.onchange('equipment_assign_to')
+    # def _onchange_equipment_assign_to(self):
+    #     if self.equipment_assign_to == 'department':
+    #         self.employee_ids = False

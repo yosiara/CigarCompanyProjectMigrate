@@ -6,10 +6,9 @@ from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
 
-class ICTReports(models.Model):
+class ICTReports(models.AbstractModel):
     _name = 'ict.reports'
     _description = 'ICT Reports and Statistics'
-    _auto = False  # Don't create DB table
 
     @api.model
     def get_dashboard_stats(self):

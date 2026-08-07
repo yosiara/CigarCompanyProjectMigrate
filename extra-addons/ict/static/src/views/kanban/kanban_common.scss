@@ -27,12 +27,12 @@
             color: white;
         }
         
-        &.status-new {
+        &.status-available {
             background: var(--success-gradient);
             color: #2d3748;
         }
         
-        &.status-in_use {
+        &.status-assigned {
             background: var(--info-gradient);
             color: #2d3748;
         }
@@ -272,8 +272,8 @@
             animation: shimmer 2s infinite;
         }
         
-        &.status-new { background: linear-gradient(to right, #10b981, #059669); }
-        &.status-in_use { background: linear-gradient(to right, #3b82f6, #2563eb); }
+        &.status-available { background: linear-gradient(to right, #10b981, #059669); }
+        &.status-assigned { background: linear-gradient(to right, #3b82f6, #2563eb); }
         &.status-repair { background: linear-gradient(to right, #f59e0b, #d97706); }
         &.status-retired { background: linear-gradient(to right, #6b7280, #4b5563); }
     }
@@ -285,7 +285,7 @@
         z-index: 10;
         
         span {
-            padding: 0.35rem 1rem;
+            padding: 0.35rem 0.7rem;
             border-radius: 2rem;
             font-size: 0.7rem;
             font-weight: 600;
@@ -301,12 +301,12 @@
             }
         }
         
-        &.badge-new span {
+        &.badge-available span {
             background: rgba(16, 185, 129, 0.9);
             color: white;
         }
         
-        &.badge-in_use span {
+        &.badge-assigned span {
             background: rgba(59, 130, 246, 0.9);
             color: white;
         }
@@ -339,25 +339,10 @@
                 justify-content: center;
                 transition: all var(--transition-speed);
                 font-size: 1.75rem;
-                
-                &.icon-laptop {
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    color: white;
-                }
-                
-                &.icon-desktop {
-                    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-                    color: white;
-                }
-                
-                &.icon-server {
-                    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-                    color: white;
-                }
             }
         }
         
-        .computer-info {
+        .equipment-info {
             text-align: center;
             margin-bottom: 1rem;
             

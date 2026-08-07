@@ -1,89 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- View ict.phone List -->
-    <record id="view_ict_phone_list" model="ir.ui.view">
-        <field name="name">view.ict.phone.list</field>
+    <!-- ==================== KANBAN VIEW ==================== -->
+    <record id="view_ict_phone_kanban" model="ir.ui.view">
+        <field name="name">ict.phone.kanban</field>
         <field name="model">ict.phone</field>
         <field name="arch" type="xml">
-            <list>
+            <kanban js_class="phone_kanban">
                 <field name="name"/>
                 <field name="brand"/>
                 <field name="model"/>
                 <field name="phone_number"/>
                 <field name="carrier"/>
-                <field name="employee_ids"/>
-                <field name="data_plan"/>
-                <field name="data_gb"/>
-                <field name="assignment_date"/>
+                <field name="processor_model"/>
+                <field name="ram_gb"/>
+                <field name="storage_gb"/>
+                <field name="state"/>
+                <field name="os"/>
+                <field name="assign_date"/>
+                <field name="ict_employee_name"/>
+                <field name="serial_no"/>
+
+                <templates>
+                    <t t-name="card">
+                        <div class="ict-kanban-card">
+                            <!-- Barra superior según estado -->
+                            <div t-att-class="'status-bar status-' + record.state.raw_value"></div>
+
+                            <!-- Badge de estado -->
+                            <div t-att-class="'status-badge badge-' + record.state.raw_value">
+                                <span>
+                                    <i t-attf-class="fa {{
+                                        record.state.raw_value === 'available' ? 'fa-circle' :
+                                        record.state.raw_value === 'assigned' ? 'fa-check-circle' :
+                                        record.state.raw_value === 'repair' ? 'fa-wrench' : 'fa-archive'
+                                    }}"></i>
+                                    <t t-out="record.state.raw_value.toUpperCase()"/>
+                                </span>
+                            </div>
+
+                            <div class="card-body">
+                                <!-- Icono principal (teléfono) -->
+                                <div class="icon-wrapper">
+                                    <div class="icon-circle icon-phone">
+                                        <i class="fa fa-mobile" title="Mobile"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Información del equipo -->
+                                <div class="equipment-info">
+                                    <h3><field name="name"/></h3>
+                                    <div class="model">
+                                        <field name="brand"/> <field name="model"/>
+                                    </div>
+                                </div>
+
+                                <!-- Especificaciones -->
+                                <div class="specs">
+                                    <span class="spec" t-att-title="'Procesador: ' + record.processor_model.raw_value or 'N/A'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
+                                            <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+                                        </svg>
+                                        <!-- <i class="fa fa-microchip"></i> -->
+                                        <t t-out="record.processor_model.raw_value or 'N/A'"/>
+                                    </span>
+
+                                    <span class="spec" t-att-title="'Memoria RAM: ' + (record.ram_gb.raw_value or '?') + 'GB'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
+                                            <path d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z"/>
+                                        </svg>
+                                        <t t-out="record.ram_gb.raw_value or '?'"/>GB
+                                    </span>
+
+                                    <span class="spec" t-att-title="'Almacenamiento: ' + (record.storage_gb.raw_value or '?') + 'GB'">
+                                        <i class="fa fa-hdd-o"></i>
+                                        <t t-out="record.storage_gb.raw_value or '?'"/>GB
+                                    </span>
+                                </div>
+
+                                <!-- Asignación -->
+                                <div t-if="record.ict_employee_name.raw_value" class="assignment">
+                                    <div class="assignment-content">
+                                        <div class="avatar">
+                                            <span t-out="record.ict_employee_name.raw_value.charAt(0).toUpperCase()"/>
+                                        </div>
+                                        <div class="assignment-info">
+                                            <small>Asignado a</small>
+                                            <span class="employee-name" t-out="record.ict_employee_name.raw_value"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Footer -->
+                            <div class="card-footer">
+                                <!-- Sistema Operativo -->
+                                <span class="footer-item" t-att-title="'Sistema Operativo: ' + (record.os.raw_value ? record.os.raw_value.replace('_', ' ').toUpperCase() : 'Sin instalar')" t-att-class="record.os.raw_value ? 'text-warning' : 'text-muted'">
+                                    <t t-if="record.os.raw_value == 'android'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tux" viewBox="0 0 16 16">
+                                            <path d="M8.996 4.497c.104-.076.1-.168.186-.158s.022.102-.098.207c-.12.104-.308.243-.46.323-.291.152-.631.336-.993.336s-.647-.167-.853-.33c-.102-.082-.186-.162-.248-.221-.11-.086-.096-.207-.052-.204.075.01.087.109.134.153.064.06.144.137.241.214.195.154.454.304.778.304s.702-.19.932-.32c.13-.073.297-.204.433-.304M7.34 3.781c.055-.02.123-.031.174-.003.011.006.024.021.02.034-.012.038-.074.032-.11.05-.032.017-.057.052-.093.054-.034 0-.086-.012-.09-.046-.007-.044.058-.072.1-.089m.581-.003c.05-.028.119-.018.173.003.041.017.106.045.1.09-.004.033-.057.046-.09.045-.036-.002-.062-.037-.093-.053-.036-.019-.098-.013-.11-.051-.004-.013.008-.028.02-.034"/>
+                                            <path fill-rule="evenodd" d="M8.446.019c2.521.003 2.38 2.66 2.364 4.093-.01.939.509 1.574 1.04 2.244.474.56 1.095 1.38 1.45 2.32.29.765.402 1.613.115 2.465a.8.8 0 0 1 .254.152l.001.002c.207.175.271.447.329.698.058.252.112.488.224.615.344.382.494.667.48.922-.015.254-.203.43-.435.57-.465.28-1.164.491-1.586 1.002-.443.527-.99.83-1.505.871a1.25 1.25 0 0 1-1.256-.716v-.001a1 1 0 0 1-.078-.21c-.67.038-1.252-.165-1.718-.128-.687.038-1.116.204-1.506.206-.151.331-.445.547-.808.63-.5.114-1.126 0-1.743-.324-.577-.306-1.31-.278-1.85-.39-.27-.057-.51-.157-.626-.384-.116-.226-.095-.538.07-.988.051-.16.012-.398-.026-.648a2.5 2.5 0 0 1-.037-.369c0-.133.022-.265.087-.386v-.002c.14-.266.368-.377.577-.451s.397-.125.53-.258c.143-.15.27-.374.443-.56q.036-.037.073-.07c-.081-.538.007-1.105.192-1.662.393-1.18 1.223-2.314 1.811-3.014.502-.713.65-1.287.701-2.016.042-.997-.705-3.974 2.112-4.2q.168-.015.321-.013m2.596 10.866-.03.016c-.223.121-.348.337-.427.656-.08.32-.107.733-.13 1.206v.001c-.023.37-.192.824-.31 1.267s-.176.862-.036 1.128v.002c.226.452.608.636 1.051.601s.947-.304 1.36-.795c.474-.576 1.218-.796 1.638-1.05.21-.126.324-.242.333-.4.009-.157-.097-.403-.425-.767-.17-.192-.217-.462-.274-.71-.056-.247-.122-.468-.26-.585l-.001-.001c-.18-.157-.356-.17-.565-.164q-.069.001-.14.005c-.239.275-.805.612-1.197.508-.359-.09-.562-.508-.587-.918m-7.204.03H3.83c-.189.002-.314.09-.44.225-.149.158-.276.382-.445.56v.002h-.002c-.183.184-.414.239-.61.31-.195.069-.353.143-.46.35v.002c-.085.155-.066.378-.029.624.038.245.096.507.018.746v.002l-.001.002c-.157.427-.155.678-.082.822.074.143.235.22.48.272.493.103 1.26.069 1.906.41.583.305 1.168.404 1.598.305.431-.098.712-.369.75-.867v-.002c.029-.292-.195-.673-.485-1.052-.29-.38-.633-.752-.795-1.09v-.002l-.61-1.11c-.21-.286-.43-.462-.68-.5a1 1 0 0 0-.106-.008M9.584 4.85c-.14.2-.386.37-.695.467-.147.048-.302.17-.495.28a1.3 1.3 0 0 1-.74.19.97.97 0 0 1-.582-.227c-.14-.113-.25-.237-.394-.322a3 3 0 0 1-.192-.126c-.063 1.179-.85 2.658-1.226 3.511a5.4 5.4 0 0 0-.43 1.917c-.68-.906-.184-2.066.081-2.568.297-.55.343-.701.27-.649-.266.436-.685 1.13-.848 1.844-.085.372-.1.749.01 1.097.11.349.345.67.766.931.573.351.963.703 1.193 1.015s.302.584.23.777a.4.4 0 0 1-.212.22.7.7 0 0 1-.307.056l.184.235c.094.124.186.249.266.375 1.179.805 2.567.496 3.568-.218.1-.342.197-.664.212-.903.024-.474.05-.896.136-1.245s.244-.634.53-.791a1 1 0 0 1 .138-.061q.005-.045.013-.087c.082-.546.569-.572 1.18-.303.588.266.81.499.71.814h.13c.122-.398-.133-.69-.822-1.025l-.137-.06a2.35 2.35 0 0 0-.012-1.113c-.188-.79-.704-1.49-1.098-1.838-.072-.003-.065.06.081.203.363.333 1.156 1.532.727 2.644a1.2 1.2 0 0 0-.342-.043c-.164-.907-.543-1.66-.735-2.014-.359-.668-.918-2.036-1.158-2.983M7.72 3.503a1 1 0 0 0-.312.053c-.268.093-.447.286-.559.391-.022.021-.05.04-.119.091s-.172.126-.321.238q-.198.151-.13.38c.046.15.192.325.459.476.166.098.28.23.41.334a1 1 0 0 0 .215.133.9.9 0 0 0 .298.066c.282.017.49-.068.673-.173s.34-.233.518-.29c.365-.115.627-.345.709-.564a.37.37 0 0 0-.01-.309c-.048-.096-.148-.187-.318-.257h-.001c-.354-.151-.507-.162-.705-.29-.321-.207-.587-.28-.807-.279m-.89-1.122h-.025a.4.4 0 0 0-.278.135.76.76 0 0 0-.191.334 1.2 1.2 0 0 0-.051.445v.001c.01.162.041.299.102.436.05.116.109.204.183.274l.089-.065.117-.09-.023-.018a.4.4 0 0 1-.11-.161.7.7 0 0 1-.054-.22v-.01a.7.7 0 0 1 .014-.234.4.4 0 0 1 .08-.179q.056-.069.126-.073h.013a.18.18 0 0 1 .123.05c.045.04.08.09.11.162a.7.7 0 0 1 .054.22v.01a.7.7 0 0 1-.002.17 1.1 1.1 0 0 1 .317-.143 1.3 1.3 0 0 0 .002-.194V3.23a1.2 1.2 0 0 0-.102-.437.8.8 0 0 0-.227-.31.4.4 0 0 0-.268-.102m1.95-.155a.63.63 0 0 0-.394.14.9.9 0 0 0-.287.376 1.2 1.2 0 0 0-.1.51v.015q0 .079.01.152c.114.027.278.074.406.138a1 1 0 0 1-.011-.172.8.8 0 0 1 .058-.278.5.5 0 0 1 .139-.2.26.26 0 0 1 .182-.069.26.26 0 0 1 .178.081c.055.054.094.12.124.21.029.086.042.17.04.27l-.002.012a.8.8 0 0 1-.057.277c-.024.059-.089.106-.122.145.046.016.09.03.146.052a5 5 0 0 1 .248.102 1.2 1.2 0 0 0 .244-.763 1.2 1.2 0 0 0-.11-.495.9.9 0 0 0-.294-.37.64.64 0 0 0-.39-.133z"/>
+                                        </svg>
+                                        <t t-out="record.os.raw_value.toUpperCase()"/>
+                                    </t>
+                                    <t t-elif="record.os.raw_value == 'ios'">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16">
+                                            <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
+                                            <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
+                                        </svg>
+                                        <t t-out="record.os.raw_value.replace('ios', 'iOS')"/>
+                                    </t>
+                                    <t t-else="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-windows" viewBox="0 0 16 16">
+                                            <path d="M6.555 1.375 0 2.237v5.45h6.555zM0 13.795l6.555.933V8.313H0zm7.278-5.4.026 6.378L16 16V8.395zM16 0 7.33 1.244v6.414H16z"/>
+                                        </svg>
+                                        <t t-out="record.os.raw_value ? record.os.raw_value.toUpperCase() : '—'"/>
+                                    </t>
+                                </span>
+                                
+                                <!-- IMEI -->
+                                <span class="footer-item" t-att-title="'IMEI: ' + (record.serial_no.raw_value or 'No asignado')" t-att-class="record.serial_no.raw_value ? 'text-primary' : 'text-muted'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ethernet" viewBox="0 0 16 16">
+                                        <path d="M14 13.5v-7a.5.5 0 0 0-.5-.5H12V4.5a.5.5 0 0 0-.5-.5h-1v-.5A.5.5 0 0 0 10 3H6a.5.5 0 0 0-.5.5V4h-1a.5.5 0 0 0-.5.5V6H2.5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5M3.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m2 0h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25zM9.75 11h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-1.5a.25.25 0 0 1 .25-.25m1.75.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v1.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25z"/>
+                                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/>
+                                    </svg>
+                                    <!-- <i class="fa fa-network-wired" t-att-class="record.ip_address.raw_value ? 'text-primary' : 'text-muted'"></i> -->
+                                    <t t-out="record.serial_no.raw_value or '—'"/>
+                                </span>
+                                
+                                <!-- Fecha de asignación -->
+                                <span class="footer-item" t-att-title="'Assigned Date: ' + (record.assign_date.raw_value or 'Sin fecha')" t-att-class="record.assign_date.raw_value ? 'text-success' : 'text-muted'">
+                                    <i class="fa fa-calendar"></i>
+                                    <t t-out="record.assign_date.raw_value ? record.assign_date.raw_value : '-'"/>
+                                </span>
+                            </div>                            
+
+                            <!-- Efecto de brillo -->
+                            <div class="shine-effect"></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ==================== LIST VIEW ==================== -->
+    <record id="view_ict_phone_list" model="ir.ui.view">
+        <field name="name">ict.phone.list</field>
+        <field name="model">ict.phone</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name" widget="badge"/>
+                <field name="brand"/>
+                <field name="model"/>
+                <field name="phone_number"/>
+                <field name="carrier"/>
+                <field name="ict_employee_id"/>
                 <field name="state"/>
                 <field name="active"/>
             </list>
         </field>
     </record>
 
-    <!-- View ict.phone form -->
+    <!-- ==================== FORM VIEW ==================== -->
     <record id="view_ict_phone_form" model="ir.ui.view">
-        <field name="name">view.ict.phone.form</field>
+        <field name="name">ict.phone.form</field>
         <field name="model">ict.phone</field>
         <field name="arch" type="xml">
-            <form string="ICT Phone">
-                <sheet>
-                    <div class="oe_title">
-                        <h1>
-                            <field name="name" placeholder="Serial Number/IMEI..."/>
-                        </h1>
+            <form string="Phone">
+                <header>
+                    <!-- Botones de cambio de estado -->
+                    <button name="action_assign" type="object"
+                            class="btn-primary"
+                            string="Assign"
+                            invisible="state in ['assigned', 'repair', 'retired']"/>
+                    <button name="action_send_repair" type="object"
+                            class="btn-warning"
+                            string="Send to Repair"
+                            invisible="state in ['repair', 'retired']"/>
+                    <button name="action_retire" type="object"
+                            class="btn-danger"
+                            string="Retire"
+                            confirm="Are you sure you want to retire this phone?"
+                            invisible="state == 'retired'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="available,assigned,repair,retired"/>
+                           <!-- options="{'clickable': '1'}"/> -->
+                </header>
+                <sheet class="phone_form_sheet">
+                    <div class="phone_hero">
+                        <!-- Icono tipo teléfono -->
+                        <div class="hero_icon hero_phone">
+                            <i class="fa fa-mobile" title="Mobile"/>
+                        </div>
+                        <!-- Nombre (IMEI/Serial) -->
+                        <div class="hero_name">
+                            <field name="serial_no" placeholder="IMEI or Serial..."/>
+                        </div>
+                        <!-- Especificaciones rápidas -->
+                        <div class="hero_specs">
+                            <span class="hero_spec" title="Número de teléfono">
+                                <i class="fa fa-phone"></i>
+                                <field name="phone_number"/>
+                            </span>
+                            <span class="hero_spec" title="Operador">
+                                <i class="fa fa-signal"></i>
+                                <field name="carrier"/>
+                            </span>
+                            <span class="hero_spec" title="Network Type">
+                                <i class="fa fa-wifi"></i>
+                                <field name="network_type"/> GB
+                            </span>
+                        </div>
                     </div>
+                    
                     <group>
                         <group>
+                            <field name="name"/>
                             <field name="brand"/>
                             <field name="model"/>
-                            <field name="phone_number"/>
-                            <field name="carrier"/>
-                            <field name="employee_ids" widget="many2many_tags" options="{'no_create': True}"/>
                         </group>
                         <group>
-                            <field name="data_plan"/>
-                            <field name="data_gb"/>
-                            <field name="assignment_date"/>
-                            <field name="state"/>
-                            <field name="active"/>
+                            <field name="carrier"/>
+                            <field name="assign_date"/>
+                            <field name="employee_id" invisible="1"/>
+                            <field name="ict_employee_id" string="Assigned Employee" options="{'no_create': True}"/>
                         </group>
                     </group>
+                    
+                    <notebook>
+                        <page string="Notes">
+                            <field name="note" placeholder="Additional notes..."/>
+                        </page>
+                    </notebook>
+                    
                 </sheet>
                 <chatter/>
             </form>
         </field>
     </record>
 
-    <!-- View ict.phone search -->
+    <!-- ==================== SEARCH VIEW ==================== -->
     <record id="view_ict_phone_search" model="ir.ui.view">
-        <field name="name">view.ict.phone.search</field>
+        <field name="name">ict.phone.search</field>
         <field name="model">ict.phone</field>
         <field name="arch" type="xml">
             <search>
                 <group expand="1" string="Group By">
-                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                    <filter string="State" name="state" domain="[]" context="{'group_by':'state'}"/>
+                    <filter string="Carrier" name="carrier" domain="[]" context="{'group_by':'carrier'}"/>
                 </group>
             </search>
         </field>
     </record>
 
-    <!-- Action ict.phone -->
+    <!-- ==================== ACTION ==================== -->
     <record id="action_ict_phone" model="ir.actions.act_window">
         <field name="name">Phones</field>
-        <field name="type">ir.actions.act_window</field>
         <field name="res_model">ict.phone</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                There is no examples click here to add new ICT Phone.
+                No phones yet. Click here to add a new ICT Phone.
             </p>
         </field>
     </record>
 
+    <!-- ==================== MENU ==================== -->
     <menuitem id="menu_phone_phone" name="Phones" parent="menu_ict_phone" sequence="5" action="action_ict_phone"/>
 
 </odoo>
