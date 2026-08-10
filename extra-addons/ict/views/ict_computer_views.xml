@@ -259,13 +259,14 @@
                             <field name="mac_address" placeholder="00:1A:2B:3C:4D:5E"/>
                             <field name="domain_id"/>
                         </group>
-                         <!-- Do not remove fields modified using the onchange method -->
-                        <group invisible="1">
-                            <field name="model"/>
-                            <field name="state"/>
-                        </group>
                     </group>
                     
+                    <!-- Do not remove fields modified using the onchange method -->
+                   <group invisible="1">
+                       <field name="model"/>
+                       <field name="state"/>
+                   </group>
+                   
                     <separator string=" "/>
                     
                     <notebook class="notebook computer_notebook">
