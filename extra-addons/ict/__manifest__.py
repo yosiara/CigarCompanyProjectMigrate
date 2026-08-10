@@ -39,13 +39,16 @@
             'ict/static/src/components/employee_chat/*',
             'ict/static/src/components/status_badge/*',
             # Views
-            'ict/static/src/views/kanban/kanban_common.scss',
+            'ict/static/src/views/kanban/common_kanban.scss',
             'ict/static/src/views/kanban/employee_kanban/*',
             'ict/static/src/views/kanban/computer_kanban/*',
             'ict/static/src/views/kanban/phone_kanban/*',
             # Styles
-            'ict/static/src/scss/ict_computer/*.scss',
-            'ict/static/src/scss/ict_employee/*.scss',
+            'ict/static/src/scss/form/common_form.scss',
+            'ict/static/src/scss/form/computer_form.scss',
+            'ict/static/src/scss/form/employee_form.scss',
+            'ict/static/src/scss/form/phone_form.scss',
+            'ict/static/src/scss/kanban/*.scss',
             # Others
         ],
     },

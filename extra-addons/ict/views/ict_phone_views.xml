@@ -171,10 +171,10 @@
             <form string="Phone">
                 <header>
                     <!-- Botones de cambio de estado -->
-                    <button name="action_assign" type="object"
+                    <!-- <button name="action_assign" type="object"
                             class="btn-primary"
                             string="Assign"
-                            invisible="state in ['assigned', 'repair', 'retired']"/>
+                            invisible="state in ['assigned', 'repair', 'retired']"/> -->
                     <button name="action_send_repair" type="object"
                             class="btn-warning"
                             string="Send to Repair"
@@ -189,7 +189,7 @@
                            <!-- options="{'clickable': '1'}"/> -->
                 </header>
                 <sheet class="phone_form_sheet">
-                    <div class="phone_hero">
+                    <div class="hero phone_hero">
                         <!-- Icono tipo teléfono -->
                         <div class="hero_icon hero_phone">
                             <i class="fa fa-mobile" title="Mobile"/>
@@ -215,21 +215,23 @@
                         </div>
                     </div>
                     
-                    <group>
-                        <group>
+                    <group class="o_ict_phone_details">
+                        <group class="o_ict_group">
                             <field name="name"/>
                             <field name="brand"/>
                             <field name="model"/>
                         </group>
-                        <group>
+                        <group class="o_ict_group">
                             <field name="carrier"/>
                             <field name="assign_date"/>
                             <field name="employee_id" invisible="1"/>
                             <field name="ict_employee_id" string="Assigned Employee" options="{'no_create': True}"/>
                         </group>
                     </group>
+
+                    <separator string=" "/>
                     
-                    <notebook>
+                    <notebook class="notebook phone_notebook">
                         <page string="Notes">
                             <field name="note" placeholder="Additional notes..."/>
                         </page>

@@ -1,0 +1,23 @@
+// Estilos específicos para el formulario de teléfonos
+.phone_form_sheet {
+    @extend %form-sheet-base;
+    
+    .hero.phone_hero {
+        @extend %hero-base;
+        
+        .hero_icon {
+            &.hero_phone { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        }
+    }
+
+    .o_ict_phone_details {
+        @extend %group-base;
+    }
+
+    .notebook.phone_notebook {
+        @extend %notebook-base;
+    }
+
+    @extend %responsive-base;
+    @extend %motion-reduce-base;
+}

@@ -208,12 +208,16 @@
                         </button>
                     </div>
 
-                    <div class="computer_hero">
+                    <div class="hero computer_hero">
                         <!-- Icono del tipo de PC -->
-                        <div class="hero_icon" t-attf-class="hero_{{pc_type}}">
-                            <i class="fa fa-laptop"  title="Laptop" invisible="pc_type != 'laptop'"/>
-                            <i class="fa fa-desktop" title="Desktop" invisible="pc_type != 'desktop'"/>
-                            <i class="fa fa-server"  title="Server" invisible="pc_type != 'server'"/>
+                        <div class="hero_icon hero_laptop" invisible="pc_type != 'laptop'">
+                            <i class="fa fa-laptop" title="Laptop"/>
+                        </div>
+                        <div class="hero_icon hero_desktop" invisible="pc_type != 'desktop'">
+                            <i class="fa fa-desktop" title="Desktop"/>
+                        </div>
+                        <div class="hero_icon hero_server" invisible="pc_type != 'server'">
+                            <i class="fa fa-server" title="Server"/>
                         </div>
                         <!-- Nombre del equipo -->
                         <div class="hero_name">
@@ -259,8 +263,8 @@
                         </div>
                     </div>
 
-                    <group>
-                        <group>
+                    <group class="o_ict_computer_details">
+                        <group class="o_ict_group">
                             <field name="pc_type"/>
                             <field name="brand"/>
                             <field name="physical_condition"/>
@@ -269,7 +273,7 @@
                             <!-- <field name="responsible_name" widget="badge"/> -->
                             <field name="employee_ids" string="Employees" widget="many2many_tags" options="{'no_create': True}" placeholder="Assign to employees..."/>
                         </group>
-                        <group>
+                        <group class="o_ict_group">
                             <field name="operating_system"/>
                             <field name="os_version"/>
                             <field name="ip_address" widget="url" placeholder="192.168.1.100"/>
@@ -290,7 +294,7 @@
                     
                     <separator string=" "/>
                     
-                    <notebook class="computer_notebook">
+                    <notebook class="notebook computer_notebook">
                         <!-- Pestaña 1: General Information -->
                         <page string="General Information" name="general_information">
                             <group>

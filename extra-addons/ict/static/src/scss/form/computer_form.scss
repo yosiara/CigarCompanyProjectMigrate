@@ -1,0 +1,25 @@
+// Estilos específicos para el formulario de computadoras
+.computer_form_sheet {
+    @extend %form-sheet-base;
+    
+    .hero.computer_hero {
+        @extend %hero-base;
+
+        .hero_icon {
+            &.hero_laptop { background: linear-gradient(135deg, #667eea, #764ba2); }
+            &.hero_desktop { background: linear-gradient(135deg, #f093fb, #f5576c); }
+            &.hero_server { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        }
+    }
+
+    .o_ict_computer_details {
+        @extend %group-base;
+    }
+    
+    .notebook.computer_notebook {
+        @extend %notebook-base;
+    }
+
+    @extend %responsive-base;
+    @extend %motion-reduce-base;
+}
