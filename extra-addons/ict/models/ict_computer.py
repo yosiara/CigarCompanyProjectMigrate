@@ -233,7 +233,12 @@ class ICTComputer(models.Model):
     
     @api.onchange('employee_ids')
     def _onchange_employee_ids(self):
-        self.state = 'assigned' if self.employee_ids else 'available'
+        if self.employee_ids:
+            self.state = 'assigned'
+            self.assign_date = fields.Date.today()
+        else:
+            self.state = 'available'
+            self.assign_date = False
 
     def action_send_repair(self):
         self.state = 'repair'

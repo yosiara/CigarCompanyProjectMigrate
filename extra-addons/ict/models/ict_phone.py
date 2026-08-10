@@ -101,7 +101,8 @@ class ICTPhone(models.Model):
     locked = fields.Boolean(string='Locked', help='Locked by carrier or MDM')
     mdm_managed = fields.Boolean(string='MDM Managed')
     
-    # Historial de asignaciones
+    # Asignaciones
+    assign_date = fields.Date('Assigned Date', tracking=True, compute="_compute_assign_date")
     assignment_history_ids = fields.One2many(
         'ict.phone.assignment',
         'phone_id',
@@ -113,11 +114,24 @@ class ICTPhone(models.Model):
         ('unique_equipment', 'unique(equipment_id)', 'This equipment is already linked to a phone.'),
     ]
 
+    @api.depends("ict_employee_id")
+    def _compute_assign_date(self):
+        for phone in self:
+            if phone.ict_employee_id:
+                phone.assign_date = fields.Date.today()
+            else:
+                phone.assign_date = False
+
     # Métodos de cambio de estado
-    def action_assign(self):
-        self.state = 'assigned'
-        if not self.assign_date:
-            self.assign_date = fields.Date.today()
+    @api.onchange('ict_employee_id')
+    def _onchange_employee_id(self):
+        if self.ict_employee_id:
+            self.state = 'assigned'
+        else:
+            self.state = 'available'
+
+    # def action_assign(self):
+    #     self.state = 'assigned'
 
     def action_send_repair(self):
         self.state = 'repair'

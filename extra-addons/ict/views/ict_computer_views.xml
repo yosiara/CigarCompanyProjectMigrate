@@ -129,11 +129,6 @@
                                     <i class="fa fa-calendar"></i>
                                     <t t-out="record.purchase_date.raw_value ? record.purchase_date.raw_value.split('T')[0] : '-'"/>
                                 </span>
-                                
-                                <!-- <span class="footer-item" t-att-title="'Depto: ' + (record.department_name.raw_value ? record.department_name.raw_value : 'Sin asignar')">
-                                    <i class="fa fa-building" t-att-class="record.department_name.raw_value ? 'text-warning' : 'text-muted'"></i>
-                                    <t t-out="record.department_name.raw_value ? record.department_name.raw_value : '—'"/>
-                                </span> -->
                             </div>
                             
                             <!-- Efecto de brillo -->
@@ -178,10 +173,6 @@
             <form string="Computer">
                 <header>
                     <!-- Botones condicionales según estado -->
-                    <!-- <button name="action_start_using" type="object" 
-                            class="btn-primary" 
-                            string="Assigned"
-                            invisible="state in ['assigned', 'retired']"/> -->
                     <button name="action_send_repair" type="object" 
                             class="btn-warning" 
                             string="Send to Repair"
@@ -245,21 +236,6 @@
                                 <i class="fa fa-hdd-o"></i>
                                 <span><field name="total_storage_gb"/> GB Disk</span>
                             </div>
-                            <!-- Nuevo: indicador de garantía -->
-                            <!-- <div class="hero_spec warranty" title="Warranty expiration">
-                                <i class="fa fa-calendar-check-o"></i>
-                                <span t-if="record.warranty_date" t-att-class="{'text-warning': record.warranty_date < (new Date().toISOString().split('T')[0])}">
-                                    <field name="warranty_date" widget="date"/>
-                                </span>
-                                <span t-else="">No warranty</span>
-                            </div> -->
-
-                            <!-- <div class="hero_spec" title="Operating System">
-                                <i class="fa fa-linux" invisible="operating_system != 'linux'"/>
-                                <i class="fa fa-apple" invisible="operating_system != 'macos'"/>
-                                <i class="fa fa-windows" invisible="operating_system == 'linux' or operating_system == 'macos'"/>
-                                <span><field name="operating_system"/></span>
-                            </div> -->
                         </div>
                     </div>
 
@@ -268,9 +244,12 @@
                             <field name="pc_type"/>
                             <field name="brand"/>
                             <field name="physical_condition"/>
-                            <field name="local_name" widget="badge"/> <field name="responsible_name" widget="badge" class="oe_inline"/>
-                            <!-- <field name="local_name" widget="badge"/> -->
-                            <!-- <field name="responsible_name" widget="badge"/> -->
+                            <!-- Badges informativos de responsabilidad -->
+                            <label for='local_name' string="Responsible"/>
+                            <div class="d-flex flex-wrap gap-2">
+                                <field name="local_name" widget="badge" class="oe_inline"/>
+                                <field name="responsible_name" widget="badge" class="oe_inline"/>
+                            </div>
                             <field name="employee_ids" string="Employees" widget="many2many_tags" options="{'no_create': True}" placeholder="Assign to employees..."/>
                         </group>
                         <group class="o_ict_group">
@@ -281,16 +260,11 @@
                             <field name="domain_id"/>
                         </group>
                          <!-- Do not remove fields modified using the onchange method -->
-                        <group>
-                            <field name="model" invisible="1"/>
-                            <field name="state" invisible="1"/>
+                        <group invisible="1">
+                            <field name="model"/>
+                            <field name="state"/>
                         </group>
                     </group>
-                    
-                    <!-- <group>
-                        <field name="employee_ids" string="Assigned Employees" widget="many2many_tags" options="{'no_create': True}" placeholder="Assign to employees..."/>
-                    </group> -->
-
                     
                     <separator string=" "/>
                     
@@ -318,29 +292,12 @@
 
                         <!-- Pestaña 2: Components -->
                         <page string="Components" name="components">
-                            <field name="component_ids" context="{'default_computer_id': id, 'from_computer': True}">
-                                <!-- <list string="Hardware Components">
-                                    <field name="component_type"/>
-                                    <field name="manufacturer"/>
-                                    <field name="model"/>
-                                    <field name="serial_no"/>
-                                    <field name="capacity" string="Capacity (GB)"/>
-                                    <field name="disk_size" string="Disk (GB)"/>
-                                    <field name="speed" string="Speed"/>
-                                    <field name="is_active"/>
-                                </list> -->
-                            </field>
+                            <field name="component_ids" context="{'default_computer_id': id, 'from_computer': True}"/>
                         </page>
 
                         <!-- Pestaña 3: Applications -->
                         <page string="Applications" name="applications">
-                            <field name="application_ids" context="{'default_computer_ids': [id], 'from_computer': True}">
-                                <!-- <list string="Installed Software">
-                                    <field name="name"/>
-                                    <field name="version"/>
-                                    <field name="publisher"/>
-                                </list> -->
-                            </field>
+                            <field name="application_ids" context="{'default_computer_ids': [id], 'from_computer': True}"/>
                         </page>
 
                         <!-- Pestaña 4: Maintenance Requests

@@ -132,7 +132,7 @@
                                 <!-- Fecha de asignación -->
                                 <span class="footer-item" t-att-title="'Assigned Date: ' + (record.assign_date.raw_value or 'Sin fecha')" t-att-class="record.assign_date.raw_value ? 'text-success' : 'text-muted'">
                                     <i class="fa fa-calendar"></i>
-                                    <t t-out="record.assign_date.raw_value ? record.assign_date.raw_value : '-'"/>
+                                    <t t-out="record.assign_date.raw_value ? record.assign_date.raw_value.split('T')[0] : '-'"/>
                                 </span>
                             </div>                            
 
@@ -171,10 +171,6 @@
             <form string="Phone">
                 <header>
                     <!-- Botones de cambio de estado -->
-                    <!-- <button name="action_assign" type="object"
-                            class="btn-primary"
-                            string="Assign"
-                            invisible="state in ['assigned', 'repair', 'retired']"/> -->
                     <button name="action_send_repair" type="object"
                             class="btn-warning"
                             string="Send to Repair"
@@ -210,7 +206,7 @@
                             </span>
                             <span class="hero_spec" title="Network Type">
                                 <i class="fa fa-wifi"></i>
-                                <field name="network_type"/> GB
+                                <field name="network_type"/>
                             </span>
                         </div>
                     </div>
@@ -223,7 +219,7 @@
                         </group>
                         <group class="o_ict_group">
                             <field name="carrier"/>
-                            <field name="assign_date"/>
+                            <field name="assign_date" readonly="1"/>
                             <field name="employee_id" invisible="1"/>
                             <field name="ict_employee_id" string="Assigned Employee" options="{'no_create': True}"/>
                         </group>
