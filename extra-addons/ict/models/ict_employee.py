@@ -13,11 +13,9 @@ class ICTEmployee(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     domain_user = fields.Char(string='Username *', required=True, tracking=True)
-    domain_id = fields.Many2one(string='Domain', comodel_name='mail.alias.domain', default=lambda self: self.env.company.alias_domain_id.id)
-    domain_name = fields.Char(string='Domain Name', related='domain_id.name')
-    work_email = fields.Char(string='Email', compute='_compute_work_email', readonly=True)
+    domain_id = fields.Many2one(string='Domain *', comodel_name='mail.alias.domain', required=True, default=lambda self: self.env.company.alias_domain_id.id)
+    work_email = fields.Char(string='Work Email', compute='_compute_work_email')
     hire_date = fields.Date(string='Hire Date', default=fields.Date().today())
-    active = fields.Boolean(default=True)
     
     phone_ids = fields.Many2many('ict.phone', 'ict_phone_employee_rel', 'employee_id', 'phone_id', 'Phones')
     computer_ids = fields.Many2many('ict.computer', 'ict_computer_employee_rel', 'employee_id', 'computer_id', 'Computers')
@@ -26,26 +24,32 @@ class ICTEmployee(models.Model):
     employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee *', required=True, tracking=True)
     name = fields.Char(string="Name *", related='employee_id.name')
     user_id = fields.Many2one(related='employee_id.user_id')
-    user_partner_id = fields.Many2one(related='employee_id.user_id.partner_id', related_sudo=False, string="User's partner")
+    user_partner_id = fields.Many2one(related='employee_id.user_id.partner_id', related_sudo=False)
     user_status = fields.Char(related='employee_id.user_id.im_status')
     work_phone = fields.Char(related='employee_id.work_phone', readonly=False, related_sudo=False)
     mobile_phone = fields.Char(related='employee_id.mobile_phone', readonly=False, related_sudo=False)
     job_title = fields.Char(related='employee_id.job_title')
     department_id = fields.Many2one(related='employee_id.department_id')
-    department_name = fields.Char(string='Department Name', related='employee_id.department_id.name')
-    image_1920 = fields.Binary(related='employee_id.image_1920', string="Photo", attachment=True)
+    department_name = fields.Char(related='employee_id.department_id.name')
+    image_1920 = fields.Binary(related='employee_id.image_1920', attachment=True)
     
     # Fields for views
     whatsapp_url = fields.Char(string='WhatsApp Link', compute='_compute_whatsapp_url')
     formatted_hire_date = fields.Char(string='Hire Date Formatted', compute='_compute_formatted_hire_date')
     department_hex_color = fields.Char(string='Department Hex Color', compute='_compute_department_hex_color', store=False)
-    
+
+    # ============================================================
+    # CONSTRAINS METHODS
+    # ============================================================
     @api.constrains('work_email')
     def _check_email(self):
         for record in self:
             if record.work_email and not re.match(r"[^@]+@[^@]+\.[^@]+", record.work_email):
                 raise ValidationError("Invalid email format")
     
+    # ============================================================
+    # COMPUTE METHODS
+    # ============================================================
     @api.depends('domain_id', 'domain_user')
     def _compute_work_email(self):
         for employee in self:
@@ -93,7 +97,10 @@ class ICTEmployee(models.Model):
         for rec in self:
             color_int = rec.department_id.color
             rec.department_hex_color = DEPT_COLOR_PALETTE.get(color_int, '#adb5bd')
-    
+
+    # ============================================================
+    # ACTION METHODS
+    # ============================================================
     def action_send_email(self):
         """ Método para abrir el compositor de correo """
         self.ensure_one()
@@ -143,24 +150,20 @@ class ICTEmployee(models.Model):
 
     def action_open_facebook(self):
         self.ensure_one()
-        # Ajusta la URL según tu lógica de negocio
-        # Ejemplo: si el empleado tiene un campo facebook_url
-        if self.employee_id.facebook_url:
+        if self.employee_id:
             return {
                 'type': 'ir.actions.act_url',
-                'url': self.employee_id.facebook_url,
+                'url': 'https://www.facebook.com/empresadecigarros.lazaropena.7',
                 'target': 'new',
             }
         return False
 
     def action_open_x(self):
         self.ensure_one()
-        # Ajusta la URL según tu lógica de negocio
-        # Ejemplo: si el empleado tiene un campo x_url
-        if self.employee_id.x_url:
+        if self.employee_id:
             return {
                 'type': 'ir.actions.act_url',
-                'url': self.employee_id.x_url,
+                'url': 'https://x.com/CigarrosHolguin',
                 'target': 'new',
             }
         return False

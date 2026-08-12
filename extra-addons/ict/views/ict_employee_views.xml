@@ -31,7 +31,7 @@
                                 <!-- Punto de presencia -->
                                 <t t-set="im_status" t-value="record.user_status.raw_value or 'offline'"/>
                                 <span class="presence_dot" t-att-class="im_status == 'offline' ? 'online' : 'offline'"
-                                    t-att-title="im_status == 'offline' ? 'Conectado' : 'Desconectado'"/>
+                                    t-att-title="im_status == 'online' ? 'Conectado' : 'Desconectado'"/>
                                 <!-- Badge de departamento -->
                                 <span t-if="record.department_name.raw_value"
                                     class="badge rounded-pill"
@@ -147,7 +147,6 @@
                 <field name="job_title"/>
                 <field name="department_name"/>
                 <field name="hire_date"/>
-                <field name="active" widget="boolean_toggle"/>
             </list>
         </field>
     </record>
@@ -224,9 +223,9 @@
                             <field name="hire_date" placeholder="Fecha contratación" widget="date"/>
                         </group>
                         <group string="Contacto" class="o_ict_group">
-                            <field name="work_phone" placeholder="Teléfono trabajo" widget="phone"/>
+                            <field name="work_phone" placeholder="Ext. trabajo" widget="phone"/>
                             <field name="mobile_phone" placeholder="Teléfono móvil" widget="phone"/>
-                            <field name="work_email" string="Work Email" placeholder="Correo electrónico" widget="email"/>
+                            <field name="work_email" placeholder="Correo electrónico" widget="email"/>
                         </group>
                     </group>
 
@@ -260,9 +259,6 @@
                 <field name="department_name"/>
                 <field name="hire_date"/>
 
-                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
-                <filter string="Inactive" name="inactive" domain="[('active', '=', False)]"/>
-
                 <group expand="1" string="Group By">
                     <filter string="Job" name="job_title" domain="[]" context="{'group_by':'job_title'}"/>
                     <filter string="Department" name="department_name" domain="[]" context="{'group_by':'department_name'}"/>
@@ -279,10 +275,10 @@
         <field name="res_model">ict.employee</field>
         <field name="view_mode">kanban,list,form</field>
         <field name="domain">[]</field>
-        <field name="context">{'search_default_active': True}</field>
+        <field name="context">{}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                There is no examples click here to add new ICT Employee.
+                There is no examples. Click here to add new ICT Employee.
             </p>
         </field>
     </record>

@@ -247,7 +247,7 @@
                         </group>                        
                     </group>
                     
-                    <!-- Do not remove fields modified using the onchange method -->
+                    <!-- Do not remove, fields modified using the onchange method -->
                     <group invisible="1">
                         <field name="assign_date" readonly="1"/>
                         <field name="employee_id" invisible="1"/>

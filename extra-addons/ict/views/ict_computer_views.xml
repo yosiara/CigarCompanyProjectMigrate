@@ -261,7 +261,7 @@
                         </group>
                     </group>
                     
-                    <!-- Do not remove fields modified using the onchange method -->
+                    <!-- Do not remove, fields modified using the onchange method -->
                    <group invisible="1">
                        <field name="model"/>
                        <field name="state"/>

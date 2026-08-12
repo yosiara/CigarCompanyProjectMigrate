@@ -12,7 +12,12 @@ class IctPhoneLine(models.Model):
     _description = 'ICT Phone Line'
     _rec_name = 'phone_number'
 
-    name = fields.Char('Name')
+    employee_id = fields.Many2one(
+        string='Employee',
+        comodel_name='ict.employee',
+        ondelete='restrict',
+        tracking=True,
+    )
 
     phone_number = fields.Char(
         string='Phone Number',
@@ -77,6 +82,10 @@ class IctPhoneLine(models.Model):
     gprs_profile = fields.Char(
         string='GPRS Profile',
         help='GPRS/APN connection profile'
+    )
+    serv = fields.Char(
+        string='SERV.',
+        help='Services'
     )
 
 
