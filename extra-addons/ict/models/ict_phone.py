@@ -46,8 +46,6 @@ class ICTPhone(models.Model):
 
     # Campos específicos de teléfono
     brand = fields.Char(string='Brand', required=True)
-    phone_number = fields.Char(string='Phone Number', required=True)
-    carrier = fields.Char(string='Carrier', default='ETECSA')
     storage_gb = fields.Integer(string='Storage (GB)', help='Internal storage capacity')
     ram_gb = fields.Integer(string='RAM (GB)', help='RAM memory')
     processor_model = fields.Char(string='Processor', help='Processor Model')
@@ -62,7 +60,6 @@ class ICTPhone(models.Model):
         ('2g', '2G'),
     ], string='Network Type', default='4g')
     camera_mp = fields.Char(string='Camera MP', help='Main camera megapixels')
-    inventory_number = fields.Char(string='Inventory Number', copy=False)
     os = fields.Selection([
         ('android', 'Android'),
         ('ios', 'iOS'),
@@ -87,19 +84,18 @@ class ICTPhone(models.Model):
         string='Assigned ICT Employee',
         comodel_name='ict.employee',
         ondelete='restrict',
+        tracking=True,
+        help="Employee currently assigned to this phone device"
     )
-    ict_employee_name = fields.Char(string="ICT Employee Name", related='ict_employee_id.name')
+    ict_employee_name = fields.Char(related='ict_employee_id.name')
     
-    # SIM / IMEI (IMEI se guarda en serial_no)
-    iccid = fields.Char(string='ICCID', help='SIM card identifier')
+    # SIM / IMEI (IMEI se guarda en serial_no heredado)
+    imei2 = fields.Char(string='IMEI2', size=15, help='Second IMEI for dual SIM devices')
     sim_type = fields.Selection([
         ('physical', 'Physical SIM'),
         ('esim', 'eSIM'),
         ('dual', 'Dual SIM'),
-    ], string='SIM Type', default='physical')
-    imei2 = fields.Char(string='IMEI2', help='Second IMEI for dual SIM devices')
-    locked = fields.Boolean(string='Locked', help='Locked by carrier or MDM')
-    mdm_managed = fields.Boolean(string='MDM Managed')
+    ], string='SIM Type', default='dual')
     
     # Asignaciones
     assign_date = fields.Date('Assigned Date', tracking=True, compute="_compute_assign_date")
@@ -108,12 +104,19 @@ class ICTPhone(models.Model):
         'phone_id',
         string='Assignment History'
     )
-    
-    # SQL Constraints
+
+    # ============================================================
+    # CONSTRAINS
+    # ============================================================
     _sql_constraints = [
         ('unique_equipment', 'unique(equipment_id)', 'This equipment is already linked to a phone.'),
+        ('unique_imei2', 'unique(imei2)', "Another asset already exists with this serial number!"),
+        ('unique_mac', 'unique(mac_address)', "There is already another asset with this MAC address!"),
     ]
 
+    # ============================================================
+    # COMPUTE METHODS
+    # ============================================================
     @api.depends("ict_employee_id")
     def _compute_assign_date(self):
         for phone in self:
@@ -122,25 +125,46 @@ class ICTPhone(models.Model):
             else:
                 phone.assign_date = False
 
-    # Métodos de cambio de estado
+    # ============================================================
+    # ONCHANGE METHODS
+    # ============================================================
+    @api.onchange('brand', 'model')
+    def _onchange_name(self):
+        if self.brand and self.model and not self.name:
+            self.name = f"{self.brand} {self.model}"
+
     @api.onchange('ict_employee_id')
-    def _onchange_employee_id(self):
+    def _onchange_ict_employee(self):
         if self.ict_employee_id:
-            self.state = 'assigned'
+            employee = self.ict_employee_id
+            # Cambiar a estado asignado de ser diferente
+            if self.state != 'assigned':
+                self.state = 'assigned'
+            # Sincronizar campo de empleado en equipment
+            self.equipment_id.employee_id = employee.employee_id
+            # Actualizar nombre si coincide con el autogenerado (marca+modelo)
+            if self.name == f"{self.brand} {self.model}":
+                if employee.name:
+                    self.name = f"{self.brand} {self.model} - {employee.name.split()[0]}"
         else:
+            # Si se quita el empleado, desvincular y cambiar estado
             self.state = 'available'
+            self.equipment_id.employee_id = False
 
-    # def action_assign(self):
-    #     self.state = 'assigned'
-
+    # ============================================================
+    # ACTIONS METHODS
+    # ============================================================
     def action_send_repair(self):
         self.state = 'repair'
 
     def action_retire(self):
         self.state = 'retired'
-        self.active = False
+        # Desvincular empleado al retirar
+        self.ict_employee_id = False
 
-    # Método de estadísticas para kanban (similar a computer)
+    # ============================================================
+    # STATS
+    # ============================================================
     @api.model
     def get_kanban_stats(self, options=None):
         """Get statistics for kanban view"""
@@ -177,38 +201,31 @@ class ICTPhone(models.Model):
             'by_status': by_status
         }
 
-    # Métodos de cambio de estado
-    def action_assign(self):
-        self.state = 'assigned'
-        if not self.assignment_date:
-            self.assignment_date = fields.Date.today()
+    # ============================================================
+    # OVERRIDE METHODS
+    # ============================================================
+    def write(self, vals):
+        # Detectar cambio de empleado
+        if 'ict_employee_id' in vals:
+            new_employee_id = vals['ict_employee_id']
+            for phone in self:
+                old_employee = phone.ict_employee_id
+                if old_employee and new_employee_id and old_employee.id != new_employee_id:
+                    # Se está reasignando a otro empleado sin desasignar primero
+                    # Lanzar advertencia con opción a forzar (usaremos un contexto)
+                    if not self.env.context.get('force_reassign'):
+                        raise UserError(
+                            _("This phone is already assigned to %s. Please unassign it first or use the force reassign option."),
+                            old_employee.name
+                        )
+                    else:
+                        # Forzar reasignación: desasignar empleado para luego asignar normalmente
+                        phone.ict_employee_id = False
+        return super().write(vals)
 
-    def action_send_repair(self):
-        self.state = 'repair'
-
-    def action_retire(self):
-        self.state = 'retired'
-        self.active = False
-
-    @api.onchange('brand', 'model')
-    def _onchange_name(self):
-        if self.brand and self.model and not self.name:
-            self.name = f"{self.brand} {self.model}"
-
-    @api.onchange('ict_employee_id')
-    def _onchange_employee_name(self):
-        # Solo actualiza si el name coincide con el autogenerado (marca+modelo)
-        if self.ict_employee_id and self.name == f"{self.brand} {self.model}":
-            employee = self.ict_employee_id
-            if employee.name:
-                self.name = f"{self.brand} {self.model} - {employee.name.split()[0]}"
-
-    @api.onchange('ict_employee_id')
-    def _onchange_ict_employee(self):
-        if self.ict_employee_id:
-            self.equipment_id.employee_id = self.ict_employee_id.employee_id
-
-# Modelo auxiliar para historial de asignaciones
+# ============================================================
+# AUXILIARY MODELS
+# ============================================================
 class ICTPhoneAssignment(models.Model):
     _name = 'ict.phone.assignment'
     _description = 'Phone Assignment History'

@@ -8,13 +8,13 @@ export class StatusBadgeField extends Component {
     setup() {
         super.setup();
         this.statusMap = {
-            'online': { 
+            'active': { 
                 cssClass: 'status-online',
-                label: 'En línea'
+                label: 'Confirmed'
             },
-            'offline': { 
+            'new': { 
                 cssClass: 'status-offline',
-                label: 'Desconectado'
+                label: 'Never Connected'
             },
             'away': { 
                 cssClass: 'status-away',
@@ -28,8 +28,8 @@ export class StatusBadgeField extends Component {
     }
 
     get statusInfo() {
-        var status = this.props.record.data[this.props.name] || 'offline';
-        return this.statusMap[status] || this.statusMap['offline'];
+        var status = this.props.record.data[this.props.name] || 'new';
+        return this.statusMap[status] || this.statusMap['new'];
     }
 
     get statusClass() {

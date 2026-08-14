@@ -25,7 +25,8 @@
         "views/ict_phone_views.xml",
         "views/ict_service_views.xml",
         # "views/ict_reports_views.xml",
-        'views/ict_phone_line_views.xml'
+        'views/ict_phone_line_views.xml',
+        'views/ict_phone_extension.xml',
     ],
     'assets': {
         'web.assets_backend': [

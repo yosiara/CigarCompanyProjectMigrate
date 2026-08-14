@@ -29,9 +29,9 @@
                             <!-- ===== CABECERA: presencia + departamento ===== -->
                             <div class="d-flex gap-5 justify-content-between p-2 pb-0">
                                 <!-- Punto de presencia -->
-                                <t t-set="im_status" t-value="record.user_status.raw_value or 'offline'"/>
-                                <span class="presence_dot" t-att-class="im_status == 'offline' ? 'online' : 'offline'"
-                                    t-att-title="im_status == 'online' ? 'Conectado' : 'Desconectado'"/>
+                                <t t-set="status" t-value="record.user_status.raw_value"/>
+                                <span class="presence_dot" t-att-class="status == 'active' ? 'online' : 'offline'"
+                                    t-att-title="status == 'active' ? 'Confirmed' : 'Never Connected'"/>
                                 <!-- Badge de departamento -->
                                 <span t-if="record.department_name.raw_value"
                                     class="badge rounded-pill"
@@ -223,9 +223,9 @@
                             <field name="hire_date" placeholder="Fecha contratación" widget="date"/>
                         </group>
                         <group string="Contacto" class="o_ict_group">
-                            <field name="work_phone" placeholder="Ext. trabajo" widget="phone"/>
-                            <field name="mobile_phone" placeholder="Teléfono móvil" widget="phone"/>
-                            <field name="work_email" placeholder="Correo electrónico" widget="email"/>
+                            <field name="extension_ids" placeholder="Phone Extension" widget="many2many_tags"/>
+                            <field name="line_ids" placeholder="Phone Line" widget="many2many_tags"/>
+                            <field name="work_email" placeholder="Work Email" widget="email"/>
                         </group>
                     </group>
 

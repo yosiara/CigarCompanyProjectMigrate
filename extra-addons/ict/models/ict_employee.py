@@ -16,8 +16,12 @@ class ICTEmployee(models.Model):
     domain_id = fields.Many2one(string='Domain *', comodel_name='mail.alias.domain', required=True, default=lambda self: self.env.company.alias_domain_id.id)
     work_email = fields.Char(string='Work Email', compute='_compute_work_email')
     hire_date = fields.Date(string='Hire Date', default=fields.Date().today())
+    mobile_phone = fields.Char(string='Mobile Phone', compute='_compute_mobile_phone')
+    work_phone = fields.Char(string='Work Phone', compute='_compute_work_phone')
     
-    phone_ids = fields.Many2many('ict.phone', 'ict_phone_employee_rel', 'employee_id', 'phone_id', 'Phones')
+    phone_ids = fields.One2many('ict.phone', 'ict_employee_id', 'Phones')
+    line_ids = fields.One2many('ict.phone.line', 'employee_id', 'Phone Lines', help="All phone lines assigned to this employee")
+    extension_ids = fields.One2many('ict.phone.extension', 'employee_id', 'Phone Extensions', help='Phone extensions assigned to this employee')
     computer_ids = fields.Many2many('ict.computer', 'ict_computer_employee_rel', 'employee_id', 'computer_id', 'Computers')
 
     # Related employee fields
@@ -25,9 +29,7 @@ class ICTEmployee(models.Model):
     name = fields.Char(string="Name *", related='employee_id.name')
     user_id = fields.Many2one(related='employee_id.user_id')
     user_partner_id = fields.Many2one(related='employee_id.user_id.partner_id', related_sudo=False)
-    user_status = fields.Char(related='employee_id.user_id.im_status')
-    work_phone = fields.Char(related='employee_id.work_phone', readonly=False, related_sudo=False)
-    mobile_phone = fields.Char(related='employee_id.mobile_phone', readonly=False, related_sudo=False)
+    user_status = fields.Selection(related='employee_id.user_id.state')
     job_title = fields.Char(related='employee_id.job_title')
     department_id = fields.Many2one(related='employee_id.department_id')
     department_name = fields.Char(related='employee_id.department_id.name')
@@ -39,8 +41,12 @@ class ICTEmployee(models.Model):
     department_hex_color = fields.Char(string='Department Hex Color', compute='_compute_department_hex_color', store=False)
 
     # ============================================================
-    # CONSTRAINS METHODS
+    # CONSTRAINS
     # ============================================================
+    _sql_constraints = [
+        ('unique_user', 'unique(domain_user)', 'The username already exists.'),
+    ]
+
     @api.constrains('work_email')
     def _check_email(self):
         for record in self:
@@ -50,6 +56,20 @@ class ICTEmployee(models.Model):
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
+    @api.depends('extension_ids', 'extension_ids.number')
+    def _compute_work_phone(self):
+        for emp in self:
+            numbers = [ext.number for ext in emp.extension_ids]
+            emp.work_phone = " ".join(numbers)
+            emp.employee_id.work_phone = emp.work_phone
+
+    @api.depends('line_ids', 'line_ids.phone_number')
+    def _compute_mobile_phone(self):
+        for emp in self:
+            numbers = [line.phone_number for line in emp.line_ids]
+            emp.mobile_phone = " ".join(numbers)
+            emp.employee_id.mobile_phone = emp.mobile_phone
+
     @api.depends('domain_id', 'domain_user')
     def _compute_work_email(self):
         for employee in self:

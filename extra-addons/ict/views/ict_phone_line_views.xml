@@ -73,7 +73,7 @@
         <field name="arch" type="xml">
             <search>
                 <group expand="1" string="Group By">
-                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                    <filter string="Empleado" name="employee" domain="[]" context="{'group_by':'employee_id'}"/>
                 </group>
             </search>
         </field>

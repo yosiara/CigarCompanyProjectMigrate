@@ -10,8 +10,6 @@
                 <field name="name"/>
                 <field name="brand"/>
                 <field name="model"/>
-                <field name="phone_number"/>
-                <field name="carrier"/>
                 <field name="processor_model"/>
                 <field name="ram_gb"/>
                 <field name="storage_gb"/>
@@ -134,7 +132,7 @@
                                     <i class="fa fa-calendar"></i>
                                     <t t-out="record.assign_date.raw_value ? record.assign_date.raw_value.split('T')[0] : '-'"/>
                                 </span>
-                            </div>                            
+                            </div>
 
                             <!-- Efecto de brillo -->
                             <div class="shine-effect"></div>
@@ -154,8 +152,6 @@
                 <field name="name" widget="badge"/>
                 <field name="brand"/>
                 <field name="model"/>
-                <field name="phone_number"/>
-                <field name="carrier"/>
                 <field name="ict_employee_id"/>
                 <field name="state"/>
                 <field name="active"/>
@@ -195,7 +191,7 @@
                             <field name="serial_no" placeholder="IMEI or Serial..."/>
                         </div>
                         <!-- Especificaciones rápidas -->
-                        <div class="hero_specs">
+                        <!-- <div class="hero_specs">
                             <span class="hero_spec" title="Número de teléfono">
                                 <i class="fa fa-phone"></i>
                                 <field name="phone_number"/>
@@ -208,6 +204,24 @@
                                 <i class="fa fa-wifi"></i>
                                 <field name="network_type"/>
                             </span>
+                        </div> -->
+                        <div class="hero_specs">
+                            <div class="hero_spec" title="Processor">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
+                                    <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+                                </svg>
+                                <span><field name="processor_model"/></span>
+                            </div>
+                            <div class="hero_spec" title="RAM">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-memory" viewBox="0 0 16 16">
+                                    <path d="M1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.586a1 1 0 0 0 .707-.293l.353-.353a.5.5 0 0 1 .708 0l.353.353a1 1 0 0 0 .707.293H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm.5 1h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m5 0h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5m4.5.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5zM2 10v2H1v-2zm2 0v2H3v-2zm2 0v2H5v-2zm3 0v2H8v-2zm2 0v2h-1v-2zm2 0v2h-1v-2zm2 0v2h-1v-2z"/>
+                                </svg>
+                                <span><field name="ram_gb"/> GB RAM</span>
+                            </div>
+                            <div class="hero_spec" title="Storage">
+                                <i class="fa fa-hdd-o"></i>
+                                <span><field name="storage_gb"/> GB Disk</span>
+                            </div>
                         </div>
                     </div>
                     
@@ -216,34 +230,30 @@
                             <field name="name"/>
                             <field name="brand"/>
                             <field name="model"/>
-                            <field name="mac_address"/>
-                            <field name="battery_capacity"/>
+                            <field name="ict_employee_id" string="Assigned Employee" options="{'no_create': True}"/>
                         </group>
                         <group class="o_ict_group">
-                            <field name="storage_gb"/>
-                            <field name="ram_gb"/>
                             <field name="processor_model"/>
-                            <field name="carrier"/>
-                            <field name="ict_employee_id" string="Assigned Employee" options="{'no_create': True}"/>
+                            <field name="ram_gb"/>
+                            <field name="storage_gb"/>
+                            <field name="physical_condition"/>
                         </group>
                     </group>
                     
                     <group class="o_ict_phone_details">
                         <group class="o_ict_group">
-                            <field name="screen_size"/>
-                            <field name="camera_mp"/>
-                            <field name="inventory_number"/>
                             <field name="os"/>
                             <field name="os_version"/>
-                            <field name="physical_condition"/>
+                            <field name="camera_mp"/>
+                            <field name="screen_size"/>
+                            <field name="screen_resolution"/>
                         </group>
                         <group class="o_ict_group">
-                            <field name="iccid"/>
+                            <field name="network_type"/>
                             <field name="sim_type"/>
                             <field name="imei2"/>
-                            <field name="locked"/>
-                            <field name="mdm_managed"/>
-                            <field name="screen_resolution"/>
+                            <field name="mac_address"/>
+                            <field name="battery_capacity"/>
                         </group>                        
                     </group>
                     
@@ -278,7 +288,6 @@
             <search>
                 <group expand="1" string="Group By">
                     <filter string="State" name="state" domain="[]" context="{'group_by':'state'}"/>
-                    <filter string="Carrier" name="carrier" domain="[]" context="{'group_by':'carrier'}"/>
                 </group>
             </search>
         </field>

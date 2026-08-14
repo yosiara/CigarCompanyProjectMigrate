@@ -102,8 +102,16 @@ class ICTComputer(models.Model):
     # importation_state = fields.Selection([('1', '1'), ('2', '2'), ('3', '3')], default='1')
     # information_updated_date = fields.Datetime()
 
+    # ============================================================
+    # CONSTRAINS
+    # ============================================================
     _sql_constraints = [
-        ('equipment_id', 'unique(equipment_id)', "Related equipment already exists!"),
+        ('unique_equipment_name', 'unique(name)', "The equipment name must be unique!"),
+        ('unique_equipment_id', 'unique(equipment_id)', "Related equipment already exists!"),
+        ('unique_seal', 'unique(seal)', "This Seal is already associated with another asset!"),
+        ('unique_ip', 'unique(ip_address)', "This IP address is already associated with another asset!"),
+        ('unique_mac', 'unique(mac_address)', "This MAC address is already associated with another asset!"),
+        ('unique_inventory', 'unique(inventory_number)', "This Inventory Number is already associated with another asset!"),
     ]
 
     @api.onchange('component_ids')

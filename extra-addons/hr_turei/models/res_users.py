@@ -25,9 +25,7 @@ class ResUsersExtended(models.Model):
             ('active', '=', True),
         ], limit=1)
 
-        if employee:
-            return employee
-        return False
+        return employee
 
     # ------------------------------------------------------------------------ #
     #                           OVERRIDE METHODS                               #
