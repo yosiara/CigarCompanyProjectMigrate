@@ -152,7 +152,7 @@ class ICTPhone(models.Model):
             self.equipment_id.employee_id = False
 
     # ============================================================
-    # ACTIONS METHODS
+    # ACTION METHODS
     # ============================================================
     def action_send_repair(self):
         self.state = 'repair'

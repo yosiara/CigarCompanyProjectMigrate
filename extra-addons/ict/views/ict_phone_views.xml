@@ -236,7 +236,7 @@
                             <field name="processor_model"/>
                             <field name="ram_gb"/>
                             <field name="storage_gb"/>
-                            <field name="physical_condition"/>
+                            <field name="battery_capacity"/>
                         </group>
                     </group>
                     
@@ -253,7 +253,7 @@
                             <field name="sim_type"/>
                             <field name="imei2"/>
                             <field name="mac_address"/>
-                            <field name="battery_capacity"/>
+                            <field name="physical_condition"/>
                         </group>                        
                     </group>
                     

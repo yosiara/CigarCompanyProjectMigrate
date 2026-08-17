@@ -30,7 +30,7 @@ services:
       - "5678:5678"  # Debugger
       - "8072:8072"  # Web socket
     command: --dev=all --update=ict
-    # tty: true
+    tty: true
 
   db:
     image: postgres-backup:${IMAGE_TAG}

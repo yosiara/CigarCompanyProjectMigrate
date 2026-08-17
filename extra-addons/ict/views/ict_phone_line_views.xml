@@ -1,85 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- View ict.phone.line List -->
+    <!-- ==================== LIST VIEW ==================== -->
     <record id="view_ict_phone_line_list" model="ir.ui.view">
-        <field name="name">view.ict.phone.line.list</field>
+        <field name="name">ict.phone.line.list</field>
         <field name="model">ict.phone.line</field>
         <field name="arch" type="xml">
             <list>
-                <field name="employee_id"/>
-                <field name="phone_number"/>
-                <field name="imsi"/>
-                <field name="sim_card"/>
-                <field name="pin"/>
-                <field name="puk"/>
-                <field name="secondary_language"/>
-                <field name="written_language"/>
+                <field name="phone_number" widget="badge"/>
+                <field name="employee_id" options="{'no_create': True}"/>
+                <field name="state" widget="badge"/>
+                <field name="state_date" widget="date"/>
+                <field name="pin" password="0"/>
+                <field name="puk" password="0"/>
                 <field name="sms_cap_plan"/>
                 <field name="calls_cap_plan"/>
-                <field name="roaming_cap_plan"/>
                 <field name="gprs_cap_plan"/>
                 <field name="sms_package"/>
                 <field name="plan_rate"/>
                 <field name="gprs_package"/>
-                <field name="gprs_profile"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
             </list>
         </field>
     </record>
 
-    <!-- View ict.phone.line Form -->
+    <!-- ==================== FORM VIEW ==================== -->
     <record id="view_ict_phone_line_form" model="ir.ui.view">
-        <field name="name">view.ict.phone.line.form</field>
+        <field name="name">ict.phone.line.form</field>
         <field name="model">ict.phone.line</field>
         <field name="arch" type="xml">
-            <form string="Ict Phone Line">
-                <sheet>
-                    <div class="oe_title">
-                        <h1>
-                            <field name="employee_id" placeholder="Employee Name..."/>
-                        </h1>
+            <form string="Phone Line">
+                <header>
+                    <button name="action_suspend" type="object"
+                            class="btn-warning"
+                            string="Suspend"
+                            invisible="state in ['suspended','cancelled']"/>
+                    <button name="action_activate" type="object"
+                            class="btn-success"
+                            string="Activate"
+                            invisible="state != 'suspended'"/>
+                    <button name="action_cancel" type="object"
+                            class="btn-danger"
+                            string="Cancel"
+                            confirm="Are you sure you want to cancel this line?"
+                            invisible="state == 'cancelled'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="available,assigned,suspended,cancelled"/>
+                </header>
+                <sheet class="phone_line_form_sheet">
+                    <!-- Hero -->
+                    <div class="hero phone_line_hero">
+                        <div class="hero_icon hero_phone_line">
+                            <i class="fa fa-phone" title="Phone Line"/>
+                        </div>
+                        <div class="hero_name">
+                            <field name="phone_number" placeholder="+53 XXXXXXXX"/>
+                        </div>
+                        <div class="hero_specs">
+                            <span class="hero_spec" title="Start Date">
+                                 <i class="fa fa-star"/>
+                                <field name="start_date" widget="date"/>
+                            </span>
+                            <span class="hero_spec" title="End Date">
+                                 <i class="fa fa-warning"/>
+                                <field name="end_date" widget="date"/>
+                            </span>
+                            <span class="hero_spec" title="Carrier">
+                                <i class="fa fa-signal"/>
+                                <field name="carrier"/>
+                            </span>
+                        </div>
                     </div>
-                    <group>
-                        <group>
-                            <field name="phone_number"/>
+
+                    <group class="o_ict_phone_line_details">
+                        <group string="Assignment &amp; Security" class="o_ict_group">
+                            <field name="employee_id" options="{'no_create': True}"/>
+                            <field name="state_date" widget="date"/>
                             <field name="imsi"/>
                             <field name="sim_card"/>
-                            <field name="pin"/>
-                            <field name="puk"/>
-                            <field name="secondary_language"/>
-                            <field name="written_language"/>
-                            <field name="sms_cap_plan"/>
+                            <field name="pin" password="0"/>
+                            <field name="puk" password="0"/>
                         </group>
-                        <group>
+                        <group string="Plan &amp; Services" class="o_ict_group">
+                            <field name="sms_cap_plan"/>
                             <field name="calls_cap_plan"/>
-                            <field name="roaming_cap_plan"/>
                             <field name="gprs_cap_plan"/>
                             <field name="sms_package"/>
                             <field name="plan_rate"/>
                             <field name="gprs_package"/>
-                            <field name="gprs_profile"/>
-                            <field name="serv"/>
+                        </group>
+                    </group>
+                    
+                    <group class="o_ict_phone_line_details">
+                        <group name="serv" string="Additional service notes" class="o_ict_group">
+                            <field name="serv" placeholder="Additional service notes..." nolabel="1"/>
                         </group>
                     </group>
                 </sheet>
+                <chatter/>
             </form>
         </field>
     </record>
 
-    <!-- View ict.phone.line Search -->
+    <!-- ==================== SEARCH VIEW ==================== -->
     <record id="view_ict_phone_line_search" model="ir.ui.view">
-        <field name="name">view.ict.phone.line.search</field>
+        <field name="name">ict.phone.line.search</field>
         <field name="model">ict.phone.line</field>
         <field name="arch" type="xml">
             <search>
+                <field name="phone_number"/>
+                <field name="employee_id"/>
+                <field name="state"/>
+                <filter string="Assigned" name="assigned" domain="[('state','=','assigned')]"/>
+                <filter string="Available" name="available" domain="[('state','=','available')]"/>
+                <filter string="Suspended" name="suspended" domain="[('state','=','suspended')]"/>
+                <filter string="Cancelled" name="cancelled" domain="[('state','=','cancelled')]"/>
                 <group expand="1" string="Group By">
-                    <filter string="Empleado" name="employee" domain="[]" context="{'group_by':'employee_id'}"/>
+                    <filter string="Employee" name="employee" domain="[]" context="{'group_by':'employee_id'}"/>
+                    <filter string="Status" name="state" domain="[]" context="{'group_by':'state'}"/>
                 </group>
             </search>
         </field>
     </record>
 
-    <!-- Action ict.phone.line -->
+    <!-- ==================== ACTION ==================== -->
     <record id="action_ict_phone_line" model="ir.actions.act_window">
         <field name="name">Phone Lines</field>
         <field name="res_model">ict.phone.line</field>
@@ -88,12 +133,12 @@
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                There is no examples click here to add new ICT Phone Line.
+                No phone lines yet. Click here to add a new ICT Phone Line.
             </p>
         </field>
     </record>
 
-    <!-- Menu ict.phone.line -->
-    <menuitem id="menu_ict_phone_line" name="Lines" parent="menu_ict_phone" sequence="10" action="action_ict_phone_line"/>
+    <!-- ==================== MENU ==================== -->
+    <menuitem id="menu_ict_phone_line" name="Phone Lines" parent="menu_ict_phone" sequence="10" action="action_ict_phone_line"/>
 
 </odoo>

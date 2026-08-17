@@ -49,6 +49,7 @@
             'ict/static/src/scss/form/computer_form.scss',
             'ict/static/src/scss/form/employee_form.scss',
             'ict/static/src/scss/form/phone_form.scss',
+            'ict/static/src/scss/form/phone_line_form.scss',
             'ict/static/src/scss/kanban/*.scss',
             # Others
         ],

@@ -21,7 +21,7 @@ class IctPhoneLine(models.Model):
         help="Employee to whom this line is assigned"
     )
     phone_number = fields.Char(
-        string='Phone Number',
+        string='Phone Number *',
         required=True,
         index=True,
         help='Phone number of the line'
@@ -31,11 +31,11 @@ class IctPhoneLine(models.Model):
         ('assigned', 'Assigned'),
         ('suspended', 'Suspended'),
         ('cancelled', 'Cancelled'),
-    ], string='Status', default='available', tracking=True)
+    ], string='Status *', default='available', tracking=True, required=True)
 
-    assign_date = fields.Date('Assignment Date', tracking=True, compute="_compute_assign_date")
-    activation_date = fields.Date(string='Activation Date')
-    cancellation_date = fields.Date(string='Cancellation Date')
+    state_date = fields.Date('State Date', tracking=True, compute="_compute_state_date", help='Date of last status change')
+    start_date = fields.Date(string='Start Date')
+    end_date = fields.Date(string='End Date')
     carrier = fields.Char(string='Carrier', default='ETECSA')
 
     # ETECSA data
@@ -43,17 +43,13 @@ class IctPhoneLine(models.Model):
     sim_card = fields.Char(string='SIM Card', help='SIM card serial number (ICCID)')
     pin = fields.Char(string='PIN', size=4, help='SIM card PIN code')
     puk = fields.Char(string='PUK', size=8, help='SIM card PUK unlock code')
-    secondary_language = fields.Char(string='Secondary Language', help='Secondary language configured on the line')
-    written_language = fields.Char(string='Written Language', help='Preferred written language')
     sms_cap_plan = fields.Char(string='SMS Cap Plan', help='Contracted SMS cap plan')
     calls_cap_plan = fields.Char(string='Calls Cap Plan', help='Contracted calls cap plan')
-    roaming_cap_plan = fields.Char(string='Roaming Cap Plan', help='Contracted roaming cap plan')
     gprs_cap_plan = fields.Char(string='GPRS Cap Plan', help='Contracted GPRS data cap plan')
     sms_package = fields.Char(string='SMS Package', help='Included SMS package (e.g. "100 SMS")')
     plan_rate = fields.Char(string='Plan/Rate', help='Main tariff plan name')
     gprs_package = fields.Char(string='GPRS Package', help='Contracted GPRS data package (e.g. "1GB")')
-    gprs_profile = fields.Char(string='GPRS Profile', help='GPRS/APN connection profile')
-    serv = fields.Char(string='SERV.', help='Services')
+    serv = fields.Html(string='SERV.', help='Services')
 
     # ============================================================
     # CONSTRAINTS
@@ -65,14 +61,29 @@ class IctPhoneLine(models.Model):
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
-    @api.depends("employee_id")
-    def _compute_assign_date(self):
+    @api.depends("state")
+    def _compute_state_date(self):
         for phone in self:
-            if phone.employee_id:
-                phone.assign_date = fields.Date.today()
-            else:
-                phone.assign_date = False
+            phone.state_date = fields.Date.today()
 
+    # ============================================================
+    # ACTION METHODS
+    # ============================================================
+    def action_suspend(self):
+        self.state = 'suspended'
+
+    def action_activate(self):
+        self.state = 'assigned'
+    
+    def action_cancel(self):
+        self.state = 'cancelled'
+        # Si estaba asignada, desasignar
+        if self.employee_id:
+            self.employee_id = False
+
+    # ============================================================
+    # OVERRIDE METHODS
+    # ============================================================
     @api.model_create_multi
     def create(self, vals_list):
         lines = super().create(vals_list)
