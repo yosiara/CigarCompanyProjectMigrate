@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.exceptions import UserError, ValidationError
 
 _logger = logging.getLogger(__name__)
@@ -106,7 +106,6 @@ class ICTComputer(models.Model):
     # CONSTRAINS
     # ============================================================
     _sql_constraints = [
-        ('unique_equipment_name', 'unique(name)', "The equipment name must be unique!"),
         ('unique_equipment_id', 'unique(equipment_id)', "Related equipment already exists!"),
         ('unique_seal', 'unique(seal)', "This Seal is already associated with another asset!"),
         ('unique_ip', 'unique(ip_address)', "This IP address is already associated with another asset!"),
@@ -114,14 +113,9 @@ class ICTComputer(models.Model):
         ('unique_inventory', 'unique(inventory_number)', "This Inventory Number is already associated with another asset!"),
     ]
 
-    @api.onchange('component_ids')
-    def _onchange_model(self):
-        for component in self.component_ids:
-            type_ = component.component_type
-            if type_ == 'board':
-                self.equipment_id.model = component.model_custom
-                break
-
+    # ============================================================
+    # COMPUTE METHODS
+    # ============================================================
     @api.depends('employee_ids')
     def _compute_responsible(self):
         for pc in self:
@@ -154,30 +148,57 @@ class ICTComputer(models.Model):
             pc.total_memory_gb  = total_memory
             pc.total_storage_gb = total_storage
 
-    # Get Components methods
-    def get_component(self, component_type):
-        return self.component_ids.filtered_domain([('component_type', '=', component_type)])
-    def ups(self):
-        return self.get_component('ups')
-    def board(self):
-        return self.get_component('board')
-    def memory(self):
-        return self.get_component('memory')
-    def scanner(self):
-        return self.get_component('scanner')
-    def speaker(self):
-        return self.get_component('speaker')
-    def storage(self):
-        return self.get_component('storage')
-    def monitor(self):
-        return self.get_component('monitor')
-    def printer(self):
-        return self.get_component('printer')
-    def processor(self):
-        return self.get_component('processor')
-    def video_card(self):
-        return self.get_component('video_card')
+    # ============================================================
+    # ONCHANGE METHODS
+    # ============================================================
+    @api.onchange('component_ids')
+    def _onchange_model(self):
+        for component in self.component_ids:
+            type_ = component.component_type
+            if type_ == 'board':
+                self.equipment_id.model = component.model_custom
+                break
 
+    @api.onchange('employee_ids')
+    def _onchange_employee_ids(self):
+        if self.employee_ids:
+            self.state = 'assigned'
+            self.assign_date = fields.Date.today()
+        else:
+            self.state = 'available'
+            self.assign_date = False
+
+    # ============================================================
+    # OVERRIDE METHODS
+    # ============================================================
+    @api.model_create_multi
+    def create(self, vals_list):
+        computers = super().create(vals_list)
+        for computer in computers:
+            # subscribe employees when equipment assign to him.
+            partner_ids = []
+            for employee in computer.employee_ids:
+                if employee.user_id:
+                    partner_ids.append(employee.user_id.partner_id.id)
+            if partner_ids:
+                computer.message_subscribe(partner_ids=partner_ids)
+        return computers
+
+    def write(self, vals):
+        partner_ids = []
+        # subscribe employees when equipment assign to him.
+        if vals.get('employee_ids'):
+            employees = self.env['ict.employee'].browse([t[1] for t in vals['employee_ids']])
+            for employee in employees:
+                if employee.user_id:
+                    partner_ids.append(employee.user_id.partner_id.id)
+        if partner_ids:
+            self.message_subscribe(partner_ids=partner_ids)
+        return super(ICTComputer, self).write(vals)
+
+    # ============================================================
+    # GENERAL METHODS
+    # ============================================================
     @api.model
     def get_kanban_stats(self, options=None):
         """Get statistics for kanban view"""
@@ -214,39 +235,29 @@ class ICTComputer(models.Model):
             'by_status': by_status
         }
 
-    @api.model_create_multi
-    def create(self, vals_list):
-        computers = super().create(vals_list)
-        for computer in computers:
-            # subscribe employees when equipment assign to him.
-            partner_ids = []
-            for employee in computer.employee_ids:
-                if employee.user_id:
-                    partner_ids.append(employee.user_id.partner_id.id)
-            if partner_ids:
-                computer.message_subscribe(partner_ids=partner_ids)
-        return computers
-
-    def write(self, vals):
-        partner_ids = []
-        # subscribe employees when equipment assign to him.
-        if vals.get('employee_ids'):
-            employees = self.env['ict.employee'].browse([t[1] for t in vals['employee_ids']])
-            for employee in employees:
-                if employee.user_id:
-                    partner_ids.append(employee.user_id.partner_id.id)
-        if partner_ids:
-            self.message_subscribe(partner_ids=partner_ids)
-        return super(ICTComputer, self).write(vals)
-    
-    @api.onchange('employee_ids')
-    def _onchange_employee_ids(self):
-        if self.employee_ids:
-            self.state = 'assigned'
-            self.assign_date = fields.Date.today()
-        else:
-            self.state = 'available'
-            self.assign_date = False
+    # Get Components
+    def get_component(self, component_type):
+        return self.component_ids.filtered_domain([('component_type', '=', component_type)])
+    def ups(self):
+        return self.get_component('ups')
+    def board(self):
+        return self.get_component('board')
+    def memory(self):
+        return self.get_component('memory')
+    def scanner(self):
+        return self.get_component('scanner')
+    def speaker(self):
+        return self.get_component('speaker')
+    def storage(self):
+        return self.get_component('storage')
+    def monitor(self):
+        return self.get_component('monitor')
+    def printer(self):
+        return self.get_component('printer')
+    def processor(self):
+        return self.get_component('processor')
+    def video_card(self):
+        return self.get_component('video_card')
 
     def action_send_repair(self):
         self.state = 'repair'
