@@ -7,9 +7,9 @@ from odoo.exceptions import UserError, ValidationError
 _logger = logging.getLogger(__name__)
 
 
-class IctPhoneLine(models.Model):
-    _name = 'ict.phone.line'
-    _description = 'ICT Phone Line'
+class IctMobileLine(models.Model):
+    _name = 'ict.mobile.line'
+    _description = 'ICT Mobile Line'
     _rec_name = 'phone_number'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     
@@ -63,8 +63,8 @@ class IctPhoneLine(models.Model):
     # ============================================================
     @api.depends("state")
     def _compute_state_date(self):
-        for phone in self:
-            phone.state_date = fields.Date.today()
+        for line in self:
+            line.state_date = fields.Date.today()
 
     # ============================================================
     # ACTION METHODS

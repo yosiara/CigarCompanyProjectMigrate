@@ -1,6 +1,6 @@
 import { KanbanRecord } from "@web/views/kanban/kanban_record";
 
-export class PhoneKanbanRecord extends KanbanRecord {
+export class MobileKanbanRecord extends KanbanRecord {
     setup() {
         super.setup();
     }

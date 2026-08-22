@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- Lista -->
+    <record id="view_ict_phone_list" model="ir.ui.view">
+        <field name="name">ict.phone.list</field>
+        <field name="model">ict.phone</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="brand"/>
+                <field name="model"/>
+                <field name="serial_no"/>
+                <field name="physical_condition"/>
+                <field name="state"/>
+                <field name="phone_type"/>
+                <field name="mac_address"/>
+                <field name="extension_ids" widget="many2many_tags"/>
+            </list>
+        </field>
+    </record>
+    
+    <!-- Formulario -->
+    <record id="view_ict_phone_form" model="ir.ui.view">
+        <field name="name">ict.phone.form</field>
+        <field name="model">ict.phone</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for='display_name'/>
+                        <h1>
+                            <field name="display_name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="brand"/>
+                            <field name="model"/>
+                            <field name="serial_no"/>
+                            <field name="physical_condition"/>
+                        </group>
+                        <group>
+                            <field name="state"/>
+                            <field name="phone_type"/>
+                            <!-- <field name="department_id" invisible="assign_to == 'employee' or not assign_to"/> -->
+                            <field name="mac_address"/>
+                            <field name="extension_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Acción y menú -->
+    <record id="action_ict_phone" model="ir.actions.act_window">
+        <field name="name">Phones</field>
+        <field name="res_model">ict.phone</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples. Click here to add new ICT Phone Extension.
+            </p>
+        </field>
+    </record>
+    
+    <menuitem id="menu_phone" name="Phones" parent="menu_ict_phone" sequence="10" action="action_ict_phone"/>
+    
+</odoo>

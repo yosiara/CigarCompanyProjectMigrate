@@ -196,6 +196,17 @@ class ICTComputer(models.Model):
             self.message_subscribe(partner_ids=partner_ids)
         return super(ICTComputer, self).write(vals)
 
+    def unlink(self):
+        equipment_ids = self.mapped('equipment_id')
+        result = super(ICTComputer, self).unlink()
+        if equipment_ids:
+            try:
+                equipment_ids.unlink()
+            except UserError as e:
+                _logger.error(e)
+                raise UserError(_("Cannot delete the associated equipment because it has other dependencies. Please remove those dependencies first."))
+        return result
+
     # ============================================================
     # GENERAL METHODS
     # ============================================================

@@ -2,13 +2,13 @@
 import { KanbanRenderer } from "@web/views/kanban/kanban_renderer";
 import { useService } from "@web/core/utils/hooks";
 import { onWillStart, onMounted, useState } from "@odoo/owl";
-import { PhoneKanbanRecord } from "./phone_kanban_record";
+import { MobileKanbanRecord } from "./mobile_kanban_record";
 
-export class PhoneKanbanRenderer extends KanbanRenderer {
-    static template = "ict.PhoneKanbanRenderer";
+export class MobileKanbanRenderer extends KanbanRenderer {
+    static template = "ict.MobileKanbanRenderer";
     static components = {
         ...KanbanRenderer.components,
-        KanbanRecord: PhoneKanbanRecord,
+        KanbanRecord: MobileKanbanRecord,
     };
 
     setup() {
@@ -40,10 +40,10 @@ export class PhoneKanbanRenderer extends KanbanRenderer {
     async loadStats() {
         this.headState.loading = true;
         try {
-            const stats = await this.orm.call("ict.phone", "get_kanban_stats", []);
+            const stats = await this.orm.call("ict.mobile", "get_kanban_stats", []);
             
             // Calcular tendencias (ejemplo)
-            const lastMonthStats = await this.orm.call("ict.phone", "get_kanban_stats", [{
+            const lastMonthStats = await this.orm.call("ict.mobile", "get_kanban_stats", [{
                 last_month: true
             }]);
             
@@ -136,7 +136,7 @@ export class PhoneKanbanRenderer extends KanbanRenderer {
         // Acción al hacer clic en la tarjeta
         this.action.doAction({
             type: 'ir.actions.act_window',
-            res_model: 'ict.phone',
+            res_model: 'ict.mobile',
             res_id: record.id,
             views: [[false, 'form']],
             target: 'current'
@@ -153,11 +153,11 @@ export class PhoneKanbanRenderer extends KanbanRenderer {
             case 'edit':
                 await this.action.doAction({
                     type: 'ir.actions.act_window',
-                    res_model: 'ict.phone',
+                    res_model: 'ict.mobile',
                     res_id: recordId,
                     views: [[false, 'form']],
                     target: 'current',
-                    context: { form_view_ref: 'ict_phone.view_ict_phone_form' }
+                    context: { form_view_ref: 'ict_mobile.view_ict_mobile_form' }
                 });
                 break;
             case 'maintenance':
@@ -171,4 +171,4 @@ export class PhoneKanbanRenderer extends KanbanRenderer {
     }
 }
 
-// PhoneKanbanRenderer.template = "ict.PhoneKanbanRenderer";
+// MobileKanbanRenderer.template = "ict.MobileKanbanRenderer";

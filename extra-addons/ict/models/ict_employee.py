@@ -20,7 +20,7 @@ class ICTEmployee(models.Model):
     work_phone = fields.Char(string='Work Phone', compute='_compute_work_phone')
     
     phone_ids = fields.One2many('ict.phone', 'ict_employee_id', 'Phones')
-    line_ids = fields.One2many('ict.phone.line', 'employee_id', 'Phone Lines', help="All phone lines assigned to this employee")
+    line_ids = fields.One2many('ict.mobile.line', 'employee_id', 'Mobile Lines', help="All Mobile Lines assigned to this employee")
     extension_ids = fields.One2many('ict.phone.extension', 'employee_id', 'Phone Extensions', help='Phone extensions assigned to this employee')
     computer_ids = fields.Many2many('ict.computer', 'ict_computer_employee_rel', 'employee_id', 'computer_id', 'Computers')
 
@@ -30,6 +30,7 @@ class ICTEmployee(models.Model):
     user_id = fields.Many2one(related='employee_id.user_id')
     user_partner_id = fields.Many2one(related='employee_id.user_id.partner_id', related_sudo=False)
     user_status = fields.Selection(related='employee_id.user_id.state')
+    job_id = fields.Char(related='employee_id.job_id')
     job_title = fields.Char(related='employee_id.job_title')
     department_id = fields.Many2one(related='employee_id.department_id')
     department_name = fields.Char(related='employee_id.department_id.name')

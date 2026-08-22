@@ -20,7 +20,7 @@ class ICTPhone(models.Model):
         ondelete='restrict',
         auto_join=True,
         index=True,
-        help='Equipment-related data of the phone'
+        help='Equipment-related data of the mobile'
     )
 
     # Inherited Equipment Fields
@@ -44,35 +44,25 @@ class ICTPhone(models.Model):
     # # equipment_properties = fields.Properties('Properties', definition='category_id.equipment_properties_definition', copy=True)
     # # match_serial = fields.Boolean(compute='_compute_match_serial')
 
-    # Campos específicos de teléfono
     brand = fields.Char(string='Brand', required=True)
-    storage_gb = fields.Integer(string='Storage (GB)', help='Internal storage capacity')
-    ram_gb = fields.Integer(string='RAM (GB)', help='RAM memory')
-    processor_model = fields.Char(string='Processor', help='Processor Model')
-    mac_address = fields.Char(string='MAC Address', help='Wi-Fi/Bluetooth MAC')
-    battery_capacity = fields.Integer(string='Battery (mAh)')
-    screen_resolution = fields.Char(string='Screen Resolution', help='e.g., 1080x2400')
-    screen_size = fields.Float(string='Screen Size (inches)')
-    network_type = fields.Selection([
-        ('5g', '5G'),
-        ('4g', '4G/LTE'),
-        ('3g', '3G'),
-        ('2g', '2G'),
-    ], string='Network Type', default='4g')
-    camera_mp = fields.Char(string='Camera MP', help='Main camera megapixels')
-    os = fields.Selection([
-        ('android', 'Android'),
-        ('ios', 'iOS'),
-        ('other', 'Other'),
-    ], string='Operating System', default='android')
-    os_version = fields.Char(string='OS Version')
+    mac_address = fields.Char(string='MAC Address')
+    extension_ids = fields.One2many(
+        string='Extension',
+        comodel_name='ict.phone.extension',
+        inverse_name='phone_id',
+    )
+    phone_type = fields.Selection([
+        ('analog', 'Analógico'),
+        ('digital', 'Digital'),
+        ('voip', 'VoIP'),
+        ('ip', 'IP'),
+    ], string='Phone Type', default='ip')
     physical_condition = fields.Selection([
         ('excellent', 'Excellent'),
         ('good', 'Good'),
         ('fair', 'Fair'),
         ('poor', 'Poor'),
     ], string='Physical Condition', default='good')
-
     state = fields.Selection([
         ('available', 'Available'),
         ('assigned', 'Assigned'),
@@ -80,160 +70,115 @@ class ICTPhone(models.Model):
         ('retired', 'Retired'),
     ], string='Status', default='available', tracking=True)
     
-    ict_employee_id = fields.Many2one(
-        string='Assigned ICT Employee',
-        comodel_name='ict.employee',
-        ondelete='restrict',
-        tracking=True,
-        help="Employee currently assigned to this phone device"
-    )
-    ict_employee_name = fields.Char(related='ict_employee_id.name')
-    
-    # SIM / IMEI (IMEI se guarda en serial_no heredado)
-    imei2 = fields.Char(string='IMEI2', size=15, help='Second IMEI for dual SIM devices')
-    sim_type = fields.Selection([
-        ('physical', 'Physical SIM'),
-        ('esim', 'eSIM'),
-        ('dual', 'Dual SIM'),
-    ], string='SIM Type', default='dual')
-    
-    # Asignaciones
-    assign_date = fields.Date('Assigned Date', tracking=True, compute="_compute_assign_date")
-    assignment_history_ids = fields.One2many(
-        'ict.phone.assignment',
-        'phone_id',
-        string='Assignment History'
-    )
-
     # ============================================================
     # CONSTRAINS
     # ============================================================
     _sql_constraints = [
-        ('unique_equipment', 'unique(equipment_id)', 'This equipment is already linked to a phone.'),
-        ('unique_imei2', 'unique(imei2)', "Another asset already exists with this serial number!"),
-        ('unique_mac', 'unique(mac_address)', "There is already another asset with this MAC address!"),
+        ('unique_equipment', 'unique(equipment_id)', 'This equipment is already linked to a mobile!'),
+        ('unique_mac', 'unique(mac_address)', 'There is already another asset with this MAC address!'),
     ]
 
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
-    @api.depends("ict_employee_id")
-    def _compute_assign_date(self):
+    @api.depends('brand', 'model', 'extension_ids', 'extension_ids.number')
+    def _compute_display_name(self):
         for phone in self:
-            if phone.ict_employee_id:
-                phone.assign_date = fields.Date.today()
-            else:
-                phone.assign_date = False
+            parts = []
+
+            # Añadir marca y modelo
+            if phone.brand:
+                parts.append(phone.brand)
+            if phone.model:
+                parts.append(phone.model)
+
+            # Procesar número de extensiones
+            ext_numbers = [ext.number for ext in phone.extension_ids if ext.number]
+            if ext_numbers:
+                parts.append("- " + " ".join(ext_numbers))
+
+            # Asignar el nombre
+            phone.display_name = " ".join(parts) or phone.display_name
+            # phone.equipment_id.name = phone.display_name
 
     # ============================================================
     # ONCHANGE METHODS
     # ============================================================
-    @api.onchange('brand', 'model')
-    def _onchange_name(self):
-        if self.brand and self.model and not self.name:
-            self.name = f"{self.brand} {self.model}"
 
-    @api.onchange('ict_employee_id')
-    def _onchange_ict_employee(self):
-        if self.ict_employee_id:
-            employee = self.ict_employee_id
-            # Cambiar a estado asignado de ser diferente
-            if self.state != 'assigned':
-                self.state = 'assigned'
-            # Sincronizar campo de empleado en equipment
-            self.equipment_id.employee_id = employee.employee_id
-            # Actualizar nombre si coincide con el autogenerado (marca+modelo)
-            if self.name == f"{self.brand} {self.model}":
-                if employee.name:
-                    self.name = f"{self.brand} {self.model} - {employee.name.split()[0]}"
-        else:
-            # Si se quita el empleado, desvincular y cambiar estado
-            self.state = 'available'
-            self.equipment_id.employee_id = False
 
-    # ============================================================
-    # ACTION METHODS
-    # ============================================================
-    def action_send_repair(self):
-        self.state = 'repair'
+    # @api.model_create_multi
+    # def create(self, vals_list):
+    #     extensions = super().create(vals_list)
+    #     for ext in extensions:
+    #         ext._sync_employee_work_phone()
+    #         # Si es asignada a un empleado, marcar como principal si no hay otra
+    #         if ext.employee_id and not ext.is_primary:
+    #             ext._ensure_primary_extension()
+    #     return extensions
 
-    def action_retire(self):
-        self.state = 'retired'
-        # Desvincular empleado al retirar
-        self.ict_employee_id = False
-
-    # ============================================================
-    # STATS
-    # ============================================================
-    @api.model
-    def get_kanban_stats(self, options=None):
-        """Get statistics for kanban view"""
-        # Si se pasa last_month como opción, calcular estadísticas del mes anterior
-        if options and options.get('last_month'):
-            from datetime import datetime, timedelta
-            today = datetime.now()
-            first_day_current = today.replace(day=1)
-            last_month = first_day_current - timedelta(days=1)
-            first_day_last = last_month.replace(day=1)
-            
-            domain = [
-                ('create_date', '>=', first_day_last.strftime('%Y-%m-%d')),
-                ('create_date', '<=', last_month.strftime('%Y-%m-%d')),
-                ('active', '=', True)
-            ]
-        else:
-            domain = [('active', '=', True)]
+    # def write(self, vals):
+    #     # Guardar cambios de employee_id o number para sincronizar después
+    #     old_employees = {ext.id: ext.employee_id for ext in self}
+    #     res = super().write(vals)
         
-        total = self.search_count(domain)
+    #     # Sincronizar el teléfono de trabajo del empleado
+    #     if 'employee_id' in vals or 'number' in vals or 'is_primary' in vals:
+    #         for ext in self:
+    #             ext._sync_employee_work_phone()
         
-        # Get counts by state
-        states = ['new', 'in_use', 'repair', 'retired']
-        by_status = {}
+    #     # Si se desasignó de un empleado, recalcular su work_phone desde otras extensiones
+    #     if 'employee_id' in vals and not vals.get('employee_id'):
+    #         for ext in self:
+    #             old_emp = old_employees.get(ext.id)
+    #             if old_emp:
+    #                 old_emp._update_work_phone_from_extensions()
         
-        for state in states:
-            state_domain = domain + [('state', '=', state)]
-            count = self.search_count(state_domain)
-            if count > 0 or options:  # Incluir cero si hay opciones para mantener estructura
-                by_status[state] = count
+    #     # Si se asignó a un empleado y no es principal, asegurar una principal
+    #     if 'employee_id' in vals and vals.get('employee_id'):
+    #         for ext in self:
+    #             if not ext.is_primary:
+    #                 ext._ensure_primary_extension()
         
-        return {
-            'total': total,
-            'by_status': by_status
-        }
+    #     return res
 
-    # ============================================================
-    # OVERRIDE METHODS
-    # ============================================================
-    def write(self, vals):
-        # Detectar cambio de empleado
-        if 'ict_employee_id' in vals:
-            new_employee_id = vals['ict_employee_id']
-            for phone in self:
-                old_employee = phone.ict_employee_id
-                if old_employee and new_employee_id and old_employee.id != new_employee_id:
-                    # Se está reasignando a otro empleado sin desasignar primero
-                    # Lanzar advertencia con opción a forzar (usaremos un contexto)
-                    if not self.env.context.get('force_reassign'):
-                        raise UserError(
-                            _("This phone is already assigned to %s. Please unassign it first or use the force reassign option."),
-                            old_employee.name
-                        )
-                    else:
-                        # Forzar reasignación: desasignar empleado para luego asignar normalmente
-                        phone.ict_employee_id = False
-        return super().write(vals)
+    # def _sync_employee_work_phone(self):
+    #     """Sincroniza el work_phone del empleado con esta extensión si es la principal."""
+    #     if self.employee_id and self.is_primary and self.number:
+    #         hr_emp = self.employee_id.employee_id
+    #         if hr_emp and hr_emp.work_phone != self.number:
+    #             hr_emp.work_phone = self.number
 
-# ============================================================
-# AUXILIARY MODELS
-# ============================================================
-class ICTPhoneAssignment(models.Model):
-    _name = 'ict.phone.assignment'
-    _description = 'Phone Assignment History'
-    _order = 'assign_date desc'
+    # def _ensure_primary_extension(self):
+    #     """Asegura que haya una extensión principal para el empleado."""
+    #     if not self.employee_id:
+    #         return
+        
+    #     # Buscar si ya hay una principal
+    #     primary = self.search([
+    #         ('employee_id', '=', self.employee_id.id),
+    #         ('is_primary', '=', True),
+    #     ], limit=1)
+        
+    #     if not primary:
+    #         # No hay principal, marcar esta como principal
+    #         self.is_primary = True
+    #         # Sincronizar work_phone
+    #         self._sync_employee_work_phone()
+    #     elif primary != self and self.is_primary:
+    #         # Si esta es principal pero ya hay otra, desmarcar esta
+    #         self.is_primary = False
+    #         # Asegurar que la otra sigue siendo principal (ya lo es)
 
-    phone_id = fields.Many2one('ict.phone', string='Phone', required=True, ondelete='cascade')
-    employee_id = fields.Many2one('ict.employee', string='Employee', required=True)
-    assign_date = fields.Date(string='Assignment Date', required=True, default=fields.Date.today)
-    return_date = fields.Date(string='Return Date')
-    notes = fields.Char(string='Notes')
-
+    # def action_set_primary(self):
+    #     """Acción para marcar esta extensión como principal desde el formulario."""
+    #     self.ensure_one()
+    #     if self.employee_id:
+    #         # Desmarcar otras principales del mismo empleado
+    #         self.search([
+    #             ('employee_id', '=', self.employee_id.id),
+    #             ('is_primary', '=', True),
+    #         ]).write({'is_primary': False})
+    #         self.is_primary = True
+    #         self._sync_employee_work_phone()
+    #     else:
+    #         raise UserError(_("Cannot set as primary: no employee assigned."))

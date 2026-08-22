@@ -2,9 +2,9 @@
 <odoo>
 
     <!-- ==================== LIST VIEW ==================== -->
-    <record id="view_ict_phone_line_list" model="ir.ui.view">
-        <field name="name">ict.phone.line.list</field>
-        <field name="model">ict.phone.line</field>
+    <record id="view_ict_mobile_line_list" model="ir.ui.view">
+        <field name="name">ict.mobile.line.list</field>
+        <field name="model">ict.mobile.line</field>
         <field name="arch" type="xml">
             <list>
                 <field name="phone_number" widget="badge"/>
@@ -26,11 +26,11 @@
     </record>
 
     <!-- ==================== FORM VIEW ==================== -->
-    <record id="view_ict_phone_line_form" model="ir.ui.view">
-        <field name="name">ict.phone.line.form</field>
-        <field name="model">ict.phone.line</field>
+    <record id="view_ict_mobile_line_form" model="ir.ui.view">
+        <field name="name">ict.mobile.line.form</field>
+        <field name="model">ict.mobile.line</field>
         <field name="arch" type="xml">
-            <form string="Phone Line">
+            <form string="mobile Line">
                 <header>
                     <button name="action_suspend" type="object"
                             class="btn-warning"
@@ -48,11 +48,11 @@
                     <field name="state" widget="statusbar"
                            statusbar_visible="available,assigned,suspended,cancelled"/>
                 </header>
-                <sheet class="phone_line_form_sheet">
+                <sheet class="mobile_line_form_sheet">
                     <!-- Hero -->
-                    <div class="hero phone_line_hero">
-                        <div class="hero_icon hero_phone_line">
-                            <i class="fa fa-phone" title="Phone Line"/>
+                    <div class="hero mobile_line_hero">
+                        <div class="hero_icon hero_mobile_line">
+                            <i class="fa fa-mobile" title="mobile Line"/>
                         </div>
                         <div class="hero_name">
                             <field name="phone_number" placeholder="+53 XXXXXXXX"/>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
 
-                    <group class="o_ict_phone_line_details">
+                    <group class="o_ict_mobile_line_details">
                         <group string="Assignment &amp; Security" class="o_ict_group">
                             <field name="employee_id" options="{'no_create': True}"/>
                             <field name="state_date" widget="date"/>
@@ -92,7 +92,7 @@
                         </group>
                     </group>
                     
-                    <group class="o_ict_phone_line_details">
+                    <group class="o_ict_mobile_line_details">
                         <group name="serv" string="Additional service notes" class="o_ict_group">
                             <field name="serv" placeholder="Additional service notes..." nolabel="1"/>
                         </group>
@@ -104,9 +104,9 @@
     </record>
 
     <!-- ==================== SEARCH VIEW ==================== -->
-    <record id="view_ict_phone_line_search" model="ir.ui.view">
-        <field name="name">ict.phone.line.search</field>
-        <field name="model">ict.phone.line</field>
+    <record id="view_ict_mobile_line_search" model="ir.ui.view">
+        <field name="name">ict.mobile.line.search</field>
+        <field name="model">ict.mobile.line</field>
         <field name="arch" type="xml">
             <search>
                 <field name="phone_number"/>
@@ -125,20 +125,20 @@
     </record>
 
     <!-- ==================== ACTION ==================== -->
-    <record id="action_ict_phone_line" model="ir.actions.act_window">
-        <field name="name">Phone Lines</field>
-        <field name="res_model">ict.phone.line</field>
+    <record id="action_ict_mobile_line" model="ir.actions.act_window">
+        <field name="name">Mobile Lines</field>
+        <field name="res_model">ict.mobile.line</field>
         <field name="view_mode">list,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                No phone lines yet. Click here to add a new ICT Phone Line.
+                No Mobile Lines yet. Click here to add a new ICT mobile Line.
             </p>
         </field>
     </record>
 
     <!-- ==================== MENU ==================== -->
-    <menuitem id="menu_ict_phone_line" name="Phone Lines" parent="menu_ict_phone" sequence="10" action="action_ict_phone_line"/>
+    <menuitem id="menu_mobile_line" name="Mobile Lines" parent="menu_ict_phone" sequence="10" action="action_ict_mobile_line"/>
 
 </odoo>

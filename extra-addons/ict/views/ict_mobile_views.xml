@@ -2,11 +2,11 @@
 <odoo>
 
     <!-- ==================== KANBAN VIEW ==================== -->
-    <record id="view_ict_phone_kanban" model="ir.ui.view">
-        <field name="name">ict.phone.kanban</field>
-        <field name="model">ict.phone</field>
+    <record id="view_ict_mobile_kanban" model="ir.ui.view">
+        <field name="name">ict.mobile.kanban</field>
+        <field name="model">ict.mobile</field>
         <field name="arch" type="xml">
-            <kanban js_class="phone_kanban">
+            <kanban js_class="mobile_kanban">
                 <field name="name"/>
                 <field name="brand"/>
                 <field name="model"/>
@@ -40,7 +40,7 @@
                             <div class="card-body">
                                 <!-- Icono principal (teléfono) -->
                                 <div class="icon-wrapper">
-                                    <div class="icon-circle icon-phone">
+                                    <div class="icon-circle icon-mobile">
                                         <i class="fa fa-mobile" title="Mobile"></i>
                                     </div>
                                 </div>
@@ -144,9 +144,9 @@
     </record>
 
     <!-- ==================== LIST VIEW ==================== -->
-    <record id="view_ict_phone_list" model="ir.ui.view">
-        <field name="name">ict.phone.list</field>
-        <field name="model">ict.phone</field>
+    <record id="view_ict_mobile_list" model="ir.ui.view">
+        <field name="name">ict.mobile.list</field>
+        <field name="model">ict.mobile</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name" widget="badge"/>
@@ -160,11 +160,11 @@
     </record>
 
     <!-- ==================== FORM VIEW ==================== -->
-    <record id="view_ict_phone_form" model="ir.ui.view">
-        <field name="name">ict.phone.form</field>
-        <field name="model">ict.phone</field>
+    <record id="view_ict_mobile_form" model="ir.ui.view">
+        <field name="name">ict.mobile.form</field>
+        <field name="model">ict.mobile</field>
         <field name="arch" type="xml">
-            <form string="Phone">
+            <form string="mobile">
                 <header>
                     <!-- Botones de cambio de estado -->
                     <button name="action_send_repair" type="object"
@@ -174,16 +174,16 @@
                     <button name="action_retire" type="object"
                             class="btn-danger"
                             string="Retire"
-                            confirm="Are you sure you want to retire this phone?"
+                            confirm="Are you sure you want to retire this mobile?"
                             invisible="state == 'retired'"/>
                     <field name="state" widget="statusbar"
                            statusbar_visible="available,assigned,repair,retired"/>
                            <!-- options="{'clickable': '1'}"/> -->
                 </header>
-                <sheet class="phone_form_sheet">
-                    <div class="hero phone_hero">
+                <sheet class="mobile_form_sheet">
+                    <div class="hero mobile_hero">
                         <!-- Icono tipo teléfono -->
-                        <div class="hero_icon hero_phone">
+                        <div class="hero_icon hero_mobile">
                             <i class="fa fa-mobile" title="Mobile"/>
                         </div>
                         <!-- Nombre (IMEI/Serial) -->
@@ -193,8 +193,8 @@
                         <!-- Especificaciones rápidas -->
                         <!-- <div class="hero_specs">
                             <span class="hero_spec" title="Número de teléfono">
-                                <i class="fa fa-phone"></i>
-                                <field name="phone_number"/>
+                                <i class="fa fa-mobile"></i>
+                                <field name="mobile_number"/>
                             </span>
                             <span class="hero_spec" title="Operador">
                                 <i class="fa fa-signal"></i>
@@ -225,7 +225,7 @@
                         </div>
                     </div>
                     
-                    <group class="o_ict_phone_details">
+                    <group class="o_ict_mobile_details">
                         <group class="o_ict_group">
                             <field name="name"/>
                             <field name="brand"/>
@@ -240,7 +240,7 @@
                         </group>
                     </group>
                     
-                    <group class="o_ict_phone_details">
+                    <group class="o_ict_mobile_details">
                         <group class="o_ict_group">
                             <field name="os"/>
                             <field name="os_version"/>
@@ -265,7 +265,7 @@
 
                     <separator string=" "/>
                     
-                    <notebook class="notebook phone_notebook">
+                    <notebook class="notebook mobile_notebook">
                         <page string="Notes">
                             <field name="note" placeholder="Additional notes..."/>
                         </page>
@@ -281,9 +281,9 @@
     </record>
 
     <!-- ==================== SEARCH VIEW ==================== -->
-    <record id="view_ict_phone_search" model="ir.ui.view">
-        <field name="name">ict.phone.search</field>
-        <field name="model">ict.phone</field>
+    <record id="view_ict_mobile_search" model="ir.ui.view">
+        <field name="name">ict.mobile.search</field>
+        <field name="model">ict.mobile</field>
         <field name="arch" type="xml">
             <search>
                 <group expand="1" string="Group By">
@@ -294,20 +294,20 @@
     </record>
 
     <!-- ==================== ACTION ==================== -->
-    <record id="action_ict_phone" model="ir.actions.act_window">
-        <field name="name">Phones</field>
-        <field name="res_model">ict.phone</field>
+    <record id="action_ict_mobile" model="ir.actions.act_window">
+        <field name="name">Mobiles</field>
+        <field name="res_model">ict.mobile</field>
         <field name="view_mode">kanban,list,form</field>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
-                No phones yet. Click here to add a new ICT Phone.
+                No mobiles yet. Click here to add a new ICT mobile.
             </p>
         </field>
     </record>
 
     <!-- ==================== MENU ==================== -->
-    <menuitem id="menu_phone_phone" name="Phones" parent="menu_ict_phone" sequence="5" action="action_ict_phone"/>
+    <menuitem id="menu_mobile" name="mobiles" parent="menu_ict_phone" sequence="5" action="action_ict_mobile"/>
 
 </odoo>

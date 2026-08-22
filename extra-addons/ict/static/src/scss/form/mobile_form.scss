@@ -1,12 +1,12 @@
 // Estilos específicos para el formulario de teléfonos
-.phone_form_sheet {
+.mobile_form_sheet {
     @extend %form-sheet-base;
     
-    .hero.phone_hero {
+    .hero.mobile_hero {
         @extend %hero-base;
         
         .hero_icon {
-            &.hero_phone { background: linear-gradient(135deg, #f093fb, #f5576c); font-size: 2.5rem; }
+            &.hero_mobile { background: linear-gradient(135deg, #f093fb, #f5576c); font-size: 2.5rem; }
         }
 
         .hero_specs .hero_spec .o_field_widget {
@@ -14,11 +14,11 @@
         }
     }
 
-    .o_ict_phone_details {
+    .o_ict_mobile_details {
         @extend %group-base;
     }
 
-    .notebook.phone_notebook {
+    .notebook.mobile_notebook {
         @extend %notebook-base;
     }
 

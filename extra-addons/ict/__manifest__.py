@@ -26,7 +26,7 @@
         'views/ict_phone_views.xml',
         'views/ict_service_views.xml',
         # "views/ict_reports_views.xml",
-        'views/ict_phone_line_views.xml',
+        'views/ict.mobile.line_views.xml',
         'views/ict_phone_extension.xml',
     ],
     'assets': {
@@ -44,13 +44,13 @@
             'ict/static/src/views/kanban/common_kanban.scss',
             'ict/static/src/views/kanban/employee_kanban/*',
             'ict/static/src/views/kanban/computer_kanban/*',
-            'ict/static/src/views/kanban/phone_kanban/*',
+            'ict/static/src/views/kanban/mobile_kanban/*',
             # Styles
             'ict/static/src/scss/form/common_form.scss',
             'ict/static/src/scss/form/computer_form.scss',
             'ict/static/src/scss/form/employee_form.scss',
-            'ict/static/src/scss/form/phone_form.scss',
-            'ict/static/src/scss/form/phone_line_form.scss',
+            'ict/static/src/scss/form/mobile_form.scss',
+            'ict/static/src/scss/form/mobile_line_form.scss',
             'ict/static/src/scss/kanban/*.scss',
             # Others
         ],

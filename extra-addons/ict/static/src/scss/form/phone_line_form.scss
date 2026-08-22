@@ -1,12 +1,12 @@
 // Estilos específicos para el formulario de líneas telefónicas
-.phone_line_form_sheet {
+.mobile_line_form_sheet {
     @extend %form-sheet-base;
 
-    .hero.phone_line_hero {
+    .hero.mobile_line_hero {
         @extend %hero-base;
 
         .hero_icon {
-            &.hero_phone_line { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+            &.hero_mobile_line { background: linear-gradient(135deg, #4facfe, #00f2fe); }
         }
 
         .hero_specs .hero_spec .o_field_widget {
@@ -14,11 +14,11 @@
         }
     }
 
-    .o_ict_phone_line_details {
+    .o_ict.mobile.line_details {
         @extend %group-base;
     }
 
-    .notebook.phone_line_notebook {
+    .notebook.mobile_line_notebook {
         @extend %notebook-base;
     }
 
