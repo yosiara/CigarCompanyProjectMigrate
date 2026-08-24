@@ -30,7 +30,7 @@
         <field name="name">ict.mobile.line.form</field>
         <field name="model">ict.mobile.line</field>
         <field name="arch" type="xml">
-            <form string="mobile Line">
+            <form string="Mobile Line">
                 <header>
                     <button name="action_suspend" type="object"
                             class="btn-warning"
@@ -49,7 +49,6 @@
                            statusbar_visible="available,assigned,suspended,cancelled"/>
                 </header>
                 <sheet class="mobile_line_form_sheet">
-                    <!-- Hero -->
                     <div class="hero mobile_line_hero">
                         <div class="hero_icon hero_mobile_line">
                             <i class="fa fa-mobile" title="mobile Line"/>
@@ -74,18 +73,24 @@
                     </div>
 
                     <group class="o_ict_mobile_line_details">
-                        <group string="Assignment &amp; Security" class="o_ict_group">
-                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                        <group string="Assignment" class="o_ict_group">
                             <field name="state_date" widget="date"/>
+                            <field name="job_id" options="{'no_create': True}"/>
+                            <field name="mobile_id" options="{'no_create': True}"/>
+                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                        </group>
+                        <group string="Security" class="o_ict_group">
                             <field name="imsi"/>
                             <field name="sim_card"/>
                             <field name="pin" password="0"/>
                             <field name="puk" password="0"/>
                         </group>
-                        <group string="Plan &amp; Services" class="o_ict_group">
+                        <group string="Plan" class="o_ict_group">
                             <field name="sms_cap_plan"/>
                             <field name="calls_cap_plan"/>
                             <field name="gprs_cap_plan"/>
+                        </group>
+                        <group string="Services" class="o_ict_group">
                             <field name="sms_package"/>
                             <field name="plan_rate"/>
                             <field name="gprs_package"/>

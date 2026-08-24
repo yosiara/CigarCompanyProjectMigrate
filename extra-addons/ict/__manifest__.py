@@ -26,7 +26,7 @@
         'views/ict_phone_views.xml',
         'views/ict_service_views.xml',
         # "views/ict_reports_views.xml",
-        'views/ict.mobile.line_views.xml',
+        'views/ict_mobile_line_views.xml',
         'views/ict_phone_extension_views.xml',
     ],
     'assets': {
@@ -51,6 +51,7 @@
             'ict/static/src/scss/form/employee_form.scss',
             'ict/static/src/scss/form/mobile_form.scss',
             'ict/static/src/scss/form/mobile_line_form.scss',
+            'ict/static/src/scss/form/phone_extension_form.scss',
             'ict/static/src/scss/kanban/*.scss',
             # Others
         ],

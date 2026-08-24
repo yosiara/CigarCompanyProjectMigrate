@@ -191,20 +191,6 @@
                             <field name="serial_no" placeholder="IMEI or Serial..."/>
                         </div>
                         <!-- Especificaciones rápidas -->
-                        <!-- <div class="hero_specs">
-                            <span class="hero_spec" title="Número de teléfono">
-                                <i class="fa fa-mobile"></i>
-                                <field name="mobile_number"/>
-                            </span>
-                            <span class="hero_spec" title="Operador">
-                                <i class="fa fa-signal"></i>
-                                <field name="carrier"/>
-                            </span>
-                            <span class="hero_spec" title="Network Type">
-                                <i class="fa fa-wifi"></i>
-                                <field name="network_type"/>
-                            </span>
-                        </div> -->
                         <div class="hero_specs">
                             <div class="hero_spec" title="Processor">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">

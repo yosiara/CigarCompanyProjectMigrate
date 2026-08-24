@@ -149,7 +149,7 @@
             <list>
                 <field name="name" widget="badge"/>
                 <field name="responsible_name" widget="badge"/>
-                <field name="local_name"/>
+                <!-- <field name="local_name"/> -->
                 <field name="pc_type"/>
                 <field name="operating_system"/>
                 <field name="ip_address"/>
@@ -245,9 +245,9 @@
                             <field name="brand"/>
                             <field name="physical_condition"/>
                             <!-- Badges informativos de responsabilidad -->
-                            <label for='local_name' string="Responsible"/>
+                            <label for='responsible_name' string="Responsible"/>
                             <div class="d-flex flex-wrap gap-2">
-                                <field name="local_name" widget="badge" class="oe_inline"/>
+                                <!-- <field name="local_name" widget="badge" class="oe_inline"/> -->
                                 <field name="responsible_name" widget="badge" class="oe_inline"/>
                             </div>
                             <field name="employee_ids" string="Employees" widget="many2many_tags" options="{'no_create': True}" placeholder="Assign to employees..."/>

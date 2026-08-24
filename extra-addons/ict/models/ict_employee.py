@@ -22,14 +22,14 @@ class ICTEmployee(models.Model):
     computer_ids = fields.Many2many('ict.computer', 'ict_computer_employee_rel', 'employee_id', 'computer_id', 'Computers')
 
     # Phones
-    extension_ids = fields.Many2many('ict.phone.extension', 'ict_extension_employee_rel' 'employee_id', 'extension_id', 'Phone Extensions')
+    extension_ids = fields.Many2many('ict.phone.extension', 'ict_extension_employee_rel', 'employee_id', 'extension_id', 'Phone Extensions')
     work_phone = fields.Char(string='Work Phone', compute='_compute_work_phone', store=True)
-    phone_ids = fields.Many2many('ict.phone', 'ict_phone_employee_rel' 'employee_id', 'phone_id', 'Phones', compute='_compute_phone_ids')
+    phone_ids = fields.Many2many('ict.phone', 'ict_phone_employee_rel', 'employee_id', 'phone_id', 'Phones', compute='_compute_phone_ids')
     
     # Mobiles
-    line_ids = fields.Many2many('ict.mobile.line', 'ict_line_employee_rel' 'employee_id', 'line_id', 'Mobiles Line')
+    line_ids = fields.Many2many('ict.mobile.line', 'ict_line_employee_rel', 'employee_id', 'line_id', 'Mobiles Line')
     mobile_phone = fields.Char(string='Mobile Phone', compute='_compute_mobile_phone', store=True)
-    mobile_ids = fields.Many2many('ict.mobile', 'ict_mobile_employee_rel' 'employee_id', 'mobile_id', 'Mobiles', compute='_compute_mobile_ids')
+    mobile_ids = fields.Many2many('ict.mobile', 'ict_mobile_employee_rel', 'employee_id', 'mobile_id', 'Mobiles', compute='_compute_mobile_ids')
 
     # Related employee fields
     employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee *', required=True, tracking=True)
@@ -37,7 +37,7 @@ class ICTEmployee(models.Model):
     user_id = fields.Many2one(related='employee_id.user_id')
     user_partner_id = fields.Many2one(related='employee_id.user_id.partner_id', related_sudo=False)
     user_status = fields.Selection(related='employee_id.user_id.state')
-    job_id = fields.Char(related='employee_id.job_id')
+    job_id = fields.Many2one(related='employee_id.job_id')
     job_title = fields.Char(related='employee_id.job_title')
     department_id = fields.Many2one(related='employee_id.department_id')
     department_name = fields.Char(related='employee_id.department_id.name')

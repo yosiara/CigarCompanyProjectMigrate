@@ -6,9 +6,10 @@ ict.access_ict_service_user,access_ict_service_user,ict.model_ict_service,ict.gr
 ict.access_ict_reports_user,access_ict_reports_user,ict.model_ict_reports,ict.group_ict_user,1,0,0,0
 ict.access_ict_computer_component_user,access_ict_computer_component_user,ict.model_ict_computer_component,ict.group_ict_user,1,0,0,0
 ict.access_ict_computer_application_user,access_ict_computer_application_user,ict.model_ict_computer_application,ict.group_ict_user,1,0,0,0
-ict.access_ict_phone_line_user,access_ict_phone_line_user,ict.model_ict_phone_line,ict.group_ict_user,1,0,0,0
+ict.access_ict_mobile_line_user,access_ict_mobile_line_user,ict.model_ict_mobile_line,ict.group_ict_user,1,0,0,0
 ict.access_ict_phone_extension_user,access_ict_phone_extension_user,ict.model_ict_phone_extension,ict.group_ict_user,1,0,0,0
-ict.access_ict_phone_assignment_user,access_ict_phone_assignment_user,ict.model_ict_phone_assignment,ict.group_ict_user,1,0,0,0
+ict.access_ict_mobile_assignment_user,access_ict_mobile_assignment_user,ict.model_ict_mobile_assignment,ict.group_ict_user,1,0,0,0
+ict.access_ict_mobile_user,access_ict_mobile_user,ict.model_ict_mobile,ict.group_ict_user,1,0,0,0
 ,,,,,,,
 ict.access_ict_employee_manager,access_ict_employee_manager,ict.model_ict_employee,ict.group_ict_manager,1,1,1,1
 ict.access_ict_computer_manager,access_ict_computer_manager,ict.model_ict_computer,ict.group_ict_manager,1,1,1,1
@@ -17,6 +18,7 @@ ict.access_ict_service_manager,access_ict_service_manager,ict.model_ict_service,
 ict.access_ict_reports_manager,access_ict_reports_manager,ict.model_ict_reports,ict.group_ict_manager,1,1,1,1
 ict.access_ict_computer_component_manager,access_ict_computer_component_manager,ict.model_ict_computer_component,ict.group_ict_manager,1,1,1,1
 ict.access_ict_computer_application_manager,access_ict_computer_application_manager,ict.model_ict_computer_application,ict.group_ict_manager,1,1,1,1
-ict.access_ict_phone_line_manager,access_ict_phone_line_manager,ict.model_ict_phone_line,ict.group_ict_manager,1,1,1,1
+ict.access_ict_mobile_line_manager,access_ict_mobile_line_manager,ict.model_ict_mobile_line,ict.group_ict_manager,1,1,1,1
 ict.access_ict_phone_extension_manager,access_ict_phone_extension_manager,ict.model_ict_phone_extension,ict.group_ict_manager,1,1,1,1
-ict.access_ict_phone_assignment_manager,access_ict_phone_assignment_manager,ict.model_ict_phone_assignment,ict.group_ict_manager,1,1,1,1
+ict.access_ict_mobile_assignment_manager,access_ict_mobile_assignment_manager,ict.model_ict_mobile_assignment,ict.group_ict_manager,1,1,1,1
+ict.access_ict_mobile_manager,access_ict_mobile_manager,ict.model_ict_mobile,ict.group_ict_manager,1,1,1,1

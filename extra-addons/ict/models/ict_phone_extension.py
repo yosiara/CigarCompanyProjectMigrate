@@ -57,6 +57,9 @@ class ICTPhoneExtension(models.Model):
         ('cancelled', 'Cancelled'),
     ], string='Status *', default='available', tracking=True, required=True)
     state_date = fields.Date('State Date', tracking=True, compute="_compute_state_date", help='Date of last status change')
+    calls_cap_plan = fields.Char(string='Calls Cap Plan', help='Contracted calls cap plan')
+    calls_code = fields.Char(string='Calls Code', help='Code for calls')
+    carrier = fields.Char(string='Carrier', default='ETECSA')
     notes = fields.Html(string='Notes')
     
     # Domain helper
@@ -119,3 +122,18 @@ class ICTPhoneExtension(models.Model):
         elif self.assign_to == 'department':
             self.job_id = False
         self.employee_ids = [(5, 0, 0)]  # Limpia empleados
+
+    # ============================================================
+    # ACTION METHODS
+    # ============================================================
+    def action_suspend(self):
+        self.state = 'suspended'
+
+    def action_activate(self):
+        self.state = 'assigned'
+    
+    def action_cancel(self):
+        self.state = 'cancelled'
+        # Si estaba asignada, desasignar
+        if self.employee_ids:
+            self.employee_ids = False

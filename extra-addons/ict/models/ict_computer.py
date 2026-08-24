@@ -72,7 +72,7 @@ class ICTComputer(models.Model):
     employee_ids = fields.Many2many('ict.employee', 'ict_computer_employee_rel', 'computer_id', 'employee_id', 'Assigned Employees')
     responsible_name = fields.Char(string='Responsible', compute='_compute_responsible', store=True,
                                     help="The first employee selected will be considered the team's top manager.")
-    local_name = fields.Char(related='employee_id.department_id.name', string='Dpt. Location', readonly=True)
+    # local_name = fields.Char(related='employee_ids.department_id.name', string='Dpt. Location', readonly=True)
     
     # General Information
     state = fields.Selection([
@@ -106,7 +106,6 @@ class ICTComputer(models.Model):
     # CONSTRAINS
     # ============================================================
     _sql_constraints = [
-        ('unique_equipment_id', 'unique(equipment_id)', "Related equipment already exists!"),
         ('unique_seal', 'unique(seal)', "This Seal is already associated with another asset!"),
         ('unique_ip', 'unique(ip_address)', "This IP address is already associated with another asset!"),
         ('unique_mac', 'unique(mac_address)', "This MAC address is already associated with another asset!"),

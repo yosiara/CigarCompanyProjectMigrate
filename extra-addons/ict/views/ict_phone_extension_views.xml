@@ -7,11 +7,13 @@
         <field name="model">ict.phone.extension</field>
         <field name="arch" type="xml">
             <list>
-                <field name="number"/>
-                <field name="phone_id"/>
-                <field name="department_id" invisible="assign_to == 'job' or not assign_to"/>
+                <field name="assign_to"/>
                 <field name="job_id" invisible="assign_to == 'department' or not assign_to"/>
-                <field name="employee_ids"/>
+                <field name="department_id" invisible="assign_to == 'job' or not assign_to"/>
+                <field name="phone_id"/>
+                <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                <field name="calls_code"/>
+                <field name="calls_cap_plan"/>
             </list>
         </field>
     </record>
@@ -22,32 +24,67 @@
         <field name="model">ict.phone.extension</field>
         <field name="arch" type="xml">
             <form>
-                <sheet>
-                    <div class="oe_title">
-                        <label for='display_name'/>
-                        <h1>
-                            <field name="display_name"/>
-                        </h1>
+                <header>
+                    <button name="action_suspend" type="object"
+                            class="btn-warning"
+                            string="Suspend"
+                            invisible="state in ['suspended','cancelled']"/>
+                    <button name="action_activate" type="object"
+                            class="btn-success"
+                            string="Activate"
+                            invisible="state != 'suspended'"/>
+                    <button name="action_cancel" type="object"
+                            class="btn-danger"
+                            string="Cancel"
+                            confirm="Are you sure you want to cancel this line?"
+                            invisible="state == 'cancelled'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="available,assigned,suspended,cancelled"/>
+                </header>
+                <sheet class="phone_extension_form_sheet">
+                    <!-- Hero -->
+                    <div class="hero phone_extension_hero">
+                        <div class="hero_icon hero_phone_extension">
+                            <i class="fa fa-mobile" title="mobile Line"/>
+                        </div>
+                        <div class="hero_name">
+                            <field name="number" placeholder="+53 XXXXXXXX"/>
+                        </div>
+                        <div class="hero_specs">
+                            <span class="hero_spec" title="Date of last status">
+                                 <i class="fa fa-star"/>
+                                <field name="state_date" widget="date"/>
+                            </span>
+                            <span class="hero_spec" title="Contracted call limit plan">
+                                 <i class="fa fa-warning"/>
+                                <field name="calls_cap_plan"/>
+                            </span>
+                            <span class="hero_spec" title="Telecommunications company">
+                                <i class="fa fa-signal"/>
+                                <field name="carrier"/>
+                            </span>
+                        </div>
                     </div>
-                    <group>
-                        <group>
-                            <field name="number"/>
-                            <field name="phone_id"/>
-                            <field name="assign_to" widget="radio"/>
-                        </group>
-                        <group>
-                            <field name="department_id" invisible="assign_to == 'job' or not assign_to"/>
+
+                    <group class="o_ict_phone_extension_details">
+                        <group string="Assignment &amp; Security" class="o_ict_group">
+                            <field name="assign_to"/>
                             <field name="job_id" invisible="assign_to == 'department' or not assign_to"/>
-                            <!-- <field name="employee_ids" domain="[('id', 'in', allowed_employee_ids)]" widget="many2many_tags"/> -->
-                             <field name="employee_ids" widget="many2many_tags"/>
-                            <field name="allowed_employee_ids" invisible="1"/>
+                            <field name="department_id" invisible="assign_to == 'job' or not assign_to"/>
+                            <field name="phone_id"/>
+                        </group>
+                        <group string="Plan &amp; Services" class="o_ict_group">
+                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                            <field name="calls_code"/>
+                            <field name="calls_cap_plan"/>
                         </group>
                     </group>
-                    <notebook>
-                        <page string="Notes">
-                            <field name="notes"/>
-                        </page>
-                    </notebook>
+                    
+                    <group class="o_ict_phone_extension_details">
+                        <group name="notes" string="Additional service notes" class="o_ict_group">
+                            <field name="notes" placeholder="Additional service notes..." nolabel="1"/>
+                        </group>
+                    </group>
                 </sheet>
                 <chatter/>
             </form>
@@ -56,7 +93,7 @@
     
     <!-- Acción y menú -->
     <record id="action_ict_phone_extension" model="ir.actions.act_window">
-        <field name="name">Extensions</field>
+        <field name="name">Phone Extensions</field>
         <field name="res_model">ict.phone.extension</field>
         <field name="view_mode">list,form</field>
         <field name="help" type="html">
@@ -66,6 +103,6 @@
         </field>
     </record>
     
-    <menuitem id="menu_phone_extension" name="Extensions" parent="menu_ict_phone" sequence="10" action="action_ict_phone_extension"/>
+    <menuitem id="menu_phone_extension" name="Phone Extensions" parent="menu_ict_phone" sequence="10" action="action_ict_phone_extension"/>
     
 </odoo>

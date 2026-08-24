@@ -46,6 +46,10 @@ class ICTPhone(models.Model):
     
     brand = fields.Char(string='Brand', required=True)
     mac_address = fields.Char(string='MAC Address')
+    ip_address = fields.Char(string='IP Address')
+    poe_support = fields.Boolean(string='PoE Support', default=False, help='Power over Ethernet')
+    has_screen = fields.Boolean(string='Has Screen', default=True)
+    network_ports = fields.Integer(string='Network Ports', default=2)
     purchase_date = fields.Date(string='Purchase Date', default=fields.Date.today())
     extension_ids = fields.One2many(
         string='Phone Extension',
@@ -68,7 +72,7 @@ class ICTPhone(models.Model):
         ('digital', 'Digital'),
         ('voip', 'VoIP'),
         ('ip', 'IP'),
-    ], string='Phone Type', default='ip')
+    ], string='Phone Type', default='voip')
     physical_condition = fields.Selection([
         ('excellent', 'Excellent'),
         ('good', 'Good'),
@@ -86,7 +90,6 @@ class ICTPhone(models.Model):
     # CONSTRAINS
     # ============================================================
     _sql_constraints = [
-        ('unique_equipment', 'unique(equipment_id)', 'This equipment is already linked to a mobile!'),
         ('unique_mac', 'unique(mac_address)', 'There is already another asset with this MAC address!'),
     ]
 
