@@ -70,7 +70,7 @@ class ICTComputer(models.Model):
 
     # Assignment & Location
     employee_ids = fields.Many2many('ict.employee', 'ict_computer_employee_rel', 'computer_id', 'employee_id', 'Assigned Employees')
-    responsible_name = fields.Char(string='Responsible', compute='_compute_responsible', store=True, readonly=True,
+    responsible_name = fields.Char(string='Responsible', compute='_compute_responsible', store=True,
                                     help="The first employee selected will be considered the team's top manager.")
     local_name = fields.Char(related='employee_id.department_id.name', string='Dpt. Location', readonly=True)
     
@@ -120,13 +120,13 @@ class ICTComputer(models.Model):
     def _compute_responsible(self):
         for pc in self:
             if pc.employee_ids:
-                responsible = pc.employee_ids[0]
-                pc.employee_id = responsible.employee_id
+                responsible = pc.employee_ids[0].employee_id
+                pc.equipment_id.employee_id = responsible
                 if responsible.name != pc.responsible_name:
                     pc.responsible_name = responsible.name
             else:
-                pc.employee_id = False
                 pc.responsible_name = False
+                pc.equipment_id.employee_id = False
 
     @api.depends('component_ids')
     def _compute_component(self):

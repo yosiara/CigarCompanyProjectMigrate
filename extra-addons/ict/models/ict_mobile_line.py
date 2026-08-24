@@ -7,24 +7,39 @@ from odoo.exceptions import UserError, ValidationError
 _logger = logging.getLogger(__name__)
 
 
-class IctMobileLine(models.Model):
+class ICTMobileLine(models.Model):
     _name = 'ict.mobile.line'
     _description = 'ICT Mobile Line'
-    _rec_name = 'phone_number'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _rec_name = 'number'
     
-    employee_id = fields.Many2one(
-        string='Employee',
-        comodel_name='ict.employee',
-        ondelete='restrict',
-        tracking=True,
-        help="Employee to whom this line is assigned"
-    )
-    phone_number = fields.Char(
-        string='Phone Number *',
+    number = fields.Char(
+        string='Number *',
         required=True,
         index=True,
-        help='Phone number of the line'
+        help='Number of the line'
+    )
+    job_id = fields.Many2one(
+        string='Job *', 
+        comodel_name='hr.job', 
+        ondelete='restrict', 
+        tracking=True, 
+        required=True, 
+    )
+    mobile_id = fields.Many2one(
+        string='Mobile',
+        comodel_name='ict.mobile',
+        ondelete='restrict',
+        tracking=True, 
+    )
+    employee_ids = fields.Many2many(
+        'ict.employee',
+        'ict_line_employee_rel',
+        'line_id',
+        'employee_id',
+        string='Employees',
+        tracking=True,
+        domain=lambda self: [('job_id', '=', self.job_id.id)], 
     )
     state = fields.Selection([
         ('available', 'Available'),
@@ -55,8 +70,16 @@ class IctMobileLine(models.Model):
     # CONSTRAINTS
     # ============================================================
     _sql_constraints = [
-        ('unique_phone_number', 'unique(phone_number)', 'This phone number is already registered.'),
+        ('unique_number', 'unique(number)', 'This phone number is already registered.'),
     ]
+
+    @api.constrains('job_id', 'employee_ids')
+    def _check_assignment(self):
+        for rec in self:
+            if rec.job_id and rec.employee_ids:
+                invalid = rec.employee_ids.filtered(lambda e: e.job_id != rec.job_id)
+                if invalid:
+                    raise ValidationError(_("Employees %s do not belong to this job") % invalid.mapped('name'))
 
     # ============================================================
     # COMPUTE METHODS
@@ -78,8 +101,8 @@ class IctMobileLine(models.Model):
     def action_cancel(self):
         self.state = 'cancelled'
         # Si estaba asignada, desasignar
-        if self.employee_id:
-            self.employee_id = False
+        if self.employee_ids:
+            self.employee_ids = False
 
     # ============================================================
     # OVERRIDE METHODS
@@ -89,29 +112,29 @@ class IctMobileLine(models.Model):
         lines = super().create(vals_list)
         for line in lines:
             # Agregar código de país al número de teléfono
-            if not line.phone_number.startswith('+'):
-                line.phone_number = '+53 ' + line.phone_number  # default Cuba
+            if not line.number.startswith('+'):
+                line.number = '+53 ' + line.number  # default Cuba
         return lines
 
     def write(self, vals):
         res = super().write(vals)
         # Agregar código de país al número de teléfono
-        if 'phone_number' in vals:
+        if 'number' in vals:
             for line in self:
-                if not line.phone_number.startswith('+'):
-                    line.phone_number = '+53 ' + vals['phone_number']  # default Cuba
+                if not line.number.startswith('+'):
+                    line.number = '+53 ' + vals['number']  # default Cuba
         return res
 
     # def _sync_employee_mobile(self):
     #     """Sincroniza el número de móvil del empleado con esta línea si es la línea principal."""
-    #     if self.employee_id and self.phone_number:
+    #     if self.employee_id and self.number:
     #         # Actualizar el campo mobile_phone en hr.employee
     #         hr_emp = self.employee_id.employee_id
     #         if hr_emp:
     #             # Solo actualizar si no hay otro número más reciente
     #             # Puedes decidir si siempre sobrescribir o si solo si está vacío
     #             if not hr_emp.mobile_phone:
-    #                 hr_emp.mobile_phone = self.phone_number
+    #                 hr_emp.mobile_phone = self.number
     #             else:
     #                 # Si ya tiene número, podrías actualizar solo si es la línea principal
     #                 # Aquí decides la política: por ejemplo, siempre usar la primera línea asignada

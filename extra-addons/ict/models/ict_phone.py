@@ -13,16 +13,6 @@ class ICTPhone(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _inherits = {'maintenance.equipment': 'equipment_id'}
 
-    equipment_id = fields.Many2one(
-        'maintenance.equipment',
-        string='Related Equipment',
-        required=True,
-        ondelete='restrict',
-        auto_join=True,
-        index=True,
-        help='Equipment-related data of the mobile'
-    )
-
     # Inherited Equipment Fields
     # # name = fields.Char('Equipment Name', required=True, translate=True)
     # # active = fields.Boolean(default=True)
@@ -44,12 +34,34 @@ class ICTPhone(models.Model):
     # # equipment_properties = fields.Properties('Properties', definition='category_id.equipment_properties_definition', copy=True)
     # # match_serial = fields.Boolean(compute='_compute_match_serial')
 
+    equipment_id = fields.Many2one(
+        'maintenance.equipment',
+        string='Related Equipment',
+        required=True,
+        ondelete='restrict',
+        auto_join=True,
+        index=True,
+        help='Equipment-related data of the phone'
+    )
+    
     brand = fields.Char(string='Brand', required=True)
     mac_address = fields.Char(string='MAC Address')
+    purchase_date = fields.Date(string='Purchase Date', default=fields.Date.today())
     extension_ids = fields.One2many(
-        string='Extension',
+        string='Phone Extension',
         comodel_name='ict.phone.extension',
         inverse_name='phone_id',
+    )
+    employee_ids = fields.Many2many(
+        'ict.employee', 
+        'ict_phone_employee_rel', 
+        'phone_id', 
+        'employee_id', 
+        'Employees', 
+        tracking=True, 
+        ondelete='restrict', 
+        compute='_compute_employee_ids', 
+        help="Employee currently assigned to this phone device", 
     )
     phone_type = fields.Selection([
         ('analog', 'Analógico'),
@@ -98,8 +110,15 @@ class ICTPhone(models.Model):
                 parts.append("- " + " ".join(ext_numbers))
 
             # Asignar el nombre
-            phone.display_name = " ".join(parts) or phone.display_name
-            # phone.equipment_id.name = phone.display_name
+            phone.display_name = " ".join(parts) or "Unnamed Phone"
+            if phone.equipment_id and phone.equipment_id.name != phone.display_name:
+                phone.equipment_id.name = phone.display_name
+
+    @api.depends('extension_ids', 'extension_ids.employee_ids')
+    def _compute_employee_ids(self):
+        for emp in self:
+            employees = emp.extension_ids.mapped('employee_ids')
+            emp.employee_ids = [(6, 0, employees.ids)]
 
     # ============================================================
     # ONCHANGE METHODS

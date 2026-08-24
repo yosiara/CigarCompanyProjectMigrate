@@ -23,7 +23,7 @@ export class QuickCreate extends Component {
                 phone: {
                     name: '',
                     brand: '',
-                    phone_number: ''
+                    number: ''
                 }
             }
         });

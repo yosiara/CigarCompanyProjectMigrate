@@ -12,17 +12,24 @@ class ICTEmployee(models.Model):
     _description = 'ICT Employee'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
+    # Domain
     domain_user = fields.Char(string='Username *', required=True, tracking=True)
     domain_id = fields.Many2one(string='Domain *', comodel_name='mail.alias.domain', required=True, default=lambda self: self.env.company.alias_domain_id.id)
-    work_email = fields.Char(string='Work Email', compute='_compute_work_email')
+    work_email = fields.Char(string='Work Email', compute='_compute_work_email', store=True)
     hire_date = fields.Date(string='Hire Date', default=fields.Date().today())
-    mobile_phone = fields.Char(string='Mobile Phone', compute='_compute_mobile_phone')
-    work_phone = fields.Char(string='Work Phone', compute='_compute_work_phone')
-    
-    phone_ids = fields.One2many('ict.phone', 'ict_employee_id', 'Phones')
-    line_ids = fields.One2many('ict.mobile.line', 'employee_id', 'Mobile Lines', help="All Mobile Lines assigned to this employee")
-    extension_ids = fields.One2many('ict.phone.extension', 'employee_id', 'Phone Extensions', help='Phone extensions assigned to this employee')
+
+    # Computes
     computer_ids = fields.Many2many('ict.computer', 'ict_computer_employee_rel', 'employee_id', 'computer_id', 'Computers')
+
+    # Phones
+    extension_ids = fields.Many2many('ict.phone.extension', 'ict_extension_employee_rel' 'employee_id', 'extension_id', 'Phone Extensions')
+    work_phone = fields.Char(string='Work Phone', compute='_compute_work_phone', store=True)
+    phone_ids = fields.Many2many('ict.phone', 'ict_phone_employee_rel' 'employee_id', 'phone_id', 'Phones', compute='_compute_phone_ids')
+    
+    # Mobiles
+    line_ids = fields.Many2many('ict.mobile.line', 'ict_line_employee_rel' 'employee_id', 'line_id', 'Mobiles Line')
+    mobile_phone = fields.Char(string='Mobile Phone', compute='_compute_mobile_phone', store=True)
+    mobile_ids = fields.Many2many('ict.mobile', 'ict_mobile_employee_rel' 'employee_id', 'mobile_id', 'Mobiles', compute='_compute_mobile_ids')
 
     # Related employee fields
     employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee *', required=True, tracking=True)
@@ -57,28 +64,44 @@ class ICTEmployee(models.Model):
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
+    @api.depends('line_ids', 'line_ids.mobile_id')
+    def _compute_mobile_ids(self):
+        for emp in self:
+            mobiles = emp.line_ids.mapped('mobile_id')
+            emp.mobile_ids = [(6, 0, mobiles.ids)]
+
+    @api.depends('extension_ids', 'extension_ids.phone_id')
+    def _compute_phone_ids(self):
+        for emp in self:
+            phones = emp.extension_ids.mapped('phone_id')
+            emp.phone_ids = [(6, 0, phones.ids)]
+
     @api.depends('extension_ids', 'extension_ids.number')
     def _compute_work_phone(self):
         for emp in self:
-            numbers = [ext.number for ext in emp.extension_ids]
-            emp.work_phone = " ".join(numbers)
-            emp.employee_id.work_phone = emp.work_phone
+            numbers = emp.extension_ids.mapped('number')
+            emp.work_phone = " ".join(numbers) if numbers else ""
+            if emp.employee_id and emp.employee_id.work_phone != emp.work_phone:
+                emp.employee_id.work_phone = emp.work_phone
 
-    @api.depends('line_ids', 'line_ids.phone_number')
+
+    @api.depends('line_ids', 'line_ids.number')
     def _compute_mobile_phone(self):
         for emp in self:
-            numbers = [line.phone_number for line in emp.line_ids]
-            emp.mobile_phone = " ".join(numbers)
-            emp.employee_id.mobile_phone = emp.mobile_phone
+            numbers = emp.line_ids.mapped('number')
+            emp.mobile_phone = " ".join(numbers) if numbers else ""
+            if emp.employee_id and emp.employee_id.mobile_phone != emp.mobile_phone:
+                emp.employee_id.mobile_phone = emp.mobile_phone
 
     @api.depends('domain_id', 'domain_user')
     def _compute_work_email(self):
-        for employee in self:
-            if employee.domain_id and employee.domain_user:
-                employee.work_email = employee.domain_user + '@' + employee.domain_id.name
+        for emp in self:
+            if emp.domain_id and emp.domain_user:
+                emp.work_email = emp.domain_user + '@' + emp.domain_id.name
             else:
-                employee.work_email = False
-            employee.employee_id.work_email = employee.work_email
+                emp.work_email = False
+            if emp.employee_id and emp.employee_id.work_email != emp.work_email:
+                emp.employee_id.work_email = emp.work_email
 
     @api.depends('mobile_phone')
     def _compute_whatsapp_url(self):

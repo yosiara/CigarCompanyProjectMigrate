@@ -13,16 +13,6 @@ class ICTMobile(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _inherits = {'maintenance.equipment': 'equipment_id'}
 
-    equipment_id = fields.Many2one(
-        'maintenance.equipment',
-        string='Related Equipment',
-        required=True,
-        ondelete='restrict',
-        auto_join=True,
-        index=True,
-        help='Equipment-related data of the mobile'
-    )
-
     # Inherited Equipment Fields
     # # name = fields.Char('Equipment Name', required=True, translate=True)
     # # active = fields.Boolean(default=True)
@@ -43,8 +33,17 @@ class ICTMobile(models.Model):
     # # maintenance_ids = fields.One2many('maintenance.request', 'equipment_id')
     # # equipment_properties = fields.Properties('Properties', definition='category_id.equipment_properties_definition', copy=True)
     # # match_serial = fields.Boolean(compute='_compute_match_serial')
+    
+    equipment_id = fields.Many2one(
+        'maintenance.equipment',
+        string='Related Equipment',
+        required=True,
+        ondelete='restrict',
+        auto_join=True,
+        index=True,
+        help='Equipment-related data of the mobile'
+    )
 
-    # Campos específicos de teléfono
     brand = fields.Char(string='Brand', required=True)
     storage_gb = fields.Integer(string='Storage (GB)', help='Internal storage capacity')
     ram_gb = fields.Integer(string='RAM (GB)', help='RAM memory')
@@ -53,6 +52,7 @@ class ICTMobile(models.Model):
     battery_capacity = fields.Integer(string='Battery (mAh)')
     screen_resolution = fields.Char(string='Screen Resolution', help='e.g., 1080x2400')
     screen_size = fields.Float(string='Screen Size (inches)')
+    purchase_date = fields.Date(string='Purchase Date', default=fields.Date.today())
     network_type = fields.Selection([
         ('5g', '5G'),
         ('4g', '4G/LTE'),
@@ -72,22 +72,34 @@ class ICTMobile(models.Model):
         ('fair', 'Fair'),
         ('poor', 'Poor'),
     ], string='Physical Condition', default='good')
-
     state = fields.Selection([
         ('available', 'Available'),
         ('assigned', 'Assigned'),
         ('repair', 'Under Repair'),
         ('retired', 'Retired'),
     ], string='Status', default='available', tracking=True)
-    
-    ict_employee_id = fields.Many2one(
-        string='Assigned ICT Employee',
-        comodel_name='ict.employee',
-        ondelete='restrict',
-        tracking=True,
-        help="Employee currently assigned to this mobile device"
+    line_ids = fields.One2many(
+        string='Mobile Line',
+        comodel_name='ict.mobile.line',
+        inverse_name='mobile_id',
     )
-    ict_employee_name = fields.Char(related='ict_employee_id.name')
+    employee_ids = fields.Many2many(
+        'ict.employee', 
+        'ict_mobile_employee_rel', 
+        'mobile_id', 
+        'employee_id', 
+        'Employees', 
+        tracking=True, 
+        ondelete='restrict', 
+        compute='_compute_employee_ids', 
+        help="Employee currently assigned to this mobile device", 
+    )
+    responsible_name = fields.Char(
+        string='Responsible', 
+        compute='_compute_responsible', 
+        store=True, 
+        help="The first employee selected will be considered the team's top manager.", 
+    )
     
     # SIM / IMEI (IMEI se guarda en serial_no heredado)
     imei2 = fields.Char(string='IMEI2', size=15, help='Second IMEI for dual SIM devices')
@@ -117,39 +129,65 @@ class ICTMobile(models.Model):
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
-    @api.depends("ict_employee_id")
+    @api.depends("employee_ids")
     def _compute_assign_date(self):
         for mobile in self:
-            if mobile.ict_employee_id:
+            if mobile.employee_ids:
                 mobile.assign_date = fields.Date.today()
             else:
                 mobile.assign_date = False
 
+    @api.depends('brand', 'model', 'line_ids', 'line_ids.number')
+    def _compute_display_name(self):
+        for mobile in self:
+            parts = []
+
+            # Añadir marca y modelo
+            if mobile.brand:
+                parts.append(mobile.brand)
+            if mobile.model:
+                parts.append(mobile.model)
+
+            # Procesar número de extensiones
+            numbers = mobile.line_ids.mapped('number')
+            if numbers:
+                parts.append("- " + " ".join(numbers))
+
+            # Asignar el nombre
+            mobile.display_name = " ".join(parts) or "Unnamed Mobile"
+            if mobile.equipment_id and mobile.equipment_id.name != mobile.display_name:
+                mobile.equipment_id.name = mobile.display_name
+
+    @api.depends('line_ids', 'line_ids.employee_ids')
+    def _compute_employee_ids(self):
+        for emp in self:
+            employees = emp.line_ids.mapped('employee_ids')
+            emp.employee_ids = [(6, 0, employees.ids)]
+
+    @api.depends('employee_ids')
+    def _compute_responsible(self):
+        for mobile in self:
+            if mobile.employee_ids:
+                # Asumimos primer empleado como responsable
+                responsible = mobile.employee_ids[0].employee_id
+                if responsible != mobile.equipment_id.employee_id:
+                    mobile.equipment_id.employee_id = responsible
+                if responsible.name != mobile.responsible_name:
+                    mobile.responsible_name = responsible.name
+            else:
+                mobile.responsible_name = False
+                mobile.equipment_id.employee_id = False
+
     # ============================================================
     # ONCHANGE METHODS
     # ============================================================
-    @api.onchange('brand', 'model')
-    def _onchange_name(self):
-        if self.brand and self.model and not self.name:
-            self.name = f"{self.brand} {self.model}"
-
-    @api.onchange('ict_employee_id')
-    def _onchange_ict_employee(self):
-        if self.ict_employee_id:
-            employee = self.ict_employee_id
-            # Cambiar a estado asignado de ser diferente
+    @api.onchange('employee_ids')
+    def _onchange_employees(self):
+        if self.employee_ids:
             if self.state != 'assigned':
                 self.state = 'assigned'
-            # Sincronizar campo de empleado en equipment
-            self.equipment_id.employee_id = employee.employee_id
-            # Actualizar nombre si coincide con el autogenerado (marca+modelo)
-            if self.name == f"{self.brand} {self.model}":
-                if employee.name:
-                    self.name = f"{self.brand} {self.model} - {employee.name.split()[0]}"
         else:
-            # Si se quita el empleado, desvincular y cambiar estado
             self.state = 'available'
-            self.equipment_id.employee_id = False
 
     # ============================================================
     # ACTION METHODS

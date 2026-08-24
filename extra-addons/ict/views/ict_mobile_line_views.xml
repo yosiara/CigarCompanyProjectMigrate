@@ -7,8 +7,8 @@
         <field name="model">ict.mobile.line</field>
         <field name="arch" type="xml">
             <list>
-                <field name="phone_number" widget="badge"/>
-                <field name="employee_id" options="{'no_create': True}"/>
+                <field name="number" widget="badge"/>
+                <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
                 <field name="state" widget="badge"/>
                 <field name="state_date" widget="date"/>
                 <field name="pin" password="0"/>
@@ -55,7 +55,7 @@
                             <i class="fa fa-mobile" title="mobile Line"/>
                         </div>
                         <div class="hero_name">
-                            <field name="phone_number" placeholder="+53 XXXXXXXX"/>
+                            <field name="number" placeholder="+53 XXXXXXXX"/>
                         </div>
                         <div class="hero_specs">
                             <span class="hero_spec" title="Start Date">
@@ -75,7 +75,7 @@
 
                     <group class="o_ict_mobile_line_details">
                         <group string="Assignment &amp; Security" class="o_ict_group">
-                            <field name="employee_id" options="{'no_create': True}"/>
+                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
                             <field name="state_date" widget="date"/>
                             <field name="imsi"/>
                             <field name="sim_card"/>
@@ -109,15 +109,15 @@
         <field name="model">ict.mobile.line</field>
         <field name="arch" type="xml">
             <search>
-                <field name="phone_number"/>
-                <field name="employee_id"/>
+                <field name="number"/>
+                <field name="employee_ids"/>
                 <field name="state"/>
                 <filter string="Assigned" name="assigned" domain="[('state','=','assigned')]"/>
                 <filter string="Available" name="available" domain="[('state','=','available')]"/>
                 <filter string="Suspended" name="suspended" domain="[('state','=','suspended')]"/>
                 <filter string="Cancelled" name="cancelled" domain="[('state','=','cancelled')]"/>
                 <group expand="1" string="Group By">
-                    <filter string="Employee" name="employee" domain="[]" context="{'group_by':'employee_id'}"/>
+                    <filter string="Employees" name="employees" domain="[]" context="{'group_by':'employee_ids'}"/>
                     <filter string="Status" name="state" domain="[]" context="{'group_by':'state'}"/>
                 </group>
             </search>
