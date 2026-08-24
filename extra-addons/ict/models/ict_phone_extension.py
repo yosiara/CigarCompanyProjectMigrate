@@ -23,7 +23,6 @@ class ICTPhoneExtension(models.Model):
         ('job', 'Job'), 
         ('department', 'Department'), 
     ], string='Used By', required=True, default='job')
-    assign_date = fields.Date('Assigned Date', tracking=True, compute="_compute_assign_date")
     job_id = fields.Many2one(
         string='Job', 
         comodel_name='hr.job', 
@@ -57,6 +56,7 @@ class ICTPhoneExtension(models.Model):
         ('suspended', 'Suspended'),
         ('cancelled', 'Cancelled'),
     ], string='Status *', default='available', tracking=True, required=True)
+    state_date = fields.Date('State Date', tracking=True, compute="_compute_state_date", help='Date of last status change')
     notes = fields.Html(string='Notes')
     
     # Domain helper
@@ -104,13 +104,10 @@ class ICTPhoneExtension(models.Model):
                 employees = rec.department_id.member_ids
             rec.allowed_employee_ids = [(6, 0, employees.ids)]
 
-    @api.depends('job_id', 'department_id')
-    def _compute_assign_date(self):
+    @api.depends('state')
+    def _compute_state_date(self):
         for ext in self:
-            if (ext.assign_to == 'job' and ext.job_id) or (ext.assign_to == 'department' and ext.department_id):
-                ext.assign_date = fields.Date.today()
-            else:
-                ext.assign_date = False
+            ext.state_date = fields.Date.today()
 
     # ============================================================
     # ONCHANGE METHODS

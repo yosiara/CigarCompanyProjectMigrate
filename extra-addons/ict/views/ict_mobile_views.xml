@@ -16,7 +16,7 @@
                 <field name="state"/>
                 <field name="os"/>
                 <field name="assign_date"/>
-                <field name="ict_employee_name"/>
+                <field name="responsible_name"/>
                 <field name="serial_no"/>
 
                 <templates>
@@ -77,14 +77,14 @@
                                 </div>
 
                                 <!-- Asignación -->
-                                <div t-if="record.ict_employee_name.raw_value" class="assignment">
+                                <div t-if="record.responsible_name.raw_value" class="assignment">
                                     <div class="assignment-content">
                                         <div class="avatar">
-                                            <span t-out="record.ict_employee_name.raw_value.charAt(0).toUpperCase()"/>
+                                            <span t-out="record.responsible_name.raw_value.charAt(0).toUpperCase()"/>
                                         </div>
                                         <div class="assignment-info">
                                             <small>Asignado a</small>
-                                            <span class="employee-name" t-out="record.ict_employee_name.raw_value"/>
+                                            <span class="employee-name" t-out="record.responsible_name.raw_value"/>
                                         </div>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@
                 <field name="name" widget="badge"/>
                 <field name="brand"/>
                 <field name="model"/>
-                <field name="ict_employee_id"/>
+                <field name="employee_ids" widget="many2many_tags"/>
                 <field name="state"/>
                 <field name="active"/>
             </list>
@@ -230,7 +230,8 @@
                             <field name="name"/>
                             <field name="brand"/>
                             <field name="model"/>
-                            <field name="ict_employee_id" string="Assigned Employee" options="{'no_create': True}"/>
+                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                            <field name="assign_date" readonly="1"/>
                         </group>
                         <group class="o_ict_group">
                             <field name="processor_model"/>
@@ -254,12 +255,11 @@
                             <field name="imei2"/>
                             <field name="mac_address"/>
                             <field name="physical_condition"/>
-                        </group>                        
+                        </group>
                     </group>
                     
                     <!-- Do not remove, fields modified using the onchange method -->
                     <group invisible="1">
-                        <field name="assign_date" readonly="1"/>
                         <field name="employee_id" invisible="1"/>
                     </group>
 

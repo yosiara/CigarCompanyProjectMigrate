@@ -84,7 +84,7 @@ class ICTMobileLine(models.Model):
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
-    @api.depends("state")
+    @api.depends('state')
     def _compute_state_date(self):
         for line in self:
             line.state_date = fields.Date.today()

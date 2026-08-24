@@ -110,7 +110,7 @@ class ICTMobile(models.Model):
     ], string='SIM Type', default='dual')
     
     # Asignaciones
-    assign_date = fields.Date('Assigned Date', tracking=True, compute="_compute_assign_date")
+    # assign_date = fields.Date('Assigned Date', tracking=True, compute="_compute_assign_date")
     assignment_history_ids = fields.One2many(
         'ict.mobile.assignment',
         'mobile_id',
@@ -129,13 +129,13 @@ class ICTMobile(models.Model):
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
-    @api.depends("employee_ids")
-    def _compute_assign_date(self):
-        for mobile in self:
-            if mobile.employee_ids:
-                mobile.assign_date = fields.Date.today()
-            else:
-                mobile.assign_date = False
+    # @api.depends("employee_ids")
+    # def _compute_assign_date(self):
+    #     for mobile in self:
+    #         if mobile.employee_ids:
+    #             mobile.assign_date = fields.Date.today()
+    #         else:
+    #             mobile.assign_date = False
 
     @api.depends('brand', 'model', 'line_ids', 'line_ids.number')
     def _compute_display_name(self):
@@ -186,8 +186,10 @@ class ICTMobile(models.Model):
         if self.employee_ids:
             if self.state != 'assigned':
                 self.state = 'assigned'
+            self.assign_date = fields.Date.today()
         else:
             self.state = 'available'
+            self.assign_date = False
 
     # ============================================================
     # ACTION METHODS
