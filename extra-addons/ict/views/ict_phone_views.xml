@@ -24,34 +24,77 @@
         <field name="name">ict.phone.form</field>
         <field name="model">ict.phone</field>
         <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <div class="oe_title">
-                        <label for='name'/>
-                        <h1>
-                            <field name="name"/>
-                        </h1>
+            <form string="Phone">
+                <header>
+                    <!-- Botones de cambio de estado -->
+                    <button name="action_send_repair" type="object"
+                            class="btn-warning"
+                            string="Send to Repair"
+                            invisible="state in ['repair', 'retired']"/>
+                    <button name="action_retire" type="object"
+                            class="btn-danger"
+                            string="Retire"
+                            confirm="Are you sure you want to retire this phone?"
+                            invisible="state == 'retired'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="available,assigned,repair,retired"/>
+                           <!-- options="{'clickable': '1'}"/> -->
+                </header>
+                <sheet class="phone_form_sheet">
+                    <div class="hero phone_hero">
+                        <!-- Icono tipo teléfono -->
+                        <div class="hero_icon hero_phone">
+                            <i class="fa fa-phone" title="Phone"/>
+                        </div>
+                        <!-- Nombre (IMEI/Serial) -->
+                        <div class="hero_name">
+                            <field name="serial_no" placeholder="Serial No"/>
+                        </div>
+                        <!-- Especificaciones rápidas -->
+                        <div class="hero_specs">
+                            <div class="hero_spec">
+                                <i class="fa fa-money" title="Purchase Date"/>
+                                <field name="purchase_date" widget="date"/>
+                            </div>
+                            <div class="hero_spec">
+                                <i class="fa fa-star" title="Assign Date"/>
+                                <field name="assign_date" widget="date"/>
+                            </div>
+                            <div class="hero_spec">
+                                <i class="fa fa-signal" title="Physical condition"/>
+                                <field name="physical_condition"/>
+                            </div>
+                        </div>
                     </div>
-                    <group>
-                        <group>
+                    
+                    <group class="o_ict_phone_details">
+                        <group class="o_ict_group">
                             <field name="brand"/>
                             <field name="model"/>
-                            <field name="serial_no"/>
-                            <field name="physical_condition"/>
+                            <field name="network_ports"/>
+                            <field name="poe_support" widget="boolean_toggle"/>
+                            <field name="extension_ids" options="{'no_create': True}" widget="many2many_tags"/>
                         </group>
-                        <group>
-                            <field name="state"/>
-                            <field name="phone_type"/>
-                            <!-- <field name="department_id" invisible="assign_to == 'employee' or not assign_to"/> -->
+                        <group class="o_ict_group">
                             <field name="mac_address"/>
-                            <field name="extension_ids" widget="many2many_tags"/>
+                            <field name="ip_address"/>
+                            <field name="has_screen" widget="boolean_toggle"/>
+                            <field name="phone_type"/>
+                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
                         </group>
                     </group>
-                    <notebook>
+
+                    <separator string=" "/>
+                    
+                    <notebook class="notebook phone_notebook">
                         <page string="Notes">
-                            <field name="note"/>
+                            <field name="note" placeholder="Additional notes..."/>
                         </page>
+                        <!-- <page string="Assignment History">
+                            <field name="assignment_history_ids"/>
+                        </page> -->
                     </notebook>
+                    
                 </sheet>
                 <chatter/>
             </form>
@@ -70,6 +113,6 @@
         </field>
     </record>
     
-    <menuitem id="menu_phone" name="Phones" parent="menu_ict_phone" sequence="10" action="action_ict_phone"/>
+    <menuitem id="menu_phone" name="Phones" parent="menu_ict_phone" sequence="5" action="action_ict_phone"/>
     
 </odoo>

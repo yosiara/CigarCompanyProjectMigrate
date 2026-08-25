@@ -199,7 +199,7 @@ class ICTMobile(models.Model):
     def action_retire(self):
         self.state = 'retired'
         # Desvincular empleado al retirar
-        self.ict_employee_id = False
+        self.employee_ids = False
 
     # ============================================================
     # STATS
@@ -243,24 +243,24 @@ class ICTMobile(models.Model):
     # ============================================================
     # OVERRIDE METHODS
     # ============================================================
-    def write(self, vals):
-        # Detectar cambio de empleado
-        if 'ict_employee_id' in vals:
-            new_employee_id = vals['ict_employee_id']
-            for mobile in self:
-                old_employee = mobile.ict_employee_id
-                if old_employee and new_employee_id and old_employee.id != new_employee_id:
-                    # Se está reasignando a otro empleado sin desasignar primero
-                    # Lanzar advertencia con opción a forzar (usaremos un contexto)
-                    if not self.env.context.get('force_reassign'):
-                        raise UserError(
-                            _("This mobile is already assigned to %s. Please unassign it first or use the force reassign option."),
-                            old_employee.name
-                        )
-                    else:
-                        # Forzar reasignación: desasignar empleado para luego asignar normalmente
-                        mobile.ict_employee_id = False
-        return super().write(vals)
+    # def write(self, vals):
+    #     # Detectar cambio de empleado
+    #     if 'ict_employee_id' in vals:
+    #         new_employee_id = vals['ict_employee_id']
+    #         for mobile in self:
+    #             old_employee = mobile.ict_employee_id
+    #             if old_employee and new_employee_id and old_employee.id != new_employee_id:
+    #                 # Se está reasignando a otro empleado sin desasignar primero
+    #                 # Lanzar advertencia con opción a forzar (usaremos un contexto)
+    #                 if not self.env.context.get('force_reassign'):
+    #                     raise UserError(
+    #                         _("This mobile is already assigned to %s. Please unassign it first or use the force reassign option."),
+    #                         old_employee.name
+    #                     )
+    #                 else:
+    #                     # Forzar reasignación: desasignar empleado para luego asignar normalmente
+    #                     mobile.ict_employee_id = False
+    #     return super().write(vals)
 
 # ============================================================
 # AUXILIARY MODELS

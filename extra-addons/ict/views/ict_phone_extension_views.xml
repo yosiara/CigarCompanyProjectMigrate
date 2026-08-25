@@ -7,13 +7,15 @@
         <field name="model">ict.phone.extension</field>
         <field name="arch" type="xml">
             <list>
+                <field name="number"/>
+                <field name="state" widget="badge"/>
+                <field name="state_date" widget="date"/>
                 <field name="assign_to"/>
-                <field name="job_id" invisible="assign_to == 'department' or not assign_to"/>
-                <field name="department_id" invisible="assign_to == 'job' or not assign_to"/>
-                <field name="phone_id"/>
-                <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
-                <field name="calls_code"/>
+                <field name="employee_ids" widget="many2many_tags"/>
                 <field name="calls_cap_plan"/>
+                <field name="calls_code"/>
+                <field name="carrier"/>
+                <field name="phone_id"/>
             </list>
         </field>
     </record>
@@ -42,49 +44,49 @@
                            statusbar_visible="available,assigned,suspended,cancelled"/>
                 </header>
                 <sheet class="phone_extension_form_sheet">
-                    <!-- Hero -->
                     <div class="hero phone_extension_hero">
                         <div class="hero_icon hero_phone_extension">
-                            <i class="fa fa-mobile" title="mobile Line"/>
+                            <i class="fa fa-phone" title="Phone Extension"/>
                         </div>
                         <div class="hero_name">
-                            <field name="number" placeholder="+53 XXXXXXXX"/>
+                            <field name="number" placeholder="XXX"/>
                         </div>
                         <div class="hero_specs">
-                            <span class="hero_spec" title="Date of last status">
-                                 <i class="fa fa-star"/>
+                            <span class="hero_spec">
+                                 <i class="fa fa-star" title="Date of last status"/>
                                 <field name="state_date" widget="date"/>
                             </span>
-                            <span class="hero_spec" title="Contracted call limit plan">
-                                 <i class="fa fa-warning"/>
+                            <span class="hero_spec">
+                                 <i class="fa fa-warning" title="Contracted call limit plan"/>
                                 <field name="calls_cap_plan"/>
                             </span>
-                            <span class="hero_spec" title="Telecommunications company">
-                                <i class="fa fa-signal"/>
+                            <span class="hero_spec">
+                                <i class="fa fa-signal" title="Telecommunications company"/>
                                 <field name="carrier"/>
                             </span>
                         </div>
                     </div>
 
                     <group class="o_ict_phone_extension_details">
-                        <group string="Assignment &amp; Security" class="o_ict_group">
+                        <group string="Assignment &amp; Location" class="o_ict_group">
                             <field name="assign_to"/>
                             <field name="job_id" invisible="assign_to == 'department' or not assign_to"/>
                             <field name="department_id" invisible="assign_to == 'job' or not assign_to"/>
+                            <field name="allowed_employee_ids" invisible="1"/>
+                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags" domain="[('id', 'in', allowed_employee_ids)]"/>
+                        </group>
+                        <group string="Device &amp; Services" class="o_ict_group">
+                            <field name="calls_code"/>
+                            <field name="power_specs"/>
                             <field name="phone_id"/>
                         </group>
-                        <group string="Plan &amp; Services" class="o_ict_group">
-                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
-                            <field name="calls_code"/>
-                            <field name="calls_cap_plan"/>
-                        </group>
                     </group>
-                    
-                    <group class="o_ict_phone_extension_details">
-                        <group name="notes" string="Additional service notes" class="o_ict_group">
-                            <field name="notes" placeholder="Additional service notes..." nolabel="1"/>
-                        </group>
-                    </group>
+
+                    <notebook class="notebook phone_extension_notebook">
+                        <page string="Note">
+                            <field name="note" placeholder="Additional notes..."/>
+                        </page>
+                    </notebook>
                 </sheet>
                 <chatter/>
             </form>

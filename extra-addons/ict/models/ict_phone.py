@@ -127,6 +127,17 @@ class ICTPhone(models.Model):
     # ONCHANGE METHODS
     # ============================================================
 
+    # ============================================================
+    # ACTION METHODS
+    # ============================================================
+    def action_send_repair(self):
+        self.state = 'repair'
+
+    def action_retire(self):
+        self.state = 'retired'
+        # Desvincular empleado al retirar
+        self.employee_ids = False
+
 
     # @api.model_create_multi
     # def create(self, vals_list):

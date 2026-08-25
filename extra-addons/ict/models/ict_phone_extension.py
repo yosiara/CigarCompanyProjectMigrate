@@ -14,7 +14,7 @@ class ICTPhoneExtension(models.Model):
     _rec_name = 'number'
 
     number = fields.Char(
-        string='Number', 
+        string='Number *', 
         required=True, 
         index=True, 
         help='Number of the phone extension', 
@@ -22,7 +22,7 @@ class ICTPhoneExtension(models.Model):
     assign_to = fields.Selection([
         ('job', 'Job'), 
         ('department', 'Department'), 
-    ], string='Used By', required=True, default='job')
+    ], string='Used By *', required=True, default='job')
     job_id = fields.Many2one(
         string='Job', 
         comodel_name='hr.job', 
@@ -48,7 +48,7 @@ class ICTPhoneExtension(models.Model):
         'employee_id',
         string='Employees',
         tracking=True,
-        domain=lambda self: [('job_id', '=', self.job_id.id)] if self.job_id else [('department_id', '=', self.department_id.id)], 
+        # domain=lambda self: [('job_id', 'in', self.job_id.id)] if self.assign_to == 'job' and self.job_id else [('department_id', 'in', self.department_id.id)], 
     )
     state = fields.Selection([
         ('available', 'Available'),
@@ -56,11 +56,13 @@ class ICTPhoneExtension(models.Model):
         ('suspended', 'Suspended'),
         ('cancelled', 'Cancelled'),
     ], string='Status *', default='available', tracking=True, required=True)
+    
+    power_specs = fields.Char(string='Power Specs', help='Ej. "5V 2A", "12V 1A", "PoE 802.3af"')
     state_date = fields.Date('State Date', tracking=True, compute="_compute_state_date", help='Date of last status change')
     calls_cap_plan = fields.Char(string='Calls Cap Plan', help='Contracted calls cap plan')
     calls_code = fields.Char(string='Calls Code', help='Code for calls')
     carrier = fields.Char(string='Carrier', default='ETECSA')
-    notes = fields.Html(string='Notes')
+    note = fields.Html(string='Note')
     
     # Domain helper
     allowed_employee_ids = fields.Many2many(
@@ -74,6 +76,7 @@ class ICTPhoneExtension(models.Model):
     # ============================================================
     _sql_constraints = [
         ('unique_number', 'unique(number)', 'Extension number must be unique!'),
+        ('unique_calls_code', 'unique(calls_code)', 'Calls code must be unique!'),
     ]
 
     @api.constrains('employee_ids', 'job_id', 'department_id', 'assign_to')

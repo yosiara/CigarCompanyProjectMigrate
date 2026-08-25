@@ -171,7 +171,7 @@
                                 <!-- Nombre y estado -->
                                 <div class="o_ict_employee_name">
                                     <field name="employee_id" 
-                                        placeholder="Seleccionar empleado..."
+                                        placeholder="Select employee..."
                                         options="{'no_create': True, 'create': False}"/>
                                     <field name="user_status" widget="ict_status_badge"/>
                                 </div>
@@ -217,12 +217,12 @@
 
                     <!-- Datos en dos columnas con fondo gris y bordes -->
                     <group class="o_ict_employee_details">
-                        <group string="Datos de cuenta" class="o_ict_group">
-                            <field name="domain_user" placeholder="Usuario de dominio" required="1"/>
-                            <field name="domain_id" placeholder="Dominio" required="1"/>
-                            <field name="hire_date" placeholder="Fecha contratación" widget="date"/>
+                        <group string="Account details" class="o_ict_group">
+                            <field name="domain_user" placeholder="Domain user"/>
+                            <field name="domain_id" placeholder="Domain"/>
+                            <field name="hire_date" placeholder="Hiring date" widget="date"/>
                         </group>
-                        <group string="Contacto" class="o_ict_group">
+                        <group string="Contact" class="o_ict_group">
                             <field name="extension_ids" placeholder="Phone Extension" widget="many2many_tags"/>
                             <field name="line_ids" placeholder="Phone Line" widget="many2many_tags"/>
                             <field name="work_email" placeholder="Work Email" widget="email"/>
@@ -231,11 +231,14 @@
 
                     <!-- Equipos asignados -->
                     <group name="assignments" class="o_ict_employee_equipment">
-                        <group string="Computadoras asignadas">
+                        <group string="Assigned computers">
                             <field name="computer_ids" widget="many2many_tags" class="o_ict_equipment_tags"/>
                         </group>
-                        <group string="Teléfonos asignados">
+                        <group string="Assigned telephones">
                             <field name="phone_ids" widget="many2many_tags" class="o_ict_equipment_tags"/>
+                        </group>
+                        <group string="Assigned mobiles">
+                            <field name="mobile_ids" widget="many2many_tags" class="o_ict_equipment_tags"/>
                         </group>
                     </group>
                 </sheet>

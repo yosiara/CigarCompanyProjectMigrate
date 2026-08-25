@@ -164,7 +164,7 @@
         <field name="name">ict.mobile.form</field>
         <field name="model">ict.mobile</field>
         <field name="arch" type="xml">
-            <form string="mobile">
+            <form string="Mobile">
                 <header>
                     <!-- Botones de cambio de estado -->
                     <button name="action_send_repair" type="object"
@@ -178,7 +178,6 @@
                             invisible="state == 'retired'"/>
                     <field name="state" widget="statusbar"
                            statusbar_visible="available,assigned,repair,retired"/>
-                           <!-- options="{'clickable': '1'}"/> -->
                 </header>
                 <sheet class="mobile_form_sheet">
                     <div class="hero mobile_hero">
@@ -186,9 +185,9 @@
                         <div class="hero_icon hero_mobile">
                             <i class="fa fa-mobile" title="Mobile"/>
                         </div>
-                        <!-- Nombre (IMEI/Serial) -->
+                        <!-- IMEI/Serial -->
                         <div class="hero_name">
-                            <field name="serial_no" placeholder="IMEI or Serial..."/>
+                            <field name="serial_no" placeholder="Serial..."/>
                         </div>
                         <!-- Especificaciones rápidas -->
                         <div class="hero_specs">
@@ -204,8 +203,8 @@
                                 </svg>
                                 <span><field name="ram_gb"/> GB RAM</span>
                             </div>
-                            <div class="hero_spec" title="Storage">
-                                <i class="fa fa-hdd-o"></i>
+                            <div class="hero_spec">
+                                <i class="fa fa-hdd-o" title="Storage"/>
                                 <span><field name="storage_gb"/> GB Disk</span>
                             </div>
                         </div>
@@ -242,11 +241,6 @@
                             <field name="mac_address"/>
                             <field name="physical_condition"/>
                         </group>
-                    </group>
-                    
-                    <!-- Do not remove, fields modified using the onchange method -->
-                    <group invisible="1">
-                        <field name="employee_id" invisible="1"/>
                     </group>
 
                     <separator string=" "/>
@@ -294,6 +288,6 @@
     </record>
 
     <!-- ==================== MENU ==================== -->
-    <menuitem id="menu_mobile" name="mobiles" parent="menu_ict_phone" sequence="5" action="action_ict_mobile"/>
+    <menuitem id="menu_mobile" name="Mobiles" parent="menu_ict_mobile" sequence="5" action="action_ict_mobile"/>
 
 </odoo>

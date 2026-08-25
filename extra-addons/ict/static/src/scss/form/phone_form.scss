@@ -1,12 +1,12 @@
-// Estilos específicos para el formulario de líneas telefónicas
-.mobile_line_form_sheet {
+// Estilos específicos para el formulario de teléfonos
+.phone_form_sheet {
     @extend %form-sheet-base;
-
-    .hero.mobile_line_hero {
+    
+    .hero.phone_hero {
         @extend %hero-base;
-
+        
         .hero_icon {
-            &.hero_mobile_line { background: linear-gradient(135deg, #4facfe, #00f2fe); font-size: 2.5rem; }
+            &.hero_phone { background: linear-gradient(135deg, #f093fb, #f5576c); font-size: 2.5rem; }
         }
 
         // .hero_specs .hero_spec .o_field_widget {
@@ -14,11 +14,11 @@
         // }
     }
 
-    .o_ict_mobile_line_details {
+    .o_ict_phone_details {
         @extend %group-base;
     }
 
-    .notebook.mobile_line_notebook {
+    .notebook.phone_notebook {
         @extend %notebook-base;
     }
 
