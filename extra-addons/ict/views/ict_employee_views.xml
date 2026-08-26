@@ -230,15 +230,15 @@
                     </group>
 
                     <!-- Equipos asignados -->
-                    <group name="assignments" class="o_ict_employee_equipment">
+                    <group col="3" name="assignments" class="o_ict_employee_equipment">
                         <group string="Assigned computers">
-                            <field name="computer_ids" widget="many2many_tags" class="o_ict_equipment_tags"/>
+                            <field name="computer_ids" widget="many2many_tags" class="o_ict_equipment_tags" nolabel="1"/>
                         </group>
-                        <group string="Assigned telephones">
-                            <field name="phone_ids" widget="many2many_tags" class="o_ict_equipment_tags"/>
+                        <group string="Assigned phones">
+                            <field name="phone_ids" widget="many2many_tags" class="o_ict_equipment_tags" nolabel="1"/>
                         </group>
                         <group string="Assigned mobiles">
-                            <field name="mobile_ids" widget="many2many_tags" class="o_ict_equipment_tags"/>
+                            <field name="mobile_ids" widget="many2many_tags" class="o_ict_equipment_tags" nolabel="1"/>
                         </group>
                     </group>
                 </sheet>

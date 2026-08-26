@@ -72,8 +72,8 @@
                             <field name="assign_to"/>
                             <field name="job_id" invisible="assign_to == 'department' or not assign_to"/>
                             <field name="department_id" invisible="assign_to == 'job' or not assign_to"/>
-                            <field name="allowed_employee_ids" invisible="1"/>
-                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags" domain="[('id', 'in', allowed_employee_ids)]"/>
+                            <field name="employee_domain" invisible="1"/>
+                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags" domain="employee_domain"/>
                         </group>
                         <group string="Device &amp; Services" class="o_ict_group">
                             <field name="calls_code"/>
