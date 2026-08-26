@@ -114,7 +114,7 @@
                                     <i class="fa fa-envelope-o"/>
                                 </a>
                                 <!-- Chatter: solo si es usuario del sistema -->
-                                <widget t-if="user" name="ict_employee_chat"/>
+                                <widget name="ict_employee_chat"/>
                                 <!-- WhatsApp: solo si hay móvil -->
                                 <a t-if="whatsapp"
                                     t-att-href="record.whatsapp_url.raw_value"

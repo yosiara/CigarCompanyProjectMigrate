@@ -48,7 +48,6 @@ class ICTPhoneExtension(models.Model):
         'employee_id',
         string='Employees',
         tracking=True,
-        # domain=lambda self: [('job_id', 'in', self.job_id.id)] if self.assign_to == 'job' and self.job_id else [('department_id', 'in', self.department_id.id)], 
     )
     state = fields.Selection([
         ('available', 'Available'),
@@ -65,12 +64,6 @@ class ICTPhoneExtension(models.Model):
     note = fields.Html(string='Note')
     
     # Domain helper
-    # allowed_employee_ids = fields.Many2many(
-    #     'ict.employee',
-    #     compute='_compute_allowed_employees',
-    #     store=False,
-    # )
-    
     employee_domain = fields.Binary(compute='_get_employee_domain', exportable=False)
     
 
@@ -103,17 +96,7 @@ class ICTPhoneExtension(models.Model):
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
-    # @api.depends('job_id', 'department_id', 'assign_to')
-    # def _compute_allowed_employees(self):
-    #     for rec in self:
-    #         employees = self.env['ict.employee']
-    #         if rec.assign_to == 'job' and rec.job_id:
-    #             employees = rec.job_id.employee_ids
-    #         elif rec.assign_to == 'department' and rec.department_id:
-    #             employees = rec.department_id.member_ids
-    #         rec.allowed_employee_ids = [(6, 0, employees.ids)]
-
-    @api.depends('job_id', 'department_id')
+    @api.depends('job_id', 'department_id', 'assign_to')
     def _get_employee_domain(self):
         for ext in self:
             if ext.assign_to == 'job' and ext.job_id:
@@ -138,6 +121,7 @@ class ICTPhoneExtension(models.Model):
         elif self.assign_to == 'department':
             self.job_id = False
         self.employee_ids = [(5, 0, 0)]  # Limpia empleados
+        _logger.info(f"--------->>> Employee {self.employee_ids.mapped('name')}")
 
     # ============================================================
     # ACTION METHODS

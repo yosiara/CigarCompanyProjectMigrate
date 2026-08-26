@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 import re
 
@@ -60,6 +60,40 @@ class ICTEmployee(models.Model):
         for record in self:
             if record.work_email and not re.match(r"[^@]+@[^@]+\.[^@]+", record.work_email):
                 raise ValidationError("Invalid email format")
+
+    @api.constrains('extension_ids', 'line_ids', 'job_id', 'department_id')
+    def _check_assignment(self):
+        for employee in self:
+            if not employee.job_id and not employee.department_id:
+                continue
+
+            # Extensions
+            if employee.extension_ids:
+                invalid_extensions = employee.extension_ids.filtered(
+                    lambda ext: (
+                        (ext.assign_to == 'job' and ext.job_id != employee.job_id) or
+                        (ext.assign_to == 'department' and ext.department_id != employee.department_id)
+                    )
+                )
+                if invalid_extensions:
+                    raise ValidationError(
+                        _("The following extensions are not compatible with this employee's job or department: %s")
+                        % ', '.join(invalid_extensions.mapped('number'))
+                    )
+            
+            # Lines
+            if employee.line_ids:
+                invalid_lines = employee.line_ids.filtered(
+                    lambda line: (
+                        (line.job_id != employee.job_id)
+                    )
+                )
+                if invalid_lines:
+                    raise ValidationError(
+                        _("The following mobile line are not compatible with this employee's job: %s")
+                        % ', '.join(invalid_lines.mapped('number'))
+                    )
+            
     
     # ============================================================
     # COMPUTE METHODS
