@@ -223,8 +223,8 @@
                             <field name="hire_date" placeholder="Hiring date" widget="date"/>
                         </group>
                         <group string="Contact" class="o_ict_group">
-                            <field name="extension_ids" placeholder="Phone Extension" widget="many2many_tags"/>
-                            <field name="line_ids" placeholder="Phone Line" widget="many2many_tags"/>
+                            <field name="extension_ids" placeholder="Phone Extension" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="line_ids" placeholder="Mobile Line" widget="many2many_tags" options="{'no_create': True}"/>
                             <field name="work_email" placeholder="Work Email" widget="email"/>
                         </group>
                     </group>
@@ -232,13 +232,13 @@
                     <!-- Equipos asignados -->
                     <group col="3" name="assignments" class="o_ict_employee_equipment">
                         <group string="Assigned computers">
-                            <field name="computer_ids" widget="many2many_tags" class="o_ict_equipment_tags" nolabel="1"/>
+                            <field name="computer_ids" widget="many2many_tags" class="o_ict_equipment_tags" nolabel="1" options="{'no_create': True}"/>
                         </group>
                         <group string="Assigned phones">
-                            <field name="phone_ids" widget="many2many_tags" class="o_ict_equipment_tags" nolabel="1"/>
+                            <field name="phone_ids" widget="many2many_tags" class="o_ict_equipment_tags" nolabel="1" options="{'no_create': True}"/>
                         </group>
                         <group string="Assigned mobiles">
-                            <field name="mobile_ids" widget="many2many_tags" class="o_ict_equipment_tags" nolabel="1"/>
+                            <field name="mobile_ids" widget="many2many_tags" class="o_ict_equipment_tags" nolabel="1" options="{'no_create': True}"/>
                         </group>
                     </group>
                 </sheet>
