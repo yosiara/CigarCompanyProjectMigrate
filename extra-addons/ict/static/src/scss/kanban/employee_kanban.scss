@@ -173,8 +173,8 @@
         margin-top: auto;
 
         // Separadores decorativos cuando hay solo 1 acción (ya con :has)
-        &:has(> a:only-of-type)::before,
-        &:has(> a:only-of-type)::after {
+        &:has(> :only-child)::before,
+        &:has(> :only-child)::after {
             content: '';
             position: absolute;
             top: 50%;
@@ -182,10 +182,10 @@
             background: #dee2e6;
             width: 20%;
         }
-        &:has(> a:only-of-type)::before {
+        &:has(> :only-child)::before {
             left: 15%;
         }
-        &:has(> a:only-of-type)::after {
+        &:has(> :only-child)::after {
             right: 15%;
         }
 
