@@ -13,7 +13,7 @@
                 <field name="assign_to"/>
                 <field name="employee_ids" widget="many2many_tags"/>
                 <field name="calls_cap_plan"/>
-                <field name="calls_code"/>
+                <field name="calls_code" password="0" invisible="show_calls_code_as_password"/>
                 <field name="carrier"/>
                 <field name="phone_id"/>
             </list>
@@ -76,7 +76,9 @@
                             <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags" domain="employee_domain"/>
                         </group>
                         <group string="Device &amp; Services" class="o_ict_group">
-                            <field name="calls_code"/>
+                            <field name="show_calls_code_as_password" invisible="1"/>
+                            <field name="calls_code" password="0" invisible="show_calls_code_as_password"/>
+                            <field name="calls_code" password="1" invisible="not show_calls_code_as_password"/>
                             <field name="power_specs"/>
                             <field name="phone_id"/>
                         </group>

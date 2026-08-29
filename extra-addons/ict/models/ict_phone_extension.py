@@ -57,7 +57,7 @@ class ICTPhoneExtension(models.Model):
     ], string='Status *', default='available', tracking=True, required=True)
     
     power_specs = fields.Char(string='Power Specs', help='Ej. "5V 2A", "12V 1A", "PoE 802.3af"')
-    state_date = fields.Date('State Date', tracking=True, compute="_compute_state_date", help='Date of last status change')
+    state_date = fields.Date('State Date', compute="_compute_state_date", help='Date of last status change')
     calls_cap_plan = fields.Char(string='Calls Cap Plan', help='Contracted calls cap plan')
     calls_code = fields.Char(string='Calls Code', help='Code for calls')
     carrier = fields.Char(string='Carrier', default='ETECSA')
@@ -65,6 +65,7 @@ class ICTPhoneExtension(models.Model):
     
     # Domain helper
     employee_domain = fields.Binary(compute='_get_employee_domain', exportable=False)
+    show_calls_code_as_password = fields.Boolean(compute="_compute_show_calls_code_as_password")
     
 
     # ============================================================
@@ -104,7 +105,30 @@ class ICTPhoneExtension(models.Model):
             elif ext.assign_to == 'department' and ext.department_id:
                 ext.employee_domain = [('department_id', '=', ext.department_id.id)]
             else:
-                ext.employee_domain = [('id', 'in', False)]
+                ext.employee_domain = [('id', 'in', [])]
+
+    @api.depends('employee_ids', 'employee_domain')
+    def _compute_show_calls_code_as_password(self):
+        current_user = self.env.user
+        for ext in self:
+            # 1. Los managers siempre ven el código (sin puntos)
+            if current_user.has_group('ict.group_ict_manager'):
+                ext.show_calls_code_as_password = False
+                continue
+
+            # 2. Usar el dominio base ya calculado en employee_domain
+            domain = list(ext.employee_domain)
+
+            # 3. Obtener los empleados asignados
+            if ext.employee_ids:
+                domain.append(('id', 'in', ext.employee_ids.employee_id.ids))
+            authorized_employees = self.env['hr.employee'].search(domain)
+
+            # 4. Verificar si el usuario actual está vinculado a algún empleado asignado
+            if current_user.id in authorized_employees.user_id.ids:
+                ext.show_calls_code_as_password = False
+            else:
+                ext.show_calls_code_as_password = True
 
     @api.depends('state')
     def _compute_state_date(self):
@@ -120,8 +144,18 @@ class ICTPhoneExtension(models.Model):
             self.department_id = False
         elif self.assign_to == 'department':
             self.job_id = False
-        self.employee_ids = [(5, 0, 0)]  # Limpia empleados
-        _logger.info(f"--------->>> Employee {self.employee_ids.mapped('name')}")
+
+    @api.onchange('department_id', 'job_id')
+    def _onchange_assign(self):
+        if self.employee_ids:
+            self.employee_ids = [(5, 0, 0)]  # Limpia empleados
+
+    @api.onchange('employee_ids')
+    def _onchange_employee_ids(self):
+        if self.employee_ids:
+            self.state = 'assigned'
+        else:
+            self.state = 'available'
 
     # ============================================================
     # ACTION METHODS
