@@ -196,6 +196,7 @@ class ICTComputer(models.Model):
         return super(ICTComputer, self).write(vals)
 
     def unlink(self):
+        """Clear equipment models records"""
         equipment_ids = self.mapped('equipment_id')
         result = super(ICTComputer, self).unlink()
         if equipment_ids:

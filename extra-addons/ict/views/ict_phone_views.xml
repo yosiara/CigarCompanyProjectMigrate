@@ -38,7 +38,6 @@
                             invisible="state == 'retired'"/>
                     <field name="state" widget="statusbar"
                            statusbar_visible="available,assigned,repair,retired"/>
-                           <!-- options="{'clickable': '1'}"/> -->
                 </header>
                 <sheet class="phone_form_sheet">
                     <div class="hero phone_hero">
@@ -46,22 +45,22 @@
                         <div class="hero_icon hero_phone">
                             <i class="fa fa-phone" title="Phone"/>
                         </div>
-                        <!-- Nombre (IMEI/Serial) -->
+                        <!-- IMEI/Serial -->
                         <div class="hero_name">
-                            <field name="serial_no" placeholder="Serial No"/>
+                            <field name="serial_no" placeholder="Serial Number"/>
                         </div>
                         <!-- Especificaciones rápidas -->
                         <div class="hero_specs">
+                            <div class="hero_spec">
+                                <i class="fa fa-star" title="Assign Date"/>
+                                <field name="assign_date" widget="date" readonly="1"/>
+                            </div>
                             <div class="hero_spec">
                                 <i class="fa fa-money" title="Purchase Date"/>
                                 <field name="purchase_date" widget="date"/>
                             </div>
                             <div class="hero_spec">
-                                <i class="fa fa-star" title="Assign Date"/>
-                                <field name="assign_date" widget="date"/>
-                            </div>
-                            <div class="hero_spec">
-                                <i class="fa fa-signal" title="Physical condition"/>
+                                <i class="fa fa-heartbeat" title="Physical condition"/>
                                 <field name="physical_condition"/>
                             </div>
                         </div>
@@ -71,17 +70,22 @@
                         <group class="o_ict_group">
                             <field name="brand"/>
                             <field name="model"/>
-                            <field name="network_ports"/>
+                            <field name="phone_type"/>
                             <field name="poe_support" widget="boolean_toggle"/>
                             <field name="extension_ids" options="{'no_create': True}" widget="many2many_tags"/>
                         </group>
                         <group class="o_ict_group">
                             <field name="mac_address"/>
                             <field name="ip_address"/>
+                            <field name="network_ports"/>
                             <field name="has_screen" widget="boolean_toggle"/>
-                            <field name="phone_type"/>
                             <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
                         </group>
+                    </group>
+
+                    <!-- Do not remove these fields; they are calculated using compute and onchange methods. -->
+                    <group invisible="1">
+                        <field name="name"/>
                     </group>
 
                     <separator string=" "/>

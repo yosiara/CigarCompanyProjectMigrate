@@ -110,12 +110,11 @@ class ICTMobile(models.Model):
     ], string='SIM Type', default='dual')
     
     # Asignaciones
-    # assign_date = fields.Date('Assigned Date', tracking=True, compute="_compute_assign_date")
-    assignment_history_ids = fields.One2many(
-        'ict.mobile.assignment',
-        'mobile_id',
-        string='Assignment History'
-    )
+    # assignment_history_ids = fields.One2many(
+    #     'ict.mobile.assignment',
+    #     'mobile_id',
+    #     string='Assignment History'
+    # )
 
     # ============================================================
     # CONSTRAINS
@@ -128,14 +127,6 @@ class ICTMobile(models.Model):
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
-    # @api.depends("employee_ids")
-    # def _compute_assign_date(self):
-    #     for mobile in self:
-    #         if mobile.employee_ids:
-    #             mobile.assign_date = fields.Date.today()
-    #         else:
-    #             mobile.assign_date = False
-
     @api.depends('brand', 'model', 'line_ids', 'line_ids.number')
     def _compute_display_name(self):
         for mobile in self:
@@ -154,8 +145,7 @@ class ICTMobile(models.Model):
 
             # Asignar el nombre
             mobile.display_name = " ".join(parts) or "Unnamed Mobile"
-            if mobile.equipment_id and mobile.equipment_id.name != mobile.display_name:
-                mobile.equipment_id.name = mobile.display_name
+            mobile.name = mobile.display_name
 
     @api.depends('line_ids', 'line_ids.employee_ids')
     def _compute_employee_ids(self):
@@ -180,9 +170,9 @@ class ICTMobile(models.Model):
     # ============================================================
     # ONCHANGE METHODS
     # ============================================================
-    @api.onchange('employee_ids')
-    def _onchange_employees(self):
-        if self.employee_ids:
+    @api.onchange('line_ids')
+    def _onchange_line_ids(self):
+        if self.line_ids:
             if self.state != 'assigned':
                 self.state = 'assigned'
             self.assign_date = fields.Date.today()
@@ -243,6 +233,18 @@ class ICTMobile(models.Model):
     # ============================================================
     # OVERRIDE METHODS
     # ============================================================
+    def unlink(self):
+        """Clear equipment models records"""
+        equipment_ids = self.mapped('equipment_id')
+        result = super().unlink()
+        if equipment_ids:
+            try:
+                equipment_ids.unlink()
+            except UserError as e:
+                _logger.error(e)
+                raise UserError(_("Cannot delete the associated equipment because it has other dependencies. Please remove those dependencies first."))
+        return result
+
     # def write(self, vals):
     #     # Detectar cambio de empleado
     #     if 'ict_employee_id' in vals:
@@ -265,14 +267,14 @@ class ICTMobile(models.Model):
 # ============================================================
 # AUXILIARY MODELS
 # ============================================================
-class ICTMobileAssignment(models.Model):
-    _name = 'ict.mobile.assignment'
-    _description = 'Mobile Assignment History'
-    _order = 'assign_date desc'
+# class ICTMobileAssignment(models.Model):
+#     _name = 'ict.mobile.assignment'
+#     _description = 'Mobile Assignment History'
+#     _order = 'assign_date desc'
 
-    mobile_id = fields.Many2one('ict.mobile', string='Mobile', required=True, ondelete='cascade')
-    employee_id = fields.Many2one('ict.employee', string='Employee', required=True)
-    assign_date = fields.Date(string='Assignment Date', required=True, default=fields.Date.today)
-    return_date = fields.Date(string='Return Date')
-    notes = fields.Char(string='Notes')
+#     mobile_id = fields.Many2one('ict.mobile', string='Mobile', required=True, ondelete='cascade')
+#     employee_id = fields.Many2one('ict.employee', string='Employee', required=True)
+#     assign_date = fields.Date(string='Assignment Date', required=True, default=fields.Date.today)
+#     return_date = fields.Date(string='Return Date')
+#     notes = fields.Char(string='Notes')
 

@@ -249,9 +249,9 @@
                         <page string="Notes">
                             <field name="note" placeholder="Additional notes..."/>
                         </page>
-                        <page string="Assignment History">
+                        <!-- <page string="Assignment History">
                             <field name="assignment_history_ids"/>
-                        </page>
+                        </page> -->
                     </notebook>
                     
                 </sheet>

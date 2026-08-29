@@ -170,4 +170,4 @@ class ICTPhoneExtension(models.Model):
         self.state = 'cancelled'
         # Si estaba asignada, desasignar
         if self.employee_ids:
-            self.employee_ids = False
+            self.employee_ids = [(5, 0, 0)]

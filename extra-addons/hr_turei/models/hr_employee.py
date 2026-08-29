@@ -24,7 +24,7 @@ class HREmployee(models.Model):
             'email': ('work_email', 'email'),
             'mobile': ('mobile_phone', 'mobile'),
             'phone': ('work_phone', 'phone'),
-            'job_title': ('job_title', 'function'),
+            'job': ('job_title', 'function'),
             'image': ('image_1920', 'image_1920'),
             'lang': ('lang', 'lang'),
             'tz': ('tz', 'tz'),
