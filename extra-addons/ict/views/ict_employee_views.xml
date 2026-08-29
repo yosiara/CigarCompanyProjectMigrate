@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- ============================================================ -->
+    <!-- 1. Kanban View                                               -->
+    <!-- ============================================================ -->
     <record id="view_ict_employee_kanban" model="ir.ui.view">
         <field name="name">ict.employee.kanban</field>
         <field name="model">ict.employee</field>
@@ -21,81 +24,81 @@
                 <field name="phone_ids"/>
                 <field name="whatsapp_url"/>
                 <field name="formatted_hire_date"/>
+
                 <templates>
                     <t t-name="kanban-box">
+                        <!-- Tarjeta principal -->
+                        <t t-set="dep_color" t-value="record.department_hex_color.raw_value"/>
                         <div class="o_kanban_card_employee"
-                            t-attf-style="--dept-color: #{record.department_hex_color.raw_value or '#adb5bd'};">
+                             t-attf-style="--dept-color: #{dep_color or '#adb5bd'};">
 
                             <!-- ===== CABECERA: presencia + departamento ===== -->
+                            <t t-set="status" t-value="record.user_status.raw_value"/>
+                            <t t-set="dep_name" t-value="record.department_name.raw_value"/>
                             <div class="d-flex gap-5 justify-content-between p-2 pb-0">
-                                <!-- Punto de presencia -->
-                                <t t-set="status" t-value="record.user_status.raw_value"/>
-                                <span class="presence_dot" t-att-class="status == 'active' ? 'online' : 'offline'"
-                                    t-att-title="status == 'active' ? 'Confirmed' : 'Never Connected'"/>
-                                <!-- Badge de departamento -->
-                                <span t-if="record.department_name.raw_value"
-                                    class="badge rounded-pill"
-                                    t-attf-style="background-color: #{record.department_hex_color.raw_value or '#aaa'}20; color: #{record.department_hex_color.raw_value or '#555'};">
-                                    <t t-out="record.department_name.raw_value"/>
+                                <span class="presence_dot"
+                                      t-att-class="status == 'active' ? 'online' : 'offline'"
+                                      t-att-title="status == 'active' ? 'Confirmed' : 'Never Connected'"/>
+                                <span t-if="dep_name"
+                                      class="badge rounded-pill"
+                                      t-attf-style="background-color: #{dep_color or '#aaa'}20; color: #{dep_color or '#555'};">
+                                    <t t-out="dep_name"/>
                                 </span>
                             </div>
 
                             <!-- ===== AVATAR + DATOS PRINCIPALES ===== -->
+                            <t t-set="job_title" t-value="record.job_title.raw_value"/>
+                            <t t-set="hire_date" t-value="record.formatted_hire_date.raw_value"/>
                             <div class="text-center px-3 pt-2">
                                 <t t-set="emp_id" t-value="record.employee_id.raw_value"/>
                                 <img t-if="emp_id"
-                                    t-att-src="kanban_image('hr.employee', 'image_1920', emp_id)"
-                                    class="rounded-circle"
-                                    alt="Employee photo"
-                                    style="width:100px; height:100px; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); object-fit: cover;"/>
-                                <h5 class="mb-0 employee-name text-truncate"><t t-out="record.name.raw_value"/></h5>
-                                <small class="text-muted d-block text-truncate" t-if="record.job_title.raw_value">
-                                    <t t-out="record.job_title.raw_value"/>
+                                     t-att-src="kanban_image('hr.employee', 'image_1920', emp_id)"
+                                     class="rounded-circle"
+                                     alt="Employee photo"/>
+                                <h5 class="mb-0 employee-name text-truncate">
+                                    <t t-out="record.name.raw_value"/>
+                                </h5>
+                                <small class="text-muted d-block text-truncate" t-if="job_title">
+                                    <t t-out="job_title"/>
                                 </small>
-                                <small class="text-muted" t-if="record.formatted_hire_date.raw_value">
-                                    <i class="fa fa-calendar-o me-1"/> Desde: <t t-out="record.formatted_hire_date.raw_value"/>
+                                <small class="text-muted" t-if="hire_date">
+                                    <i class="fa fa-calendar-o me-1"/> Start: <t t-out="hire_date"/>
                                 </small>
                             </div>
 
                             <!-- ===== DATOS DE CONTACTO ===== -->
+                            <t t-set="work_email" t-value="record.work_email.raw_value"/>
+                            <t t-set="work_phone" t-value="record.work_phone.raw_value"/>
+                            <t t-set="mobile_phone" t-value="record.mobile_phone.raw_value"/>
                             <div class="px-3 pt-3 small contact-info">
-                                <!-- Email -->
-                                <div t-if="record.work_email.value" class="d-flex align-items-center contact-line mb-1">
+                                <div class="d-flex align-items-center contact-line mb-1">
                                     <i class="fa fa-envelope-o me-2" title="Email"/>
-                                    <span class="flex-grow-1"><t t-out="record.work_email.value"/></span>
+                                    <span class="flex-grow-1"><t t-out="work_email"/></span>
                                 </div>
-                                <!-- Teléfonos -->
-                                <div t-if="record.work_phone.value or record.mobile_phone.value" class="d-flex align-items-center contact-line mb-1">
-                                    <i class="fa fa-phone me-2" title="Phone"/>
+                                <div class="d-flex align-items-center contact-line mb-1">
+                                    <i class="fa fa-phone me-2" title="Phone Numbers"/>
                                     <span class="phone-numbers">
-                                        <t t-if="record.work_phone.value"><span><t t-out="record.work_phone.value"/></span></t>
-                                        <t t-if="record.work_phone.value and record.mobile_phone.value">
+                                        <t t-if="work_phone">
+                                            <span><t t-out="work_phone"/></span>
+                                        </t>
+                                        <t t-if="work_phone and mobile_phone">
                                             <span class="phone-separator">·</span>
                                         </t>
-                                        <t t-if="record.mobile_phone.value"><span><t t-out="record.mobile_phone.value"/></span></t>
+                                        <t t-if="mobile_phone">
+                                            <span><t t-out="mobile_phone"/></span>
+                                        </t>
                                     </span>
                                 </div>
-                                <!-- Nombre de usuario -->
-                                <!-- <div t-if="record.domain_user.value" class="d-flex align-items-center contact-line mb-1">
-                                    <i class="fa fa-terminal me-2"/>
-                                    <span><t t-out="record.domain_user.value"/></span>
-                                </div> -->
                             </div>
 
                             <!-- ===== RESUMEN DE DISPOSITIVOS ===== -->
                             <t t-set="computers" t-value="record.computer_ids.raw_value"/>
                             <t t-set="phones" t-value="record.phone_ids.raw_value"/>
-                            <div t-if="computers or phones" class="px-3 py-2 small mt-2 devices-summary">
+                            <div class="px-3 py-2 small mt-2 devices-summary">
                                 <div class="d-flex align-items-center text-muted">
-                                    <t t-if="computers">
-                                        <i class="fa fa-desktop me-1" title="Computer"/> <t t-out="computers.length"/> equipos
-                                    </t>
-                                    <t t-if="computers and phones">
-                                        <span class="device-separator">·</span>
-                                    </t>
-                                    <t t-if="phones">
-                                        <i class="fa fa-mobile-phone me-1" title="Mobile Phone"/> <t t-out="phones.length"/> teléfonos
-                                    </t>
+                                    <i class="fa fa-desktop me-1" title="Computer"/> <t t-out="computers.length"/> computers
+                                    <span class="device-separator">·</span>
+                                    <i class="fa fa-mobile-phone me-1" title="Mobile"/> <t t-out="phones.length"/> mobiles
                                 </div>
                             </div>
 
@@ -103,27 +106,24 @@
                             <t t-set="email" t-value="record.work_email.raw_value"/>
                             <t t-set="user" t-value="record.user_id.raw_value"/>
                             <t t-set="whatsapp" t-value="record.whatsapp_url.raw_value"/>
-                            <div t-if="email or user or whatsapp" class="kanban-footer mt-1 p-1 d-flex justify-content-around align-items-center">
-                                <!-- Email siempre que haya correo -->
+                            <div class="kanban-footer mt-1 p-1 d-flex justify-content-around align-items-center">
                                 <a t-if="email"
-                                    type="object"
-                                    name="action_send_email"
-                                    class="btn btn-sm btn-link footer-action"
-                                    role="button"
-                                    title="Enviar correo">
-                                    <i class="fa fa-envelope-o"/>
+                                   type="object"
+                                   name="action_send_email"
+                                   class="btn btn-sm btn-link footer-action"
+                                   role="button"
+                                   title="Send email">
+                                   <i class="fa fa-envelope-o"/>
                                 </a>
-                                <!-- Chatter: solo si es usuario del sistema -->
-                                <widget t-if="email" name="ict_employee_chat"/>
-                                <!-- WhatsApp: solo si hay móvil -->
+                                <widget t-if="user" name="ict_employee_chat"/>
                                 <a t-if="whatsapp"
-                                    t-att-href="record.whatsapp_url.raw_value"
-                                    target="_blank"
-                                    class="btn btn-sm btn-link footer-action"
-                                    onclick="event.stopPropagation();"
-                                    role="button"
-                                    title="Abrir WhatsApp">
-                                    <i class="fa fa-whatsapp"/>
+                                   t-att-href="record.whatsapp_url.raw_value"
+                                   target="_blank"
+                                   class="btn btn-sm btn-link footer-action"
+                                   onclick="event.stopPropagation();"
+                                   role="button"
+                                   title="Open WhatsApp">
+                                   <i class="fa fa-whatsapp"/>
                                 </a>
                             </div>
                         </div>
@@ -133,16 +133,18 @@
         </field>
     </record>
 
-    <!-- View ict.employee list -->
+    <!-- ============================================================ -->
+    <!-- 2. List View                                                 -->
+    <!-- ============================================================ -->
     <record id="view_ict_employee_list" model="ir.ui.view">
         <field name="name">view.ict.employee.list</field>
         <field name="model">ict.employee</field>
         <field name="arch" type="xml">
             <list>
                 <field name="name"/>
-                <field name="domain_user"/>
+                <field name="domain_user" widget="badge"/>
                 <field name="work_email" widget="email"/>
-                <field name="work_phone"/>
+                <field name="work_phone" widget="phone"/>
                 <field name="mobile_phone" widget="phone"/>
                 <field name="job_title"/>
                 <field name="department_name"/>
@@ -151,7 +153,9 @@
         </field>
     </record>
 
-    <!-- View ict.employee form -->
+    <!-- ============================================================ -->
+    <!-- 3. Form View                                                 -->
+    <!-- ============================================================ -->
     <record id="view_ict_employee_form" model="ir.ui.view">
         <field name="name">ict.employee.form</field>
         <field name="model">ict.employee</field>
@@ -165,45 +169,34 @@
                             <div class="o_ict_avatar">
                                 <field name="image_1920" widget="image" options="{'preview_image': 'image_1920', 'zoom': true}"/>
                             </div>
-
-                            <!-- Info -->
+                            <!-- Información principal -->
                             <div class="o_ict_employee_info">
-                                <!-- Nombre y estado -->
                                 <div class="o_ict_employee_name">
-                                    <field name="employee_id" 
-                                        placeholder="Select employee..."
-                                        options="{'no_create': True, 'create': False}"/>
+                                    <field name="employee_id" placeholder="Select employee..." options="{'no_create': True}"/>
                                     <field name="user_status" widget="ict_status_badge"/>
                                 </div>
-                                <!-- Cargo y departamento -->
                                 <div class="o_ict_employee_badges" invisible="not job_title or not department_name">
                                     <span class="o_ict_badge badge-job">
-                                        <i class="fa fa-briefcase" title="Job Title"></i>
+                                        <i class="fa fa-briefcase" title="Job Title"/>
                                         <field name="job_title"/>
                                     </span>
                                     <span class="o_ict_badge badge-department">
-                                        <i class="fa fa-building" title="Department"></i>
+                                        <i class="fa fa-building" title="Department"/>
                                         <field name="department_name"/>
                                     </span>
                                 </div>
                             </div>
-                            
-                            <!-- Redes Sociales -->
+                            <!-- Acciones sociales -->
                             <div class="o_ict_header_actions">
                                 <div class="o_ict_social_buttons">
-                                    <!-- WhatsApp -->
                                     <button class="o_ict_social_btn whatsapp" type="object" name="action_open_whatsapp" title="WhatsApp">
                                         <i class="fa fa-whatsapp"></i>
                                         <span class="tooltip-text">WhatsApp</span>
                                     </button>
-                                    
-                                    <!-- Facebook -->
                                     <button class="o_ict_social_btn facebook" type="object" name="action_open_facebook" title="Facebook">
                                         <i class="fa fa-facebook"></i>
                                         <span class="tooltip-text">Facebook</span>
                                     </button>
-                                    
-                                    <!-- X (Twitter) -->
                                     <button class="o_ict_social_btn x-twitter" type="object" name="action_open_x" title="X (Twitter)">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white">
                                             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -215,7 +208,7 @@
                         </div>
                     </div>
 
-                    <!-- Datos en dos columnas con fondo gris y bordes -->
+                    <!-- Datos en dos columnas -->
                     <group class="o_ict_employee_details">
                         <group string="Account details" class="o_ict_group">
                             <field name="domain_user" placeholder="Domain user"/>
@@ -247,7 +240,9 @@
         </field>
     </record>
 
-    <!-- View ict.employee search -->
+    <!-- ============================================================ -->
+    <!-- 4. Search View                                               -->
+    <!-- ============================================================ -->
     <record id="view_ict_employee_search" model="ir.ui.view">
         <field name="name">view.ict.employee.search</field>
         <field name="model">ict.employee</field>
@@ -271,7 +266,9 @@
         </field>
     </record>
 
-    <!-- Action ict.employee -->
+    <!-- ============================================================ -->
+    <!-- 5. Action                                                    -->
+    <!-- ============================================================ -->
     <record id="action_ict_employee" model="ir.actions.act_window">
         <field name="name">Employees</field>
         <field name="type">ir.actions.act_window</field>
@@ -286,7 +283,13 @@
         </field>
     </record>
 
-    <!-- Menu ict.employee -->
-    <menuitem id="menu_employees" name="Employees" parent="menu_ict_root" sequence="10" action="ict.action_ict_employee"/>
+    <!-- ============================================================ -->
+    <!-- 6. Menu Item                                                 -->
+    <!-- ============================================================ -->
+    <menuitem id="menu_employees"
+              name="Employees"
+              parent="menu_ict_root"
+              sequence="10"
+              action="ict.action_ict_employee"/>
 
 </odoo>

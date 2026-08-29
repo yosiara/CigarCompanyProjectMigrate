@@ -1,16 +1,22 @@
+// ============================================================
+// Kanban Card - ICT Employee
+// ============================================================
+
 .o_kanban_card_employee {
     --dept-color: #adb5bd; // fallback
     padding: 5px 5px 0 !important;
     position: relative;
     border-radius: 1.5rem;
     background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 0 1px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
-    overflow: hidden; // para que el pseudoelemento del borde no se salga
+    overflow: hidden;
     max-width: 325px;
     min-width: 300px;
 
-    // Borde izquierdo con gradiente
+    // ============================================================
+    // 1. Borde izquierdo con degradado (estilo departamento)
+    // ============================================================
     &::before {
         content: '';
         position: absolute;
@@ -18,25 +24,30 @@
         left: 0;
         width: 5px;
         height: 100%;
-        background: linear-gradient(to bottom, var(--dept-color), rgba(255,255,255,0) 90%);
+        background: linear-gradient(to bottom, var(--dept-color), rgba(255, 255, 255, 0) 90%);
         opacity: 0.7;
         transition: opacity 0.3s ease, width 0.3s ease;
     }
 
+    // ============================================================
+    // 2. Hover: sombra y animaciones
+    // ============================================================
     &:hover {
-        box-shadow: 0 12px 28px rgba(0,0,0,0.1), 0 0 0 1px var(--dept-color, rgba(0,0,0,0.05));
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--dept-color, rgba(0, 0, 0, 0.05));
         transform: translateY(-4px);
+
         &::before {
             opacity: 1;
             width: 6px;
         }
-        // Subrayado animado en el nombre
         .employee-name {
             background-size: 100% 2px;
         }
     }
 
-    // Punto de presencia con doble anillo
+    // ============================================================
+    // 3. Punto de presencia (online / offline)
+    // ============================================================
     .presence_dot {
         width: 12px;
         height: 12px;
@@ -45,6 +56,7 @@
         border-radius: 50%;
         display: inline-block;
         position: relative;
+
         &.online {
             background: #28a745;
             &::before,
@@ -54,7 +66,7 @@
                 top: 50%;
                 left: 50%;
                 border-radius: 50%;
-                background: rgba(40,167,69,0.4);
+                background: rgba(40, 167, 69, 0.4);
                 animation: pulse-ring 2s infinite;
                 transform: translate(-50%, -50%);
             }
@@ -74,6 +86,9 @@
         }
     }
 
+    // ============================================================
+    // 4. Badge de departamento
+    // ============================================================
     .badge {
         font-size: 0.75rem;
         font-weight: 500;
@@ -82,25 +97,30 @@
         border: none;
     }
 
-    // Avatar con anillo del departamento
+    // ============================================================
+    // 5. Avatar (imagen circular con borde)
+    // ============================================================
     img.rounded-circle {
         object-fit: cover;
         border: 3px solid var(--dept-color) !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        // Asegura que la imagen ocupe su propia línea
         display: block;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 0.5rem;
-        
+        width: 100px;
+        height: 100px;
+
         &:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
         }
     }
 
-    // Nombre con subrayado animado
+    // ============================================================
+    // 6. Nombre con subrayado animado
+    // ============================================================
     .employee-name {
         font-weight: 600;
         display: inline-block;
@@ -111,7 +131,9 @@
         transition: background-size 0.3s ease;
     }
 
-    // Iconos de contacto: zoom suave en hover de la línea
+    // ============================================================
+    // 7. Bloque de contacto
+    // ============================================================
     .contact-info {
         .contact-line {
             transition: transform 0.2s ease, color 0.2s ease;
@@ -135,13 +157,15 @@
         .phone-numbers {
             .phone-separator {
                 margin: 0 0.35rem;
-                color: #adb5bd; // gris claro, más elegante
+                color: #adb5bd;
                 font-weight: 400;
             }
         }
     }
 
-    // Resumen de dispositivos con iconos destacables
+    // ============================================================
+    // 8. Resumen de dispositivos
+    // ============================================================
     .devices-summary {
         border-top: 2px dashed #e5e7eb;
         i {
@@ -162,33 +186,47 @@
         }
     }
 
-    // Footer adaptable
+    // ============================================================
+    // 9. Footer de acciones
+    // ============================================================
     .kanban-footer {
         position: relative;
         border-top: 1px solid #edf2f7;
         background: #f8f9fa;
-        box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
         border-radius: 0 0 1.5rem 1.5rem;
-        // margin-top: 0.25rem;
         margin-top: auto;
+        padding: 0.25rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
 
-        // Separadores decorativos cuando hay solo 1 acción (ya con :has)
-        &:has(> :only-child)::before,
-        &:has(> :only-child)::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            height: 1px;
-            background: #dee2e6;
-            width: 20%;
-        }
-        &:has(> :only-child)::before {
-            left: 15%;
-        }
-        &:has(> :only-child)::after {
-            right: 15%;
+        // ------------------------------------------------------------
+        // Caso 1: Un único hijo → líneas horizontales a los lados
+        // ------------------------------------------------------------
+        &:has(> :only-child) {
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                height: 1px;
+                background: #dee2e6;
+                width: 20%;
+                z-index: 0;
+            }
+            &::before {
+                left: 15%;
+            }
+            &::after {
+                right: 15%;
+            }
         }
 
+        // ------------------------------------------------------------
+        // Estilos comunes para los botones de acción
+        // ------------------------------------------------------------
         .footer-action {
             color: #6c757d;
             font-size: 1rem;
@@ -201,6 +239,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
+            z-index: 1;
+
             &::before {
                 content: '';
                 position: absolute;
@@ -231,6 +272,9 @@
     }
 }
 
+// ============================================================
+// 10. Keyframes para el anillo de pulsación (presence dot)
+// ============================================================
 @keyframes pulse-ring {
     0% {
         transform: translate(-50%, -50%) scale(0.8);
