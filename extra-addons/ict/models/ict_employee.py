@@ -44,7 +44,8 @@ class ICTEmployee(models.Model):
     image_1920 = fields.Binary(related='employee_id.image_1920', attachment=True)
     
     # Fields for views
-    whatsapp_url = fields.Char(string='WhatsApp Link', compute='_compute_whatsapp_url')
+    whatsapp_url = fields.Char(string='WhatsApp Link', compute='_compute_social_urls')
+    telegram_url = fields.Char(string='Telegram Link', compute='_compute_social_urls')
     formatted_hire_date = fields.Char(string='Hire Date Formatted', compute='_compute_formatted_hire_date')
     department_hex_color = fields.Char(string='Department Hex Color', compute='_compute_department_hex_color', store=False)
 
@@ -137,18 +138,26 @@ class ICTEmployee(models.Model):
             if emp.employee_id and emp.employee_id.work_email != emp.work_email:
                 emp.employee_id.work_email = emp.work_email
 
-    @api.depends('mobile_phone')
-    def _compute_whatsapp_url(self):
+    @api.depends('line_ids', 'line_ids.number')
+    def _compute_social_urls(self):
         for rec in self:
-            url = False
-            if rec.mobile_phone:
-                # Eliminar todo excepto dígitos y un posible '+' inicial
-                clean = re.sub(r'[^\d+]', '', rec.mobile_phone)
-                # Si no empieza por +, asumimos código de país
-                if not clean.startswith('+'):
-                    clean = '+53' + clean  # default Cuba
-                url = f'https://wa.me/{clean}'
-            rec.whatsapp_url = url
+            if not rec.line_ids:
+                rec.whatsapp_url = 'https://web.whatsapp.com/'
+                rec.telegram_url = 'https://web.telegram.org/'
+                continue
+            
+            # Se tomará el primer número por simplicidad
+            phone_number = rec.line_ids[0].number
+            
+            # Eliminar todo excepto dígitos y un posible '+' inicial
+            clean = re.sub(r'[^\d+]', '', phone_number)
+            
+            # Si no empieza por +, asumimos código de país
+            if not clean.startswith('+'):
+                clean = '+53' + clean  # default Cuba
+            
+            rec.whatsapp_url = f'https://wa.me/{clean}'
+            rec.telegram_url = f'https://t.me/{clean}'
 
     @api.depends('hire_date')
     def _compute_formatted_hire_date(self):
@@ -222,6 +231,16 @@ class ICTEmployee(models.Model):
             return {
                 'type': 'ir.actions.act_url',
                 'url': self.whatsapp_url,
+                'target': 'new',
+            }
+        return False
+
+    def action_open_telegram(self):
+        self.ensure_one()
+        if self.telegram_url:
+            return {
+                'type': 'ir.actions.act_url',
+                'url': self.telegram_url,
                 'target': 'new',
             }
         return False

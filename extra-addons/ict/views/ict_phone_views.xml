@@ -89,7 +89,7 @@
                         </group>
                     </group>
 
-                    <!-- Do not remove these fields; they are calculated using compute and onchange methods. -->
+                    <!-- Do not delete these fields; they are required for domains or for saving using compute or onchange methods. -->
                     <group invisible="1">
                         <field name="name"/>
                     </group>

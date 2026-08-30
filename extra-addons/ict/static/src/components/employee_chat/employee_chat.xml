@@ -3,7 +3,7 @@
     <t t-name="ict.OpenChat">
         <a t-if="props.record.data.user_id and props.record.resId"
             class="btn btn-sm btn-link footer-action"
-            title="Abrir chat"
+            title="Open chat"
             icon="fa-comments-o"
             t-on-click.prevent="() => openChat(props.record.resId)"
             href="#"

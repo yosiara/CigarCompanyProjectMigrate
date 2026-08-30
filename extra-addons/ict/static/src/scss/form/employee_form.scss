@@ -225,7 +225,7 @@
             border: none;
             color: white;
             transition: all 0.2s ease;
-            font-size: 16px;
+            font-size: 18px;
             text-decoration: none;
             cursor: pointer;
             
@@ -235,7 +235,6 @@
             }
             
             .fa {
-                font-size: 16px;
                 line-height: 1;
             }
             
@@ -250,6 +249,15 @@
                 &:hover {
                     background: #128C7E;
                     box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+                }
+            }
+
+            &.telegram {
+                background: #0088cc;
+                
+                &:hover {
+                    background: #006699;
+                    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.4);
                 }
             }
             
