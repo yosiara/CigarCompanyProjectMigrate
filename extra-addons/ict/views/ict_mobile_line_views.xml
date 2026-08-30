@@ -8,11 +8,11 @@
         <field name="arch" type="xml">
             <list>
                 <field name="number" widget="badge"/>
-                <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
                 <field name="state" widget="badge"/>
                 <field name="state_date" widget="date"/>
-                <field name="pin" password="0"/>
-                <field name="puk" password="0"/>
+                <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                <field name="pin" password="0" invisible="show_calls_code_as_password"/>
+                <field name="puk" password="0" invisible="show_calls_code_as_password"/>
                 <field name="sms_cap_plan"/>
                 <field name="calls_cap_plan"/>
                 <field name="gprs_cap_plan"/>
@@ -77,13 +77,16 @@
                             <field name="state_date" widget="date"/>
                             <field name="job_id" options="{'no_create': True}"/>
                             <field name="mobile_id" options="{'no_create': True}"/>
-                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                            <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags" domain="[('job_id', '=', job_id)]"/>
                         </group>
                         <group string="Security" class="o_ict_group">
                             <field name="imsi"/>
                             <field name="sim_card"/>
-                            <field name="pin" password="0"/>
-                            <field name="puk" password="0"/>
+                            <field name="show_calls_code_as_password" invisible="1"/>
+                            <field name="pin" password="0" invisible="show_calls_code_as_password"/>
+                            <field name="pin" password="1" invisible="not show_calls_code_as_password"/>
+                            <field name="puk" password="0" invisible="show_calls_code_as_password"/>
+                            <field name="puk" password="1" invisible="not show_calls_code_as_password"/>
                         </group>
                     </group>
                     

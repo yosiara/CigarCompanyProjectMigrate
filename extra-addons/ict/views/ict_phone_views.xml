@@ -10,11 +10,17 @@
                 <field name="brand"/>
                 <field name="model"/>
                 <field name="serial_no"/>
-                <field name="physical_condition"/>
-                <field name="state"/>
+                <field name="state" widget="badge"/>
+                <field name="purchase_date"/>
+                <field name="physical_condition" widget="badge"/>
                 <field name="phone_type"/>
-                <field name="mac_address"/>
-                <field name="extension_ids" widget="many2many_tags"/>
+                <field name="poe_support" widget="boolean_toggle"/>
+                <field name="extension_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                <field name="ip_address" widget="url" placeholder="192.168.1.100"/>
+                <field name="mac_address" placeholder="00:1A:2B:3C:4D:5E"/>
+                <field name="network_ports"/>
+                <field name="has_screen" widget="boolean_toggle"/>
+                <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
             </list>
         </field>
     </record>
@@ -47,7 +53,7 @@
                         </div>
                         <!-- IMEI/Serial -->
                         <div class="hero_name">
-                            <field name="serial_no" placeholder="Serial Number"/>
+                            <field name="serial_no" placeholder="Serial Number..."/>
                         </div>
                         <!-- Especificaciones rápidas -->
                         <div class="hero_specs">
@@ -75,8 +81,8 @@
                             <field name="extension_ids" options="{'no_create': True}" widget="many2many_tags"/>
                         </group>
                         <group class="o_ict_group">
-                            <field name="mac_address"/>
-                            <field name="ip_address"/>
+                            <field name="ip_address" widget="url" placeholder="192.168.1.100"/>
+                            <field name="mac_address" placeholder="00:1A:2B:3C:4D:5E"/>
                             <field name="network_ports"/>
                             <field name="has_screen" widget="boolean_toggle"/>
                             <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>

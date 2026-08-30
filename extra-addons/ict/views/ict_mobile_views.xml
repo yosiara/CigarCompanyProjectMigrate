@@ -149,12 +149,21 @@
         <field name="model">ict.mobile</field>
         <field name="arch" type="xml">
             <list>
-                <field name="name" widget="badge"/>
                 <field name="brand"/>
                 <field name="model"/>
-                <field name="employee_ids" widget="many2many_tags"/>
-                <field name="state"/>
-                <field name="active"/>
+                <field name="state" widget="badge"/>
+                <field name="physical_condition" widget="badge"/>
+                <field name="network_type"/>
+                <field name="sim_type"/>
+                <field name="imei2" placeholder="XXXXXXXXXXXXXXX"/>
+                <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                <field name="os"/>
+                <field name="os_version"/>
+                <field name="mac_address" placeholder="00:1A:2B:3C:4D:5E"/>
+                <field name="camera_mp"/>
+                <field name="screen_size"/>
+                <field name="screen_resolution"/>
+                <field name="battery_capacity"/>
             </list>
         </field>
     </record>
@@ -187,7 +196,7 @@
                         </div>
                         <!-- IMEI/Serial -->
                         <div class="hero_name">
-                            <field name="serial_no" placeholder="Serial..."/>
+                            <field name="serial_no" placeholder="Serial Number..."/>
                         </div>
                         <!-- Especificaciones rápidas -->
                         <div class="hero_specs">
@@ -203,8 +212,8 @@
                                 </svg>
                                 <span><field name="ram_gb"/> GB RAM</span>
                             </div>
-                            <div class="hero_spec">
-                                <i class="fa fa-hdd-o" title="Storage"/>
+                            <div class="hero_spec" title="Storage">
+                                <i class="fa fa-hdd-o"></i>
                                 <span><field name="storage_gb"/> GB Disk</span>
                             </div>
                         </div>
@@ -212,35 +221,28 @@
                     
                     <group class="o_ict_mobile_details">
                         <group class="o_ict_group">
-                            <field name="name"/>
                             <field name="brand"/>
                             <field name="model"/>
+                            <field name="physical_condition"/>
+                            <field name="network_type"/>
+                            <field name="sim_type"/>
+                            <field name="imei2" placeholder="XXXXXXXXXXXXXXX"/>
                             <field name="employee_ids" options="{'no_create': True}" widget="many2many_tags"/>
-                            <field name="assign_date" readonly="1"/>
                         </group>
-                        <group class="o_ict_group">
-                            <field name="processor_model"/>
-                            <field name="ram_gb"/>
-                            <field name="storage_gb"/>
-                            <field name="battery_capacity"/>
-                        </group>
-                    </group>
-                    
-                    <group class="o_ict_mobile_details">
                         <group class="o_ict_group">
                             <field name="os"/>
                             <field name="os_version"/>
+                            <field name="mac_address" placeholder="00:1A:2B:3C:4D:5E"/>
                             <field name="camera_mp"/>
                             <field name="screen_size"/>
                             <field name="screen_resolution"/>
+                            <field name="battery_capacity"/>
                         </group>
-                        <group class="o_ict_group">
-                            <field name="network_type"/>
-                            <field name="sim_type"/>
-                            <field name="imei2"/>
-                            <field name="mac_address"/>
-                            <field name="physical_condition"/>
-                        </group>
+                    </group>
+
+                    <!-- Do not remove these fields; they are calculated using compute and onchange methods. -->
+                    <group invisible="1">
+                        <field name="name"/>
                     </group>
 
                     <separator string=" "/>

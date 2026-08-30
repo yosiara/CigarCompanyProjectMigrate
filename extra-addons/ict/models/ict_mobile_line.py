@@ -39,7 +39,6 @@ class ICTMobileLine(models.Model):
         'employee_id',
         string='Employees',
         tracking=True,
-        domain=lambda self: [('job_id', '=', self.job_id.id)], 
     )
     state = fields.Selection([
         ('available', 'Available'),
@@ -66,11 +65,16 @@ class ICTMobileLine(models.Model):
     gprs_package = fields.Char(string='GPRS Package', help='Contracted GPRS data package (e.g. "1GB")')
     serv = fields.Html(string='SERV.', help='Services')
 
+    # Domain helper
+    show_calls_code_as_password = fields.Boolean(compute="_compute_show_calls_code_as_password")
+
     # ============================================================
     # CONSTRAINTS
     # ============================================================
     _sql_constraints = [
-        ('unique_number', 'unique(number)', 'This phone number is already registered.'),
+        ('unique_number', 'unique(number)', 'This phone number is already registered!'),
+        ('unique_imsi', 'unique(imsi)', 'IMSI must be unique!'),
+        ('unique_sim_card', 'unique(sim_card)', 'SIM card serial number must be unique!'),
     ]
 
     @api.constrains('job_id', 'employee_ids')
@@ -84,10 +88,49 @@ class ICTMobileLine(models.Model):
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
+    @api.depends('employee_ids', 'job_id')
+    def _compute_show_calls_code_as_password(self):
+        current_user = self.env.user
+        for mobile in self:
+            # 1. Los managers siempre ven el código (sin puntos)
+            if current_user.has_group('ict.group_ict_manager'):
+                mobile.show_calls_code_as_password = False
+                continue
+
+            # 2. Usar el dominio base
+            domain = [('job_id', '=', mobile.job_id.id)]
+
+            # 3. Obtener los empleados asignados
+            if mobile.employee_ids:
+                domain.append(('id', 'in', mobile.employee_ids.employee_id.ids))
+            authorized_employees = self.env['hr.employee'].search(domain)
+
+            # 4. Verificar si el usuario actual está vinculado a algún empleado asignado
+            if current_user.id in authorized_employees.user_id.ids:
+                mobile.show_calls_code_as_password = False
+            else:
+                mobile.show_calls_code_as_password = True
+
     @api.depends('state')
     def _compute_state_date(self):
         for line in self:
             line.state_date = fields.Date.today()
+
+    # ============================================================
+    # ONCHANGE METHODS
+    # ============================================================
+    @api.onchange('job_id')
+    def _onchange_job_id(self):
+        if self.employee_ids:
+            self.employee_ids = [(5, 0, 0)]  # Limpia empleados
+
+    @api.onchange('employee_ids')
+    def _onchange_employee_ids(self):
+        if self.employee_ids:
+            if self.state != 'assigned':
+                self.state = 'assigned'
+        else:
+            self.state = 'available'
 
     # ============================================================
     # ACTION METHODS
@@ -102,7 +145,7 @@ class ICTMobileLine(models.Model):
         self.state = 'cancelled'
         # Si estaba asignada, desasignar
         if self.employee_ids:
-            self.employee_ids = False
+            self.employee_ids = [(5, 0, 0)]
 
     # ============================================================
     # OVERRIDE METHODS

@@ -1,4 +1,4 @@
-// Estilos específicos para el formulario de teléfonos
+// Estilos específicos para el formulario de mobiles
 .mobile_form_sheet {
     @extend %form-sheet-base;
     
@@ -9,9 +9,15 @@
             &.hero_mobile { background: linear-gradient(135deg, #f093fb, #f5576c); font-size: 2.5rem; }
         }
 
-        // .hero_specs .hero_spec .o_field_widget {
-        //     width: 4rem;
-        // }
+        .hero_specs .hero_spec .o_field_widget {
+            display: inline-block;
+            &.o_field_integer {
+                width: 1.5rem;
+            }
+            &.o_field_char {
+                width: 5.5rem;
+            }
+        }
     }
 
     .o_ict_mobile_details {

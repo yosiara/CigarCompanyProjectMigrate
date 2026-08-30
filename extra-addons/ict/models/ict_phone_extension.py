@@ -147,15 +147,13 @@ class ICTPhoneExtension(models.Model):
 
     @api.onchange('department_id', 'job_id')
     def _onchange_assign(self):
-        if self.employee_ids:
-            self.employee_ids = [(5, 0, 0)]  # Limpia empleados
-
-    @api.onchange('employee_ids')
-    def _onchange_employee_ids(self):
-        if self.employee_ids:
-            self.state = 'assigned'
+        if self.department_id or self.job_id:
+            if self.state != 'assigned':
+                self.state = 'assigned'
         else:
             self.state = 'available'
+        if self.employee_ids:
+            self.employee_ids = [(5, 0, 0)]  # Limpia empleados
 
     # ============================================================
     # ACTION METHODS

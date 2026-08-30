@@ -7,7 +7,7 @@
         <field name="model">ict.phone.extension</field>
         <field name="arch" type="xml">
             <list>
-                <field name="number"/>
+                <field name="number" widget="badge"/>
                 <field name="state" widget="badge"/>
                 <field name="state_date" widget="date"/>
                 <field name="assign_to"/>
