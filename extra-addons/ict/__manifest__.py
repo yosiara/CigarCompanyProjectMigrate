@@ -9,7 +9,7 @@
         - Domain users
         - Computers and their components
         - Mobile phones and lines
-        - Fixed phones and extensions
+        - Landline phones and extensions
         - ICT services
     """,
     'author': 'Computer Science Specialist, '
