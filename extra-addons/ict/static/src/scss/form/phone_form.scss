@@ -1,4 +1,6 @@
-// Estilos específicos para el formulario de teléfonos
+// ============================================================
+// Form View - ICT Phone
+// ============================================================
 .phone_form_sheet {
     @extend %form-sheet-base;
     
@@ -8,10 +10,6 @@
         .hero_icon {
             &.hero_phone { background: linear-gradient(135deg, #f093fb, #f5576c); font-size: 2.5rem; }
         }
-
-        // .hero_specs .hero_spec .o_field_widget {
-        //     width: 4rem;
-        // }
     }
 
     .o_ict_phone_details {

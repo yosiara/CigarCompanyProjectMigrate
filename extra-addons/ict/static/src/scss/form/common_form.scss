@@ -1,7 +1,6 @@
 // ============================================================
 // ESTILOS BASE PARA FORMULARIOS
 // ============================================================
-
 %form-sheet-base {
     position: relative;
     overflow: hidden;
@@ -225,18 +224,7 @@
         }
     }
 
-    // .o_group .o_group_name {
-    //     font-size: 0.85rem;
-    //     font-weight: 700;
-    //     text-transform: uppercase;
-    //     letter-spacing: 0.05em;
-    //     color: #64748b;
-    //     border-left: 3px solid #4f46e5;
-    //     padding-left: 0.75rem;
-    //     margin-bottom: 1rem;
-    // }
-
-    // // Campos de solo lectura con fondo sutil
+    // Campos de solo lectura con fondo sutil
     .o_field_widget[readonly="1"] {
         background: #f8fafc;
         border-radius: 0.5rem;
@@ -244,20 +232,11 @@
         display: inline-block;
     }
 
-    // // Efecto de enfoque en campos editables
+    // Efecto de enfoque en campos editables
     .o_field_widget:focus-within {
         box-shadow: 0 0 0 2px #4f46e5;
         border-radius: 0.375rem;
     }
-
-    // // Botones de la cabecera (stat buttons)
-    // .oe_button_box .oe_stat_button {
-    //     transition: transform 0.1s ease;
-    //     &:hover {
-    //         transform: translateY(-2px);
-    //     }
-    // }
-
 }
 
 
@@ -309,7 +288,7 @@
             transform: none !important;
         }
         &:hover::after {
-            left: -100%;      // desactiva el efecto de brillo
+            left: -100%;
         }
     }
 }

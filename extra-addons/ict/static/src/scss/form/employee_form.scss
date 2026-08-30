@@ -1,6 +1,6 @@
-/* ============================================
-   CABECERA MEJORADA
-   ============================================ */
+// ============================================================
+// Form View - ICT Employee
+// ============================================================
 .o_ict_employee_header {
     background: linear-gradient(135deg, #f8f9fc 0%, #e9ecef 100%);
     padding: 20px 24px;
@@ -98,85 +98,6 @@
                     background: rgba(0,0,0,0.03);
                     border-radius: 4px;
                 }
-            }
-        }
-        
-        /* Estado online/offline */
-        .o_ict_user_status {
-            display: inline-flex;
-            align-items: center;
-            position: relative;
-            margin-left: 6px;
-            flex-shrink: 0;
-            
-            .o_ict_status_dot {
-                display: inline-block;
-                width: 14px;
-                height: 14px;
-                border-radius: 50%;
-                border: 2px solid white;
-                box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
-                transition: all 0.3s ease;
-                cursor: help;
-                
-                /* Estados */
-                &.status-online {
-                    background: #28a745;
-                    animation: pulse-online 2s infinite;
-                }
-                
-                &.status-offline {
-                    background: #adb5bd;
-                }
-                
-                &.status-away {
-                    background: #ffc107;
-                    animation: pulse-away 2s infinite;
-                }
-                
-                &.status-busy {
-                    background: #dc3545;
-                    animation: pulse-busy 1.5s infinite;
-                }
-            }
-            
-            /* Tooltip con el estado */
-            &::after {
-                content: attr(data-status);
-                position: absolute;
-                bottom: calc(100% + 10px);
-                left: 50%;
-                transform: translateX(-50%) scale(0.8);
-                background: #2c3e50;
-                color: white;
-                padding: 4px 12px;
-                border-radius: 6px;
-                font-size: 0.7rem;
-                font-weight: 500;
-                white-space: nowrap;
-                pointer-events: none;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.2s ease;
-                z-index: 10;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-                
-                /* Flechita del tooltip */
-                &::before {
-                    content: "";
-                    position: absolute;
-                    top: 100%;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    border: 5px solid transparent;
-                    border-top-color: #2c3e50;
-                }
-            }
-            
-            &:hover::after {
-                opacity: 1;
-                visibility: visible;
-                transform: translateX(-50%) scale(1);
             }
         }
 
@@ -397,55 +318,6 @@
    ============================================ */
 .o_ict_employee_details {
     @extend %group-base;
-    // display: flex;
-    // gap: 20px;
-    // margin-bottom: 24px;
-    // flex-wrap: wrap;
-    
-    // .o_ict_group {
-    //     flex: 1;
-    //     min-width: 250px;
-    //     background: #f8f9fa;
-    //     border: 1px solid #e9ecef;
-    //     border-radius: 12px;
-    //     padding: 20px;
-    //     margin: 0;
-    //     transition: all 0.2s ease;
-        
-    //     &:hover {
-    //         border-color: #dee2e6;
-    //         box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-    //     }
-        
-    //     .o_group_name {
-    //         font-weight: 600;
-    //         margin-bottom: 16px;
-    //         font-size: 1rem;
-    //         color: #2c3e50;
-    //         border-bottom: 2px solid #e9ecef;
-    //         padding-bottom: 8px;
-            
-    //         .fa {
-    //             margin-right: 8px;
-    //             color: #6c757d;
-    //         }
-    //     }
-        
-    //     .o_field_widget {
-    //         margin-bottom: 8px;
-            
-    //         &:last-child {
-    //             margin-bottom: 0;
-    //         }
-    //     }
-        
-    //     .o_field_label {
-    //         font-size: 0.8rem;
-    //         font-weight: 500;
-    //         color: #6c757d;
-    //         margin-bottom: 2px;
-    //     }
-    // }
 }
 
 /* ============================================
@@ -661,75 +533,75 @@
 /* ============================================
    DARK MODE
    ============================================ */
-@media (prefers-color-scheme: dark) {
-    .o_ict_employee_header {
-        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-        border-bottom-color: #4a5b6b;
+// @media (prefers-color-scheme: dark) {
+//     .o_ict_employee_header {
+//         background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+//         border-bottom-color: #4a5b6b;
         
-        .o_ict_employee_info {
-            .o_ict_employee_name {
-                color: #ecf0f1;
+//         .o_ict_employee_info {
+//             .o_ict_employee_name {
+//                 color: #ecf0f1;
                 
-                .o_field_many2one .o_input {
-                    background: #34495e;
-                    border-color: #4a5b6b;
-                    color: #ecf0f1;
+//                 .o_field_many2one .o_input {
+//                     background: #34495e;
+//                     border-color: #4a5b6b;
+//                     color: #ecf0f1;
                     
-                    &:hover {
-                        background: #3d566e;
-                        border-color: #6ea8fe;
-                    }
+//                     &:hover {
+//                         background: #3d566e;
+//                         border-color: #6ea8fe;
+//                     }
                     
-                    &:focus {
-                        border-color: #6ea8fe;
-                        box-shadow: 0 0 0 3px rgba(110, 168, 254, 0.2);
-                    }
-                }
-            }
+//                     &:focus {
+//                         border-color: #6ea8fe;
+//                         box-shadow: 0 0 0 3px rgba(110, 168, 254, 0.2);
+//                     }
+//                 }
+//             }
             
-            .o_ict_employee_badges {
-                .badge-job {
-                    background: rgba(13, 110, 253, 0.2);
-                    color: #6ea8fe;
-                }
+//             .o_ict_employee_badges {
+//                 .badge-job {
+//                     background: rgba(13, 110, 253, 0.2);
+//                     color: #6ea8fe;
+//                 }
                 
-                .badge-department {
-                    background: rgba(108, 117, 125, 0.2);
-                    color: #adb5bd;
-                }
-            }
-        }
+//                 .badge-department {
+//                     background: rgba(108, 117, 125, 0.2);
+//                     color: #adb5bd;
+//                 }
+//             }
+//         }
         
-        .o_ict_header_actions {
-            .o_ict_social_btn {
-                &.x-twitter {
-                    background: #1a1a1a;
+//         .o_ict_header_actions {
+//             .o_ict_social_btn {
+//                 &.x-twitter {
+//                     background: #1a1a1a;
                     
-                    &:hover {
-                        background: #2d2d2d;
-                    }
-                }
-            }
-        }
-    }
+//                     &:hover {
+//                         background: #2d2d2d;
+//                     }
+//                 }
+//             }
+//         }
+//     }
     
-    .o_ict_employee_details .o_ict_group,
-    .o_ict_employee_equipment > .o_group {
-        background: #2c3e50;
-        border-color: #4a5b6b;
+//     .o_ict_employee_details .o_ict_group,
+//     .o_ict_employee_equipment > .o_group {
+//         background: #2c3e50;
+//         border-color: #4a5b6b;
         
-        .o_group_name {
-            color: #ecf0f1;
-            border-bottom-color: #4a5b6b;
-        }
-    }
+//         .o_group_name {
+//             color: #ecf0f1;
+//             border-bottom-color: #4a5b6b;
+//         }
+//     }
     
-    .o_ict_employee_equipment .o_ict_equipment_tags .badge {
-        background-color: #34495e;
-        color: #ecf0f1;
+//     .o_ict_employee_equipment .o_ict_equipment_tags .badge {
+//         background-color: #34495e;
+//         color: #ecf0f1;
         
-        &:hover {
-            background-color: #3d566e;
-        }
-    }
-}
+//         &:hover {
+//             background-color: #3d566e;
+//         }
+//     }
+// }

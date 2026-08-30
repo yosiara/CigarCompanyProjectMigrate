@@ -1,0 +1,78 @@
+/* Estado online/offline */
+.o_ict_user_status {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    margin-left: 6px;
+    flex-shrink: 0;
+    
+    .o_ict_status_dot {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        cursor: help;
+        
+        /* Estados */
+        &.status-online {
+            background: #28a745;
+            animation: pulse-online 2s infinite;
+        }
+        
+        &.status-offline {
+            background: #adb5bd;
+        }
+        
+        &.status-away {
+            background: #ffc107;
+            animation: pulse-away 2s infinite;
+        }
+        
+        &.status-busy {
+            background: #dc3545;
+            animation: pulse-busy 1.5s infinite;
+        }
+    }
+    
+    /* Tooltip con el estado */
+    &::after {
+        content: attr(data-status);
+        position: absolute;
+        bottom: calc(100% + 10px);
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+        background: #2c3e50;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 0.7rem;
+        font-weight: 500;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        
+        /* Flechita del tooltip */
+        &::before {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #2c3e50;
+        }
+    }
+    
+    &:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) scale(1);
+    }
+}
