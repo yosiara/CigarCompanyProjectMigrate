@@ -120,6 +120,7 @@ class ICTMobile(models.Model):
     # CONSTRAINS
     # ============================================================
     _sql_constraints = [
+        ('unique_equipment', 'unique(equipment_id)', 'Another asset already exists with this maintenance equipment!'),
         ('unique_imei2', 'unique(imei2)', 'Another asset already exists with this serial number!'),
         ('unique_mac', 'unique(mac_address)', 'There is already another asset with this MAC address!'),
     ]

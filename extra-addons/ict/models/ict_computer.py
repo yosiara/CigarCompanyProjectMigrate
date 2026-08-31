@@ -106,10 +106,11 @@ class ICTComputer(models.Model):
     # CONSTRAINS
     # ============================================================
     _sql_constraints = [
-        ('unique_seal', 'unique(seal)', "This Seal is already associated with another asset!"),
-        ('unique_ip', 'unique(ip_address)', "This IP address is already associated with another asset!"),
-        ('unique_mac', 'unique(mac_address)', "This MAC address is already associated with another asset!"),
-        ('unique_inventory', 'unique(inventory_number)', "This Inventory Number is already associated with another asset!"),
+        ('unique_equipment', 'unique(equipment_id)', 'This Maintenance Equipment is already associated with another asset!'),
+        ('unique_seal', 'unique(seal)', 'This Seal is already associated with another asset!'),
+        ('unique_ip', 'unique(ip_address)', 'This IP address is already associated with another asset!'),
+        ('unique_mac', 'unique(mac_address)', 'This MAC address is already associated with another asset!'),
+        ('unique_inventory', 'unique(inventory_number)', 'This Inventory Number is already associated with another asset!'),
     ]
 
     # ============================================================

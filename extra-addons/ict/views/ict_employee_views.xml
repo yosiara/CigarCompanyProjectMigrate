@@ -123,7 +123,7 @@
                                    <i class="fa fa-envelope-o"/>
                                 </a>
                                 <widget t-if="user" name="ict_employee_chat"/>
-                                <a t-if="whatsapp"
+                                <a t-if="record.mobile_phone.raw_value"
                                    t-att-href="record.whatsapp_url.raw_value"
                                    target="_blank"
                                    class="btn btn-sm btn-link footer-action"
