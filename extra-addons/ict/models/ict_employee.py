@@ -53,6 +53,7 @@ class ICTEmployee(models.Model):
     # CONSTRAINS
     # ============================================================
     _sql_constraints = [
+        ('unique_employee', 'unique(employee_id)', 'Each employee can be linked to only one ICT employee!'),
         ('unique_user', 'unique(domain_user)', 'The username already exists!'),
     ]
 
