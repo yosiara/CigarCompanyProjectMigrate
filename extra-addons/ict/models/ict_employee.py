@@ -27,33 +27,33 @@ class ICTEmployee(models.Model):
     phone_ids = fields.Many2many('ict.phone', 'ict_phone_employee_rel', 'employee_id', 'phone_id', 'Phones', compute='_compute_phone_ids')
     
     # Mobiles
-    line_ids = fields.Many2many('ict.mobile.line', 'ict_line_employee_rel', 'employee_id', 'line_id', 'Mobiles Line')
+    line_ids = fields.Many2many('ict.mobile.line', 'ict_line_employee_rel', 'employee_id', 'line_id', 'Mobile Lines')
     mobile_phone = fields.Char(string='Mobile Phone', compute='_compute_mobile_phone', store=True)
     mobile_ids = fields.Many2many('ict.mobile', 'ict_mobile_employee_rel', 'employee_id', 'mobile_id', 'Mobiles', compute='_compute_mobile_ids')
 
     # Related employee fields
     employee_id = fields.Many2one(comodel_name='hr.employee', string='Employee *', required=True, tracking=True)
-    name = fields.Char(string="Name *", related='employee_id.name')
-    user_id = fields.Many2one(related='employee_id.user_id')
-    user_partner_id = fields.Many2one(related='employee_id.user_id.partner_id', related_sudo=False)
-    user_status = fields.Selection(related='employee_id.user_id.state')
-    job_id = fields.Many2one(related='employee_id.job_id')
+    name = fields.Char(string="Name *", related='employee_id.name', store=True)
+    job_id = fields.Many2one(related='employee_id.job_id', store=True)
+    department_id = fields.Many2one(related='employee_id.department_id', store=True)
+    user_id = fields.Many2one(related='employee_id.user_id', store=True)
+    image_1920 = fields.Image(related='employee_id.image_1920', attachment=True, store=True)
     job_title = fields.Char(related='employee_id.job_title')
-    department_id = fields.Many2one(related='employee_id.department_id')
     department_name = fields.Char(related='employee_id.department_id.name')
-    image_1920 = fields.Binary(related='employee_id.image_1920', attachment=True)
+    user_status = fields.Selection(related='employee_id.user_id.state')
+    user_partner_id = fields.Many2one(related='employee_id.user_id.partner_id')
     
     # Fields for views
-    whatsapp_url = fields.Char(string='WhatsApp Link', compute='_compute_social_urls')
-    telegram_url = fields.Char(string='Telegram Link', compute='_compute_social_urls')
-    formatted_hire_date = fields.Char(string='Hire Date Formatted', compute='_compute_formatted_hire_date')
-    department_hex_color = fields.Char(string='Department Hex Color', compute='_compute_department_hex_color', store=False)
+    whatsapp_url = fields.Char(compute='_compute_social_urls')
+    telegram_url = fields.Char(compute='_compute_social_urls')
+    formatted_hire_date = fields.Char(compute='_compute_formatted_hire_date')
+    department_hex_color = fields.Char(compute='_compute_department_hex_color')
 
     # ============================================================
     # CONSTRAINS
     # ============================================================
     _sql_constraints = [
-        ('unique_user', 'unique(domain_user)', 'The username already exists.'),
+        ('unique_user', 'unique(domain_user)', 'The username already exists!'),
     ]
 
     @api.constrains('work_email')
@@ -116,8 +116,7 @@ class ICTEmployee(models.Model):
         for emp in self:
             numbers = emp.extension_ids.mapped('number')
             emp.work_phone = " ".join(numbers) if numbers else ""
-            if emp.employee_id and emp.employee_id.work_phone != emp.work_phone:
-                emp.employee_id.work_phone = emp.work_phone
+            emp.employee_id.work_phone = emp.work_phone
 
 
     @api.depends('line_ids', 'line_ids.number')
@@ -125,18 +124,13 @@ class ICTEmployee(models.Model):
         for emp in self:
             numbers = emp.line_ids.mapped('number')
             emp.mobile_phone = " ".join(numbers) if numbers else ""
-            if emp.employee_id and emp.employee_id.mobile_phone != emp.mobile_phone:
-                emp.employee_id.mobile_phone = emp.mobile_phone
+            emp.employee_id.mobile_phone = emp.mobile_phone
 
     @api.depends('domain_id', 'domain_user')
     def _compute_work_email(self):
         for emp in self:
-            if emp.domain_id and emp.domain_user:
-                emp.work_email = emp.domain_user + '@' + emp.domain_id.name
-            else:
-                emp.work_email = False
-            if emp.employee_id and emp.employee_id.work_email != emp.work_email:
-                emp.employee_id.work_email = emp.work_email
+            emp.work_email = f'{emp.domain_user}@{emp.domain_id.name}' if emp.domain_user and emp.domain_id else False
+            emp.employee_id.work_email = emp.work_email
 
     @api.depends('line_ids', 'line_ids.number')
     def _compute_social_urls(self):
@@ -166,24 +160,24 @@ class ICTEmployee(models.Model):
 
     @api.depends('department_id', 'department_id.color')
     def _compute_department_hex_color(self):
-        """ Diccionario que mapea el índice de color estándar de Odoo a su valor hexadecimal """
+        """ Paleta de colores según el color del departamento """
         DEPT_COLOR_PALETTE = {
-            0: '#3b5998',  # azul oscuro (sin color suele ser este)
-            1: '#F06050',  # rojo
-            2: '#F4A460',  # naranja
-            3: '#F7CD1F',  # amarillo
-            4: '#6CC1ED',  # celeste
-            5: '#814968',  # morado
-            6: '#8C8C8C',  # gris
-            7: '#2E86D1',  # azul
-            8: '#20B2AA',  # verde agua
-            9: '#4CAF50',  # verde
-            10: '#D2691E', # marrón
-            11: '#E67E22', # naranja oscuro
+            0: '#6B7280',   # No color - Gris neutral (Tailwind gray-500)
+            1: '#EF4444',   # Red - Rojo intenso (Tailwind red-500)
+            2: '#F97316',   # Orange - Naranja vibrante (Tailwind orange-500)
+            3: '#EAB308',   # Yellow - Amarillo dorado (Tailwind yellow-500)
+            4: '#06B6D4',   # Cyan - Cian brillante (Tailwind cyan-500)
+            5: '#8B5CF6',   # Purple - Púrpura eléctrico (Tailwind violet-500)
+            6: '#F5D0C5',   # Almond - Beige rosado suave (personalizado)
+            7: '#14B8A6',   # Teal - Verde azulado intenso (Tailwind teal-500)
+            8: '#3B82F6',   # Blue - Azul vibrante (Tailwind blue-500)
+            9: '#EC4899',   # Raspberry - Rosa frambuesa (Tailwind pink-500)
+            10: '#22C55E',  # Green - Verde esmeralda (Tailwind green-500)
+            11: '#A855F7',  # Violet - Violeta intenso (Tailwind purple-500)
         }
         for rec in self:
             color_int = rec.department_id.color
-            rec.department_hex_color = DEPT_COLOR_PALETTE.get(color_int, '#adb5bd')
+            rec.department_hex_color = DEPT_COLOR_PALETTE.get(color_int, '#9CA3AF')
 
     # ============================================================
     # ACTION METHODS

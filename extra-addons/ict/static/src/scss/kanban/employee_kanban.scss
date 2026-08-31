@@ -99,7 +99,7 @@
     // ============================================================
     // 5. Avatar (imagen circular con borde)
     // ============================================================
-    img.rounded-circle {
+    .rounded-circle {
         object-fit: cover;
         border: 3px solid var(--dept-color) !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;

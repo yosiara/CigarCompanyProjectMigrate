@@ -10,6 +10,7 @@
         <field name="arch" type="xml">
             <kanban class="o_kanban_employee_ict">
                 <field name="name"/>
+                <field name="image_1920"/>
                 <field name="job_title"/>
                 <field name="work_email"/>
                 <field name="work_phone"/>
@@ -50,11 +51,17 @@
                             <t t-set="job_title" t-value="record.job_title.raw_value"/>
                             <t t-set="hire_date" t-value="record.formatted_hire_date.raw_value"/>
                             <div class="text-center px-3 pt-2">
-                                <t t-set="emp_id" t-value="record.employee_id.raw_value"/>
-                                <img t-if="emp_id"
-                                     t-att-src="kanban_image('hr.employee', 'image_1920', emp_id)"
+                                <img t-if="record.image_1920.raw_value"
+                                     t-att-src="kanban_image('ict.employee', 'image_1920', record.id.raw_value)"
                                      class="rounded-circle"
+                                     loading="lazy"
                                      alt="Employee photo"/>
+                                <div t-else="" class="d-flex align-items-center justify-content-center bg-100 bg-gradient rounded-circle mx-auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                </div>
                                 <h5 class="mb-0 employee-name text-truncate">
                                     <t t-out="record.name.raw_value"/>
                                 </h5>
