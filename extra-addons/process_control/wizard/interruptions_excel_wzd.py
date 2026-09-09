@@ -2,7 +2,6 @@
 
 import json
 from odoo import models, fields
-from odoo.tools import date_utils
 
 class InterruptionsExcelWzd(models.TransientModel):
     _name = 'process_control.interruptions_excel_wzd'
@@ -13,13 +12,13 @@ class InterruptionsExcelWzd(models.TransientModel):
 
     def export_to_xlsx(self):
         data = {
-                'start_date': self.start_date,
-                'end_date': self.end_date,
+                'start_date': fields.Date.to_string(self.start_date),
+                'end_date': fields.Date.to_string(self.end_date),
             }
         return {
             'type': 'ir.actions.report',
             'data': {'model': 'report.process_control.interruptions_excel_report',
-                     'options': json.dumps(data, default=date_utils.json_default),
+                     'options': json.dumps(data),
                      'output_format': 'xlsx',
                      'report_name': 'Interruptions Report',
                      },
