@@ -2,12 +2,12 @@
 from odoo import api, fields, models, tools
 
 class ProductiveLine(models.Model):
-    _name = "process_control.productive_line"
-    _description = "Líneas Productivas"
+    _name = 'process_control.productive_line'
+    _description = 'Líneas Productivas'
     _order = 'name'
 
-    name = fields.Char('Nombre *', required=True, default="Línea ")
-    machine_ids = fields.One2many('process_control.machine', string='Máquinas', inverse_name="productive_line_id")
+    name = fields.Char('Nombre *', required=True, default='Línea ')
+    machine_ids = fields.One2many('process_control.machine', string='Máquinas', inverse_name='productive_line_id')
     productive_section_id = fields.Many2one('process_control.productive_section', string='Módulo *', required=True)
     #is_in_productive_section = fields.Boolean('Añadido a Módulo', compute='is_in_productive_section_check')
 

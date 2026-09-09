@@ -5,7 +5,7 @@ from odoo.tools import date_utils
 
 class WzdCompliancePlannedCdtToExcel(models.TransientModel):
     _name = 'process_control.compliance_planned_cdt_excel_wzd'
-    _description = "Compliance Planned CDT Report Wzd"
+    _description = 'Compliance Planned CDT Report Wzd'
 
     start_date = fields.Date('Desde', required=True)
     end_date = fields.Date('Hasta', required=True)

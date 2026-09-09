@@ -9,16 +9,16 @@ CONNECTORS = [('postgresql', 'PostgreSQL')]
 
 
 class DBProductionConnector(models.Model):
-    _name = "process_control.db_production_connector"
+    _name = 'process_control.db_production_connector'
 
     _connection = False
 
     name = fields.Char(string='Datasource Name', required=True, default='DB Sistema de producción')
-    server = fields.Char(string="Server", required=True, default='localhost')
-    port = fields.Integer(string="Port", required=True, default=5432)
-    user = fields.Char(string="User", required=True, default='odoo18')
-    pwd = fields.Char(string="Password", required=True)
-    dbname = fields.Char(string="Database Name", required=True)
+    server = fields.Char(string='Server', required=True, default='localhost')
+    port = fields.Integer(string='Port', required=True, default=5432)
+    user = fields.Char(string='User', required=True, default='odoo18')
+    pwd = fields.Char(string='Password', required=True)
+    dbname = fields.Char(string='Database Name', required=True)
     connector = fields.Selection(CONNECTORS, 'Connector', required=True, default='postgresql')
 
     def action_test_connection(self):

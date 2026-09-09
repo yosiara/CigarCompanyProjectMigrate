@@ -4,8 +4,8 @@ import logging
 _logger = logging.getLogger(__name__)
 
 class InterruptionsPdfReport(models.AbstractModel):
-    _name = "report.process_control.interruptions_pdf_report"
-    _description = "Interruptions pdf report"
+    _name = 'report.process_control.interruptions_pdf_report'
+    _description = 'Interruptions pdf report'
 
     @api.model
     def _get_report_values(self, docids, data=None):
@@ -27,25 +27,25 @@ class InterruptionsPdfReport(models.AbstractModel):
         for tc in tecnolog_control:
             for i in tc.interruption_ids:
                 ids.append(i.id)
-        interruptions = self.env["process_control.interruption"].browse(ids)
+        interruptions = self.env['process_control.interruption'].browse(ids)
 
         domain = [] # Domain for interruptions
-        if data.get("interruption_type_ids"):
-            domain.append(('interruption_type_id', 'in', data["interruption_type_ids"]))
-        if data.get("machine_ids"):
-            domain.append(('machine_id', 'in', data["machine_ids"]))
-        if data.get("set_of_peaces_ids"):
-            domain.append(('set_of_peaces_id', 'in', data["set_of_peaces_ids"]))
-        elif data.get("productive_line_ids"):
-            domain.append(('productive_line_id', 'in', data["productive_line_ids"]))
+        if data.get('interruption_type_ids'):
+            domain.append(('interruption_type_id', 'in', data['interruption_type_ids']))
+        if data.get('machine_ids'):
+            domain.append(('machine_id', 'in', data['machine_ids']))
+        if data.get('set_of_peaces_ids'):
+            domain.append(('set_of_peaces_id', 'in', data['set_of_peaces_ids']))
+        elif data.get('productive_line_ids'):
+            domain.append(('productive_line_id', 'in', data['productive_line_ids']))
         interruptions = interruptions.filtered_domain(domain)
         
         if not interruptions: # Empty Data
             _logger.warning('There is no data to display.')
         
         # Processing data...
-        match data["filt"]:
-            case "machine":
+        match data['filt']:
+            case 'machine':
                 for i in interruptions:
                     if i.machine_id:
                         machine = i.machine_id.name
@@ -72,7 +72,7 @@ class InterruptionsPdfReport(models.AbstractModel):
                 #         val = v['-']
                 #         del v['-']
                 #         v['-'] = val              
-            case "productive_line":
+            case 'productive_line':
                 for i in interruptions:
                     if i.productive_line_id:
                         line = i.productive_line_id.name
@@ -89,7 +89,7 @@ class InterruptionsPdfReport(models.AbstractModel):
                         res[line][type]['tiempo'] += time
                         total[line]['tiempo'] += time
                         total['Total']['tiempo'] += time
-            case "productive_section":
+            case 'productive_section':
                 for tc in tecnolog_control:
                     for i in interruptions.filtered(lambda i: i.tecnolog_control_id.id == tc.id):
                         section = tc.productive_section_id.name
@@ -111,7 +111,7 @@ class InterruptionsPdfReport(models.AbstractModel):
             #'doc_model': report.model,
             'res': res,
             'total': total,
-            'filt': data.get("filt"),
+            'filt': data.get('filt'),
             'start_date': data.get('start_date'),
             'end_date': data.get('end_date'),
         }

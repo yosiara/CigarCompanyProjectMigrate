@@ -6,13 +6,13 @@ class ProductiveSectionLines(models.Model):
     _rec_name = 'productive_line'
 
 
-    productive_section_id = fields.Many2one(comodel_name="process_control.productive_section",
-                                            string="Módulo", required=False)
+    productive_section_id = fields.Many2one(comodel_name='process_control.productive_section',
+                                            string='Módulo', required=False)
 
-    productive_line = fields.Many2one(comodel_name="process_control.productive_line", string="Línea Productiva",
+    productive_line = fields.Many2one(comodel_name='process_control.productive_line', string='Línea Productiva',
                                       required=False)
-    name = fields.Char(string="Nombre", required=False, related='productive_line.name')
-    productive_section_name = fields.Char(string="Nombre", required=True, compute='get_section_name', store=True)
+    name = fields.Char(string='Nombre', required=False, related='productive_line.name')
+    productive_section_name = fields.Char(string='Nombre', required=True, compute='get_section_name', store=True)
 
     @api.model_create_multi
     @api.depends('productive_section_id.name')

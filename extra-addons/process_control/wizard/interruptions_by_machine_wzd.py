@@ -9,11 +9,11 @@ class WzdInterruptionsByMachine(models.TransientModel):
 
     start_date = fields.Date('Desde', required=True)
     end_date = fields.Date('Hasta', required=True)
-    machine = fields.Many2one(comodel_name="process_control.machine", string="Máquina", required=False, )
+    machine = fields.Many2one(comodel_name='process_control.machine', string='Máquina', required=False, )
     machine_type_id = fields.Many2one('process_control.machine_type', string='Tipo de máquina',
                                       related='machine.machine_type_id')
-    subset = fields.Many2one(comodel_name="process_control.machine_set_of_peaces",
-                             string="Subconjunto", required=False, domain="[('machine_type_id', '=', machine)]")
+    subset = fields.Many2one(comodel_name='process_control.machine_set_of_peaces',
+                             string='Subconjunto', required=False, domain=[('machine_type_id', '=', machine)])
     interruption_type = fields.Many2one('process_control.interruption_type', 'Tipo')
 
     def print_report(self):

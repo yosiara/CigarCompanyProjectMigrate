@@ -5,7 +5,7 @@ from odoo import models, fields
 
 class InterruptionsExcelWzd(models.TransientModel):
     _name = 'process_control.interruptions_excel_wzd'
-    _description = "Interruptions excel report wzd"
+    _description = 'Interruptions excel report wzd'
 
     start_date = fields.Date('Desde', required=True)
     end_date = fields.Date('Hasta', required=True)

@@ -3,8 +3,8 @@ from odoo import api, fields, models, tools
 
 
 class MachineType(models.Model):
-    _name = "process_control.machine_type"
-    _description = "Tipo de Máquina"
+    _name = 'process_control.machine_type'
+    _description = 'Tipo de Máquina'
     
     name = fields.Char('Nombre *', size=40, required=True)
 

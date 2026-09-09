@@ -3,20 +3,20 @@ from odoo import api, fields, models
 
 class RechazoAMF(models.Model):
     _name = 'process_control.rechazo_amf'
-    _inherits = {"process_control.rechazo": "rechazo_id"}
-    _description = "Rechazo AMF"
+    _inherits = {'process_control.rechazo': 'rechazo_id'}
+    _description = 'Rechazo AMF'
 
     rechazo_id = fields.Many2one(comodel_name='process_control.rechazo', string='Rechazo')
 
     prod_en_cajones = fields.Float('Producción en cajones *', required=True)
     rechazo_en_cajetillas = fields.Integer('Rechazo en cajetillas *', required=True)
     
-    @api.onchange("productive_line_id")
+    @api.onchange('productive_line_id')
     def _onchange_productive_line_id(self):
         if self.productive_line_id.id is not self.machine_id.productive_line_id.id:
             self.machine_id = self.machine_id.search([('productive_line_id', '=', self.productive_line_id.id), ('machine_type_id.name', '=', 'AMF')], limit=1).id
 
-    @api.onchange("tecnolog_control_id")
+    @api.onchange('tecnolog_control_id')
     def _onchange_tecnolog_control_id(self):
         rechazo_amf_recs = self.tecnolog_control_id.rechazo_amf_ids
         line_recs = self.productive_line_id.search([('productive_section_id', '=', self.tecnolog_control_id.productive_section_id.id)])
@@ -28,7 +28,7 @@ class RechazoAMF(models.Model):
                     break
         self.productive_line_id = line_recs[i].id
     
-    # @api.onchange("rechazo_id")
+    # @api.onchange('rechazo_id')
     # def _get_default_turn_attendance(self):
     #     if self.tecnolog_control_id.turn_id and self.tecnolog_control_id.session:
     #         domain = [('session', '=', self.tecnolog_control_id.session), ('turn_id', '=', self.tecnolog_control_id.turn_id.id)]

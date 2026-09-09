@@ -10,17 +10,17 @@ from io import BytesIO
 try:
     import xlsxwriter
 except ImportError:
-    raise ImportError(_("Python Library Import Error."))
+    raise ImportError(_('Python Library Import Error.'))
  
 
 class InterruptionsExcelReport(models.AbstractModel):
-    _name = "report.process_control.interruptions_excel_report"
-    _description = "Interruptions excel report"
+    _name = 'report.process_control.interruptions_excel_report'
+    _description = 'Interruptions excel report'
 
     @api.model
     def generate_xlsx_report(self, data, response):
         # Get data
-        tecnolog_control_ids = self.env['process_control.tecnolog_control'].search([('date', '>=', data.get("start_date")), ('date', '<=', data.get("end_date"))])
+        tecnolog_control_ids = self.env['process_control.tecnolog_control'].search([('date', '>=', data.get('start_date')), ('date', '<=', data.get('end_date'))])
         if not tecnolog_control_ids: # Empty data
            _logger.warning('There is no data to display.')
            return
@@ -29,7 +29,7 @@ class InterruptionsExcelReport(models.AbstractModel):
         workbook = xlsxwriter.Workbook(output, {'in_memory': True})
         
         # Title
-        title = f"Listado de Interrupciones desde {data['start_date']} hasta {data['end_date']}"
+        title = f'Listado de Interrupciones desde {data['start_date']} hasta {data['end_date']}'
 
         # Formats
         title_format = workbook.add_format({'bold': 1, 'align': 'center', 'valign': 'vcenter', 'font_size': 18, 'italic': 1, 'font_color': '#873b0f', 'underline': 2})
@@ -38,39 +38,39 @@ class InterruptionsExcelReport(models.AbstractModel):
         cell_format = workbook.add_format({'border': 1, 'align': 'center', 'valign': 'vcenter'})
         
         # Add worksheet
-        worksheet = workbook.add_worksheet("Interrupciones")
+        worksheet = workbook.add_worksheet('Interrupciones')
         
         # Insert logo.
-        worksheet.merge_range("A1:D3", '')
-        worksheet.insert_image("A1", '/mnt/extra-addons/process_control/static/src/img/hoja_turei.jpg', {'x_scale': 1.5, 'y_scale': 1.7})
+        worksheet.merge_range('A1:D3', '')
+        worksheet.insert_image('A1', '/mnt/extra-addons/process_control/static/src/img/hoja_turei.jpg', {'x_scale': 1.5, 'y_scale': 1.7})
         
         # Write the title.
-        worksheet.merge_range("E1:N3", title, title_format)
+        worksheet.merge_range('E1:N3', title, title_format)
 
         # Options to use in the table.
         options = {
-            #"style": "Table Style Light 11",
+            #'style': 'Table Style Light 11',
             'total_row': True,
-            "columns": [ # Header
-                {"header": "No", "header_format": header_format, "format": data_format},
-                {"header": "Año", "header_format": header_format, "format": data_format},
-                {"header": "Mes", "header_format": header_format, "format": data_format},
-                {"header": "Día", "header_format": header_format, "format": data_format},
-                {"header": "Turno", "header_format": header_format, "format": data_format},
-                {"header": "Módulo", "header_format": header_format, "format": data_format},
-                {"header": "Inicio", "header_format": header_format, "format": data_format},
-                {"header": "Fin", "header_format": header_format, "format": data_format},
-                {"header": "Línea", "header_format": header_format, "format": data_format},
-                {"header": "Máquina", "header_format": header_format, "format": data_format},
-                {"header": "Subconjunto", "header_format": header_format, "format": data_format},
-                {"header": "Tipo de interrupción", "header_format": header_format, "format": data_format},
-                {"header": "Exógena/Endógena", "header_format": header_format, "format": data_format},
-                {"header": "Tiempo (horas)", "header_format": header_format, "format": data_format},
+            'columns': [ # Header
+                {'header': 'No', 'header_format': header_format, 'format': data_format},
+                {'header': 'Año', 'header_format': header_format, 'format': data_format},
+                {'header': 'Mes', 'header_format': header_format, 'format': data_format},
+                {'header': 'Día', 'header_format': header_format, 'format': data_format},
+                {'header': 'Turno', 'header_format': header_format, 'format': data_format},
+                {'header': 'Módulo', 'header_format': header_format, 'format': data_format},
+                {'header': 'Inicio', 'header_format': header_format, 'format': data_format},
+                {'header': 'Fin', 'header_format': header_format, 'format': data_format},
+                {'header': 'Línea', 'header_format': header_format, 'format': data_format},
+                {'header': 'Máquina', 'header_format': header_format, 'format': data_format},
+                {'header': 'Subconjunto', 'header_format': header_format, 'format': data_format},
+                {'header': 'Tipo de interrupción', 'header_format': header_format, 'format': data_format},
+                {'header': 'Exógena/Endógena', 'header_format': header_format, 'format': data_format},
+                {'header': 'Tiempo (horas)', 'header_format': header_format, 'format': data_format},
             ],
         }
 
         # Add a table to the worksheet.
-        worksheet.add_table("A5:N6", options)
+        worksheet.add_table('A5:N6', options)
 
         # Variables definition
         row = 5
@@ -120,11 +120,11 @@ class InterruptionsExcelReport(models.AbstractModel):
             #     else:
             #         worksheet.write('L'+str(aux_row), round(interruption.time / 60.00,2), data_format)
             # else:
-            #     worksheet.write('L'+str(aux_row), "", data_format)
+            #     worksheet.write('L'+str(aux_row), '', data_format)
             # if interruption.frequency:
             #     worksheet.write('M'+str(aux_row), interruption.frequency, data_format)
             # else:
-            #     worksheet.write('M'+str(aux_row), "", data_format)
+            #     worksheet.write('M'+str(aux_row), '', data_format)
             # aux_row += 1
 
         # Freeing up resources

@@ -9,8 +9,8 @@ class WzdResumeTimeFrequencyToExcel(models.TransientModel):
 
     start_date = fields.Date('Desde', required=True)
     end_date = fields.Date('Hasta', required=True)
-    group_by = fields.Selection(string="Agrupado", selection=[('linea', tools.ustr('Por Línea')), ('seccion', tools.ustr('Por Sesión')), ], required=True, default='seccion')
-    turn = fields.Many2one(comodel_name="resource.calendar", string="Turno", required=False)
+    group_by = fields.Selection(string='Agrupado', selection=[('linea', tools.ustr('Por Línea')), ('seccion', tools.ustr('Por Sesión')), ], required=True, default='seccion')
+    turn = fields.Many2one(comodel_name='resource.calendar', string='Turno', required=False)
 
     def export_to_xlsx(self):
         if self.group_by == 'seccion':

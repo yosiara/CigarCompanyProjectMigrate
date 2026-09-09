@@ -3,8 +3,8 @@ from odoo import api, fields, models, tools
 
 class RechazoMod1(models.Model):
     _name = 'process_control.rechazo_mod1'
-    _inherits = {"process_control.rechazo": "rechazo_id"}
-    _description = "Rechazo Módulo 1"
+    _inherits = {'process_control.rechazo': 'rechazo_id'}
+    _description = 'Rechazo Módulo 1'
 
     rechazo_id = fields.Many2one(comodel_name='process_control.rechazo', string='Rechazo')
     
@@ -12,7 +12,7 @@ class RechazoMod1(models.Model):
     rechazo_en_cigarrillos = fields.Integer('Rechazo en cigarrillos *', required=True)
     #prod_en_cajetillas = fields.Integer('Producción en cajetillas')
 
-    @api.onchange("productive_line_id")
+    @api.onchange('productive_line_id')
     def _onchange_productive_line_id(self):
         if self.productive_line_id.id is not self.machine_id.productive_line_id.id:
             rechazo_mod1_recs = self.tecnolog_control_id.rechazo_mod1_ids
@@ -25,11 +25,11 @@ class RechazoMod1(models.Model):
                         break
             self.machine_id = machine_recs[i].id
 
-    @api.onchange("tecnolog_control_id")
+    @api.onchange('tecnolog_control_id')
     def _onchange_tecnolog_control_id(self):
         self.productive_line_id = self.productive_line_id.search([('productive_section_id', '=', self.tecnolog_control_id.productive_section_id.id)], limit=1).id
 
-    # @api.onchange("rechazo_id")
+    # @api.onchange('rechazo_id')
     # def _get_default_turn_attendance(self):
     #     if self.tecnolog_control_id.turn_id and self.tecnolog_control_id.session:
     #         domain = [('session', '=', self.tecnolog_control_id.session), ('turn_id', '=', self.tecnolog_control_id.turn_id.id)]

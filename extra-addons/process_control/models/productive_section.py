@@ -4,13 +4,13 @@ from odoo.exceptions import ValidationError
 
 
 class ProductiveSection(models.Model):
-    _name = "process_control.productive_section"
-    _description = "Productive Section"
+    _name = 'process_control.productive_section'
+    _description = 'Productive Section'
     _order = 'name'
 
-    name = fields.Char('Nombre *', required=True, default="Módulo ")
+    name = fields.Char('Nombre *', required=True, default='Módulo ')
     productive_section_plan_id = fields.Many2one('process_control.productive_section_plan', string='Plan *', required=True)
-    active = fields.Boolean(string="Activa", default=True)
+    active = fields.Boolean(string='Activa', default=True)
     productive_line_ids = fields.One2many('process_control.productive_line', inverse_name='productive_section_id', string='Líneas Productivas')
 
     _sql_constraints = [
@@ -25,7 +25,7 @@ class ProductiveSection(models.Model):
     #         try:
     #             conn = connexion.connect()
     #             cursor = conn.cursor()
-    #             cursor.execute("""SELECT "id", descripcion FROM cd_modulo WHERE id > 0 ORDER BY id""")
+    #             cursor.execute('''SELECT 'id', descripcion FROM cd_modulo WHERE id > 0 ORDER BY id''')
     #             for row in cursor:
     #                 res.append((str(row[0]), str(row[1])))
     #         except Exception:
@@ -39,10 +39,10 @@ class ProductiveSection(models.Model):
     #             [('productive_line.id', '=', productive_section_lines.productive_line.id)], limit=2)
     #         if len(lines_in_system) > 1:
     #             raise ValidationError(
-    #                 u'La línea productiva: "' + tools.ustr(
+    #                 u'La línea productiva: '' + tools.ustr(
     #                     productive_section_lines.productive_line.name)
-    #                 + u'" ya ha sido añadida en la Modulo: "' +
-    #                 tools.ustr(lines_in_system[0].productive_section_id.name) + '"')
+    #                 + u'' ya ha sido añadida en la Modulo: '' +
+    #                 tools.ustr(lines_in_system[0].productive_section_id.name) + ''')
 
     # def calculate_cdt(self, start_date=None, end_date=None, turn=None):
     #     self.ensure_one()

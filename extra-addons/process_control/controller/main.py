@@ -5,13 +5,12 @@ from odoo.http import serialize_exception as _serialize_exception
 from odoo.tools import html_escape
 
 class XLSXReportController(http.Controller):
-    """XlsxReport generating controller"""
+    """ XlsxReport generating controller """
+
     @http.route('/xlsx_reports', type='http', auth='user', methods=['POST'], csrf=False)
     def get_report_xlsx(self, model, options, output_format, report_name, **kw):
-        """
-        Generate an XLSX report based on the provided data and return it as a
-        response.
-        """
+        """ Generate an XLSX report based on the provided data and return it as a response. """
+
         uid = request.session.uid
         report_obj = request.env[model].with_user(uid)
         options = json.loads(options)
@@ -23,7 +22,7 @@ class XLSXReportController(http.Controller):
                     headers=[
                         ('Content-Type', 'application/vnd.ms-excel'),
                         ('Content-Disposition',
-                         content_disposition(f"{report_name}.xlsx"))
+                         content_disposition(f'{report_name}.xlsx'))
                     ]
                 )
                 report_obj.generate_xlsx_report(options, response)

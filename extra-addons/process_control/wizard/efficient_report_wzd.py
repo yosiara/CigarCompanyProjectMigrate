@@ -9,10 +9,10 @@ class WzdEfficientReport(models.TransientModel):
 
     start_date = fields.Date('Desde', required=True)
     end_date = fields.Date('Hasta', required=True)
-    productive_section = fields.Many2one(comodel_name="process_control.productive_section",
-                                         string="Sec. Prod.",
+    productive_section = fields.Many2one(comodel_name='process_control.productive_section',
+                                         string='Sec. Prod.',
                                          required=False, ondelete='cascade')
-    turn = fields.Many2one(comodel_name="resource.calendar", string="Turno", required=False)
+    turn = fields.Many2one(comodel_name='resource.calendar', string='Turno', required=False)
 
     def print_report(self):
         return self.env['report'].get_action(self, 'process_control.efficient_report', data={
