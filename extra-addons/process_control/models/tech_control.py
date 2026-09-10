@@ -1,10 +1,10 @@
 ﻿# -*- coding: utf-8 -*-
 from odoo import api, fields, models, tools
 
-class TecnologControl(models.Model):
-    _name = 'process_control.tecnolog_control'
+class TechControl(models.Model):
+    _name = 'process_control.tech_control'
     _inherit = ['mail.activity.mixin', 'mail.thread']
-    _description = 'Tecnolog Control'
+    _description = 'Technological Control'
 
     date = fields.Date(string='Date *', required=True, copy=True, default=fields.Date.today)
     turn_id = fields.Many2one(comodel_name='process_control.turn', string='Turn *', required=True)
@@ -18,10 +18,10 @@ class TecnologControl(models.Model):
     productive_capacity = fields.Integer('Productive Capacity *')
     plan_time = fields.Integer('Plan Time (Hour) *')
 
-    interruption_ids = fields.One2many(comodel_name='process_control.interruption', inverse_name='tecnolog_control_id', string='Interruptions')  
-    rejection_amf_ids = fields.One2many(comodel_name='process_control.rejection_amf', inverse_name='tecnolog_control_id', string='Rejection AMF')
-    rejection_mod1_ids = fields.One2many(comodel_name='process_control.rejection_mod1', inverse_name='tecnolog_control_id', string='Rejection (NANO, SBO, SRC)')
-    production_by_hours_ids = fields.One2many(comodel_name='process_control.production_by_hours', inverse_name='tecnolog_control_id', string='Hourly Production')
+    interruption_ids = fields.One2many(comodel_name='process_control.interruption', inverse_name='tech_control_id', string='Interruptions')  
+    rejection_amf_ids = fields.One2many(comodel_name='process_control.rejection_amf', inverse_name='tech_control_id', string='Rejection AMF')
+    rejection_mod1_ids = fields.One2many(comodel_name='process_control.rejection_mod1', inverse_name='tech_control_id', string='Rejection (NANO, SBO, SRC)')
+    production_by_hours_ids = fields.One2many(comodel_name='process_control.production_by_hours', inverse_name='tech_control_id', string='Hourly Production')
     
     # Clear notebook data
     @api.onchange('productive_section_id', 'turn_id', 'session')
@@ -34,7 +34,7 @@ class TecnologControl(models.Model):
 
     @api.model
     def default_get(self, fields):
-        res = super(TecnologControl, self).default_get(fields)
+        res = super(TechControl, self).default_get(fields)
         rec_last = self.search([], order='id desc', limit=1)
         if rec_last:
             res['date'] = rec_last.date

@@ -21,7 +21,7 @@ class Interruption(models.Model):
     productive_line_id = fields.Many2one('process_control.productive_line', 'Productive Line')
     line_domain = fields.Binary(compute='_get_line_domain', exportable=False)
 
-    tecnolog_control_id = fields.Many2one('process_control.tecnolog_control', 'Tech control *', ondelete='cascade', required=True)
+    tech_control_id = fields.Many2one('process_control.tech_control', 'Tech Control *', ondelete='cascade', required=True)
     
 
     # -------------------------------------------------------------------------
@@ -33,7 +33,7 @@ class Interruption(models.Model):
         for rec in self:
             if rec.start_date >= rec.end_date:
                 raise ValidationError(_('The start date %s must be earlier than the end date %s.') % (rec.start_date, rec.end_date))
-            hour_range = rec.tecnolog_control_id.turn_id.hour_range(session=rec.tecnolog_control_id.session)
+            hour_range = rec.tech_control_id.turn_id.hour_range(session=rec.tech_control_id.session)
             if rec.start_date < hour_range[0] or rec.end_date > hour_range[1]:
                 raise ValidationError(_('The start and/or end time of the interruption is not within the range of the selected session.'))
     
@@ -41,13 +41,13 @@ class Interruption(models.Model):
     # COMPUTE METHODS
     # -------------------------------------------------------------------------
 
-    @api.depends('tecnolog_control_id', 'productive_line_id')
+    @api.depends('tech_control_id', 'productive_line_id')
     def _get_machine_domain(self):
         for rec in self:
             if rec.productive_line_id:
                 rec.machine_domain = [('productive_line_id', '=', rec.productive_line_id.id)]
-            elif rec.tecnolog_control_id.productive_section_id:
-                rec.machine_domain = [('productive_section_id', '=', rec.tecnolog_control_id.productive_section_id.id), ('productive_line_id', '=', False)]
+            elif rec.tech_control_id.productive_section_id:
+                rec.machine_domain = [('productive_section_id', '=', rec.tech_control_id.productive_section_id.id), ('productive_line_id', '=', False)]
             else:
                 rec.machine_domain = [('id', 'in', [])]
 
@@ -56,11 +56,11 @@ class Interruption(models.Model):
         for rec in self:
             rec.peaces_domain = [('id', 'in', rec.machine_id.set_of_peaces.ids)] if rec.machine_id else [('id', 'in', [])]
 
-    @api.depends('tecnolog_control_id')
+    @api.depends('tech_control_id')
     def _get_line_domain(self):
         for rec in self:
-            if rec.tecnolog_control_id.productive_section_id:
-                rec.line_domain = [('productive_section_id', '=', rec.tecnolog_control_id.productive_section_id.id)]
+            if rec.tech_control_id.productive_section_id:
+                rec.line_domain = [('productive_section_id', '=', rec.tech_control_id.productive_section_id.id)]
             else:
                 rec.line_domain = [('id', 'in', [])]
 
@@ -90,9 +90,9 @@ class Interruption(models.Model):
         if self.interruption_type_id.machine_type_related and self.machine_id.machine_type_id.id not in self.interruption_type_id.machine_type_related.ids:
             self.interruption_type_id = False
 
-    @api.onchange('tecnolog_control_id')
-    def _onchange_tecnolog_control_id(self):
-        hour_range = self.tecnolog_control_id.turn_id.hour_range(session=self.tecnolog_control_id.session)
+    @api.onchange('tech_control_id')
+    def _onchange_tech_control_id(self):
+        hour_range = self.tech_control_id.turn_id.hour_range(session=self.tech_control_id.session)
         self.start_date = hour_range[0]
         self.end_date = hour_range[1]
 

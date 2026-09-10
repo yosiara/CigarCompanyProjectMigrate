@@ -22,7 +22,7 @@ class ProductiveSectionLines(models.Model):
                   ('productive_section_id', '=', self.productive_section_id.id)]
         if turn:
             domain.append(('turn_calendar_id', '=', turn))
-        control_mods = self.env['process_control.tecnolog_control'].search(domain)
+        control_mods = self.env['process_control.tech_control'].search(domain)
         res = {}
         for cm in control_mods:
             for line in cm.rejection_amf_ids:
@@ -37,7 +37,7 @@ class ProductiveSectionLines(models.Model):
                   ('productive_section_id', '=', self.productive_section_id.id)]
         if turn:
             domain.append(('turn_calendar_id', '=', turn))
-        control_mods = self.env['process_control.tecnolog_control'].search(domain)
+        control_mods = self.env['process_control.tech_control'].search(domain)
         res = {}
         for cm in control_mods:
             for line in cm.rejection_amf_ids:

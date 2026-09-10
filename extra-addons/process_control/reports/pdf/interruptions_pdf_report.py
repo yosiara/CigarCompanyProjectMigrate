@@ -16,15 +16,15 @@ class InterruptionsPdfReport(models.AbstractModel):
             },
         }
         
-        # Get tecnolog_control data
-        domain = [('date', '>=', data.get('start_date')), ('date', '<=', data.get('end_date'))] # Domain for tecnolog_control
+        # Get tech_control data
+        domain = [('date', '>=', data.get('start_date')), ('date', '<=', data.get('end_date'))] # Domain for tech_control
         if data.get('productive_section_ids'):
             domain.append(('productive_section_id', 'in', data['productive_section_ids']))
-        tecnolog_control = self.env['process_control.tecnolog_control'].search(domain)
+        tech_control = self.env['process_control.tech_control'].search(domain)
         
-        # Get interruptions data in tecnolog_control
+        # Get interruptions data in tech_control
         ids = []
-        for tc in tecnolog_control:
+        for tc in tech_control:
             for i in tc.interruption_ids:
                 ids.append(i.id)
         interruptions = self.env['process_control.interruption'].browse(ids)
@@ -90,8 +90,8 @@ class InterruptionsPdfReport(models.AbstractModel):
                         total[line]['time'] += time
                         total['Total']['time'] += time
             case 'productive_section':
-                for tc in tecnolog_control:
-                    for i in interruptions.filtered(lambda i: i.tecnolog_control_id.id == tc.id):
+                for tc in tech_control:
+                    for i in interruptions.filtered(lambda i: i.tech_control_id.id == tc.id):
                         section = tc.productive_section_id.name
                         if section not in res:
                             res[section] = {}

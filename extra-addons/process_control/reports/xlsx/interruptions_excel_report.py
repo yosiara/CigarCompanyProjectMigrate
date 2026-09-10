@@ -20,8 +20,8 @@ class InterruptionsExcelReport(models.AbstractModel):
     @api.model
     def generate_xlsx_report(self, data, response):
         # Get data
-        tecnolog_control_ids = self.env['process_control.tecnolog_control'].search([('date', '>=', data.get('start_date')), ('date', '<=', data.get('end_date'))])
-        if not tecnolog_control_ids: # Empty data
+        tech_control_ids = self.env['process_control.tech_control'].search([('date', '>=', data.get('start_date')), ('date', '<=', data.get('end_date'))])
+        if not tech_control_ids: # Empty data
            _logger.warning('There is no data to display.')
            return
 
@@ -77,7 +77,7 @@ class InterruptionsExcelReport(models.AbstractModel):
         max_len = [len(col['header']) for col in options['columns']] # column widths
         
         # Write data
-        for tc in tecnolog_control_ids:
+        for tc in tech_control_ids:
             for i in tc.interruption_ids:
                 # write(row, col, *args)
                 worksheet.write(row, 0, row - 4, cell_format)

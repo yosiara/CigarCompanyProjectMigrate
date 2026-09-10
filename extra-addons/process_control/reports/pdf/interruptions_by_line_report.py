@@ -19,7 +19,7 @@ class ReportInterruptionsByLine(models.AbstractModel):
                 [('productive_line', '=', data['productive_line'])], limit=1)
             domain.append(('productive_section_id', '=', productive_line.productive_section_id.id))
 
-        controles = self.env['process_control.tecnolog_control'].search(domain)
+        controles = self.env['process_control.tech_control'].search(domain)
 
         for control in controles:
             if data['interruption_type']:

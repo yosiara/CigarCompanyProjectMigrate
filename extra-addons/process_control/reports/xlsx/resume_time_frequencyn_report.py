@@ -41,12 +41,12 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date),('turn_calendar_id', '=', lines.turn.id)])
+            tech_control = self.env['process_control.tech_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date),('turn_calendar_id', '=', lines.turn.id)])
         else:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)])
+            tech_control = self.env['process_control.tech_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)])
 
         dic_int, dic_int_fr = {}, {}
-        for tc in tecnolog_control:
+        for tc in tech_control:
             for it in tc.interruptions:
                 if it.interruption_type.cause == 'external':
                     if not it.interruption_type.code in dic_int_fr:
@@ -209,12 +209,12 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date),('turn_calendar_id', '=', lines.turn.id)])
+            tech_control = self.env['process_control.tech_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date),('turn_calendar_id', '=', lines.turn.id)])
         else:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)])
+            tech_control = self.env['process_control.tech_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)])
 
         dic_int, dic_int_fr = {}, {}
-        for tc in tecnolog_control:
+        for tc in tech_control:
             for it in tc.interruptions:
 
                 if it.interruption_type.cause == 'external':

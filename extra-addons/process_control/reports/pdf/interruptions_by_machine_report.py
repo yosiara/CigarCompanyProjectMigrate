@@ -13,7 +13,7 @@ class ReportInterruptionsByLine(models.AbstractModel):
         records = {}
         domain = [('date', '>=', data['start_date']), ('date', '<=', data['end_date'])]
 
-        controles = self.env['process_control.tecnolog_control'].search(domain)
+        controles = self.env['process_control.tech_control'].search(domain)
 
         for control in controles:
             if data['interruption_type']:

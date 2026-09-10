@@ -57,7 +57,7 @@ class ProductiveSection(models.Model):
     #         domain.append(('turn_calendar_id', '=', turn))
 
     #     count_lines = len(self.productive_line_ids)
-    #     control_models = self.env['process_control.tecnolog_control'].search(domain)
+    #     control_models = self.env['process_control.tech_control'].search(domain)
 
     #     cdt, sum_plan_time, sum_time_interruption, time_n_j = 0.00, 0.00, 0.00, 0.00
 
@@ -90,7 +90,7 @@ class ProductiveSection(models.Model):
     #     if turn:
     #         domain.append(('turn_calendar_id', '=', turn))
 
-    #     control_models = self.env['process_control.tecnolog_control'].search(domain)
+    #     control_models = self.env['process_control.tech_control'].search(domain)
 
     #     production_done, efficiency, time_planned, productive_capacity, productividad_real = (0.00, 0.00, 0.00, 0.00, 0.00)
 

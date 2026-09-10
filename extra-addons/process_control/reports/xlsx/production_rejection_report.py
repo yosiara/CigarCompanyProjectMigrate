@@ -10,9 +10,9 @@ class ProductionRejectionToExcelReport(ReportXlsx):
     @api.model
     def generate_xlsx_report(self, workbook, data, lines):
         if lines.turn:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date),('turn_calendar_id','=', lines.turn.id)])
+            tech_control = self.env['process_control.tech_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date),('turn_calendar_id','=', lines.turn.id)])
         else:
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)])
+            tech_control = self.env['process_control.tech_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)])
         worksheet = workbook.add_worksheet(tools.ustr("Control de Producción y Rejection"))
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vdistributed', 'font': {'size': 11}})
         normal_format = workbook.add_format({'bold': 0, 'border': 1, 'align': 'left', 'valign': 'vcenter', 'font': {'size': 11}})
@@ -44,7 +44,7 @@ class ProductionRejectionToExcelReport(ReportXlsx):
 
         dic_type= {'NANO':{'produccion':0.00,'rejection':0.00},'SBO':{'produccion':0.00,'rejection':0.00},'SRC':{'produccion':0.00,'rejection':0.00}}
 
-        for tc in tecnolog_control:
+        for tc in tech_control:
             for i in tc.rejection_mod1_ids:
                 if i.machine_id.name:
                     if i.machine_id.name.split('-')[0] == 'NANO':

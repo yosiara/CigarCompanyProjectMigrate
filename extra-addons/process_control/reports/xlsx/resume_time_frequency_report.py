@@ -20,17 +20,17 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
 				process_control_interruption_type.cause,
 				process_control_machine.machine_type_id
             FROM
-                process_control_tecnolog_control INNER JOIN
-                process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
+                process_control_tech_control INNER JOIN
+                process_control_interruption ON process_control_tech_control."id" = process_control_interruption.tech_control_id
             INNER JOIN process_control_interruption_type 
             ON process_control_interruption_type.ID = process_control_interruption.interruption_type
             LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
             LEFT JOIN process_control_machine_type ON process_control_machine_type.id = process_control_machine.machine_type_id
-            WHERE process_control_tecnolog_control."date" BETWEEN '%s' and '%s'
+            WHERE process_control_tech_control."date" BETWEEN '%s' and '%s'
         """
 
         if lines.turn:
-            query += """ and process_control_tecnolog_control.turn = %d
+            query += """ and process_control_tech_control.turn = %d
             GROUP BY process_control_interruption_type.id, cause,process_control_interruption_type.name,process_control_machine_type.name,process_control_machine.machine_type_id
             ORDER BY cause DESC, machine_type ASC """
         else:
@@ -80,14 +80,14 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
                 SELECT DISTINCT
                     SUM(process_control_interruption."time")
                 FROM
-                    process_control_tecnolog_control INNER JOIN
-                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
+                    process_control_tech_control INNER JOIN
+                    process_control_interruption ON process_control_tech_control."id" = process_control_interruption.tech_control_id
                 INNER JOIN process_control_interruption_type 
                 ON process_control_interruption_type.ID = process_control_interruption.interruption_type
                 LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
                 LEFT JOIN process_control_machine_type ON process_control_machine_type.id = process_control_machine.machine_type_id
-                WHERE process_control_tecnolog_control.productive_section = %d
-                            and process_control_tecnolog_control."date" BETWEEN '%s' and '%s'
+                WHERE process_control_tech_control.productive_section = %d
+                            and process_control_tech_control."date" BETWEEN '%s' and '%s'
                             and process_control_interruption_type.id = %d 
                 """
 
@@ -97,7 +97,7 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
                 #else:
                     #query_time %= (ps.id, lines.turn, lines.start_date, lines.end_date, records_query[i]['id'])
                 if lines.turn:
-                    query_time += " and process_control_tecnolog_control.turn = %d"
+                    query_time += " and process_control_tech_control.turn = %d"
 
                 if records_query[i]['machine_type_id'] and lines.turn:
                     query_time %= (ps.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
@@ -167,14 +167,14 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
                 SELECT DISTINCT
                     SUM(process_control_interruption."frequency")
                 FROM
-                    process_control_tecnolog_control INNER JOIN
-                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
+                    process_control_tech_control INNER JOIN
+                    process_control_interruption ON process_control_tech_control."id" = process_control_interruption.tech_control_id
                 INNER JOIN process_control_interruption_type 
                 ON process_control_interruption_type.ID = process_control_interruption.interruption_type
                 LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
                 LEFT JOIN process_control_machine_type ON process_control_machine_type.id = process_control_machine.machine_type_id
-                WHERE process_control_tecnolog_control.productive_section = %d
-                            and process_control_tecnolog_control."date" BETWEEN '%s' and '%s'
+                WHERE process_control_tech_control.productive_section = %d
+                            and process_control_tech_control."date" BETWEEN '%s' and '%s'
                             and process_control_interruption_type.id = %d
                 """
 
@@ -184,7 +184,7 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
                 #else:
                     #query_time %= (ps.id, lines.turn, lines.start_date, lines.end_date, records_query[i]['id'])
                 if lines.turn:
-                    query_time += " and process_control_tecnolog_control.turn = %d"
+                    query_time += " and process_control_tech_control.turn = %d"
 
                 if records_query[i]['machine_type_id'] and lines.turn:
                     query_time %= (ps.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
@@ -225,13 +225,13 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
 				process_control_interruption_type.cause,
 				process_control_machine.machine_type_id
             FROM
-                process_control_tecnolog_control INNER JOIN
-                process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
+                process_control_tech_control INNER JOIN
+                process_control_interruption ON process_control_tech_control."id" = process_control_interruption.tech_control_id
             INNER JOIN process_control_interruption_type 
             ON process_control_interruption_type.ID = process_control_interruption.interruption_type
             LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
             LEFT JOIN process_control_machine_type ON process_control_machine_type.id = process_control_machine.machine_type_id
-            WHERE process_control_tecnolog_control."date" BETWEEN '%s' and '%s'
+            WHERE process_control_tech_control."date" BETWEEN '%s' and '%s'
         """
 
         worksheet = workbook.add_worksheet(tools.ustr("Tiempo"))
@@ -260,7 +260,7 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
             column_index += 1
 
         if lines.turn:
-            query += """ and process_control_tecnolog_control.turn = %d
+            query += """ and process_control_tech_control.turn = %d
             GROUP BY process_control_interruption_type.id, cause,process_control_interruption_type.name,process_control_machine_type.name,process_control_machine.machine_type_id
             ORDER BY cause DESC, machine_type ASC """
             self.env.cr.execute(query % (lines.start_date, lines.end_date, lines.turn))
@@ -282,21 +282,21 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
                 SELECT DISTINCT
                     SUM(process_control_interruption."time")
                 FROM
-                    process_control_tecnolog_control INNER JOIN
-                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
+                    process_control_tech_control INNER JOIN
+                    process_control_interruption ON process_control_tech_control."id" = process_control_interruption.tech_control_id
                 INNER JOIN process_control_interruption_type 
                 ON process_control_interruption_type.ID = process_control_interruption.interruption_type
                 LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
                 LEFT JOIN process_control_machine_type ON process_control_machine_type.id = process_control_machine.machine_type_id
                 WHERE process_control_interruption.productive_line_id = %d
-                            and process_control_tecnolog_control."date" BETWEEN '%s' and '%s'
+                            and process_control_tech_control."date" BETWEEN '%s' and '%s'
                             and process_control_interruption_type.id = %d 
                 """
 
                 if records_query[i]['machine_type_id']:
                     query_time += " and process_control_machine.machine_type_id = %d"
                 if lines.turn:
-                    query_time += " and process_control_tecnolog_control.turn = %d"
+                    query_time += " and process_control_tech_control.turn = %d"
 
                 if records_query[i]['machine_type_id'] and lines.turn:
                     query_time %= (ln.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)
@@ -362,21 +362,21 @@ class ResumenTimeFrequencybyLinesToExcelReport(ReportXlsx):
                 SELECT DISTINCT
                     SUM(process_control_interruption."frequency")
                 FROM
-                    process_control_tecnolog_control INNER JOIN
-                    process_control_interruption ON process_control_tecnolog_control."id" = process_control_interruption.tecnolog_control_id
+                    process_control_tech_control INNER JOIN
+                    process_control_interruption ON process_control_tech_control."id" = process_control_interruption.tech_control_id
                 INNER JOIN process_control_interruption_type 
                 ON process_control_interruption_type.ID = process_control_interruption.interruption_type
                 LEFT JOIN process_control_machine ON process_control_interruption.machine_id = process_control_machine.id
                 LEFT JOIN process_control_machine_type ON process_control_machine_type.id = process_control_machine.machine_type_id
                 WHERE process_control_interruption.productive_line_id = %d
-                            and process_control_tecnolog_control."date" BETWEEN '%s' and '%s'
+                            and process_control_tech_control."date" BETWEEN '%s' and '%s'
                             and process_control_interruption_type.id = %d
                 """
 
                 if records_query[i]['machine_type_id']:
                     query_time += " and process_control_machine.machine_type_id = %d"
                 if lines.turn:
-                    query_time += " and process_control_tecnolog_control.turn = %d"
+                    query_time += " and process_control_tech_control.turn = %d"
 
                 if records_query[i]['machine_type_id'] and lines.turn:
                     query_time %= (ln.id, lines.start_date, lines.end_date, records_query[i]['id'], records_query[i]['machine_type_id'], lines.turn)

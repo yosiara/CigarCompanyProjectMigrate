@@ -36,7 +36,7 @@ class EfficientReport(models.AbstractModel):
                     productive_capacity
                 FROM
                     "public".process_control_interruption
-                INNER JOIN "public".process_control_tecnolog_control ON "public".process_control_interruption.tec_control_model = "public".process_control_tecnolog_control."id"
+                INNER JOIN "public".process_control_tech_control ON "public".process_control_interruption.tec_control_model = "public".process_control_tech_control."id"
                 INNER JOIN "public".process_control_interruption_type ON "public".process_control_interruption.interruption_type = "public".process_control_interruption_type."id"
                 LEFT JOIN "public".process_control_machine ON "public".process_control_interruption.machine_id = "public".process_control_machine."id"
                 LEFT JOIN "public".process_control_machine_set_of_peaces ON "public".process_control_interruption.set_of_peaces_id = "public".process_control_machine_set_of_peaces.id
@@ -69,7 +69,7 @@ class EfficientReport(models.AbstractModel):
 
         query += ' ORDER BY "key", productive_section, "date", turn, cause DESC'
 
-        turnos_trabajados = self.env['process_control.tecnolog_control'].search_count(turns_domain)
+        turnos_trabajados = self.env['process_control.tech_control'].search_count(turns_domain)
 
         self.env.cr.execute(query)
         records_query = self.env.cr.dictfetchall()

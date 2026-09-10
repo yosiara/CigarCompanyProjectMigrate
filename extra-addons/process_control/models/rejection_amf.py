@@ -6,7 +6,7 @@ class RejectionAMF(models.Model):
     _inherits = {'process_control.rejection': 'rejection_id'}
     _description = 'Rejection AMF'
 
-    rejection_id = fields.Many2one(comodel_name='process_control.rejection', string='Rejection')
+    rejection_id = fields.Many2one('process_control.rejection', 'Rejection *', required=True, ondelete='cascade', auto_join=True,  index=True)
     production_count = fields.Float('Production Count *', required=True)
     rejection_count = fields.Integer('Rejection Count *', required=True)
     
@@ -15,10 +15,10 @@ class RejectionAMF(models.Model):
         if self.productive_line_id.id is not self.machine_id.productive_line_id.id:
             self.machine_id = self.machine_id.search([('productive_line_id', '=', self.productive_line_id.id), ('machine_type_id.name', '=', 'AMF')], limit=1).id
 
-    @api.onchange('tecnolog_control_id')
-    def _onchange_tecnolog_control_id(self):
-        rejection_amf_recs = self.tecnolog_control_id.rejection_amf_ids
-        line_recs = self.productive_line_id.search([('productive_section_id', '=', self.tecnolog_control_id.productive_section_id.id)])
+    @api.onchange('tech_control_id')
+    def _onchange_tech_control_id(self):
+        rejection_amf_recs = self.tech_control_id.rejection_amf_ids
+        line_recs = self.productive_line_id.search([('productive_section_id', '=', self.tech_control_id.productive_section_id.id)])
         i = 0
         if len(rejection_amf_recs) > 1:
             for line in range(len(line_recs)-1):
@@ -29,10 +29,10 @@ class RejectionAMF(models.Model):
     
     # @api.onchange('rejection_id')
     # def _get_default_turn_attendance(self):
-    #     if self.tecnolog_control_id.turn_id and self.tecnolog_control_id.session:
-    #         domain = [('session', '=', self.tecnolog_control_id.session), ('turn_id', '=', self.tecnolog_control_id.turn_id.id)]
-    #         rejection_recs = self.tecnolog_control_id.rejection_amf_ids.filtered_domain([('productive_line_id', '=', self.productive_line_id.id)]).sorted(key=lambda r: r.turn_attendance_id.hour_from, reverse=True) if self.productive_line_id else self.tecnolog_control_id.rejection_amf_ids.sorted(key=lambda r: r.turn_attendance_id.hour_from, reverse=True)
-    #         productive_line_recs = self.tecnolog_control_id.productive_section_id.productive_line_ids.sorted(key=lambda r: r.id)
+    #     if self.tech_control_id.turn_id and self.tech_control_id.session:
+    #         domain = [('session', '=', self.tech_control_id.session), ('turn_id', '=', self.tech_control_id.turn_id.id)]
+    #         rejection_recs = self.tech_control_id.rejection_amf_ids.filtered_domain([('productive_line_id', '=', self.productive_line_id.id)]).sorted(key=lambda r: r.turn_attendance_id.hour_from, reverse=True) if self.productive_line_id else self.tech_control_id.rejection_amf_ids.sorted(key=lambda r: r.turn_attendance_id.hour_from, reverse=True)
+    #         productive_line_recs = self.tech_control_id.productive_section_id.productive_line_ids.sorted(key=lambda r: r.id)
     #         if productive_line_recs:
     #             self.productive_line_id = productive_line_recs[0].id
     #             machine_recs = productive_line_recs[0].machine_ids.filtered(lambda r: r.machine_type_id.name == 'AMF')

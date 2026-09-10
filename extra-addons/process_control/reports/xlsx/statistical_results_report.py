@@ -135,8 +135,8 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             worksheet.merge_range('R30:S31', tools.ustr('Promedio'), merge_format)
 
             start_date =  datetime.date(int(lines.start_date.split('-')[0]), int(lines.start_date.split('-')[1]), 1)
-            tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','=',lines.start_date),('productive_section_id','=',ps.id),('turn_calendar_id', '=', lines.turn.id)])
-            acum_tec_control = self.env['process_control.tecnolog_control'].search([('date','>=',start_date),('date','<',lines.start_date),('productive_section_id','=',ps.id),('turn_calendar_id', '=', lines.turn.id)])
+            tech_control = self.env['process_control.tech_control'].search([('date','=',lines.start_date),('productive_section_id','=',ps.id),('turn_calendar_id', '=', lines.turn.id)])
+            acum_tec_control = self.env['process_control.tech_control'].search([('date','>=',start_date),('date','<',lines.start_date),('productive_section_id','=',ps.id),('turn_calendar_id', '=', lines.turn.id)])
             ttp, trp, ttig, prc, er, sum_time_exog, eo, cdt, ppc, pc, tf, cturnm, cturnt, tt  = 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0.0
             quantity_line = ps.get_efficiency_plan().quantity_line
             h, j, ind_rech, acum_ind_rech = 7, 14, 0.0, 0.0
@@ -144,8 +144,8 @@ class StatisticalResultsToExcelReport(ReportXlsx):
                 worksheet.write(24,h, tools.ustr('Ln # ' + pd.name[-2:]), normal_format1)
                 worksheet.write(24,j, tools.ustr('Ln # ' + pd.name[-2:]), normal_format1)
                 p_cajones, r_caje = 0.0, 0
-                for tecn in tecnolog_control:
-                    amf = self.env['process_control.rejection_amf'].search([('tecnolog_control_id', '=', tecn.id),('productive_line_id', '=', pd.id)],limit = 1)
+                for tecn in tech_control:
+                    amf = self.env['process_control.rejection_amf'].search([('tech_control_id', '=', tecn.id),('productive_line_id', '=', pd.id)],limit = 1)
                     p_cajones += amf.produccion_en_cajones
                     r_caje += amf.rejection_en_cajetijas
                 worksheet.write(25,h, p_cajones, normal_format1)
@@ -157,7 +157,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
                 h += 1
 
                 for acum in acum_tec_control:
-                    amf = self.env['process_control.rejection_amf'].search([('tecnolog_control_id', '=', acum.id),('productive_line_id', '=', pd.id)],limit = 1)
+                    amf = self.env['process_control.rejection_amf'].search([('tech_control_id', '=', acum.id),('productive_line_id', '=', pd.id)],limit = 1)
                     p_cajones += amf.produccion_en_cajones
                     r_caje += amf.rejection_en_cajetijas
                 worksheet.write(25,j, p_cajones, normal_format1)
@@ -180,7 +180,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             for gi in general_int:
                 day_values[gi.code] = {'time': 0.0, 'frequency': 0.0}
 
-            for tc in tecnolog_control:
+            for tc in tech_control:
                 ttp += tc.plan_time
                 # trp += ((tc.production_in_proccess_control * 10000) /tc.productive_capacity) / 60
                 pc = tc.productive_section_id.get_efficiency_plan().productive_capacity
@@ -283,13 +283,13 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             worksheet.write('H8', round((ttp - (trp+(ttig/60)/quantity_line))*100/ttp if ttp != 0.0 else 0.0,2), normal_format1)
             tnj_turn_p += round((ttp - (trp+(ttig/60)/quantity_line))*100/ttp if ttp != 0.0 else 0.0,2)
 
-            worksheet.write('R4', len(tecnolog_control), normal_format1)
-            tt_turn += len(tecnolog_control)
+            worksheet.write('R4', len(tech_control), normal_format1)
+            tt_turn += len(tech_control)
             worksheet.write('R5', tools.ustr(prc), normal_format1)
             prc_turn += prc
-            worksheet.write('R6', prc/len(tecnolog_control) if len(tecnolog_control) != 0.0 else 0.0, normal_format1)
-            worksheet.write('R7', round(er/len(tecnolog_control) if len(tecnolog_control) != 0.0 else 0.0,2), normal_format1)
-            er_turn += round(er/len(tecnolog_control) if len(tecnolog_control) != 0.0 else 0.0,2)
+            worksheet.write('R6', prc/len(tech_control) if len(tech_control) != 0.0 else 0.0, normal_format1)
+            worksheet.write('R7', round(er/len(tech_control) if len(tech_control) != 0.0 else 0.0,2), normal_format1)
+            er_turn += round(er/len(tech_control) if len(tech_control) != 0.0 else 0.0,2)
             worksheet.write('R8', round(eo,2), normal_format1)
             eo_turn += eo
             if time_n_j > 0:
@@ -416,13 +416,13 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             worksheet.write('K8', round((ttp - (trp+(ttig/60)/quantity_line))*100/ttp if ttp !=0 else 0,2), normal_format1)
             tnj_turn_p_acum += round((ttp - (trp+(ttig/60)/quantity_line))*100/ttp if ttp != 0 else 0,2)
 
-            worksheet.write('S4', len(acum_tec_control)+len(tecnolog_control), normal_format1)
-            tt_turn_acum += len(acum_tec_control)+len(tecnolog_control)
+            worksheet.write('S4', len(acum_tec_control)+len(tech_control), normal_format1)
+            tt_turn_acum += len(acum_tec_control)+len(tech_control)
             worksheet.write('S5', prc, normal_format1)
             prc_acum += prc
-            worksheet.write('S6', round(prc/(len(acum_tec_control)+len(tecnolog_control)) if (len(acum_tec_control)+len(tecnolog_control)) != 0 else 0,2), normal_format1)
-            worksheet.write('S7', round(er/(len(acum_tec_control)+len(tecnolog_control)) if (len(acum_tec_control)+len(tecnolog_control)) != 0 else 0,2), normal_format1)
-            er_turn_acum += round(er/(len(acum_tec_control)+len(tecnolog_control)) if (len(acum_tec_control)+len(tecnolog_control)) != 0 else 0,2)
+            worksheet.write('S6', round(prc/(len(acum_tec_control)+len(tech_control)) if (len(acum_tec_control)+len(tech_control)) != 0 else 0,2), normal_format1)
+            worksheet.write('S7', round(er/(len(acum_tec_control)+len(tech_control)) if (len(acum_tec_control)+len(tech_control)) != 0 else 0,2), normal_format1)
+            er_turn_acum += round(er/(len(acum_tec_control)+len(tech_control)) if (len(acum_tec_control)+len(tech_control)) != 0 else 0,2)
             worksheet.write('S8', round(eo,2), normal_format1)
             eo_turn_acum += round(eo,2)
             if time_n_j_acum > 0:

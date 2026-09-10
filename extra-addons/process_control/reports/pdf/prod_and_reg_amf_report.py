@@ -11,7 +11,7 @@ class WzdProdAndRegAmf(models.AbstractModel):
         domain = [('date', '>=', start_date), ('date', '<=', end_date)]
         if turn:
             domain.append(('turn', '=', turn))
-        control_mods = self.env['process_control.tecnolog_control'].search(domain).mapped(
+        control_mods = self.env['process_control.tech_control'].search(domain).mapped(
             'productive_section_id')
         return control_mods
 

@@ -6,7 +6,7 @@ from . import productive_line
 from . import productive_section
 from . import interrution_type
 from . import interruption
-from . import tecnolog_control
+from . import tech_control
 from . import productive_section_plan
 from . import machine_set_of_peaces
 from . import rejection

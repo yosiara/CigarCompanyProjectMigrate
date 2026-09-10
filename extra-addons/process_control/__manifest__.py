@@ -30,7 +30,7 @@
         'views/productive_line.xml',
         'views/productive_section.xml',
         'views/machine_set_of_peaces.xml',
-        'views/tecnolog_control.xml',
+        'views/tech_control.xml',
         'views/productive_section_plan.xml',
         'views/dashboard.xml',
         # 'views/rejection.xml',

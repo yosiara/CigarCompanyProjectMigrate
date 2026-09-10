@@ -16,10 +16,10 @@ class ReportProductionByHours(models.AbstractModel):
                 AVG(production_count)
             FROM
                 process_control_production_by_hours
-            INNER JOIN process_control_tecnolog_control ON (
-                tecnolog_control_id = process_control_tecnolog_control."id"
+            INNER JOIN process_control_tech_control ON (
+                tech_control_id = process_control_tech_control."id"
             )
-            WHERE process_control_tecnolog_control."date" BETWEEN '%s' and '%s'
+            WHERE process_control_tech_control."date" BETWEEN '%s' and '%s'
         """ % (data['start_date'], data['end_date'])
 
         conditions = []

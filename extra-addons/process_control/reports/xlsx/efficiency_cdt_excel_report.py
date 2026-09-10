@@ -24,7 +24,7 @@ class EfficiencyCdtExcelReport(ReportXlsx):
                     production_in_proccess_control AS production_done
                 FROM
                     "public".process_control_interruption
-                INNER JOIN "public".process_control_tecnolog_control ON "public".process_control_interruption.tecnolog_control_id = "public".process_control_tecnolog_control."id"
+                INNER JOIN "public".process_control_tech_control ON "public".process_control_interruption.tech_control_id = "public".process_control_tech_control."id"
                 INNER JOIN "public".process_control_interruption_type ON "public".process_control_interruption.interruption_type = "public".process_control_interruption_type."id"
                 WHERE
                     "date" BETWEEN '%s'
