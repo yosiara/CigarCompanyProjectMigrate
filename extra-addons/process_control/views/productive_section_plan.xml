@@ -51,6 +51,11 @@
             <field name="name">Standard and Indicator Planning</field>
             <field name="res_model">process_control.productive_section_plan</field>
             <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples. Click here to add new Work Plan.
+                </p>
+            </field>
         </record>
 
         <menuitem id="productive_section_plan_menu" name="Work Plans" parent="menu_process_control_settings" action="productive_section_plan_action" sequence="38"/>

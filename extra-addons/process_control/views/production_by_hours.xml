@@ -35,6 +35,11 @@
             <field name="name">Hourly Production</field>
             <field name="res_model">process_control.production_by_hours</field>
             <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples. Click here to add new Hourly Production.
+                </p>
+            </field>
         </record>
     </data>
 </odoo>

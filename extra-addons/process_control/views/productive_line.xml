@@ -39,6 +39,11 @@
             <field name="name">Productive Lines</field>
             <field name="res_model">process_control.productive_line</field>
             <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples. Click here to add new Productive Line.
+                </p>
+            </field>
         </record>
 
         <menuitem id="productive_line_menu" parent="menu_process_control_settings" action="productive_line_action" sequence="30"/>
