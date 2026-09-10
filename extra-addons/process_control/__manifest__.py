@@ -16,8 +16,7 @@
         'data/turn.xml',
 
         #-----------------------security-------------------------------------#
-        # 'security/turei_security.xml',
-        # 'security/ir.model.access.csv',
+        'security/process_control_security.xml',
         'security/ir.model.access.csv',
 
         #-----------------------views-------------------------------------#
