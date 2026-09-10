@@ -41,6 +41,6 @@
         </record>
 
         <menuitem action="wzd_efficiency_cdt_excel_act_window"
-                  id="menu_wzd_wzd_efficiency_cdt_excel" parent="process_control_informes_xlsx" sequence="2"/>
+                  id="menu_wzd_wzd_efficiency_cdt_excel" parent="process_control_reports_xlsx" sequence="2"/>
     </data>
 </odoo>

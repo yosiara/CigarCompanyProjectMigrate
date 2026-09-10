@@ -13,7 +13,7 @@
                             <separator/>
                             <field name="turn_attendance_context" invisible="1"/>
                             <notebook>
-                                <page string="Horas de Trabajo">
+                                <page string="Working Hours">
                                     <field name="turn_attendance_ids" widget="section_one2many" context="{'default_session': turn_attendance_context['default_session'], 'default_name': turn_attendance_context['default_name'], 'default_hour_from': turn_attendance_context['default_hour_from'], 'default_hour_to': turn_attendance_context['default_hour_to']}">
                                         <list editable="bottom">
                                             <field name="name"/>
@@ -53,7 +53,7 @@
             </field>
         </record>
         <record id="action_turn_form" model="ir.actions.act_window">
-            <field name="name">Turnos de Trabajo</field>
+            <field name="name">Work Turn</field>
             <field name="res_model">process_control.turn</field>
             <field name="view_mode">list,form</field>
             <field name="help" type="html">
@@ -63,6 +63,6 @@
             </field>
         </record>
         
-        <menuitem action="action_turn_form" id="menu_turn" parent="process_control_settings_menu" sequence="1"/>
+        <menuitem action="action_turn_form" id="menu_turn" parent="menu_process_control_settings" sequence="1"/>
     </data>
 </odoo>

@@ -54,6 +54,6 @@
             <field name="view_mode">list,form</field>
         </record>
 
-        <menuitem id="productive_section_menu" parent="process_control_settings_menu" action="productive_section_action" sequence="20"/>
+        <menuitem id="productive_section_menu" parent="menu_process_control_settings" action="productive_section_action" sequence="20"/>
     </data>
 </odoo>

@@ -5,7 +5,7 @@
             <field name="name">process_control.interruptions_excel_wzd.report.form</field>
             <field name="model">process_control.interruptions_excel_wzd</field>
             <field name="arch" type="xml">
-                <form string="Rep. Interrupciones">
+                <form string="Interruptions Excel Report">
                     <sheet>
                         <style>
                             td.o_td_label
@@ -20,10 +20,10 @@
 
                         <footer>
                             <div>
-                                <button name="export_to_xlsx" icon="fa-file-excel-o" string="Imprimir" type="object"
+                                <button name="export_to_xlsx" icon="fa-file-excel-o" string="Print" type="object"
                                         class="oe_highlight"/>
                                 o
-                                <button special="cancel" string="Cancelar" class="oe_link"/>
+                                <button special="cancel" string="Cancel" class="oe_link"/>
                             </div>
                         </footer>
                     </sheet>
@@ -32,15 +32,13 @@
         </record>
 
         <record id="wzd_interruptions_excel_report_act_window" model="ir.actions.act_window">
-            <field name="name">Rep. Interrupciones</field>
-            <field name="type">ir.actions.act_window</field>
+            <field name="name">Interruptions Excel Report</field>
             <field name="res_model">process_control.interruptions_excel_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
             <field name="target">new</field>
         </record>
 
-        <menuitem action="wzd_interruptions_excel_report_act_window"
-                  id="menu_wzd_interruptions_excel_report_report" parent="process_control_informes_xlsx" sequence="1"/>
+        <menuitem action="wzd_interruptions_excel_report_act_window" id="menu_wzd_interruptions_excel_report_report" parent="menu_process_control_reports_xlsx" sequence="1"/>
     </data>
 </odoo>

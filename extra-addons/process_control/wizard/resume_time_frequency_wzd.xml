@@ -45,6 +45,6 @@
         </record>
 
         <menuitem action="wzd_resume_time_frequency_excel_report_act_window"
-                  id="menu_wzd_resume_time_frequency_excel_report_report" parent="process_control_informes_xlsx" sequence="4"/>
+                  id="menu_wzd_resume_time_frequency_excel_report_report" parent="process_control_reports_xlsx" sequence="4"/>
     </data>
 </odoo>

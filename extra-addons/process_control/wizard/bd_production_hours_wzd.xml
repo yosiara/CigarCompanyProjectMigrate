@@ -42,6 +42,6 @@
         </record>
 
         <menuitem action="wzd_bd_production_hours_to_excel_report_act_window"
-                  id="wzd_bd_production_hours_to_excel_report_report" parent="process_control_informes_xlsx" sequence="8"/>
+                  id="wzd_bd_production_hours_to_excel_report_report" parent="process_control_reports_xlsx" sequence="8"/>
     </data>
 </odoo>

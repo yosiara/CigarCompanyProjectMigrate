@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button string="Probar Conexión" name="action_test_connection" type="object" class="oe_highlight">
+                        <button string="Test Connection" name="action_test_connection" type="object" class="oe_highlight">
                             <span class="fa fa-fw fa-television o_button_icon"> </span>
                         </button>
                     </header>
@@ -51,13 +51,13 @@
 
         <!-- ACTION -->
         <record id="db_production_connector_action1" model="ir.actions.act_window">
-            <field name="name">Conexión a Sistema de producción </field>
+            <field name="name">Connection to Production System</field>
             <field name="res_model">process_control.db_production_connector</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">list,form</field>
         </record>
 
         <!-- MENU ITEM -->
-        <menuitem  id="db_production_connector_menu_item" sequence="99" action="db_production_connector_action1" parent="process_control_settings_menu"/>
+        <menuitem id="db_production_connector_menu_item" sequence="99" action="db_production_connector_action1" parent="menu_process_control_settings"/>
     </data>
 </odoo>

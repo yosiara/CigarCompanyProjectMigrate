@@ -48,11 +48,11 @@
         </record>
 
         <record id="productive_section_plan_action" model="ir.actions.act_window">
-            <field name="name">Planificación de Norma e Indicadores</field>
+            <field name="name">Standard and Indicator Planning</field>
             <field name="res_model">process_control.productive_section_plan</field>
             <field name="view_mode">list,form</field>
         </record>
 
-        <menuitem id="productive_section_plan_menu" name="Planes de Trabajo" parent="process_control_settings_menu" action="productive_section_plan_action" sequence="38"/>
+        <menuitem id="productive_section_plan_menu" name="Work Plans" parent="menu_process_control_settings" action="productive_section_plan_action" sequence="38"/>
     </data>
 </odoo>

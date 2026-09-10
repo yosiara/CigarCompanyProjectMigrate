@@ -57,7 +57,7 @@
                                 <field name="productive_line_id" domain="line_domain"/>
                             </group>
                         </group>
-                        <group string="Conjuntos de Piezas">
+                        <group string="Set of Peaces">
                         <field name="set_of_peaces">
                             <list>
                                 <field name="name"/>
@@ -100,11 +100,11 @@
         </record>
 
         <record id="machine_action" model="ir.actions.act_window">
-            <field name="name">Máquinas</field>
+            <field name="name">Machines</field>
             <field name="res_model">process_control.machine</field>
             <field name="view_mode">list,form,kanban</field>
         </record>
 
-        <menuitem id="machine_menu" parent="process_control_settings_menu" action="machine_action" sequence="35"/>
+        <menuitem id="machine_menu" parent="menu_process_control_settings" action="machine_action" sequence="35"/>
     </data>
 </odoo>

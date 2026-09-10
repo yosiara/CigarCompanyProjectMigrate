@@ -19,8 +19,8 @@
                                 <field name="machine_id" domain="machine_domain"/>
                             </group>
                             <group>
-                                <field name="prod_en_cigarrillos"/>
-                                <field name="rejection_en_cigarrillos"/>
+                                <field name="production_cigarette"/>
+                                <field name="rejection_cigarette"/>
                             </group>
                         </group>
                     </sheet>
@@ -40,14 +40,14 @@
                     <!-- <field name="turn_attendance_id"/> -->
                     <field name="productive_line_id" domain="line_domain"/>
                     <field name="machine_id" domain="machine_domain"/>
-                    <field name="prod_en_cigarrillos"/>
-                    <field name="rejection_en_cigarrillos"/>
+                    <field name="production_cigarette"/>
+                    <field name="rejection_cigarette"/>
                 </list>
             </field>
         </record>
 
         <record id="rejection_mod1_action" model="ir.actions.act_window">
-            <field name="name">Rejection Módulo 1</field>
+            <field name="name">Rejection Module 1</field>
             <field name="res_model">process_control.rejection_mod1</field>
             <field name="view_mode">list,form</field>
         </record>

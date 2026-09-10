@@ -36,11 +36,11 @@
         </record>
 
         <record id="productive_line_action" model="ir.actions.act_window">
-            <field name="name">Líneas Productivas</field>
+            <field name="name">Productive Lines</field>
             <field name="res_model">process_control.productive_line</field>
             <field name="view_mode">list,form</field>
         </record>
 
-        <menuitem id="productive_line_menu" parent="process_control_settings_menu" action="productive_line_action" sequence="30"/>
+        <menuitem id="productive_line_menu" parent="menu_process_control_settings" action="productive_line_action" sequence="30"/>
     </data>
 </odoo>
