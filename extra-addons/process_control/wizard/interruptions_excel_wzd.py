@@ -20,7 +20,7 @@ class InterruptionsExcelWzd(models.TransientModel):
             'data': {'model': 'report.process_control.interruptions_excel_report',
                      'options': json.dumps(data),
                      'output_format': 'xlsx',
-                     'report_name': f'Interruptions Report {self.start_date}-{self.end_date}',
+                     'report_name': f'Interruptions Report ({self.start_date}-{self.end_date})',
                      },
             'report_type': 'xlsx',
         }

@@ -5,23 +5,23 @@
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <h3>Resumen de Interrupciones desde <t t-out="start_date"/> hasta <t t-out="end_date"/></h3>
+                        <h3>Summary of Interruptions since <t t-out="start_date"/> until <t t-out="end_date"/></h3>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <t t-if="filt == 'machine'">
-                                        <th>Máquina</th>
-                                        <th>Subconjunto</th>
+                                        <th>Machine</th>
+                                        <th>Set of Peaces</th>
                                     </t>
                                     <t t-elif="filt == 'productive_line'">
-                                        <th>Línea</th>
+                                        <th>Productive Line</th>
                                     </t>
                                     <t t-else="">
-                                        <th>Módulo</th>
+                                        <th>Productive Section</th>
                                     </t>
-                                    <th>Tipo de Interrupción</th>
-                                    <th>Cantidad</th>
-                                    <th>Tiempo(horas)</th>
+                                    <th>Interruption Type</th>
+                                    <th>Number</th>
+                                    <th>Time (hours)</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,20 +40,20 @@
                                                     <t t-out="type"/>
                                                 </td>
                                                 <td class="text-center">
-                                                    <t t-out="res[machine][subset][type]['cantidad']"/>
+                                                    <t t-out="res[machine][subset][type]['number']"/>
                                                 </td>
                                                 <td class="text-center">
-                                                    <t t-out="res[machine][subset][type]['tiempo']"/>
+                                                    <t t-out="res[machine][subset][type]['time']"/>
                                                 </td>
                                             </tr>
                                         </tr>
                                         <tr>
                                             <th colspan="2">Subtotal</th>
                                             <th>
-                                                <t t-out="total[machine]['cantidad']"/>
+                                                <t t-out="total[machine]['number']"/>
                                             </th>
                                             <th>
-                                                <t t-out="total[machine]['tiempo']"/>
+                                                <t t-out="total[machine]['time']"/>
                                             </th>
                                         </tr>
                                     </tr>
@@ -70,19 +70,19 @@
                                                 <t t-out="type"/>
                                             </td>
                                             <td class="text-center">
-                                                <t t-out="res[ent][type]['cantidad']"/>
+                                                <t t-out="res[ent][type]['number']"/>
                                             </td>
                                             <td class="text-center">
-                                                <t t-out="res[ent][type]['tiempo']"/>
+                                                <t t-out="res[ent][type]['time']"/>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Subtotal</th>
                                             <th>
-                                                <t t-out="total[ent]['cantidad']"/>
+                                                <t t-out="total[ent]['number']"/>
                                             </th>
                                             <th>
-                                                <t t-out="total[ent]['tiempo']"/>
+                                                <t t-out="total[ent]['time']"/>
                                             </th>
                                         </tr>
                                     </tr>
@@ -97,10 +97,10 @@
                                         <th colspan="2">Total</th>
                                     </t>
                                     <th>
-                                        <t t-out="total['Total']['cantidad']"/>
+                                        <t t-out="total['Total']['number']"/>
                                     </th>
                                     <th>
-                                        <t t-out="total['Total']['tiempo']"/>
+                                        <t t-out="total['Total']['time']"/>
                                     </th>
                                 </tr>
                             </tfoot>
@@ -111,14 +111,12 @@
         </template>
 
         <record id="interruptions_pdf_report_action" model="ir.actions.report">
-            <field name="name">Rep. Interrupciones</field>
+            <field name="name">Interruptions Report</field>
             <field name="model">process_control.interruptions_pdf_report_wzd</field>
             <field name="report_type">qweb-pdf</field>
             <field name="report_name">process_control.interruptions_pdf_report</field>
             <field name="report_file">process_control.interruptions_pdf_report</field>
-            <!-- <field name="binding_model_id" ref="smoke.model_smoke"/> -->
             <field name="binding_type">report</field>
-            <!-- <field name="paperformat_id" ref="paperformat_interruptions_by_section_report"/> -->
         </record>
 
         <!-- <record id="paperformat_interruptions_by_section_report" model="report.paperformat">

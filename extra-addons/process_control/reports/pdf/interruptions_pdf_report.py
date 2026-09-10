@@ -12,7 +12,7 @@ class InterruptionsPdfReport(models.AbstractModel):
         res = {}
         total = {
             'Total': {
-                'cantidad': 0, 'tiempo': 0.00
+                'number': 0, 'time': 0.00
             },
         }
         
@@ -53,20 +53,20 @@ class InterruptionsPdfReport(models.AbstractModel):
                         set_of_peaces = i.set_of_peaces_id.name if i.set_of_peaces_id else '-'
                         if machine not in res:
                             res[machine] = {}
-                            total[machine] = {'cantidad': 0, 'tiempo': 0.00, 'rowspan': 0}
+                            total[machine] = {'number': 0, 'time': 0.00, 'rowspan': 0}
                         if set_of_peaces not in res[machine]:
                             res[machine][set_of_peaces] = {}
                             total[machine]['rowspan'] += 1
                         if type not in res[machine][set_of_peaces]:
-                            res[machine][set_of_peaces][type] = {'cantidad': 0, 'tiempo': 0.00}
+                            res[machine][set_of_peaces][type] = {'number': 0, 'time': 0.00}
                             total[machine]['rowspan'] += 1
-                        res[machine][set_of_peaces][type]['cantidad'] += 1
-                        total[machine]['cantidad'] += 1
-                        total['Total']['cantidad'] += 1
+                        res[machine][set_of_peaces][type]['number'] += 1
+                        total[machine]['number'] += 1
+                        total['Total']['number'] += 1
                         time = i.end_date - i.start_date
-                        res[machine][set_of_peaces][type]['tiempo'] += time
-                        total[machine]['tiempo'] += time
-                        total['Total']['tiempo'] += time
+                        res[machine][set_of_peaces][type]['time'] += time
+                        total[machine]['time'] += time
+                        total['Total']['time'] += time
                 # for _, v in res.items():
                 #     if '-' in v:
                 #         val = v['-']
@@ -79,33 +79,33 @@ class InterruptionsPdfReport(models.AbstractModel):
                         type = i.interruption_type_id.name
                         if line not in res:
                             res[line] = {}
-                            total[line] = {'cantidad': 0, 'tiempo': 0.00}
+                            total[line] = {'number': 0, 'time': 0.00}
                         if type not in res[line]:
-                            res[line][type] = {'cantidad': 0, 'tiempo': 0.00}
-                        res[line][type]['cantidad'] += 1
-                        total[line]['cantidad'] += 1
-                        total['Total']['cantidad'] += 1
+                            res[line][type] = {'number': 0, 'time': 0.00}
+                        res[line][type]['number'] += 1
+                        total[line]['number'] += 1
+                        total['Total']['number'] += 1
                         time = i.end_date - i.start_date
-                        res[line][type]['tiempo'] += time
-                        total[line]['tiempo'] += time
-                        total['Total']['tiempo'] += time
+                        res[line][type]['time'] += time
+                        total[line]['time'] += time
+                        total['Total']['time'] += time
             case 'productive_section':
                 for tc in tecnolog_control:
                     for i in interruptions.filtered(lambda i: i.tecnolog_control_id.id == tc.id):
                         section = tc.productive_section_id.name
                         if section not in res:
                             res[section] = {}
-                            total[section] = {'cantidad': 0, 'tiempo': 0.00}
+                            total[section] = {'number': 0, 'time': 0.00}
                         type = i.interruption_type_id.name
                         if type not in res[section]:
-                            res[section][type] = {'cantidad': 0, 'tiempo': 0.00}
-                        res[section][type]['cantidad'] += 1
-                        total[section]['cantidad'] += 1
-                        total['Total']['cantidad'] += 1
+                            res[section][type] = {'number': 0, 'time': 0.00}
+                        res[section][type]['number'] += 1
+                        total[section]['number'] += 1
+                        total['Total']['number'] += 1
                         time = i.end_date - i.start_date
-                        res[section][type]['tiempo'] += time
-                        total[section]['tiempo'] += time
-                        total['Total']['tiempo'] += time
+                        res[section][type]['time'] += time
+                        total[section]['time'] += time
+                        total['Total']['time'] += time
 
         return {
             #'doc_model': report.model,
