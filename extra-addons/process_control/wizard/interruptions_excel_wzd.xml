@@ -5,7 +5,7 @@
             <field name="name">process_control.interruptions_excel_wzd.report.form</field>
             <field name="model">process_control.interruptions_excel_wzd</field>
             <field name="arch" type="xml">
-                <form string="Interruptions Excel Report">
+                <form string="Interruptions Report">
                     <sheet>
                         <style>
                             td.o_td_label
@@ -32,7 +32,7 @@
         </record>
 
         <record id="wzd_interruptions_excel_report_act_window" model="ir.actions.act_window">
-            <field name="name">Interruptions Excel Report</field>
+            <field name="name">Interruptions Report</field>
             <field name="res_model">process_control.interruptions_excel_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>

@@ -5,7 +5,7 @@
             <field name="name">process_control.interruptions_pdf_wzd.form</field>
             <field name="model">process_control.interruptions_pdf_report_wzd</field>
             <field name="arch" type="xml">
-                <form string="Interruptions PDF Report">
+                <form string="Interruptions Report">
                     <sheet>
                         <field name="peaces_domain" invisible="1"/>
                         <field name="machine_domain" invisible="1"/>
@@ -41,7 +41,7 @@
         </record>
 
         <record id="wzd_interruptions_pdf_act_window" model="ir.actions.act_window">
-            <field name="name">Interruptions PDF Report</field>
+            <field name="name">Interruptions Report</field>
             <field name="res_model">process_control.interruptions_pdf_report_wzd</field>
             <field name="binding_view_types">form</field>
             <field name="view_mode">form</field>
