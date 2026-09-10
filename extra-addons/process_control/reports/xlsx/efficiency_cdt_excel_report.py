@@ -49,8 +49,8 @@ class EfficiencyCdtExcelReport(ReportXlsx):
             if key_last != records_query[i]['key']:
                 count = 1
                 records.update({records_query[i]['key']: records_query[i]})
-                records[records_query[i]['key']].update({'endogena': records_query[i]['total_time'] if records_query[i]['cause'] == 'endogena' else 0.00,
-                                                         'exogena': records_query[i]['total_time'] if records_query[i]['cause'] == 'exogena' else 0.00,
+                records[records_query[i]['key']].update({'internal': records_query[i]['total_time'] if records_query[i]['cause'] == 'internal' else 0.00,
+                                                         'external': records_query[i]['total_time'] if records_query[i]['cause'] == 'external' else 0.00,
                                                          'productividad_real': 0.00,
                                                          'productividad_operativa': 0.00,
                                                          'count': count,
@@ -59,14 +59,14 @@ class EfficiencyCdtExcelReport(ReportXlsx):
                                                          })
                 if not records_query[i]['productive_line']:
                     records[records_query[i]['key']]['total_time'] = records[records_query[i]['key']]['total_time'] * records[records_query[i]['key']]['count_lines']
-                    if records_query[i]['cause'] == 'endogena':
-                        records[records_query[i]['key']]['endogena'] = records[records_query[i]['key']]['endogena'] * records[records_query[i]['key']]['count_lines']
-                    if records_query[i]['cause'] == 'exogena':
-                        records[records_query[i]['key']]['exogena'] = records[records_query[i]['key']]['exogena'] * records[records_query[i]['key']]['count_lines']
+                    if records_query[i]['cause'] == 'internal':
+                        records[records_query[i]['key']]['internal'] = records[records_query[i]['key']]['internal'] * records[records_query[i]['key']]['count_lines']
+                    if records_query[i]['cause'] == 'external':
+                        records[records_query[i]['key']]['external'] = records[records_query[i]['key']]['external'] * records[records_query[i]['key']]['count_lines']
 
                 records[records_query[i]['key']]['productividad_real'] = (records_query[i]['plan_time'] * 60.0) * records_query[i]['productive_capacity']
 
-                records[records_query[i]['key']]['productividad_operativa'] = ((records_query[i]['plan_time'] * 60.0) - records[records_query[i]['key']]['exogena']) * records_query[i]['productive_capacity']
+                records[records_query[i]['key']]['productividad_operativa'] = ((records_query[i]['plan_time'] * 60.0) - records[records_query[i]['key']]['external']) * records_query[i]['productive_capacity']
 
                 key_last = records_query[i]['key']
             else:
@@ -75,17 +75,17 @@ class EfficiencyCdtExcelReport(ReportXlsx):
 
                 if not records_query[i]['productive_line']:
                     records[records_query[i]['key']]['total_time'] += records_query[i]['total_time'] * records[records_query[i]['key']]['count_lines']
-                    if records_query[i]['cause'] == 'endogena':
-                        records[records_query[i]['key']]['endogena'] += records_query[i]['total_time'] * records[records_query[i]['key']]['count_lines']
-                    if records_query[i]['cause'] == 'exogena':
-                        records[records_query[i]['key']]['exogena'] += records_query[i]['total_time'] * records[records_query[i]['key']]['count_lines']
+                    if records_query[i]['cause'] == 'internal':
+                        records[records_query[i]['key']]['internal'] += records_query[i]['total_time'] * records[records_query[i]['key']]['count_lines']
+                    if records_query[i]['cause'] == 'external':
+                        records[records_query[i]['key']]['external'] += records_query[i]['total_time'] * records[records_query[i]['key']]['count_lines']
                 else:
                     records[records_query[i]['key']]['total_time'] += records_query[i]['total_time']
-                    records[records_query[i]['key']]['endogena'] += records_query[i]['total_time'] if records_query[i]['cause'] == 'endogena' else 0.00
-                    records[records_query[i]['key']]['exogena'] += records_query[i]['total_time'] if records_query[i]['cause'] == 'exogena' else 0.00
+                    records[records_query[i]['key']]['internal'] += records_query[i]['total_time'] if records_query[i]['cause'] == 'internal' else 0.00
+                    records[records_query[i]['key']]['external'] += records_query[i]['total_time'] if records_query[i]['cause'] == 'external' else 0.00
                 records[records_query[i]['key']]['count'] = count
 
-                records[records_query[i]['key']]['productividad_operativa'] = ((records_query[i]['plan_time'] * 60.0) - records[records_query[i]['key']]['exogena']) * records_query[i]['productive_capacity']
+                records[records_query[i]['key']]['productividad_operativa'] = ((records_query[i]['plan_time'] * 60.0) - records[records_query[i]['key']]['external']) * records_query[i]['productive_capacity']
 
         worksheet = workbook.add_worksheet(tools.ustr("Eficiencia y CDT"))
         worksheet.set_column('B:M', 23)
@@ -139,11 +139,11 @@ class EfficiencyCdtExcelReport(ReportXlsx):
             except ZeroDivisionError:
                 worksheet.write('H' + str(aux_row), 0.00, data_format)
 
-            cdt = round((((60.00 * c_model[1].get('plan_time')) - ((c_model[1].get('exogena') + c_model[1].get('endogena')) / c_model[1].get('count_lines'))) / (60.00 * c_model[1].get('plan_time'))) * 100.00,
+            cdt = round((((60.00 * c_model[1].get('plan_time')) - ((c_model[1].get('external') + c_model[1].get('internal')) / c_model[1].get('count_lines'))) / (60.00 * c_model[1].get('plan_time'))) * 100.00,
                         2)
             worksheet.write('I' + str(aux_row), cdt, data_format)
 
-            cdt_o = round(((60.00 * c_model[1].get('plan_time') - (c_model[1].get('endogena') / c_model[1].get('count_lines'))) / (60.00 * c_model[1].get('plan_time'))) * 100.00, 2)
+            cdt_o = round(((60.00 * c_model[1].get('plan_time') - (c_model[1].get('internal') / c_model[1].get('count_lines'))) / (60.00 * c_model[1].get('plan_time'))) * 100.00, 2)
             worksheet.write('J' + str(aux_row), cdt_o, data_format)
 
 

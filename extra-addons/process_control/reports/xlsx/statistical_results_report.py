@@ -79,22 +79,22 @@ class StatisticalResultsToExcelReport(ReportXlsx):
             worksheet.write('A21', tools.ustr('% Tiempo'), normal_format)
             worksheet.write('A22', tools.ustr('% Frecuencia'), normal_format)
 
-            worksheet.merge_range('A23:S23', tools.ustr('Producción y Rechazo de las AMF'), merge_format)
+            worksheet.merge_range('A23:S23', tools.ustr('Producción y Rejection de las AMF'), merge_format)
             worksheet.merge_range('D24:G24', tools.ustr('Día'), merge_format)
             worksheet.merge_range('H24:I24', tools.ustr('Brigada'), merge_format)
             worksheet.merge_range('D25:G25', tools.ustr('Indicadores'), normal_format)
             worksheet.merge_range('D26:G26', tools.ustr('Producción (cajones)'), normal_format)
-            worksheet.merge_range('D27:G27', tools.ustr('Rechazo (cajones)'), normal_format)
-            worksheet.merge_range('D28:G28', tools.ustr('Índice de Rechazo Ln (%)'), normal_format)
-            worksheet.merge_range('D29:G29', tools.ustr('Índice de Rechazo B (%)'), normal_format)
+            worksheet.merge_range('D27:G27', tools.ustr('Rejection (cajones)'), normal_format)
+            worksheet.merge_range('D28:G28', tools.ustr('Índice de Rejection Ln (%)'), normal_format)
+            worksheet.merge_range('D29:G29', tools.ustr('Índice de Rejection B (%)'), normal_format)
 
             worksheet.merge_range('K24:N24', tools.ustr('Acumulado'), merge_format)
             worksheet.merge_range('O24:P24', tools.ustr('Brigada'), merge_format)
             worksheet.merge_range('K25:N25', tools.ustr('Indicadores'), normal_format)
             worksheet.merge_range('K26:N26', tools.ustr('Producción (cajones)'), normal_format)
-            worksheet.merge_range('K27:N27', tools.ustr('Rechazo (cajones)'), normal_format)
-            worksheet.merge_range('K28:N28', tools.ustr('Índice de Rechazo Ln (%)'), normal_format)
-            worksheet.merge_range('K29:N29', tools.ustr('Índice de Rechazo B (%)'), normal_format)
+            worksheet.merge_range('K27:N27', tools.ustr('Rejection (cajones)'), normal_format)
+            worksheet.merge_range('K28:N28', tools.ustr('Índice de Rejection Ln (%)'), normal_format)
+            worksheet.merge_range('K29:N29', tools.ustr('Índice de Rejection B (%)'), normal_format)
 
             worksheet.merge_range('A30:A31', tools.ustr('Indicadores'), merge_format)
             worksheet.write('A32', tools.ustr('Día'), normal_format)
@@ -145,9 +145,9 @@ class StatisticalResultsToExcelReport(ReportXlsx):
                 worksheet.write(24,j, tools.ustr('Ln # ' + pd.name[-2:]), normal_format1)
                 p_cajones, r_caje = 0.0, 0
                 for tecn in tecnolog_control:
-                    amf = self.env['process_control.rechazo_amf'].search([('tecnolog_control_id', '=', tecn.id),('productive_line_id', '=', pd.id)],limit = 1)
+                    amf = self.env['process_control.rejection_amf'].search([('tecnolog_control_id', '=', tecn.id),('productive_line_id', '=', pd.id)],limit = 1)
                     p_cajones += amf.produccion_en_cajones
-                    r_caje += amf.rechazo_en_cajetijas
+                    r_caje += amf.rejection_en_cajetijas
                 worksheet.write(25,h, p_cajones, normal_format1)
                 p_cajones_turn += p_cajones
                 worksheet.write(26,h, round(r_caje/500,2), normal_format1)
@@ -157,9 +157,9 @@ class StatisticalResultsToExcelReport(ReportXlsx):
                 h += 1
 
                 for acum in acum_tec_control:
-                    amf = self.env['process_control.rechazo_amf'].search([('tecnolog_control_id', '=', acum.id),('productive_line_id', '=', pd.id)],limit = 1)
+                    amf = self.env['process_control.rejection_amf'].search([('tecnolog_control_id', '=', acum.id),('productive_line_id', '=', pd.id)],limit = 1)
                     p_cajones += amf.produccion_en_cajones
-                    r_caje += amf.rechazo_en_cajetijas
+                    r_caje += amf.rejection_en_cajetijas
                 worksheet.write(25,j, p_cajones, normal_format1)
                 p_cajones_turn_acum += p_cajones
                 worksheet.write(26,j, round(r_caje/500,2), normal_format1)
@@ -217,7 +217,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
                 worksheet.merge_range('R32:S32', tools.ustr(round(prom_prod/8,2)), normal_format1)
 
                 for itr in tc.interruptions:
-                    if itr.interruption_type.cause == 'exogena':
+                    if itr.interruption_type.cause == 'external':
                         if itr.productive_line_id:
                             sum_time_exog += itr.time
                             ttig += itr.time
@@ -354,7 +354,7 @@ class StatisticalResultsToExcelReport(ReportXlsx):
                             key1 += 1
 
                 for it in ac.interruptions:
-                    if it.interruption_type.cause == 'exogena':
+                    if it.interruption_type.cause == 'external':
                         if it.productive_line_id:
                             sum_time_exog += it.time
                             ttig += it.time
@@ -516,22 +516,22 @@ class StatisticalResultsToExcelReport(ReportXlsx):
         worksheet.write('A20', tools.ustr('% Tiempo'), normal_format)
         worksheet.write('A21', tools.ustr('% Frecuencia'), normal_format)
 
-        worksheet.merge_range('A22:S22', tools.ustr('Producción y Rechazo de las AMF'), merge_format)
+        worksheet.merge_range('A22:S22', tools.ustr('Producción y Rejection de las AMF'), merge_format)
         worksheet.merge_range('D23:G23', tools.ustr('Día'), merge_format)
         worksheet.merge_range('H23:I23', tools.ustr('Brigada'), merge_format)
         worksheet.merge_range('D24:G24', tools.ustr('Indicadores'), normal_format)
         worksheet.merge_range('D25:G25', tools.ustr('Producción (cajones)'), normal_format)
-        worksheet.merge_range('D26:G26', tools.ustr('Rechazo (cajones)'), normal_format)
-        worksheet.merge_range('D27:G27', tools.ustr('Índice de Rechazo Ln (%)'), normal_format)
-        worksheet.merge_range('D28:G28', tools.ustr('Índice de Rechazo B (%)'), normal_format)
+        worksheet.merge_range('D26:G26', tools.ustr('Rejection (cajones)'), normal_format)
+        worksheet.merge_range('D27:G27', tools.ustr('Índice de Rejection Ln (%)'), normal_format)
+        worksheet.merge_range('D28:G28', tools.ustr('Índice de Rejection B (%)'), normal_format)
 
         worksheet.merge_range('K23:N23', tools.ustr('Acumulado'), merge_format)
         worksheet.merge_range('O23:P23', tools.ustr('Brigada'), merge_format)
         worksheet.merge_range('K24:N24', tools.ustr('Indicadores'), normal_format)
         worksheet.merge_range('K25:N25', tools.ustr('Producción (cajones)'), normal_format)
-        worksheet.merge_range('K26:N26', tools.ustr('Rechazo (cajones)'), normal_format)
-        worksheet.merge_range('K27:N27', tools.ustr('Índice de Rechazo Ln (%)'), normal_format)
-        worksheet.merge_range('K28:N28', tools.ustr('Índice de Rechazo B (%)'), normal_format)
+        worksheet.merge_range('K26:N26', tools.ustr('Rejection (cajones)'), normal_format)
+        worksheet.merge_range('K27:N27', tools.ustr('Índice de Rejection Ln (%)'), normal_format)
+        worksheet.merge_range('K28:N28', tools.ustr('Índice de Rejection B (%)'), normal_format)
 
         worksheet.merge_range('A29:A30', tools.ustr('Indicadores'), merge_format)
         worksheet.write('A31', tools.ustr('Día'), normal_format)

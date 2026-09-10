@@ -13,11 +13,11 @@ class ProductionRejectionToExcelReport(ReportXlsx):
             tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date),('turn_calendar_id','=', lines.turn.id)])
         else:
             tecnolog_control = self.env['process_control.tecnolog_control'].search([('date','>=',lines.start_date),('date','<=',lines.end_date)])
-        worksheet = workbook.add_worksheet(tools.ustr("Control de Producción y Rechazo"))
+        worksheet = workbook.add_worksheet(tools.ustr("Control de Producción y Rejection"))
         merge_format = workbook.add_format({'bold': 1, 'border': 1, 'align': 'center', 'valign': 'vdistributed', 'font': {'size': 11}})
         normal_format = workbook.add_format({'bold': 0, 'border': 1, 'align': 'left', 'valign': 'vcenter', 'font': {'size': 11}})
 
-        worksheet.merge_range('B2:F2', tools.ustr("Control de Producción y Rechazo "), merge_format)
+        worksheet.merge_range('B2:F2', tools.ustr("Control de Producción y Rejection "), merge_format)
         worksheet.set_column('B3:B3', 25)
         worksheet.write('B3', tools.ustr('Desde'), normal_format)
         worksheet.set_column('C3:D3', 15)
@@ -39,38 +39,38 @@ class ProductionRejectionToExcelReport(ReportXlsx):
         worksheet.write('E6', tools.ustr('SRC'), normal_format)
         worksheet.write('F6', tools.ustr('Total General'), normal_format)
         worksheet.write('B7', tools.ustr('Producción (cajones)'), normal_format)
-        worksheet.write('B8', tools.ustr('Rechazo (cajones)'), normal_format)
-        worksheet.write('B9', tools.ustr('Índice de Rechazo (%)'), normal_format)
+        worksheet.write('B8', tools.ustr('Rejection (cajones)'), normal_format)
+        worksheet.write('B9', tools.ustr('Índice de Rejection (%)'), normal_format)
 
-        dic_type= {'NANO':{'produccion':0.00,'rechazo':0.00},'SBO':{'produccion':0.00,'rechazo':0.00},'SRC':{'produccion':0.00,'rechazo':0.00}}
+        dic_type= {'NANO':{'produccion':0.00,'rejection':0.00},'SBO':{'produccion':0.00,'rejection':0.00},'SRC':{'produccion':0.00,'rejection':0.00}}
 
         for tc in tecnolog_control:
-            for i in tc.rechazo_mod1_ids:
+            for i in tc.rejection_mod1_ids:
                 if i.machine_id.name:
                     if i.machine_id.name.split('-')[0] == 'NANO':
-                        dic_type[i.machine_id.name.split('-')[0]]['produccion'] = float(i.produccion_en_cigarrillos)/10000 + dic_type[i.machine_id.name.split('-')[0]]['produccion']
-                        dic_type[i.machine_id.name.split('-')[0]]['rechazo'] = float(i.rechazo_en_cigarrillos)/10000 + dic_type[i.machine_id.name.split('-')[0]]['rechazo']
+                        dic_type[i.machine_id.name.split('-')[0]]['produccion'] = float(i.production_cigarette)/10000 + dic_type[i.machine_id.name.split('-')[0]]['produccion']
+                        dic_type[i.machine_id.name.split('-')[0]]['rejection'] = float(i.rejection_cigarette)/10000 + dic_type[i.machine_id.name.split('-')[0]]['rejection']
                     else:
                         dic_type[i.machine_id.name.split('-')[0]]['produccion'] = float(i.produccion_en_cajones)/500 + dic_type[i.machine_id.name.split('-')[0]]['produccion']
-                        dic_type[i.machine_id.name.split('-')[0]]['rechazo'] = float(i.rechazo_en_cajetillas)/500 + dic_type[i.machine_id.name.split('-')[0]]['rechazo']
+                        dic_type[i.machine_id.name.split('-')[0]]['rejection'] = float(i.rejection_count)/500 + dic_type[i.machine_id.name.split('-')[0]]['rejection']
 
         worksheet.write('C7', round(dic_type['NANO']['produccion'],2), normal_format)
-        worksheet.write('C8', round(dic_type['NANO']['rechazo'],2), normal_format)
-        ind_rech_nano = dic_type['NANO']['rechazo']/(dic_type['NANO']['produccion']+dic_type['NANO']['rechazo'])*100 if (dic_type['NANO']['produccion']+dic_type['NANO']['rechazo'])*100 != 0.0 else 0.0
+        worksheet.write('C8', round(dic_type['NANO']['rejection'],2), normal_format)
+        ind_rech_nano = dic_type['NANO']['rejection']/(dic_type['NANO']['produccion']+dic_type['NANO']['rejection'])*100 if (dic_type['NANO']['produccion']+dic_type['NANO']['rejection'])*100 != 0.0 else 0.0
         worksheet.write('C9', round(ind_rech_nano,2), normal_format)
 
         worksheet.write('D7', round(dic_type['SBO']['produccion'],2), normal_format)
-        worksheet.write('D8', round(dic_type['SBO']['rechazo'],2), normal_format)
-        ind_rech_sbo = dic_type['SBO']['rechazo']/(dic_type['SBO']['produccion']+dic_type['SBO']['rechazo'])*100 if (dic_type['SBO']['produccion']+dic_type['SBO']['rechazo'])*100 != 0.0 else 0.0
+        worksheet.write('D8', round(dic_type['SBO']['rejection'],2), normal_format)
+        ind_rech_sbo = dic_type['SBO']['rejection']/(dic_type['SBO']['produccion']+dic_type['SBO']['rejection'])*100 if (dic_type['SBO']['produccion']+dic_type['SBO']['rejection'])*100 != 0.0 else 0.0
         worksheet.write('D9', round(ind_rech_sbo,2), normal_format)
 
         worksheet.write('E7', round(dic_type['SRC']['produccion'],2), normal_format)
-        worksheet.write('E8', round(dic_type['SRC']['rechazo'],2), normal_format)
-        ind_rech_src = dic_type['SRC']['rechazo']/(dic_type['SRC']['produccion']+dic_type['SRC']['rechazo'])*100 if (dic_type['SRC']['produccion']+dic_type['SRC']['rechazo'])*100 != 0.0 else 0.0
+        worksheet.write('E8', round(dic_type['SRC']['rejection'],2), normal_format)
+        ind_rech_src = dic_type['SRC']['rejection']/(dic_type['SRC']['produccion']+dic_type['SRC']['rejection'])*100 if (dic_type['SRC']['produccion']+dic_type['SRC']['rejection'])*100 != 0.0 else 0.0
         worksheet.write('E9', round(ind_rech_src,2), normal_format)
 
         total_prod = dic_type['NANO']['produccion']+dic_type['SBO']['produccion']+dic_type['SRC']['produccion']
-        total_rech = dic_type['NANO']['rechazo']+dic_type['SBO']['rechazo']+dic_type['SRC']['rechazo']
+        total_rech = dic_type['NANO']['rejection']+dic_type['SBO']['rejection']+dic_type['SRC']['rejection']
         total_ind = ind_rech_nano+ind_rech_sbo+ind_rech_src
 
         worksheet.write('F7', round(total_prod,2), normal_format)

@@ -3,16 +3,15 @@ from odoo import api, fields, models, tools
 
 class ProductiveLine(models.Model):
     _name = 'process_control.productive_line'
-    _description = 'Líneas Productivas'
+    _description = 'Productive Line'
     _order = 'name'
 
-    name = fields.Char('Nombre *', required=True, default='Línea ')
-    machine_ids = fields.One2many('process_control.machine', string='Máquinas', inverse_name='productive_line_id')
-    productive_section_id = fields.Many2one('process_control.productive_section', string='Módulo *', required=True)
-    #is_in_productive_section = fields.Boolean('Añadido a Módulo', compute='is_in_productive_section_check')
+    name = fields.Char('Name *', required=True, default='Line ')
+    machine_ids = fields.One2many('process_control.machine', string='Machines', inverse_name='productive_line_id')
+    productive_section_id = fields.Many2one('process_control.productive_section', string='Productive Section *', required=True)
 
     _sql_constraints = [
-        ('name_uniq', 'unique(name)', 'El nombre de la línea productiva debe ser único.'),
+        ('name_uniq', 'unique(name)', 'The productive line already exists!'),
     ]
 
     # @api.model_create_multi

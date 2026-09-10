@@ -50,18 +50,18 @@ class TimeUseToExcelReport(ReportXlsx):
             if key_last != records_query[i]['key']:
                 count = 1
                 records.update({records_query[i]['key']: records_query[i]})
-                records[records_query[i]['key']].update({'endogena': records_query[i]['total_time'] if records_query[i]['cause'] == 'endogena' else 0.00,
-                                                         'exogena': records_query[i]['total_time'] if records_query[i]['cause'] == 'exogena' else 0.00,
+                records[records_query[i]['key']].update({'internal': records_query[i]['total_time'] if records_query[i]['cause'] == 'internal' else 0.00,
+                                                         'external': records_query[i]['total_time'] if records_query[i]['cause'] == 'external' else 0.00,
                                                          'count': count,
                                                          'count_lines': len(
                                                              self.env['process_control.productive_section'].search([('id', '=', records_query[i]['productive_section'])]).productive_line_ids)
                                                          })
                 if not records_query[i]['productive_line']:
                     records[records_query[i]['key']]['total_time'] = records[records_query[i]['key']]['total_time'] * records[records_query[i]['key']]['count_lines']
-                    if records_query[i]['cause'] == 'endogena':
-                        records[records_query[i]['key']]['endogena'] = records[records_query[i]['key']]['endogena']
-                    if records_query[i]['cause'] == 'exogena':
-                        records[records_query[i]['key']]['exogena'] = records[records_query[i]['key']]['exogena'] * records[records_query[i]['key']]['count_lines']
+                    if records_query[i]['cause'] == 'internal':
+                        records[records_query[i]['key']]['internal'] = records[records_query[i]['key']]['internal']
+                    if records_query[i]['cause'] == 'external':
+                        records[records_query[i]['key']]['external'] = records[records_query[i]['key']]['external'] * records[records_query[i]['key']]['count_lines']
 
                 key_last = records_query[i]['key']
             else:
@@ -73,14 +73,14 @@ class TimeUseToExcelReport(ReportXlsx):
 
                 if not records_query[i]['productive_line']:
                     records[records_query[i]['key']]['total_time'] += records_query[i]['total_time'] * records[records_query[i]['key']]['count_lines']
-                    if records_query[i]['cause'] == 'endogena':
-                        records[records_query[i]['key']]['endogena'] += records_query[i]['total_time']
-                    if records_query[i]['cause'] == 'exogena':
-                        records[records_query[i]['key']]['exogena'] += records_query[i]['total_time'] * records[records_query[i]['key']]['count_lines']
+                    if records_query[i]['cause'] == 'internal':
+                        records[records_query[i]['key']]['internal'] += records_query[i]['total_time']
+                    if records_query[i]['cause'] == 'external':
+                        records[records_query[i]['key']]['external'] += records_query[i]['total_time'] * records[records_query[i]['key']]['count_lines']
                 else:
                     records[records_query[i]['key']]['total_time'] += records_query[i]['total_time']
-                    records[records_query[i]['key']]['endogena'] += records_query[i]['total_time'] if records_query[i]['cause'] == 'endogena' else 0.00
-                    records[records_query[i]['key']]['exogena'] += records_query[i]['total_time'] if records_query[i]['cause'] == 'exogena' else 0.00
+                    records[records_query[i]['key']]['internal'] += records_query[i]['total_time'] if records_query[i]['cause'] == 'internal' else 0.00
+                    records[records_query[i]['key']]['external'] += records_query[i]['total_time'] if records_query[i]['cause'] == 'external' else 0.00
                 records[records_query[i]['key']]['count'] = count
 
         worksheet = workbook.add_worksheet(tools.ustr("Utilización del tiempo"))
@@ -111,8 +111,8 @@ class TimeUseToExcelReport(ReportXlsx):
         worksheet.write('H4', tools.ustr('Tiempo Real Trabajado'), merge_format)
         worksheet.write('I4', tools.ustr('Tiempo Total de Interrupciones'), merge_format)
         worksheet.write('J4', tools.ustr('Tiempo no Justificado'), merge_format)
-        worksheet.write('K4', tools.ustr('Tiempo perdido \n por causas exógenas'), merge_format)
-        worksheet.write('L4', tools.ustr('Tiempo Perdido \n por Causas Endógenas'), merge_format)
+        worksheet.write('K4', tools.ustr('Tiempo perdido \n por causas externas'), merge_format)
+        worksheet.write('L4', tools.ustr('Tiempo Perdido \n por Causas Internas'), merge_format)
 
         aux_row = 4
         records = records.items()
@@ -143,11 +143,11 @@ class TimeUseToExcelReport(ReportXlsx):
             time_no_justify = plan_time - (real_production_time + total_time)
             time_no_justify_str = str(time_no_justify).split('.')
             worksheet.write('J' + str(aux_row), time_no_justify_str[0]+'.'+time_no_justify_str[1][:2], data_format)
-            exo_time = str(c_model[1].get('exogena') / 60.00/2).split('.')
+            exo_time = str(c_model[1].get('external') / 60.00/2).split('.')
             worksheet.write('K' + str(aux_row), exo_time[0]+'.'+exo_time[1][:2], data_format)
-            endo_time = str(c_model[1].get('endogena') / 60.00/2).split('.')
+            endo_time = str(c_model[1].get('internal') / 60.00/2).split('.')
             worksheet.write('L' + str(aux_row), endo_time[0]+'.'+endo_time[1][:2], data_format)
-            tti = round((c_model[1].get('exogena') / 60.00/2) + (c_model[1].get('endogena') / 60.00/2),2)
+            tti = round((c_model[1].get('external') / 60.00/2) + (c_model[1].get('internal') / 60.00/2),2)
             worksheet.write('I' + str(aux_row), round(total_time,2), data_format)
 
 

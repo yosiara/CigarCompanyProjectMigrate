@@ -6,18 +6,19 @@ class TurnAttendance(models.Model):
     _name = 'process_control.turn_attendance'
     _description = 'Turn Attendance'
 
-    name = fields.Char(string='Nombre *', required=True)
-    hour_from = fields.Float(string='Hora de Inicio *', required=True)
-    hour_to = fields.Float(string='Hora de Fin *', required=True,
-        help='End of working.\nA specific value of 24:00 is interpreted as 23:59:59.999999.')
-    turn_id = fields.Many2one('process_control.turn', string='Turno *', required=True, ondelete='cascade')
-
-    production_by_hours_ids = fields.One2many('process_control.production_by_hours', 'turn_att_id', string='Production BY Hours')
-    
+    name = fields.Char(string='Name *', required=True)
+    hour_from = fields.Float(string='Hour From *', required=True)
+    hour_to = fields.Float(
+        string='Hour To *', 
+        required=True,
+        help='End of working.\nA specific value of 24:00 is interpreted as 23:59:59.999999.'
+    )
+    turn_id = fields.Many2one('process_control.turn', string='Turn *', required=True, ondelete='cascade')
+    production_by_hours_ids = fields.One2many('process_control.production_by_hours', 'turn_att_id', string='Hourly Production')
     session = fields.Selection([
-        ('morning', 'Mañana'),
-        ('afternoon', 'Tarde'),
-    ], string='Sesión *', required=True)
+        ('morning', 'Morning'),
+        ('afternoon', 'Afternoon'),
+    ], string='Session *', required=True)
 
     @api.constrains('hour_from', 'hour_to', 'turn_id')
     def _constrains_hours(self):
@@ -28,13 +29,13 @@ class TurnAttendance(models.Model):
                 maximo = after_midnight_recs[0].hour_from
                 minimo = after_midnight_recs[0].hour_to
                 if att_ids[0].hour_from < minimo or att_ids[len(att_ids)-1].hour_to > maximo:
-                    raise ValidationError(_('¡Error! Existe solapamiento de horario'))
+                    raise ValidationError(_('Error! There is a schedule overlap.'))
             elif len(after_midnight_recs) > 1:
-                raise ValidationError(_('¡Error! Existe solapamiento de horario'))
+                raise ValidationError(_('Error! There is a schedule overlap.'))
             
             for it in range(len(att_ids)-1):
                 if att_ids[it].hour_to > att_ids[it+1].hour_from:
-                    raise ValidationError(_('¡Error! Existe solapamiento de horario'))
+                    raise ValidationError(_('Error! There is a schedule overlap.'))
             break
             
     @api.onchange('hour_from')

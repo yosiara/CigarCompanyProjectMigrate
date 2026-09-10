@@ -74,8 +74,8 @@ class EfficientReport(models.AbstractModel):
         self.env.cr.execute(query)
         records_query = self.env.cr.dictfetchall()
 
-        sum_frequency_exogena = 0.00
-        sum_time_exogena = 0.00
+        sum_frequency_external = 0.00
+        sum_time_external = 0.00
         sum_frequency_endo = 0.00
         sum_time_endo = 0.00
         sum_production_done = 0.00
@@ -84,26 +84,26 @@ class EfficientReport(models.AbstractModel):
         key_before = -1
         productividad_real = 0.00
         productividad_operativa = 0.00
-        sum_time_exogena_tmp = 0.00
+        sum_time_external_tmp = 0.00
         real_produccion_time = 0.00
         count_lines = 0
         for i in range(0, len(records_query)):
 
-            if not records_query[i]['productive_line'] and not records_query[i]['cause'] == 'exogena':
+            if not records_query[i]['productive_line'] and not records_query[i]['cause'] == 'external':
                 sum_time_total += records_query[i]['time']
 
             if not records_query[i]['productive_line']:
                 count_lines_tmp = len(self.env['process_control.productive_section'].search([('id', '=', records_query[i]['productive_section'])]).productive_line_ids)
 
-                sum_time_exogena += records_query[i]['time'] * count_lines_tmp if records_query[i]['cause'] == 'exogena' else 0.00
-                sum_time_endo += records_query[i]['time'] if records_query[i]['cause'] == 'endogena' else 0.00
+                sum_time_external += records_query[i]['time'] * count_lines_tmp if records_query[i]['cause'] == 'external' else 0.00
+                sum_time_endo += records_query[i]['time'] if records_query[i]['cause'] == 'internal' else 0.00
             else:
 
-                sum_time_exogena += records_query[i]['time'] if records_query[i]['cause'] == 'exogena' else 0.00
-                sum_time_endo += records_query[i]['time'] if records_query[i]['cause'] == 'endogena' else 0.00
+                sum_time_external += records_query[i]['time'] if records_query[i]['cause'] == 'external' else 0.00
+                sum_time_endo += records_query[i]['time'] if records_query[i]['cause'] == 'internal' else 0.00
 
-            sum_frequency_exogena += records_query[i]['frequency'] if records_query[i]['cause'] == 'exogena' else 0.00
-            sum_frequency_endo += records_query[i]['frequency'] if records_query[i]['cause'] == 'endogena' else 0.00
+            sum_frequency_external += records_query[i]['frequency'] if records_query[i]['cause'] == 'external' else 0.00
+            sum_frequency_endo += records_query[i]['frequency'] if records_query[i]['cause'] == 'internal' else 0.00
             if records_query[i]['key'] != key_before:
                 count_lines = len(self.env['process_control.productive_section'].search([('id', '=', records_query[i]['productive_section'])]).productive_line_ids)
                 sum_production_done += records_query[i]['production_done']
@@ -114,29 +114,29 @@ class EfficientReport(models.AbstractModel):
                 #    raise ValueError(_("Division by zero not defined"))
                 productividad_real += (records_query[i]['plan_time'] * 60.0) * records_query[i]['productive_capacity']
                 if not records_query[i]['productive_line']:
-                    sum_time_exogena_tmp = records_query[i]['time'] * count_lines_tmp if records_query[i]['cause'] == 'exogena' else 0.00
+                    sum_time_external_tmp = records_query[i]['time'] * count_lines_tmp if records_query[i]['cause'] == 'external' else 0.00
                 else:
-                    sum_time_exogena_tmp = records_query[i]['time'] if records_query[i]['cause'] == 'exogena' else 0.00
+                    sum_time_external_tmp = records_query[i]['time'] if records_query[i]['cause'] == 'external' else 0.00
                 key_before = records_query[i]['key']
             else:
                 if not records_query[i]['productive_line']:
-                    sum_time_exogena_tmp += records_query[i]['time'] * count_lines_tmp if records_query[i]['cause'] == 'exogena' else 0.00
+                    sum_time_external_tmp += records_query[i]['time'] * count_lines_tmp if records_query[i]['cause'] == 'external' else 0.00
                 else:
-                    sum_time_exogena_tmp += records_query[i]['time'] if records_query[i]['cause'] == 'exogena' else 0.00
+                    sum_time_external_tmp += records_query[i]['time'] if records_query[i]['cause'] == 'external' else 0.00
                 if i+1 < len(records_query):
                     if records_query[i]['key'] != records_query[i+1]['key']:
-                        productividad_operativa += ((records_query[i]['plan_time'] * 60.0)-sum_time_exogena_tmp) * records_query[i]['productive_capacity']
-                        sum_time_exogena_tmp = 0.00
+                        productividad_operativa += ((records_query[i]['plan_time'] * 60.0)-sum_time_external_tmp) * records_query[i]['productive_capacity']
+                        sum_time_external_tmp = 0.00
                 else:
-                    productividad_operativa += ((records_query[i]['plan_time'] * 60.0)-sum_time_exogena_tmp) * records_query[i]['productive_capacity']
+                    productividad_operativa += ((records_query[i]['plan_time'] * 60.0)-sum_time_external_tmp) * records_query[i]['productive_capacity']
 
         docargs.update({
             'start_date': data['start_date'],
             'end_date': data['end_date'],
             'turnos_trabajados': turnos_trabajados,
             'records': records_query,
-            'sum_frequency_exogena': sum_frequency_exogena,
-            'sum_time_exogena': sum_time_exogena,
+            'sum_frequency_external': sum_frequency_external,
+            'sum_time_external': sum_time_external,
             'sum_frequency_endo': sum_frequency_endo,
             'sum_time_total': sum_time_total,
             'sum_time_endo': sum_time_endo,

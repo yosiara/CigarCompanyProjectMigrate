@@ -6,12 +6,12 @@ class Turn(models.Model):
     _name = 'process_control.turn'
     _description = 'Turn'
 
-    name = fields.Char(required=True, default='Turno ')
-    turn_attendance_ids = fields.One2many('process_control.turn_attendance', inverse_name='turn_id', string='Tiempo de Trabajo')
+    name = fields.Char(string='Name *', required=True, default='Turn ')
+    turn_attendance_ids = fields.One2many('process_control.turn_attendance', inverse_name='turn_id', string='Working Time')
     turn_attendance_context = fields.Binary(compute='_context_turn_attendance', exportable=False)
 
     _sql_constraints = [
-        ('name_uniq', 'unique(name)', 'El nombre del Turno debe ser único.'),
+        ('name_uniq', 'unique(name)', 'The turn name must be unique!'),
     ]
 
     def hour_range(self, session=False):

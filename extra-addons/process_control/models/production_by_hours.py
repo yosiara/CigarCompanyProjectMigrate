@@ -5,10 +5,9 @@ class ProductionByHours(models.Model):
     _name = 'process_control.production_by_hours'
     _description = 'Production By Hours'
 
-    turn_att_id = fields.Many2one('process_control.turn_attendance', string='Hora *', required=True)
-    production_count = fields.Float(string='Producción (Cajones) *', required=True)
-
-    tecnolog_control_id = fields.Many2one(comodel_name='process_control.tecnolog_control', string='Modelo Control', ondelete='cascade', required=True)
+    turn_att_id = fields.Many2one('process_control.turn_attendance', 'Hour *', required=True)
+    production_count = fields.Float(string='Production Count *', required=True)
+    tecnolog_control_id = fields.Many2one(comodel_name='process_control.tecnolog_control', string='Tech Control *', ondelete='cascade', required=True)
 
     @api.onchange('tecnolog_control_id')
     def _onchange_tecnolog_control_id(self):

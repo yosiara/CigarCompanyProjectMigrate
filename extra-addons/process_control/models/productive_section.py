@@ -8,13 +8,13 @@ class ProductiveSection(models.Model):
     _description = 'Productive Section'
     _order = 'name'
 
-    name = fields.Char('Nombre *', required=True, default='Módulo ')
+    name = fields.Char('Name *', required=True, default='Productive Section ')
     productive_section_plan_id = fields.Many2one('process_control.productive_section_plan', string='Plan *', required=True)
-    active = fields.Boolean(string='Activa', default=True)
-    productive_line_ids = fields.One2many('process_control.productive_line', inverse_name='productive_section_id', string='Líneas Productivas')
+    active = fields.Boolean(string='Active', default=True)
+    productive_line_ids = fields.One2many('process_control.productive_line', inverse_name='productive_section_id', string='Productive Lines')
 
     _sql_constraints = [
-        ('name_uniq', 'unique(name)', 'El nombre del Módulo debe ser único.'),
+        ('name_uniq', 'unique(name)', 'The production section name must be unique!'),
     ]
 
     # def _get_productions_code(self):
@@ -109,7 +109,7 @@ class ProductiveSection(models.Model):
     #     self.ensure_one()
     #     return self.env['process_control.productive_section_plan'].search([('productive_section_ids', 'in', self.id), ('active', '=', True)])
 
-    # def get_ind_rechazo(self, start_date, end_date, turn=False):
+    # def get_ind_rejection(self, start_date, end_date, turn=False):
     #     suma_ind = 0.00
     #     for line in self.productive_line_ids:
     #         suma_ind += line.get_reg_ind(start_date, end_date, turn, line.productive_line.id)

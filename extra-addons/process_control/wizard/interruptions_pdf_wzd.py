@@ -7,32 +7,53 @@ class InterruptionsPdfReportWzd(models.TransientModel):
     _name = 'process_control.interruptions_pdf_report_wzd'
     _description = 'Interruptions pdf report wzd'
 
-    start_date = fields.Date('Desde *', required=True)
-    end_date = fields.Date('Hasta *', required=True)
-    interruption_type_ids = fields.Many2many('process_control.interruption_type', string='Interruption Type',
-                            relation='interruptions_pdf_report_wzd_interruption_type_asoc', column1='interruptions_pdf_report_wzd_id', column2='interruption_type_id'
+    start_date = fields.Date('Start Date *', required=True)
+    end_date = fields.Date('End Date *', required=True)
+    interruption_type_ids = fields.Many2many(
+        comodel_name='process_control.interruption_type', 
+        relation='interruptions_pdf_report_wzd_interruption_type_asoc', 
+        column1='interruptions_pdf_report_wzd_id', 
+        column2='interruption_type_id', 
+        string='Interruption Type',
     )
-    productive_section_ids = fields.Many2many('process_control.productive_section', string='Módulo',
-                            relation='interruptions_pdf_report_wzd_productive_section_asoc', column1='interruptions_pdf_report_wzd_id', column2='productive_section_id'
+    productive_section_ids = fields.Many2many(
+        comodel_name='process_control.productive_section', 
+        relation='interruptions_pdf_report_wzd_productive_section_asoc', 
+        column1='interruptions_pdf_report_wzd_id', 
+        column2='productive_section_id', 
+        string='Productive Section',
     )
-    productive_line_ids = fields.Many2many('process_control.productive_line', string='Línea',
-                            relation='interruptions_pdf_report_wzd_productive_line_asoc', column1='interruptions_pdf_report_wzd_id', column2='productive_line_id'
+    productive_line_ids = fields.Many2many(
+        comodel_name='process_control.productive_line', 
+        relation='interruptions_pdf_report_wzd_productive_line_asoc', 
+        column1='interruptions_pdf_report_wzd_id', 
+        column2='productive_line_id', 
+        string='Productive Line',
     )
-    machine_ids = fields.Many2many('process_control.machine', string='Máquina',
-                            relation='interruptions_pdf_report_wzd_machine_asoc', column1='interruptions_pdf_report_wzd_id', column2='machine_id'
+    machine_ids = fields.Many2many(
+        comodel_name='process_control.machine', 
+        relation='interruptions_pdf_report_wzd_machine_asoc', 
+        column1='interruptions_pdf_report_wzd_id', 
+        column2='machine_id', 
+        string='Machine',
     )
+    set_of_peaces_ids = fields.Many2many(
+        comodel_name='process_control.machine_set_of_peaces', 
+        relation='interruptions_pdf_report_wzd_machine_set_of_peaces_asoc', 
+        column1='interruptions_pdf_report_wzd_id', 
+        column2='machine_set_of_peaces_id', 
+        string='Set of Peaces',
+    )
+    filt = fields.Selection([
+        ('productive_section', 'Productive Section'),
+        ('productive_line', 'Line'),
+        ('machine', 'Machine'),
+    ], string='Filtered by *', default='productive_section')
+
+    # Help fields
     machine_domain = fields.Binary(compute='_get_machine_domain', exportable=False)
-    
-    set_of_peaces_ids = fields.Many2many('process_control.machine_set_of_peaces', string='Subconjunto de Piezas',
-                            relation='interruptions_pdf_report_wzd_machine_set_of_peaces_asoc', column1='interruptions_pdf_report_wzd_id', column2='machine_set_of_peaces_id'
-    )
     peaces_domain = fields.Binary(compute='_get_peaces_domain', exportable=False)
 
-    filt = fields.Selection([
-        ('productive_section', 'Módulo'),
-        ('productive_line', 'Línea'),
-        ('machine', 'Máquina'),
-    ], string='Filtrado por *', default='productive_section')
 
     @api.depends('machine_ids')
     def _get_peaces_domain(self):

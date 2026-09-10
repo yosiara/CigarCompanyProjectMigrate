@@ -66,9 +66,9 @@
                             <page string="Producción Horaria">
                                 <field name="production_by_hours_ids"/>
                             </page>
-                            <page string="Producción y Rechazo">
-                                <field name="rechazo_amf_ids" invisible="productive_section_id == 1"/>
-                                <field name="rechazo_mod1_ids" invisible="productive_section_id != 1"/>
+                            <page string="Producción y Rejection">
+                                <field name="rejection_amf_ids" invisible="productive_section_id == 1"/>
+                                <field name="rejection_mod1_ids" invisible="productive_section_id != 1"/>
                             </page>
                         </notebook>
                     </sheet>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <record id="rechazo_mod1_form" model="ir.ui.view">
-            <field name="name">rechazo_mod1.form</field>
-            <field name="model">process_control.rechazo_mod1</field>
+        <record id="rejection_amf_form" model="ir.ui.view">
+            <field name="name">rejection_amf.form</field>
+            <field name="model">process_control.rejection_amf</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
                         <!--***************** DOMAINS ********************* -->
-                        <field name="rechazo_id" invisible="1"/>
+                        <field name="rejection_id" invisible="1"/>
                         <field name="machine_domain" invisible="1"/>
                         <field name="line_domain" invisible="1"/>
                         <!--***************** FIELDS ********************* -->
@@ -19,8 +19,8 @@
                                 <field name="machine_id" domain="machine_domain"/>
                             </group>
                             <group>
-                                <field name="prod_en_cigarrillos"/>
-                                <field name="rechazo_en_cigarrillos"/>
+                                <field name="production_count"/>
+                                <field name="rejection_count"/>
                             </group>
                         </group>
                     </sheet>
@@ -28,9 +28,9 @@
             </field>
         </record>
 
-        <record id="rechazo_mod1_list" model="ir.ui.view">
-            <field name="name">rechazo_mod1.list</field>
-            <field name="model">process_control.rechazo_mod1</field>
+        <record id="rejection_amf_list" model="ir.ui.view">
+            <field name="name">rejection_amf.list</field>
+            <field name="model">process_control.rejection_amf</field>
             <field name="arch" type="xml">
                 <list>
                     <!--***************** DOMAINS ********************* -->
@@ -40,16 +40,17 @@
                     <!-- <field name="turn_attendance_id"/> -->
                     <field name="productive_line_id" domain="line_domain"/>
                     <field name="machine_id" domain="machine_domain"/>
-                    <field name="prod_en_cigarrillos"/>
-                    <field name="rechazo_en_cigarrillos"/>
+                    <field name="production_count"/>
+                    <field name="rejection_count"/>
                 </list>
             </field>
         </record>
 
-        <record id="rechazo_mod1_action" model="ir.actions.act_window">
-            <field name="name">Rechazo Módulo 1</field>
-            <field name="res_model">process_control.rechazo_mod1</field>
+        <record id="rejection_amf_action" model="ir.actions.act_window">
+            <field name="name">Rejection AMF</field>
+            <field name="res_model">process_control.rejection_amf</field>
             <field name="view_mode">list,form</field>
+            <!-- <field name="binding_model_id" ref="model_process_control_rejection"/> -->
         </record>
     </data>
 </odoo>

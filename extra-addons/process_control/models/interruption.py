@@ -6,22 +6,22 @@ class Interruption(models.Model):
     _name = 'process_control.interruption'
     _description = 'Interruption'
 
-    start_date = fields.Float(string='Inicio *', required=True)
-    end_date = fields.Float(string='Fin *', required=True)
+    start_date = fields.Float(string='Start Date *', required=True)
+    end_date = fields.Float(string='End Date *', required=True)
     
-    interruption_type_id = fields.Many2one('process_control.interruption_type', string='Tipo *', required=True, default=lambda self: self.interruption_type_id.search([('code', '=', 'PM')], limit=1))
+    interruption_type_id = fields.Many2one('process_control.interruption_type', 'Type *', required=True, default=lambda self: self.interruption_type_id.search([('code', '=', 'PM')], limit=1))
     interruption_type_domain = fields.Binary(compute='_get_interruption_type_domain', exportable=False)
 
-    machine_id = fields.Many2one('process_control.machine', 'Máquina')
+    machine_id = fields.Many2one('process_control.machine', 'Machine')
     machine_domain = fields.Binary(compute='_get_machine_domain', exportable=False)
     
-    set_of_peaces_id = fields.Many2one('process_control.machine_set_of_peaces', string='Subconjunto', required=False)
+    set_of_peaces_id = fields.Many2one('process_control.machine_set_of_peaces', 'Set of Peaces')
     peaces_domain = fields.Binary(compute='_get_peaces_domain', exportable=False)
     
-    productive_line_id = fields.Many2one('process_control.productive_line', string='Línea Prod.')
+    productive_line_id = fields.Many2one('process_control.productive_line', 'Productive Line')
     line_domain = fields.Binary(compute='_get_line_domain', exportable=False)
 
-    tecnolog_control_id = fields.Many2one(comodel_name='process_control.tecnolog_control', string='Control', ondelete='cascade', required=True)
+    tecnolog_control_id = fields.Many2one('process_control.tecnolog_control', 'Tech control *', ondelete='cascade', required=True)
     
 
     # -------------------------------------------------------------------------
@@ -32,10 +32,10 @@ class Interruption(models.Model):
     def _constrains_date_range(self):
         for rec in self:
             if rec.start_date >= rec.end_date:
-                raise ValidationError(_(f'La inicio {rec.start_date} no debe ser mayor o igual que el fin {rec.end_date}, por favor verfique el rango de hora de la interrupción'))
+                raise ValidationError(_('The start date %s must be earlier than the end date %s.') % (rec.start_date, rec.end_date))
             hour_range = rec.tecnolog_control_id.turn_id.hour_range(session=rec.tecnolog_control_id.session)
             if rec.start_date < hour_range[0] or rec.end_date > hour_range[1]:
-                raise ValidationError(_('La hora de inicio y/o de fin de la interrupción no está en el rango de la sesión seleccionada'))
+                raise ValidationError(_('The start and/or end time of the interruption is not within the range of the selected session.'))
     
     # -------------------------------------------------------------------------
     # COMPUTE METHODS
@@ -49,22 +49,20 @@ class Interruption(models.Model):
             elif rec.tecnolog_control_id.productive_section_id:
                 rec.machine_domain = [('productive_section_id', '=', rec.tecnolog_control_id.productive_section_id.id), ('productive_line_id', '=', False)]
             else:
-                rec.machine_domain = [('id', 'in', False)]
+                rec.machine_domain = [('id', 'in', [])]
 
     @api.depends('machine_id')
     def _get_peaces_domain(self):
         for rec in self:
-            rec.peaces_domain = [('id', 'in', rec.machine_id.set_of_peaces.ids)] if rec.machine_id else [('id', 'in', False)]
+            rec.peaces_domain = [('id', 'in', rec.machine_id.set_of_peaces.ids)] if rec.machine_id else [('id', 'in', [])]
 
     @api.depends('tecnolog_control_id')
     def _get_line_domain(self):
         for rec in self:
             if rec.tecnolog_control_id.productive_section_id:
-                # machine_in_section = rec.machine_id.search([('productive_section_id', '=', rec.tecnolog_control_id.productive_section_id.id)])
-                # rec.line_domain = [('id', 'in', [i.productive_line_id.id for i in machine_in_section])]
                 rec.line_domain = [('productive_section_id', '=', rec.tecnolog_control_id.productive_section_id.id)]
             else:
-                rec.line_domain = [('id', 'in', False)]
+                rec.line_domain = [('id', 'in', [])]
 
     @api.depends('machine_id')
     def _get_interruption_type_domain(self):

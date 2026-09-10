@@ -1,5 +1,5 @@
 import json
-from odoo import http
+from odoo import http, _
 from odoo.http import content_disposition, request
 from odoo.http import serialize_exception as _serialize_exception
 from odoo.tools import html_escape
@@ -44,7 +44,7 @@ class XLSXReportController(http.Controller):
             se = _serialize_exception(e)
             error = {
                 'code': 200,
-                'message': 'Odoo Server Error Trapped',
+                'message': _('Odoo Server Error Trapped'),
                 'data': se
             }
             return request.make_response(html_escape(json.dumps(error)))

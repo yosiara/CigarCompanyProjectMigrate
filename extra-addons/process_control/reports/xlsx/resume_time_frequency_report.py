@@ -115,7 +115,7 @@ class ResumenTimeFrequencyToExcelReport(ReportXlsx):
                 self.env.cr.execute(query_time)
                 records_time = self.env.cr.dictfetchall()
                 if records_time[0]['sum']:
-                    if records_query[i]['cause'] == 'exogena':
+                    if records_query[i]['cause'] == 'external':
                         valor = records_time[0]['sum']
                     else:
                         valor = records_time[0]['sum']

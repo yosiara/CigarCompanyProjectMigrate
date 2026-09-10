@@ -64,7 +64,7 @@ class InterruptionsExcelReport(models.AbstractModel):
                 {'header': 'Máquina', 'header_format': header_format, 'format': data_format},
                 {'header': 'Subconjunto', 'header_format': header_format, 'format': data_format},
                 {'header': 'Tipo de interrupción', 'header_format': header_format, 'format': data_format},
-                {'header': 'Exógena/Endógena', 'header_format': header_format, 'format': data_format},
+                {'header': 'Interna/Externa', 'header_format': header_format, 'format': data_format},
                 {'header': 'Tiempo (horas)', 'header_format': header_format, 'format': data_format},
             ],
         }
@@ -109,23 +109,7 @@ class InterruptionsExcelReport(models.AbstractModel):
 
         # Set the columns widths.
         for col in range(len(max_len)):
-            # set_column(first_col, last_col, width, cell_format, options)
             worksheet.set_column(col, col, max_len[col] + 4.3)
-
-            # if interruption.time:
-            #     if interruption.interruption_type.cause == 'exogena' and not interruption.productive_line_id:
-            #         worksheet.write('L'+str(aux_row), round(interruption.time * 2 / 60.00,2), data_format)
-            #     elif not interruption.productive_line_id:
-            #         worksheet.write('L'+str(aux_row), round(interruption.time * 2 / 60.00,2), data_format)
-            #     else:
-            #         worksheet.write('L'+str(aux_row), round(interruption.time / 60.00,2), data_format)
-            # else:
-            #     worksheet.write('L'+str(aux_row), '', data_format)
-            # if interruption.frequency:
-            #     worksheet.write('M'+str(aux_row), interruption.frequency, data_format)
-            # else:
-            #     worksheet.write('M'+str(aux_row), '', data_format)
-            # aux_row += 1
 
         # Freeing up resources
         workbook.close()

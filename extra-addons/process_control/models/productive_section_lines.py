@@ -5,13 +5,9 @@ class ProductiveSectionLines(models.Model):
     _name = 'process_control.productive_section_lines'
     _rec_name = 'productive_line'
 
-
-    productive_section_id = fields.Many2one(comodel_name='process_control.productive_section',
-                                            string='Módulo', required=False)
-
-    productive_line = fields.Many2one(comodel_name='process_control.productive_line', string='Línea Productiva',
-                                      required=False)
-    name = fields.Char(string='Nombre', required=False, related='productive_line.name')
+    name = fields.Char(string='Name *', required=False, related='productive_line.name')
+    productive_section_id = fields.Many2one('process_control.productive_section', 'Productive Section *', required=False)
+    productive_line = fields.Many2one('process_control.productive_line', 'Productive Line *', required=False)
     productive_section_name = fields.Char(string='Nombre', required=True, compute='get_section_name', store=True)
 
     @api.model_create_multi
@@ -29,7 +25,7 @@ class ProductiveSectionLines(models.Model):
         control_mods = self.env['process_control.tecnolog_control'].search(domain)
         res = {}
         for cm in control_mods:
-            for line in cm.rechazo_amf_ids:
+            for line in cm.rejection_amf_ids:
                 if line.productive_line_id.productive_line.id not in res:
                     res.update({line.productive_line_id.productive_line.id: 0.00})
                 res[line.productive_line_id.productive_line.id] += line.produccion_en_cajones
@@ -44,14 +40,14 @@ class ProductiveSectionLines(models.Model):
         control_mods = self.env['process_control.tecnolog_control'].search(domain)
         res = {}
         for cm in control_mods:
-            for line in cm.rechazo_amf_ids:
+            for line in cm.rejection_amf_ids:
                 if line.productive_line_id.productive_line.id not in res:
                     res.update({line.productive_line_id.productive_line.id: 0.00})
-                res[line.productive_line_id.productive_line.id] += round(line.rechazo_en_cajetijas / 500.00, 3)
+                res[line.productive_line_id.productive_line.id] += round(line.rejection_en_cajetijas / 500.00, 3)
         return res
 
     def get_reg_ind(self, start_date, end_date, turn=False, line_id=False):
-        # calcular indice de rechazo de la linea
+        # calcular indice de rejection de la linea
         self.ensure_one()
         prod = self.get_product_amf_productive_line(start_date, end_date, turn)
         reg = self.get_reg_amf_by_productive_line(start_date, end_date, turn)

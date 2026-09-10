@@ -2,7 +2,7 @@
 
 import psycopg2
 import socket
-from odoo import models, fields
+from odoo import models, fields, _
 from odoo.exceptions import UserError, Warning
 
 CONNECTORS = [('postgresql', 'PostgreSQL')]
@@ -13,13 +13,13 @@ class DBProductionConnector(models.Model):
 
     _connection = False
 
-    name = fields.Char(string='Datasource Name', required=True, default='DB Sistema de producción')
-    server = fields.Char(string='Server', required=True, default='localhost')
-    port = fields.Integer(string='Port', required=True, default=5432)
-    user = fields.Char(string='User', required=True, default='odoo18')
-    pwd = fields.Char(string='Password', required=True)
-    dbname = fields.Char(string='Database Name', required=True)
-    connector = fields.Selection(CONNECTORS, 'Connector', required=True, default='postgresql')
+    name = fields.Char(string='Datasource *', required=True, default='DB Production System')
+    server = fields.Char(string='Server *', required=True, default='localhost')
+    port = fields.Integer(string='Port *', required=True, default=5432)
+    user = fields.Char(string='User *', required=True, default='odoo18')
+    pwd = fields.Char(string='Password *', required=True)
+    dbname = fields.Char(string='Database *', required=True)
+    connector = fields.Selection(CONNECTORS, 'Connector *', required=True, default='postgresql')
 
     def action_test_connection(self):
         if self.connector == 'postgresql':
@@ -34,15 +34,15 @@ class DBProductionConnector(models.Model):
                     )
                     conn.close()
                 else:
-                    raise Exception('No se pudo conectar al servidor PostgreSQL en {}:{}'.format(self.server, self.port))
+                    raise Exception(_('Unable to connect to the PostgreSQL server {}:{}').format(self.server, self.port))
             except Exception as e:
-                raise UserError('Conexión Fallida: {}'.format(str(e)))
+                raise UserError('Connection Failed: {}'.format(str(e)))
             return {
                 'type': 'ir.actions.client',
                 'tag': 'display_notification',
                 'params': {
-                    'title': 'Conexión exitosa',
-                    'message': 'La conexión a PostgreSQL ha sido exitosa.',
+                    'title': _('Connection successful'),
+                    'message': _('The connection to PostgreSQL was successful.'),
                     'type': 'success',
                     'sticky': False,
                 }
@@ -62,9 +62,9 @@ class DBProductionConnector(models.Model):
                     )
                     return self._connection
                 else:
-                    raise Exception('No se pudo conectar al servidor PostgreSQL en {}:{}'.format(self.server, self.port))
+                    raise Exception('Unable to connect to the PostgreSQL server {}:{}'.format(self.server, self.port))
             except Exception as e:
-                raise UserError('Conexión Fallida al abrir la conexión: {}'.format(str(e)))
+                raise UserError('Connection failed when opening the connection: {}'.format(str(e)))
         return False
 
     def close(self):

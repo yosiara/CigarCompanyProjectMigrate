@@ -48,7 +48,7 @@ class ResumenTimeFrequencynToExcelReport(ReportXlsx):
         dic_int, dic_int_fr = {}, {}
         for tc in tecnolog_control:
             for it in tc.interruptions:
-                if it.interruption_type.cause == 'exogena':
+                if it.interruption_type.cause == 'external':
                     if not it.interruption_type.code in dic_int_fr:
                         dic_fr2 = {}
                         for d in productive_sections:
@@ -217,7 +217,7 @@ class ResumenTimeFrequencynbyLinesToExcelReport(ReportXlsx):
         for tc in tecnolog_control:
             for it in tc.interruptions:
 
-                if it.interruption_type.cause == 'exogena':
+                if it.interruption_type.cause == 'external':
                     if not it.interruption_type.code in dic_int_fr:
                         dic_fr2 = {}
                         for d in productive_lines:

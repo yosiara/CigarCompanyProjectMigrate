@@ -7,28 +7,52 @@ class Machine(models.Model):
     _name = 'process_control.machine'
     _description = 'Machine'
 
-    name = fields.Char('Nombre *', required=True)
-    machine_type_id = fields.Many2one('process_control.machine_type', string='Tipo de máquina *', required=True)
-    productive_section_id = fields.Many2one('process_control.productive_section', string='Módulo *', required=True)
-    productive_line_id = fields.Many2one('process_control.productive_line', string='Línea Prod.')
+    name = fields.Char('Name *', required=True)
+    machine_type_id = fields.Many2one('process_control.machine_type', string='Machine Type *', required=True)
+    productive_section_id = fields.Many2one('process_control.productive_section', string='Productive Section *', required=True)
+    productive_line_id = fields.Many2one('process_control.productive_line', string='Productive Line')
     line_domain = fields.Binary(compute='_get_line_domain', exportable=False)
-    set_of_peaces = fields.Many2many('process_control.machine_set_of_peaces', string='Tipo de Piezas *', required=True, ondelete='restrict',
-                            relation='process_control_machine_machine_set_of_peaces_asoc', column1='machine_id', column2='machine_set_of_peaces_id')
+    set_of_peaces = fields.Many2many(
+        comodel_name='process_control.machine_set_of_peaces', 
+        relation='process_control_machine_machine_set_of_peaces_asoc', 
+        column1='machine_id', 
+        column2='machine_set_of_peaces_id',
+        ondelete='restrict',
+        required=True, 
+        string='Type of Peaces *',
+    )
 
     _sql_constraints = [
-        ('name_uniq', 'unique(name)', 'El nombre de la máquina debe ser único.'),
+        ('name_uniq', 'unique(name)', 'The machine name must be unique!'),
     ]
 
-    @api.constrains('productive_line_id','productive_section_id','machine_type_id')
+    @api.constrains('productive_line_id', 'productive_section_id', 'machine_type_id')
     def _constrains_lines(self):
         if self.productive_line_id:
-            match = self.search([('productive_line_id', '=', self.productive_line_id.id), ('productive_section_id', '!=', self.productive_section_id.id)], limit=1)
+            match = self.search([
+                ('productive_line_id', '=', self.productive_line_id.id), 
+                ('productive_section_id', '!=', self.productive_section_id.id)
+            ], limit=1)
             if match:
-                raise ValidationError(_(f'La línea {self.productive_line_id.name} ha sido asociada al módulo {match.productive_section_id.name}, por lo tanto solo puede contener máquinas de dicho módulo'))
+                raise ValidationError(
+                    _('The production line %s can only contain machines from its associated module.') % (
+                        self.productive_line_id.name
+                    )
+                )
 
-            match = self.search([('id', '!=', self.id),('productive_line_id', '=', self.productive_line_id.id), ('machine_type_id', '=', self.machine_type_id.id), ('productive_section_id', '=', self.productive_section_id.id)], limit=1)
+            match = self.search([
+                ('id', '!=', self.id), 
+                ('productive_line_id', '=', self.productive_line_id.id), 
+                ('machine_type_id', '=', self.machine_type_id.id), 
+                ('productive_section_id', '=', self.productive_section_id.id)
+            ], limit=1)
             if match:
-                raise ValidationError(_(f'La línea {self.productive_line_id.name} ya tiene asociada una máquina del tipo {match.machine_type_id.name}'))
+                raise ValidationError(
+                    _('The line %s already has a machine of type %s associated with it.') % (
+                        self.productive_line_id.name,
+                        match.machine_type_id.name
+                    )
+                )
 
     @api.onchange('machine_type_id')
     def _onchange_machine_type_id(self):
@@ -41,5 +65,5 @@ class Machine(models.Model):
             if rec.productive_section_id:
                 rec.line_domain = [('productive_section_id', '=', rec.productive_section_id.id)]
             else:
-                rec.line_domain = [('id', 'in', False)]
+                rec.line_domain = [('id', 'in', [])]
 

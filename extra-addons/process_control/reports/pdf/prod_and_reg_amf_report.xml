@@ -10,7 +10,7 @@
                         </div>
                         <div class="col-xs-10 text-center" style="padding:35px">
                             <h4>
-                                <b>Control de producción y rechazos de las AMF</b>
+                                <b>Control de producción y rejections de las AMF</b>
                             </h4>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <b>Rechazo (cajones)</b>
+                                                <b>Rejection (cajones)</b>
                                             </td>
                                             <t t-set="total_reg_cojones" t-value="0.00"/>
 
@@ -131,7 +131,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <b>Índice de Rechazo (%)</b>
+                                                <b>Índice de Rejection (%)</b>
                                             </td>
                                             <t t-set="total_ind_rech" t-value="0.00"/>
 
@@ -141,7 +141,7 @@
                                                 <t t-set="total_ind_rech"
                                                    t-value="total_ind_rech + reg_ind"/>
                                                 <td t-if="reg_ind > 0" align="center">
-                                                    <t t-if="reg_ind > line.productive_section_id.productive_section_plan_id.indice_planif_rechazo">
+                                                    <t t-if="reg_ind > line.productive_section_id.productive_section_plan_id.indice_planif_rejection">
                                                         <t t-raw="reg_ind"/>
                                                     </t>
                                                     <t t-else="">
@@ -160,13 +160,13 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <b>Índice de Rechazo (%) x SP</b>
+                                                <b>Índice de Rejection (%) x SP</b>
                                             </td>
                                             <t t-set="ps_auxo" t-value="-1"/>
                                             <t t-foreach="productive_lines_aux" t-as="pl">
                                                 <t t-if="pl.productive_section_id.id != ps_auxo">
                                                     <t t-set="reg_ind_sp"
-                                                       t-value="pl.productive_section_id.get_ind_rechazo(start_date,end_date,turn)"/>
+                                                       t-value="pl.productive_section_id.get_ind_rejection(start_date,end_date,turn)"/>
 
                                                     <td t-if="reg_ind_sp > 0" t-att-colspan="len(pl.productive_section_id.productive_line_ids)" align="center">
                                                         <t t-raw="reg_ind_sp"/>
@@ -191,7 +191,7 @@
         </template>
 
         <report id="prod_and_reg_amf_report_action"
-                string="Rep. de Prod. Rechazo de las AMF"
+                string="Rep. de Prod. Rejection de las AMF"
                 model="process_control.prod_reg_amf_report_wzd"
                 report_type="qweb-pdf"
                 file="process_control.prod_and_reg_amf_report"

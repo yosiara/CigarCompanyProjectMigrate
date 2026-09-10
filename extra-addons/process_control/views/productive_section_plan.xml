@@ -20,7 +20,7 @@
                             </group>
                             <group>
                                 <field name="indice_planif_efici_real"/>
-                                <field name="indice_planif_rechazo"/>
+                                <field name="indice_planif_rejection"/>
                                 <field name="indice_planif_disp_tec"/>
                             </group>
                         </group>
@@ -40,7 +40,7 @@
                     <field name="productive_capacity"/>
                     <field name="quantity_line"/>
                     <field name="indice_planif_efici_real"/>
-                    <field name="indice_planif_rechazo"/>
+                    <field name="indice_planif_rejection"/>
                     <field name="indice_planif_disp_tec"/>
                     <field name="indice_planif_norma"/>
                 </list>
