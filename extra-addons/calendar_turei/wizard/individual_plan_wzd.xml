@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="calendar_print_individual_plan_wzd_view_form" model="ir.ui.view">
+        <field name="name">calendar_turei.print_individual_plan.form</field>
+        <field name="model">calendar_turei.print_individual_plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="type" widget="radio"/>
+                        <field name="period_id" domain="[('anual','=',False)]"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                </group>
+                <footer>
+                    <div>
+                        <button name="print_individual_plan" string="Imprimir" type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Cerrar" class="oe_link"/>
+                    </div>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_calendar_print_individual_plan" model="ir.actions.act_window">
+        <field name="name">Imprimir Plan de Trabajo</field>
+        <field name="res_model">calendar_turei.print_individual_plan</field>
+        <field name="view_mode">form</field>
+        <field name="binding_view_types">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="print_individual_plan_menu"
+              parent="calendar_turei.calendar_turei_reports_menu"
+              name="Plan de Trabajo"
+              sequence="6"
+              action="action_calendar_print_individual_plan"
+              groups="base.group_user"/>
+</odoo>

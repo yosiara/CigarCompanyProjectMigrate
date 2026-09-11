@@ -1,1 +1,1 @@
-from . import individual_plan
+from . import individual_plan_wzd

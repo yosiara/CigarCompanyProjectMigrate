@@ -59,17 +59,17 @@
                                             <p align="right"><font face="Arial" style="font-size: 8pt">Aprobado por: </font></p>
                                         </td>
                                         <td width="24%" style="border: none; padding: 0cm">
-                                            <p align="left"><font face="Arial" style="font-size: 8pt"><span  t-esc="o['manager_name']"/></font>
+                                            <p align="left"><font face="Arial" style="font-size: 8pt"><span  t-out="o['manager_name']"/></font>
                                                 <br></br>
-                                            <font face="Arial" style="font-size: 8pt"><span  t-esc="o['manager_job']"/></font></p>
+                                            <font face="Arial" style="font-size: 8pt"><span  t-out="o['manager_job']"/></font></p>
                                         </td>
                                         <td width="30%" style="border: none; padding: 0cm">
                                             <p align="center"><font face="Arial" style="font-size: 8pt"><b>PLAN DE TRABAJO INDIVIDUAL</b>
                                             <br></br>
-                                            <b><span  t-esc="o['mes']"/> </b></font></p>
+                                            <b><span  t-out="o['mes']"/> </b></font></p>
                                         </td>
                                         <td width="30%" style="border: none; padding: 0cm">
-                                            <p align="right"><font face="Arial" style="font-size: 8pt">Área: <span t-esc="o['area']"/></font></p>
+                                            <p align="right"><font face="Arial" style="font-size: 8pt">Área: <span t-out="o['area']"/></font></p>
                                         </td>
                                     </tr>
                                     <tr valign="top">
@@ -91,7 +91,7 @@
                             <font face="Arial"><font style="font-size: 8pt"><span lang="es-ES"><b>ACTIVIDADES PRINCIPALES:</b></span>
                                 <t t-foreach="o['main_task_list']" t-as="t">
                                                 <font face="Arial" style="font-size: 8pt">
-                                                    <span t-esc="t"/>.
+                                                    <span t-out="t"/>.
                                                 </font>
                                     </t>
                             </font> </font>
@@ -105,7 +105,7 @@
                                             <t t-if="week[0]['dia']">
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <b>Lunes
-                                                        <span t-esc="week[0]['dia']"/>
+                                                        <span t-out="week[0]['dia']"/>
                                                     </b>
                                                 </font>
                                             </t>
@@ -115,7 +115,7 @@
                                             <t t-if="week[1]['dia']">
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <b>Martes
-                                                        <span t-esc="week[1]['dia']"/>
+                                                        <span t-out="week[1]['dia']"/>
                                                     </b>
                                                 </font>
                                             </t>
@@ -125,7 +125,7 @@
                                             <t t-if="week[2]['dia']">
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <b>Miercoles
-                                                        <span t-esc="week[2]['dia']"/>
+                                                        <span t-out="week[2]['dia']"/>
                                                     </b>
                                                 </font>
                                             </t>
@@ -135,7 +135,7 @@
                                             <t t-if="week[3]['dia']">
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <b>Jueves
-                                                        <span t-esc="week[3]['dia']"/>
+                                                        <span t-out="week[3]['dia']"/>
                                                     </b>
                                                 </font>
                                             </t>
@@ -145,7 +145,7 @@
                                             <t t-if="week[4]['dia']">
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <b>Viernes
-                                                        <span t-esc="week[4]['dia']"/>
+                                                        <span t-out="week[4]['dia']"/>
                                                     </b>
                                                 </font>
                                             </t>
@@ -155,7 +155,7 @@
                                             <t t-if="week[5]['dia']">
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <b>Sab.
-                                                        <span t-esc="week[5]['dia']"/>
+                                                        <span t-out="week[5]['dia']"/>
                                                     </b>
                                                 </font>
                                             </t>
@@ -164,7 +164,7 @@
                                             <t t-if="week[6]['dia']">
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <b>Dom.
-                                                        <span t-esc="week[6]['dia']"/>
+                                                        <span t-out="week[6]['dia']"/>
                                                     </b>
                                                 </font>
                                             </t>
@@ -176,10 +176,10 @@
                                             <p>
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <t t-foreach="week[0]['task']" t-as="task">
-                                                        <span t-esc="task['hour_start']"/>-
-                                                        <span t-esc="task['name']"/>
+                                                        <span t-out="task['hour_start']"/>-
+                                                        <span t-out="task['name']"/>
 <!--                                                        <t t-if="task['local']">-->
-<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                            <span t-out="task['local']"/>-->
 <!--                                                        </t>-->
                                                         <br/>
                                                     </t>
@@ -191,10 +191,10 @@
                                             <p>
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <t t-foreach="week[1]['task']" t-as="task">
-                                                        <span t-esc="task['hour_start']"/>-
-                                                        <span t-esc="task['name']"/>
+                                                        <span t-out="task['hour_start']"/>-
+                                                        <span t-out="task['name']"/>
 <!--                                                        <t t-if="task['local']">-->
-<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                            <span t-out="task['local']"/>-->
 <!--                                                        </t>-->
                                                         <br/>
                                                     </t>
@@ -206,10 +206,10 @@
                                             <p>
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <t t-foreach="week[2]['task']" t-as="task">
-                                                        <span t-esc="task['hour_start']"/>-
-                                                        <span t-esc="task['name']"/>
+                                                        <span t-out="task['hour_start']"/>-
+                                                        <span t-out="task['name']"/>
 <!--                                                        <t t-if="task['local']">-->
-<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                            <span t-out="task['local']"/>-->
 <!--                                                        </t>-->
                                                         <br/>
                                                     </t>
@@ -221,10 +221,10 @@
                                             <p>
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <t t-foreach="week[3]['task']" t-as="task">
-                                                        <span t-esc="task['hour_start']"/>-
-                                                        <span t-esc="task['name']"/>
+                                                        <span t-out="task['hour_start']"/>-
+                                                        <span t-out="task['name']"/>
 <!--                                                        <t t-if="task['local']">-->
-<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                            <span t-out="task['local']"/>-->
 <!--                                                        </t>-->
                                                         <br/>
                                                     </t>
@@ -236,10 +236,10 @@
                                             <p>
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <t t-foreach="week[4]['task']" t-as="task">
-                                                        <span t-esc="task['hour_start']"/>-
-                                                        <span t-esc="task['name']"/>
+                                                        <span t-out="task['hour_start']"/>-
+                                                        <span t-out="task['name']"/>
 <!--                                                        <t t-if="task['local']">-->
-<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                            <span t-out="task['local']"/>-->
 <!--                                                        </t>-->
                                                         <br/>
                                                     </t>
@@ -251,10 +251,10 @@
                                             <p>
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <t t-foreach="week[5]['task']" t-as="task">
-                                                        <span t-esc="task['hour_start']"/>-
-                                                        <span t-esc="task['name']"/>
+                                                        <span t-out="task['hour_start']"/>-
+                                                        <span t-out="task['name']"/>
 <!--                                                        <t t-if="task['local']">-->
-<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                            <span t-out="task['local']"/>-->
 <!--                                                        </t>-->
                                                         <br/>
                                                     </t>
@@ -266,10 +266,10 @@
                                             <p>
                                                 <font face="Arial" style="font-size: 8pt">
                                                     <t t-foreach="week[6]['task']" t-as="task">
-                                                        <span t-esc="task['hour_start']"/>-
-                                                        <span t-esc="task['name']"/>
+                                                        <span t-out="task['hour_start']"/>-
+                                                        <span t-out="task['name']"/>
 <!--                                                        <t t-if="task['local']">-->
-<!--                                                            <span t-esc="task['local']"/>-->
+<!--                                                            <span t-out="task['local']"/>-->
 <!--                                                        </t>-->
                                                         <br/>
                                                     </t>
@@ -296,7 +296,7 @@
                                         <p align="center">
                                             <font face="Arial" style="font-size: 8pt">
                                                 <b>
-                                                    <span t-esc="o['job']"/>
+                                                    <span t-out="o['job']"/>
                                                 </b>
                                             </font>
                                         </p>
@@ -331,7 +331,7 @@
                                         <p align="center">
                                             <font face="Arial" style="font-size: 8pt">
                                                 <b>
-                                                    <span t-esc="o['name']"/>
+                                                    <span t-out="o['name']"/>
                                                 </b>
                                             </font>
                                         </p>

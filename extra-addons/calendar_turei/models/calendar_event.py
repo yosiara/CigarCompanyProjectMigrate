@@ -28,4 +28,3 @@ class Event(models.Model):
                 if member.employee_id.work_contact_id:
                     partner_ids |= member.employee_id.work_contact_id
         self.partner_ids = partner_ids
-

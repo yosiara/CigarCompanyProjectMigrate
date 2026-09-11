@@ -40,8 +40,8 @@ class CalendarPrintIndividualPlan(models.TransientModel):
     _description = "calendar_turei.print_individual_plan"
 
     # COLUMNS
-    date_start = fields.Date(related='period_id.date_start', store=True, readonly=True)
-    date_end = fields.Date(related='period_id.date_end', store=True, readonly=True)
+    start_date = fields.Date(related='period_id.start_date', store=True, readonly=True)
+    end_date = fields.Date(related='period_id.end_date', store=True, readonly=True)
     period_id = fields.Many2one('calendar_turei.periods', string='Período', required=True)
     type = fields.Selection([('plan', 'Plan')], 'Type', required=True,
                             default='plan')
@@ -57,8 +57,8 @@ class CalendarPrintIndividualPlan(models.TransientModel):
     # imprimir Tareas del Plan
     def print_individual_plan(self):
         data = {}
-        data['date_start'] = fields.Date().to_string(self.date_start)
-        data['date_end'] = fields.Date().to_string(self.date_end)
+        data['start_date'] = fields.Date().to_string(self.start_date)
+        data['end_date'] = fields.Date().to_string(self.end_date)
         data['periodo'] = self.period_id.name
         data['text'] = self.text
         employee = self.env.user.employee_id #self.sudo().env['hr.employee'].browse(data['employee_id'])
@@ -72,8 +72,8 @@ class CalendarPrintIndividualPlan(models.TransientModel):
                 # se aprueban las tareas y las tareas recurrentes deben convertirse en tareas fisicas o no virtuales
                 # se buscan la tareas recurrentes del grupo en el periodo del año actual
                 # se fija el rango de fecha al año actual para las tareas recurrentes
-                fecha_start = datetime.strptime(data['date_start'], DEFAULT_SERVER_DATE_FORMAT)
-                fecha_stop = datetime.strptime(data['date_end'], DEFAULT_SERVER_DATE_FORMAT)
+                fecha_start = datetime.strptime(data['start_date'], DEFAULT_SERVER_DATE_FORMAT)
+                fecha_stop = datetime.strptime(data['end_date'], DEFAULT_SERVER_DATE_FORMAT)
 
             report_obj = self.env['ir.actions.report']
             data['enable_editor'] = 0
@@ -82,15 +82,15 @@ class CalendarPrintIndividualPlan(models.TransientModel):
             model = self.env.context.get('active_model')
 
             event_obj = self.env['calendar.event']
-            date_start = data['date_start']
-            date_end = data['date_end']
+            start_date = data['start_date']
+            end_date = data['end_date']
             employee = employee #self.env['hr.employee'].browse(data['employee_id'])
             partner_id = partner_id #employee.user_id.partner_id.id
             # IMPORTANTE!!
             event_list = []  # esta lista se utiliza para almacenar los dias con el listado de tareas
             # se toman las tareas que no son recurrentes en el rango de fechas
             event_ids = event_obj.search(
-                [('partner_ids', 'in', partner_id), ('start', '>=', date_start), ('start', '<=', date_end),
+                [('partner_ids', 'in', partner_id), ('start', '>=', start_date), ('start', '<=', end_date),
                  ('recurrency', '=', False)])
             for e in event_ids:
                 # take the user timezone
@@ -117,7 +117,7 @@ class CalendarPrintIndividualPlan(models.TransientModel):
             # se buscan la tareas recurrentes
             # se tiene que buscar las tareas recurrentes del empleado en el periodo del año actual
             # se fija el rango de fecha al año actual para las tareas recurrentes
-            fecha = datetime.strptime(date_start, DEFAULT_SERVER_DATE_FORMAT)
+            fecha = datetime.strptime(start_date, DEFAULT_SERVER_DATE_FORMAT)
             year_first_day = str(fecha.year) + '-01-01'
             year_last_day = str(fecha.year) + '-12-31'
             rec_event_ids = event_obj.search(
@@ -125,7 +125,7 @@ class CalendarPrintIndividualPlan(models.TransientModel):
                  ('recurrency', '=', True)])
             for e in rec_event_ids:
                 event_start = str(e.start)[:10]
-                if date_start <= event_start <= date_end:
+                if start_date <= event_start <= end_date:
                     # take the user timezone
                     timezone = pytz.timezone(self._context.get('tz') or 'UTC')
                     startdate = pytz.UTC.localize(fields.Datetime.from_string(e.start))  # Add "+hh:mm" timezone
@@ -165,7 +165,7 @@ class CalendarPrintIndividualPlan(models.TransientModel):
             c = Calendar()
 
             # buscar la fecha de inicio de periodo para tomar el mes
-            fecha = datetime.strptime(date_start, DEFAULT_SERVER_DATE_FORMAT)
+            fecha = datetime.strptime(start_date, DEFAULT_SERVER_DATE_FORMAT)
 
             # actualmenete se toma el mes de la fecha de inicio del periodo
             # TODO: hacer esto dinamico para que se tome el rango definido en el periodo

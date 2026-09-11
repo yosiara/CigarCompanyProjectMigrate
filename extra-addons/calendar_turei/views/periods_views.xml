@@ -7,8 +7,8 @@
         <field name="arch" type="xml">
             <list string="Períodos" sample="1">
                 <field name="name"/>
-                <field name="date_start"/>
-                <field name="date_end"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
                 <field name="anual"/>
             </list>
         </field>
@@ -22,8 +22,8 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="date_start"/>
-                        <field name="date_end"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
                         <field name="anual"/>
                     </group>
                 </sheet>
