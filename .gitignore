@@ -3,15 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Translations
-*.mo
-*.po
-*.pot
-
 # Excluded Addons
 community-addons
 community-addons/
-l10n*/
 
 # VSCode
 .vscode/

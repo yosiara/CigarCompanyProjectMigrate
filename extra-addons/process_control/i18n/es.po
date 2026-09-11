@@ -1,0 +1,1123 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* process_control
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e-20250520\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-10 18:57+0000\n"
+"PO-Revision-Date: 2026-09-10 18:57+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.machine_kanban
+msgid "<strong>Type: </strong>"
+msgstr "<strong>Tipo: </strong>"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__message_needaction
+msgid "Action Needed"
+msgstr "Acción necesaria"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__activate
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__active
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__activate
+msgid "Active"
+msgstr "Activo"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de excepción de actividad"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_state
+msgid "Activity State"
+msgstr "Estado de actividad"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono de tipo de actividad"
+
+#. module: process_control
+#: model:ir.model.fields.selection,name:process_control.selection__process_control_tech_control__session__afternoon
+#: model:ir.model.fields.selection,name:process_control.selection__process_control_turn_attendance__session__afternoon
+#: model_terms:ir.ui.view,arch_db:process_control.tech_control_search
+msgid "Afternoon"
+msgstr "Tarde"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de adjuntos"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.wzd_compliance_planned_cdt_excel_report_form
+#: model_terms:ir.ui.view,arch_db:process_control.wzd_interruptions_excel_report_form
+#: model_terms:ir.ui.view,arch_db:process_control.wzd_interruptions_pdf_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__cause
+msgid "Cause *"
+msgstr "Causa *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__production_cigarette
+msgid "Cigarette Production *"
+msgstr "Producción de cigarrillos *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__rejection_cigarette
+msgid "Cigarette Rejection *"
+msgstr "Rechazo de cigarrillos *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__code
+msgid "Code"
+msgstr "Código"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_report_process_control_compliance_planned_cdt
+msgid "Compliance Planned CDT Report"
+msgstr "Informe de cumplimiento CDT planificado"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_compliance_planned_cdt_excel_wzd
+msgid "Compliance Planned CDT Report Wzd"
+msgstr "Asistente de informe de cumplimiento CDT planificado"
+
+#. module: process_control
+#: model:ir.ui.menu,name:process_control.menu_process_control_settings
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/models/db_production_connector.py:0
+msgid "Connection successful"
+msgstr "Conexión exitosa"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_compliance_planned_cdt_excel_wzd__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_excel_wzd__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_production_by_hours__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn__create_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_compliance_planned_cdt_excel_wzd__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_excel_wzd__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_production_by_hours__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn__create_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: process_control
+#: model:ir.ui.menu,name:process_control.dashboard_edit
+msgid "Dashboard"
+msgstr "Panel"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.tech_control_search
+msgid "Date"
+msgstr "Fecha"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__date
+msgid "Date *"
+msgstr "Fecha *"
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.action_turn_form
+msgid "Define the work schedule and work shifts."
+msgstr "Defina el horario y los turnos de trabajo."
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_compliance_planned_cdt_excel_wzd__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_excel_wzd__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_production_by_hours__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn__display_name
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__indice_planif_efici_real
+msgid "Efficiency Index (%) *"
+msgstr "Índice de eficiencia (%) *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_compliance_planned_cdt_excel_wzd__end_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__end_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_excel_wzd__end_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__end_date
+msgid "End Date *"
+msgstr "Fecha de fin *"
+
+#. module: process_control
+#: model:ir.model.fields,help:process_control.field_process_control_turn_attendance__hour_to
+msgid ""
+"End of working.\n"
+"A specific value of 24:00 is interpreted as 23:59:59.999999."
+msgstr ""
+"Fin de la jornada.\n"
+"Un valor específico de 24:00 se interpreta como 23:59:59.999999."
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/models/turn_attendance.py:0
+msgid "Error! There is a schedule overlap."
+msgstr "¡Error! Hay una superposición de horarios."
+
+#. module: process_control
+#: model:ir.model.fields.selection,name:process_control.selection__process_control_interruption_type__cause__external
+msgid "External"
+msgstr "Externa"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__filt
+msgid "Filtered by *"
+msgstr "Filtrado por *"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.wzd_interruptions_pdf_form
+msgid "Filtered by:"
+msgstr "Filtrado por:"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: process_control
+#: model:ir.model.fields,help:process_control.field_process_control_tech_control__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono de Font Awesome, ej. fa-tasks"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.tech_control_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_production_by_hours__turn_att_id
+msgid "Hour *"
+msgstr "Hora *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__hour_from
+msgid "Hour From *"
+msgstr "Hora desde *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__hour_to
+msgid "Hour To *"
+msgstr "Hora hasta *"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.production_by_hours_action
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__production_by_hours_ids
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__production_by_hours_ids
+#: model_terms:ir.ui.view,arch_db:process_control.tech_control_form
+msgid "Hourly Production"
+msgstr "Producción por hora"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_compliance_planned_cdt_excel_wzd__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_excel_wzd__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_production_by_hours__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn__id
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__id
+msgid "ID"
+msgstr "ID"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: process_control
+#: model:ir.model.fields,help:process_control.field_process_control_tech_control__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: process_control
+#: model:ir.model.fields,help:process_control.field_process_control_tech_control__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, los mensajes nuevos requieren su atención."
+
+#. module: process_control
+#: model:ir.model.fields,help:process_control.field_process_control_tech_control__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcado, algunos mensajes tienen un error de entrega."
+
+#. module: process_control
+#: model:ir.model.fields.selection,name:process_control.selection__process_control_interruption_type__cause__internal
+msgid "Internal"
+msgstr "Interna"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_interruption
+msgid "Interruption"
+msgstr "Interrupción"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.dashboard_view
+msgid "Interruption Details"
+msgstr "Detalles de interrupción"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_interruption_type
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__interruption_type_ids
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+msgid "Interruption Type"
+msgstr "Tipo de interrupción"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__interruption_type_domain
+msgid "Interruption Type Domain"
+msgstr "Dominio de tipo de interrupción"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.interruption_type_action
+#: model:ir.ui.menu,name:process_control.interruption_type_menu
+msgid "Interruption Types"
+msgstr "Tipos de interrupción"
+
+#. module: process_control
+#: model:ir.ui.menu,name:process_control.tech_control_menu
+msgid "Interruption/Production"
+msgstr "Interrupción/Producción"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.interruption_action
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__interruption_ids
+#: model_terms:ir.ui.view,arch_db:process_control.graph_interruption
+#: model_terms:ir.ui.view,arch_db:process_control.tech_control_form
+msgid "Interruptions"
+msgstr "Interrupciones"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.wzd_interruptions_excel_report_act_window
+#: model:ir.actions.act_window,name:process_control.wzd_interruptions_pdf_act_window
+#: model:ir.actions.report,name:process_control.interruptions_pdf_report_action
+#: model:ir.ui.menu,name:process_control.menu_interruptions_pdf_report
+#: model:ir.ui.menu,name:process_control.menu_wzd_interruptions_excel_report_report
+#: model_terms:ir.ui.view,arch_db:process_control.wzd_interruptions_excel_report_form
+#: model_terms:ir.ui.view,arch_db:process_control.wzd_interruptions_pdf_form
+msgid "Interruptions Report"
+msgstr "Informe de interrupciones"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_report_process_control_interruptions_excel_report
+msgid "Interruptions excel report"
+msgstr "Informe Excel de interrupciones"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_interruptions_excel_wzd
+msgid "Interruptions excel report wzd"
+msgstr "Asistente de informe Excel de interrupciones"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_report_process_control_interruptions_pdf_report
+msgid "Interruptions pdf report"
+msgstr "Informe PDF de interrupciones"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_interruptions_pdf_report_wzd
+msgid "Interruptions pdf report wzd"
+msgstr "Asistente de informe PDF de interrupciones"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__message_is_follower
+msgid "Is Follower"
+msgstr "Es seguidor"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_compliance_planned_cdt_excel_wzd__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_excel_wzd__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_production_by_hours__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn__write_uid
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_compliance_planned_cdt_excel_wzd__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_excel_wzd__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_production_by_hours__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn__write_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: process_control
+#: model:ir.model.fields.selection,name:process_control.selection__process_control_interruptions_pdf_report_wzd__filt__productive_line
+msgid "Line"
+msgstr "Línea"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__line_domain
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__line_domain
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__line_domain
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__line_domain
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__line_domain
+msgid "Line Domain"
+msgstr "Dominio de línea"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_machine
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__machine_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__machine_ids
+#: model:ir.model.fields.selection,name:process_control.selection__process_control_interruptions_pdf_report_wzd__filt__machine
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+msgid "Machine"
+msgstr "Máquina"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__machine_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__machine_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__machine_id
+msgid "Machine *"
+msgstr "Máquina *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__machine_domain
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__machine_domain
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__machine_domain
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__machine_domain
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__machine_domain
+msgid "Machine Domain"
+msgstr "Dominio de máquina"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_machine_set_of_peaces
+msgid "Machine Set Of Peaces"
+msgstr "Conjunto de piezas de máquina"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_machine_type
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__machine_type_related
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces__machine_type_ids
+msgid "Machine Type"
+msgstr "Tipo de máquina"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__machine_type_id
+msgid "Machine Type *"
+msgstr "Tipo de máquina *"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.machine_type_action
+#: model:ir.ui.menu,name:process_control.machine_type_menu
+msgid "Machine Types"
+msgstr "Tipos de máquina"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.machine_action
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line__machine_ids
+#: model:ir.ui.menu,name:process_control.machine_menu
+msgid "Machines"
+msgstr "Máquinas"
+
+#. module: process_control
+#: model:res.groups,name:process_control.group_process_control_manager
+msgid "Manager"
+msgstr "Gerente"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de entrega de mensaje"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: process_control
+#: model:ir.model.fields.selection,name:process_control.selection__process_control_tech_control__session__morning
+#: model:ir.model.fields.selection,name:process_control.selection__process_control_turn_attendance__session__morning
+#: model_terms:ir.ui.view,arch_db:process_control.tech_control_search
+msgid "Morning"
+msgstr "Mañana"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Fecha límite de mi actividad"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption_type__name
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__name
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_set_of_peaces__name
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine_type__name
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line__name
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__name
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__name
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn__name
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__name
+msgid "Name *"
+msgstr "Nombre *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Evento de calendario de próxima actividad"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Fecha límite de próxima actividad"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de próxima actividad"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo de próxima actividad"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+msgid "Number"
+msgstr "Número"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__quantity_line
+msgid "Number of Lines *"
+msgstr "Número de líneas *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: process_control
+#: model:ir.model.fields,help:process_control.field_process_control_tech_control__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Número de mensajes que requieren acción"
+
+#. module: process_control
+#: model:ir.model.fields,help:process_control.field_process_control_tech_control__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de entrega"
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/controller/main.py:0
+msgid "Odoo Server Error Trapped"
+msgstr "Error del servidor Odoo capturado"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__peaces_domain
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__peaces_domain
+msgid "Peaces Domain"
+msgstr "Dominio de piezas"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__productive_section_plan_id
+msgid "Plan *"
+msgstr "Plan *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__indice_planif_norma
+msgid "Plan Standard Index *"
+msgstr "Índice estándar del plan *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__plan_time
+msgid "Plan Time (Hour) *"
+msgstr "Tiempo planificado (horas) *"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.wzd_compliance_planned_cdt_excel_act_window
+#: model_terms:ir.ui.view,arch_db:process_control.wzd_compliance_planned_cdt_excel_report_form
+msgid "Planned CDT Compliance Report"
+msgstr "Informe de cumplimiento CDT planificado"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.wzd_compliance_planned_cdt_excel_report_form
+#: model_terms:ir.ui.view,arch_db:process_control.wzd_interruptions_excel_report_form
+#: model_terms:ir.ui.view,arch_db:process_control.wzd_interruptions_pdf_form
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: process_control
+#: model:ir.module.category,name:process_control.module_category_manufacturing_control
+msgid "Process Control"
+msgstr "Control de procesos"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_production_by_hours
+msgid "Production By Hours"
+msgstr "Producción por horas"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_production_by_hours__production_count
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__production_count
+msgid "Production Count *"
+msgstr "Recuento de producción *"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.tech_control_form
+msgid "Production and Rejection"
+msgstr "Producción y rechazo"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__productive_capacity
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__productive_capacity
+msgid "Productive Capacity *"
+msgstr "Capacidad productiva *"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_productive_line
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__productive_line_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__productive_line_ids
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__productive_line_id
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+msgid "Productive Line"
+msgstr "Línea productiva"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__productive_line_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__productive_line_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__productive_line_id
+msgid "Productive Line *"
+msgstr "Línea productiva *"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.productive_line_action
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__productive_line_ids
+#: model:ir.ui.menu,name:process_control.productive_line_menu
+msgid "Productive Lines"
+msgstr "Líneas productivas"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_productive_section
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__productive_section_ids
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__productive_section_ids
+#: model:ir.model.fields.selection,name:process_control.selection__process_control_interruptions_pdf_report_wzd__filt__productive_section
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+#: model_terms:ir.ui.view,arch_db:process_control.tech_control_search
+msgid "Productive Section"
+msgstr "Sección productiva"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__productive_section_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_line__productive_section_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__productive_section_id
+msgid "Productive Section *"
+msgstr "Sección productiva *"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_productive_section_plan
+msgid "Productive Section Plan"
+msgstr "Plan de sección productiva"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.productive_section_action
+#: model:ir.ui.menu,name:process_control.productive_section_menu
+msgid "Productive Sections"
+msgstr "Secciones productivas"
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/reports/xlsx/interruptions_excel_report.py:0
+msgid "Python Library Import Error."
+msgstr "Error de importación de biblioteca de Python."
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_rejection
+msgid "Rejection"
+msgstr "Rechazo"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__rejection_mod1_ids
+msgid "Rejection (NANO, SBO, SRC)"
+msgstr "Rechazo (NANO, SBO, SRC)"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__rejection_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__rejection_id
+msgid "Rejection *"
+msgstr "Rechazo *"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.rejection_amf_action
+#: model:ir.model,name:process_control.model_process_control_rejection_amf
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__rejection_amf_ids
+msgid "Rejection AMF"
+msgstr "Rechazo AMF"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__rejection_count
+msgid "Rejection Count *"
+msgstr "Recuento de rechazo *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__indice_planif_rejection
+msgid "Rejection Index (%) *"
+msgstr "Índice de rechazo (%) *"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.rejection_mod1_action
+#: model:ir.model,name:process_control.model_process_control_rejection_mod1
+msgid "Rejection Module 1"
+msgstr "Módulo de rechazo 1"
+
+#. module: process_control
+#: model:ir.ui.menu,name:process_control.menu_process_control_reports_pdf
+msgid "Reports PDF"
+msgstr "Informes PDF"
+
+#. module: process_control
+#: model:ir.ui.menu,name:process_control.menu_process_control_reports_xlsx
+msgid "Reports XLSX"
+msgstr "Informes XLSX"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__session
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__session
+msgid "Session *"
+msgstr "Sesión *"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.set_of_peaces_action
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__set_of_peaces_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__set_of_peaces_ids
+#: model:ir.ui.menu,name:process_control.set_of_peaces_menu
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+#: model_terms:ir.ui.view,arch_db:process_control.machine_form
+msgid "Set of Peaces"
+msgstr "Conjunto de piezas"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.productive_section_plan_action
+msgid "Standard and Indicator Planning"
+msgstr "Planificación estándar e indicadores"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_compliance_planned_cdt_excel_wzd__start_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__start_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_excel_wzd__start_date
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruptions_pdf_report_wzd__start_date
+msgid "Start Date *"
+msgstr "Fecha de inicio *"
+
+#. module: process_control
+#: model:ir.model.fields,help:process_control.field_process_control_tech_control__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Atrasado: La fecha límite ya pasó\n"
+"Hoy: La fecha de la actividad es hoy\n"
+"Planificado: Actividades futuras."
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+msgid "Summary of Interruptions since"
+msgstr "Resumen de interrupciones desde"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection__tech_control_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_amf__tech_control_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_rejection_mod1__tech_control_id
+msgid "Tech Control"
+msgstr "Control tecnológico"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__tech_control_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_production_by_hours__tech_control_id
+msgid "Tech Control *"
+msgstr "Control tecnológico *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__indice_planif_disp_tec
+msgid "Technical Availability Index (%) *"
+msgstr "Índice de disponibilidad técnica (%) *"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.tech_control_action
+#: model:ir.model,name:process_control.model_process_control_tech_control
+#: model:ir.ui.menu,name:process_control.menu_process_control_tech_control
+msgid "Technological Control"
+msgstr "Control tecnológico"
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/models/db_production_connector.py:0
+msgid "The connection to PostgreSQL was successful."
+msgstr "La conexión a PostgreSQL fue exitosa."
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/models/machine.py:0
+msgid "The line %s already has a machine of type %s associated with it."
+msgstr "La línea %s ya tiene asociada una máquina del tipo %s."
+
+#. module: process_control
+#: model:ir.model.constraint,message:process_control.constraint_process_control_machine_name_uniq
+msgid "The machine name must be unique!"
+msgstr "¡El nombre de la máquina debe ser único!"
+
+#. module: process_control
+#: model:ir.model.constraint,message:process_control.constraint_process_control_machine_set_of_peaces_name_uniq
+msgid "The name must be unique!"
+msgstr "¡El nombre debe ser único!"
+
+#. module: process_control
+#: model:ir.model.constraint,message:process_control.constraint_process_control_productive_section_plan_name_uniq
+msgid "The name of the Work Plan must be unique!"
+msgstr "¡El nombre del plan de trabajo debe ser único!"
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/models/machine.py:0
+msgid ""
+"The production line %s can only contain machines from its associated module."
+msgstr ""
+"La línea de producción %s solo puede contener máquinas de su módulo asociado."
+
+#. module: process_control
+#: model:ir.model.constraint,message:process_control.constraint_process_control_productive_section_name_uniq
+msgid "The production section name must be unique!"
+msgstr "¡El nombre de la sección productiva debe ser único!"
+
+#. module: process_control
+#: model:ir.model.constraint,message:process_control.constraint_process_control_productive_line_name_uniq
+msgid "The productive line already exists!"
+msgstr "¡La línea productiva ya existe!"
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/models/interruption.py:0
+msgid ""
+"The start and/or end time of the interruption is not within the range of the"
+" selected session."
+msgstr ""
+"La hora de inicio y/o fin de la interrupción no está dentro del rango de la"
+" sesión seleccionada."
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/models/interruption.py:0
+msgid "The start date %s must be earlier than the end date %s."
+msgstr "La fecha de inicio %s debe ser anterior a la fecha de fin %s."
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/wizard/interruptions_pdf_wzd.py:0
+msgid "The start date cannot be greater than the end date"
+msgstr "La fecha de inicio no puede ser mayor que la fecha de fin"
+
+#. module: process_control
+#: model:ir.model.constraint,message:process_control.constraint_process_control_turn_name_uniq
+msgid "The turn name must be unique!"
+msgstr "¡El nombre del turno debe ser único!"
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.production_by_hours_action
+msgid "There is no examples. Click here to add new Hourly Production."
+msgstr "No hay ejemplos. Haga clic aquí para agregar una nueva producción por hora."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.interruption_type_action
+msgid "There is no examples. Click here to add new Interruption Type."
+msgstr "No hay ejemplos. Haga clic aquí para agregar un nuevo tipo de interrupción."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.interruption_action
+msgid "There is no examples. Click here to add new Interruption."
+msgstr "No hay ejemplos. Haga clic aquí para agregar una nueva interrupción."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.tech_control_action
+msgid "There is no examples. Click here to add new Interruption/Production."
+msgstr "No hay ejemplos. Haga clic aquí para agregar una nueva interrupción/producción."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.machine_type_action
+msgid "There is no examples. Click here to add new Machine Type."
+msgstr "No hay ejemplos. Haga clic aquí para agregar un nuevo tipo de máquina."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.machine_action
+msgid "There is no examples. Click here to add new Machine."
+msgstr "No hay ejemplos. Haga clic aquí para agregar una nueva máquina."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.productive_line_action
+msgid "There is no examples. Click here to add new Productive Line."
+msgstr "No hay ejemplos. Haga clic aquí para agregar una nueva línea productiva."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.productive_section_action
+msgid "There is no examples. Click here to add new Productive Section."
+msgstr "No hay ejemplos. Haga clic aquí para agregar una nueva sección productiva."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.rejection_amf_action
+msgid "There is no examples. Click here to add new Rejection AMF."
+msgstr "No hay ejemplos. Haga clic aquí para agregar un nuevo rechazo AMF."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.rejection_mod1_action
+msgid "There is no examples. Click here to add new Rejection Module 1."
+msgstr "No hay ejemplos. Haga clic aquí para agregar un nuevo módulo de rechazo 1."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.set_of_peaces_action
+msgid "There is no examples. Click here to add new Set of Peaces."
+msgstr "No hay ejemplos. Haga clic aquí para agregar un nuevo conjunto de piezas."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.turn_attendance_action
+msgid "There is no examples. Click here to add new Work Detail."
+msgstr "No hay ejemplos. Haga clic aquí para agregar un nuevo detalle de trabajo."
+
+#. module: process_control
+#: model_terms:ir.actions.act_window,help:process_control.productive_section_plan_action
+msgid "There is no examples. Click here to add new Work Plan."
+msgstr "No hay ejemplos. Haga clic aquí para agregar un nuevo plan de trabajo."
+
+#. module: process_control
+#: model:ir.model.constraint,message:process_control.constraint_process_control_machine_type_name_uniq
+msgid "This type of machine already exists!"
+msgstr "¡Este tipo de máquina ya existe!"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+msgid "Time (hours)"
+msgstr "Tiempo (horas)"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+msgid "Total"
+msgstr "Total"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_turn
+#: model_terms:ir.ui.view,arch_db:process_control.tech_control_search
+msgid "Turn"
+msgstr "Turno"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__turn_id
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn_attendance__turn_id
+msgid "Turn *"
+msgstr "Turno *"
+
+#. module: process_control
+#: model:ir.model,name:process_control.model_process_control_turn_attendance
+msgid "Turn Attendance"
+msgstr "Asistencia de turno"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn__turn_attendance_context
+msgid "Turn Attendance Context"
+msgstr "Contexto de asistencia de turno"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_interruption__interruption_type_id
+msgid "Type *"
+msgstr "Tipo *"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_machine__set_of_peaces
+msgid "Type of Peaces *"
+msgstr "Tipo de piezas *"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.interruption_type_form
+msgid "Type of associated machines"
+msgstr "Tipo de máquinas asociadas"
+
+#. module: process_control
+#: model:ir.model.fields,help:process_control.field_process_control_tech_control__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción en el registro."
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.machine_form
+msgid "Type-Module-Line"
+msgstr "Tipo-Módulo-Línea"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.interruption_type_form
+msgid "Types of Interruptions"
+msgstr "Tipos de interrupciones"
+
+#. module: process_control
+#. odoo-python
+#: code:addons/process_control/models/db_production_connector.py:0
+msgid "Unable to connect to the PostgreSQL server {}:{}"
+msgstr "No se puede conectar al servidor PostgreSQL {}:{}"
+
+#. module: process_control
+#: model:res.groups,name:process_control.group_process_control_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.turn_attendance_action
+msgid "Work Details"
+msgstr "Detalles de trabajo"
+
+#. module: process_control
+#: model:ir.ui.menu,name:process_control.productive_section_plan_menu
+msgid "Work Plans"
+msgstr "Planes de trabajo"
+
+#. module: process_control
+#: model:ir.actions.act_window,name:process_control.action_turn_form
+#: model:ir.ui.menu,name:process_control.menu_turn
+msgid "Work Turns"
+msgstr "Turnos de trabajo"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.turn_view_form
+msgid "Working Hours"
+msgstr "Horas de trabajo"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_turn__turn_attendance_ids
+msgid "Working Time"
+msgstr "Tiempo de trabajo"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section_plan__year
+msgid "Year *"
+msgstr "Año *"
+
+#. module: process_control
+#: model_terms:ir.ui.view,arch_db:process_control.interruptions_pdf_report
+msgid "until"
+msgstr "hasta"
