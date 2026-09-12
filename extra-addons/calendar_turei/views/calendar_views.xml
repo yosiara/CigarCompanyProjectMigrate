@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
 
-    <!-- Calendar Events : Views and Actions  -->
-
+    <!-- Calendar Event : Form View -->
     <record id="view_calendar_event_form_inherit" model="ir.ui.view">
         <field name="name">calendar.event.form.inherit</field>
         <field name="model">calendar.event</field>
@@ -16,10 +15,8 @@
                 <label for="short_name">Nombre Corto</label>
                 <field name="short_name"/>
             </field>
-            <field name="allday" position="after">
-                <label for="task_type">Tipo</label>
+            <field name="event_tz" position="before">
                 <field name="task_type"/>
-                <label for="priority">Prioridad</label>
                 <field name="priority"/>
             </field>
             <field name="location" position="attributes">
@@ -31,7 +28,27 @@
             </xpath>
         </field>
     </record>
+    
+    <!-- Calendar Event : Form quick create View -->
+    <record id="view_calendar_event_form_quick_create_inherit" model="ir.ui.view">
+        <field name="name">calendar.event.form.quick.create.inherit</field>
+        <field name="model">calendar.event</field>
+        <field name="inherit_id" ref="calendar.view_calendar_event_form_quick_create"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="short_name" placeholder="Nombre Corto"/>
+            </xpath>
+            <xpath expr="//label[@for='videocall_location']" position="before">
+                <field name="location" placeholder="Reunión en línea" required="1"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_ids']" position="attributes">
+                <attribute name="required">1</attribute>
+                <attribute name="domain">[('type', '!=', 'private'), ('employee_ids', '!=', False)]</attribute>
+            </xpath>
+        </field>
+    </record>
 
+    <!-- Calendar Event : Calendar View -->
     <record id="view_calendar_event_calendar_inherit" model="ir.ui.view">
         <field name="name">calendar.event.calendar.inherit</field>
         <field name="model">calendar.event</field>
@@ -46,17 +63,6 @@
         </field>
     </record>
 
-    <record id="view_calendar_event_form_quick_create_inherit" model="ir.ui.view">
-        <field name="name">calendar.event.form.quick.create.inherit</field>
-        <field name="model">calendar.event</field>
-        <field name="inherit_id" ref="calendar.view_calendar_event_form_quick_create"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='partner_ids']" position="attributes">
-                <attribute name="domain">[('type', '!=', 'private'), ('employee_ids', '!=', False)]</attribute>
-            </xpath>
-        </field>
-    </record>
-    
     <menuitem
         id="calendar_turei_reports_menu"
         parent="calendar.mail_menu_calendar"
