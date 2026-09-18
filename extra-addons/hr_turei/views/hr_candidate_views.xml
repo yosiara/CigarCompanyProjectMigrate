@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========================================================= -->
+    <!-- VISTA HEREDADA DE hr.candidate (FORM)                     -->
+    <!-- ========================================================= -->
+    <record id="view_hr_candidate_form_inherit_personal_data" model="ir.ui.view">
+        <field name="name">hr.candidate.form.inherit.personal.data</field>
+        <field name="model">hr.candidate</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_candidate_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <!-- Pestaña: Datos Personales -->
+                <page string="Personal Data" name="personal_data">
+                    <group>
+                        <group string="Personal Information">
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="marital_status"/>
+                            <field name="birthplace"/>
+                            <field name="identity_number"/>
+                        </group>
+                        <group string="Address and Sizes">
+                            <field name="home_address"/>
+                            <field name="municipality"/>
+                            <field name="province"/>
+                            <field name="shoe_size"/>
+                            <field name="skirt_pants_size"/>
+                            <field name="blouse_shirt_size"/>
+                        </group>
+                    </group>
+                    <separator string="Organizations"/>
+                    <group class="o_row">
+                        <field name="belongs_pcc"/>
+                        <field name="belongs_ujc"/>
+                        <field name="belongs_cdr"/>
+                        <field name="belongs_fmc"/>
+                        <field name="belongs_bpd"/>
+                        <field name="belongs_ur"/>
+                        <field name="belongs_ctc"/>
+                        <field name="other_organizations"/>
+                    </group>
+                    <separator string="Family Members"/>
+                    <field name="family_member_ids" mode="list,form">
+                        <list editable="bottom">
+                            <field name="relation_type"/>
+                            <field name="name"/>
+                            <field name="alive"/>
+                            <field name="age"/>
+                            <field name="relationship"/>
+                        </list>
+                    </field>
+                </page>
+
+                <!-- Pestaña: Escolaridad -->
+                <page string="Education" name="education">
+                    <group>
+                        <group>
+                            <field name="educational_level"/>
+                        </group>
+                        <group>
+                            <field name="specialty"/>
+                        </group>
+                        <group string="Other Studies">
+                            <field name="other_studies" nolabel="1"/>
+                        </group>
+                        <group string="Self-taught Knowledge">
+                            <field name="self_taught_knowledge" nolabel="1"/>
+                        </group>
+                    </group>
+                </page>
+
+                <!-- Pestaña: Datos Laborales -->
+                <page string="Work Data" name="work_data">
+                    <group>
+                        <field name="currently_employed"/>
+                    </group>
+                    <group invisible="not currently_employed">
+                        <group>
+                            <field name="current_workplace"/>
+                            <field name="current_position"/>
+                            <field name="current_salary"/>
+                            <field name="years_of_experience"/>
+                        </group>
+                        <group>
+                            <field name="work_phone"/>
+                            <field name="work_address"/>
+                            <field name="work_municipality"/>
+                            <field name="work_province"/>
+                        </group>
+                    </group>
+                    <separator string="Previous Work Experience"/>
+                    <field name="work_experience_ids" mode="list,form">
+                        <list editable="bottom">
+                            <field name="company_name"/>
+                            <field name="position"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="current"/>
+                        </list>
+                    </field>
+                </page>
+
+                <!-- Pestaña: Otros Datos -->
+                <page string="Other Data" name="other_data">
+                    <group>
+                        <field name="last_resignation_reason" nolabel="1" placeholder="Last resignation reason"/>
+                        <field name="has_held_management_position"/>
+                    </group>
+                    <separator string="Management Positions"/>
+                    <field name="management_position_ids" mode="list,form">
+                        <list editable="bottom">
+                            <field name="company_name"/>
+                            <field name="position"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </list>
+                    </field>
+                    <group>
+                        <field name="work_achievements" nolabel="1" placeholder="Work achievements"/>
+                        <!-- <field name="motivation_for_position" nolabel="1" placeholder="Motivation for position"/> -->
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- VISTAS PARA hr.candidate.family.member                    -->
+    <!-- ========================================================= -->
+    <record id="view_hr_candidate_family_member_list" model="ir.ui.view">
+        <field name="name">hr.candidate.family.member.list</field>
+        <field name="model">hr.candidate.family.member</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="relation_type"/>
+                <field name="name"/>
+                <field name="alive"/>
+                <field name="age"/>
+                <field name="relationship"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_candidate_family_member_form" model="ir.ui.view">
+        <field name="name">hr.candidate.family.member.form</field>
+        <field name="model">hr.candidate.family.member</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="relation_type"/>
+                    <field name="name"/>
+                    <field name="alive"/>
+                    <field name="age"/>
+                    <field name="relationship"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- VISTAS PARA hr.candidate.work.experience                  -->
+    <!-- ========================================================= -->
+    <record id="view_hr_candidate_work_experience_list" model="ir.ui.view">
+        <field name="name">hr.candidate.work.experience.list</field>
+        <field name="model">hr.candidate.work.experience</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="company_name"/>
+                <field name="position"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="current"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_candidate_work_experience_form" model="ir.ui.view">
+        <field name="name">hr.candidate.work.experience.form</field>
+        <field name="model">hr.candidate.work.experience</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="company_name"/>
+                    <field name="position"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="current"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- VISTAS PARA hr.candidate.management.position              -->
+    <!-- ========================================================= -->
+    <record id="view_hr_candidate_management_position_list" model="ir.ui.view">
+        <field name="name">hr.candidate.management.position.list</field>
+        <field name="model">hr.candidate.management.position</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="company_name"/>
+                <field name="position"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hr_candidate_management_position_form" model="ir.ui.view">
+        <field name="name">hr.candidate.management.position.form</field>
+        <field name="model">hr.candidate.management.position</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="company_name"/>
+                    <field name="position"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>
