@@ -15,9 +15,9 @@ class ResUsersExtended(models.Model):
         return username
     
     def _find_matching_employee(self, username: str):
-        """ Buscar empleado para vinculación """
+        """ Find a matching employee to link """
         
-        # Buscar por username@dominio
+        # Search by username@domain
         employee = self.env['hr.employee'].search([
             ('work_email', '=ilike', f'{username}@%'),
             ('work_contact_id', '!=', False),
@@ -27,10 +27,9 @@ class ResUsersExtended(models.Model):
 
         return employee
 
-    # ------------------------------------------------------------------------ #
-    #                           OVERRIDE METHODS                               #
-    # ------------------------------------------------------------------------ #
-
+    # -------------------------------------------------------------------------
+    # OVERRIDE METHODS
+    # -------------------------------------------------------------------------
     @api.model_create_multi
     def create(self, vals_list):
         user_per_employee = {}

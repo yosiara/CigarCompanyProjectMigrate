@@ -14,13 +14,16 @@ Hr Turei
 
 Customizing the employee module for the Lázaro Peña Cigar Company. Holguín, Cuba.
     """,
-    'depends': ['hr'],
+    'depends': ['hr', 'resource', 'hr_recruitment'],
     'auto_install': ['hr'],
     'data': [
-        #-----------------------data----------------------------------------#
+        # Data
         'data/cron_data.xml',
-        #-----------------------views----------------------------------------#
-        'views/hr_employee.xml',
-        'views/res_user.xml',
+        # Security
+        'security/ir.model.access.csv',
+        # Views
+        'views/hr_employee_views.xml',
+        'views/res_user_views.xml',
+        'views/hr_candidate_views.xml',
     ],
 }

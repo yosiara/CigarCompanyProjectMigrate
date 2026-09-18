@@ -70,7 +70,7 @@ class HREmployee(models.Model):
         3. Vincular usuarios
         4. Sincronizar datos con partners
         """
-        _logger.info("========== INICIANDO SINCRONIZACIÓN DE EMPLEADOS ==========")
+        _logger.info('========== INICIANDO SINCRONIZACIÓN DE EMPLEADOS ==========')
         
         employees = self.search([])
         users = self.user_id.search([])
@@ -90,15 +90,15 @@ class HREmployee(models.Model):
                 image_1920 = self._get_photo_from_documents(registration_number=employee.registration_number)
                 if image_1920 != employee.image_1920:
                     update_vals['image_1920'] = image_1920
-                    _logger.info(f"---->> Foto actualizada")
+                    _logger.info(f'---->> Foto actualizada')
 
                 # 2. Configuración regional específica para Cuba
                 if employee.lang != 'es_ES':
                     update_vals['lang'] = 'es_ES'
-                    _logger.info(f"---->> Idioma actualizado a Spanish/Español")
+                    _logger.info(f'---->> Idioma actualizado a Spanish/Español')
                 if employee.tz != 'America/Havana':
                     update_vals['tz'] = 'America/Havana'
-                    _logger.info(f"---->> Zona horaria actualizada a America/Havana")
+                    _logger.info(f'---->> Zona horaria actualizada a America/Havana')
                 
                 # 3. Vincular usuario si tiene email y no tiene usuario asignado
                 if employee.work_email and not employee.user_id:
@@ -106,7 +106,7 @@ class HREmployee(models.Model):
                     for i, user in enumerate(users_list):
                         if user.login == username:
                             update_vals['user_id'] = user.id
-                            _logger.info(f"--->> Usuario vinculado: {user.login}")
+                            _logger.info(f'--->> Usuario vinculado: {user.login}')
                             del users_list[i]
                             break
                 
@@ -127,12 +127,12 @@ class HREmployee(models.Model):
 
             except Exception as e:
                 error_count += 1
-                _logger.error(f"ERROR procesando empleado {employee.name}: {str(e)}")
+                _logger.error(f'ERROR procesando empleado {employee.name}: {str(e)}')
 
         # Resumen final
-        _logger.info("========== SINCRONIZACIÓN COMPLETADA ==========")
-        _logger.info(f"Empleados procesados: {success_count}")
-        _logger.info(f"Errores: {error_count}")
+        _logger.info('========== SINCRONIZACIÓN COMPLETADA ==========')
+        _logger.info(f'Empleados procesados: {success_count}')
+        _logger.info(f'Errores: {error_count}')
 
         return
         

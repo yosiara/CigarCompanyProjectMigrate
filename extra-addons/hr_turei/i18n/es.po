@@ -1,0 +1,502 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_turei
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e-20250520\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-18 22:35+0000\n"
+"PO-Revision-Date: 2026-09-18 22:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__educational_level__2nd_grade
+msgid "2nd Grade"
+msgstr "2do Grado"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__educational_level__6th_grade
+msgid "6th Grade"
+msgstr "6to Grado"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__educational_level__9th_grade
+msgid "9th Grade"
+msgstr "9no Grado"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Address and Sizes"
+msgstr "Dirección y Tallas"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__age
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__age
+msgid "Age"
+msgstr "Edad"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__alive
+msgid "Alive"
+msgstr "Vive"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_bpd
+msgid "BPD"
+msgstr "BPD"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__birthplace
+msgid "Birthplace"
+msgstr "Lugar de Nacimiento"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__blouse_shirt_size
+msgid "Blouse/Shirt Size"
+msgstr "Talla de Blusa o Camisa"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_cdr
+msgid "CDR"
+msgstr "CDR"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_ctc
+msgid "CTC"
+msgstr "CTC"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_candidate
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__candidate_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__candidate_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__candidate_id
+msgid "Candidate"
+msgstr "Candidato"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_candidate_family_member
+msgid "Candidate Family Member"
+msgstr "Familiar del Candidato"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_candidate_management_position
+msgid "Candidate Management Position"
+msgstr "Cargo de Dirección del Candidato"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_candidate_work_experience
+msgid "Candidate Work Experience"
+msgstr "Experiencia Laboral del Candidato"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate_family_member__relation_type__child
+msgid "Child"
+msgstr "Hijo"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__educational_level__chiv
+msgid "Chiv."
+msgstr "Chiv."
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate_family_member__relation_type__cohabitant
+msgid "Cohabitant"
+msgstr "Conviviente"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__company_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__company_name
+msgid "Company Name"
+msgstr "Nombre del Centro"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__marital_status__consensual_union
+msgid "Consensual Union"
+msgstr "Unión Consensual"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__current
+msgid "Current"
+msgstr "Actual"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__current_position
+msgid "Current Position"
+msgstr "Cargo que Desempeña"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__current_salary
+msgid "Current Salary"
+msgstr "Salario Actual"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__current_workplace
+msgid "Current Workplace"
+msgstr "Centro de Trabajo Actual"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__currently_employed
+msgid "Currently Employed"
+msgstr "Trabaja Actualmente"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__marital_status__divorced
+msgid "Divorced"
+msgstr "Divorciado"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Education"
+msgstr "Escolaridad"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__educational_level
+msgid "Educational Level"
+msgstr "Nivel Escolar Vencido"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_fmc
+msgid "FMC"
+msgstr "FMC"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__family_member_ids
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Family Members"
+msgstr "Datos Familiares"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate_family_member__relation_type__father
+msgid "Father"
+msgstr "Padre"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__gender__female
+msgid "Female"
+msgstr "Femenino"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__date_from
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__date_from
+msgid "From"
+msgstr "Desde"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__gender
+msgid "Gender"
+msgstr "Sexo"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__has_held_management_position
+msgid "Has Held Management Position"
+msgstr "¿Ha Ocupado Cargos de Dirección?"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__home_address
+msgid "Home Address"
+msgstr "Dirección Particular"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__id
+msgid "ID"
+msgstr "ID"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__identity_number
+msgid "Identity Number"
+msgstr "No. Identidad"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__educational_level__illiterate
+msgid "Illiterate"
+msgstr "Analfabeto"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización el"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Last resignation reason"
+msgstr "Motivos de la Última Baja"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__gender__male
+msgid "Male"
+msgstr "Masculino"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__management_position_ids
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Management Positions"
+msgstr "Cargos de Dirección"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__marital_status
+msgid "Marital Status"
+msgstr "Estado Civil"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__marital_status__married
+msgid "Married"
+msgstr "Casado"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate_family_member__relation_type__mother
+msgid "Mother"
+msgstr "Madre"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__municipality
+msgid "Municipality"
+msgstr "Municipio"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_employee_filter_inherit
+msgid "No photo"
+msgstr "Sin foto"
+
+#. module: hr_turei
+#. odoo-python
+#: code:addons/hr_turei/models/resource_resource.py:0
+msgid ""
+"Only those responsible for managing employees can create human resources."
+msgstr ""
+"Solo los responsables de gestionar empleados pueden crear recursos humanos."
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Organizations"
+msgstr "Organizaciones"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Other Data"
+msgstr "Otros Datos"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__other_organizations
+msgid "Other Organizations"
+msgstr "Otras Organizaciones"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__other_studies
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Other Studies"
+msgstr "Otros Estudios"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_pcc
+msgid "PCC"
+msgstr "PCC"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Personal Data"
+msgstr "Datos Personales"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Personal Information"
+msgstr "Información Personal"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__position
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__position
+msgid "Position"
+msgstr "Cargo"
+
+#. module: hr_turei
+#: model:ir.actions.server,name:hr_turei.cron_prepare_data_ir_actions_server
+msgid "Prepare data"
+msgstr "Preparar datos"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Previous Work Experience"
+msgstr "Experiencia Laboral Anterior"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__province
+msgid "Province"
+msgstr "Provincia"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__last_resignation_reason
+msgid "Reason for Last Resignation"
+msgstr "Motivos de la Última Baja"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__relation_type
+msgid "Relation Type"
+msgstr "Tipo de Relación"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__relationship
+msgid "Relationship"
+msgstr "Parentesco"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_resource_resource
+msgid "Resources"
+msgstr "Recursos"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Self-taught Knowledge"
+msgstr "Conocimientos Autodidactas"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__self_taught_knowledge
+msgid "Self-taught Knowledge and Skills"
+msgstr "Conocimientos y Habilidades Adquiridos por Auto Preparación"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__shoe_size
+msgid "Shoe Size"
+msgstr "Talla de Calzado"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__marital_status__single
+msgid "Single"
+msgstr "Soltero"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__skirt_pants_size
+msgid "Skirt/Pants Size"
+msgstr "Talla de Saya o Pantalón"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__specialty
+msgid "Specialty"
+msgstr "Especialidad"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate_family_member__relation_type__spouse
+msgid "Spouse"
+msgstr "Cónyuge"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__educational_level__technical_medium
+msgid "Technical Medium"
+msgstr "Técnico Medio"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__date_to
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__date_to
+msgid "To"
+msgstr "Hasta"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_ujc
+msgid "UJC"
+msgstr "UJC"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_ur
+msgid "UR"
+msgstr "UR"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_res_users
+msgid "User"
+msgstr "Usuario"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__marital_status__widowed
+msgid "Widowed"
+msgstr "Viudo"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__work_achievements
+msgid "Work Achievements"
+msgstr "Logros Laborales"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__work_address
+msgid "Work Address"
+msgstr "Dirección del Trabajo"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Work Data"
+msgstr "Datos Laborales"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__work_experience_ids
+msgid "Work Experience"
+msgstr "Experiencia Laboral"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__work_municipality
+msgid "Work Municipality"
+msgstr "Municipio del Trabajo"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__work_phone
+msgid "Work Phone"
+msgstr "Teléfono del Trabajo"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__work_province
+msgid "Work Province"
+msgstr "Provincia del Trabajo"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
+msgid "Work achievements"
+msgstr "Logros Laborales"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__years_of_experience
+msgid "Years of Work Experience"
+msgstr "Años de Experiencia Laboral"
