@@ -8,18 +8,29 @@ class Machine(models.Model):
     _description = 'Machine'
 
     name = fields.Char('Name *', required=True)
-    machine_type_id = fields.Many2one('process_control.machine_type', string='Machine Type *', required=True)
-    productive_section_id = fields.Many2one('process_control.productive_section', string='Productive Section *', required=True)
-    productive_line_id = fields.Many2one('process_control.productive_line', string='Productive Line')
+    machine_type_id = fields.Many2one(
+        comodel_name='process_control.machine_type', 
+        string='Machine Type *', 
+        required=True, 
+    )
+    productive_section_id = fields.Many2one(
+        comodel_name='process_control.productive_section', 
+        string='Productive Section *', 
+        required=True, 
+    )
+    productive_line_id = fields.Many2one(
+        comodel_name='process_control.productive_line', 
+        string='Productive Line', 
+    )
     line_domain = fields.Binary(compute='_get_line_domain', exportable=False)
     set_of_peaces = fields.Many2many(
         comodel_name='process_control.machine_set_of_peaces', 
         relation='process_control_machine_machine_set_of_peaces_asoc', 
         column1='machine_id', 
         column2='machine_set_of_peaces_id',
+        string='Type of Peaces *',
         ondelete='restrict',
         required=True, 
-        string='Type of Peaces *',
     )
 
     _sql_constraints = [

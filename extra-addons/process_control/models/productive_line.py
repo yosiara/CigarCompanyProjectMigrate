@@ -1,14 +1,22 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models, tools
+from odoo import api, fields, models, tools, _
 
 class ProductiveLine(models.Model):
     _name = 'process_control.productive_line'
     _description = 'Productive Line'
     _order = 'name'
 
-    name = fields.Char('Name *', required=True, default='Line ')
-    machine_ids = fields.One2many('process_control.machine', string='Machines', inverse_name='productive_line_id')
-    productive_section_id = fields.Many2one('process_control.productive_section', string='Productive Section *', required=True)
+    name = fields.Char('Name *', required=True, default='Línea ')
+    machine_ids = fields.One2many(
+        comodel_name='process_control.machine', 
+        inverse_name='productive_line_id', 
+        string='Machines', 
+    )
+    productive_section_id = fields.Many2one(
+        comodel_name='process_control.productive_section', 
+        string='Productive Section *', 
+        required=True, 
+    )
 
     _sql_constraints = [
         ('name_uniq', 'unique(name)', 'The productive line already exists!'),

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models, tools
+from odoo import api, fields, models, tools, _
 from odoo.exceptions import ValidationError
 
 
@@ -8,10 +8,23 @@ class ProductiveSection(models.Model):
     _description = 'Productive Section'
     _order = 'name'
 
-    name = fields.Char('Name *', required=True, default='Productive Section ')
-    productive_section_plan_id = fields.Many2one('process_control.productive_section_plan', string='Plan *', required=True)
+    name = fields.Char('Name *', required=True, default='Módulo ')
     active = fields.Boolean(string='Active', default=True)
-    productive_line_ids = fields.One2many('process_control.productive_line', inverse_name='productive_section_id', string='Productive Lines')
+    productive_section_plan_id = fields.Many2one(
+        comodel_name='process_control.productive_section_plan', 
+        string='Plan *', 
+        required=True, 
+    )
+    productive_line_ids = fields.One2many(
+        comodel_name='process_control.productive_line', 
+        inverse_name='productive_section_id', 
+        string='Productive Lines', 
+    )
+    machine_ids = fields.One2many(
+        comodel_name='process_control.machine', 
+        inverse_name='productive_section_id', 
+        string='Machines', 
+    )
 
     _sql_constraints = [
         ('name_uniq', 'unique(name)', 'The production section name must be unique!'),

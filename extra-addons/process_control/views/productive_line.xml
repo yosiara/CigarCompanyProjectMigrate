@@ -14,9 +14,18 @@
                             <group>
                                 <field name="productive_section_id"/>
                             </group>
-                            <!-- <group colspan="2">
-                                <field name="machine_ids" widget="many2many_tags"/>
-                            </group> -->
+                            
+                            <notebook>
+                                <page string="Machines" name="machine">
+                                    <field name="machine_ids" readonly="1">
+                                        <list>
+                                            <field name="name"/>
+                                            <field name="machine_type_id" widget="badge"/>
+                                            <field name="set_of_peaces" widget="many2many_tags"/>
+                                        </list>
+                                    </field>
+                                </page>
+                            </notebook>
                         </group>
                     </sheet>
                 </form>

@@ -328,6 +328,7 @@ msgstr "Si está marcado, los mensajes nuevos requieren su atención."
 
 #. module: process_control
 #: model:ir.model.fields,help:process_control.field_process_control_tech_control__message_has_error
+#: model:ir.model.fields,help:process_control.field_process_control_tech_control__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si está marcado, algunos mensajes tienen un error de entrega."
 
@@ -522,7 +523,10 @@ msgstr "Tipos de máquina"
 #. module: process_control
 #: model:ir.actions.act_window,name:process_control.machine_action
 #: model:ir.model.fields,field_description:process_control.field_process_control_productive_line__machine_ids
+#: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__machine_ids
 #: model:ir.ui.menu,name:process_control.machine_menu
+#: model_terms:ir.ui.view,arch_db:process_control.control_proc_productive_line_view_form
+#: model_terms:ir.ui.view,arch_db:process_control.productive_section_form
 msgid "Machines"
 msgstr "Máquinas"
 
@@ -658,8 +662,9 @@ msgstr "Imprimir"
 
 #. module: process_control
 #: model:ir.module.category,name:process_control.module_category_manufacturing_control
+#: model:ir.ui.menu,name:process_control.menu_proccess_control_root
 msgid "Process Control"
-msgstr "Control de procesos"
+msgstr "Control Proceso"
 
 #. module: process_control
 #: model:ir.model,name:process_control.model_process_control_production_by_hours
@@ -703,6 +708,7 @@ msgstr "Línea productiva *"
 #: model:ir.actions.act_window,name:process_control.productive_line_action
 #: model:ir.model.fields,field_description:process_control.field_process_control_productive_section__productive_line_ids
 #: model:ir.ui.menu,name:process_control.productive_line_menu
+#: model_terms:ir.ui.view,arch_db:process_control.productive_section_form
 msgid "Productive Lines"
 msgstr "Líneas productivas"
 
@@ -741,6 +747,11 @@ msgid "Python Library Import Error."
 msgstr "Error de importación de biblioteca de Python."
 
 #. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__rating_ids
+msgid "Ratings"
+msgstr "Calificaciones"
+
+#. module: process_control
 #: model:ir.model,name:process_control.model_process_control_rejection
 msgid "Rejection"
 msgstr "Rechazo"
@@ -777,7 +788,7 @@ msgstr "Índice de rechazo (%) *"
 #: model:ir.actions.act_window,name:process_control.rejection_mod1_action
 #: model:ir.model,name:process_control.model_process_control_rejection_mod1
 msgid "Rejection Module 1"
-msgstr "Módulo de rechazo 1"
+msgstr "Rechazo Módulo 1"
 
 #. module: process_control
 #: model:ir.ui.menu,name:process_control.menu_process_control_reports_pdf
@@ -793,6 +804,11 @@ msgstr "Informes XLSX"
 #: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__activity_user_id
 msgid "Responsible User"
 msgstr "Usuario responsable"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega de SMS"
 
 #. module: process_control
 #: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__session
@@ -1067,6 +1083,7 @@ msgstr "Tipo de actividad de excepción en el registro."
 
 #. module: process_control
 #: model_terms:ir.ui.view,arch_db:process_control.machine_form
+#: model_terms:ir.ui.view,arch_db:process_control.productive_section_form
 msgid "Type-Module-Line"
 msgstr "Tipo-Módulo-Línea"
 
@@ -1085,6 +1102,16 @@ msgstr "No se puede conectar al servidor PostgreSQL {}:{}"
 #: model:res.groups,name:process_control.group_process_control_user
 msgid "User"
 msgstr "Usuario"
+
+#. module: process_control
+#: model:ir.model.fields,field_description:process_control.field_process_control_tech_control__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del sitio web"
+
+#. module: process_control
+#: model:ir.model.fields,help:process_control.field_process_control_tech_control__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"
 
 #. module: process_control
 #: model:ir.actions.act_window,name:process_control.turn_attendance_action

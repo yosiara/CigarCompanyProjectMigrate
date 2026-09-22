@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 from datetime import time
 
 class Turn(models.Model):
     _name = 'process_control.turn'
     _description = 'Turn'
 
-    name = fields.Char(string='Name *', required=True, default='Turn ')
+    name = fields.Char(string='Name *', required=True, default='Turno ')
     turn_attendance_ids = fields.One2many('process_control.turn_attendance', inverse_name='turn_id', string='Working Time')
     turn_attendance_context = fields.Binary(compute='_context_turn_attendance', exportable=False)
 

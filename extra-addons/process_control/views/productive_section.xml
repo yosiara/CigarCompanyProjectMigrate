@@ -16,19 +16,28 @@
                                 <!-- <field name="tec_model_type"/> -->
                                 <field name="productive_section_plan_id" domain="[('activate', '=', True)]"/>
                             </group>
-                            <group colspan="2">
-                                <field name="productive_line_ids">
-                                    <form>
-                                        <sheet>
-                                            <group>
-                                                <group>
-                                                    <field name="name"/>
-                                                </group>
-                                            </group>
-                                        </sheet>
-                                    </form>
-                                </field>
-                            </group>
+
+                            <notebook>
+                                <page string="Productive Lines" name="productive_line">
+                                    <field name="productive_line_ids" readonly="1">
+                                        <list>
+                                            <field name="name"/>
+                                            <field name="machine_ids"/>
+                                        </list>
+                                    </field>
+                                </page>
+                                <page string="Machines" name="machine">
+                                    <field name="machine_ids" readonly="1">
+                                        <list>
+                                            <field name="name" placeholder="Type-Module-Line"/>
+                                            <field name="machine_type_id"/>
+                                            <field name="line_domain" column_invisible="1"/>
+                                            <field name="productive_line_id" domain="line_domain"/>
+                                            <field name="set_of_peaces"/>
+                                        </list>
+                                    </field>
+                                </page>
+                            </notebook>
                         </group>
                     </sheet>
                 </form>
