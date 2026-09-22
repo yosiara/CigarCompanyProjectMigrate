@@ -140,6 +140,19 @@ class HREmployee(models.Model):
     #                           OVERRIDE METHODS                               #
     # ------------------------------------------------------------------------ #
 
+    parent_id = fields.Many2one('hr.employee', 'Manager', compute="_compute_parent_id", store=True, readonly=True,
+        domain="['|', ('company_id', '=', False), ('company_id', 'in', allowed_company_ids)]")
+
+    @api.depends('department_id', 'department_id.manager_id', 'department_id.parent_id', 'department_id.parent_id.manager_id')
+    def _compute_parent_id(self):
+        for employee in self:
+            department = employee.department_id
+            if not department:
+                employee.parent_id = False
+                continue
+            # El empleado es manager → subimos al manager del depto padre
+            employee.parent_id = department.parent_id.manager_id if employee == department.manager_id else department.manager_id
+
     def _remove_work_contact_id(self, user, employee_company):
         """ Remove work_contact_id for previous employee if the user is assigned to a new employee """
         employee_company = employee_company or self.company_id.id
