@@ -1,34 +1,45 @@
 # -*- coding: utf-8 -*-
-import logging
-
-from odoo import api, fields, models, Command
-from datetime import datetime, timedelta
-
-_logger = logging.getLogger(__name__)
+from odoo import api, fields, models
 
 
-class Event(models.Model):
+class CalendarEvent(models.Model):
     _inherit = 'calendar.event'
-    _order = 'start ASC'
 
-    group_task = fields.Boolean('Tarea de Grupo', default=False)
+    group_task = fields.Boolean(string='Group Task', default=False)
     organizational_groups_ids = fields.Many2many('calendar_turei.organizational_groups')
-    short_name = fields.Char(string='Nombre corto', size=30, required=True)
-    task_type = fields.Selection([('Plan', 'Plan'), ('Extra Plan', 'Extra Plan')], string='Tipo', default='Plan', required=True)
-    priority = fields.Selection([('1', 'Normal'), ('2', 'Alta')], string='Prioridad', default='1', required=True)
+    short_name = fields.Char(string='Short Name *', size=30, required=True, default='')
+    task_type = fields.Selection(
+        selection=[
+            ('plan', 'Plan'),
+            ('extra_plan', 'Extra Plan'),
+        ],
+        string='Task Type *',
+        default='plan',
+        required=True,
+    )
+    priority = fields.Selection(
+        selection=[
+            ('1', 'Normal'),
+            ('2', 'High'),
+        ],
+        string='Priority *',
+        default='1',
+        required=True,
+    )
 
     # ============================================================
     # ONCHANGE METHODS
     # ============================================================
-    @api.onchange('organizational_groups_ids')
+    @api.onchange('group_task', 'organizational_groups_ids')
     def _onchange_organizational_groups_ids(self):
-        """Autocompletar partners/asistentes según grupos organizativos seleccionados"""
-        partner_ids = self.env['res.partner']
-        for group in self.organizational_groups_ids:
-            for member in group.members_groups_ids:
-                if member.employee_id.work_contact_id:
-                    partner_ids |= member.employee_id.work_contact_id
-        self.partner_ids = partner_ids
+        """ Autocompletar asistentes desde los grupos organizativos """
+        if not self.group_task:
+            self.partner_ids = self.env.user.partner_id
+            return
+        partners = self.env.company.partner_id
+        if self.organizational_groups_ids:
+            partners |= self.organizational_groups_ids.members_groups_ids.employee_id.work_contact_id
+        self.partner_ids = partners
 
     # ============================================================
     # OVERRIDE METHODS

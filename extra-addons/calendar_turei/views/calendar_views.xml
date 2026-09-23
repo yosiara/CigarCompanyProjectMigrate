@@ -12,7 +12,7 @@
                 <field name="organizational_groups_ids" invisible="group_task == False" required="group_task == True" widget="many2many_tags"/>
             </field>
             <field name="name" position="after">
-                <label for="short_name">Nombre Corto</label>
+                <label for="short_name">Short Name</label>
                 <field name="short_name"/>
             </field>
             <field name="event_tz" position="before">
@@ -24,7 +24,7 @@
             </field>
             <xpath expr="//field[@name='partner_ids']" position="attributes">
                 <attribute name="required">1</attribute>
-                <attribute name="domain">[('type', '!=', 'private'), ('employee_ids', '!=', False)]</attribute>
+                <attribute name="domain">[('type', '!=', 'private'), '|', ('employee_ids', '!=', False), ('is_company', '=', True)]</attribute>
             </xpath>
         </field>
     </record>
@@ -36,14 +36,14 @@
         <field name="inherit_id" ref="calendar.view_calendar_event_form_quick_create"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
-                <field name="short_name" placeholder="Nombre Corto"/>
+                <field name="short_name" placeholder="Short Name"/>
             </xpath>
             <xpath expr="//label[@for='videocall_location']" position="before">
-                <field name="location" placeholder="Reunión en línea" required="1"/>
+                <field name="location" placeholder="Meeting room" required="1"/>
             </xpath>
             <xpath expr="//field[@name='partner_ids']" position="attributes">
                 <attribute name="required">1</attribute>
-                <attribute name="domain">[('type', '!=', 'private'), ('employee_ids', '!=', False)]</attribute>
+                <attribute name="domain">[('type', '!=', 'private'), '|', ('employee_ids', '!=', False), ('is_company', '=', True)]</attribute>
             </xpath>
         </field>
     </record>
@@ -66,7 +66,7 @@
     <menuitem
         id="calendar_turei_reports_menu"
         parent="calendar.mail_menu_calendar"
-        name="Reportes"
+        name="Reports"
         sequence="5"
         groups="base.group_user"/>
 

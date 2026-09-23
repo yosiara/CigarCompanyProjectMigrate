@@ -9,7 +9,9 @@ patch(CalendarFilterPanel.prototype, {
             const resModel = this.props.model.fields[section.fieldName].relation;
             const domain = [
                 ["id", "not in", section.filters.filter((f) => f.type !== "all").map((f) => f.value)],
+                "|",
                 ["employee_ids", "!=", false], // Con empleados asociados
+                ["is_company", "=", true],  // O compañías
             ];
             const records = await this.orm.call(resModel, "name_search", [], {
                 name: request,

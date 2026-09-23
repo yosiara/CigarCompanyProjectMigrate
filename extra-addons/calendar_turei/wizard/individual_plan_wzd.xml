@@ -11,24 +11,26 @@
                         <field name="period_id" domain="[('anual','=',False)]"/>
                     </group>
                     <group>
-                        <group>
-                            <field name="start_date"/>
-                            <field name="end_date"/>
-                        </group>
+                        <field name="employee_id" 
+                            invisible="type == 'company'"
+                            options="{'no_create': True, 'no_open': True}"/>
+                        <field name="company_id"
+                            invisible="type == 'individual'"
+                            options="{'no_create': True, 'no_open': True}"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
                     </group>
                 </group>
                 <footer>
-                    <div>
-                        <button name="print_individual_plan" string="Imprimir" type="object" class="oe_highlight"/>
-                        <button special="cancel" string="Cerrar" class="oe_link"/>
-                    </div>
+                    <button name="print_individual_plan" string="Print" type="object" class="oe_highlight"/>
+                    <button special="cancel" string="Cancel" class="oe_link"/>
                 </footer>
             </form>
         </field>
     </record>
 
     <record id="action_calendar_print_individual_plan" model="ir.actions.act_window">
-        <field name="name">Imprimir Plan de Trabajo</field>
+        <field name="name">Print Work Plan</field>
         <field name="res_model">calendar_turei.print_individual_plan</field>
         <field name="view_mode">form</field>
         <field name="binding_view_types">form</field>
@@ -36,8 +38,8 @@
     </record>
 
     <menuitem id="print_individual_plan_menu"
+              name="Work Plan"
               parent="calendar_turei.calendar_turei_reports_menu"
-              name="Plan de Trabajo"
               sequence="6"
               action="action_calendar_print_individual_plan"
               groups="base.group_user"/>

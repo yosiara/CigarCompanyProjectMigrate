@@ -2,9 +2,26 @@ from odoo import api, fields, models
 
 class MembersGroups(models.Model):
     _name = 'calendar_turei.members_groups'
-    _description = 'calendar_turei.members_groups'
+    _description = 'Members Groups'
 
-    employee_id = fields.Many2one('hr.employee', string='Empleado', required=True)
-    job_id = fields.Many2one('hr.job', string='Puesto de trabajo', related='employee_id.job_id')
-    membership_type_id = fields.Many2one('calendar_turei.membership_type', string='Tipo membresía', required=True)
-    organizational_groups_id = fields.Many2one('calendar_turei.organizational_groups')
+    name = fields.Char(string='Name', related='employee_id.name', store=True)
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee', 
+        string='Employee *', 
+        required=True, 
+    )
+    job_id = fields.Many2one(
+        comodel_name='hr.job', 
+        string='Job Position', 
+        related='employee_id.job_id', 
+        store=True, 
+    )
+    membership_type_id = fields.Many2one(
+        comodel_name='calendar_turei.membership_type', 
+        string='Membership Type *', 
+        required=True, 
+    )
+    organizational_groups_id = fields.Many2one(
+        comodel_name='calendar_turei.organizational_groups',
+        string='Organizational Group',
+    )

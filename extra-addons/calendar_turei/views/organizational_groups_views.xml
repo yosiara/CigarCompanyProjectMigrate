@@ -5,7 +5,7 @@
         <field name="name">calendar.turei.organizational.groups.list</field>
         <field name="model">calendar_turei.organizational_groups</field>
         <field name="arch" type="xml">
-            <list string="Grupos Organizativos" sample="1">
+            <list string="Organizational Groups" sample="1">
                 <field name="name"/>
                 <field name="members_groups_ids"/>
             </list>
@@ -16,25 +16,34 @@
         <field name="name">calendar.turei.organizational.groups.form</field>
         <field name="model">calendar_turei.organizational_groups</field>
         <field name="arch" type="xml">
-            <form string="Grupos Organizativos">
+            <form string="Organizational Groups">
                 <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="members_groups_ids">
-                            <list string="Integrantes" editable="bottom">
-                                <field name="employee_id"/>
-                                <field name="job_id"/>
-                                <field name="membership_type_id"/>
-                            </list>
-                        </field>
-                    </group>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Group name..."/>
+                        </h1>
+                    </div>
+                    
+                    <separator string=" "/>
+
+                    <notebook>
+                        <page string="Members" name="members_groups">
+                            <field name="members_groups_ids">
+                                <list editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="job_id"/>
+                                    <field name="membership_type_id"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
     
     <record id="action_calendar_organizational_groups" model="ir.actions.act_window">
-        <field name="name">Grupos Organizativos</field>
+        <field name="name">Organizational Groups</field>
         <field name="res_model">calendar_turei.organizational_groups</field>
         <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_calendar_turei_organizational_groups_list"/>
@@ -43,7 +52,6 @@
     <menuitem
         id="calendar_organizational_groups_menu"
         parent="calendar.calendar_menu_config"
-        name="Grupos Organizativos"
         sequence="55"
         action="action_calendar_organizational_groups"
         groups="calendar_turei.group_calendar_turei_manager"/>

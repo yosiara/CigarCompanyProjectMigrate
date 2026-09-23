@@ -1,0 +1,401 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* calendar_turei
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0+e-20250520\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-23 03:44+0000\n"
+"PO-Revision-Date: 2026-09-23 03:44+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: calendar_turei
+#: model:ir.actions.report,print_report_name:calendar_turei.action_report_individual_plan
+msgid "'Individual Plan'"
+msgstr "'Plan Individual'"
+
+#. module: calendar_turei
+#: model_terms:ir.ui.view,arch_db:calendar_turei.report_individual_plan
+msgid "Approved by"
+msgstr "Aprobado por"
+
+#. module: calendar_turei
+#: model_terms:ir.ui.view,arch_db:calendar_turei.report_individual_plan
+msgid "Area"
+msgstr "Área"
+
+#. module: calendar_turei
+#: model:ir.module.category,name:calendar_turei.module_category_calendar
+msgid "Calendar"
+msgstr "Calendario"
+
+#. module: calendar_turei
+#: model:ir.model,name:calendar_turei.model_calendar_event
+msgid "Calendar Event"
+msgstr "Evento del calendario"
+
+#. module: calendar_turei
+#: model_terms:ir.ui.view,arch_db:calendar_turei.calendar_print_individual_plan_wzd_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__company_id
+#: model:ir.model.fields.selection,name:calendar_turei.selection__calendar_turei_print_individual_plan__type__company
+#: model_terms:ir.ui.view,arch_db:calendar_turei.report_individual_plan
+msgid "Company"
+msgstr "Empresa"
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/wizard/individual_plan_wzd.py:0
+msgid "Company Work Plan"
+msgstr "Plan de trabajo de la empresa"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__create_uid
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_membership_type__create_uid
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_organizational_groups__create_uid
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_periods__create_uid
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__create_date
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_membership_type__create_date
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_organizational_groups__create_date
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_periods__create_date
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__display_name
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_membership_type__display_name
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_organizational_groups__display_name
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_periods__display_name
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__employee_id
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__employee_id
+msgid "Employee *"
+msgstr "Empleado *"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_periods__end_date
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__end_date
+msgid "End Date *"
+msgstr "Fecha de fin *"
+
+#. module: calendar_turei
+#: model:ir.model.fields.selection,name:calendar_turei.selection__calendar_event__task_type__extra_plan
+msgid "Extra Plan"
+msgstr "Plan Extra"
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/reports/individual_plan_report.py:0
+msgid "Fri"
+msgstr "Vie"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_event__group_task
+msgid "Group Task"
+msgstr "Tarea grupal"
+
+#. module: calendar_turei
+#: model_terms:ir.ui.view,arch_db:calendar_turei.view_calendar_turei_organizational_groups_form
+msgid "Group name..."
+msgstr "Nombre del grupo..."
+
+#. module: calendar_turei
+#: model:ir.model.fields.selection,name:calendar_turei.selection__calendar_event__priority__2
+msgid "High"
+msgstr "Alta"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__id
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_membership_type__id
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_organizational_groups__id
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_periods__id
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__id
+msgid "ID"
+msgstr "ID"
+
+#. module: calendar_turei
+#: model:ir.model.fields.selection,name:calendar_turei.selection__calendar_turei_print_individual_plan__type__individual
+msgid "Individual"
+msgstr "Individual"
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/wizard/individual_plan_wzd.py:0
+msgid "Individual Work Plan"
+msgstr "Plan de trabajo individual"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__job_id
+msgid "Job Position"
+msgstr "Puesto de trabajo"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__write_uid
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_membership_type__write_uid
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_organizational_groups__write_uid
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_periods__write_uid
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__write_date
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_membership_type__write_date
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_organizational_groups__write_date
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_periods__write_date
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: calendar_turei
+#: model:ir.model.fields,help:calendar_turei.field_calendar_turei_print_individual_plan__employee_id
+msgid "Leave empty to print your own plan."
+msgstr "Dejar vacío para imprimir tu propio plan."
+
+#. module: calendar_turei
+#: model_terms:ir.ui.view,arch_db:calendar_turei.report_individual_plan
+msgid "Main Activities"
+msgstr "Actividades principales"
+
+#. module: calendar_turei
+#: model:res.groups,name:calendar_turei.group_calendar_turei_manager
+msgid "Manager"
+msgstr "Gerente"
+
+#. module: calendar_turei
+#: model_terms:ir.ui.view,arch_db:calendar_turei.view_calendar_event_form_quick_create_inherit
+msgid "Meeting room"
+msgstr "Sala de reuniones"
+
+#. module: calendar_turei
+#: model_terms:ir.ui.view,arch_db:calendar_turei.view_calendar_turei_organizational_groups_form
+msgid "Members"
+msgstr "Miembros"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_organizational_groups__members_groups_ids
+msgid "Members *"
+msgstr "Miembros *"
+
+#. module: calendar_turei
+#: model:ir.model,name:calendar_turei.model_calendar_turei_members_groups
+msgid "Members Groups"
+msgstr "Grupos de miembros"
+
+#. module: calendar_turei
+#: model:ir.model,name:calendar_turei.model_calendar_turei_membership_type
+msgid "Membership Type"
+msgstr "Tipo de membresía"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__membership_type_id
+msgid "Membership Type *"
+msgstr "Tipo de membresía *"
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/reports/individual_plan_report.py:0
+msgid "Mon"
+msgstr "Lun"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_membership_type__name
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_organizational_groups__name
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_periods__name
+msgid "Name *"
+msgstr "Nombre *"
+
+#. module: calendar_turei
+#. odoo-javascript
+#: code:addons/calendar_turei/static/src/views/calendar_filter_panel.js:0
+msgid "No records"
+msgstr "Sin registros"
+
+#. module: calendar_turei
+#: model:ir.model.fields.selection,name:calendar_turei.selection__calendar_event__priority__1
+msgid "Normal"
+msgstr "Normal"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_members_groups__organizational_groups_id
+msgid "Organizational Group"
+msgstr "Grupo organizacional"
+
+#. module: calendar_turei
+#: model:ir.actions.act_window,name:calendar_turei.action_calendar_organizational_groups
+#: model:ir.model,name:calendar_turei.model_calendar_turei_organizational_groups
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_event__organizational_groups_ids
+#: model:ir.ui.menu,name:calendar_turei.calendar_organizational_groups_menu
+#: model_terms:ir.ui.view,arch_db:calendar_turei.view_calendar_turei_organizational_groups_form
+#: model_terms:ir.ui.view,arch_db:calendar_turei.view_calendar_turei_organizational_groups_list
+msgid "Organizational Groups"
+msgstr "Grupos organizacionales"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__period_id
+msgid "Period *"
+msgstr "Período *"
+
+#. module: calendar_turei
+#: model:ir.actions.act_window,name:calendar_turei.action_calendar_periods
+#: model:ir.model,name:calendar_turei.model_calendar_turei_periods
+#: model:ir.ui.menu,name:calendar_turei.calendar_periodos_menu
+#: model_terms:ir.ui.view,arch_db:calendar_turei.view_calendar_periodos_form
+#: model_terms:ir.ui.view,arch_db:calendar_turei.view_calendar_periodos_list
+msgid "Periods"
+msgstr "Períodos"
+
+#. module: calendar_turei
+#: model:ir.model.fields.selection,name:calendar_turei.selection__calendar_event__task_type__plan
+msgid "Plan"
+msgstr "Plan"
+
+#. module: calendar_turei
+#: model_terms:ir.ui.view,arch_db:calendar_turei.calendar_print_individual_plan_wzd_view_form
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: calendar_turei
+#: model:ir.model,name:calendar_turei.model_calendar_turei_print_individual_plan
+msgid "Print Individual Plan Wizard"
+msgstr "Asistente para imprimir plan individual"
+
+#. module: calendar_turei
+#: model:ir.actions.act_window,name:calendar_turei.action_calendar_print_individual_plan
+msgid "Print Work Plan"
+msgstr "Imprimir plan de trabajo"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_event__priority
+msgid "Priority *"
+msgstr "Prioridad *"
+
+#. module: calendar_turei
+#: model:ir.model,name:calendar_turei.model_report_calendar_turei_report_individual_plan
+msgid "Report Individual Plan"
+msgstr "Reporte de plan individual"
+
+#. module: calendar_turei
+#: model:ir.ui.menu,name:calendar_turei.calendar_turei_reports_menu
+msgid "Reports"
+msgstr "Reportes"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_periods__anual
+msgid "Represents a Year"
+msgstr "Representa un año"
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/reports/individual_plan_report.py:0
+msgid "Sat"
+msgstr "Sáb"
+
+#. module: calendar_turei
+#. odoo-javascript
+#: code:addons/calendar_turei/static/src/views/calendar_filter_panel.js:0
+msgid "Search More..."
+msgstr "Buscar más..."
+
+#. module: calendar_turei
+#: model_terms:ir.ui.view,arch_db:calendar_turei.view_calendar_event_form_inherit
+#: model_terms:ir.ui.view,arch_db:calendar_turei.view_calendar_event_form_quick_create_inherit
+msgid "Short Name"
+msgstr "Nombre corto"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_event__short_name
+msgid "Short Name *"
+msgstr "Nombre corto *"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_periods__start_date
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__start_date
+msgid "Start Date *"
+msgstr "Fecha de inicio *"
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/reports/individual_plan_report.py:0
+msgid "Sun"
+msgstr "Dom"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_event__task_type
+msgid "Task Type *"
+msgstr "Tipo de tarea *"
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/wizard/individual_plan_wzd.py:0
+msgid "The current user is not linked to any employee."
+msgstr "El usuario actual no está vinculado a ningún empleado."
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/wizard/individual_plan_wzd.py:0
+msgid "The employee has no associated work contact."
+msgstr "El empleado no tiene un contacto de trabajo asociado."
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/wizard/individual_plan_wzd.py:0
+msgid "The selected company has no associated partner."
+msgstr "La empresa seleccionada no tiene un contacto asociado."
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/reports/individual_plan_report.py:0
+msgid "Thu"
+msgstr "Jue"
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/reports/individual_plan_report.py:0
+msgid "Tue"
+msgstr "Mar"
+
+#. module: calendar_turei
+#: model:ir.model.fields,field_description:calendar_turei.field_calendar_turei_print_individual_plan__type
+msgid "Type *"
+msgstr "Tipo *"
+
+#. module: calendar_turei
+#. odoo-python
+#: code:addons/calendar_turei/reports/individual_plan_report.py:0
+msgid "Wed"
+msgstr "Mié"
+
+#. module: calendar_turei
+#: model:ir.actions.report,name:calendar_turei.action_report_individual_plan
+#: model:ir.ui.menu,name:calendar_turei.print_individual_plan_menu
+msgid "Work Plan"
+msgstr "Plan de trabajo"
