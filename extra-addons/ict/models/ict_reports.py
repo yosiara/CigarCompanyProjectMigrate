@@ -12,7 +12,7 @@ class ICTReports(models.AbstractModel):
 
     @api.model
     def get_dashboard_stats(self):
-        """Get statistics for the dashboard"""
+        """ Get statistics for the dashboard """
         Employee = self.env['ict.employee']
         Computer = self.env['ict.computer']
         Phone = self.env['ict.phone']
@@ -47,7 +47,7 @@ class ICTReports(models.AbstractModel):
             stats['recent_assignments'].append({
                 'id': comp.id,
                 'employee': comp.employee_id.name,
-                'equipment': f"{comp.brand} {comp.model} ({comp.name})",
+                'equipment': f'{comp.brand} {comp.model} ({comp.name})',
                 'date': comp.write_date.strftime('%d/%m/%Y') if comp.write_date else 'N/A'
             })
         

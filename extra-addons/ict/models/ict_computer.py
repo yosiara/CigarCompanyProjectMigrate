@@ -144,7 +144,7 @@ class ICTComputer(models.Model):
                 elif type_ == 'storage':
                     total_storage += component.disk_size
             
-            pc.processor_model   = micro[0].model_custom if micro else False
+            pc.processor_model  = micro[0].model_custom if micro else False
             pc.total_memory_gb  = total_memory
             pc.total_storage_gb = total_storage
 
@@ -197,7 +197,7 @@ class ICTComputer(models.Model):
         return super(ICTComputer, self).write(vals)
 
     def unlink(self):
-        """Clear equipment models records"""
+        """ Clear equipment models records """
         equipment_ids = self.mapped('equipment_id')
         result = super(ICTComputer, self).unlink()
         if equipment_ids:
@@ -205,7 +205,7 @@ class ICTComputer(models.Model):
                 equipment_ids.unlink()
             except UserError as e:
                 _logger.error(e)
-                raise UserError(_("Cannot delete the associated equipment because it has other dependencies. Please remove those dependencies first."))
+                raise UserError(_('Cannot delete the associated equipment because it has other dependencies. Please remove those dependencies first.'))
         return result
 
     # ============================================================
@@ -213,7 +213,7 @@ class ICTComputer(models.Model):
     # ============================================================
     @api.model
     def get_kanban_stats(self, options=None):
-        """Get statistics for kanban view"""
+        """ Get statistics for kanban view """
         # Si se pasa last_month como opción, calcular estadísticas del mes anterior
         if options and options.get('last_month'):
             from datetime import datetime, timedelta

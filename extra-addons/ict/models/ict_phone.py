@@ -65,7 +65,7 @@ class ICTPhone(models.Model):
         tracking=True, 
         ondelete='restrict', 
         compute='_compute_employee_ids', 
-        help="Employee currently assigned to this phone device", 
+        help='Employee currently assigned to this phone device', 
     )
     phone_type = fields.Selection([
         ('analog', 'Analógico'),
@@ -107,8 +107,8 @@ class ICTPhone(models.Model):
             parts.append(self.model)
         ext_numbers = [ext.number for ext in self.extension_ids if ext.number]
         if ext_numbers:
-            parts.append("- " + " ".join(ext_numbers))
-        return " ".join(parts) or "Unnamed Phone"
+            parts.append('- ' + ' '.join(ext_numbers))
+        return ' '.join(parts) or 'Unnamed Phone'
     
     @api.depends('brand', 'model', 'extension_ids', 'extension_ids.number')
     def _compute_display_name(self):
@@ -150,7 +150,7 @@ class ICTPhone(models.Model):
     # OVERRIDE METHODS
     # ============================================================
     def unlink(self):
-        """Clear equipment models records"""
+        """ Clear equipment models records """
         equipment_ids = self.mapped('equipment_id')
         result = super().unlink()
         if equipment_ids:
@@ -158,5 +158,5 @@ class ICTPhone(models.Model):
                 equipment_ids.unlink()
             except UserError as e:
                 _logger.error(e)
-                raise UserError(_("Cannot delete the associated equipment because it has other dependencies. Please remove those dependencies first."))
+                raise UserError(_('Cannot delete the associated equipment because it has other dependencies. Please remove those dependencies first.'))
         return result

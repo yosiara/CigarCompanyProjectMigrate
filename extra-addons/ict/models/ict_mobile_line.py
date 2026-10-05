@@ -13,33 +13,10 @@ class ICTMobileLine(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'number'
     
-    number = fields.Char(
-        string='Number *',
-        required=True,
-        index=True,
-        help='Number of the line'
-    )
-    job_id = fields.Many2one(
-        string='Job *', 
-        comodel_name='hr.job', 
-        ondelete='restrict', 
-        tracking=True, 
-        required=True, 
-    )
-    mobile_id = fields.Many2one(
-        string='Mobile',
-        comodel_name='ict.mobile',
-        ondelete='restrict',
-        tracking=True, 
-    )
-    employee_ids = fields.Many2many(
-        'ict.employee',
-        'ict_line_employee_rel',
-        'line_id',
-        'employee_id',
-        string='Employees',
-        tracking=True,
-    )
+    number = fields.Char(string='Number *', required=True, index=True, help='Number of the line')
+    job_id = fields.Many2one(comodel_name='hr.job', string='Job *', ondelete='restrict', tracking=True, required=True)
+    mobile_id = fields.Many2one(comodel_name='ict.mobile', string='Mobile', ondelete='restrict', tracking=True)
+    employee_ids = fields.Many2many('ict.employee', 'ict_line_employee_rel', 'line_id', 'employee_id', string='Employees', tracking=True)
     state = fields.Selection([
         ('available', 'Available'),
         ('assigned', 'Assigned'),
@@ -47,7 +24,7 @@ class ICTMobileLine(models.Model):
         ('cancelled', 'Cancelled'),
     ], string='Status *', default='available', tracking=True, required=True)
 
-    state_date = fields.Date('State Date', tracking=True, compute="_compute_state_date", help='Date of last status change')
+    state_date = fields.Date('State Date', tracking=True, compute='_compute_state_date', help='Date of last status change')
     start_date = fields.Date(string='Start Date')
     end_date = fields.Date(string='End Date')
     carrier = fields.Char(string='Carrier', default='ETECSA')
@@ -66,7 +43,7 @@ class ICTMobileLine(models.Model):
     serv = fields.Html(string='SERV.', help='Services')
 
     # Domain helper
-    show_calls_code_as_password = fields.Boolean(compute="_compute_show_calls_code_as_password")
+    show_calls_code_as_password = fields.Boolean(compute='_compute_show_calls_code_as_password')
 
     # ============================================================
     # CONSTRAINTS
@@ -83,7 +60,7 @@ class ICTMobileLine(models.Model):
             if rec.job_id and rec.employee_ids:
                 invalid = rec.employee_ids.filtered(lambda e: e.job_id != rec.job_id)
                 if invalid:
-                    raise ValidationError(_("Employees %s do not belong to this job") % invalid.mapped('name'))
+                    raise ValidationError(_('Employees (%s) do not belong to this job') % ', '.join(invalid.mapped('name')))
 
     # ============================================================
     # COMPUTE METHODS

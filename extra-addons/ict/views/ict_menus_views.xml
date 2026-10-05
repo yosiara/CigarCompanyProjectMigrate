@@ -3,19 +3,19 @@
     <!-- Main menu -->
     <menuitem id="menu_ict_root" name="ICT" sequence="1" web_icon="ict,static/description/icon.png"/>
 
-        <!-- Menu ict.computer -->
+        <!-- Menu computer -->
         <menuitem id="menu_ict_computer" name="Computers" parent="menu_ict_root" sequence="20"/>
 
-        <!-- Menu ict.phone -->
+        <!-- Menu phone -->
         <menuitem id="menu_ict_phone" name="Phones" parent="menu_ict_root" sequence="30"/>
 
-        <!-- Menu ict.phone -->
+        <!-- Menu mobiles -->
         <menuitem id="menu_ict_mobile" name="Mobiles" parent="menu_ict_root" sequence="40"/>
 
-        <!-- Menu ict.service -->
+        <!-- Menu service -->
         <menuitem id="menu_ict_service" name="Services" parent="menu_ict_root" sequence="50"/>
 
-        <!-- Menu ict.configuration -->
-        <menuitem id="menu_ict_configuration" name="Configuration" parent="menu_ict_root" sequence="60"/>
+        <!-- Menu configuration -->
+        <menuitem id="menu_ict_configuration" name="Configuration" parent="menu_ict_root" sequence="99"/>
 
 </odoo>

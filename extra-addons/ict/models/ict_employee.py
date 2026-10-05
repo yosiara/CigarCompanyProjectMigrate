@@ -95,7 +95,6 @@ class ICTEmployee(models.Model):
                         _("The following mobile line are not compatible with this employee's job: %s")
                         % ', '.join(invalid_lines.mapped('number'))
                     )
-            
     
     # ============================================================
     # COMPUTE METHODS
@@ -116,15 +115,14 @@ class ICTEmployee(models.Model):
     def _compute_work_phone(self):
         for emp in self:
             numbers = emp.extension_ids.mapped('number')
-            emp.work_phone = " ".join(numbers) if numbers else ""
+            emp.work_phone = ' '.join(numbers) if numbers else ''
             emp.employee_id.work_phone = emp.work_phone
-
 
     @api.depends('line_ids', 'line_ids.number')
     def _compute_mobile_phone(self):
         for emp in self:
             numbers = emp.line_ids.mapped('number')
-            emp.mobile_phone = " ".join(numbers) if numbers else ""
+            emp.mobile_phone = ' '.join(numbers) if numbers else ''
             emp.employee_id.mobile_phone = emp.mobile_phone
 
     @api.depends('domain_id', 'domain_user')

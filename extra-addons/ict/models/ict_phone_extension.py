@@ -56,8 +56,8 @@ class ICTPhoneExtension(models.Model):
         ('cancelled', 'Cancelled'),
     ], string='Status *', default='available', tracking=True, required=True)
     
-    power_specs = fields.Char(string='Power Specs', help='Ej. "5V 2A", "12V 1A", "PoE 802.3af"')
-    state_date = fields.Date('State Date', compute="_compute_state_date", help='Date of last status change')
+    power_specs = fields.Char(string='Power Specs', help="Ej. '5V 2A', '12V 1A', 'PoE 802.3af'")
+    state_date = fields.Date('State Date', compute='_compute_state_date', help='Date of last status change')
     calls_cap_plan = fields.Char(string='Calls Cap Plan', help='Contracted calls cap plan')
     calls_code = fields.Char(string='Calls Code', help='Code for calls')
     carrier = fields.Char(string='Carrier', default='ETECSA')
@@ -65,9 +65,8 @@ class ICTPhoneExtension(models.Model):
     
     # Domain helper
     employee_domain = fields.Binary(compute='_get_employee_domain', exportable=False)
-    show_calls_code_as_password = fields.Boolean(compute="_compute_show_calls_code_as_password")
+    show_calls_code_as_password = fields.Boolean(compute='_compute_show_calls_code_as_password')
     
-
     # ============================================================
     # CONSTRAINS
     # ============================================================
@@ -85,14 +84,14 @@ class ICTPhoneExtension(models.Model):
                 if rec.employee_ids:
                     invalid = rec.employee_ids.filtered(lambda e: e.job_id != rec.job_id)
                     if invalid:
-                        raise ValidationError(_("Employees %s do not belong to this job") % invalid.mapped('name'))
+                        raise ValidationError(_('Employees %s do not belong to this job') % ', '.join(invalid.mapped('name')))
             elif rec.assign_to == 'department':
                 if not rec.department_id:
                     raise ValidationError(_("The 'Department' field is required when 'Used By' is 'Department'."))
                 if rec.employee_ids:
                     invalid = rec.employee_ids.filtered(lambda e: e.department_id != rec.department_id)
                     if invalid:
-                        raise ValidationError(_("Employees %s do not belong to this department") % invalid.mapped('name'))
+                        raise ValidationError(_('Employees (%s) do not belong to this department') % ', '.join(invalid.mapped('name')))
 
     # ============================================================
     # COMPUTE METHODS

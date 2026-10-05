@@ -142,10 +142,10 @@ class ICTMobile(models.Model):
             # Procesar número de extensiones
             numbers = mobile.line_ids.mapped('number')
             if numbers:
-                parts.append("- " + " ".join(numbers))
+                parts.append('- ' + ' '.join(numbers))
 
             # Asignar el nombre
-            mobile.display_name = " ".join(parts) or "Unnamed Mobile"
+            mobile.display_name = ' '.join(parts) or 'Unnamed Mobile'
             mobile.name = mobile.display_name
 
     @api.depends('line_ids', 'line_ids.employee_ids')
@@ -197,7 +197,7 @@ class ICTMobile(models.Model):
     # ============================================================
     @api.model
     def get_kanban_stats(self, options=None):
-        """Get statistics for kanban view"""
+        """ Get statistics for kanban view """
         # Si se pasa last_month como opción, calcular estadísticas del mes anterior
         if options and options.get('last_month'):
             from datetime import datetime, timedelta
@@ -235,7 +235,7 @@ class ICTMobile(models.Model):
     # OVERRIDE METHODS
     # ============================================================
     def unlink(self):
-        """Clear equipment models records"""
+        """ Clear equipment models records """
         equipment_ids = self.mapped('equipment_id')
         result = super().unlink()
         if equipment_ids:
@@ -243,7 +243,7 @@ class ICTMobile(models.Model):
                 equipment_ids.unlink()
             except UserError as e:
                 _logger.error(e)
-                raise UserError(_("Cannot delete the associated equipment because it has other dependencies. Please remove those dependencies first."))
+                raise UserError(_('Cannot delete the associated equipment because it has other dependencies. Please remove those dependencies first.'))
         return result
 
     # def write(self, vals):
