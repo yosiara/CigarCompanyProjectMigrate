@@ -2,3 +2,9 @@ from . import hr_employee
 from . import res_users
 from . import resource_resource
 from . import hr_candidate
+from . import hr_job
+from . import hr_staffing_plan
+from . import hr_staffing_plan_line
+from . import hr_department
+from . import res_company
+from . import hr_applicant

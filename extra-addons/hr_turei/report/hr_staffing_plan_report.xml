@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========================================================= -->
+    <!-- ACCIÓN DE REPORTE                                          -->
+    <!-- ========================================================= -->
+    <record id="action_report_hr_staffing_plan" model="ir.actions.report">
+        <field name="name">Staffing Plan (Anexo 14)</field>
+        <field name="model">hr.staffing.plan</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_turei.report_hr_staffing_plan_document</field>
+        <field name="report_file">hr_turei.report_hr_staffing_plan_document</field>
+        <field name="print_report_name">'Anexo 14 - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_hr_staffing_plan"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- PLANTILLA QWEB                                            -->
+    <!-- ========================================================= -->
+    <template id="report_hr_staffing_plan_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-set="company" t-value="o.company_id"/>
+                    <div class="page">
+
+                        <!-- Cabecera institucional -->
+                        <div class="row mb-4">
+                            <div class="col-8">
+                                <h4 class="mb-1">
+                                    <strong>Anexo 14 - Plantilla de Cargo y Ocupaciones</strong>
+                                </h4>
+                                <div>
+                                    <strong>Dirección Empresa</strong>
+                                </div>
+                                <div>
+                                    <strong>Unidad Organizativa:</strong>
+                                    <span t-out="o.department_id.name or 'Todas'"/>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div>
+                                    <strong>REUP:</strong>
+                                    <span t-field="company.reup_number"/>
+                                </div>
+                                <div>
+                                    <strong>Organismo:</strong>
+                                    <span t-field="company.organism"/>
+                                </div>
+                                <div>
+                                    <strong>Entidad Nacional:</strong>
+                                    <span t-field="company.national_entity"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Datos del plan -->
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <strong>Plan:</strong>
+                                <span t-field="o.name"/>
+                            </div>
+                            <div class="col-6 text-end">
+                                <strong>Periodo:</strong>
+                                <span t-field="o.date_from"/>
+                                -
+                                <span t-field="o.date_to"/>
+                            </div>
+                        </div>
+
+                        <!-- Tabla principal, agrupada por departamento -->
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50%; text-align: center;">Cargos u Ocupaciones</th>
+                                    <th style="width: 10%; text-align: center;">Grupo Escala</th>
+                                    <th style="width: 10%; text-align: center;">Salario</th>
+                                    <th style="width: 10%; text-align: center;">Categoría Ocupacional</th>
+                                    <th style="width: 10%; text-align: center;">Nivel Preparación</th>
+                                    <th style="width: 10%; text-align: center;">Plantilla Aprobada</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="departments" t-value="o.line_ids.mapped('department_id').sorted('name')"/>
+                                <t t-foreach="departments" t-as="dept">
+                                    <tr>
+                                        <td colspan="6" t-attf-style="background-color: #{company.secondary_color}; color: #ffffff;">
+                                            <strong t-out="dept.name"/>
+                                        </td>
+                                    </tr>
+                                    <t t-set="dept_lines"
+                                       t-value="o.line_ids.filtered(lambda l: l.department_id == dept)"/>
+                                    <t t-foreach="dept_lines" t-as="line">
+                                        <tr>
+                                            <td class="text-start">
+                                                <span t-field="line.job_id.name"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="line.scale_group"/>
+                                            </td>
+                                            <td class="text-end">
+                                                <span t-field="line.salary"
+                                                      t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="line.occupational_category"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="line.preparation_level"/>
+                                            </td>
+                                            <td class="text-center">
+                                                <span t-field="line.approved_headcount"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <tr class="border-top">
+                                        <td colspan="5" class="text-end">
+                                            <strong>Subtotal</strong>
+                                        </td>
+                                        <td class="text-center">
+                                            <strong t-out="sum(dept_lines.mapped('approved_headcount'))"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="5"
+                                        t-attf-style="background-color: #{company.primary_color}; color: #ffffff; font-weight: bold; text-align: right;">
+                                        TOTAL GENERAL
+                                    </td>
+                                    <td t-attf-style="background-color: #{company.primary_color}; color: #ffffff; font-weight: bold; text-align: center;">
+                                        <span t-field="o.total_approved_headcount"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-end">
+                                        <strong>Total Monthly Salary</strong>
+                                    </td>
+                                    <td class="text-end">
+                                        <strong>
+                                            <span t-field="o.total_monthly_salary"
+                                                  t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </strong>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <!-- Bloque de firmas -->
+                        <div class="row mt-5">
+                            <div class="col-4 text-center">
+                                <div style="border-top: 1px solid black; margin-top: 60px; padding-top: 4px;">
+                                    <strong>Elaborado por</strong>
+                                </div>
+                                <div>
+                                    <span t-field="o.create_uid.name"/>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div style="border-top: 1px solid black; margin-top: 60px; padding-top: 4px;">
+                                    <strong>Aprobado por</strong>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <div style="border-top: 1px solid black; margin-top: 60px; padding-top: 4px;">
+                                    <strong>Fecha</strong>
+                                </div>
+                                <div>
+                                    <span t-field="o.write_date" t-options='{"widget": "date"}'/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

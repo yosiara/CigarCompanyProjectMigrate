@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_hr_turei" model="ir.module.category">
+        <field name="name">Staffing Plan</field>
+        <field name="description">Control de plantilla y autorizaciones excepcionales</field>
+        <field name="sequence">20</field>
+    </record>
+    
+    <!-- Este grupo no hereda de ningún otro. Se asigna manualmente a quien dirección autorice -->
+    <record id="group_hr_staffing_override" model="res.groups">
+        <field name="name">Staffing Plan Override</field>
+        <field name="category_id" ref="module_category_hr_turei"/>
+        <field name="comment">
+            Permite autorizar contrataciones o asignaciones fuera de la plantilla aprobada.
+        </field>
+    </record>
+
+</odoo>

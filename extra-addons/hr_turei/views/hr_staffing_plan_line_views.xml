@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========================================================= -->
+    <!-- SEARCH: filtros y agrupaciones para RRHH                  -->
+    <!-- ========================================================= -->
+    <record id="view_hr_staffing_plan_line_search" model="ir.ui.view">
+        <field name="name">hr.staffing.plan.line.search</field>
+        <field name="model">hr.staffing.plan.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="job_id"/>
+                <field name="department_id"/>
+                <field name="plan_id"/>
+                <field name="scale_group"/>
+                <field name="occupational_category"/>
+                <field name="preparation_level"/>
+                <separator/>
+                <filter name="filter_approved_plans"
+                        string="Approved Plans"
+                        domain="[('plan_state', '=', 'approved')]"/>
+                <filter name="filter_draft_plans"
+                        string="Draft Plans"
+                        domain="[('plan_state', '=', 'draft')]"/>
+                <filter name="filter_current_year"
+                        string="Current Year"
+                        domain="[('plan_id.date_from', '&gt;=', context_today().strftime('%Y-01-01')),
+                                 ('plan_id.date_from', '&lt;=', context_today().strftime('%Y-12-31'))]"/>
+                <filter name="filter_with_vacancies"
+                        string="With Vacancies"
+                        domain="[('vacant_headcount', '&gt;', 0)]"/>
+                <separator/>
+                <filter name="filter_my_plans"
+                        string="My Plans"
+                        domain="[('plan_id.create_uid', '=', uid)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_department"
+                            string="Department"
+                            context="{'group_by': 'department_id'}"/>
+                    <filter name="group_by_plan"
+                            string="Plan"
+                            context="{'group_by': 'plan_id'}"/>
+                    <filter name="group_by_plan_state"
+                            string="Plan Status"
+                            context="{'group_by': 'plan_state'}"/>
+                    <filter name="group_by_scale_group"
+                            string="Scale Group"
+                            context="{'group_by': 'scale_group'}"/>
+                    <filter name="group_by_occupational_category"
+                            string="Occupational Category"
+                            context="{'group_by': 'occupational_category'}"/>
+                    <filter name="group_by_preparation_level"
+                            string="Preparation Level"
+                            context="{'group_by': 'preparation_level'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- PIVOT: control por departamento y plan                     -->
+    <!-- ========================================================= -->
+    <record id="view_hr_staffing_plan_line_pivot" model="ir.ui.view">
+        <field name="name">hr.staffing.plan.line.pivot</field>
+        <field name="model">hr.staffing.plan.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Staffing Control" sample="1">
+                <field name="department_id" type="row"/>
+                <field name="plan_id" type="col"/>
+                <field name="approved_headcount" type="measure"/>
+                <field name="current_headcount" type="measure"/>
+                <field name="vacant_headcount" type="measure"/>
+                <field name="subtotal" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- GRAPH: comparación visual aprobadas vs ocupadas            -->
+    <!-- ========================================================= -->
+    <record id="view_hr_staffing_plan_line_graph" model="ir.ui.view">
+        <field name="name">hr.staffing.plan.line.graph</field>
+        <field name="model">hr.staffing.plan.line</field>
+        <field name="arch" type="xml">
+            <graph string="Staffing Control" type="bar" sample="1">
+                <field name="department_id"/>
+                <field name="approved_headcount" type="measure"/>
+                <field name="current_headcount" type="measure"/>
+                <field name="vacant_headcount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- ACTION: control con agrupación y filtro por defecto        -->
+    <!-- ========================================================= -->
+    <record id="action_hr_staffing_plan_line_control" model="ir.actions.act_window">
+        <field name="name">Staffing Control</field>
+        <field name="res_model">hr.staffing.plan.line</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="context">{
+            'search_default_filter_approved_plans': 1,
+            'search_default_group_by_department': 1,
+        }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No staffing data to analyze
+            </p>
+            <p>
+                Create and approve a staffing plan to see headcount and salary controls here.
+            </p>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- MENU: añadir bajo Staffing                                 -->
+    <!-- ========================================================= -->
+    <menuitem id="menu_hr_staffing_control"
+              name="Staffing Control"
+              parent="hr.menu_config_recruitment"
+              action="action_hr_staffing_plan_line_control"
+              sequence="4"/>
+
+</odoo>

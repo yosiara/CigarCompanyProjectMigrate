@@ -1,9 +1,11 @@
-from odoo import models, fields, api, _
 import logging
+from collections import defaultdict
+
+from odoo import models, fields, api, _
 
 _logger = logging.getLogger(__name__)
 
-class HREmployee(models.Model):
+class HrEmployee(models.Model):
     _inherit = 'hr.employee'
 
     @property
@@ -135,12 +137,11 @@ class HREmployee(models.Model):
         _logger.info(f'Errores: {error_count}')
 
         return
-        
-    # ------------------------------------------------------------------------ #
-    #                           OVERRIDE METHODS                               #
-    # ------------------------------------------------------------------------ #
 
-    parent_id = fields.Many2one('hr.employee', 'Manager', compute="_compute_parent_id", store=True, readonly=True,
+    # -------------------------------------------------------------------------
+    # OVERRIDE
+    # -------------------------------------------------------------------------
+    parent_id = fields.Many2one('hr.employee', 'Manager', compute='_compute_parent_id', store=True, readonly=True,
         domain="['|', ('company_id', '=', False), ('company_id', 'in', allowed_company_ids)]")
 
     @api.depends('department_id', 'department_id.manager_id', 'department_id.parent_id', 'department_id.parent_id.manager_id')
@@ -154,7 +155,10 @@ class HREmployee(models.Model):
             employee.parent_id = department.parent_id.manager_id if employee == department.manager_id else department.manager_id
 
     def _remove_work_contact_id(self, user, employee_company):
-        """ Remove work_contact_id for previous employee if the user is assigned to a new employee """
+        """ 
+        It unlinks the previous employee's contact if the user is assigned to a new employee.
+        If the contact is not being used by any user, it is also archived.
+        """
         employee_company = employee_company or self.company_id.id
         # For employees with a user_id, the constraint (user can't be linked to multiple employees) is triggered
         old_partner_employee_ids = user.partner_id.employee_ids.filtered(lambda e:
@@ -162,15 +166,28 @@ class HREmployee(models.Model):
             and e.company_id.id == employee_company
             and e != self
         )
-        without_user_partner_ids = old_partner_employee_ids.filtered(lambda e: e.work_contact_id and e.work_contact_id.user_ids == False)
-        old_partner_employee_ids.work_contact_id = None # Desvincular partner
-        if without_user_partner_ids:
-            without_user_partner_ids.active = False # Archivar partner
-            _logger.warning(f"Archived work contacts: {without_user_partner_ids.mapped('name')}")
+        contacts_without_users = old_partner_employee_ids.work_contact_id.filtered(lambda partner: not partner.user_ids)
+        res = super()._remove_work_contact_id(user, employee_company) # Desvincula partner
+        if contacts_without_users:
+            contacts_without_users.sudo().active = False # Archiva partner
+            _logger.warning('Archived work contacts: %s', ', '.join(contacts_without_users.mapped('name')))
+        return res
 
     @api.model_create_multi
     def create(self, vals_list):
+        # Staffing
+        job_counts = defaultdict(int)
+        for vals in vals_list:
+            job_id = vals.get('job_id')
+            final_active = vals.get('active', True)
+            if job_id and final_active:
+                job_counts[job_id] += 1
+        for job_id, count in job_counts.items():
+            self.env['hr.job'].browse(job_id)._check_vacant_position(additional=count)
+
         employees = super().create(vals_list)
+        
+        # Image
         for employee in employees:
             image_1920 = self._get_photo_from_documents(registration_number=employee.registration_number)
             if image_1920 != employee.image_1920:
@@ -178,8 +195,32 @@ class HREmployee(models.Model):
         return employees
 
     def write(self, vals):
+        unarchiving = vals.get('active') is True
+        changing_job = 'job_id' in vals and vals['job_id']
+        
+        # Staffing
+        if unarchiving or changing_job:
+            new_job_id = vals.get('job_id') if changing_job else None
+            # Determinar por empleado si consume plaza y en qué job.
+            job_counts = defaultdict(int)
+            for emp in self:
+                final_job_id = None
+                final_active = vals.get('active', emp.active)
+                if unarchiving and not emp.active:
+                    # Se desarchiva: consume plaza en el nuevo puesto o en el actual.
+                    final_job_id = new_job_id or emp.job_id.id
+                elif changing_job and final_active and emp.job_id.id != new_job_id:
+                    # Empleado activo que cambia de puesto: consume plaza en el nuevo.
+                    final_job_id = new_job_id
+                if final_job_id:
+                    job_counts[final_job_id] += 1
+            # Validar cada job destino con el conteo total.
+            for job_id, count in job_counts.items():
+                self.env['hr.job'].browse(job_id)._check_vacant_position(additional=count)
+        
         res = super().write(vals)
 
+        # Contact synchronization
         if any(field in vals for field in self.READ_FIELDS):
             for employee in self:
                 if employee.work_contact_id:
@@ -188,13 +229,11 @@ class HREmployee(models.Model):
                     sync_vals = employee._sync_partner(vals, p_vals)
                     if sync_vals:
                         partner.write(sync_vals)
-        
         return res
 
-    # ------------------------------------------------------------------------ #
-    #                           ONCHANGE METHODS                               #
-    # ------------------------------------------------------------------------ #
-
+    # -------------------------------------------------------------------------
+    # ONCHANGE
+    # -------------------------------------------------------------------------
     @api.onchange('registration_number')
     def _onchange_registration_number(self):
         image_1920 = self._get_photo_from_documents(registration_number=self.registration_number)

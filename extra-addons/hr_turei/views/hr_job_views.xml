@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========================================================= -->
+    <!-- FORM: Añadir pestaña "Anexo 14" al formulario de hr.job   -->
+    <!-- ========================================================= -->
+    <record id="view_hr_job_form_inherit_annex14" model="ir.ui.view">
+        <field name="name">hr.job.form.inherit.annex14</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <label for="code"/>
+                <field name="code" placeholder="Ej: DG-001, LOG-005, PROD-B1-012."/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Annex 14" name="annex14">
+                    <group>
+                        <group string="Salary and Positions">
+                            <field name="scale_group"/>
+                            <field name="occupational_category"/>
+                            <field name="preparation_level"/>
+                            <field name="salary"/>
+                        </group>
+                        <group string="Approved Headcount">
+                            <field name="currency_id" invisible="1"/>
+                            <field name="approved_headcount"/>
+                            <field name="current_headcount"/>
+                            <field name="vacant_headcount"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- LIST: Añadir columnas relevantes a la lista de hr.job      -->
+    <!-- ========================================================= -->
+    <record id="view_hr_job_list_inherit_annex14" model="ir.ui.view">
+        <field name="name">hr.job.list.inherit.annex14</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+            <field name="no_of_recruitment" position="after">
+                <field name="approved_headcount" optional="show"/>
+                <field name="current_headcount" optional="show"/>
+                <field name="vacant_headcount" optional="hide"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="salary" optional="show" widget="monetary" sum="Total"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- ========================================================= -->
+    <!-- SEARCH: Filtros y agrupaciones útiles para RRHH            -->
+    <!-- ========================================================= -->
+    <record id="view_hr_job_search_inherit_annex14" model="ir.ui.view">
+        <field name="name">hr.job.search.inherit.annex14</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_job_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <group expand="0" string="Group By">
+                    <filter
+                        name="group_by_scale_group"
+                        string="Scale Group"
+                        context="{'group_by': 'scale_group'}"/>
+                    <filter
+                        name="group_by_occupational_category"
+                        string="Occupational Category"
+                        context="{'group_by': 'occupational_category'}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
