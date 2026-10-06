@@ -7,14 +7,14 @@
     'category': 'Human Resources',
     "license": "LGPL-3",
     'sequence': 5,
-    'summary': 'Customizing the employee module for the Lázaro Peña Cigar Company. Holguín, Cuba',
+    'summary': 'Human Resources Customization for the Lázaro Peña Cigar Company. Holguín, Cuba.',
     'description': """
 Hr Turei
 =========
 
-Customizing the employee module for the Lázaro Peña Cigar Company. Holguín, Cuba.
+Human Resources Customization for the Lázaro Peña Cigar Company. Holguín, Cuba.
     """,
-    'depends': ['hr', 'resource', 'hr_recruitment', 'base'],
+    'depends': ['base', 'hr', 'hr_recruitment', 'resource'],
     'auto_install': ['hr'],
     'data': [
         # Data
