@@ -8,7 +8,7 @@ class HrDepartment(models.Model):
         string='Code',
         copy=False,
         index=True,
-        help='Código único del departamento. Se usa para importación masiva y reportes.',
+        help='Unique department code. Used for bulk import and reporting.',
     )
 
     _sql_constraints = [

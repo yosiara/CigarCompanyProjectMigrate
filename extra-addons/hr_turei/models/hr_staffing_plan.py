@@ -40,7 +40,7 @@ class HrStaffingPlan(models.Model):
     department_id = fields.Many2one(
         comodel_name='hr.department',
         string='Department',
-        help='Departamento raíz del plan. Si está vacío, aplica a toda la compañía.',
+        help='Root department of the plan. If empty, it applies to the entire company.',
     )
     state = fields.Selection(
         selection=[

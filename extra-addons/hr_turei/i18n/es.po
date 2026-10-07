@@ -6,14 +6,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e-20250520\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-18 22:35+0000\n"
-"PO-Revision-Date: 2026-09-18 22:35+0000\n"
+"POT-Creation-Date: 2026-10-07 21:47+0000\n"
+"PO-Revision-Date: 2026-10-07 21:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: hr_turei
+#: model:res.groups,comment:hr_turei.group_hr_staffing_override
+msgid ""
+"\n"
+"            It allows for the authorization of hires or assignments outside the approved staffing plan.\n"
+"        "
+msgstr ""
+"\n"
+"            Permite autorizar contrataciones o asignaciones fuera del plan de dotación aprobado.\n"
+"        "
+
+#. module: hr_turei
+#: model:ir.actions.report,print_report_name:hr_turei.action_report_hr_staffing_plan
+msgid "'Annex 14 - %s' % (object.name)"
+msgstr "'Anexo 14 - %s' % (object.name)"
 
 #. module: hr_turei
 #: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__educational_level__2nd_grade
@@ -31,6 +47,96 @@ msgid "9th Grade"
 msgstr "9no Grado"
 
 #. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Annex 14 - Positions and Occupations Template</strong>"
+msgstr "<strong>Anexo 14 - Plantilla de Cargos y Ocupaciones</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Approved by</strong>"
+msgstr "<strong>Aprobado por</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Company Management</strong>"
+msgstr "<strong>Dirección de Empresa</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Date</strong>"
+msgstr "<strong>Fecha</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>National Entity:</strong>"
+msgstr "<strong>Entidad Nacional:</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Organism:</strong>"
+msgstr "<strong>Organismo:</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Organizational Unit:</strong>"
+msgstr "<strong>Unidad Organizativa:</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Period:</strong>"
+msgstr "<strong>Periodo:</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Plan:</strong>"
+msgstr "<strong>Plan:</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Prepared by</strong>"
+msgstr "<strong>Elaborado por</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>REUP:</strong>"
+msgstr "<strong>REUP:</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Subtotal</strong>"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "<strong>Total Monthly Salary</strong>"
+msgstr "<strong>Salario Mensual Total</strong>"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__message_needaction
+msgid "Action Needed"
+msgstr "Acción Necesaria"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de Excepción de Actividad"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__activity_state
+msgid "Activity State"
+msgstr "Estado de la Actividad"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono del Tipo de Actividad"
+
+#. module: hr_turei
 #: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
 msgid "Address and Sizes"
 msgstr "Dirección y Tallas"
@@ -45,6 +151,73 @@ msgstr "Edad"
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__alive
 msgid "Alive"
 msgstr "Vive"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_job_form_inherit_annex14
+msgid "Annex 14"
+msgstr "Anexo 14"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_applicant
+msgid "Applicant"
+msgstr "Candidato"
+
+#. module: hr_turei
+#. odoo-python
+#: code:addons/hr_turei/models/hr_job.py:0
+msgid "Applicants"
+msgstr "Candidatos"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_form
+msgid "Approve"
+msgstr "Aprobar"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_staffing_plan__state__approved
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_search
+msgid "Approved"
+msgstr "Aprobado"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__approved_headcount
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__approved_headcount
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_job_form_inherit_annex14
+msgid "Approved Headcount"
+msgstr "Plantilla Aprobada"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_job__occupational_category
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan_line__occupational_category
+msgid "Approved Occupational Category (e.g. DINS, TNS, ONM, O, S)."
+msgstr "Categoría Ocupacional aprobada (ej. DINS, TNS, ONM, O, S)."
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+msgid "Approved Plans"
+msgstr "Planes Aprobados"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_job__scale_group
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan_line__scale_group
+msgid "Approved Scale Group (e.g. XVI, XX, XXII)."
+msgstr "Grupo Escala aprobado (ej. XVI, XX, XXII)."
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "Approved Template"
+msgstr "Plantilla Aprobada"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_job__vacant_headcount
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan_line__vacant_headcount
+msgid "Approved positions minus filled positions. It is never negative."
+msgstr "Plazas aprobadas menos plazas ocupadas. Nunca es negativo."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__message_attachment_count
+msgid "Attachment Count"
+msgstr "Cantidad de Adjuntos"
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_bpd
@@ -70,6 +243,16 @@ msgstr "CDR"
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_ctc
 msgid "CTC"
 msgstr "CTC"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_staffing_plan__state__cancelled
+msgid "Cancelled"
+msgstr "Cancelado"
 
 #. module: hr_turei
 #: model:ir.model,name:hr_turei.model_hr_candidate
@@ -105,9 +288,25 @@ msgid "Chiv."
 msgstr "Chiv."
 
 #. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_department__code
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__code
+msgid "Code"
+msgstr "Código"
+
+#. module: hr_turei
 #: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate_family_member__relation_type__cohabitant
 msgid "Cohabitant"
 msgstr "Conviviente"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__company_id
+msgid "Company"
+msgstr "Compañía"
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__company_name
@@ -121,9 +320,25 @@ msgid "Consensual Union"
 msgstr "Unión Consensual"
 
 #. module: hr_turei
+#: model_terms:ir.actions.act_window,help:hr_turei.action_hr_staffing_plan_line_control
+msgid ""
+"Create and approve a staffing plan to see headcount and salary controls "
+"here."
+msgstr ""
+"Cree y apruebe un plan de dotación para ver aquí los controles de plazas "
+"y salarios."
+
+#. module: hr_turei
+#: model_terms:ir.actions.act_window,help:hr_turei.action_hr_staffing_plan
+msgid "Create your first staffing plan"
+msgstr "Cree su primer plan de dotación"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__create_uid
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__create_uid
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__create_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
@@ -131,13 +346,38 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__create_date
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__create_date
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__create_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__create_date
 msgid "Created on"
 msgstr "Creado el"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__currency_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__currency_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__currency_id
+msgid "Currency"
+msgstr "Moneda"
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__current
 msgid "Current"
 msgstr "Actual"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__current_headcount
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__current_headcount
+msgid "Current Headcount"
+msgstr "Plazas Ocupadas"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__current_plan_id
+msgid "Current Plan"
+msgstr "Plan Vigente"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__current_plan_line_id
+msgid "Current Plan Line"
+msgstr "Línea Vigente del Plan"
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__current_position
@@ -155,14 +395,39 @@ msgid "Current Workplace"
 msgstr "Centro de Trabajo Actual"
 
 #. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+msgid "Current Year"
+msgstr "Año Actual"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__currently_employed
 msgid "Currently Employed"
 msgstr "Trabaja Actualmente"
 
 #. module: hr_turei
+#: model_terms:ir.actions.act_window,help:hr_turei.action_hr_staffing_plan
+msgid ""
+"Define the approved headcount and salaries per department for a given "
+"period."
+msgstr ""
+"Defina las plazas aprobadas y los salarios por departamento para un "
+"periodo determinado."
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_department
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__department_id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__department_id
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_search
+msgid "Department"
+msgstr "Departamento"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__display_name
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__display_name
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__display_name
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__display_name
 msgid "Display Name"
 msgstr "Nombre a Mostrar"
 
@@ -170,6 +435,17 @@ msgstr "Nombre a Mostrar"
 #: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__marital_status__divorced
 msgid "Divorced"
 msgstr "Divorciado"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_staffing_plan__state__draft
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_search
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+msgid "Draft Plans"
+msgstr "Planes en Borrador"
 
 #. module: hr_turei
 #: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
@@ -182,9 +458,24 @@ msgid "Educational Level"
 msgstr "Nivel Escolar Vencido"
 
 #. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_job_form_inherit_annex14
+msgid "Ej: DG-001, LOG-005, PROD-B1-012."
+msgstr "Ej: DG-001, LOG-005, PROD-B1-012."
+
+#. module: hr_turei
 #: model:ir.model,name:hr_turei.model_hr_employee
 msgid "Employee"
 msgstr "Empleado"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__date_to
+msgid "End Date"
+msgstr "Fecha de Fin"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_res_company__staffing_plan_enforced
+msgid "Enforce Staffing Plan"
+msgstr "Aplicar Plan de Dotación"
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_fmc
@@ -208,10 +499,30 @@ msgid "Female"
 msgstr "Femenino"
 
 #. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono Font Awesome, ej. fa-tasks"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__date_from
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__date_from
 msgid "From"
 msgstr "Desde"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "GRAND TOTAL"
+msgstr "TOTAL GENERAL"
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__gender
@@ -219,9 +530,26 @@ msgid "Gender"
 msgstr "Sexo"
 
 #. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_job_search_inherit_annex14
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__has_held_management_position
 msgid "Has Held Management Position"
 msgstr "¿Ha Ocupado Cargos de Dirección?"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__has_message
+msgid "Has Message"
+msgstr "Tiene Mensaje"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_res_company__organism
+msgid "Higher organization (e.g. MINAGRI)."
+msgstr "Organismo superior (ej. MINAGRI)."
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__home_address
@@ -229,11 +557,28 @@ msgid "Home Address"
 msgstr "Dirección Particular"
 
 #. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_employee__ict_employee_ids
+msgid "ICT Employee"
+msgstr "Empleado TIC"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__id
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__id
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__id
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__id
 msgid "ID"
 msgstr "ID"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__identity_number
@@ -241,14 +586,52 @@ msgid "Identity Number"
 msgstr "No. Identidad"
 
 #. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_res_company__staffing_plan_enforced
+msgid ""
+"If active, an employee cannot be hired or assigned to a position without "
+"approved vacancies in a current plan."
+msgstr ""
+"Si está activo, no se puede contratar ni asignar un empleado a un puesto "
+"sin plazas vacantes aprobadas en un plan vigente."
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, los mensajes nuevos requieren su atención."
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__message_has_error
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcado, algunos mensajes tienen error de entrega."
+
+#. module: hr_turei
 #: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__educational_level__illiterate
 msgid "Illiterate"
 msgstr "Analfabeto"
 
 #. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_res_company_form_inherit_staffing
+msgid "Institutional Data"
+msgstr "Datos Institucionales"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__message_is_follower
+msgid "Is Follower"
+msgstr "Es Seguidor"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_job
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__job_id
+msgid "Job Position"
+msgstr "Puesto de Trabajo"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__write_uid
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__write_uid
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__write_uid
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__write_uid
 msgid "Last Updated by"
 msgstr "Última Actualización por"
 
@@ -256,6 +639,8 @@ msgstr "Última Actualización por"
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__write_date
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__write_date
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__write_date
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__write_date
 msgid "Last Updated on"
 msgstr "Última Actualización el"
 
@@ -263,6 +648,17 @@ msgstr "Última Actualización el"
 #: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
 msgid "Last resignation reason"
 msgstr "Motivos de la Última Baja"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_job__preparation_level
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan_line__preparation_level
+msgid "Level of preparedness required in accordance with Annex 14."
+msgstr "Nivel de preparación requerido según el Anexo 14."
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_job__current_plan_line_id
+msgid "Line from the most recent plan approved for this position."
+msgstr "Línea del plan más reciente aprobado para este puesto."
 
 #. module: hr_turei
 #: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__gender__male
@@ -276,6 +672,11 @@ msgid "Management Positions"
 msgstr "Cargos de Dirección"
 
 #. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_employee__parent_id
+msgid "Manager"
+msgstr "Gerente"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__marital_status
 msgid "Marital Status"
 msgstr "Estado Civil"
@@ -284,6 +685,24 @@ msgstr "Estado Civil"
 #: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__marital_status__married
 msgid "Married"
 msgstr "Casado"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de Entrega de Mensaje"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_job__salary
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan_line__salary
+msgid ""
+"Monthly salary approved for the position according to the staffing plan."
+msgstr ""
+"Salario mensual aprobado para el puesto según el plan de dotación."
 
 #. module: hr_turei
 #: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate_family_member__relation_type__mother
@@ -296,14 +715,132 @@ msgid "Municipality"
 msgstr "Municipio"
 
 #. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Fecha Límite de Mi Actividad"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_search
+msgid "My Plans"
+msgstr "Mis Planes"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__name
 msgid "Name"
 msgstr "Nombre"
 
 #. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_res_company__national_entity
+msgid "National Entity"
+msgstr "Entidad Nacional"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_res_company__national_entity
+msgid "National entity to which it belongs (e.g. TABACUBA Group)."
+msgstr "Entidad nacional a la que pertenece (ej. Grupo TABACUBA)."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Próximo Evento de Calendario de Actividad"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Fecha Límite de Próxima Actividad"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de Próxima Actividad"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo de Próxima Actividad"
+
+#. module: hr_turei
+#. odoo-python
+#: code:addons/hr_turei/models/hr_job.py:0
+msgid ""
+"No approved staffing plan for \"%s\". Approve a plan before hiring for this "
+"position."
+msgstr ""
+"No hay plan de dotación aprobado para \"%s\". Apruebe un plan antes de "
+"contratar para este puesto."
+
+#. module: hr_turei
 #: model_terms:ir.ui.view,arch_db:hr_turei.view_employee_filter_inherit
 msgid "No photo"
 msgstr "Sin foto"
+
+#. module: hr_turei
+#: model_terms:ir.actions.act_window,help:hr_turei.action_hr_staffing_plan_line_control
+msgid "No staffing data to analyze"
+msgstr "No hay datos de plantilla para analizar"
+
+#. module: hr_turei
+#. odoo-python
+#: code:addons/hr_turei/models/hr_job.py:0
+msgid ""
+"Not enough vacant positions for \"%(job)s\". Approved: %(approved)s, "
+"Occupied: %(current)s, Requested: %(requested)s."
+msgstr ""
+"No hay suficientes plazas vacantes para \"%(job)s\". Aprobadas: "
+"%(approved)s, Ocupadas: %(current)s, Solicitadas: %(requested)s."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__notes
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Cantidad de Acciones"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_job__approved_headcount
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan_line__approved_headcount
+msgid "Number of approved positions for this role in the staffing plan."
+msgstr "Cantidad de plazas aprobadas para este cargo en el plan de dotación."
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_job__current_headcount
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan_line__current_headcount
+msgid "Number of employees currently active in this position."
+msgstr "Cantidad de empleados activos actualmente en este puesto."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__message_has_error_counter
+msgid "Number of errors"
+msgstr "Cantidad de Errores"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Cantidad de mensajes que requieren acción"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Cantidad de mensajes con error de entrega"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_job__no_of_recruitment
+msgid "Number of new employees you expect to recruit."
+msgstr "Número de nuevos empleados que espera contratar."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__occupational_category
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__occupational_category
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_job_search_inherit_annex14
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+msgid "Occupational Category"
+msgstr "Categoría Ocupacional"
 
 #. module: hr_turei
 #. odoo-python
@@ -312,6 +849,16 @@ msgid ""
 "Only those responsible for managing employees can create human resources."
 msgstr ""
 "Solo los responsables de gestionar empleados pueden crear recursos humanos."
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_form
+msgid "Open Recruitment"
+msgstr "Abrir Reclutamiento"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_res_company__organism
+msgid "Organism"
+msgstr "Organismo"
 
 #. module: hr_turei
 #: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
@@ -350,10 +897,41 @@ msgid "Personal Information"
 msgstr "Información Personal"
 
 #. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__plan_id
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+msgid "Plan"
+msgstr "Plan"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__line_ids
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_form
+msgid "Plan Lines"
+msgstr "Líneas del Plan"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__plan_state
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+msgid "Plan Status"
+msgstr "Estado del Plan"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__position
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__position
 msgid "Position"
 msgstr "Cargo"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "Positions or Occupations"
+msgstr "Cargos u Ocupaciones"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__preparation_level
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__preparation_level
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+msgid "Preparation Level"
+msgstr "Nivel de Preparación"
 
 #. module: hr_turei
 #: model:ir.actions.server,name:hr_turei.cron_prepare_data_ir_actions_server
@@ -371,9 +949,24 @@ msgid "Province"
 msgstr "Provincia"
 
 #. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_res_company__reup_number
+msgid "REUP Number"
+msgstr "Número de REUP"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__rating_ids
+msgid "Ratings"
+msgstr "Valoraciones"
+
+#. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__last_resignation_reason
 msgid "Reason for Last Resignation"
 msgstr "Motivos de la Última Baja"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__name
+msgid "Reference"
+msgstr "Referencia"
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_family_member__relation_type
@@ -386,9 +979,57 @@ msgid "Relationship"
 msgstr "Parentesco"
 
 #. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_form
+msgid "Reset to Draft"
+msgstr "Restablecer a Borrador"
+
+#. module: hr_turei
 #: model:ir.model,name:hr_turei.model_resource_resource
 msgid "Resources"
 msgstr "Recursos"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario Responsable"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__department_id
+msgid ""
+"Root department of the plan. If empty, it applies to the entire company."
+msgstr ""
+"Departamento raíz del plan. Si está vacío, aplica a toda la compañía."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de Entrega de SMS"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__salary
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__salary
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+msgid "Salary"
+msgstr "Salario"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_job_form_inherit_annex14
+msgid "Salary and Positions"
+msgstr "Salario y Plazas"
+
+#. module: hr_turei
+#: model:ir.model.constraint,message:hr_turei.constraint_hr_staffing_plan_line_salary_not_negative
+msgid "Salary cannot be negative."
+msgstr "El salario no puede ser negativo."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__scale_group
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__scale_group
+#: model_terms:ir.ui.view,arch_db:hr_turei.report_hr_staffing_plan_document
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_job_search_inherit_annex14
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+msgid "Scale Group"
+msgstr "Grupo Escala"
 
 #. module: hr_turei
 #: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_candidate_form_inherit_personal_data
@@ -426,15 +1067,163 @@ msgid "Spouse"
 msgstr "Cónyuge"
 
 #. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_staffing_plan_line_control
+#: model:ir.ui.menu,name:hr_turei.menu_hr_staffing_control
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_graph
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_pivot
+msgid "Staffing Control"
+msgstr "Control de Plantilla"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_staffing_plan
+#: model:ir.module.category,name:hr_turei.module_category_hr_turei
+msgid "Staffing Plan"
+msgstr "Plan de Dotación"
+
+#. module: hr_turei
+#: model:ir.actions.report,name:hr_turei.action_report_hr_staffing_plan
+msgid "Staffing Plan (Annex 14)"
+msgstr "Plan de Dotación (Anexo 14)"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__plan_line_ids
+msgid "Staffing Plan History"
+msgstr "Historial de Planes"
+
+#. module: hr_turei
+#: model:ir.model,name:hr_turei.model_hr_staffing_plan_line
+msgid "Staffing Plan Line"
+msgstr "Línea del Plan de Dotación"
+
+#. module: hr_turei
+#: model:res.groups,name:hr_turei.group_hr_staffing_override
+msgid "Staffing Plan Override"
+msgstr "Excepción al Plan de Dotación"
+
+#. module: hr_turei
+#: model:ir.actions.act_window,name:hr_turei.action_hr_staffing_plan
+#: model:ir.ui.menu,name:hr_turei.menu_hr_staffing_plan
+msgid "Staffing Plans"
+msgstr "Planes de Dotación"
+
+#. module: hr_turei
+#: model:ir.module.category,description:hr_turei.module_category_hr_turei
+msgid "Staffing control and exceptional authorizations."
+msgstr "Control de plantilla y autorizaciones excepcionales."
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__date_from
+msgid "Start Date"
+msgstr "Fecha de Inicio"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__state
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Vencida: La fecha límite ya pasó\n"
+"Hoy: La fecha de actividad es hoy\n"
+"Planificada: Actividades futuras."
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_form
+msgid "Submit"
+msgstr "Enviar"
+
+#. module: hr_turei
+#: model:ir.model.fields.selection,name:hr_turei.selection__hr_staffing_plan__state__submitted
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_search
+msgid "Submitted"
+msgstr "Enviado"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__subtotal
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__no_of_recruitment
+msgid "Target"
+msgstr "Objetivo"
+
+#. module: hr_turei
 #: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__educational_level__technical_medium
 msgid "Technical Medium"
 msgstr "Técnico Medio"
+
+#. module: hr_turei
+#: model:ir.model.constraint,message:hr_turei.constraint_hr_staffing_plan_line_approved_headcount_positive
+msgid "The approved headcount must be greater than zero."
+msgstr "La plantilla aprobada debe ser mayor que cero."
+
+#. module: hr_turei
+#: model:ir.model.constraint,message:hr_turei.constraint_hr_department_code_unique
+msgid "The department code must be unique."
+msgstr "El código del departamento debe ser único."
+
+#. module: hr_turei
+#: model:ir.model.constraint,message:hr_turei.constraint_hr_job_code_unique
+msgid "The job code must be unique."
+msgstr "El código del puesto debe ser único."
+
+#. module: hr_turei
+#. odoo-python
+#: code:addons/hr_turei/models/hr_staffing_plan_line.py:0
+msgid "The plan must be approved before opening recruitment."
+msgstr "El plan debe estar aprobado antes de abrir el reclutamiento."
+
+#. module: hr_turei
+#. odoo-python
+#: code:addons/hr_turei/models/hr_staffing_plan_line.py:0
+msgid "There are no vacant positions to recruit for this job."
+msgstr "No hay plazas vacantes para reclutar en este puesto."
+
+#. module: hr_turei
+#: model:ir.model.constraint,message:hr_turei.constraint_hr_staffing_plan_line_plan_job_unique
+msgid ""
+"This job position already exists in the plan. Each position can only appear "
+"once per plan."
+msgstr ""
+"Este puesto ya existe en el plan. Cada puesto solo puede aparecer una vez "
+"por plan."
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_management_position__date_to
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate_work_experience__date_to
 msgid "To"
 msgstr "Hasta"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_job_list_inherit_annex14
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_form
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_list
+msgid "Total"
+msgstr "Total"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__total_approved_headcount
+msgid "Total Approved Headcount"
+msgstr "Total Plantilla Aprobada"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__total_monthly_salary
+msgid "Total Monthly Salary"
+msgstr "Salario Mensual Total"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de la actividad de excepción en el registro."
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__belongs_ujc
@@ -447,14 +1236,50 @@ msgid "UR"
 msgstr "UR"
 
 #. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_res_company__reup_number
+msgid "Unique Entity Registration Number (REUP)."
+msgstr "Número Único de Registro de Entidades (REUP)."
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_department__code
+msgid "Unique department code. Used for bulk import and reporting."
+msgstr "Código único del departamento. Se usa para importación masiva y reportes."
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_job__code
+msgid "Unique position code. Used for bulk import and reporting."
+msgstr "Código único del puesto. Se usa para importación masiva y reportes."
+
+#. module: hr_turei
 #: model:ir.model,name:hr_turei.model_res_users
 msgid "User"
 msgstr "Usuario"
 
 #. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_job__vacant_headcount
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan_line__vacant_headcount
+msgid "Vacant Headcount"
+msgstr "Plazas Vacantes"
+
+#. module: hr_turei
+#: model:ir.model.fields,field_description:hr_turei.field_hr_staffing_plan__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del Sitio Web"
+
+#. module: hr_turei
+#: model:ir.model.fields,help:hr_turei.field_hr_staffing_plan__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación del sitio web"
+
+#. module: hr_turei
 #: model:ir.model.fields.selection,name:hr_turei.selection__hr_candidate__marital_status__widowed
 msgid "Widowed"
 msgstr "Viudo"
+
+#. module: hr_turei
+#: model_terms:ir.ui.view,arch_db:hr_turei.view_hr_staffing_plan_line_search
+msgid "With Vacancies"
+msgstr "Con Plazas Vacantes"
 
 #. module: hr_turei
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__work_achievements
@@ -500,3 +1325,15 @@ msgstr "Logros Laborales"
 #: model:ir.model.fields,field_description:hr_turei.field_hr_candidate__years_of_experience
 msgid "Years of Work Experience"
 msgstr "Años de Experiencia Laboral"
+
+#. module: hr_turei
+#. odoo-python
+#: code:addons/hr_turei/models/hr_staffing_plan.py:0
+msgid "You cannot approve a plan without lines."
+msgstr "No se puede aprobar un plan sin líneas."
+
+#. module: hr_turei
+#. odoo-python
+#: code:addons/hr_turei/models/hr_staffing_plan.py:0
+msgid "You cannot submit a plan without lines."
+msgstr "No se puede enviar un plan sin líneas."

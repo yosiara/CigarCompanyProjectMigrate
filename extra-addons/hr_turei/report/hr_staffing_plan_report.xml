@@ -2,15 +2,15 @@
 <odoo>
 
     <!-- ========================================================= -->
-    <!-- ACCIÓN DE REPORTE                                          -->
+    <!-- ACCIÓN DE REPORTE                                         -->
     <!-- ========================================================= -->
     <record id="action_report_hr_staffing_plan" model="ir.actions.report">
-        <field name="name">Staffing Plan (Anexo 14)</field>
+        <field name="name">Staffing Plan (Annex 14)</field>
         <field name="model">hr.staffing.plan</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">hr_turei.report_hr_staffing_plan_document</field>
         <field name="report_file">hr_turei.report_hr_staffing_plan_document</field>
-        <field name="print_report_name">'Anexo 14 - %s' % (object.name)</field>
+        <field name="print_report_name">'Annex 14 - %s' % (object.name)</field>
         <field name="binding_model_id" ref="model_hr_staffing_plan"/>
         <field name="binding_type">report</field>
     </record>
@@ -29,14 +29,14 @@
                         <div class="row mb-4">
                             <div class="col-8">
                                 <h4 class="mb-1">
-                                    <strong>Anexo 14 - Plantilla de Cargo y Ocupaciones</strong>
+                                    <strong>Annex 14 - Positions and Occupations Template</strong>
                                 </h4>
                                 <div>
-                                    <strong>Dirección Empresa</strong>
+                                    <strong>Company Management</strong>
                                 </div>
                                 <div>
-                                    <strong>Unidad Organizativa:</strong>
-                                    <span t-out="o.department_id.name or 'Todas'"/>
+                                    <strong>Organizational Unit:</strong>
+                                    <span t-out="o.department_id.name or _('All')"/>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -45,11 +45,11 @@
                                     <span t-field="company.reup_number"/>
                                 </div>
                                 <div>
-                                    <strong>Organismo:</strong>
+                                    <strong>Organism:</strong>
                                     <span t-field="company.organism"/>
                                 </div>
                                 <div>
-                                    <strong>Entidad Nacional:</strong>
+                                    <strong>National Entity:</strong>
                                     <span t-field="company.national_entity"/>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                 <span t-field="o.name"/>
                             </div>
                             <div class="col-6 text-end">
-                                <strong>Periodo:</strong>
+                                <strong>Period:</strong>
                                 <span t-field="o.date_from"/>
                                 -
                                 <span t-field="o.date_to"/>
@@ -73,12 +73,12 @@
                         <table class="table table-sm table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="width: 50%; text-align: center;">Cargos u Ocupaciones</th>
-                                    <th style="width: 10%; text-align: center;">Grupo Escala</th>
-                                    <th style="width: 10%; text-align: center;">Salario</th>
-                                    <th style="width: 10%; text-align: center;">Categoría Ocupacional</th>
-                                    <th style="width: 10%; text-align: center;">Nivel Preparación</th>
-                                    <th style="width: 10%; text-align: center;">Plantilla Aprobada</th>
+                                    <th style="width: 50%; text-align: center;">Positions or Occupations</th>
+                                    <th style="width: 10%; text-align: center;">Scale Group</th>
+                                    <th style="width: 10%; text-align: center;">Salary</th>
+                                    <th style="width: 10%; text-align: center;">Occupational Category</th>
+                                    <th style="width: 10%; text-align: center;">Preparation Level</th>
+                                    <th style="width: 10%; text-align: center;">Approved Template</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -128,7 +128,7 @@
                                 <tr>
                                     <td colspan="5"
                                         t-attf-style="background-color: #{company.primary_color}; color: #ffffff; font-weight: bold; text-align: right;">
-                                        TOTAL GENERAL
+                                        GRAND TOTAL
                                     </td>
                                     <td t-attf-style="background-color: #{company.primary_color}; color: #ffffff; font-weight: bold; text-align: center;">
                                         <span t-field="o.total_approved_headcount"/>
@@ -152,7 +152,7 @@
                         <div class="row mt-5">
                             <div class="col-4 text-center">
                                 <div style="border-top: 1px solid black; margin-top: 60px; padding-top: 4px;">
-                                    <strong>Elaborado por</strong>
+                                    <strong>Prepared by</strong>
                                 </div>
                                 <div>
                                     <span t-field="o.create_uid.name"/>
@@ -160,12 +160,12 @@
                             </div>
                             <div class="col-4 text-center">
                                 <div style="border-top: 1px solid black; margin-top: 60px; padding-top: 4px;">
-                                    <strong>Aprobado por</strong>
+                                    <strong>Approved by</strong>
                                 </div>
                             </div>
                             <div class="col-4 text-center">
                                 <div style="border-top: 1px solid black; margin-top: 60px; padding-top: 4px;">
-                                    <strong>Fecha</strong>
+                                    <strong>Date</strong>
                                 </div>
                                 <div>
                                     <span t-field="o.write_date" t-options='{"widget": "date"}'/>

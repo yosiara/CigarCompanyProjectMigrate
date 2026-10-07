@@ -19,7 +19,7 @@ class HrJob(models.Model):
         string='Current Plan Line',
         compute='_compute_current_plan_line',
         store=True,
-        help='Línea del plan más reciente aprobado para este puesto.',
+        help='Line from the most recent plan approved for this position.',
     )
     current_plan_id = fields.Many2one(
         comodel_name='hr.staffing.plan',
@@ -85,13 +85,13 @@ class HrJob(models.Model):
         string='Current Headcount',
         compute='_compute_headcount',
         store=True,
-        help='Cantidad de empleados activos actualmente en este puesto.',
+        help='Number of employees currently active in this position.',
     )
     vacant_headcount = fields.Integer(
         string='Vacant Headcount',
         compute='_compute_headcount',
         store=True,
-        help='Plazas aprobadas menos plazas ocupadas. Nunca es negativo.',
+        help='Approved positions minus filled positions. It is never negative.',
     )
     no_of_recruitment = fields.Integer(
         string='Target',
@@ -184,7 +184,7 @@ class HrJob(models.Model):
         copy=False,
         readonly=False,
         index=True,
-        help='Código único del puesto. Se usa para importación masiva y reportes.',
+        help='Unique position code. Used for bulk import and reporting.',
     )
 
     _sql_constraints = [

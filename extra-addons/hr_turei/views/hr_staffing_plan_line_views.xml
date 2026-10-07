@@ -58,7 +58,7 @@
     </record>
 
     <!-- ========================================================= -->
-    <!-- PIVOT: control por departamento y plan                     -->
+    <!-- PIVOT: control por departamento y plan                    -->
     <!-- ========================================================= -->
     <record id="view_hr_staffing_plan_line_pivot" model="ir.ui.view">
         <field name="name">hr.staffing.plan.line.pivot</field>
@@ -76,7 +76,7 @@
     </record>
 
     <!-- ========================================================= -->
-    <!-- GRAPH: comparación visual aprobadas vs ocupadas            -->
+    <!-- GRAPH: comparación visual aprobadas vs ocupadas           -->
     <!-- ========================================================= -->
     <record id="view_hr_staffing_plan_line_graph" model="ir.ui.view">
         <field name="name">hr.staffing.plan.line.graph</field>
@@ -92,7 +92,7 @@
     </record>
 
     <!-- ========================================================= -->
-    <!-- ACTION: control con agrupación y filtro por defecto        -->
+    <!-- ACTION: control con agrupación y filtro por defecto       -->
     <!-- ========================================================= -->
     <record id="action_hr_staffing_plan_line_control" model="ir.actions.act_window">
         <field name="name">Staffing Control</field>
@@ -113,7 +113,7 @@
     </record>
 
     <!-- ========================================================= -->
-    <!-- MENU: añadir bajo Staffing                                 -->
+    <!-- MENU: añadir bajo Staffing                                -->
     <!-- ========================================================= -->
     <menuitem id="menu_hr_staffing_control"
               name="Staffing Control"

@@ -2,7 +2,7 @@
 <odoo>
     <record id="module_category_hr_turei" model="ir.module.category">
         <field name="name">Staffing Plan</field>
-        <field name="description">Control de plantilla y autorizaciones excepcionales</field>
+        <field name="description">Staffing control and exceptional authorizations.</field>
         <field name="sequence">20</field>
     </record>
     
@@ -11,7 +11,7 @@
         <field name="name">Staffing Plan Override</field>
         <field name="category_id" ref="module_category_hr_turei"/>
         <field name="comment">
-            Permite autorizar contrataciones o asignaciones fuera de la plantilla aprobada.
+            It allows for the authorization of hires or assignments outside the approved staffing plan.
         </field>
     </record>
 

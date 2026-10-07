@@ -32,13 +32,13 @@ class HrStaffingPlanLine(models.Model):
     scale_group = fields.Char(
         string='Scale Group',
         required=True,
-        help='Grupo Escala aprobado (ej. XVI, XX, XXII).',
+        help='Approved Scale Group (e.g. XVI, XX, XXII).',
     )
     salary = fields.Monetary(
         string='Salary',
         currency_field='currency_id',
         required=True,
-        help='Salario mensual aprobado para el cargo según la plantilla.',
+        help='Monthly salary approved for the position according to the staffing plan.',
     )
     currency_id = fields.Many2one(
         comodel_name='res.currency',
@@ -48,18 +48,18 @@ class HrStaffingPlanLine(models.Model):
     occupational_category = fields.Char(
         string='Occupational Category',
         required=True,
-        help='Categoría Ocupacional aprobada (ej. DINS, TNS, ONM, O, S).',
+        help='Approved Occupational Category (e.g. DINS, TNS, ONM, O, S).',
     )
     preparation_level = fields.Char(
         string='Preparation Level',
         required=True,
-        help='Nivel de Preparación requerido según el Anexo 14.',
+        help='Level of preparedness required in accordance with Annex 14.',
     )
     approved_headcount = fields.Integer(
         string='Approved Headcount',
         default=1,
         required=True,
-        help='Cantidad de plazas aprobadas para este cargo en la plantilla.',
+        help='Number of approved positions for this role in the staffing plan.',
     )
     current_headcount = fields.Integer(
         string='Current Headcount',

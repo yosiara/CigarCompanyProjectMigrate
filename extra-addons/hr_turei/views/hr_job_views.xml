@@ -35,7 +35,7 @@
     </record>
 
     <!-- ========================================================= -->
-    <!-- LIST: Añadir columnas relevantes a la lista de hr.job      -->
+    <!-- LIST: Añadir columnas relevantes a la lista de hr.job     -->
     <!-- ========================================================= -->
     <record id="view_hr_job_list_inherit_annex14" model="ir.ui.view">
         <field name="name">hr.job.list.inherit.annex14</field>
@@ -53,7 +53,7 @@
     </record>
 
     <!-- ========================================================= -->
-    <!-- SEARCH: Filtros y agrupaciones útiles para RRHH            -->
+    <!-- SEARCH: Filtros y agrupaciones útiles para RRHH           -->
     <!-- ========================================================= -->
     <record id="view_hr_job_search_inherit_annex14" model="ir.ui.view">
         <field name="name">hr.job.search.inherit.annex14</field>
