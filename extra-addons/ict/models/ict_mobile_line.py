@@ -133,7 +133,7 @@ class ICTMobileLine(models.Model):
         for line in lines:
             # Agregar código de país al número de teléfono
             if not line.number.startswith('+'):
-                line.number = '+53 ' + line.number  # default Cuba
+                line.number = '+53' + line.number  # default Cuba
         return lines
 
     def write(self, vals):
@@ -142,7 +142,7 @@ class ICTMobileLine(models.Model):
         if 'number' in vals:
             for line in self:
                 if not line.number.startswith('+'):
-                    line.number = '+53 ' + vals['number']  # default Cuba
+                    line.number = '+53' + vals['number']  # default Cuba
         return res
 
     # def _sync_employee_mobile(self):

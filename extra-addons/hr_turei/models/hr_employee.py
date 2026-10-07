@@ -7,7 +7,13 @@ _logger = logging.getLogger(__name__)
 
 class HrEmployee(models.Model):
     _inherit = 'hr.employee'
-
+    
+    ict_employee_ids = fields.One2many(
+        string='ICT Employee',
+        comodel_name='ict.employee',
+        inverse_name='employee_id',
+    )
+    
     @property
     def READ_PARTNER_FIELDS(self):
         """ Get fields for partner """

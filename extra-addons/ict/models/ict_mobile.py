@@ -151,8 +151,7 @@ class ICTMobile(models.Model):
     @api.depends('line_ids', 'line_ids.employee_ids')
     def _compute_employee_ids(self):
         for emp in self:
-            employees = emp.line_ids.mapped('employee_ids')
-            emp.employee_ids = [(6, 0, employees.ids)]
+            emp.employee_ids = emp.line_ids.mapped('employee_ids')
 
     @api.depends('employee_ids')
     def _compute_responsible(self):

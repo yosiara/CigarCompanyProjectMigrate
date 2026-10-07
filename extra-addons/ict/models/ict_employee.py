@@ -99,30 +99,28 @@ class ICTEmployee(models.Model):
     # ============================================================
     # COMPUTE METHODS
     # ============================================================
-    @api.depends('line_ids', 'line_ids.mobile_id')
-    def _compute_mobile_ids(self):
-        for emp in self:
-            mobiles = emp.line_ids.mapped('mobile_id')
-            emp.mobile_ids = [(6, 0, mobiles.ids)]
-
     @api.depends('extension_ids', 'extension_ids.phone_id')
     def _compute_phone_ids(self):
         for emp in self:
-            phones = emp.extension_ids.mapped('phone_id')
-            emp.phone_ids = [(6, 0, phones.ids)]
+            emp.phone_ids = emp.extension_ids.mapped('phone_id')
+    
+    @api.depends('line_ids', 'line_ids.mobile_id')
+    def _compute_mobile_ids(self):
+        for emp in self:
+            emp.mobile_ids = emp.line_ids.mapped('mobile_id')
 
     @api.depends('extension_ids', 'extension_ids.number')
     def _compute_work_phone(self):
         for emp in self:
             numbers = emp.extension_ids.mapped('number')
-            emp.work_phone = ' '.join(numbers) if numbers else ''
+            emp.work_phone = ' '.join(numbers)
             emp.employee_id.work_phone = emp.work_phone
 
     @api.depends('line_ids', 'line_ids.number')
     def _compute_mobile_phone(self):
         for emp in self:
             numbers = emp.line_ids.mapped('number')
-            emp.mobile_phone = ' '.join(numbers) if numbers else ''
+            emp.mobile_phone = ' '.join(numbers)
             emp.employee_id.mobile_phone = emp.mobile_phone
 
     @api.depends('domain_id', 'domain_user')

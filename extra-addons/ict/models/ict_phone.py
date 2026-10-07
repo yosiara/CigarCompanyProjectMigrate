@@ -119,8 +119,7 @@ class ICTPhone(models.Model):
     @api.depends('extension_ids', 'extension_ids.employee_ids')
     def _compute_employee_ids(self):
         for emp in self:
-            employees = emp.extension_ids.mapped('employee_ids')
-            emp.employee_ids = [(6, 0, employees.ids)]
+            emp.employee_ids = emp.extension_ids.mapped('employee_ids')
 
     # ============================================================
     # ONCHANGE METHODS

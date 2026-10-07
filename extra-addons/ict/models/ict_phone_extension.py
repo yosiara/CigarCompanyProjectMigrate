@@ -84,7 +84,7 @@ class ICTPhoneExtension(models.Model):
                 if rec.employee_ids:
                     invalid = rec.employee_ids.filtered(lambda e: e.job_id != rec.job_id)
                     if invalid:
-                        raise ValidationError(_('Employees %s do not belong to this job') % ', '.join(invalid.mapped('name')))
+                        raise ValidationError(_('Employees (%s) do not belong to this job') % ', '.join(invalid.mapped('name')))
             elif rec.assign_to == 'department':
                 if not rec.department_id:
                     raise ValidationError(_("The 'Department' field is required when 'Used By' is 'Department'."))
